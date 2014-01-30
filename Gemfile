@@ -21,11 +21,13 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'binding_of_caller'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
 end
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'guard-rspec'
 end
 
 group :test do
@@ -34,6 +36,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :production do
