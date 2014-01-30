@@ -12,4 +12,10 @@ class StaticPagesController < ApplicationController
   def library
   end
 
+  def terms
+  end
+
+  def contact
+  end
+
 end

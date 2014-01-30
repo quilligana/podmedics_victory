@@ -30,6 +30,24 @@ feature 'Static Pages' do
     within 'header' do
       click_link 'Our Videos'
     end
+    expect(page).to have_content 'Library'
   end
+
+  scenario 'Accessing the Terms page' do
+    visit root_path
+    within 'footer' do
+      click_link 'Terms'
+    end
+    expect(page).to have_content 'Terms and Conditions'
+  end
+
+  scenario 'Contact' do
+    visit root_path
+    within 'footer' do
+      click_link 'Contact'
+    end
+    expect(page).to have_content 'Contact Us'
+  end
+
 end
 
