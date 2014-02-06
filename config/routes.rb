@@ -14,6 +14,9 @@ PodmedicsVictory::Application.routes.draw do
 
   # Dashboards
   resource :dashboard, only: [:show]
+  namespace :admin do
+    resource :dashboard, only: [:show]
+  end
 
   # Admin
 end

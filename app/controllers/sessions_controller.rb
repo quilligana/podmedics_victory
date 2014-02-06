@@ -7,10 +7,20 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to dashboard_path, notice: 'Welcome to Podmedics'
+      login_for_user(user)
     else
       flash.now.alert = 'Email or password is invalid'
       render :new
+    end
+  end
+
+  private
+
+  def login_for_user(user)
+    if user.admin
+      redirect_to admin_dashboard_path, notice: 'Welcome to Podmedics Admin'
+    else
+      redirect_to dashboard_path, notice: 'Welcome to Podmedics'
     end
   end
 
