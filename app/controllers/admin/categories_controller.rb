@@ -6,7 +6,7 @@ class Admin::CategoriesController < InheritedResources::Base
   end
 
   def update
-    update!(notice: 'Category added') { admin_categories_path }
+    update!(notice: 'Category updated') { admin_categories_path }
   end
 
   protected
