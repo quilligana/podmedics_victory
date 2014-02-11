@@ -69,8 +69,11 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+  #
+  # FactoryGirl helper method
+  config.include FactoryGirl::Syntax::Methods
 
-  # Helpers
+  # Custom helpers
   config.include LoginMacros
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

@@ -15,6 +15,8 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'figaro'
 gem 'thin'
 gem 'active_model_serializers'
+gem 'bootstrap-sass', '~> 3.1.0'
+gem 'inherited_resources'
 
 group :development do
   gem 'better_errors'

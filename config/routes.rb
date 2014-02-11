@@ -10,13 +10,14 @@ PodmedicsVictory::Application.routes.draw do
 
   # Authentication
   get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:new, :create, :destroy]
 
-  # Dashboards
+  # Dashboards and admin
   resource :dashboard, only: [:show]
   namespace :admin do
     resource :dashboard, only: [:show]
+    resources :categories, only: [:index, :new, :create, :edit, :update]
   end
 
-  # Admin
 end

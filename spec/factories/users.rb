@@ -2,8 +2,9 @@ require 'faker'
 
 FactoryGirl.define do
   factory :user do
-    email "MyString"
-    password_digest "MyString"
+    email {Faker::Internet.email}
+    password 'password'
+    password_confirmation 'password'
 
     factory :admin_user do
       admin true

@@ -25,6 +25,7 @@ feature 'Sign in' do
     scenario 'Admin user signs in' do
       sign_in(admin_user)
       expect(page).to have_content 'Welcome to Podmedics Admin'
+      expect(current_path).to eq admin_dashboard_path
     end
 
 end
