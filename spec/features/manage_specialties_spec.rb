@@ -7,14 +7,8 @@ feature 'Managing specialties' do
   scenario 'Adding a specialty' do
     category = create(:category, name: 'Medicine')
     sign_in(admin_user)
-    click_link 'Specialties'
-    click_link 'New Specialty'
-    fill_in 'Name', with: 'Cardiology'
-    select 'Medicine', from: 'Category'
-    click_button 'Submit'
-    within 'li.specialty' do
-      expect(page).to have_content 'Cardiology'
-    end
+    add_specialty_with_name_and_category('Cardiology', category)
+    admin_sees_specialty_item_with_name_and_category 'Cardiology', category
   end
 
   scenario 'Editing a specialty' do
@@ -22,15 +16,35 @@ feature 'Managing specialties' do
     another_category  = create(:category, name: 'Surgery')
     specialty = create(:specialty, category: category)
     sign_in(admin_user)
+    edit_specialty('General', another_category)
+    admin_sees_specialty_item_with_name_and_category('General', another_category)
+  end
+
+  # Helper methods
+
+  def add_specialty_with_name_and_category(name, category)
+    click_link 'Specialties'
+    click_link 'New Specialty'
+    fill_in 'Name', with: name 
+    select category.name, from: 'Category'
+    click_button 'Submit'
+  end
+
+  def edit_specialty(new_name, category)
     click_link 'Specialties'
     within 'li.specialty' do
       click_link 'Edit'
     end
-    fill_in 'Name', with: 'General'
-    select 'Surgery', from: 'Category'
+    fill_in 'Name', with: new_name
+    select category.name, from: 'Category'
     click_button 'Submit'
+  end
+
+  def admin_sees_specialty_item_with_name_and_category(name, category)
     within 'li.specialty' do
-      expect(page).to have_css '.category', text: 'Surgery'
+      expect(page).to have_content name
+      expect(page).to have_css '.category', text: category.name
     end
   end
+
 end
