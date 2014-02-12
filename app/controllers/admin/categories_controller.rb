@@ -1,4 +1,5 @@
 class Admin::CategoriesController < InheritedResources::Base
+  layout 'admin_application'
   respond_to :html, :js
 
   def create

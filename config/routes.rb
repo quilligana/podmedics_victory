@@ -18,6 +18,7 @@ PodmedicsVictory::Application.routes.draw do
   namespace :admin do
     resource :dashboard, only: [:show]
     resources :categories, only: [:index, :new, :create, :edit, :update]
+    resources :specialties
   end
 
 end

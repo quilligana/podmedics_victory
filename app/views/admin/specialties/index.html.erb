@@ -1,0 +1,13 @@
+<%= link_to "New Specialty", new_admin_specialty_path %>
+
+<ul>
+  <% @specialties.each do |specialty| %>
+    <li class="specialty">
+      <%= specialty.name %>
+      <div class="category">
+        <%= specialty.category_name %>
+      </div>
+      <%= link_to "Edit", edit_admin_specialty_path(specialty) %>
+    </li>
+  <% end %>
+</ul>
