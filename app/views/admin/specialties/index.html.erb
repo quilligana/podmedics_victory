@@ -8,6 +8,7 @@
         <%= specialty.category_name %>
       </div>
       <%= link_to "Edit", edit_admin_specialty_path(specialty) %>
+      <%= link_to "Delete", admin_specialty_path(specialty), method: :delete %>
     </li>
   <% end %>
 </ul>
