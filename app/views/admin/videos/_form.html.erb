@@ -1,0 +1,10 @@
+
+<%= simple_form_for [:admin, @video] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.association :specialty, as: :select %>
+  <%= f.input :vimeo_identifier, label: 'Vimeo Identifier' %>
+  <%= f.input :duration %>
+  <%= f.submit 'Submit' %>
+  
+<% end %>

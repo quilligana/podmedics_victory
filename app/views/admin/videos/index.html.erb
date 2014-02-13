@@ -1,0 +1,10 @@
+<%= link_to "New video", new_admin_video_path %>
+
+<ul>
+  <% @videos.each do |video| %>
+    <li class="video">
+      <%= video.title %>
+      <%= link_to "Edit", edit_admin_video_path(video) %>
+    </li>
+  <% end %>
+</ul>
