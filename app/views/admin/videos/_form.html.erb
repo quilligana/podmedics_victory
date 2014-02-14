@@ -1,10 +1,37 @@
 
 <%= simple_form_for [:admin, @video] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.association :specialty, as: :select %>
-  <%= f.input :vimeo_identifier, label: 'Vimeo Identifier' %>
-  <%= f.input :duration %>
-  <%= f.submit 'Submit' %>
+  <%= f.error_notification %>
+  <div class="container">
+    <div class="row">
+       <div class="col-md-8">
+          <%= f.input :title %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-8">
+          <%= f.input :description %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-8">
+        <%= f.association :specialty, as: :select %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-8">
+        <%= f.input :vimeo_identifier, label: 'Vimeo Identifier' %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-8">
+        <%= f.input :duration %>
+       </div>
+    </div>
+    <div class="row">
+       <div class="col-md-8">
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+       </div>
+    </div>
+  </div>  
   
 <% end %>

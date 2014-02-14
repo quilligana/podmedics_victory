@@ -21,13 +21,14 @@ feature 'Managing videos' do
     video = create(:video)
     sign_in(admin_user)
     click_link 'Videos'
-    within 'li.video' do
+    within 'tr.video' do
       click_link 'Show'
     end
     expect(page).to have_content video.title
     expect(page).to have_content video.description
     expect(page).to have_content video.duration
   end
+  
   def add_podcast_with_name_and_specialty(name, specialty)
     click_link 'Videos'
     click_link 'New video'
@@ -41,7 +42,7 @@ feature 'Managing videos' do
 
   def edit_podcast_to_name(name)
     click_link 'Videos'
-    within 'li.video' do
+    within 'tr.video' do
       click_link 'Edit'
     end
     fill_in 'Title', with: name

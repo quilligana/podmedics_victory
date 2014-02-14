@@ -6,6 +6,14 @@ GIT
       rails (>= 3.0.0, < 5)
       spork (>= 1.0rc0)
 
+GIT
+  remote: git://github.com/wtfiwtz/simple_form_bootstrap3.git
+  revision: 7a41b7e33c7c1604c1a855b0e22100d8e213ce3d
+  specs:
+    simple_form (3.0.0.rc)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -192,9 +200,6 @@ GEM
       websocket (~> 1.0.4)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
-    simple_form (3.0.1)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     slop (3.4.7)
     spork (1.0.0rc4)
     sprockets (2.10.1)
@@ -258,7 +263,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   selenium-webdriver
   shoulda-matchers
-  simple_form
+  simple_form!
   spork-rails!
   thin
   turbolinks

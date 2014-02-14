@@ -7,4 +7,6 @@ class Video < ActiveRecord::Base
   validates :specialty_id, :presence => true
   validates :duration, :presence => true
   validates :vimeo_identifier, :presence => true
+
+  delegate :name, to: :specialty, prefix: true
 end
