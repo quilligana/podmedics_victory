@@ -1,12 +1,21 @@
 <div class="page-header">
   <h1>Categories</h1>
 </div>
-<%= link_to "New category", new_admin_category_path %>
-<ul>
-  <% @categories.each do |category| %>
-    <li class="category">
-      <%= category.name %>
-      <%= link_to "Edit", edit_admin_category_path(category) %>
-    </li>
-  <% end %>
-</ul>
+
+<%= link_to "New category", new_admin_category_path, class: 'btn btn-success' %>
+
+<div class="categories">
+   <table>
+     <thead>
+       <tr>
+         <th>#ID</th>
+         <th>Name</th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+       <%= render @categories %>
+     </tbody>
+     
+   </table>
+</div>

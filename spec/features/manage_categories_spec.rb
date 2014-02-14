@@ -9,8 +9,8 @@ feature 'Manage categories in the admin' do
     another_category = create(:category, name: 'Surgery')
     sign_in(admin_user)
     visit_categories_index
-    expect(page).to have_css 'li.category', text: category.name
-    expect(page).to have_css 'li.category', text: another_category.name
+    expect(page).to have_css 'tr.category', text: category.name
+    expect(page).to have_css 'tr.category', text: another_category.name
   end
 
   scenario 'Adding a new category' do
@@ -32,7 +32,7 @@ feature 'Manage categories in the admin' do
     sign_in(admin_user)
     visit_categories_index
     update_category_with_name 'Surgery'
-    expect(page).to have_css 'li.category', text: 'Surgery'
+    expect(page).to have_css 'tr.category', text: 'Surgery'
   end
 
   # Helper methods
@@ -48,7 +48,7 @@ feature 'Manage categories in the admin' do
   end
 
   def update_category_with_name(name)
-    within 'li.category' do click_link 'Edit' end
+    within 'tr.category' do click_link 'Edit' end
 
     fill_in 'Name', with: name
     click_button 'Submit'
