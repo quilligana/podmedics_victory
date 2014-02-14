@@ -1,11 +1,48 @@
 <%= simple_form_for [:admin, @video, @question] do |f| %>
-  <%= f.input :stem %>
-  <%= f.input :answer_1  %>
-  <%= f.input :answer_2  %>
-  <%= f.input :answer_3  %>
-  <%= f.input :answer_4  %>
-  <%= f.input :answer_5  %>
-  <%= f.input :correct_answer, label: 'Correct Answer' %>
-  <%= f.input :explanation  %>
-  <%= f.submit 'Submit' %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :stem %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :answer_1 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :answer_2 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :answer_3 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :answer_4 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :answer_5 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :correct_answer, label: 'Correct Answer' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :explanation %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>

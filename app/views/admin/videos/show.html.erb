@@ -1,11 +1,20 @@
-<%= @video.title  %>
-<%= @video.description  %>
-<%= @video.duration %>
+<div class="page-header">
+  <h1>
+    <%= @video.title  %>
+    <small><%= link_to "Edit", edit_admin_video_path(@video) %></small>
+  </h1>
+</div>
+
+<div class="well">
+  <p>Description: <%= @video.description %></p>
+  <p>Duration: <%= @video.duration %></p>
+</div>
+
+<h2>Questions</h2>
+<hr />
 
 <%= link_to "Add question", new_admin_video_question_path(@video) %>
 
 <div class="questions">
-  <% @video.questions.each do |question| %>
-    <%= question.stem %>
-  <% end %>
+  <%= render @video.questions %>
 </div>
