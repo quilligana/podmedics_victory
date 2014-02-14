@@ -20,6 +20,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :categories, only: [:index, :new, :create, :edit, :update]
     resources :specialties
     resources :videos
+    resources :users
   end
 
 end

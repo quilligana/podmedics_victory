@@ -7,4 +7,8 @@ module LoginMacros
     click_button 'Login'
   end
 
+  def set_session_for(user)
+    session[:user_id] = user.id
+  end
+
 end

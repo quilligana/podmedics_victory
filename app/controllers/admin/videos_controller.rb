@@ -1,5 +1,6 @@
 class Admin::VideosController < InheritedResources::Base
   layout 'admin_application'
+  before_action :authenticate_admin
 
 
   def create

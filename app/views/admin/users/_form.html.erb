@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @user] do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :admin %>
+  <%= f.submit 'Submit' %>
+  
+<% end %>

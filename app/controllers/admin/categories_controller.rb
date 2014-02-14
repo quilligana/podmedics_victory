@@ -1,5 +1,6 @@
 class Admin::CategoriesController < InheritedResources::Base
   layout 'admin_application'
+  before_action :authenticate_admin
   respond_to :html, :js
 
   def create
