@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213132038) do
+ActiveRecord::Schema.define(version: 20140214132116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(version: 20140213132038) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "questions", force: true do |t|
+    t.text     "stem"
+    t.string   "answer_1"
+    t.string   "answer_2"
+    t.string   "answer_3"
+    t.string   "answer_4"
+    t.string   "answer_5"
+    t.integer  "correct_answer"
+    t.text     "explanation"
+    t.integer  "video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["video_id"], name: "index_questions_on_video_id", using: :btree
 
   create_table "specialties", force: true do |t|
     t.string   "name"

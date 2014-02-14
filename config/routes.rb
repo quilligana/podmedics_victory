@@ -19,7 +19,9 @@ PodmedicsVictory::Application.routes.draw do
     resource :dashboard, only: [:show]
     resources :categories, only: [:index, :new, :create, :edit, :update]
     resources :specialties
-    resources :videos
+    resources :videos do
+      resources :questions
+    end
     resources :users
   end
 

@@ -17,6 +17,17 @@ feature 'Managing videos' do
     admin_sees_podcast_name 'Heart Failure'
   end
 
+  scenario 'Viewing a video' do
+    video = create(:video)
+    sign_in(admin_user)
+    click_link 'Videos'
+    within 'li.video' do
+      click_link 'Show'
+    end
+    expect(page).to have_content video.title
+    expect(page).to have_content video.description
+    expect(page).to have_content video.duration
+  end
   def add_podcast_with_name_and_specialty(name, specialty)
     click_link 'Videos'
     click_link 'New video'

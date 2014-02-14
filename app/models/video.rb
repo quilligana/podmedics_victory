@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :specialty
+  has_many :questions
 
   validates :title, :presence => true
   validates :description, :presence => true

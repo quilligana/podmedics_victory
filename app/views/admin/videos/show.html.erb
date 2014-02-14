@@ -1,0 +1,11 @@
+<%= @video.title  %>
+<%= @video.description  %>
+<%= @video.duration %>
+
+<%= link_to "Add question", new_admin_video_question_path(@video) %>
+
+<div class="questions">
+  <% @video.questions.each do |question| %>
+    <%= question.stem %>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, @video, @question] do |f| %>
+  <%= f.input :stem %>
+  <%= f.input :answer_1  %>
+  <%= f.input :answer_2  %>
+  <%= f.input :answer_3  %>
+  <%= f.input :answer_4  %>
+  <%= f.input :answer_5  %>
+  <%= f.input :correct_answer, label: 'Correct Answer' %>
+  <%= f.input :explanation  %>
+  <%= f.submit 'Submit' %>
+<% end %>
