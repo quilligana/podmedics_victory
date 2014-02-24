@@ -37,6 +37,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 group :production do
