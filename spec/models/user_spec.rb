@@ -14,4 +14,9 @@ describe User do
     expect(build(:admin_user)).to be_admin
   end
 
+  it "validates format of email" do
+   bad_email_user = build(:user, email: 'bad') 
+   expect(bad_email_user).to_not be_valid
+  end
+
 end

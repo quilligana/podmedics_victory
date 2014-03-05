@@ -12,6 +12,11 @@ feature 'Sign up' do
     expect(page).to have_content "can't be blank"
   end
 
+  scenario 'Guest signs up with a bad email address' do
+    user_signs_up_with_email('bademail')
+    expect(page).to have_content 'is invalid'
+  end
+
   # Helpers
   def user_signs_up_with_email(email)
     visit root_path
