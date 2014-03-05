@@ -1,4 +1,8 @@
 <ul class="nav">
   <li><%= link_to 'Home', root_path %></li>
-  <%= render 'layouts/navigation_links' %>
+  <% if current_user %>
+    <%= render 'layouts/user_navigation_links' %>
+  <% else  %>
+    <%= render 'layouts/navigation_links' %>
+  <% end %>
 </ul>
