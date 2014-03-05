@@ -1,7 +1,25 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.submit 'Sign up' %>
-<% end %>
+<h1>Sign Up</h1>
+<p>Not happy? We offer a 100% money back guarantee within the first 48 hours of signing up.</p>
+
+<div class="container">
+  <h2>Your Details</h2>
+  <%= simple_form_for @user do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.submit 'Sign up' %>
+  <% end %>
+  <h2>Billing</h2>
+
+  <div class="membership_info">
+    <h3>Membership Info</h3>
+    <p>There are over 150 medical video tutorials on Podmedics as well as over 1500 questions all with excellent explanations. We cover topics throughout medicine, surgery and all the clinical specialties.</p>
+
+    <p>New videos and questions are being added all the time.</p>
+
+    <p>If you have any questions about membership then drop us an email anytime and we would be delighted to give you more information.</p>
+    
+  </div>
+  
+</div>
