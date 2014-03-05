@@ -13,13 +13,29 @@ describe Permission do
       expect(subject.allow?('static_pages', 'terms')).to be_true
     end
 
-    it "allows access to sign/signup" do
+    it "allows access to login/logout" do
       expect(subject.allow?('sessions', 'new')).to be_true
       expect(subject.allow?('sessions', 'create')).to be_true
       expect(subject.allow?('sessions', 'destroy')).to be_true
-       
     end
 
+    it "allows access to registration" do
+      expect(subject.allow?('users', 'new')).to be_true
+      expect(subject.allow?('users', 'create')).to be_true
+    end
+
+  end
+
+  describe 'as a user' do
+    subject { Permission.new(create(:user))}
+
+    it "does not allow access to admin dashboard" do
+      expect(subject.allow?('admin/dashboards', 'show')).to be_false
+    end
+
+    it "allows access to the dashboard" do
+      expect(subject.allow?('dashboards', 'show')).to be_true
+    end
   end
 
   describe 'as an admin' do

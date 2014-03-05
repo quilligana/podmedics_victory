@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Sign in' do
+feature 'Login' do
 
     let(:user) {FactoryGirl.create(:user,
                                    email: 'test@example.com',

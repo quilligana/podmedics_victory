@@ -11,7 +11,9 @@ PodmedicsVictory::Application.routes.draw do
   # Authentication
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'signup', to: 'users#new', as: :signup
   resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   # Dashboards and admin
   resource :dashboard, only: [:show]

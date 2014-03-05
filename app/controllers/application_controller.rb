@@ -1,17 +1,25 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authorise
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  helper_method :current_user
+  delegate :allow?, to: :current_permission
+  helper_method :allow?
 
-  def authenticate_user
-    redirect_to login_path if current_user.nil?
-  end
+  private
 
-  def authenticate_admin
-    redirect_to login_path if current_user.nil? || !current_user.admin
-  end
+    def current_permission
+      @current_permission ||= Permission.new(current_user)
+    end
+
+    def authorise
+      unless current_permission.allow?(params[:controller], params[:action])
+        redirect_to login_path, alert: 'Not authorised'
+      end
+    end
+
+    def current_user
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+    helper_method :current_user
 
 end

@@ -1,7 +1,5 @@
 class Admin::VideosController < InheritedResources::Base
   layout 'admin_application'
-  before_action :authenticate_admin
-
 
   def create
     create!(notice: 'New video added') { admin_videos_path }
