@@ -1,11 +1,73 @@
-<h1>Login</h1>
 
-<%= form_tag sessions_url do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
 
-  <%= submit_tag 'Login' %>
-<% end %>
+
+
+
+
+
+<div class="inner login_page_inner">
+
+  <div class="sub_heading_wrapper">
+    <h1>Log In</h1>
+  </div>
+
+  <div class="page">
+
+    <div class="left_column_forms">
+      <div class="social_signup_wrapper">
+        <h2>Log In Using Twitter or Facebook</h2>
+
+        <div class="social_signup_button_wrapper">
+          <a href="#" class="twitter_social_button">Log In  via <strong>Twitter</strong></a>
+          <p>Or</p>
+          <a href="#" class="fb_social_button">Log In  via <strong>Facebook</strong></a>
+        </div>
+
+        <p class="social_option_final_line">Don't want to use twitter or facebook you can log in below</p>
+
+      </div>
+
+      <div class="login_ignup_form_wrapper" id="members_login_form">
+
+        <h2>Members Log in</h2>
+
+        <%= form_tag sessions_url do %>
+          <%= label_tag :email %>
+          <%= email_field_tag :email %>
+
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+
+          <%= submit_tag 'Login' %>
+        <% end %>
+
+
+
+        <input class="podmedics_textfield" type="text" placeholder="Email" />
+
+        <input class="podmedics_textfield" type="password" placeholder="Password" />
+
+        <button type="submit" class="red_button">Log In</button>
+
+        <div class="password_reset_link"><a href="javascript:;" id="forgot_password_link">Forgot your password?</a></div>
+
+      </div>
+
+
+      <div class="login_ignup_form_wrapper" id="members_reset_password_form">
+
+        <h2>Password Reset</h2>
+
+        <input class="podmedics_textfield" type="text" placeholder="Email" />
+
+        <button type="submit" class="red_button">Reset Password</button>
+
+        <div class="password_reset_link"><a href="javascript:;" id="forgot_password_back_link">Back</a></div>
+
+      </div>
+
+
+    </div>
+
+  </div>
