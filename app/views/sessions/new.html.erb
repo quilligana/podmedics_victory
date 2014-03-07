@@ -33,22 +33,15 @@
         <h2>Members Log in</h2>
 
         <%= form_tag sessions_url do %>
-          <%= label_tag :email %>
-          <%= email_field_tag :email %>
 
-          <%= label_tag :password %>
-          <%= password_field_tag :password %>
+          <%= email_field_tag :email, nil, class: "podmedics_textfield", placeholder: 'Email' %>
+
+          <%= password_field_tag :password, nil, class: "podmedics_textfield", placeholder: 'Password' %>
 
           <%= submit_tag 'Login' %>
         <% end %>
 
 
-
-        <input class="podmedics_textfield" type="text" placeholder="Email" />
-
-        <input class="podmedics_textfield" type="password" placeholder="Password" />
-
-        <button type="submit" class="red_button">Log In</button>
 
         <div class="password_reset_link"><a href="javascript:;" id="forgot_password_link">Forgot your password?</a></div>
 
