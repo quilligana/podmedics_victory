@@ -28,8 +28,6 @@ feature 'User Navigation' do
 
   # Helpers
   def user_sees_link(link_name)
-    within '.nav' do
-      expect(page).to have_link link_name
-    end
+    expect(page).to have_link link_name
   end
 end

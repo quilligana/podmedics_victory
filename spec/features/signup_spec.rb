@@ -20,6 +20,9 @@ feature 'Sign up' do
   # Helpers
   def user_signs_up_with_email(email)
     visit root_path
+    within '.inner_home_header' do
+      click_link 'Sign up now to get started'
+    end
     click_link 'Sign up'
     fill_in 'Email', with: email
     fill_in 'user_password', with: 'password'

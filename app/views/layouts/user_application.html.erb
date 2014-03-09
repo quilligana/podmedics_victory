@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Podmedics Victory" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Podmedics Victory" %>">
+    <%= stylesheet_link_tag "user_application", media: "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <main role="main">
+      <%= render 'messages' %>
+      <%= render 'user_navigation_links' %>
+      <%= yield %>
+    </main>
+
+    <%= render 'footer' %>
+    <%= javascript_include_tag "user_application" %>
+  </body>
+</html>

@@ -9,70 +9,36 @@
     <div class="left_column_forms">
       <div class="social_signup_wrapper">
         <h2>Sign Up Using Twitter or Facebook</h2>
-
         <div class="social_signup_button_wrapper">
-
           <a href="#" class="twitter_social_button">Sign up via <strong>Twitter</strong></a>
-
           <p>Or</p>
-
           <a href="#" class="fb_social_button">Sign up via <strong>Facebook</strong></a>
-
         </div>
-
         <p class="social_option_final_line">Don't want to use twitter or facebook you can sign up below</p>
-
       </div>
 
       <div class="login_ignup_form_wrapper">
-
         <h2>Your Details</h2>
-
-
-
         <%= simple_form_for @user do |f| %>
           <%= f.error_notification %>
-          <%= f.input :email %>
-          <%= f.input :password %>
-          <%= f.input :password_confirmation %>
-          <%= f.submit 'Sign up' %>
+          <%= f.input :email, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Email' %>
+          <%= f.input :password, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Password' %>
+          <%= f.input :password_confirmation, input_html: { class: 'podmedics_textfield'}, label: false, placeholder: 'Password confirmation' %>
+          <%= f.submit 'Sign up', class: 'red_button' %>
         <% end %>
-
-
-
-        <input class="podmedics_textfield" type="text" placeholder="Name" />
-
-        <input class="podmedics_textfield" type="text" placeholder="Email" />
-
-        <input class="podmedics_textfield" type="password" placeholder="Password" />
-
-        <input class="podmedics_textfield" type="password" placeholder="Password confirmation" />
-
       </div>
 
-
       <div class="billing_section">
-
         <h2>Billing</h2>
-
         <div class="billing_options">
-
           <input name="RadioGroup1" type="radio" id="RadioGroup1_0" value="radio" checked="checked" />
           <label for="RadioGroup1_0" class="active_label">Yearly billing<strong> £30 / A year</strong></label>
-
-
           <input name="RadioGroup1" type="radio" id="RadioGroup1_0" value="radio" checked="checked" />
           <label for="RadioGroup1_0" class="active_label">Yearly billing<strong> £30 / A year</strong></label>
-
-
           <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_1" />
           <label for="RadioGroup1_1">Monthly Billing <strong>£2.50 / A Month</strong></label>
-
-
         </div>
-
         <button type="submit" class="red_button">Sign-up and proceed to payment</button>
-
       </div>
 
     </div>
@@ -83,12 +49,7 @@
       <p>We are also adding new ones all the time - at a rate of about one per week.</p>
       <p>Do feel free to drop us an email anytime at <a href="mailto:contact@podmedics.com"><strong>contact@podmedics.com</strong></a> and we would be delighted to give you any further information that you require.</p>
     </div>
-
-
   </div>
-
-
-
 </div>
 
 

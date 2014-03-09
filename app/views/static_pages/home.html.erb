@@ -1,17 +1,29 @@
 
 <div class="home_page_header">
-
-  <a href="http://jamiepeak.co.uk/podmedics/" class="podmedics_home_icon"></a>
-
-  <a href="javascript:;" class="home_menu_link" id="menu_action">Menu</a>
+  <% content_for :navigation do %>
+    <a href="http://jamiepeak.co.uk/podmedics/" class="podmedics_home_icon"></a>
+    <a href="javascript:;" class="home_menu_link" id="menu_action">Menu</a>
+    <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+      <div class="inner_menu_wrapper">
+        <div class="main_nav_wrapper" id="main_navigation">
+          <%= link_to 'Home', root_path , class: "nav-home" %>
+          <%= link_to 'About', about_path , class: "nav-about" %>
+          <%= link_to 'FAQs', faqs_path , class: "nav-faqs" %>
+          <%= link_to 'Our Videos', library_path , class: "nav-podcasts" %>
+          <%= link_to "Login", login_path , class: "nav-podcasts" %>
+        </div>
+      </div>
+    </div>
+    <div class="navigation_outer_overlay"></div>
+  <% end %>
 
   <div class="inner_home_header">
     <h1>We Make Medical Revision Videos</h1>
     <p>Razor-sharp medical revision tutorials that help you learn and review medicine, surgery and all the clinical specialties quickly and efficiently.</p>
     <p>Trusted by 10,000 medical students to-date.</p>
-    <a href="#" class="rounded_home_button">Sign-up Now to get started</a> <a href="#" class="rounded_home_button dark_grey">Find out more</a>
+    <a href="/signup" class="rounded_home_button">Sign up now to get started</a> 
+    <a href="/about" class="rounded_home_button dark_grey">Find out more</a>
   </div>
-
 </div>
 
 
@@ -19,94 +31,62 @@
   <div class="home_section_one">
     <h2>What is Podmedics</h2>
     <p>Who we are & what we do</p>
-
-
-
     <div class="home_section_one_block">
-
       <div class="section_one_column">
         <h3>We make medical revision tutorials</h3>
         <p>Watch in-depth lectures on certain medical subjects the average lecture lasts around 30 minutes</p>
       </div>
-
       <div class="icon podmedics_icon"></div>
-
     </div>
 
     <div class="home_section_one_block">
-
       <div class="section_one_column">
         <h3>We make medical revision tutorials</h3>
         <p>Watch in-depth lectures on certain medical subjects the average lecture lasts around 30 minutes</p>
       </div>
-
       <div class="icon lecture_block"></div>
-
     </div>
 
     <div class="home_section_one_block">
-
       <div class="section_one_column">
         <h3>We make medical revision tutorials</h3>
         <p>Watch in-depth lectures on certain medical subjects the average lecture lasts around 30 minutes</p>
       </div>
-
       <div class="icon questions_block"></div>
-
     </div>
 
-
-
     <div class="home_section_one_block">
-
       <div class="section_one_column">
         <h3>We make medical revision tutorials</h3>
         <p>Watch in-depth lectures on certain medical subjects the average lecture lasts around 30 minutes</p>
       </div>
-
       <div class="icon exam_block"></div>
-
     </div>
 
-
     <div class="home_section_one_block">
-
       <div class="section_one_column">
         <h3>We make medical revision tutorials</h3>
         <p>Watch in-depth lectures on certain medical subjects the average lecture lasts around 30 minutes</p>
       </div>
-
       <div class="icon badges_block"></div>
-
     </div>
-
   </div>
-
 </div>
-
 
 <div class="home_section_two">
   <div class="home_section_inner_wrapper">
     <div class="left_column">
-
       <h2>Videos & questions for all core medical & surgical specialties</h2>
-
       <p>Make notes while watching our videos and store them for future reference. We'll help you organise them by storing them under the right specialties for future reference. Also add your clinical experiences alongside them for access when revising.</p>
-
     </div>
   </div>
 
   <div class="browser_window"></div>
-
 </div>
 
-
-
 <div class="home_section_three">
-
   <div class="home_section_three_header">
     <h2>Dedicated iPhone and iPad apps to view on the go.</h2>
-
     <p>Subsribers get free access to our dedicated iPad and iPhone apps that allow you to stream the videos
       on WiFi and 3G and download them onto your device.</p>
 
@@ -114,41 +94,30 @@
   </div>
 
   <div class="home_section_three_devices_wrapper">
-
     <div class="home_section_three_iphone"></div>
     <div class="home_section_three_ipad"></div>
-
   </div>
-
 </div>
 
 
 <div class="home_section_four">
   <div class="browser_window"></div>
-
   <div class="home_section_inner_wrapper">
     <div class="right_column">
-
       <h2>Videos & questions for all core medical & surgical specialties</h2>
-
       <p>Make notes while watching our videos and store them for future reference. We'll help you organise them by storing them under the right specialties for future reference. Also add your clinical experiences alongside them for access when revising.</p>
-
     </div>
   </div>
-
 </div>
-
 
 <div class="oxford_uni_section">
   <div class="oxford_uni_left_column">
     <div class="oxford_uni_logo"></div>
   </div>
 
-
   <div class="oxford_uni_right_column">
     <div class="oxford_uni_text">
       <h3>Delivered by and trusted by the best.</h3>
-
       <p>In fact our tutorials are so popular that we have been asked to produce dedicated videos by Elsevier (publishers of Kumar and Clark) and Oxford University Press. Many of them are here on the site!</p>
     </div>
   </div>

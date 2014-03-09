@@ -1,43 +1,20 @@
-
-
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
   <div class="inner_menu_wrapper">
-
-
-
     <div class="main_nav_wrapper" id="main_navigation">
-
-
-
       <a href="#" class="nav-home">Home</a>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <a href="#" class="nav-courses">Courses</a>
       <a href="#" class="nav-profile">Your Profile</a>
       <a href="#" class="nav-support">Support</a>
       <a href="#" class="nav-logout">Logout</a>
-
-
-      <%= link_to "Your Profile", '#' %>
-      <%= link_to "Courses", '#' %>
-      <%= link_to "Lectures", '#' %>
-      <%= link_to "Support", '#' %>
-      <%= link_to "Logout", session_path(session), method: :delete %>
-
+      <%= link_to "Logout", session_path(session), method: :delete, class: 'nav-logout' %>
     </div>
-
-
-
-
-
-
-
     <div class="main_search_wrapper">
       <div class="main_nav_inner_lectures_title_wrapper">
         <div class="main_nav_inner_lectures_title">Lectures</div>
         <div class="main_nav_inner_lectures_back_link">Back</div>
       </div>
       <div>
-
         <div class="right_column_search_field">
           <form action="#">
             <input name="search" type="text"  class="navigation_search_field" placeholder="Search"/>
@@ -45,24 +22,14 @@
           </form>
         </div>
 
-
         <div class="main_nav_wrapper speciality">
           <a href="javascript:;" class="medicine_speciality_link">Medicine</a>
           <a href="javascript:;" class="surgery_speciality_link">Surgery</a>
           <a href="javascript:;" class="clinical_speciality_link">Clinical Specialties</a>
           <a href="javascript:;" class="clinical_sciences_speciality_link">Clinical Sciences</a>
-
         </div>
-
       </div>
-
-
-
     </div>
-
-
-
-
 
     <div class="main_nav_wrapper medicine_speciality">
       <div class="main_nav_inner_lectures_title_wrapper">
