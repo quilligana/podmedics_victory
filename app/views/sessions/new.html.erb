@@ -22,7 +22,7 @@
       <%= form_tag sessions_url do %>
         <%= email_field_tag :email, nil, class: "podmedics_textfield", placeholder: 'Email' %>
         <%= password_field_tag :password, nil, class: "podmedics_textfield", placeholder: 'Password' %>
-        <%= submit_tag 'Login' %>
+        <%= button_tag 'Login', class: "red_button" %>
       <% end %>
       <div class="password_reset_link"><a href="javascript:;" id="forgot_password_link">Forgot your password?</a></div>
     </div>

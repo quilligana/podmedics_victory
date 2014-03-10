@@ -24,22 +24,11 @@
           <%= f.input :email, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Email' %>
           <%= f.input :password, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Password' %>
           <%= f.input :password_confirmation, input_html: { class: 'podmedics_textfield'}, label: false, placeholder: 'Password confirmation' %>
-          <%= f.submit 'Sign up', class: 'red_button' %>
+          <button type="submit" class="red_button">Sign-up and proceed to payment</button>
         <% end %>
       </div>
 
-      <div class="billing_section">
-        <h2>Billing</h2>
-        <div class="billing_options">
-          <input name="RadioGroup1" type="radio" id="RadioGroup1_0" value="radio" checked="checked" />
-          <label for="RadioGroup1_0" class="active_label">Yearly billing<strong> £30 / A year</strong></label>
-          <input name="RadioGroup1" type="radio" id="RadioGroup1_0" value="radio" checked="checked" />
-          <label for="RadioGroup1_0" class="active_label">Yearly billing<strong> £30 / A year</strong></label>
-          <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_1" />
-          <label for="RadioGroup1_1">Monthly Billing <strong>£2.50 / A Month</strong></label>
-        </div>
-        <button type="submit" class="red_button">Sign-up and proceed to payment</button>
-      </div>
+ 
 
     </div>
 
