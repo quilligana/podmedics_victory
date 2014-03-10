@@ -263,8 +263,10 @@ a.fb_social_button:hover, a.fb_social_button:active {
 #members_reset_password_form {
   display: none; }
 
-/* Form inline errors */
 
+
+
+/* Form inline errors */
 div.alert.alert-danger {
   color: #fa3f52;
   font-size: 12px;
@@ -280,4 +282,19 @@ span.help-inline {
   padding-top: 10px;
   text-indent: 4px;
   width: 100%;
+}
+
+
+
+/* Flash alert */
+.flash_alert {
+  background-color: #6D2323;
+  color: #FFF;
+  text-align: center;
+  padding-top: 31px;
+  padding-bottom: 25px;
+  float: left;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 13px;
 }
