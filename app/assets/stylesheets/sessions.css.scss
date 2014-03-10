@@ -264,3 +264,22 @@ a.fb_social_button:hover, a.fb_social_button:active {
   display: none; }
 
 
+/* Form inline errors */
+
+
+div.alert.alert-danger {
+  color: #fa3f52;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+span.help-inline {
+  color: #fa3f52;
+  font-size: 11px;
+  text-transform: uppercase;
+  float: left;
+  padding-top: 10px;
+  text-indent: 4px;
+  width: 100%;
+}
