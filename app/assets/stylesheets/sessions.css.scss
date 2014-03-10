@@ -1,0 +1,259 @@
+
+
+/* Forms  */
+.left_column_forms {
+  float: left;
+  height: auto;
+  width: 690px;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: $grey_border; }
+
+.right_column_forms {
+  float: right;
+  width: 255px;
+  padding-right: 30px; }
+
+.social_signup_wrapper {
+  float: left;
+  width: 621px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $grey_border;
+  padding: 25px 35px; }
+
+.social_signup_button_wrapper {
+  background-color: $podmedics_grey;
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 0;
+  display: inline;
+  width: 560px;
+  border-radius: $standard_border_radius;
+  padding: 30px; }
+
+.left_column_forms h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #5e5e5e; }
+
+.social_option_final_line {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #b8b8b8;
+  padding-top: 23px; }
+
+a.twitter_social_button {
+  background-color: #65BCE9;
+  color: #FFF;
+  width: auto;
+  float: left;
+  font-weight: 400;
+  background-image: image-url('social_button_icons.png');
+  background-repeat: no-repeat;
+  background-position: 18px 17px;
+  border-radius: $standard_border_radius;
+  font-size: 15px;
+  padding: 24px 30px 21px 60px; }
+
+a.twitter_social_button:hover, a.twitter_social_button:active {
+  background-color: #5198BC; }
+
+a.fb_social_button {
+  background-color: #5D7BC4;
+  color: #FFF;
+  width: auto;
+  float: left;
+  font-weight: 400;
+  background-image: image-url('social_button_icons.png');
+  background-repeat: no-repeat;
+  background-position: 18px -39px;
+  border-radius: $standard_border_radius;
+  font-size: 15px;
+  padding: 24px 30px 21px 60px; }
+
+a.fb_social_button:hover, a.fb_social_button:active {
+  background-color: #4C66A3; }
+
+.social_signup_button_wrapper p {
+  float: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding-top: 25px;
+  color: #BEBEBE;
+  padding-right: 25px;
+  padding-left: 25px;
+  font-weight: 400; }
+
+.inner.signup_page_inner .login_ignup_form_wrapper {
+  float: left;
+  height: auto;
+  width: 620px;
+  margin-left: 35px;
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
+.inner.login_page_inner .login_ignup_form_wrapper {
+  float: left;
+  height: auto;
+  width: 620px;
+  margin-left: 35px;
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
+.podmedics_textfield {
+  width: 100%;
+  font-size: 16px;
+  color: #666;
+  background-color: $podmedics_grey;
+  margin-top: 30px;
+  height: 40px;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  text-indent: 20px;
+  outline: none;
+  border-radius: $standard_border_radius;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  border-style: none;
+}
+
+.podmedics_textfield:focus {
+  color: #666;
+}
+
+.login_ignup_form_wrapper button.red_button {
+  margin-top: 30px;
+}
+
+.billing_section {
+  float: left;
+  width: 655px;
+  padding-left: 35px;
+  padding-bottom: 30px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: $grey_border;
+  padding-top: 30px; }
+
+.billing_options {
+  float: left;
+  width: 100%;
+  margin-bottom: 50px;
+  padding-top: 30px; }
+
+.right_column_forms p {
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+  line-height: 22px; }
+
+.right_column_forms h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #5e5e5e;
+  padding-top: 30px; }
+
+.right_column_forms p a {
+  color: #696969; }
+
+/* iCheck plugin Minimal skin, red
+----------------------------------- */
+.icheckbox_minimal-red,
+.iradio_minimal-red {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background-image: image-url('checkboxs.png');
+  border: none;
+  cursor: pointer; }
+
+.icheckbox_minimal-red {
+  background-position: 0 0; }
+
+.icheckbox_minimal-red.hover {
+  background-position: -21px 0; }
+
+.icheckbox_minimal-red.checked {
+  background-position: -41px 0; }
+
+.icheckbox_minimal-red.disabled {
+  background-position: -61px 0;
+  cursor: default; }
+
+.icheckbox_minimal-red.checked.disabled {
+  background-position: -81px 0; }
+
+.iradio_minimal-red {
+  background-position: -99px 0; }
+
+.iradio_minimal-red.hover {
+  opacity: 0.4; }
+
+.iradio_minimal-red.checked {
+  background-position: -139px 0;
+  opacity: 1;
+  color: $podmedics_red;
+}
+
+.iradio_minimal-red.disabled {
+  background-position: -161px 0;
+  cursor: default; }
+
+.iradio_minimal-red.checked.disabled {
+  background-position: -181px 0; }
+
+.billing_options label.active_label {
+  color:$podmedics_red;
+}
+
+.billing_options label {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #bebebe;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 40px; }
+
+.podmedics_textfield::-webkit-input-placeholder, .podmedics_textfield:-moz-placeholder, .podmedics_textfield::-moz-placeholder, .podmedics_textfield:-ms-input-placeholder {
+  color: #939393; }
+
+.inner.login_page_inner {
+  width: 690px; }
+
+.inner.login_page_inner .page .left_column_forms {
+  border-right-style: none; }
+
+.inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .twitter_social_button {
+  width: 140px; }
+
+.inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .fb_social_button {
+  width: 155px; }
+
+.password_reset_link {
+  float: right;
+  margin-top: 50px; }
+
+.inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper {
+  padding-left: 38px;
+  width: 555px; }
+
+.password_reset_link a {
+  font-size: 13px;
+  color: #888; }
+
+#members_reset_password_form {
+  display: none; }
+
+
