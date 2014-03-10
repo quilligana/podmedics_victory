@@ -12,7 +12,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'simple_form', github: 'wtfiwtz/simple_form_bootstrap3'
 gem 'friendly_id', '~> 5.0.0'
 gem 'figaro'
-gem 'thin'
 gem 'active_model_serializers'
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'inherited_resources'
@@ -22,6 +21,7 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-twitter'
 
 group :development do
+  gem 'thin'
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
@@ -47,4 +47,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
