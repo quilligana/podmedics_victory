@@ -17,6 +17,9 @@ gem 'active_model_serializers'
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'inherited_resources'
 gem 'email_validator'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'better_errors'
