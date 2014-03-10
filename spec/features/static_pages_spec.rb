@@ -33,6 +33,33 @@ feature 'Static Pages' do
     expect(page).to have_content 'Library'
   end
 
+  scenario 'Viewing categories on the videos page' do
+    category = create(:category, name: 'Medicine')
+    visit library_path
+    expect(page).to have_link category.name
+  end
+
+  scenario 'Viewing video count for each category on the videos page' do
+    category = create(:category, name: 'Medicine')
+    specialty = create(:specialty, name: 'Cardiology', category: category)
+    video = create(:video, specialty: specialty)
+    visit library_path
+    within '.library_count' do
+      expect(page).to have_content '1 Lecture'
+    end
+  end
+
+  scenario 'Viewing specialties and videos for a category on the videos page' do
+    category = create(:category, name: 'Medicine')
+    specialty = create(:specialty, name: 'Cardiology', category: category)
+    video = create(:video, specialty: specialty)
+    visit library_path
+    within '.library_column' do
+      expect(page).to have_content specialty.name
+      expect(page).to have_content video.title
+    end
+  end
+
   scenario 'Accessing the Terms page' do
     visit root_path
     within '.footer' do

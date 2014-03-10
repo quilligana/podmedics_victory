@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def library
+    @categories = Category.includes(specialties: [:videos])
   end
 
   def terms
