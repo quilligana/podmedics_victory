@@ -14,6 +14,15 @@ class SessionsController < ApplicationController
     end
   end
 
+  def omniauthcreate
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    login_for_user(user)
+  end
+
+  def oauth_failure
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_path, notice: 'Successfully signed out'

@@ -15,6 +15,11 @@ PodmedicsVictory::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
 
+  # Omniauth
+  match 'auth/:provider/callback', to: 'sessions#omniauthcreate', via: [:get, :post]
+  match 'auth/failure', to: 'sessions#new', via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
   # Dashboards and admin
   resource :dashboard, only: [:show]
   namespace :admin do
