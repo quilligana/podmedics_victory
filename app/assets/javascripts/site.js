@@ -130,31 +130,12 @@ $( this ).find( '.tooltip' ).hide();
 });
 
 // Library panels
-
-$("a#library_medicine_link").click(function(){
-$( this ).toggleClass('active');
-$("#medicine_tab").delay(100).slideToggle(400);
+$('.library_button').on('click', function(e){
+  $(event.target).toggleClass('active');
+  $(event.target).next('.library_tab').delay(50).slideToggle(400);
 });
-
-$("a#library_surgery_link").click(function(){
-$( this ).toggleClass('active');
-$("#surgery_tab").delay(100).slideToggle(400);
-});
-
-$("a#library_clinical_specialties_tab").click(function(){
-$( this ).toggleClass('active');
-$("#clinical_specialties_tab").delay(100).slideToggle(400);
-});
-
-$("a#library_clinical_sciences_link").click(function(){
-$( this ).toggleClass('active');
-$("#clinical_sciences_tab").delay(100).slideToggle(400);
-});
-
 
 // iCheck 
-
-
 $('input').iCheck({
   checkboxClass: 'icheckbox_minimal-red',
   radioClass: 'iradio_minimal-red',

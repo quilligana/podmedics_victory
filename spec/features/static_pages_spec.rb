@@ -55,7 +55,7 @@ feature 'Static Pages' do
     video = create(:video, specialty: specialty)
     visit library_path
     within '.library_column' do
-      expect(page).to have_content specialty.name
+      expect(page).to have_content specialty.name.upcase
       expect(page).to have_content video.title
     end
   end

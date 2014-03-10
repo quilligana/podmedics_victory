@@ -15,7 +15,7 @@
         <div class="library_tab" id="<%= category.name %>_tab">
           <% category.specialties.each do |specialty| %>
             <div class="library_column">
-              <p><%= specialty.name %></p>
+              <p><%= specialty.name.upcase %></p>
               <% specialty.videos.each do |video| %>
                 <p><%= video.title %></p>
               <% end %>
