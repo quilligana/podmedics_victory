@@ -19,6 +19,7 @@ gem 'email_validator'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-twitter'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'thin'
