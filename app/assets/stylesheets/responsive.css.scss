@@ -1,0 +1,387 @@
+$podmedics_red: #fa3f52;
+
+$podmedics_grey: #F4F4F4;
+
+$grey_border: #E5E5E5;
+
+$standard_border_radius: 6px;
+
+/* Responsive */
+@media screen and (max-width: 1020px) {
+
+  .questions_answers_main_question .comment_info {
+    float: left;
+    clear: both;
+    min-width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+    margin-left: 0px; }
+
+  .questions_answers_main_question .main_question_header h2 {
+    font-size: 24px;
+    line-height: 36px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px; }
+
+  .right_column_forms {
+    display: none; }
+
+  .inner.signup_page_inner {
+    width: 690px; }
+
+  .inner.signup_page_inner .left_column_forms {
+    float: left;
+    height: auto;
+    width: 100%; }
+
+  .inner.signup_page_inner.login_ignup_form_wrapper {
+    height: 390px; }
+
+  .inner.signup_page_inner .left_column_forms a.fb_social_button {
+    padding: 24px 11px 21px 60px; }
+
+  .dashboard_badges_left_column {
+    width: 100%;
+    float: left; }
+
+  .dashboard_badges_right_column {
+    display: none; }
+
+  .dashboard_charts_set_wrapper {
+    height: auto;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .lecture_questions_right_column {
+    display: none; }
+
+  .lecture_questions_left_column, .speciality_left_column {
+    width: 100%;
+  }
+
+}
+
+
+@media screen and (max-width: 720px) {
+
+  .profile_count_wrapper {
+    width: 100%;
+    text-align: center;
+    float: left;
+    margin-left: 0px;
+    border-left: none;
+    padding-left: 0px; }
+
+  .profile_count {
+    float: left;
+    margin-right: 0px;
+    border-right: none;
+    width: 100%;
+    border-bottom: solid 1px #E8E8E8;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-right: 0px; }
+
+  .profile_count:last-child {
+    border-bottom: none; }
+
+  .billing_options {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 30px; }
+
+  .questions_answers_main_question .comment_info {
+    float: left;
+    clear: both;
+    min-width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+    margin-left: 0px; }
+
+  .left_column_forms {
+    width: 100%; }
+
+  .inner.login_page_inner {
+    width: 94%; }
+
+  .inner.profile_page_inner {
+    width: 94%; }
+
+  .social_signup_button_wrapper p {
+    float: left;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-bottom: 20px; }
+
+  .social_signup_wrapper .social_signup_button_wrapper {
+    width: 246px;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    display: block;
+    height: 160px;
+    background-color: #FFF; }
+
+  .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .twitter_social_button {
+    width: 155px; }
+
+  .social_signup_wrapper {
+    float: left;
+    width: 100%;
+    padding: 25px 0px; }
+
+  .inner.login_page_inner .login_ignup_form_wrapper {
+    float: none;
+    height: 300px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    clear: both; }
+
+  .left_column_forms h2 {
+    margin-left: 0px; }
+
+  .social_signup_wrapper h2 {
+    margin-left: 30px; }
+
+  .social_option_final_line {
+    float: left;
+    width: 88%;
+    padding-left: 6%;
+    padding-right: 6%;
+    line-height: 18px; }
+
+  .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper {
+    padding-left: 0px;
+    width: 235px; }
+
+  .inner.signup_page_inner .login_ignup_form_wrapper {
+    float: left;
+    height: auto;
+    width: 88%;
+    margin-left: 6%;
+    margin-right: 6%;
+    padding-top: 30px;
+    padding-bottom: 30px; }
+
+  .billing_section {
+    float: left;
+    width: 88%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-bottom: 30px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: $grey_border;
+    padding-top: 30px; }
+
+  .inner.signup_page_inner {
+    width: 94%; }
+}
+
+
+@media screen and (max-width: 650px) {
+
+  .questions_answers_question .questions_answers_asked_date {
+    padding-left: 0px;
+    float: left;
+    clear: both; }
+
+  .questions_answers_question .inner_page_padding {
+    padding-right: 15px;
+    padding-left: 35px; }
+
+  .lecture_list_item .lecture_icons_wrapper {
+    display: none; }
+
+  .profile_badge_column {
+    float: left;
+    width: 100%;
+  }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .tab_title {
+    display: none; }
+
+  .sub_heading_wrapper .sub_heading_button_set {
+    float: left;
+    clear: both;
+    margin-top: 15px; }
+
+  .inner_page_padding {
+    display: block;
+    padding: 0 25px; }
+
+  .billing_options label {
+    float: left;
+    clear: none;
+    width: 230px;
+    padding-right: 0px;
+    padding-top: 3px; }
+
+  .icheckbox_minimal-red, .iradio_minimal-red {
+    clear: both;
+    float: left;
+    margin-bottom: 20px; }
+
+  #tabs ul {
+    margin-left: 40px;
+    width: 250px; }
+
+  #tabs li a {
+    margin-right: 0px; }
+
+  .lecture_list_left_column {
+    margin-right: 25px; }
+
+}
+
+
+@media screen and (max-width: 450px) {
+
+
+  .header_outer .header_navigation a.login_link {
+    display: none; }
+
+  .header_outer .header_navigation a.signup_link {
+    display: none; }
+
+  .dashboard_charts_set_wrapper {
+    padding-left: 0px; }
+
+  #tabs .dashboard_pie_charts ul {
+    width: 50px; }
+
+  .dashboard_pie_chart_wrapper {
+    height: auto;
+    width: 100%; }
+
+  .pie_chart_outer {
+    width: 190px; }
+
+  #tabs .dashboard_pie_charts ul li {
+    margin-left: 30px; }
+
+  #tabs .dashboard_pie_charts ul {
+    width: 250px; }
+
+}
+
+
+
+
+@media screen and (max-width: 400px) {
+  .question_comments_outer .badge .badge_title {
+    -moz-border-radius-topright: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    -moz-border-radius-bottomright: 5px 5px;
+    border-bottom-right-radius: 5px 5px; }
+
+  .question_comments_outer .badge .badge_speciality {
+    display: none; }
+
+  .questions_answers_main_question .question_comments_outer .comment_reply {
+    background-position: 50px -5px;
+    margin-left: 0px;
+    padding-left: 0px;
+    background-repeat: no-repeat; }
+
+  #tabs_container {
+    height: auto;
+    position: relative;
+    padding: 0 0 20px;
+    box-sizing: content-box; }
+
+  .header_outer .header_navigation a.menu_link {
+    padding-right: 0px;
+    background-position: 21px 28px;
+    width: 39px;
+    text-indent: -390px;
+    overflow: hidden; }
+
+  .user_dropdown_wrapper {
+    display: none; }
+
+  .reveal-modal {
+    width: 310px;
+    margin-left: -155px; }
+
+  .video_complete_modal {
+    width: 270px; }
+
+  .footer .footer_right {
+    float: left;
+    clear: both; }
+
+  .cbp-spmenu-push {
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    transition: all 0s ease; }
+
+  .default_body {
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    transition: all 0s ease; }
+
+  .cbp-spmenu-push-toleft {
+    left: -260px;
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    transition: all 0s ease; }
+
+  .cbp-spmenu,
+  .cbp-spmenu-push {
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    transition: all 0s ease; }
+
+  .cbp-spmenu-vertical {
+    width: 260px; }
+
+  .cbp-spmenu-vertical a {
+    width: 203px; }
+
+  .inner_menu_wrapper .nav-lectures {
+    background-position: 215px -89px; }
+
+  .inner_menu_wrapper .nav-home {
+    background-position: 215px -28px; }
+
+  .inner_menu_wrapper .nav-courses {
+    background-position: 215px -154px; }
+
+  .inner_menu_wrapper .nav-profile {
+    background-position: 215px -218px; }
+
+  .inner_menu_wrapper .nav-support {
+    background-position: 215px -279px; }
+
+  .inner_menu_wrapper .nav-logout {
+    background-position: 215px -343px; }
+
+  .main_nav_wrapper.speciality a {
+    background-position: 220px -448px; }
+
+  .main_nav_inner_lectures_title {
+    width: 170px; }
+
+  .right_column_search_field .navigation_search_field {
+    width: 175px; }
+}
