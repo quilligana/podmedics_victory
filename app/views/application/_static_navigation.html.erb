@@ -10,11 +10,19 @@
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
   <div class="inner_menu_wrapper">
     <div class="main_nav_wrapper" id="main_navigation">
-      <%= link_to 'Home', root_path , class: "nav-home" %>
-      <%= link_to 'About', about_path , class: "nav-about" %>
-      <%= link_to 'FAQs', faqs_path , class: "nav-faqs" %>
-      <%= link_to 'Our Videos', library_path , class: "nav-podcasts" %>
-      <%= link_to "Login", login_path , class: "nav-podcasts" %>
+      <%= link_to 'home', root_path , class: "nav-home" %>
+      <%= link_to 'our lectures', library_path , class:"nav-lectures" %>
+
+      <%= link_to 'about', about_path , class: "nav-about" %>
+
+      <%= link_to 'faqs', faqs_path , class: "nav-faqs" %>
+
+      <%= link_to "login", login_path , class: "nav-login" %>
+      <%= link_to "sign up", signup_path , class: "nav-signup" %>
+
+      <p class="slideout_nav_podmedics_icon"></p>
+
+
     </div>
   </div>
 </div>

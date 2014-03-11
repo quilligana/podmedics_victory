@@ -144,30 +144,6 @@ $('input').iCheck({
 
 // FAQ
 
-
-
-    $("a#faq_link_one").click(function(){
-        $( this ).toggleClass('active');
-        $("#faq_tab_one").delay(100).slideToggle(400);
-    });
-
-
-    $("a#faq_link_two").click(function(){
-        $( this ).toggleClass('active');
-        $("#faq_tab_two").delay(100).slideToggle(400);
-    });
-
-
-    $("a#faq_link_three").click(function(){
-        $( this ).toggleClass('active');
-        $("#faq_tab_three").delay(100).slideToggle(400);
-    });
-
-
-    $("a#faq_link_four").click(function(){
-        $( this ).toggleClass('active');
-        $("#faq_tab_four").delay(100).slideToggle(400);
-    });
 });
 	
 

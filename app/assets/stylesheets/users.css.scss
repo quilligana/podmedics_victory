@@ -816,6 +816,16 @@ ul[data-pie-id] {
   overflow: hidden;
 }
 
+.slideout_nav_podmedics_icon {
+   width: 100%;
+   height: 46px;
+   float: left;
+  background-image: image-url('podmedics_icon_slideout_nav.png');
+  background-repeat: no-repeat;
+   background-position: center center;
+   margin-top: 30px;
+ }
+
 /* Transitions */
 .cbp-spmenu,
 .cbp-spmenu-push {
@@ -870,13 +880,13 @@ ul[data-pie-id] {
 .inner_menu_wrapper .nav-faqs {
   background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
-  background-position: 240px -28px;
+  background-position: 240px -670px;
 }
 
 .inner_menu_wrapper .nav-about {
   background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
-  background-position: 240px -28px;
+  background-position: 240px -606px;
 }
 
 .inner_menu_wrapper .nav-courses {
@@ -901,6 +911,17 @@ ul[data-pie-id] {
   background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
   background-position: 240px -343px;
+}
+.inner_menu_wrapper .nav-login {
+  background-image: url(/assets/nav_icons.png);
+  background-repeat: no-repeat;
+  background-position: 240px -735px;
+}
+.inner_menu_wrapper .nav-signup {
+  background-image: url(/assets/nav_icons.png);
+  background-repeat: no-repeat;
+  background-position: 242px -447px;
+  background-color: rgba(122, 18, 33, 0.26);
 }
 
 .main_nav_wrapper.speciality a {
