@@ -12,7 +12,6 @@ $(".flash_alert").delay(8000).slideUp(400);
 
 
 // Navigation
-
 $("#menu_action").click(function(){
 $("body").addClass('cbp-spmenu-push-toleft');
 $(".cbp-spmenu-right").addClass('active_menu');
