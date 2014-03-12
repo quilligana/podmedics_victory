@@ -913,12 +913,12 @@ ul[data-pie-id] {
   background-position: 240px -343px;
 }
 .inner_menu_wrapper .nav-login {
-  background-image: url(/assets/nav_icons.png);
+  background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
   background-position: 240px -740px;
 }
 .inner_menu_wrapper .nav-signup {
-  background-image: url(/assets/nav_icons.png);
+  background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
   background-position: 242px -447px;
   background-color: rgba(122, 18, 33, 0.26);
