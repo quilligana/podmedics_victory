@@ -30,6 +30,7 @@ PodmedicsVictory::Application.routes.draw do
       resources :questions
     end
     resources :users
+    resources :faqs
   end
 
 end
