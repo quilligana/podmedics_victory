@@ -22,7 +22,17 @@ feature 'Static Pages' do
     within '.main_nav_wrapper' do
       click_link 'FAQs'
     end
-    expect(page).to have_content 'Podmedics FAQs'
+    expect(page).to have_content 'Frequently Asked Questions'
+  end
+
+  scenario 'Viewing the faqs' do
+    faq = create(:faq)
+    visit root_path
+    within '.main_nav_wrapper' do
+      click_link 'FAQs'
+    end
+    expect(page).to have_content faq.title
+    expect(page).to have_content faq.content
   end
 
   scenario 'Accessing the Podcasts page' do
