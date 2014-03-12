@@ -20,7 +20,7 @@ feature 'Static Pages' do
   scenario 'Accessing the FAQs page' do
     visit root_path
     within '.main_nav_wrapper' do
-      click_link 'FAQs'
+      click_link 'faqs'
     end
     expect(page).to have_content 'Frequently Asked Questions'
   end
@@ -29,7 +29,7 @@ feature 'Static Pages' do
     faq = create(:faq)
     visit root_path
     within '.main_nav_wrapper' do
-      click_link 'FAQs'
+      click_link 'faqs'
     end
     expect(page).to have_content faq.title
     expect(page).to have_content faq.content
@@ -38,7 +38,7 @@ feature 'Static Pages' do
   scenario 'Accessing the Podcasts page' do
     visit root_path
     within '.main_nav_wrapper' do
-      click_link 'Our Videos'
+      click_link 'our lectures'
     end
     expect(page).to have_content 'Library'
   end
