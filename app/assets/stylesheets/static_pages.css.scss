@@ -43,7 +43,7 @@ div.inner_home_header {
   margin-left: auto;
   margin-right: auto;
   padding-top: 200px;
-  max-width: 820px;
+  max-width: 940px;
 }
 
 .home_page_header a.podmedics_home_icon {
@@ -67,7 +67,6 @@ div.inner_home_header h1 {
   float: left;
   clear: both;
 }
-
 div.inner_home_header p {
   width: 100%;
   float: left;
@@ -75,10 +74,11 @@ div.inner_home_header p {
   font-size: 18px;
   font-weight: 400;
   color: #bebebe;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 740px;
+  line-height: 26px;
 }
-
 a.rounded_home_button {
   background-color: #FF5364;
   padding-bottom: 20px;

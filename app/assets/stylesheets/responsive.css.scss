@@ -87,6 +87,40 @@ $standard_border_radius: 6px;
     margin-right: auto;
     margin-left: auto;
   }
+
+  .home_section_four .right_column {
+    float: right;
+    width: 47%;
+    margin-left: 3%;
+  }
+
+  .oxford_uni_right_column {
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+  .oxford_uni_left_column {
+    float: left;
+    width: 100%;
+  }
+  .oxford_uni_text {
+    float: left;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-left: none;
+  }
+  .oxford_uni_logo {
+    float: left;
+    height: 47px;
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-right: 0px;
+    margin-top: 45px;
+    background-position: center center;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -166,13 +200,13 @@ $standard_border_radius: 6px;
   }
   .home_section_three_devices_wrapper {
     width: 100%;
-    padding-top: 265px;
+    padding-top: 165px;
     clear: both;
     overflow: hidden;
   }
 
   .home_section_three {
-    height: 1001px;
+    height: 902px;
   }
   .home_section_two .browser_window {
     display: none;
@@ -189,6 +223,7 @@ $standard_border_radius: 6px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .home_section_two {
     height: auto;
     padding-bottom: 80px;
@@ -197,7 +232,17 @@ $standard_border_radius: 6px;
     margin-top: 80px;
   }
 
+  .home_section_four .right_column h2 {
+    margin-top: 80px;
+  }
 
+  .home_section_four .right_column {
+    float: none;
+    clear: both;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 
 
@@ -218,7 +263,7 @@ $standard_border_radius: 6px;
 
   .home_section_three_ipad {
     margin-left: 0px;
-    background-position: top right;
+    background-position: top left;
     background-repeat: no-repeat;
     position: absolute;
     right: 0px;
@@ -228,33 +273,7 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 720px) {
-  .oxford_uni_right_column {
-    float: left;
-    width: 100%;
-    text-align: center;
-  }
-  .oxford_uni_left_column {
-    float: left;
-    width: 100%;
-  }
-  .oxford_uni_text {
-    float: left;
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-left: none;
-  }
-  .oxford_uni_logo {
-    float: left;
-    height: 47px;
-    width: 100%;
-    background-repeat: no-repeat;
-    margin-right: 0px;
-    margin-top: 45px;
-    background-position: center center;
-  }
+
   .profile_count_wrapper {
     width: 100%;
     text-align: center;
@@ -440,6 +459,7 @@ $standard_border_radius: 6px;
 
 
 
+
 }
 
 
@@ -600,11 +620,6 @@ $standard_border_radius: 6px;
 
   .main_nav_wrapper.speciality a {
     background-position: 220px -448px; }
-
-
-
-
-
 
 
   .main_nav_inner_lectures_title {
