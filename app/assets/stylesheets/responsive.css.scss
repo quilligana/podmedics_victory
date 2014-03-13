@@ -331,21 +331,28 @@ $standard_border_radius: 6px;
     float: left;
     clear: both;
     width: 100%;
-    text-align: center;
+    text-align: left;
     padding-right: 0px;
     padding-left: 0px;
     margin-bottom: 20px; }
 
+  .social_option_final_line {
+
+    text-align: left;
+  }
+
+
   .social_signup_wrapper .social_signup_button_wrapper {
-    width: 246px;
     padding: 0px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 30px;
+    margin-right: 0;
+    width: 90%;
+    margin-top: 20px;
     float: none;
     display: block;
     height: 160px;
-    background-color: #FFF; }
-
+    background-color: #FFF;
+  }
   .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .twitter_social_button {
     width: 155px; }
 
@@ -372,11 +379,11 @@ $standard_border_radius: 6px;
 
   .social_option_final_line {
     float: left;
-    width: 88%;
-    padding-left: 6%;
-    padding-right: 6%;
-    line-height: 18px; }
-
+    width: 85%;
+    padding-left: 30px;
+    padding-right: 0px;
+    line-height: 18px;
+  }
   .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper {
     padding-left: 0px;
     width: 235px; }
@@ -480,7 +487,12 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 450px) {
 
-
+  .library_count {
+    clear: both;
+    float: left;
+    margin-left: 30px;
+    margin-right: 0px;
+  }
   .header_outer .header_navigation a.login_link {
     display: none; }
 
