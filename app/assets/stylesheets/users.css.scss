@@ -38,27 +38,6 @@ $standard_border_radius: 6px;
   border-radius: 4px; }
 
 
-.dashboard_count_block.overall_count_red {
-  background-color: #F93F52;
-}
-.dashboard_count_block.overall_count_red p.number {
-  color: #FFF;
-}
-.dashboard_count_block.overall_count_red p {
-  color: #FFB8B8;
-}
-
-
-.dashboard_count_block.pass_count_green {
-  background-color: #48D06B;
-}
-.dashboard_count_block.pass_count_green p.number {
-  color: #FFF;
-}
-.dashboard_count_block.pass_count_green p {
-  color: #ACF5B9;
-}
-
 
 .dashboard_count_blocks {
   float: left;
@@ -228,6 +207,27 @@ ul[data-pie-id] {
   float: left;
   padding-left: 40px; }
 
+
+.dashboard_count_block.overall_count_red {
+  background-color: #F93F52;
+}
+.dashboard_count_block.overall_count_red p.number {
+  color: #FFF;
+}
+.dashboard_count_block.overall_count_red p {
+  color: #FFB8B8;
+}
+
+
+.dashboard_count_block.pass_count_green {
+  background-color: #48D06B;
+}
+.dashboard_count_block.pass_count_green p.number {
+  color: #FFF;
+}
+.dashboard_count_block.pass_count_green p {
+  color: #ACF5B9;
+}
 
 
 
@@ -1562,7 +1562,7 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
 }
 
 .lecture_list_item .lecture_icons_wrapper .lecture_icon {
-  background-image: url(../images/lecture_icons.png);
+  background-image: image-url('lecture_icons.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   float: left;

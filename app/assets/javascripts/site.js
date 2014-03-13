@@ -134,3 +134,13 @@ ready = function() {
 	
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+
+
+
+
+<!----  Pie charts ---->
+
+$(window).bind("load", function() {
+      Pizza.init();
+});
