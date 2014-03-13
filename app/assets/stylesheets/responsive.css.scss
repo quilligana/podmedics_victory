@@ -455,8 +455,20 @@ $standard_border_radius: 6px;
   .sub_heading_wrapper .sub_heading_button_set {
     float: left;
     clear: both;
-    margin-top: 15px; }
+    margin-top: 15px;
+  }
+  .sub_heading_dashboard_info {
+    float: left;
+    text-align: left;
+    display: none;
 
+  }
+
+  .sub_heading_dashboard_info p {
+    float: left;
+    text-align: left;
+
+  }
   .inner_page_padding {
     display: block;
     padding: 0 25px; }

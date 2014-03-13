@@ -228,9 +228,24 @@ ul[data-pie-id] {
 .dashboard_count_block.pass_count_green p {
   color: #ACF5B9;
 }
+.sub_heading_dashboard_info {
+  float: right;
+  text-align: right;
+}
+.sub_heading_dashboard_info p {
+  float: right;
+  text-align: right;
+  padding-bottom: 4px;
+  padding-top: 0px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
 
+.sub_heading_dashboard_info p:last-child {
+  padding-bottom: 0px;
+  padding-top: 0px;
 
-
+}
 
 /* Modals */
 .reveal-modal-bg {
