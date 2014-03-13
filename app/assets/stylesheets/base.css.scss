@@ -236,7 +236,7 @@ body {
 .footer {
   clear: both;
   height: 150px;
-  width: 100%;
+  width: 94%;
   margin-right: auto;
   margin-left: auto; }
 
@@ -291,6 +291,31 @@ body {
 
 .footer .footer_left p a.podmedics_link:hover {
   color: #929292; }
+
+
+/* Inline Footer*/
+
+
+.inline_footer_wrapper {
+  width: 730px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+
+.inline_footer_wrapper .inner {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.inline_footer_wrapper.about_page_footer, .inline_footer_wrapper.signup_page_footer {
+  width: 1060px;
+}
+
+.inline_footer_wrapper.login_page_footer {
+  width: 730px;
+}
 
 
 /* Headings */

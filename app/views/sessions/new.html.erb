@@ -35,6 +35,10 @@
 
 </div>
 
-<%= content_for :footer do %>
-  Custom footer to go here
-<% end %>
+
+  <%= content_for :footer do %>
+  <div class="inline_footer_wrapper login_page_footer">
+    <%= render 'footer' %>
+    </div>
+  <% end %>
+
