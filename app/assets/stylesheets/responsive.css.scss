@@ -74,7 +74,7 @@ $standard_border_radius: 6px;
     border-right: none;
 
   }
-  .inner.signup_page_inner, .inner.about_page_inner {
+  .inner.about_page_inner {
     width: 96%;
   }
   .home_section_two .left_column {
@@ -121,6 +121,13 @@ $standard_border_radius: 6px;
     margin-top: 45px;
     background-position: center center;
   }
+  .inline_footer_wrapper.about_page_footer{
+    width: 100%;
+  }
+  .inline_footer_wrapper.signup_page_footer {
+    width: 730px;
+  }
+
 }
 
 @media screen and (max-width: 900px) {
@@ -273,7 +280,9 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 720px) {
-
+  .inline_footer_wrapper.signup_page_footer {
+    width: 100%;
+  }
   .profile_count_wrapper {
     width: 100%;
     text-align: center;
@@ -394,6 +403,12 @@ $standard_border_radius: 6px;
 
   .inner.signup_page_inner {
     width: 94%; }
+
+
+  .inline_footer_wrapper.login_page_footer {
+    width: 100%;
+  }
+
 
 }
 
