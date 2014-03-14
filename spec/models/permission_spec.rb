@@ -36,6 +36,10 @@ describe Permission do
     it "allows access to the dashboard" do
       expect(subject.allow?('dashboards', 'show')).to be_true
     end
+
+    it "allows access to the video page" do
+      expect(subject.allow?('videos', 'show')).to be_true
+    end
   end
 
   describe 'as an admin' do

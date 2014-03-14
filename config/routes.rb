@@ -33,4 +33,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :faqs
   end
 
+  # Specialty/Video
+  resources :videos, only: [:show]
+
 end
