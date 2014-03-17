@@ -1,4 +1,107 @@
-<h1><%= @user.name %></h1>
+<div class="inner profile_page_inner">
 
-<h2>Badges</h2>
+  <div class="page">
 
+    <div class="profile_header">
+      <div class="profile_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
+      <h1>Ed Wallitt<%= @user.name %></h1>
+      <p>founder and director of Podmedics</p>
+    </div>
+    <!-- End of profile header -->
+
+
+    <div class="profile_body">
+      <div class="profile_inner profile_counts">
+
+        <div class="profile_count_wrapper">
+
+          <div class="profile_count">
+            <p class="number">8,625</p>
+            <p>Points in total</p>
+          </div>
+
+          <div class="profile_count">
+            <p class="number">8</p>
+            <p>Exams Passed</p>
+          </div>
+
+          <div class="profile_count">
+            <p class="number">17</p>
+            <p>Badges Earned</p>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- End of profile counts -->
+
+
+      <div class="profile_inner profile_badges">
+        <div class="inner_page_padding">
+          <div class="sub_title">Badges</div>
+
+          <div class="profile_badge_column">
+
+            <a href="#" class="badge">
+              <p class="badge_title consultant">Consultant</p>
+              <p class="badge_speciality">Cardiology</p>
+            </a>
+
+            <a href="#" class="badge">
+              <p class="badge_title registrar">Registrar</p>
+              <p class="badge_speciality">Cardiology</p>
+            </a>
+
+            <a href="#" class="badge">
+              <p class="badge_title senior_houseofficer">Senior HouseOfficer</p>
+              <p class="badge_speciality">Cardiology</p>
+            </a>
+
+          </div>
+
+          <div class="profile_badge_column">
+
+            <a href="#" class="badge">
+              <p class="badge_title houseofficer">HouseOfficer</p>
+              <p class="badge_speciality">Cardiology</p>
+            </a>
+
+            <a href="#" class="badge">
+              <p class="badge_title medical_student">Medical Student</p>
+              <p class="badge_speciality">Cardiology</p>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- End of profile badges -->
+
+
+      <div class="profile_inner social_links_profile">
+        <div class="inner_page_padding">
+          <a href="#" class="twitter_social_button">Twitter</a>
+          <a href="#" class="fb_social_button">Facebook</a>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- End of profile body -->
+
+  </div>
+  <!-- End of page -->
+
+
+</div>
+<!-- End of profile page wrapper -->
+
+
+
+<%= content_for :footer do %>
+  <div class="inline_footer_wrapper login_page_footer">
+    <%= render 'footer' %>
+  </div>
+<% end %>
