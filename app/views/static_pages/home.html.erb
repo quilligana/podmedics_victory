@@ -17,7 +17,18 @@
 
 <div class="home_page_header">
   <%= link_to '', root_path , class: "podmedics_home_icon" %>
-  <a href="javascript:;" class="home_menu_link" id="menu_action">Menu</a>
+  <!--<a href="javascript:;" class="home_menu_link" id="menu_action">Menu</a>-->
+
+  <div class="home_navigation">
+    <%= link_to 'home', root_path , class: "nav-home" %>
+    <%= link_to 'videos', library_path , class:"nav-lectures" %>
+    <%= link_to 'about', about_path , class: "nav-about" %>
+    <%= link_to 'faqs',  faqs_path , class: "nav-faqs" %>
+    <%= link_to "login", login_path , class: "nav-login" %>
+    <%= link_to "sign up", signup_path , class: "nav-signup" %>
+  </div>
+
+
   <% content_for :navigation do %>
  <span></span>
 

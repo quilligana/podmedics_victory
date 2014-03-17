@@ -588,6 +588,32 @@ $standard_border_radius: 6px;
     margin-right: 10px;
   }
 
+  .home_page_header .home_navigation {
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 40px;
+    float: left;
+    clear: both;
+  }
+  .home_navigation a {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-left: 20px;
+    font-weight: 800;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    float: left;
+  }
+  div.inner_home_header {
+    width: auto;
+    clear: both;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 40px;
+    max-width: 940px;
+  }
 
 }
 
@@ -631,7 +657,10 @@ $standard_border_radius: 6px;
   .video_header_inner div.video_column {
     min-height: 250px;
   }
-
+  a.rounded_home_button.dark_grey {
+    background-color: #585858;
+    margin-top: 30px;
+  }
 }
 
 

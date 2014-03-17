@@ -97,6 +97,14 @@ a.rounded_home_button.dark_grey {
   background-color: #585858;
 }
 
+a.rounded_home_button:hover {
+  background-color: #DF182C;
+}
+
+a.rounded_home_button.dark_grey:hover {
+  background-color: #424242;
+}
+
 .home_section {
   clear: both;
   float: left;
@@ -393,6 +401,26 @@ a.appstore_home_button {
   width: 150px;
 }
 
+
+
+.home_page_header .home_navigation {
+  width: auto;
+  margin-right: 40px;
+  margin-top: 60px;
+  float: right;
+}
+
+.home_navigation a {
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-left: 20px;
+  font-weight: 800;
+}
+
+.home_navigation a:hover {
+  color: #B8B8B8;
+}
 
 
 /* Text Based Page */
