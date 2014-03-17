@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'user_application', only: [:show]
 
   def new
     @user = User.new
