@@ -366,6 +366,12 @@ $standard_border_radius: 6px;
     width: 70%;
     overflow: hidden;
   }
+  .library_count {
+    clear: both;
+    float: left;
+    margin-left: 30px;
+    margin-right: 0px;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -625,12 +631,7 @@ $standard_border_radius: 6px;
     margin-left: 0px;
     margin-top: 20px;
   }
-  .library_count {
-    clear: both;
-    float: left;
-    margin-left: 30px;
-    margin-right: 0px;
-  }
+
   .header_outer .header_navigation a.login_link {
     display: none; }
 
@@ -668,6 +669,7 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 400px) {
+
   .question_comments_outer .badge .badge_title {
     -moz-border-radius-topright: 5px 5px;
     border-top-right-radius: 5px 5px;

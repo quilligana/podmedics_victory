@@ -579,7 +579,7 @@ a.library_button h2 {
   background-color: #FFF;
   float: right;
   padding-left: 16px;
-  margin-right: 85px;
+  margin-right: 25px;
   border-radius: 4px;
   color: #868686;
   padding-right: 16px;
@@ -629,7 +629,9 @@ a.library_button.active .library_count{
   background-color: #B22533;
   color:$podmedics_red;
 }
-
+.library_button.active p.inline_arrow_icon {
+  background-position: 0px -105px;
+}
 a.preview_video {
   color: blue;
 }
