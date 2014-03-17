@@ -9,6 +9,7 @@
       <% @categories.each do |category| %>
         <a href="javascript:;" class="library_button" id="library_<%= category.name.downcase  %>_link">
           <h2><%= category.name %></h2>
+          <p class="inline_arrow_icon"></p>
           <p class="library_count"><%= pluralize(category.video_count, 'Lecture') %></p>
         </a>
 
