@@ -1690,7 +1690,7 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
 }
 
 .video_page_heading_wrapper {
-  width: 60%;
+  width: 55%;
   float: left;
   margin-bottom: 15px;
 }
@@ -1756,6 +1756,13 @@ a.video_download_dropdown_link {
 a.video_download_dropdown_link:hover {
   background-color:#FCFCFC;
 
+}
+
+a.video_download_dropdown_link:last-child:hover {
+  -moz-border-radius-bottomright: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+  -moz-border-radius-bottomleft: 6px 6px;
+  border-bottom-left-radius: 6px 6px;
 }
 
 a.video_download_dropdown_link.video_file_icon {
@@ -1917,8 +1924,8 @@ a.video_download_dropdown_link.slides_file_icon {
   margin-top: 10px;
   margin-bottom: 10px;
   float: left;
-  border-bottom: solid 1px #EFEFEF;
-  border-top: solid 1px #EFEFEF;
+  border-bottom: solid 1px $grey_border;
+  border-top: solid 1px $grey_border;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -1926,8 +1933,12 @@ a.video_download_dropdown_link.slides_file_icon {
 .video_page_authour_right_column_avatar {
   width: 25%;
   height: 80px;
-  margin-left: 20px;
-  margin-right: 10px;
+  margin-left: 7%;
+  margin-right: 5%;
+  float: left;
+}
+.video_page_authour_right_column_user_info_inner_wrapper {
+  width: 63%;
   float: left;
 }
 
