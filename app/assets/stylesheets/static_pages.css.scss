@@ -549,11 +549,20 @@ a.library_button {
   padding-bottom: 20px;
   border-radius: $standard_border_radius;
   margin-bottom: 25px;
-  background-image: image-url('library_dropdown_icon.png');
-  background-position: 96% 48px;
-  background-repeat: no-repeat;
+
 }
 
+
+a.library_button p.inline_arrow_icon {
+  background-image: image-url('library_dropdown_icon.png');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  float: right;
+  width: 27px;
+  height: 16px;
+  margin-right: 25px;
+  margin-top: 16px;
+}
 a.library_button h2 {
   font-size: 24px;
   margin-left: 30px;
@@ -610,7 +619,6 @@ a.library_button h2 {
 
 a.library_button.active {
   background-color: $podmedics_red;
-  background-position: 96% -58px;
 }
 
 a.library_button.active h2 {
