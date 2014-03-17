@@ -1,9 +1,6 @@
 $podmedics_red: #fa3f52;
-
 $podmedics_grey: #F4F4F4;
-
 $grey_border: #E5E5E5;
-
 $standard_border_radius: 6px;
 
 /* Home */
@@ -631,4 +628,8 @@ a.library_button.active h2 {
 a.library_button.active .library_count{
   background-color: #B22533;
   color:$podmedics_red;
+}
+
+a.preview_video {
+  color: blue;
 }

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Video do
+  it { should respond_to :preview }
   it { should belong_to :specialty }
   it { should have_many :questions }
   it { should validate_presence_of :title }

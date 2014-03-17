@@ -18,7 +18,11 @@
             <div class="library_column">
               <p><%= specialty.name.upcase %></p>
               <% specialty.videos.each do |video| %>
-                <p><%= video.title %></p>
+                <% if video.preview %>
+                  <p><%= link_to video.title, '#', class: 'preview_video' %></p>
+                <% else %>
+                  <p><%= video.title %></p>
+                <% end %>
               <% end %>
             </div>
           <% end %>

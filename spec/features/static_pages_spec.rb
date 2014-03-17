@@ -70,6 +70,17 @@ feature 'Static Pages' do
     end
   end
 
+  scenario 'Viewing videos available for preview' do
+    category = create(:category, name: 'Medicine')
+    specialty = create(:specialty, name: 'Cardiology', category: category)
+    video = create(:preview_video, specialty: specialty)
+    visit library_path
+    within '.library_column' do
+      expect(page).to have_link video.title
+    end
+
+  end
+
   scenario 'Accessing the Terms page' do
     visit root_path
     within '.footer' do
