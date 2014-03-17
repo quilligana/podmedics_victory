@@ -1,38 +1,30 @@
-
 <div class="header_outer">
-
-  <%= link_to "", root_path , class: "podmedics_header_icon" %>
-
+  <%= link_to "", dashboard_path(current_user) , class: "podmedics_header_icon" %>
   <div class="header_navigation">
-    <div class="user_dropdown_wrapper"><a href="javascript:;" class="user_dropdown_link">
-      <p class="user_icon_header"><img src="<%=asset_path "avatar-128.jpg"%>" width="128" height="128" /></p>
-
-    </a>
-
+    <div class="user_dropdown_wrapper">
+      <a href="javascript:;" class="user_dropdown_link">
+        <p class="user_icon_header">
+          <img src=" <%=asset_path "avatar-128.jpg" %>" width="128" height="128" />
+        </p>
+      </a>
       <div class="user_dropdown">
         <p>You have an unfinsihed Exam, do you want to continue with the exam?</p>
         <a href="#">Basic Principles Exam</a>
         <a href="#" class="red_block_button">Continue to Questions</a>
-
       </div>
     </div>
     <a href="javascript:;" class="menu_link" id="menu_action">Menu</a>
-
   </div>
-
 </div>
-
-
 
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
   <div class="inner_menu_wrapper">
     <div class="main_nav_wrapper" id="main_navigation">
-      <a href="#" class="nav-home">Home</a>
+      <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <a href="#" class="nav-courses">Courses</a>
       <a href="#" class="nav-profile">Your Profile</a>
       <a href="#" class="nav-support">Support</a>
-      <a href="#" class="nav-logout">Logout</a>
       <%= link_to "Logout", session_path(session), method: :delete, class: 'nav-logout' %>
     </div>
     <div class="main_search_wrapper">
@@ -76,8 +68,6 @@
       <a href="#">Clinical Sciences</a>
     </div>
 
-
-
     <div class="main_nav_wrapper surgery_speciality">
       <div class="main_nav_inner_lectures_title_wrapper">
 
@@ -88,9 +78,6 @@
       <a href="#">Surgery</a>
       <a href="#">Surgery</a>
       <a href="#">Surgery</a>
-
-
-
       <a href="#">Medicine</a>
       <a href="#">Surgery</a>
       <a href="#">Clinical Specialties</a>
@@ -100,7 +87,6 @@
       <a href="#">Clinical Specialties</a>
       <a href="#">Clinical Sciences</a>
     </div>
-
 
     <div class="main_nav_wrapper clinical_speciality_list">
       <div class="main_nav_inner_lectures_title_wrapper">
@@ -112,8 +98,6 @@
       <a href="#">Clinical Specialties</a>
       <a href="#">Clinical Specialties</a>
       <a href="#">Clinical Specialties</a>
-
-
       <a href="#">Medicine</a>
       <a href="#">Surgery</a>
       <a href="#">Clinical Specialties</a>
@@ -134,8 +118,6 @@
       <a href="#">Clinical Sciences</a>
       <a href="#">Clinical Sciences</a>
       <a href="#">Clinical Sciences</a>
-
-
       <a href="#">Medicine</a>
       <a href="#">Surgery</a>
       <a href="#">Clinical Specialties</a>
@@ -145,16 +127,6 @@
       <a href="#">Clinical Specialties</a>
       <a href="#">Clinical Sciences</a>
     </div>
-
-
-
-
-
-
-
-
-
-
   </div>
 </div>
 <div class="navigation_outer_overlay"></div>
