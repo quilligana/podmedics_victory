@@ -13,7 +13,7 @@ $standard_border_radius: 6px;
 
 .stats_chart_wrapper {
   float: left;
-  height: 400px;
+  height: auto;
   width: 100%;
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -27,15 +27,21 @@ $standard_border_radius: 6px;
   float: none;
   margin-right: auto;
   margin-left: auto;
-  width: 94%;
+  width: 1000px;
+  padding-left: 0px;
+  padding-right: 0px;
   margin-top: 40px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-bottom: 40px;
   height: 320px;
   text-align: center;
   line-height: 330px;
   clear: both;
   color: #8B8B8B;
   background-color: #F0F0F0;
-  border-radius: 4px; }
+  border-radius: 4px;
+}
 
 
 
@@ -118,8 +124,12 @@ $standard_border_radius: 6px;
   margin-top: 10px; }
 
 .dashboard_badges_badge_wrapper:last-child {
-  border-bottom-style: none; }
+  border-bottom-style: none;
+}
 
+.page.dashboard_page #tabs ul {
+  width: 80%;
+}
 .dashboard_badges_badge_wrapper .badge_earned_date {
   padding-left: 32px;
   padding-top: 13px;
@@ -164,13 +174,13 @@ ul[data-pie-id] {
   list-style: none;
   padding: 10px; }
 
-#tabs .dashboard_pie_charts ul {
+.page.dashboard_page #tabs .dashboard_pie_charts ul {
   width: 70px;
   height: 100px;
   padding-top: 50px;
   margin-left: 0px; }
 
-#tabs .dashboard_pie_charts ul li {
+.page.dashboard_page #tabs .dashboard_pie_charts ul li {
   float: left;
   clear: both;
   padding-top: 10px;
@@ -194,7 +204,7 @@ ul[data-pie-id] {
 
 .dashboard_pie_chart_wrapper {
   float: left;
-  width: 410px;
+  width: 360px;
   margin-right: 0;
   margin-left: 0;
   height: 230px;
@@ -441,8 +451,17 @@ ul[data-pie-id] {
   margin-bottom: 20px; }
 
 
-
-
+div.k-chart {
+  background-color: transparent;
+  width:970px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 320px;
+}
+.chart-wrapper {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 
 
@@ -1532,8 +1551,9 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   width: 100%;
   padding-top: 30px;
   padding-bottom: 20px;
-
-  margin-bottom: 25px; }
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
 
 .lecture_list_item:last-child {
   margin-bottom: 0; }

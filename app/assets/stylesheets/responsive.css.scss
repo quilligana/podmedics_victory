@@ -7,9 +7,37 @@ $grey_border: #E5E5E5;
 $standard_border_radius: 6px;
 
 /* Responsive */
+
+@media screen and (max-width: 1195px) {
+
+  .dashboard_pie_chart_wrapper {
+    float: left;
+    width: 370px;
+  }
+  div.k-chart {
+    background-color: transparent;
+    width:750px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 320px;
+  }
+  .chart-wrapper {
+    margin-left: auto;
+    width: 760px;
+    margin-right: auto;
+  }
+  .stats_chart {
+
+    width: 880px;
+
+  }
+}
+
+
 @media screen and (max-width: 1020px) {
 
-  .questions_answers_main_question .comment_info {
+
+    .questions_answers_main_question .comment_info {
     float: left;
     clear: both;
     min-width: 100%;
@@ -43,14 +71,19 @@ $standard_border_radius: 6px;
 
   .dashboard_badges_left_column {
     width: 100%;
-    float: left; }
+    float: left;
+  }
+  .dashboard_badges_overview_inner_border{
+    border-right: none;
+
+  }
 
   .dashboard_badges_right_column {
     display: none; }
 
   .dashboard_charts_set_wrapper {
     height: auto;
-    width: 100%;
+    width: 90%;
     margin-right: 0;
     margin-left: 0;
   }
@@ -211,9 +244,23 @@ $standard_border_radius: 6px;
   .video_page_heading_wrapper {
     width: 100%;
   }
+
+  .stats_chart {
+    width: 800px;
+  }
+
+
+
 }
 
 @media screen and (max-width: 900px) {
+  .stats_chart {
+    width: 790px;
+  }
+
+
+
+
 
   .lecture_questions_right_column {
     display: none; }
@@ -244,6 +291,13 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 800px) {
+  .stats_chart_wrapper{
+    border-top: none;
+
+  }
+  .stats_chart{
+    display: none;
+  }
 
 .home_section_one {
   width: 96%;
@@ -375,6 +429,17 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 720px) {
+  .sub_heading_dashboard_info {
+    float: left;
+    clear: both;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .sub_heading_dashboard_info p {
+    float: left;
+    text-align: left;
+  }
+
   .inline_footer_wrapper.signup_page_footer {
     width: 100%;
   }
@@ -514,8 +579,11 @@ $standard_border_radius: 6px;
 
 
 
-
-
+  .page.dashboard_page #tabs li {
+    width: 100%;
+  }
+  .tab_title {
+    display: none; }
 
 }
 
@@ -544,8 +612,9 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 600px) {
 
-  .tab_title {
-    display: none; }
+  .page.dashboard_page #tabs .dashboard_pie_charts ul {
+    width: 90px;
+  }
 
   .sub_heading_wrapper .sub_heading_button_set {
     float: left;
@@ -621,6 +690,7 @@ $standard_border_radius: 6px;
     padding-top: 40px;
     max-width: 940px;
   }
+
 
 }
 

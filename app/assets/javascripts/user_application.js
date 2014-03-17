@@ -6,5 +6,7 @@
 //= require custom.modernizr
 //= require snap.svg.js
 //= require pizza
+// = require kendo.dataviz.min
 //= require site
+
 

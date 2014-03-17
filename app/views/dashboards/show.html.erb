@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div class="page">
+  <div class="page dashboard_page">
 
     <div id="tabs">
       <ul>
@@ -35,7 +35,15 @@
 
         <div id="tabs-3" class="tab_box">
           <div class="stats_chart_wrapper">
-            <div class="stats_chart">Chart</div>
+            <div class="stats_chart">
+
+                <div class="chart-wrapper">
+                  <div id="chart"></div>
+                </div>
+
+
+
+            </div>
           </div>
           <%= render 'stats' %>
         </div>
@@ -44,10 +52,5 @@
 
   <div class="clear"></div>
 </div>
-
-
-
-
-
 
 </div>
