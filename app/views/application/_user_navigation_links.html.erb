@@ -23,7 +23,7 @@
       <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <a href="#" class="nav-courses">Courses</a>
-      <a href="#" class="nav-profile">Your Profile</a>
+      <%= link_to "Your Profile", user_path(current_user) %>
       <a href="#" class="nav-support">Support</a>
       <%= link_to "Logout", session_path(session), method: :delete, class: 'nav-logout' %>
     </div>

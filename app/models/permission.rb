@@ -7,6 +7,7 @@ class Permission < Struct.new(:user)
     return true if controller == 'users' && action == 'create'
     if user
       return true if controller == 'dashboards'
+      return true if controller == 'users' && action == 'show'
       return true if controller == 'videos' && action == 'show'
 
       return true if user.admin?

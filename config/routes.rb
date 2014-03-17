@@ -13,7 +13,7 @@ PodmedicsVictory::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'signup', to: 'users#new', as: :signup
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 
   # Omniauth
   match 'auth/:provider/callback', to: 'sessions#omniauthcreate', via: [:get, :post]
