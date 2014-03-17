@@ -2,12 +2,12 @@ class Admin::QuestionsController < ApplicationController
   layout 'admin_application'
 
   def new
-    @video = Video.find(params[:video_id])
+    @video = Video.friendly.find(params[:video_id])
     @question = @video.questions.new
   end
 
   def create
-    @video = Video.find(params[:video_id]) 
+    @video = Video.friendly.find(params[:video_id]) 
     @question = @video.questions.create(permitted_params)
     if @question.save
       redirect_to admin_video_path(@video), notice: 'Question added'

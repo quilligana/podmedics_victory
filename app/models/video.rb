@@ -1,4 +1,7 @@
 class Video < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :specialty
   has_many :questions
 
