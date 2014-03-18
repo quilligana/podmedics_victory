@@ -2,8 +2,12 @@
 
   <div class="inner video_page">
     <div class="video_page_heading_wrapper">
-      <h1>Anxiety Disorders</h1>
-      <p class="video_breadcrumb"><a href="#">Anatomy</a> / <a href="#">Upper Limb Anatomy</a></p>
+      <h1><%= @video.title %></h1>
+      <p class="video_breadcrumb">
+        <%= link_to @video.specialty_name, specialty_path(@video.specialty) %>
+        / 
+        <%= link_to @video.title, video_path(@video) %>
+      </p>
     </div>
 
     <div class="video_page_heading_button_set">
