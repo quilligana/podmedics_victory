@@ -2,8 +2,8 @@
   <div class="sub_heading_wrapper">
     <h1>Dashboard</h1>
     <div class="sub_heading_dashboard_info">
-      <p><strong>Welcome back Jamie Peak</strong></p>
-      <p>Your current subscription is active & valid until the 28th March 2014</p>
+      <p><strong>Welcome back <%= current_user.name %></strong></p>
+      <p>Your current subscription is active &amp; valid until the 28th March 2014</p>
     </div>
   </div>
 
@@ -36,13 +36,9 @@
         <div id="tabs-3" class="tab_box">
           <div class="stats_chart_wrapper">
             <div class="stats_chart">
-
                 <div class="chart-wrapper">
                   <div id="chart"></div>
                 </div>
-
-
-
             </div>
           </div>
           <%= render 'stats' %>

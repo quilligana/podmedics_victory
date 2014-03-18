@@ -51,6 +51,7 @@ feature 'Manage users' do
       click_link 'Users'
     end
     click_link 'New User'
+    fill_in 'Name', with: 'Test'
     fill_in 'Email', with: email
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
