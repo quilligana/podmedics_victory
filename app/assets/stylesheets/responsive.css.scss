@@ -73,13 +73,18 @@ $standard_border_radius: 6px;
     width: 100%;
     float: left;
   }
+  .dashboard_badges_right_column {
+    width: 100%;
+    float: left;
+    border-top: solid 1px $grey_border;
+  }
   .dashboard_badges_overview_inner_border{
     border-right: none;
+    width: 100%;
 
   }
 
-  .dashboard_badges_right_column {
-    display: none; }
+
 
   .dashboard_charts_set_wrapper {
     height: auto;
@@ -612,7 +617,11 @@ $standard_border_radius: 6px;
     float: left;
     width: 100%;
   }
-
+  .dashboard_badges_inner_wrapper {
+    width: 92%;
+    float: left;
+    margin-left: 8%;
+  }
 }
 
 
@@ -700,6 +709,13 @@ $standard_border_radius: 6px;
   }
 
 
+  .dashboard_badges_inner_wrapper a p.badge_speciality {
+    display: none;
+  }
+  .dashboard_badges_inner_wrapper a p.badge_speciality.small_screen_count {
+    display: inline;
+  }
+
 }
 
 
@@ -741,6 +757,7 @@ $standard_border_radius: 6px;
     background-color: #585858;
     margin-top: 30px;
   }
+
 }
 
 
@@ -885,6 +902,8 @@ $standard_border_radius: 6px;
   .footer {
     height: 180px;
   }
+
+
 
 }
 
