@@ -736,6 +736,65 @@ div.k-chart {
 
 
 
+/* Notifications */
+.notification_wrapper {
+  margin-left: 35px;
+  margin-right: 35px;
+  clear: both;
+}
+
+.notification {
+  float: left;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  display: inline-block;
+  margin-top: 35px;
+  border-radius: 6px;
+  clear: both;
+  width: 100%;
+}
+
+.notification p {
+  margin-left: 25px;
+  font-weight: 800;
+  color: #FFF;
+  font-size: 16px;
+  text-transform:uppercase;
+}
+
+.notification p span {
+  font-weight: 200;
+  opacity: 0.5;
+  margin-left: 10px;
+  text-transform:none;
+}
+
+.notification p.close_notification {
+  background-image: image-url('close_notification_icon.png');
+  width: 15px;
+  height: 15px;
+  right: 55px;
+  margin-top: -20px;
+  cursor: pointer;
+  position: absolute;
+}
+.notification.error {
+  background-color:#FF433F;
+}
+.notification.warning {
+  background-color:#F9C074;
+}
+.notification.info {
+  background-color:#00A7FD;
+}
+.notification.success {
+  background-color:#ABDC84;
+}
+
+
+
+
+
 
 /* Slide Out Nav */
 .cbp-spmenu {
@@ -1390,18 +1449,25 @@ a.red_button.medium.next_question_button {
   background-color: #FAFAFA;
   display: block;
   float: left;
-  width: 110px;
-  margin-right: 0px;
+  width: 90px;
+  margin-right: 20px;
   padding-top: 20px;
-  padding-left: 0px;
-  padding-right: 10px;
-  margin-left: 31px;
+  padding-left: 20px;
+  padding-right: 0px;
+  margin-left: 0px;
   border-radius: $standard_border_radius;
 }
-
+.lecture_questions_right_column .questions_info_right_column_section .speciality_count_block p {
+  margin-left: 0px;
+}
+.speciality_count_block:first-child {
+  margin-left: 30px;
+  width: 70px;
+}
 .speciality_count_block:last-child {
   margin-right: 0px;
-  width: 160px; }
+  width: 130px;
+}
 
 .questions_info_right_column_section.speciality_inline_count_blocks {
   border-bottom: none; }
