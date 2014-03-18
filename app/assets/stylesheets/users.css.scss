@@ -1450,18 +1450,19 @@ a.red_button.medium.next_question_button {
   display: block;
   float: left;
   width: 90px;
-  margin-right: 20px;
+  margin-right: 0px;
+  margin-bottom: 20px;
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 0px;
-  margin-left: 0px;
+  margin-left: 20px;
   border-radius: $standard_border_radius;
 }
 .lecture_questions_right_column .questions_info_right_column_section .speciality_count_block p {
   margin-left: 0px;
 }
 .speciality_count_block:first-child {
-  margin-left: 30px;
+  margin-left: 20px;
   width: 70px;
 }
 .speciality_count_block:last-child {
@@ -2144,5 +2145,11 @@ a.video_page_authour_twitter_icon {
   min-height: 180px;
   max-height:400px;
 }
+
+
+
+
+
+
 
 

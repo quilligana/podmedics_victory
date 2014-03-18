@@ -248,6 +248,12 @@ $standard_border_radius: 6px;
   .stats_chart {
     width: 800px;
   }
+  .lecture_questions_right_column {
+    display: none; }
+
+  .lecture_questions_left_column, .speciality_left_column {
+    width: 100%;
+  }
 
 
 
@@ -262,12 +268,6 @@ $standard_border_radius: 6px;
 
 
 
-  .lecture_questions_right_column {
-    display: none; }
-
-  .lecture_questions_left_column, .speciality_left_column {
-    width: 100%;
-  }
 
   a.library_button h2 {
     margin-right: 0px;
@@ -283,6 +283,12 @@ $standard_border_radius: 6px;
     background-position: 94% -58px;
   }
 
+  .speciality_count_block:last-child {
+    margin-right: 0px;
+    width: 130px;
+    margin-left: 30px;
+    margin-top: 20px;
+  }
 }
 
 
@@ -663,7 +669,9 @@ $standard_border_radius: 6px;
   #tabs ul li a.comments_tab {
     margin-right: 10px;
   }
-
+  .podmedcis_button.take_exam_button {
+    margin-left: 0px;
+  }
   .home_page_header .home_navigation {
     width: auto;
     margin-right: 20px;
@@ -772,9 +780,12 @@ $standard_border_radius: 6px;
     text-indent: -390px;
     overflow: hidden;
   }
-
-  .user_dropdown_wrapper {
-    display: none;
+  .user_dropdown {
+    height: auto;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    left: 0px;
   }
 
   .reveal-modal {

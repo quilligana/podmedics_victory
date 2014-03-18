@@ -89,16 +89,16 @@
 
                 firstdiv.css('height',thisdivwidth+'px');
 
-                
+
 
 
             });
 
-           
 
 
-         
-            
+
+
+
         },
 
         yourOtherFunction: function(el, options) {
