@@ -46,7 +46,7 @@ feature 'Managing specialties' do
 
   def edit_specialty(new_name, category)
     click_link 'Specialties'
-    within 'li.specialty' do
+    within 'tr.specialty' do
       click_link 'Edit'
     end
     fill_in 'Name', with: new_name
@@ -56,15 +56,15 @@ feature 'Managing specialties' do
 
   def admin_removes_specialty
     click_link 'Specialties'
-    within 'li.specialty' do
+    within 'tr.specialty' do
       click_link 'Delete'
     end
   end
 
   def admin_sees_specialty_item_with_name_and_category(name, category)
-    within 'li.specialty' do
+    within 'tr.specialty' do
       expect(page).to have_content name
-      expect(page).to have_css '.category', text: category.name
+      expect(page).to have_content category.name
     end
   end
 
