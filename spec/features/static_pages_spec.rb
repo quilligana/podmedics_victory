@@ -9,6 +9,12 @@ feature 'Static Pages' do
     end
   end
 
+  scenario 'Accessing the home page if signed in already' do
+    sign_in(create(:user))
+    visit root_path
+    expect(current_path).to eq dashboard_path
+  end
+
   scenario 'Accessing the about page' do
     visit root_path
     click_link 'Find out more'

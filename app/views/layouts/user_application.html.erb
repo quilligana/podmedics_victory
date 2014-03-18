@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Podmedics Victory" %>">
     <%= stylesheet_link_tag "user_application", media: "all" %>
     <%= csrf_meta_tags %>
+    <%= render 'bugherd' %>
   </head>
   <body>
     <main role="main">
