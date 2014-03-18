@@ -24,6 +24,7 @@ feature 'Sign up' do
       click_link 'Sign up now to get started'
     end
     click_link 'Sign up'
+    fill_in 'Name', with: 'Test User'
     fill_in 'Email', with: email
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
