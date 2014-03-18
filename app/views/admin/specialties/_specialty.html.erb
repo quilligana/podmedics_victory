@@ -1,0 +1,9 @@
+<tr class="specialty">
+  <td><%= specialty.id %></td>
+  <td><%= specialty.name %></td>
+  <td><%= specialty.category_name %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_specialty_path(specialty) %>
+    <%= link_to "Delete", admin_specialty_path(specialty), method: :delete %>
+  </td>
+</tr>
