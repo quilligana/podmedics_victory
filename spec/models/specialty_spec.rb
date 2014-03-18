@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Specialty do
+  it { should respond_to :slug }
   it { should belong_to :category}
   it { should validate_presence_of :name}
   it { should have_many :videos }
