@@ -532,10 +532,49 @@ p.about_right_column_title {
 }
 
 
+/* Contact page */
+p.about_buttons .twitter_social_button {
+  padding-top: 30px;
+  padding-bottom: 29px;
+  line-height: 0px;
+  font-weight: 700;
+  font-size: 14px;
+}
+p.about_buttons .fb_social_button {
+  padding-top: 30px;
+  padding-bottom: 29px;
+  line-height: 0px;
+  font-weight: 700;
+  font-size: 14px;
+}
 
+p.about_buttons {
+  float: left;
+  padding-bottom: 20px;
+}
 
+p.about_buttons a {
+  float: left;
+  clear: both;
+  margin-bottom: 15px;
+  min-width: 130px;
 
+}
+p.about_buttons .podmedcis_button.green.mail_button {
+  padding-left: 70px;
+  background-image: image-url('contact_mail_icon.png');
+  background-repeat: no-repeat;
+  background-position: 19px 22px;
+  padding-left: 60px;
+}
 
+p.get_in_touch_title {
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-weight: 800;
+  color: #666;
+}
 
 /* Library */
 a.library_button {
