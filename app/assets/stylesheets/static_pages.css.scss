@@ -648,6 +648,13 @@ a.library_button h2 {
   font-weight: 400;
   font-size: 15px;
 }
+.library_column p a {
+  color: $podmedics_red;
+}
+
+.library_column p a:hover {
+  color: #B91C2C;
+}
 
 .library_column {
   float: left;
@@ -656,6 +663,7 @@ a.library_button h2 {
   margin-left: 15px;
   width: 280px;
 }
+
 
 a.library_button.active {
   background-color: $podmedics_red;
