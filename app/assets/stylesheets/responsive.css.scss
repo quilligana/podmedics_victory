@@ -255,6 +255,10 @@ $standard_border_radius: 6px;
   }
   .lecture_questions_right_column {
     display: none; }
+  .lectures_speciality_outer_wrapper {
+
+    min-height: 310px;
+  }
 
   .lecture_questions_left_column, .speciality_left_column {
     width: 100%;
@@ -626,6 +630,20 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 600px) {
+
+  .notification p {
+    float: left;
+    font-size: 14px;
+  }
+
+  .notification p span {
+    float: left;
+    margin-left: 0px;
+    clear: both;
+  }
+  .notification p.close_notification {
+    margin-top: 13px;
+  }
 
   .page.dashboard_page #tabs .dashboard_pie_charts ul {
     width: 90px;
