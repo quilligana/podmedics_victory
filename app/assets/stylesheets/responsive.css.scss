@@ -714,6 +714,19 @@ $standard_border_radius: 6px;
     display: inline;
   }
 
+  .notification p {
+    float: left;
+    font-size: 14px;
+  }
+
+  .notification p span {
+    float: left;
+    margin-left: 0px;
+    clear: both;
+  }
+  .notification p.close_notification {
+    margin-top: 13px;
+  }
 }
 
 
