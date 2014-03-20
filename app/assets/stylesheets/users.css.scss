@@ -1460,7 +1460,9 @@ a.red_button.medium.next_question_button {
   border-right-style: solid;
   border-right-color: #EFEFEF;
   float: left;
-  width: 100%; }
+  width: 100%;
+  min-height: 810px;
+}
 
 .speciality_left_column {
   float: left;
