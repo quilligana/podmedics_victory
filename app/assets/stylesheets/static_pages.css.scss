@@ -8,11 +8,12 @@ $standard_border_radius: 6px;
   background-color: #2A2A2A;
   background-image: image-url('home_background.jpg');
   float: left;
-  height: 772px;
+  height: auto;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   width: 100%;
+  min-height:716px;
 }
 
 a.home_menu_link {
@@ -35,14 +36,13 @@ a.home_menu_link {
 }
 
 div.inner_home_header {
-  width: 80%;
+  width: 100%;
   clear: both;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 200px;
-  max-width: 940px;
+  padding-top: 170px;
+  max-width: 1000px;
 }
-
 .home_page_header a.podmedics_home_icon {
   background-image: image-url('podmedics_home_icon.png');
   background-repeat: no-repeat;
@@ -50,31 +50,87 @@ div.inner_home_header {
   float: left;
   height: 42px;
   width: 42px;
-
   margin-top: 40px;
   margin-left: 40px;
-
 }
+
+.home_navigation a.nav-login {
+  background-color: #707070;
+  padding-left: 16px;
+  padding-top: 13px;
+  padding-right: 45px;
+  padding-bottom: 12px;
+  border-radius: 6px;
+  background-image: image-url('home_header_button_icons.png');
+  background-repeat: no-repeat;
+  background-position: 73px 11px;
+}
+
+.home_navigation a.nav-signup {
+  background-color: $podmedics_red;
+  background-image: image-url('home_header_button_icons.png');
+  background-repeat: no-repeat;
+  background-position: 83px -17px;
+  padding-left: 16px;
+  padding-top: 13px;
+  padding-right: 41px;
+  padding-bottom: 12px;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.free_trial_home_sketch{
+  background-image: image-url('free_trial_sketch.png');
+  background-repeat: no-repeat;
+  width: 255px;
+  height: 44px;
+  position: absolute;
+  float: left;
+  margin-left: -270px;
+  margin-top: 100px;
+}
+
+.home_navigation a.nav-login:hover {
+  background-color:#888888;
+  color: #FFFFFF;
+}
+
+.home_navigation a.nav-signup:hover {
+  background-color: #9B2530;
+  color: #FFFFFF;
+}
+
 
 div.inner_home_header h1 {
   color: #FFF;
-  font-size: 34px;
+  font-size: 26px;
   font-weight: 400;
   width: 100%;
   float: left;
+  text-align: center;
+  text-transform: uppercase;
   clear: both;
 }
 div.inner_home_header p {
   width: 100%;
   float: left;
   clear: both;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   color: #bebebe;
   padding-top: 10px;
   padding-bottom: 10px;
-  max-width: 740px;
   line-height: 26px;
+  text-align: center;
+}
+
+.red_button.home_action_button {
+  float: none;
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 a.rounded_home_button {
   background-color: #FF5364;
@@ -90,17 +146,14 @@ a.rounded_home_button {
   margin-right: 15px;
 }
 
-a.rounded_home_button.dark_grey {
-  background-color: #585858;
+a.red_button.home_action_button.dark_grey {
+  background-color: #707070;
 }
 
-a.rounded_home_button:hover {
-  background-color: #DF182C;
+a.red_button.home_action_button.dark_grey:hover {
+  background-color: #888888;
 }
 
-a.rounded_home_button.dark_grey:hover {
-  background-color: #424242;
-}
 
 .home_section {
   clear: both;
@@ -109,6 +162,21 @@ a.rounded_home_button.dark_grey:hover {
   width: 100%;
   background-color: #F8F8F8;
 
+}
+.inner_home_header_action_buttons {
+  width: 470px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.home_header_browser_window {
+  width: 980px;
+  height: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: image-url('home_header_browser_window.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  margin-top: 30px;
 }
 
 .home_section_one {
