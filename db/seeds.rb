@@ -13,7 +13,7 @@ Specialty.create([
   { name: 'Vascular', category_id: 2}
 ])
 
-# Create sampe videos
+# Create sample videos
 Video.create([
   { title: 'Acute Coronary Syndrome', description: 'test', specialty_id: 1, duration: 10, vimeo_identifier: 123456},
   { title: 'Heart Failure', description: 'test', specialty_id: 1, duration: 10, vimeo_identifier: 123456},
@@ -24,7 +24,14 @@ Video.create([
   { title: 'Leg Ulcers', description: 'test', specialty_id: 4, duration: 10, vimeo_identifier: 123456}
 ])
 
+# Create sample questions for video 1
+Question.create([
+  { stem: 'This is a stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 4, explanation: 'This is an explanation.', video_id: 'acute-coronary-syndrome' },
+  { stem: 'This is a second stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 3, explanation: 'This is an explanation.', video_id: 'acute-coronary-syndrome' },
+  { stem: 'This is a third stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 2, explanation: 'This is an explanation.', video_id: 'acute-coronary-syndrome' },
+  { stem: 'This is a fourth stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 1, explanation: 'This is an explanation.', video_id: 'acute-coronary-syndrome' },
+])
+
 
 # Create a sample admin
 User.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password', admin: true)
-

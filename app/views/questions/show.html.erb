@@ -1,0 +1,77 @@
+<div class="page">
+  <div class="lecture_questions_left_column">
+    <div class="lecture_questions_outer_wrapper">
+    
+      <div class="lectures_question_title"> <%= @question.stem %></div>
+      
+      <div class="lecture_question_blocks">
+      
+        <div class="inner_page_padding">
+        
+          <p class="lecture_questions_sub_title">Select one of the answers below</p>
+          
+          <%= form_tag :controller => :questions, :action => :answer do %>
+            <%= hidden_field_tag :correct_answer, :true %>
+            <%= submit_tag @question.answer_1 %>
+          <% end %>
+
+          <%= form_tag :controller => :questions, :action => :answer do %>
+            <%= hidden_field_tag :correct_answer, :false %>
+            <%= submit_tag @question.answer_2 %>
+          <% end %>
+
+          <%= form_tag :controller => :questions, :action => :answer do %>
+            <%= hidden_field_tag :correct_answer, :false %>
+            <%= submit_tag @question.answer_3 %>
+          <% end %>
+
+          <%= form_tag :controller => :questions, :action => :answer do %>
+            <%= hidden_field_tag :correct_answer, :false %>
+            <%= submit_tag @question.answer_4 %>
+          <% end %>
+            
+          
+              
+        </div>
+      </div>
+    
+    
+    </div>
+  </div>
+
+
+  <div class="lecture_questions_right_column">
+  
+    <div class="questions_number_wrapper">
+      
+      <div class="questions_placement_bar">
+          <div class="active_placement_bar sixty_percent"></div>
+      </div>
+      
+      <p>Question <span id="current_questions_count">6</span> of 10</p>
+      
+    </div>  
+  
+  <div class="questions_info_right_column_section">
+  
+    <p class="questions_info_right_column_number">28%</p> 
+    <p>Of users who took this test scrored on average 5/5 questions correct.</p>
+  
+  </div>
+  
+  <div class="questions_info_right_column_section">
+  
+    <p class="questions_info_right_column_number">64%</p> 
+    <p>Of users who took this test scrored on average 4/5 questions correct.</p>
+   
+  </div>
+  
+  <div class="questions_info_right_column_section">
+  
+    <p class="questions_info_right_column_number">2880</p> 
+    <p>For every video watched or correct answer you will receive 20 points to your overall score.</p>
+    
+  </div>
+  </div>
+
+</div>

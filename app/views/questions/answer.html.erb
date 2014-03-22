@@ -1,0 +1,26 @@
+<div class="lecture_questions_outer_wrapper">
+    
+      <div class="lectures_question_title">A 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. Which of the following is the most suitable anti-hypertensive?</div>
+      
+      <div class="lecture_question_blocks">
+      
+        <div class="inner_page_padding">
+
+          <% if @correct_answer == "true" %>
+            <h1>Congratulations! That is the correct answer.</h1>
+          <% else %>
+            <h1>Sorry! That is not the correct answer.</h1>
+            <p>The correct answer is...</p>
+          <% end %>
+
+                        
+          <div class="correct_lecture_answer_info" style="display: block">
+            <p>Certain co-morbidites will make you more likely to use certain anti-hypertensives (e.g. diabetic nephropathy - ACEi, angina - beta-blocker, prostatic symtpoms - alpha - blocker)</p>
+            <p><%= link_to "Next Question", question_path(@next_question), :class => "red_button medium next_question_button" %></p>
+          </div>
+              
+        </div>
+      </div>
+    
+    
+    </div>
