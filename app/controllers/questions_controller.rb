@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
     @video = Video.friendly.find(params[:video_id])
     @question_ids = @video.question_ids
     set_session(@question_ids)
+    UserQuestion.register_ids(@question_ids, current_user)
     redirect_to :action => :show, :id => @question_ids.first
   end
 
@@ -15,12 +16,7 @@ class QuestionsController < ApplicationController
   def answer 
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
-    if @current_question < @q_ids.length - 1
-      @next_id = @q_ids[@current_question + 1]
-      @next_question = Question.find(@next_id)
-      update_session
-    end
-    record_answer(params[:correct_answer])
+    record_answer(params[:answer])
   end
 
   def results
@@ -38,13 +34,18 @@ class QuestionsController < ApplicationController
       session[:current_question] += 1
     end
 
-    def record_answer(correct_answer)
-      if correct_answer == "true"
-
-      elsif correct_answer == "false"
-
+    def record_answer(answer)
+      @q_id = @q_ids[@current_question]
+      user_question = UserQuestion.where(question_id: @q_id).where(user_id: current_user).first
+      if answer == "true" && user_question.correct_answer == false
+        user_question.update_attributes(correct_answer: true)
       end
-      @correct_answer = correct_answer
+      if @current_question < @q_ids.length - 1
+      @next_id = @q_ids[@current_question + 1]
+      @next_question = Question.find(@next_id)
+      update_session
+      end
+      @answer = answer
     end
 
 end

@@ -11,22 +11,22 @@
           <p class="lecture_questions_sub_title">Select one of the answers below</p>
           
           <%= form_tag questions_answer_url do %>
-            <%= hidden_field_tag :correct_answer, :true %>
+            <%= hidden_field_tag :answer, :true %>
             <%= submit_tag @question.answer_1 %>
           <% end %>
 
           <%= form_tag questions_answer_url do %>
-            <%= hidden_field_tag :correct_answer, :false %>
+            <%= hidden_field_tag :answer, :false %>
             <%= submit_tag @question.answer_2 %>
           <% end %>
 
           <%= form_tag questions_answer_url do %>
-            <%= hidden_field_tag :correct_answer, :false %>
+            <%= hidden_field_tag :answer, :false %>
             <%= submit_tag @question.answer_3 %>
           <% end %>
 
           <%= form_tag questions_answer_url do %>
-            <%= hidden_field_tag :correct_answer, :false %>
+            <%= hidden_field_tag :answer, :false %>
             <%= submit_tag @question.answer_4 %>
           <% end %>
             
