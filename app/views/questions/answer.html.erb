@@ -16,7 +16,12 @@
                         
           <div class="correct_lecture_answer_info" style="display: block">
             <p>Certain co-morbidites will make you more likely to use certain anti-hypertensives (e.g. diabetic nephropathy - ACEi, angina - beta-blocker, prostatic symtpoms - alpha - blocker)</p>
-            <p><%= link_to "Next Question", question_path(@next_question), :class => "red_button medium next_question_button" %></p>
+
+            <% if @current_question < @q_ids.length - 1 %>
+              <p><%= link_to "Next Question", question_path(@next_question), :class => "red_button medium next_question_button" %></p>
+            <% else %>
+              <p><%= link_to "Result", questions_result_url(), :class => "red_button medium next_question_button" %></p>
+            <% end %>
           </div>
               
         </div>
