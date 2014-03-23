@@ -19,8 +19,13 @@ class QuestionsController < ApplicationController
     record_answer(params[:answer])
   end
 
-  def results
-    @q_ids = params[:id]
+  def result
+    @q_ids = session[:q_ids]
+    @total_questions = @q_ids.length
+    @number_correct = session[:correct_answers]
+    session.delete(:q_ids)
+    session.delete(:current_question)
+    session.delete(:correct_answers)
   end
 
   private
@@ -28,6 +33,7 @@ class QuestionsController < ApplicationController
     def set_session(ids)
       session[:q_ids] = ids
       session[:current_question] = 0
+      session[:correct_answers] = 0
     end
 
     def update_session
@@ -35,17 +41,24 @@ class QuestionsController < ApplicationController
     end
 
     def record_answer(answer)
+
+      @answer = answer
       @q_id = @q_ids[@current_question]
+      @question = Question.find(@q_id)
       user_question = UserQuestion.where(question_id: @q_id).where(user_id: current_user).first
+
       if answer == "true" && user_question.correct_answer == false
         user_question.update_attributes(correct_answer: true)
       end
-      if @current_question < @q_ids.length - 1
-      @next_id = @q_ids[@current_question + 1]
-      @next_question = Question.find(@next_id)
-      update_session
+
+      if @answer == "true" 
+        session[:correct_answers] += 1
       end
-      @answer = answer
+
+      if @current_question < @q_ids.length - 1
+        @next_question = Question.find(@q_ids[@current_question + 1])
+        update_session
+      end
     end
 
 end

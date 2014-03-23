@@ -1,0 +1,44 @@
+<%= form_tag questions_answer_url do %>
+  <% if @question.correct_answer == 1 %>
+    <%= hidden_field_tag :answer, :true %>
+  <% else %>
+    <%= hidden_field_tag :answer, :false %>
+  <% end %>
+  <%= submit_tag @question.answer_1 %>
+<% end %>
+
+<%= form_tag questions_answer_url do %>
+  <% if @question.correct_answer == 2 %>
+    <%= hidden_field_tag :answer, :true %>
+  <% else %>
+    <%= hidden_field_tag :answer, :false %>
+  <% end %>
+  <%= submit_tag @question.answer_2 %>
+<% end %>
+
+<%= form_tag questions_answer_url do %>
+  <% if @question.correct_answer == 3 %>
+    <%= hidden_field_tag :answer, :true %>
+  <% else %>
+    <%= hidden_field_tag :answer, :false %>
+  <% end %>
+  <%= submit_tag @question.answer_3 %>
+<% end %>
+
+<%= form_tag questions_answer_url do %>
+  <% if @question.correct_answer == 4 %>
+    <%= hidden_field_tag :answer, :true %>
+  <% else %>
+    <%= hidden_field_tag :answer, :false %>
+  <% end %>
+  <%= submit_tag @question.answer_4 %>
+<% end %>
+
+<%= form_tag questions_answer_url do %>
+  <% if @question.correct_answer == 5 %>
+    <%= hidden_field_tag :answer, :true %>
+  <% else %>
+    <%= hidden_field_tag :answer, :false %>
+  <% end %>
+  <%= submit_tag @question.answer_5 %>
+<% end %>

@@ -1,5 +1,9 @@
 require 'spec_helper'
 
-describe UserQuestions do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe UserQuestion do
+  
+  it { should validate_presence_of :user_id }
+  it { should validate_presence_of :question_id }
+  it { should belong_to :user }
+
 end

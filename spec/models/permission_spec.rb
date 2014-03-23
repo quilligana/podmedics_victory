@@ -48,6 +48,13 @@ describe Permission do
     it "allows access to the specialties page" do
       expect(subject.allow?('specialties', 'show')).to be_true
     end
+
+    it "allows access to the video/questions pages" do
+      expect(subject.allow?('questions', 'index')).to be_true
+      expect(subject.allow?('questions', 'show')).to be_true
+      expect(subject.allow?('questions', 'answer')).to be_true
+      expect(subject.allow?('questions', 'result')).to be_true
+    end
   end
 
   describe 'as an admin' do
