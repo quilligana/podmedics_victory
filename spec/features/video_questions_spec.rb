@@ -3,12 +3,18 @@ require "spec_helper"
 feature 'Video Questions' do
 
   before(:each) do
-    video_specialty = create(:specialty)
-    @video = create(:video, specialty: video_specialty)
-    @video_2 = create(:video, specialty: video_specialty)
-    @question_1 = FactoryGirl.create(:question, video: @video, correct_answer: 2)
-    5.times { FactoryGirl.create(:question, video: @video_2, correct_answer: 1) }
-    sign_in(create(:user))
+    @video_specialty = create(:specialty)
+    @video = create(:video, specialty: @video_specialty)
+    @user = create(:user)
+    sign_in(@user)
+  end
+
+  scenario 'Registering user_questions when initailly clicking answer-questions' do
+    visit video_path(@video)
+
+    expect do
+      click_link 'Answer Questions'
+    end.to change(UserQuestion, :count).by(1)
   end
 
   scenario 'Taking the video test' do
@@ -42,22 +48,63 @@ feature 'Video Questions' do
     expect(page).to have_content 'Congratulations! That is the correct answer.'
   end
 
-  scenario 'Iterating through the questions' do
-    visit video_questions_url(video_id: @video_2.id)
-    click_button 'First Answer'
-    click_button 'Result'
+  before do
+    @video_2 = create(:video, specialty: @video_specialty)
+    @question_1 = FactoryGirl.create(:question, video: @video)
+    5.times { FactoryGirl.create(:question, video: @video_2) }
   end
 
-  scenario 'Saving user progress' do
-    visit video_questions_url(video_id: @video.id)
+  scenario 'Iterating through the questions' do
+
+    visit video_questions_url(video_id: @video_2.id)
+
+    click_button 'First Answer'
+    click_link 'Next Question'
+    click_button 'First Answer'
+    click_link 'Next Question'
+    click_button 'First Answer'
+    click_link 'Next Question'
+    click_button 'First Answer'
+    click_link 'Next Question'
+    click_button 'First Answer'
+
+    click_link 'Result'
+
+    click_link 'Back to Dashboard'
+
+    expect(page).to have_content 'Dashboard'
+
+  end
+
+  before do
+    @video_3 = create(:video, specialty: @video_specialty)
+    @first_question = create(:question, video: @video_3)
+    5.times { FactoryGirl.create(:question, video: @video_3) }
+  end
+
+  scenario 'Not saving user progress for incorrect answers' do
+    visit video_questions_url(video_id: @video_3.id)
 
     expect do
       click_button 'First Answer'
-    end.not_to change(other_user.followers, :count).by(-1)
+    end.not_to change { user_question_object }.from(false).to(true)
+
+  end
+ 
+  scenario 'Saving user progress when correct answer is given' do
+   visit video_questions_url(video_id: @video_3.id)
+
+    expect do
+      click_button 'Second Answer'
+    end.to change { user_question_object }.from(false).to(true)
   end
 
   # Helpers
   def user_sees_link(link_name)
     expect(page).to have_link link_name
+  end
+
+  def user_question_object
+    UserQuestion.where(user_id: @user.id).where(question_id: @video_3.question_ids.first).first.correct_answer
   end
 end

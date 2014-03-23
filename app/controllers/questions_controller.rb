@@ -17,6 +17,7 @@ class QuestionsController < ApplicationController
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
     record_answer(params[:answer])
+    @correct_answer = get_correct_answer
   end
 
   def result
@@ -45,13 +46,13 @@ class QuestionsController < ApplicationController
       @answer = answer
       @q_id = @q_ids[@current_question]
       @question = Question.find(@q_id)
-      user_question = UserQuestion.where(question_id: @q_id).where(user_id: current_user).first
+      user_question = UserQuestion.where(question_id: @q_id).where(user_id: current_user.id).first
 
       if answer == "true" && user_question.correct_answer == false
         user_question.update_attributes(correct_answer: true)
       end
 
-      if @answer == "true" 
+      if answer == "true" 
         session[:correct_answers] += 1
       end
 
@@ -60,5 +61,19 @@ class QuestionsController < ApplicationController
         update_session
       end
     end
+
+    def get_correct_answer
+      if @question.correct_answer == 1
+        @question.answer_1
+      elsif @question.correct_answer == 2
+        @question.answer_2
+      elsif @question.correct_answer == 3
+        @question.answer_3
+      elsif @question.correct_answer == 4
+        @question.answer_4
+      elsif @question.correct_answer == 5
+        @question.answer_5
+      end 
+    end 
 
 end

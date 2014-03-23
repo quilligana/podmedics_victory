@@ -8,7 +8,7 @@ FactoryGirl.define do
     answer_3 "Third Answer"
     answer_4 "Fourth Answer"
     answer_5 "Fifth Answer"
-    sequence(:correct_answer)  { |n| n }
+    correct_answer 2
     explanation "Some explanation as to why an answer is correct."
     association :video
   end

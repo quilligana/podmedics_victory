@@ -12,7 +12,9 @@
         <h1>Congratulations! That is the correct answer.</h1>
       <% else %>
         <h1>Sorry! That is not the correct answer.</h1>
-        <p>The correct answer is...</p>
+        <div class="correct_lecture_answer_info" style="display: block">
+          <p>The correct answer is <%= @correct_answer %></p>
+        </div>
       <% end %>
 
                     
