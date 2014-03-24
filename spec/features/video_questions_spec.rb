@@ -70,9 +70,11 @@ feature 'Video Questions' do
 
     click_link 'Result'
 
-    click_link 'Back to Dashboard'
+    within '.questions_result_title' do
+      click_link 'Back to Video'
+    end
 
-    expect(page).to have_content 'Dashboard'
+    expect(page).to have_content @video_2.title 
 
   end
 

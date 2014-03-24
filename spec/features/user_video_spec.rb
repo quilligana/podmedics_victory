@@ -21,7 +21,7 @@ feature 'User Videos' do
     end
 
     within '.video_page_heading_button_set' do
-      expect(page).to have_link('Answer Questions', href: video_questions_url(@video))
+      expect(page).to have_link('Answer Questions', href: video_questions_url(@video.id))
     end
   end
 

@@ -2,69 +2,46 @@
   <div class="page">
     <div class="lecture_questions_left_column">
       <div class="lecture_questions_outer_wrapper">
-
-
         <div class="lecture_question_blocks">
-
           <div class="inner_page_padding">
-
             <div class="questions_result_title">
               <strong>Congratulations! You have completed all the questions.</strong>
               <p>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</p>
               <p><%= link_to "Back to Video", video_path(@video), :class => "red_button medium" %></p>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
     <!-- End Left column -->
 
-
     <div class="lecture_questions_right_column">
-
       <div class="questions_number_wrapper">
-
         <div class="questions_placement_bar">
           <div class="active_placement_bar sixty_percent"></div>
         </div>
-
         <p>Question <span id="current_questions_count">6</span> of 10</p>
-
       </div>
       <!-- End right column - current questions position -->
 
       <div class="questions_info_right_column_section">
-
         <p class="questions_info_right_column_number">28%</p>
         <p>Of users who took this test scrored on average 5/5 questions correct.</p>
-
       </div>
 
       <div class="questions_info_right_column_section">
-
         <p class="questions_info_right_column_number">64%</p>
         <p>Of users who took this test scrored on average 4/5 questions correct.</p>
-
       </div>
 
       <div class="questions_info_right_column_section">
-
         <p class="questions_info_right_column_number">2880</p>
         <p>For every video watched or correct answer you will receive 20 points to your overall score.</p>
-
       </div>
     </div>
     <!-- End right column -->
-
-
   </div>
   <!-- End page -->
-
 </div>
 <!-- End inner -->
 
