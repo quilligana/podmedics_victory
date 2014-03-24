@@ -5,6 +5,7 @@ FactoryGirl.define do
     association :specialty
     vimeo_identifier "1234565"
     duration 10
+    file_name 'static_file'
 
     factory :preview_video do
       preview true

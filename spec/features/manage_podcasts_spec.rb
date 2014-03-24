@@ -36,6 +36,7 @@ feature 'Managing videos' do
     fill_in 'Description', with: 'This is a podcast about ECGs'
     select specialty.name, from: 'Specialty'
     fill_in 'Vimeo Identifier', with: '324567'
+    fill_in 'Download file name', with: 'test_file'
     fill_in 'Duration', with: '10'
     click_button 'Submit'
   end

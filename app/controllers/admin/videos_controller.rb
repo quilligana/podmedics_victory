@@ -18,7 +18,7 @@ class Admin::VideosController < InheritedResources::Base
 
 
   def permitted_params
-    params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview])
+    params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name])
   end
 
   private
