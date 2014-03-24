@@ -4,6 +4,12 @@
 
 <%= link_to "New video", new_admin_video_path, class: 'btn btn-success' %>
 
+<h2>Import Videos</h2>
+<%= form_tag import_admin_videos_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
 <table class='table'>
   <thead>
     <tr>

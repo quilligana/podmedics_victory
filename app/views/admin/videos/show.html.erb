@@ -6,9 +6,17 @@
 </div>
 
 <div class="well">
+  <p>Created at: <%= @video.created_at %></p>
+  <p>Updated at: <%= @video.updated_at %></p>
+</div>
+
+<div class="well">
   <p>Description: <%= @video.description %></p>
   <p>Duration: <%= @video.duration %></p>
   <p>Preview: <%= @video.preview %></p>
+  <p>Views: <%= @video.views %></p>
+  <p>Speaker: <%= @video.speaker_name %></p>
+  <p>File: <%= @video.file_name %></p>
 </div>
 
 <h2>Questions</h2>

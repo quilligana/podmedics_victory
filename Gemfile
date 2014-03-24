@@ -22,7 +22,7 @@ gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-twitter'
 gem 'newrelic_rpm'
-gem 'friendly_id', '~> 5.0.0'
+gem 'roo'
 
 group :development do
   gem 'thin'

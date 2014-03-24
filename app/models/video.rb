@@ -12,4 +12,15 @@ class Video < ActiveRecord::Base
   validates :vimeo_identifier, :presence => true
 
   delegate :name, to: :specialty, prefix: true
+
+  def self.import(file)
+    CSV.foreach(file.path, headers:true) do |row|
+      video = find_by_id(row["id"]) || new
+      parameters = ActionController::Parameters.new(row.to_hash)
+      video.update(parameters.permit(:id, :title, :description, :vimeo_identifier, :duration, :specialty_id,
+                                    :preview, :created_at, :updated_at, :views, :speaker_name, :file_name))
+      video.save!
+    end
+  end
+
 end
