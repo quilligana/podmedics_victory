@@ -3,7 +3,7 @@ class Video < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :specialty
-  has_many :questions
+  has_many :questions, dependent: :destroy
 
   validates :title, :presence => true
   validates :description, :presence => true

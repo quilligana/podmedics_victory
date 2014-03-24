@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   has_secure_password
+  has_many :user_questions, dependent: :destroy
   validates :email, presence: true, email: true
   validates :name, presence: true
 
