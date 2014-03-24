@@ -22,6 +22,8 @@ class QuestionsController < ApplicationController
 
   def result
     @q_ids = session[:q_ids]
+    single_question = @q_ids.first
+    @video = Question.find(single_question).video
     @total_questions = @q_ids.length
     @number_correct = session[:correct_answers]
     session.delete(:q_ids)

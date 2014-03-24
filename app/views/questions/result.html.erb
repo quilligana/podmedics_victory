@@ -1,14 +1,89 @@
+<div class="inner">
+  <div class="page">
+    <div class="lecture_questions_left_column">
+      <div class="lecture_questions_outer_wrapper">
 
-<div>
-  <div style="float: left">
-    <h1>Congratulations! You have completed all the questions.</h1>
+
+        <div class="lecture_question_blocks">
+
+          <div class="inner_page_padding">
+
+            <div class="questions_result_title">
+              <strong>Congratulations! You have completed all the questions.</strong>
+              <p>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</p>
+              <p><%= link_to "Back to Video", video_path(@video), :class => "red_button medium" %></p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- End Left column -->
+
+
+    <div class="lecture_questions_right_column">
+
+      <div class="questions_number_wrapper">
+
+        <div class="questions_placement_bar">
+          <div class="active_placement_bar sixty_percent"></div>
+        </div>
+
+        <p>Question <span id="current_questions_count">6</span> of 10</p>
+
+      </div>
+      <!-- End right column - current questions position -->
+
+      <div class="questions_info_right_column_section">
+
+        <p class="questions_info_right_column_number">28%</p>
+        <p>Of users who took this test scrored on average 5/5 questions correct.</p>
+
+      </div>
+
+      <div class="questions_info_right_column_section">
+
+        <p class="questions_info_right_column_number">64%</p>
+        <p>Of users who took this test scrored on average 4/5 questions correct.</p>
+
+      </div>
+
+      <div class="questions_info_right_column_section">
+
+        <p class="questions_info_right_column_number">2880</p>
+        <p>For every video watched or correct answer you will receive 20 points to your overall score.</p>
+
+      </div>
+    </div>
+    <!-- End right column -->
+
+
+  </div>
+  <!-- End page -->
+
+</div>
+<!-- End inner -->
+
+
+
+
+<a href="javascript:;" data-reveal-id="questions_complete_modal" id="questions_complete_modal_click" style="display: none">Questions Complete Modal</a>
+
+<div id="questions_complete_modal" class="reveal-modal questions_complete_modal_spacing">
+
+  <div class="video_complete_modal">
+    <div class="questions_complete_icon">Questions Complete</div>
+    <p>You scored <%= pluralize(@number_correct, 'question') %>  out of <%= pluralize(@total_questions, 'question') %> Correct</p>
+    <%= link_to "Back to Video", video_path(@video), :class => "red_button" %>
   </div>
 
-  <div>
-    <h3>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</h3>
+  <div class="next_tutorial_modal_wrapper">
+    <p>Next Tutorial</p>
+    <a href="#">ECG Interpretation</a>
   </div>
 
-  <div>
-    <p><%= link_to "Back to Dashboard", root_url, :class => "red_button medium next_question_button" %></p>
-  </div>
 </div>

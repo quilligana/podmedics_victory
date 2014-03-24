@@ -10,6 +10,9 @@ ready = function() {
   // Flash alert
   $(".flash_alert").delay(8000).slideUp(400);
 
+  // Questions finished - fire modal
+  $( "#questions_complete_modal_click" ).click();
+
 
   // Navigation
   $("#menu_action").click(function(){
@@ -119,7 +122,7 @@ ready = function() {
   // Library panels
   $('a.library_button').on('click', function(e){
     $(this).toggleClass('active');
-    $(this).next('.library_tab').delay(50).slideToggle(400);
+    $(this).next('.library_tab').slideToggle(400);
   });
 
 //  $('a.library_button').on('click', function(e){

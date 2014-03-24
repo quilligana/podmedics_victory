@@ -925,13 +925,18 @@ $standard_border_radius: 6px;
 
 
   .main_nav_inner_lectures_title {
-    width: 170px; }
+    width: 170px;
+  }
 
   .right_column_search_field .navigation_search_field {
-    width: 175px; }
+    width: 175px;
+  }
 
   .footer {
-    height: 180px;
+    height: 12px;
+  }
+  .footer_left, .footer_right {
+  display: none;
   }
 
 

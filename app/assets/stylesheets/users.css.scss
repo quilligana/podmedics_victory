@@ -1254,17 +1254,26 @@ div.k-chart {
   height: auto;
   width: 30%; }
 
-a.default_lecture_question {
+a.default_lecture_question, .lecture_question_blocks input {
   font-size: 18px;
   color: #666;
   font-weight: 700;
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  border-radius: $standard_border_radius;
-  margin-bottom: 25px; }
+  padding-left: 3%;
+  padding-right: 5%;
+  padding-top: 38px;
+  padding-bottom: 28px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+}
 
 a.default_lecture_question:last-child {
   margin-bottom: 0; }
@@ -1293,7 +1302,11 @@ a.default_lecture_question:last-child {
   padding-top: 45px;
   padding-right: 30px;
   padding-bottom: 40px;
-  padding-left: 30px; }
+  padding-left: 30px;
+
+  -moz-border-radius-topright: 6px 6px;
+  border-top-right-radius: 6px 6px;
+}
 
 .questions_number_wrapper .questions_placement_bar {
   height: 10px;
@@ -1382,10 +1395,10 @@ a.default_lecture_question:last-child {
 .questions_placement_bar .active_placement_bar.twenty_percent {
   width: 20%; }
 
-.questions_placement_bar .active_placement_bar.thrity_percent {
+.questions_placement_bar .active_placement_bar.thirty_percent {
   width: 30%; }
 
-.questions_placement_bar .active_placement_bar.fourty_percent {
+.questions_placement_bar .active_placement_bar.forty_percent {
   width: 40%; }
 
 .questions_placement_bar .active_placement_bar.fifty_percent {
@@ -1560,6 +1573,34 @@ a.notes_saved_button p {
 .note_right_column_full_note {
   padding: 30px;
   clear: both; }
+
+
+
+
+
+/* Questions temporary fix */
+
+.lecture_questions_outer_wrapper {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #EFEFEF;
+  padding-bottom: 20px;
+}
+div.lecture_question_blocks div h1 {
+  padding-top: 40px;
+  font-size: 22px;
+  padding-bottom: 10px;
+}
+.lecture_question_blocks {
+  clear: both;
+  min-height: 405px;
+  height: auto;
+}
+.questions_result_title {
+  float: left;
+  clear: both;
+}
+
 
 
 
