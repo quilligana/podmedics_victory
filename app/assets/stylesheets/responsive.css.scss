@@ -11,10 +11,18 @@ $standard_border_radius: 6px;
 
 /* Retina */
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+
   .header_outer a.podmedics_header_icon {
     background-image: image-url('podmedics_header_icon@2x.png');
-    background-size: 50%;
+    background-size: 65%;
   }
+
+  .header_outer .header_navigation a.menu_link {
+    background-image: image-url('nav_icons@2x.png');
+    background-position: 93px 28px;
+    background-size: 65%;
+  }
+
 }
 
 
