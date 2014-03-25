@@ -710,27 +710,73 @@ a.library_button h2 {
   margin-top:0px;
   color:#333;
 }
-.library_tab p {
-  line-height: 30px;
-  color: #9C9C9C;
-  font-weight: 400;
-  font-size: 15px;
-}
-.library_column p a {
-  color: $podmedics_red;
+.library_tab p:first-child {
+  width: 100%;
+  background-color: #FFF;
+  font-weight: 800;
+  font-size: 14px;
+  color: #6D6D6D;
+  margin: 0px;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0px;
+  height: auto;
+  text-indent: 22px;
 }
 
-.library_column p a:hover {
-  color: #B91C2C;
+.library_tab p {
+  line-height: 30px;
+  font-weight: 800;
+  color: #B8B8B8;
+  text-transform: uppercase;
+  font-size: 13px;
+  float: left;
+  margin-left: 20px;
+  background-color: #eee;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 0px;
+  border-radius: 6px;
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+
+}
+.library_tab p.active_library_link {
+  opacity: 1.0;
+  background-color: $podmedics_red;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.library_tab p.active_library_link a {
+  opacity: 1.0;
+  color: #FFF;
+  background-color: $podmedics_red;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 6px;
+}
+
+.library_tab p.video_library_link_preview {
+  margin-left: 20px;
 }
 
 .library_column {
   float: left;
   margin-bottom: 30px;
-  margin-right: 110px;
-  margin-left: 15px;
-  width: 280px;
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 100%;
 }
+
+
 
 
 a.library_button.active {
