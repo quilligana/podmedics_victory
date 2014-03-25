@@ -1020,34 +1020,49 @@ $standard_border_radius: 6px;
 /* Retina */
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
 
-  .header_outer a.podmedics_header_icon {
-    background-image: image-url('podmedics_header_icon@2x.png');
-    background-size: 65%;
-  }
+
+
+    .header_outer a.podmedics_header_icon {
+      background-image: image-url('podmedics_header_icon@2x.png');
+      background-size: 65%;
+    }
+
+    .header_outer .header_navigation a.menu_link {
+      background-image: image-url('nav_icons@2x.png');
+      background-position: 91px 28px;
+      background-size: 20%;
+    }
+
+    .header_outer .header_navigation a.menu_link {
+      background-image: image-url('nav_icons@2x.png');
+      background-size: 20%;
+    }
+    .footer_right a.twitter_footer_icon, .founder_social_icons a.twitter_footer_icon {
+      background-image: image-url('footer_social_icons@2x.png');
+      background-size: 68px;
+    }
+
+    .footer_right a.fb_footer_icon, .founder_social_icons a.fb_footer_icon {
+      background-image: image-url('footer_social_icons@2x.png');
+      background-size: 68px;
+    }
+
+    .home_navigation a.nav-signup {
+      background-position: 81px -19px;
+    }
+
+
+
+  @media screen and (max-width: 400px) {
+
+
 
   .header_outer .header_navigation a.menu_link {
     background-image: image-url('nav_icons@2x.png');
-    background-position: 91px 28px;
-    background-size: 20%;
+    background-position: 22px 28px;
+    background-size: 40%;
   }
 
-  .header_outer .header_navigation a.menu_link {
-    background-image: image-url('nav_icons@2x.png');
-    background-size: 20%;
   }
-  .footer_right a.twitter_footer_icon, .founder_social_icons a.twitter_footer_icon {
-    background-image: image-url('footer_social_icons@2x.png');
-    background-size: 68px;
-  }
-
-  .footer_right a.fb_footer_icon, .founder_social_icons a.fb_footer_icon {
-    background-image: image-url('footer_social_icons@2x.png');
-    background-size: 68px;
-  }
-
-  .home_navigation a.nav-signup {
-    background-position: 81px -19px;
-  }
-
 }
 
