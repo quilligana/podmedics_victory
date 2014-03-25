@@ -639,8 +639,68 @@ $standard_border_radius: 6px;
     padding-left: 35px; }
 
   .lecture_list_item .lecture_icons_wrapper {
-    display: none; }
+    float: left;
+    width: 100%;
+    min-width: 100%;
+    margin-right: 0px;
+    margin-top: 15px;
+  }
 
+  .lecture_icons_wrapper .lecture_icon.watched .tooltip {
+    background-image: none;
+    background-color: #FFFFFF;
+    margin-right: -266px;
+    width: 284px;
+    height: 38px;
+    padding-top: 20px;
+    margin-top: 45px;
+    -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    border-radius: 6px;
+  }
+  .lecture_icons_wrapper .lecture_icon.resit .tooltip {
+    background-image: none;
+    background-color: #FFFFFF;
+    width: 145px;
+    height: 17px;
+    padding-top: 18px;
+    margin-top: 50px;
+    background-position: -171px -326px;
+    z-index: 50;
+    margin-right: -135px;
+
+    -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    border-radius: 6px;
+  }
+
+  .lecture_icons_wrapper .lecture_icon.top_marks .tooltip {
+    background-image: none;
+    background-color: #FFFFFF;
+    width: 284px;
+    height: 73px;
+    z-index: 50;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 28px;
+    margin-right: -176px;
+    -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+    border-radius: 6px;
+  }
+
+
+
+
+  .lecture_status_inline_title {
+    display: none;
+  }
+  .lecture_icons_wrapper .lecture_icon.watched {
+    margin-left: 24px;
+  }
   .profile_badge_column {
     float: left;
     width: 100%;
@@ -735,13 +795,14 @@ $standard_border_radius: 6px;
     padding-top: 40px;
     max-width: 940px;
   }
-
-
-  a p.badge_speciality {
+  a.badge .badge_speciality {
     display: none;
   }
   a p.badge_speciality.small_screen_count {
     display: inline;
+  }
+  .dashboard_badges_left_column a .badge_speciality {
+    display: block;
   }
 
   .notification p {
@@ -760,6 +821,15 @@ $standard_border_radius: 6px;
   .home_page_header {
     min-height: 645px;
   }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .about_left_column p {
+      font-size: 13px;
+  }
+
 }
 
 
