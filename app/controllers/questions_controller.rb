@@ -22,16 +22,19 @@ class QuestionsController < ApplicationController
 
   def result
     @q_ids = session[:q_ids]
-    single_question = @q_ids.first
-    @video = Question.find(single_question).video
+    @video = Question.find(@q_ids.first).video
     @total_questions = @q_ids.length
     @number_correct = session[:correct_answers]
-    session.delete(:q_ids)
-    session.delete(:current_question)
-    session.delete(:correct_answers)
+    reset_session
   end
 
   private
+
+    def reset_session
+      session.delete(:q_ids)
+      session.delete(:current_question)
+      session.delete(:correct_answers)
+    end
 
     def set_session(ids)
       session[:q_ids] = ids
@@ -44,7 +47,6 @@ class QuestionsController < ApplicationController
     end
 
     def record_answer(answer)
-
       @answer = answer
       @q_id = @q_ids[@current_question]
       @question = Question.find(@q_id)
@@ -65,17 +67,18 @@ class QuestionsController < ApplicationController
     end
 
     def get_correct_answer
-      if @question.correct_answer == 1
+      case @question.correct_answer
+      when 1
         @question.answer_1
-      elsif @question.correct_answer == 2
+      when 2
         @question.answer_2
-      elsif @question.correct_answer == 3
+      when 3
         @question.answer_3
-      elsif @question.correct_answer == 4
+      when 4
         @question.answer_4
-      elsif @question.correct_answer == 5
+      when 5
         @question.answer_5
-      end 
+      end
     end 
 
 end
