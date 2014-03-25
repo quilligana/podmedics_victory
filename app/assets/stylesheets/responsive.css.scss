@@ -40,9 +40,7 @@ $standard_border_radius: 6px;
   .home_navigation a.nav-signup {
     background-position: 81px -19px;
   }
-  .header_outer .header_navigation a.menu_link {
-    background-size: 42%;
-  }
+
 }
 
 
@@ -311,6 +309,9 @@ $standard_border_radius: 6px;
   }
   .free_trial_home_sketch {
     display: none;
+  }
+  .home_page_header {
+    min-height: 570px;
   }
 }
 
@@ -791,6 +792,9 @@ $standard_border_radius: 6px;
   }
   .notification p.close_notification {
     margin-top: 13px;
+  }
+  .home_page_header {
+    min-height: 645px;
   }
 }
 
