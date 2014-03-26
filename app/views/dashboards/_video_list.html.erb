@@ -2,7 +2,7 @@
   <div class="lecture_list_item">
     <div class="lecture_list_left_column">
       <%= link_to video.title, video_path(video) %>
-      <p class="lecture_date_author">24 minutes with Ed Wallitt</p>
+      <p class="lecture_date_author"><%= video.duration %> minutes with <%= video.speaker_name %></p>
     </div>
     <div class="lecture_icons_wrapper">
       <div class="lecture_status_inline_title">Watched</div>
