@@ -5,6 +5,7 @@ describe Specialty do
   it { should belong_to :category}
   it { should validate_presence_of :name}
   it { should have_many :videos }
+  it { should have_many :questions }
 end
 
 describe Specialty, '#category_name' do
