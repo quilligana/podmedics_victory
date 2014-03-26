@@ -314,7 +314,9 @@ $standard_border_radius: 6px;
     background-color: $podmedics_red;
     background-position: 94% -58px;
   }
-
+  .library_count {
+    display: none;
+  }
 }
 
 
@@ -452,9 +454,7 @@ $standard_border_radius: 6px;
     width: 70%;
     overflow: hidden;
   }
-  .library_count {
-    display: none;
-  }
+
 }
 
 @media screen and (max-width: 720px) {
