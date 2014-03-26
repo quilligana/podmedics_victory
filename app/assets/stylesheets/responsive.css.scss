@@ -260,7 +260,24 @@ $standard_border_radius: 6px;
   .lecture_questions_right_column {
     display: none;
   }
-
+  .notes_saved_button {
+    height: 68px;
+    background-position: bottom right;
+  }
+  .lecture_questions_right_column.notes_right_column {
+    display: block;
+    width: 100%;
+    border-top: none;
+  }
+  .speciality_count_block:last-child {
+    margin-top: 0px;
+  }
+  .notes_back_button_clear {
+    clear: both;
+  }
+  .note_right_column_full_note {
+    float: left;
+  }
   .lectures_speciality_outer_wrapper {
     min-height: 310px;
   }
@@ -298,12 +315,6 @@ $standard_border_radius: 6px;
     background-position: 94% -58px;
   }
 
-  .speciality_count_block:last-child {
-    margin-right: 0px;
-    width: 130px;
-    margin-left: 30px;
-    margin-top: 20px;
-  }
 }
 
 
