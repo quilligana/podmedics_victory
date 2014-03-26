@@ -666,7 +666,19 @@ div.k-chart {
   font-size: 14px;
   line-height: 22px;
   color: #868686;
-  font-weight: 400; }
+  font-weight: 400;
+}
+
+
+.questions_answers_main_question p a{
+  color: #333;
+  font-weight: 800;
+}
+
+.questions_answers_main_question p a:hover{
+  color: #555;
+}
+
 
 .questions_answers_main_question .comment_date {
   text-transform: uppercase;
