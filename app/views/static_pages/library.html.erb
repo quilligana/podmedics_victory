@@ -20,7 +20,7 @@
               <% specialty.videos.each do |video| %>
                 <% if video.preview %>
                   <p class="active_library_link">
-                    <%= link_to video.title, "https://vimeo.com/#{video.vimeo_identifier}.mp4", class: 'fresco' %>
+                    <%= link_to video.title, "https://vimeo.com/#{video.vimeo_identifier}.mp4", class: 'fresco', data: { :'fresco-group' => 'library_videos'} %>
                   </p>
                 <% else %>
                   <p><%= video.title %></p>
