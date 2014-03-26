@@ -1981,17 +1981,42 @@ a.video_download_dropdown_link.slides_file_icon {
   width: 100%;
 }
 
-.inner_page_padding.video_info p {
+.inner_page_padding.video_info {
   color: #666;
-  margin-bottom: 25px;
   font-size: 16px;
   line-height: 22px;
+}
+.inner_page_padding.video_info p {
+  margin-bottom: 25px;
+
 }
 
 .inner_page_padding.video_info p a {
   color: #FF414E;
   font-weight: 800;
 }
+
+.inner_page_padding.video_info p a:hover {
+  color: #DB2E3A;
+  font-weight: 800;
+}
+
+#tabs .inner_page_padding.video_info ul {
+  float: left;
+  margin: 0px;
+}
+
+
+#tabs .inner_page_padding.video_info ul li {
+  margin-bottom: 15px;
+  font-weight: 800;
+
+}
+
+
+
+
+
 .notes_column_text_field {
   width: 91%;
   margin-left: 0px;
