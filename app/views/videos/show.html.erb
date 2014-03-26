@@ -31,13 +31,15 @@
     <div class="video_header_outer">
 
       <div class="video_page_author_duration_header">
-        <p class="video_author_duration_subtitle">15 minutes with Shireen Emadossadaty</p>
+        <p class="video_author_duration_subtitle"><%= @video.duration %> minutes with <%= @video.speaker_name %></p>
         <p><%= @video.description %></p>
       </div>
 
       <div class="video_header_inner">
 
-        <div class="video_column"><!-- video placeholder --></div>
+        <div class="video_column">
+          <iframe src="//player.vimeo.com/video/<%= @video.vimeo_identifier %>" width="950" height="534" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
 
         <div class="video_page_notes_column">
           <div class="video_page_notes_column_title">
@@ -131,8 +133,8 @@
       </div>
 
       <div class="video_page_right_column_lower_info">
-        <p>Video Duration: <strong>20.46</strong></p>
-        <p>Views: <strong>2,446</strong></p>
+        <p>Video Duration: <strong><%= @video.duration %> minutes</strong></p>
+        <p>Views: <strong><%= @video.views %></strong></p>
         <p>Comments: <strong>0</strong></p>
       </div>
     </div>    <!--End of right column video info -->
