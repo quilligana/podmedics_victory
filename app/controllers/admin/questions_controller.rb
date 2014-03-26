@@ -17,11 +17,16 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
+  def import
+    Question.import(params[:file])
+    redirect_to admin_questions_path, notice: 'Questions imported'
+  end
+
   protected
 
-  def permitted_params
-    params.require(:question).permit(:stem, :answer_1, :answer_2, :answer_3, :answer_4, :answer_5,
-                                    :correct_answer, :explanation)
-  end
+    def permitted_params
+      params.require(:question).permit(:stem, :answer_1, :answer_2, :answer_3, :answer_4, :answer_5,
+                                      :correct_answer, :explanation)
+    end
 
 end

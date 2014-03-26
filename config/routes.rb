@@ -32,6 +32,9 @@ PodmedicsVictory::Application.routes.draw do
     end
     resources :users
     resources :faqs
+    resources :questions do
+      collection { post :import}
+    end
   end
 
   # Specialty/Video

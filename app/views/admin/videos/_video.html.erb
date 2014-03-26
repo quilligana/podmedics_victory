@@ -3,6 +3,7 @@
   <td><%= video.title %></td>
   <td><%= video.specialty_name %></td>
   <td><%= video.preview %></td>
+  <td><%= video.questions.count %></td>
   <td>
     <%= link_to "Edit", edit_admin_video_path(video) %>
     <%= link_to "Show", admin_video_path(video) %>
