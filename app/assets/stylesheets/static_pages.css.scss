@@ -777,13 +777,17 @@ a.library_button h2 {
 }
 
 .library_tab p.faq_inner {
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 23px;
   text-transform: none;
   font-weight: 400;
   text-indent: 0px;
   padding-left: 1%;
+  padding-bottom: 0px;
+  padding-top: 0px;
   padding-right: 1%;
   width: 98%;
+  color: #7F7F7F;
 }
 .library_tab p.faq_inner a {
   font-weight: 800;
@@ -807,6 +811,9 @@ a.library_button.active .library_count{
 }
 .library_button.active p.inline_arrow_icon {
   background-position: 0px -105px;
+}
+.inner_page_padding.library_page_inner_spacing {
+  padding-top: 25px;
 }
 a.preview_video {
   color: blue;

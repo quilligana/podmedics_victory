@@ -3,9 +3,7 @@
     <h1>Library</h1>
   </div>
   <div class="page">
-    <div class="inner_page_padding">
-      <p class="lecture_questions_sub_title">Just click on the blue links below to preview our podcasts</p>
-
+    <div class="inner_page_padding library_page_inner_spacing">
       <% @categories.each do |category| %>
         <a href="javascript:;" class="library_button" id="library_<%= category.name.downcase  %>_link">
           <h2><%= category.name %></h2>
