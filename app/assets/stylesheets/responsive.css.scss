@@ -253,7 +253,9 @@ $standard_border_radius: 6px;
   .video_page_heading_wrapper {
     width: 100%;
   }
-
+  .video_column iframe {
+    min-height: 427px;
+  }
   .stats_chart {
     width: 800px;
   }
