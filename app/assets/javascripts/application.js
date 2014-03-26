@@ -6,5 +6,6 @@
 //= require turbolinks_transitions
 //= require tabulous
 //= require icheck
+//= require fresco
 //= require site
 
