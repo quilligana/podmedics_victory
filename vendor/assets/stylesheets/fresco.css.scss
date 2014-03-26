@@ -62,7 +62,7 @@
   height: 100%;
 }
 .fr-loading-background {
-  background: #0d0d0d url('skins/loading.gif') 50% 50% no-repeat;
+  background: #0d0d0d image-url('loading.gif') 50% 50% no-repeat;
   opacity: .8;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -169,7 +169,7 @@
 }
 .fr-box-wrapper, .fr-ui-wrapper {
   position: relative;
-  background: url('skins/blank.gif');
+  background: image-url('blank.gif');
   overflow: hidden;
 }
 
@@ -181,7 +181,7 @@
   border-color: transparent;
   border-style: solid;
   border-width: 0;
-  background: url('skins/blank.gif');
+  background: image-url('blank.gif');
 }
 
 .fr-box-padder, .fr-ui-padder {
@@ -277,7 +277,7 @@
   top: 0;
   width: 50%;
   height: 100%;
-  background: url(skins/blank.gif);
+  background: image-url('blank.gif');
   overflow: hidden;
   cursor: pointer;
   z-index: 1;
@@ -295,7 +295,7 @@
   height: 100%;
   cursor: pointer;
   overflow: hidden;
-  background: url('skins/blank.gif') 0 0 repeat;
+  background: image-url('blank.gif') 0 0 repeat;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -737,7 +737,7 @@
 }
 .fr-thumbnail-loading-background {
   background-color: #101010;
-  background-image: url('skins/loading.gif');
+  background-image: image-url('loading.gif');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   opacity: .8;
@@ -953,7 +953,7 @@
   .fr-thumbnails-side { margin: 0 4px; }
   .fr-thumbnails-side-previous { margin-left: 8px; }
   .fr-thumbnails-side-next { margin-right: 8px; }
-  .fr-thumbnail-loading-background { background-image: url('skins/loading-small.gif'); }
+  .fr-thumbnail-loading-background { background-image: image-url('loading-small.gif'); }
 }
 @media all and (min-height: 200px) {
   .fr-thumbnails { padding: 12px 0; }
@@ -964,7 +964,7 @@
 }
 
 @media all and (min-height: 350px) {
-  .fr-thumbnail-loading-background { background-image: url('skins/loading-medium.gif'); }
+  .fr-thumbnail-loading-background { background-image: image-url('loading-medium.gif'); }
 }
 
 @media all and (min-height: 500px) {
@@ -981,7 +981,7 @@
   .fr-thumbnails-side { margin: 0 10px; }
   .fr-thumbnails-side-previous { margin-left: 20px; }
   .fr-thumbnails-side-next { margin-right: 20px; }
-  .fr-thumbnail-loading-background { background-image: url('skins/loading.gif'); }
+  .fr-thumbnail-loading-background { background-image: image-url('loading.gif'); }
 }
 
 /* IE specific resets */
@@ -1000,7 +1000,7 @@
 .fr-window-fresco .fr-touch-close .fr-touch-button-icon,
 .fr-window-fresco .fr-touch-caption-more .fr-touch-button-icon,
 .fr-window-fresco .fr-thumbnails-side-button-icon {
-  background-image: url('skins/fresco/sprite.png');
+  background-image: image-url('sprite.png');
 }
 /* High-res sprite */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -1010,7 +1010,7 @@ only screen and (min-device-pixel-ratio: 2) {
   .fr-window-fresco .fr-touch-close .fr-touch-button-icon,
   .fr-window-fresco .fr-touch-caption-more .fr-touch-button-icon,
   .fr-window-fresco .fr-side-button-icon {
-    background-image: url('skins/fresco/sprite@x2.png');
+    background-image: image-url('sprite@x2.png');
     background-size: 500px 500px; /* downscaled 50%, size of original sprite */
   }
 }

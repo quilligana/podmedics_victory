@@ -19,7 +19,9 @@
               <p><%= specialty.name.upcase %></p>
               <% specialty.videos.each do |video| %>
                 <% if video.preview %>
-                  <p class="active_library_link"><%= link_to video.title, '#', class: 'fresco' %></p>
+                  <p class="active_library_link">
+                    <%= link_to video.title, "https://vimeo.com/#{video.vimeo_identifier}.mp4", class: 'fresco' %>
+                  </p>
                 <% else %>
                   <p><%= video.title %></p>
                 <% end %>
