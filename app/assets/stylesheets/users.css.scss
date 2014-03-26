@@ -1580,7 +1580,19 @@ a.notes_saved_button p {
   color: #BEBEBE;
   margin: 0px;
   line-height: 24px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+}
+
+.note_right_column_full_note ul {
+  float: left;
+  margin: 0px;
+}
+.note_right_column_full_note ul li {
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: #A3A3A3;
+  list-style: none;
+}
 
 .note_right_column_full_note {
   padding: 30px;
