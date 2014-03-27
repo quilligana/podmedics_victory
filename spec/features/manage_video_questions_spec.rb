@@ -9,6 +9,19 @@ feature 'Manage video questions' do
     admin_sees_question_info(video.questions.first)
   end
 
+  scenario 'Editing a question for a video' do
+    video = create(:video)
+    admin = create(:admin_user)
+    sign_in(admin)
+    add_question_for_video(video)
+    within '.questions' do
+      click_link 'Edit'
+    end
+    fill_in 'Stem', with: 'What is the smallest organ in the body?'
+    click_button 'Submit'
+    expect(page).to have_content 'What is the smallest organ in the body?'
+  end
+
   def add_question_for_video(video)
     visit admin_video_path(video)
     click_link 'Add question'
@@ -23,10 +36,10 @@ feature 'Manage video questions' do
     click_button 'Submit'
   end
 
+  # Helpers
   def admin_sees_question_info(question)
     expect(current_path).to eq admin_video_path(question.video)
     expect(page).to have_content question.stem
-    
   end
 
 end

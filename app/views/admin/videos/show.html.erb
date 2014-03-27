@@ -19,10 +19,14 @@
   <p>File: <%= @video.file_name %></p>
 </div>
 
-<h2>Questions</h2>
+<h2>
+  Questions
+  <small>
+    <%= link_to "Add question", new_admin_video_question_path(@video) %>
+  </small>
+</h2>
+<p>Total: <%= @video.questions.count %></p>
 <hr />
-
-<%= link_to "Add question", new_admin_video_question_path(@video) %>
 
 <div class="questions">
   <%= render @video.questions %>
