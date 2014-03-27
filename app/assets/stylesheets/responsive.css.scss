@@ -296,6 +296,9 @@ $standard_border_radius: 6px;
   .home_page_header {
     min-height: 570px;
   }
+  .lecture_questions_right_column .questions_info_right_column_section p.questions_info_right_column_number{
+    width: auto;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -657,49 +660,25 @@ $standard_border_radius: 6px;
   }
 
   .lecture_icons_wrapper .lecture_icon.watched .tooltip {
-    background-image: none;
-    background-color: #FFFFFF;
-    margin-right: -266px;
-    width: 284px;
-    height: 38px;
-    padding-top: 20px;
-    margin-top: 45px;
-    -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    border-radius: 6px;
+    display: none;
+    position: absolute;
+    top: -500px;
+    left: -500px;
+
   }
   .lecture_icons_wrapper .lecture_icon.resit .tooltip {
-    background-image: none;
-    background-color: #FFFFFF;
-    width: 145px;
-    height: 17px;
-    padding-top: 18px;
-    margin-top: 50px;
-    background-position: -171px -326px;
-    z-index: 50;
-    margin-right: -135px;
+    display: none;
+    position: absolute;
+    top: -500px;
+    left: -500px;
 
-    -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    border-radius: 6px;
   }
 
   .lecture_icons_wrapper .lecture_icon.top_marks .tooltip {
-    background-image: none;
-    background-color: #FFFFFF;
-    width: 284px;
-    height: 73px;
-    z-index: 50;
-    margin-top: 50px;
-    padding-top: 10px;
-    padding-bottom: 28px;
-    margin-right: -176px;
-    -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-    border-radius: 6px;
+    display: none;
+    position: absolute;
+    top: -500px;
+    left: -500px;
   }
 
 
@@ -1066,6 +1045,10 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 390px) {
 
+  div.inner_home_header {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   a.home_menu_link {
     margin-top: 0px;
     margin-right: 0px;
@@ -1108,8 +1091,64 @@ $standard_border_radius: 6px;
     margin-right: 15px;
     text-transform: uppercase;
     font-size: 13px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .home_section {
+    padding-bottom: 20px;
+  }
+
+  a.library_button p.inline_arrow_icon {
+    margin-right: 20px;
+  }
+  a.library_button h2 {
+    width: 60%;
+  }
+  .notification p.close_notification {
+    margin-top: -15px;
+    margin-right: -12px;
+  }
+  .no_questions_reply_wrapper {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .notes_column_text_field {
+    padding-left: 5%;
+    width: 90%;
+  }
+
+  .notes_column_text_area {
+    width: 90%;
+    padding-left: 5%;
+  }
+  .video_page_authour_right_column_user_info_inner_wrapper {
+    width: 50%;
+  }
+  .inner.profile_page_inner {
+    padding-top: 20px;
+  }
+  .profile_avatar {
+    margin-top: 50px;
+  }
+  .profile_header {
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .page.dashboard_page #tabs .dashboard_pie_charts ul {
+    height: 130px;
+    padding-top: 10px;
+    margin-left: 0px;
+  }
+  .pie_chart_inner_title {
+    margin-left: 40px;
+  }
+  .video_page_notes_column_title {
+    width: 85%;
+  }
+  .video_page_notes_column form {
+    width: 85%;
   }
 }
 
@@ -1126,8 +1165,6 @@ $standard_border_radius: 6px;
 /* Retina */
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
 
-
-
     .header_outer a.podmedics_header_icon {
       background-image: image-url('podmedics_header_icon@2x.png');
       background-size: 65%;
@@ -1135,14 +1172,10 @@ $standard_border_radius: 6px;
 
     .header_outer .header_navigation a.menu_link {
       background-image: image-url('nav_icons@2x.png');
-      background-position: 91px 28px;
-      background-size: 20%;
+      background-size: 47%;
+      background-position: 20px 25px;
     }
 
-    .header_outer .header_navigation a.menu_link {
-      background-image: image-url('nav_icons@2x.png');
-      background-size: 20%;
-    }
     .footer_right a.twitter_footer_icon, .founder_social_icons a.twitter_footer_icon {
       background-image: image-url('footer_social_icons@2x.png');
       background-size: 68px;
@@ -1159,15 +1192,5 @@ $standard_border_radius: 6px;
 
 
 
-  @media screen and (max-width: 400px) {
-
-
-  .header_outer .header_navigation a.menu_link {
-    background-image: image-url('nav_icons@2x.png');
-    background-position: 22px 28px;
-    background-size: 40%;
-  }
-
-  }
 }
 
