@@ -1150,6 +1150,24 @@ $standard_border_radius: 6px;
   .video_page_notes_column form {
     width: 85%;
   }
+  .lectures_question_title {
+    font-size: 16px;
+    padding: 30px;
+    line-height: 24px;
+  }
+  a.default_lecture_question, .lecture_question_blocks input {
+    font-size: 16px;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .header_outer .header_navigation a.user_dropdown_link {
+    display: none;
+  }
+  .header_outer a.podmedics_header_icon {
+    display: none;
+  }
 }
 
 
