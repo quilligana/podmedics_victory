@@ -5,6 +5,7 @@ feature 'Video Questions' do
   before(:each) do
     @video_specialty = create(:specialty)
     @video = create(:video, specialty: @video_specialty)
+    @question_1 = FactoryGirl.create(:question, video: @video)
     @user = create(:user)
     sign_in(@user)
   end
@@ -22,6 +23,12 @@ feature 'Video Questions' do
 
     within '.lectures_question_title' do
       expect(page).to have_content @question_1.stem
+    end
+
+    within '.lecture_questions_right_column' do
+      expect(page).to have_content @user.points
+      expect(page).to have_content 'Question 0 of 1'
+      expect(page).to have_css('div.active_placement_bar zero_percent')
     end
 
     expect(page).to have_button @question_1.answer_1
@@ -50,7 +57,6 @@ feature 'Video Questions' do
 
   before do
     @video_2 = create(:video, specialty: @video_specialty)
-    @question_1 = FactoryGirl.create(:question, video: @video)
     5.times { FactoryGirl.create(:question, video: @video_2) }
   end
 
@@ -101,6 +107,31 @@ feature 'Video Questions' do
     end.to change { user_question_object }.from(false).to(true)
   end
 
+  before do
+    @video_4 = create(:video, specialty: @video_specialty)
+    5.times { FactoryGirl.create(:question, video: @video_4) }
+  end
+
+  scenario 'Update the users points for correct answers' do
+    visit video_questions_url(video_id: @video_4.id)
+
+    expect do
+      click_button 'Second Answer'
+      click_link 'Next Question'
+    end.to change { @user.points }
+  end
+
+  scenario 'Dont update the users points for previously answered questions' do
+    visit video_questions_url(video_id: @video_3.id)
+    click_button 'Second Answer'
+    click_link 'Next Question'
+    visit video_questions_url(video_id: @video_3.id)
+
+    expect do
+      click_button 'Second Answer'
+    end.not_to change { @user.points }
+  end
+
   # Helpers
   def user_sees_link(link_name)
     expect(page).to have_link link_name
@@ -109,4 +140,5 @@ feature 'Video Questions' do
   def user_question_object
     UserQuestion.where(user_id: @user.id).where(question_id: @video_3.question_ids.first).first.correct_answer
   end
+
 end

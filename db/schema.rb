@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326194841) do
+ActiveRecord::Schema.define(version: 20140326221956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140326194841) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.integer  "points"
+    t.integer  "points",           default: 0
   end
 
   create_table "videos", force: true do |t|
@@ -104,6 +104,9 @@ ActiveRecord::Schema.define(version: 20140326194841) do
     t.datetime "updated_at"
     t.boolean  "preview",          default: false
     t.string   "slug"
+    t.string   "speaker_name"
+    t.integer  "views",            default: 0
+    t.string   "file_name"
   end
 
   add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true, using: :btree

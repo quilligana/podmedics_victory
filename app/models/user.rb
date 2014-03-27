@@ -29,4 +29,10 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def self.add_points(user)
+      current_points = user.points
+      new_points = current_points + 5
+      user.update_attributes(points: new_points)
+  end
 end

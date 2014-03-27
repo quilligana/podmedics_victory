@@ -17,9 +17,7 @@
 
     <div class="lecture_questions_right_column">
       <div class="questions_number_wrapper">
-        <div class="questions_placement_bar">
-          <div class="active_placement_bar sixty_percent"></div>
-        </div>
+        <%= test_progress %>
         <p>Question <span id="current_questions_count">6</span> of 10</p>
       </div>
       <!-- End right column - current questions position -->
@@ -35,7 +33,7 @@
       </div>
 
       <div class="questions_info_right_column_section">
-        <p class="questions_info_right_column_number">2880</p>
+        <p class="questions_info_right_column_number"><%= user_points %></p>
         <p>For every video watched or correct answer you will receive 20 points to your overall score.</p>
       </div>
     </div>

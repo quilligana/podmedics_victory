@@ -21,4 +21,9 @@ describe User do
    expect(bad_email_user).to_not be_valid
   end
 
+  it 'has an add_points method' do
+    user = create(:user)
+    expect(user.add_points).to_change { user.points }
+  end
+
 end

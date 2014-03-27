@@ -50,13 +50,14 @@ class QuestionsController < ApplicationController
       @answer = answer
       @q_id = @q_ids[@current_question]
       @question = Question.find(@q_id)
-      user_question = UserQuestion.where(question_id: @q_id).where(user_id: current_user.id).first
 
-      if answer == "true" && user_question.correct_answer == false
-        user_question.update_attributes(correct_answer: true)
-      end
+      UserQuestion.save_answer(@q_id, current_user.id, answer)
 
-      if answer == "true" 
+      continue_questions
+    end
+
+    def continue_questions
+      if @answer == "true" 
         session[:correct_answers] += 1
       end
 

@@ -9,4 +9,8 @@ module ApplicationHelper
     link_to text, url, class: link_class
   end
 
+  def user_points
+    @current_user.points
+  end
+
 end
