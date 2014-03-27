@@ -20,7 +20,9 @@
         </div>
       </div>
 
-      <%= link_to "Answer Questions", video_questions_url(:video_id => @video.id), :class => "podmedcis_button take_exam_button" %>
+      <a href="<%= video_questions_url(:video_id => @video.id) =%>" class="podmedcis_button take_exam_button"><span>Answer</span> Questions</a>
+
+      <!--<%= link_to "Answer Questions", video_questions_url(:video_id => @video.id), :class => "podmedcis_button take_exam_button" %>-->
     </div>
   </div>
 </div><!-- End of video header -->

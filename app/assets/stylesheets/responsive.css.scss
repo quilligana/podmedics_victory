@@ -755,9 +755,7 @@ $standard_border_radius: 6px;
   #tabs ul li a.comments_tab {
     margin-right: 10px;
   }
-  .podmedcis_button.take_exam_button {
-    margin-left: 0px;
-  }
+
   .home_page_header .home_navigation {
     width: auto;
     margin-right: 20px;
@@ -850,7 +848,6 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 450px) {
   .video_page_header .video_page_heading_button_set a.podmedcis_button.take_exam_button {
-    clear: both;
     margin-left: 0px;
     margin-top: 20px;
   }
@@ -887,6 +884,20 @@ $standard_border_radius: 6px;
     margin-top: 30px;
   }
 
+  .video_page_heading_button_set .podmedcis_button.take_exam_button span {
+    display: none;
+  }
+  .podmedcis_button.take_exam_button {
+    margin-left: 0px;
+    width: 60px;
+  }
+  .video_page_header .video_page_heading_button_set a.podmedcis_button.take_exam_button {
+    margin-left: 12px;
+    margin-top: 0px;
+    padding-left: 14px;
+    padding-right: 14px;
+    width: 75px;
+  }
 }
 
 
