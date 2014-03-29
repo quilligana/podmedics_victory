@@ -1,5 +1,6 @@
 class Admin::VideosController < InheritedResources::Base
   layout 'admin_application'
+  respond_to :html, :json
 
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
@@ -16,10 +17,15 @@ class Admin::VideosController < InheritedResources::Base
     redirect_to admin_videos_path, notice: 'Videos imported'
   end
 
-
   def permitted_params
     params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name])
   end
+
+  protected
+
+    def collection
+      @videos ||= end_of_association_chain.order(:title)
+    end
 
   private
 
