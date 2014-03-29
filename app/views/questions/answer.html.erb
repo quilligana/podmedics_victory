@@ -19,7 +19,7 @@
 
             <div class="correct_lecture_answer_info" style="display: block">
               <p><%= @question.explanation %></p>
-              <% if @current_question < @q_ids.length - 1 %>
+              <% if @current_question < @q_ids.length %>
                 <p><%= link_to "Next Question", question_path(@next_question), :class => "red_button medium next_question_button" %></p>
               <% else %>
                 <p><%= link_to "Result", questions_result_url, :class => "red_button medium" %></p>

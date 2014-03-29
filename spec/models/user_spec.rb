@@ -23,7 +23,9 @@ describe User do
 
   it 'has an add_points method' do
     user = create(:user)
-    expect(user.add_points).to_change { user.points }
+    expect(user.points).to eq(0)
+    user.add_points_for_answer
+    expect(user.points).to eq(5)
   end
 
 end

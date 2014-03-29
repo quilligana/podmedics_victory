@@ -16,26 +16,7 @@
     <!-- End Left column -->
 
     <div class="lecture_questions_right_column">
-      <div class="questions_number_wrapper">
-        <%= test_progress %>
-        <p>Question <span id="current_questions_count">6</span> of 10</p>
-      </div>
-      <!-- End right column - current questions position -->
-
-      <div class="questions_info_right_column_section">
-        <p class="questions_info_right_column_number">28%</p>
-        <p>Of users who took this test scrored on average 5/5 questions correct.</p>
-      </div>
-
-      <div class="questions_info_right_column_section">
-        <p class="questions_info_right_column_number">64%</p>
-        <p>Of users who took this test scrored on average 4/5 questions correct.</p>
-      </div>
-
-      <div class="questions_info_right_column_section">
-        <p class="questions_info_right_column_number"><%= user_points %></p>
-        <p>For every video watched or correct answer you will receive 20 points to your overall score.</p>
-      </div>
+      <%= render 'question_stats'  %>
     </div>
     <!-- End right column -->
   </div>

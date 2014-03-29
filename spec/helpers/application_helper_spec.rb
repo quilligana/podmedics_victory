@@ -25,6 +25,16 @@ describe ApplicationHelper do
     end
   end
 
+  describe 'user_points' do
+    let(:the_user) {FactoryGirl.create(:user)}
+
+    it 'should return the current users points' do
+      expect(the_user.points).to eq(0)
+      the_user.add_points_for_answer
+      expect(the_user.points).to eq(5)
+    end
+  end
+
   # Helper methods
   def valid_nav_link
     helper.nav_link('Test title', 'test_path')

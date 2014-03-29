@@ -1,16 +1,13 @@
 <div class="questions_number_wrapper">
   <%= test_progress %>
-  <p>Question <span id="current_questions_count">6</span> of 10</p>
 </div>
 
-<div class="questions_info_right_column_section">
-  <p class="questions_info_right_column_number">28%</p>
-  <p>Of users who took this test scrored on average 5/5 questions correct.</p>
+<div class="questions_info_right_column_section">  
+  <%= get_swots(0) %>
 </div>
 
-<div class="questions_info_right_column_section">
-  <p class="questions_info_right_column_number">64%</p>
-  <p>Of users who took this test scrored on average 4/5 questions correct.</p>
+<div class="questions_info_right_column_section"> 
+  <%= get_swots(1) %>
 </div>
 
 <div class="questions_info_right_column_section">

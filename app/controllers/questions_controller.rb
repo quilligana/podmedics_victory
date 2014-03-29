@@ -11,18 +11,25 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-  end
-
-  def answer 
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
+    @total_questions = @q_ids.length
+    @video = Question.find(@q_ids.first).video
+  end
+
+  def answer
+    @current_question = session[:current_question]
+    @q_ids = session[:q_ids]
+    @total_questions = @q_ids.length
     record_answer(params[:answer])
     @correct_answer = get_correct_answer
+    @video = Question.find(@q_ids.first).video
   end
 
   def result
     @q_ids = session[:q_ids]
     @video = Question.find(@q_ids.first).video
+    @current_question = session[:current_question]
     @total_questions = @q_ids.length
     @number_correct = session[:correct_answers]
     reset_session
@@ -30,15 +37,9 @@ class QuestionsController < ApplicationController
 
   private
 
-    def reset_session
-      session.delete(:q_ids)
-      session.delete(:current_question)
-      session.delete(:correct_answers)
-    end
-
     def set_session(ids)
       session[:q_ids] = ids
-      session[:current_question] = 0
+      session[:current_question] = 1
       session[:correct_answers] = 0
     end
 
@@ -46,12 +47,19 @@ class QuestionsController < ApplicationController
       session[:current_question] += 1
     end
 
+    def reset_session
+      session.delete(:q_ids)
+      session.delete(:current_question)
+      session.delete(:correct_answers)
+    end
+
     def record_answer(answer)
       @answer = answer
-      @q_id = @q_ids[@current_question]
-      @question = Question.find(@q_id)
+      @q_ids = session[:q_ids]
+      q_id = @q_ids[@current_question-1]
+      @question = Question.find(q_id)
 
-      UserQuestion.save_answer(@q_id, current_user.id, answer)
+      UserQuestion.save_answer(q_id, current_user, answer)
 
       continue_questions
     end
@@ -61,8 +69,8 @@ class QuestionsController < ApplicationController
         session[:correct_answers] += 1
       end
 
-      if @current_question < @q_ids.length - 1
-        @next_question = Question.find(@q_ids[@current_question + 1])
+      if @current_question < @q_ids.length
+        @next_question = Question.find(@q_ids[@current_question])
         update_session
       end
     end

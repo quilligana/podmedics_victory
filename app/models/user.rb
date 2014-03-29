@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.add_points(user)
-      current_points = user.points
-      new_points = current_points + 5
-      user.update_attributes(points: new_points)
+  def add_points_for_answer
+    current_points = self.points
+    new_points = current_points + 5
+    self.update_attributes(points: new_points)
   end
 end
