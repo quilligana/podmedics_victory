@@ -7,7 +7,8 @@ class ProgressBar
   end
 
   def test_progress
-    content_tag(:div, content_tag(:div, '', class: progress_bar_class), class: "questions_placement_bar") +
+    content_tag(:div, content_tag(:div, '', class: progress_bar_class), 
+                class: "questions_placement_bar") +
     content_tag(:p, "Question #{@current_question} of #{@total_questions}")
   end
 

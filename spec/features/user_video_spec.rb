@@ -5,6 +5,8 @@ feature 'User Videos' do
   before(:each) do
     video_specialty = create(:specialty)
     @video = create(:video, specialty: video_specialty)
+    @video_2 = create(:video, specialty: video_specialty)
+    @question = create(:question, video: @video_2)
     sign_in(create(:user))
   end
 
@@ -21,7 +23,15 @@ feature 'User Videos' do
     end
 
     within '.video_page_heading_button_set' do
-      expect(page).to have_link('Answer Questions', href: video_questions_url(@video.id))
+      expect(page).not_to have_link('Answer Questions', href: video_questions_url(@video.id))
+    end
+  end
+
+  scenario 'Viewing a video which has questions' do
+    visit video_path(@video_2)
+
+    within '.video_page_heading_button_set' do
+      expect(page).not_to have_link('Answer Questions', href: video_questions_url(@video.id))
     end
   end
 
