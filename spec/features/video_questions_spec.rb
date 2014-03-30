@@ -5,7 +5,7 @@ feature 'Video Questions' do
   before(:each) do
     @video_specialty = create(:specialty)
     @video = create(:video, specialty: @video_specialty)
-    @question_1 = FactoryGirl.create(:question, video: @video)
+    @question_1 = create(:question, video: @video)
     @user = create(:user)
     sign_in(@user)
   end
@@ -47,8 +47,8 @@ feature 'Video Questions' do
 
     expect(page).to have_content @question_1.explanation
     expect(page).to have_content 'Sorry!'
-      expect(page).to have_content 'Question 1 of 1'
-      expect(page).to have_css('div.active_placement_bar.hundred_percent')
+    expect(page).to have_content 'Question 1 of 1'
+    expect(page).to have_css('div.active_placement_bar.hundred_percent')
   end
 
   scenario 'Answering a question correctly' do
@@ -57,18 +57,15 @@ feature 'Video Questions' do
 
     expect(page).to have_content @question_1.explanation
     expect(page).to have_content 'Congratulations! That is the correct answer.'
-      expect(page).to have_content 'Question 1 of 1'
-      expect(page).to have_css('div.active_placement_bar.hundred_percent')
-  end
-
-  before do
-    @video_2 = create(:video, specialty: @video_specialty)
-    5.times { FactoryGirl.create(:question, video: @video_2) }
+    expect(page).to have_content 'Question 1 of 1'
+    expect(page).to have_css('div.active_placement_bar.hundred_percent')
   end
 
   scenario 'Iterating through the questions' do
+    video_2 = create(:video, specialty: @video_specialty)
+    5.times { FactoryGirl.create(:question, video: video_2) }
 
-    visit video_questions_url(video_id: @video_2.id)
+    visit video_questions_url(video_id: video_2.id)
 
     expect(page).to have_content 'Question 1 of 5'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')
@@ -96,13 +93,12 @@ feature 'Video Questions' do
       click_link 'Back to Video'
     end
 
-    expect(page).to have_content @video_2.title 
+    expect(page).to have_content video_2.title 
 
   end
 
   before do
     @video_3 = create(:video, specialty: @video_specialty)
-    @first_question = create(:question, video: @video_3)
     5.times { FactoryGirl.create(:question, video: @video_3) }
   end
 
@@ -129,7 +125,7 @@ feature 'Video Questions' do
   end
 
   scenario 'Update the users points for correct answers' do
-    visit video_questions_url(video_id: @video_4.id)
+    visit video_questions_url(video_id: @video_3.id)
 
     expect(@user.points).to eq(0)
 
