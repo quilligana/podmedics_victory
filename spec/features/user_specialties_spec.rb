@@ -8,7 +8,12 @@ feature 'User Specialties' do
     sign_in(create(:user))
     visit video_path(video)
     click_link specialty.name
+
     expect(page).to have_content specialty.name
+
+    within '.sub_heading_button_set' do
+      expect(page).to have_link("Take #{specialty.name.capitalize} Exam", href: specialty_exam_url(specialty.id))
+    end
 
   end
 end

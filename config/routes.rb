@@ -38,14 +38,15 @@ PodmedicsVictory::Application.routes.draw do
   end
 
   # Specialty/Video
-  
-  match 'questions/answer', to: 'questions#answer', via: [:get, :post]
-  match 'questions/result', to: 'questions#result', via: :get
+
   resources :videos, only: [:show] do
     resources :questions, only: [:index]
-  end
+  end  
+  match 'questions/answer', to: 'questions#answer', via: [:get, :post]
+  get 'questions/result', to: 'questions#result'
   resources :questions, only: [:show]
 
   resources :specialties, only: [:show]
+  get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
 end

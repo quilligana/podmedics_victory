@@ -2,11 +2,16 @@ class QuestionsController < ApplicationController
   layout 'user_application'
 
   def index
-    @video = Video.friendly.find(params[:video_id])
-    @question_ids = @video.question_ids
-    set_session(@question_ids)
-    UserQuestion.register_ids(@question_ids, current_user)
-    redirect_to :action => :show, :id => @question_ids.first
+    video = Video.friendly.find(params[:video_id])
+    @question_ids = video.question_ids
+    initiate_questions
+  end
+
+  def specialty_index
+    specialty = Specialty.friendly.find(params[:id])
+    video_ids = specialty.video_ids
+    @question_ids = Question.where("video_id IN (?)", video_ids).pluck(:id)
+    # initiate_questions
   end
 
   def show
@@ -14,7 +19,6 @@ class QuestionsController < ApplicationController
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
     @total_questions = @q_ids.length
-    @video = Question.find(@q_ids.first).video
   end
 
   def answer
@@ -23,7 +27,6 @@ class QuestionsController < ApplicationController
     @total_questions = @q_ids.length
     record_answer(params[:answer])
     @correct_answer = get_correct_answer
-    @video = Question.find(@q_ids.first).video
   end
 
   def result
@@ -35,7 +38,17 @@ class QuestionsController < ApplicationController
     reset_session
   end
 
+  def specialty_result
+    
+  end
+
   private
+
+    def initiate_questions
+      set_session(@question_ids)
+      UserQuestion.register_ids(@question_ids, current_user)
+      redirect_to :action => :show, :id => @question_ids.first
+    end
 
     def set_session(ids)
       session[:q_ids] = ids

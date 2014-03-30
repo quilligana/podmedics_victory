@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <% if Question.includes(:video_id).where(video_id: @video.id).any? %>
+      <% if questions_exist %>
         <%= link_to video_questions_url(:video_id => @video.id), class: "podmedcis_button take_exam_button" do %>
           <span>Answer</span> Questions
         <% end %>
