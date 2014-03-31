@@ -128,10 +128,9 @@ feature 'Video Questions' do
     visit video_questions_url(video_id: @video_3.id)
 
     expect(@user.points).to eq(0)
-
-    # click_button 'Second Answer'
-
-    # expect(@user.points).to eq(5)
+    click_button 'Second Answer'
+    @user.reload
+    expect(@user.points).to eq(5)
   end
 
   scenario 'Dont update the users points for previously answered questions' do

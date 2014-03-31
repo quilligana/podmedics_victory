@@ -18,7 +18,7 @@
             <% end %>
 
             <div class="correct_lecture_answer_info" style="display: block">
-              <p><%= @question.explanation %></p>
+              <p><%= simple_format(@question.explanation) %></p>
               <% if @current_question < @q_ids.length %>
                 <p><%= link_to "Next Question", question_path(@next_question), :class => "red_button medium next_question_button" %></p>
               <% else %>

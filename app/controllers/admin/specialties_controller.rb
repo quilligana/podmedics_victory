@@ -16,6 +16,12 @@ class Admin::SpecialtiesController < InheritedResources::Base
     params.permit(:specialty =>[:name, :category_id] )
   end
 
+  protected
+
+    def collection
+      @specialties ||= end_of_association_chain.order(:name)
+    end
+
   private
 
     def set_specialty
