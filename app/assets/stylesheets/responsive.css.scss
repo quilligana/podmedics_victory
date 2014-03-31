@@ -322,6 +322,11 @@ $standard_border_radius: 6px;
   .library_count {
     display: none;
   }
+  div.inner_home_header p {
+    width: 96%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 }
 
 
@@ -635,7 +640,8 @@ $standard_border_radius: 6px;
     width: 100%;
   }
   .tab_title {
-    display: none; }
+    display: none;
+  }
 
 }
 
@@ -699,8 +705,47 @@ $standard_border_radius: 6px;
     float: left;
     margin-left: 8%;
   }
-}
 
+  .home_page_header .home_navigation {
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 40px;
+    float: left;
+    clear: both;
+  }
+  .home_page_header div.home_navigation a.nav-login {
+    float: left;
+    clear: both;
+  }
+
+  .home_page_header div.home_navigation a.nav-signup {
+    float: left;
+  }
+  div.home_page_header div.home_navigation a {
+    float: left;
+  }
+
+  .home_navigation a {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-left: 20px;
+    font-weight: 800;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    float: left;
+  }
+
+
+  div.inner_home_header {
+    padding-top: 40px;
+  }
+  div.inner_home_header h1 {
+
+    font-size: 22px;
+  }
+}
 
 @media screen and (max-width: 600px) {
 
@@ -719,6 +764,8 @@ $standard_border_radius: 6px;
     display: none;
 
   }
+
+
 
   .sub_heading_dashboard_info p {
     float: left;
@@ -756,32 +803,6 @@ $standard_border_radius: 6px;
     margin-right: 10px;
   }
 
-  .home_page_header .home_navigation {
-    width: auto;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 40px;
-    float: left;
-    clear: both;
-  }
-  .home_navigation a {
-    color: #FFF;
-    text-transform: uppercase;
-    font-size: 13px;
-    margin-left: 20px;
-    font-weight: 800;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    float: left;
-  }
-  div.inner_home_header {
-    width: auto;
-    clear: both;
-    margin-left: 40px;
-    margin-right: 40px;
-    padding-top: 40px;
-    max-width: 940px;
-  }
   a.badge .badge_speciality {
     display: none;
   }
@@ -819,10 +840,7 @@ $standard_border_radius: 6px;
   a.library_button h2 {
     font-size: 20px;
   }
-  div.inner_home_header h1 {
 
-    font-size: 22px;
-  }
   .home_section_one h2 {
     font-size: 22px;
   }
@@ -1056,10 +1074,6 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 390px) {
 
-  div.inner_home_header {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
   a.home_menu_link {
     margin-top: 0px;
     margin-right: 0px;
@@ -1068,16 +1082,26 @@ $standard_border_radius: 6px;
   div.inner_home_header {
     padding-top: 50px;
   }
-
+  .library_tab p {
+   margin-left: 0px;
+  }
   .home_page_header a.podmedics_home_icon {
     margin-top: 25px;
     margin-left: 25px;
   }
-  div.inner_home_header h1 {
-    font-size: 28px;
+  .home_page_header .home_navigation {
+    width: auto;
+    margin-right: 0px;
+    margin-left: 7px;
+    margin-top: 40px;
+    float: left;
+    clear: both;
+  }
+  .library_tab p:first-child {
+    text-indent: 0px;
   }
   div.inner_home_header p {
-    font-size: 15px;
+    font-size: 13px;
     line-height: 24px;
   }
 
