@@ -1254,9 +1254,15 @@ div.k-chart {
   border-bottom-style: solid;
   border-bottom-color: #E8E8E8;
   font-weight: 800;
-  padding: 40px;
-  line-height: 38px; }
-
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  line-height: 38px;
+}
+.lectures_question_title p {
+  margin-bottom: 20px;
+}
 .lecture_questions_left_column {
   float: left;
   height: auto;
@@ -1267,15 +1273,15 @@ div.k-chart {
   height: auto;
   width: 30%; }
 
-a.default_lecture_question, .lecture_question_blocks input {
+a.default_lecture_question, .lecture_question_blocks input, .default_lecture_question {
   font-size: 18px;
   color: #666;
   font-weight: 700;
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-left: 3%;
-  padding-right: 5%;
+  padding-left: 4%;
+  padding-right: 0%;
   padding-top: 38px;
   padding-bottom: 28px;
   border-radius: 6px;
@@ -1295,6 +1301,24 @@ a.default_lecture_question:last-child {
   clear: both;
   height: 640px; }
 
+.questions_final_results strong {
+  margin-top: 50px;
+  float: left;
+  line-height: 24px;
+  font-size: 20px;
+  width: 100%;
+
+}
+.questions_final_results p {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #979797;
+  float: left;
+  width: 100%;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  line-height: 23px;
+}
 .lecture_questions_list_left_column {
   float: left;
   width: auto;
@@ -1444,16 +1468,46 @@ a.default_lecture_question:last-child {
   line-height: 30px;
   font-size: 14px;
   padding-right: 40px;
-  display: none; }
+}
 
 .default_lecture_question.correct_lecture_answer {
   background-color: #94EB94;
-  color: #fff; }
+  color: #fff;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 35px;
+  padding-bottom: 25px;
+  margin-bottom: 0px;
+  cursor: default;
+}
+.questions_result_sub_title{
+  width: 100%;
+  float: left;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  line-height: 30px;
+  color: $podmedics_red;
+  font-weight: 400;
+  text-transform: uppercase;
 
+}
 .default_lecture_question.incorrect_lecture_answer {
   background-color: #F94051;
-  color: #fff; }
+  color: #fff;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 35px;
+  padding-bottom: 25px;
+  cursor: default;
 
+}
+.default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
+  background-position: right -31px;
+}
+.default_lecture_question.correct_lecture_answer p.lecture_question_status_icon {
+  background-position: right -1px;
+}
 .default_lecture_question.test_incorrect_answer .lecture_question_status_icon {
   background-position: right -31px; }
 
@@ -1471,7 +1525,9 @@ a.default_lecture_question:last-child {
 .correct_lecture_answer_info {
   display: none;
   float: left;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 15px;
+}
 
 a.red_button.medium.next_question_button {
   background-image: image-url('button_icons.png');
@@ -1610,15 +1666,17 @@ a.notes_saved_button p {
   border-right-style: solid;
   border-right-color: #EFEFEF;
   padding-bottom: 20px;
+  float: left;
 }
 div.lecture_question_blocks div h1 {
   padding-top: 40px;
   font-size: 22px;
   padding-bottom: 10px;
 }
+
 .lecture_question_blocks {
   clear: both;
-  min-height: 405px;
+  min-height: 530px;
   height: auto;
 }
 .questions_result_title {
@@ -1626,7 +1684,9 @@ div.lecture_question_blocks div h1 {
   clear: both;
 }
 
-
+.questions_result_sub_title.correct_question_sub_title {
+  color: #6D996D;
+}
 
 
 

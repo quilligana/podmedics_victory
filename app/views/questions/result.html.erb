@@ -5,9 +5,11 @@
         <div class="lecture_question_blocks">
           <div class="inner_page_padding">
             <div class="questions_result_title">
-              <strong>Congratulations! You have completed all the questions.</strong>
-              <p>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</p>
-              <p><%= link_to "Back to Video", video_path(@video), :class => "red_button medium" %></p>
+              <div class="questions_final_results">
+                <strong>Congratulations! You have completed all the questions.</strong>
+                <p>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</p>
+                <%= link_to "Back to Video", video_path(@video), :class => "red_button medium" %>
+              </div>
             </div>
           </div>
         </div>
