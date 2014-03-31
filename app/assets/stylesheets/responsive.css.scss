@@ -542,7 +542,8 @@ $standard_border_radius: 6px;
     width: 94%; }
 
   .inner.profile_page_inner {
-    width: 94%; }
+    width: 94%;
+  }
 
   .social_signup_button_wrapper p {
     float: left;
@@ -551,7 +552,8 @@ $standard_border_radius: 6px;
     text-align: left;
     padding-right: 0px;
     padding-left: 0px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+  }
 
   .social_option_final_line {
 
@@ -571,12 +573,14 @@ $standard_border_radius: 6px;
     background-color: #FFF;
   }
   .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .twitter_social_button {
-    width: 155px; }
+    width: 155px;
+  }
 
   .social_signup_wrapper {
     float: left;
     width: 100%;
-    padding: 25px 0px; }
+    padding: 25px 0px;
+  }
 
   .inner.login_page_inner .login_ignup_form_wrapper {
     float: none;
@@ -586,13 +590,16 @@ $standard_border_radius: 6px;
     margin-right: auto;
     padding-top: 30px;
     padding-bottom: 30px;
-    clear: both; }
+    clear: both;
+  }
 
   .left_column_forms h2 {
-    margin-left: 0px; }
+    margin-left: 0px;
+  }
 
   .social_signup_wrapper h2 {
-    margin-left: 30px; }
+    margin-left: 30px;
+  }
 
   .social_option_final_line {
     float: left;
@@ -603,7 +610,8 @@ $standard_border_radius: 6px;
   }
   .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper {
     padding-left: 0px;
-    width: 235px; }
+    width: 235px;
+  }
 
   .inner.signup_page_inner .login_ignup_form_wrapper {
     float: left;
@@ -612,7 +620,8 @@ $standard_border_radius: 6px;
     margin-left: 6%;
     margin-right: 6%;
     padding-top: 30px;
-    padding-bottom: 30px; }
+    padding-bottom: 30px;
+  }
 
   .billing_section {
     float: left;
@@ -623,10 +632,12 @@ $standard_border_radius: 6px;
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: $grey_border;
-    padding-top: 30px; }
+    padding-top: 30px;
+  }
 
   .inner.signup_page_inner {
-    width: 94%; }
+    width: 94%;
+  }
 
 
   .inline_footer_wrapper.login_page_footer {
@@ -651,11 +662,13 @@ $standard_border_radius: 6px;
   .questions_answers_question .questions_answers_asked_date {
     padding-left: 0px;
     float: left;
-    clear: both; }
+    clear: both;
+  }
 
   .questions_answers_question .inner_page_padding {
     padding-right: 15px;
-    padding-left: 35px; }
+    padding-left: 35px;
+  }
 
   .lecture_list_item .lecture_icons_wrapper {
     float: left;
@@ -700,12 +713,12 @@ $standard_border_radius: 6px;
     float: left;
     width: 100%;
   }
-  .dashboard_badges_inner_wrapper {
-    width: 92%;
-    float: left;
-    margin-left: 8%;
-  }
 
+  .dashboard_badges_inner_wrapper {
+    width: 89%;
+    float: left;
+    margin-left: 11%;
+  }
   .home_page_header .home_navigation {
     width: auto;
     margin-right: 20px;
@@ -862,6 +875,35 @@ $standard_border_radius: 6px;
   .oxford_uni_text h3 {
     font-size: 16px;
   }
+  .questions_answers_main_question .main_question_header h2 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .questions_answers_main_question .main_question_header p {
+    font-size: 12px;
+  }
+
+  .questions_answers_list .questions_answers_question h2 a {
+    font-size: 16px;
+    line-height: 28px;
+    width: 94%;
+  }
+  .questions_answers_question .questions_answers_asked_date {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .no_questions_reply_wrapper {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .main_question_user_avatar {
+    margin-top: 40px;
+  }
+  .dashboard_badges_inner_wrapper {
+    width: 89%;
+    float: left;
+    margin-left: 11%;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -915,6 +957,11 @@ $standard_border_radius: 6px;
     padding-left: 14px;
     padding-right: 14px;
     width: 75px;
+  }
+  .comments_textarea {
+    width: 90%;
+    padding-right: 5%;
+    padding-left: 5%;
   }
 }
 
