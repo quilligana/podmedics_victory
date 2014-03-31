@@ -40,99 +40,25 @@
           </form>
         </div>
 
-        <div class="main_nav_wrapper speciality">
-          <a href="javascript:;" class="medicine_speciality_link">Medicine</a>
-          <a href="javascript:;" class="surgery_speciality_link">Surgery</a>
-          <a href="javascript:;" class="clinical_speciality_link">Clinical Specialties</a>
-          <a href="javascript:;" class="clinical_sciences_speciality_link">Clinical Sciences</a>
+        <div class="main_nav_wrapper category">
+          <% @categories.each do |category| %>
+            <a href="javascript:;" class="category_link" data-category="<%= to_underscored(category.name) %>"><%= category.name %></a>
+          <% end %>
         </div>
       </div>
     </div>
 
-    <div class="main_nav_wrapper medicine_speciality">
-      <div class="main_nav_inner_lectures_title_wrapper">
-
-        <div class="main_nav_inner_lectures_title">Medicine</div>
-        <div class="speciality_nav_back_button">Back</div>
+    <% @categories.each do |category| %>
+      <div class="main_nav_wrapper speciality <%= to_underscored(category.name) %>_specialty">
+        <div class="main_nav_inner_lectures_title_wrapper">
+          <div class="main_nav_inner_lectures_title"><%= category.name %></div>
+          <div class="speciality_nav_back_button">Back</div>
+        </div>
+        <% category.specialties.each do |specialty| %>
+          <%= link_to specialty.name, specialty_path(specialty) %>
+        <% end %>
       </div>
-      <a href="#">Medicine</a>
-      <a href="#">Medicine</a>
-      <a href="#">Medicine</a>
-
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-    </div>
-
-    <div class="main_nav_wrapper surgery_speciality">
-      <div class="main_nav_inner_lectures_title_wrapper">
-
-        <div class="main_nav_inner_lectures_title">Surgery</div>
-        <div class="speciality_nav_back_button">Back</div>
-      </div>
-
-      <a href="#">Surgery</a>
-      <a href="#">Surgery</a>
-      <a href="#">Surgery</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-    </div>
-
-    <div class="main_nav_wrapper clinical_speciality_list">
-      <div class="main_nav_inner_lectures_title_wrapper">
-
-        <div class="main_nav_inner_lectures_title">Clinical Specialties</div>
-        <div class="speciality_nav_back_button">Back</div>
-      </div>
-
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-    </div>
-
-    <div class="main_nav_wrapper clinical_sciences_speciality">
-      <div class="main_nav_inner_lectures_title_wrapper">
-
-        <div class="main_nav_inner_lectures_title">Clinical Sciences</div>
-        <div class="speciality_nav_back_button">Back</div>
-      </div>
-
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-      <a href="#">Medicine</a>
-      <a href="#">Surgery</a>
-      <a href="#">Clinical Specialties</a>
-      <a href="#">Clinical Sciences</a>
-    </div>
+    <% end %>
   </div>
 </div>
 <div class="navigation_outer_overlay"></div>
-
-
-
-
-
-

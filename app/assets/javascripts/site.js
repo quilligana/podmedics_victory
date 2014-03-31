@@ -52,8 +52,8 @@ ready = function() {
 
   // Navigation inner
   $(".nav-lectures").click(function(){
-  $("#main_navigation").removeClass('fadeInRight animated').hide();
-  $(".main_search_wrapper").addClass('animated fadeInRight').show();
+    $("#main_navigation").removeClass('fadeInRight animated').hide();
+    $(".main_search_wrapper").addClass('animated fadeInRight').show();
   });
 
   $(".main_nav_inner_lectures_back_link").click(function(){
@@ -62,29 +62,16 @@ ready = function() {
   });
 
   $(".speciality_nav_back_button").click(function(){
-    $(".main_nav_wrapper.medicine_speciality, .main_nav_wrapper.surgery_speciality, .main_nav_wrapper.clinical_speciality_list, .main_nav_wrapper.clinical_sciences_speciality").removeClass('animated fadeInRight').hide();
+    $('.main_nav_wrapper.speciality').removeClass('animated fadeInRight').hide();
     $(".main_search_wrapper").removeClass('fadeInRight animated fadeInLeft').addClass('animated fadeInLeft').show();
   });
 
-  $(".main_nav_wrapper.speciality a.medicine_speciality_link").click(function(){
+  $(".main_nav_wrapper.category a.category_link").on('click', function(){
     $(".main_search_wrapper").removeClass('animated fadeInRight').hide();
-    $(".main_nav_wrapper.medicine_speciality").addClass('animated fadeInRight').show();
-  });
-
-  $(".main_nav_wrapper.speciality a.surgery_speciality_link").click(function(){
-    $(".main_search_wrapper").removeClass('animated fadeInRight').hide();
-    $(".main_nav_wrapper.surgery_speciality").addClass('animated fadeInRight').show();
-  });
-
-  $(".main_nav_wrapper.speciality a.clinical_speciality_link").click(function(){
-    $(".main_search_wrapper").removeClass('animated fadeInRight').hide();
-    $(".main_nav_wrapper.clinical_speciality_list").addClass('animated fadeInRight').show();
-  });
-
-  $(".main_nav_wrapper.speciality a.clinical_sciences_speciality_link").click(function(){
-    $(".main_search_wrapper").removeClass('animated fadeInRight').hide();
-    $(".main_nav_wrapper.clinical_sciences_speciality").addClass('animated fadeInRight').show();
-  });
+    var category = $(this).data('category');
+    var target = ".main_nav_wrapper." + category + "_specialty"
+    $(target).addClass('animated fadeInRight').show();
+  })
 
   // Billing options radio buttons
   $(".billing_options label, .iradio_minimal-red").click(function(){

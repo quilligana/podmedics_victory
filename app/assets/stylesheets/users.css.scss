@@ -1145,7 +1145,7 @@ div.k-chart {
 .right_column_search_field .navigation_search_field:-ms-input-placeholder {
   color: #FFF; }
 
-.main_nav_wrapper.medicine_speciality, .main_nav_wrapper.surgery_speciality, .main_nav_wrapper.clinical_speciality_list, .main_nav_wrapper.clinical_sciences_speciality {
+.main_nav_wrapper.speciality {
   display: none;
   margin-top: 0px;
   position: absolute;
@@ -1153,12 +1153,6 @@ div.k-chart {
 
 .main_nav_inner_lectures_title_wrapper {
   border-bottom: solid 1px #961E2F; }
-
-
-
-
-
-
 
 /* Members Navigation */
 .header_outer .header_navigation a.user_dropdown_link {

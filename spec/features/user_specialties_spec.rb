@@ -7,7 +7,9 @@ feature 'User Specialties' do
     video = create(:video, specialty: specialty)
     sign_in(create(:user))
     visit video_path(video)
-    click_link specialty.name
+    within '.video_breadcrumb' do
+      click_link specialty.name
+    end
 
     expect(page).to have_content specialty.name
 

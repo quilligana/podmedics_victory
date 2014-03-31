@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authorise
+  before_action :get_content
 
   delegate :allow?, to: :current_permission
   helper_method :allow?
@@ -21,5 +22,11 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
     helper_method :current_user
+
+    def get_content
+      if current_user
+        @categories = Category.order(:id).includes(:specialties)
+      end
+    end
 
 end

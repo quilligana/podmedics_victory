@@ -13,4 +13,8 @@ module ApplicationHelper
     @current_user.points
   end
 
+  def to_underscored(string)
+    string.downcase.tr(" ", "_")
+  end
+
 end
