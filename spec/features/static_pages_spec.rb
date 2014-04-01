@@ -103,5 +103,16 @@ feature 'Static Pages' do
     expect(page).to have_content 'Contact Us'
   end
 
+  scenario 'Accessing the support page' do
+    sign_in(create(:user))
+    within '#main_navigation' do
+      click_link 'Support'
+    end
+    within 'h1' do
+      expect(page).to have_content 'Support'
+    end
+
+  end
+
 end
 

@@ -24,7 +24,7 @@
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <%= link_to "Courses", courses_path, class: 'nav-courses' %>
       <%= link_to "Your Profile", user_path(current_user), class: 'nav-profile' %>
-      <a href="#" class="nav-support">Support</a>
+      <%= link_to "Support", support_path, class: 'nav-support' %>
       <%= link_to "Logout", logout_path, class: 'nav-logout' %>
     </div>
     <div class="main_search_wrapper">
