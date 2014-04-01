@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
 
-  belongs_to :video
+  belongs_to :video, counter_cache: true
 
   validates :stem, :presence => true
   validates :answer_1, :presence => true

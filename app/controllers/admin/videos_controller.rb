@@ -24,7 +24,7 @@ class Admin::VideosController < InheritedResources::Base
   protected
 
     def collection
-      @videos ||= end_of_association_chain.order(:title)
+      @videos ||= end_of_association_chain.includes(:specialty).order(:title)
     end
 
   private

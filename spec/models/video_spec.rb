@@ -18,5 +18,12 @@ describe Video do
       expect(video.specialty_name).to eq 'Cardiology'
     end
   end
+
+  it "has a counter cache" do
+    video = create(:video)
+    expect {
+      create(:question, video: video)
+    }.to change { Video.last.questions_count}.by(1)
+  end
   
 end
