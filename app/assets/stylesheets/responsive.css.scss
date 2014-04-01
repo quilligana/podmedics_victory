@@ -496,6 +496,15 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 720px) {
+  .courses_left_column {
+   display: none;
+  }
+  .courses_right_column {
+    width: 88%;
+    padding-left: 6%;
+    padding-right: 6%;
+    border-left: none;
+  }
 
   .inner_home_header_action_buttons {
     width: 100%;
@@ -953,7 +962,12 @@ $standard_border_radius: 6px;
     padding-top: 30px;
     padding-bottom: 30px;
   }
-
+  .courses_right_column .course_title {
+    font-size: 18px;
+  }
+  .courses_right_column div.course_info {
+    font-size: 14px;
+  }
   .main_question_user_avatar {
     margin-top: 40px;
   }
