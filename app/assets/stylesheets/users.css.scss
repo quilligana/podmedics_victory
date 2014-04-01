@@ -1670,7 +1670,7 @@ div.lecture_question_blocks div h1 {
 
 .lecture_question_blocks {
   clear: both;
-  min-height: 530px;
+  min-height: 472px;
   height: auto;
 }
 .questions_result_title {
@@ -1682,6 +1682,16 @@ div.lecture_question_blocks div h1 {
   color: #6D996D;
 }
 
+
+.questions_resutls_chart {
+  width: 100%;
+  margin-top: 40px;
+  float: left;
+}
+.questions_resutls_chart div.k-chart {
+  width: 100%;
+  float: left;
+}
 
 
 
