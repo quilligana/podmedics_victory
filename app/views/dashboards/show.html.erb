@@ -21,7 +21,7 @@
           <div class="inner_page_padding">
             <div class="tab_title">New Lectures</div>
             <div class="lecture_list">
-              <%= render partial: 'video_list', locals: {videos: @videos} %>
+              <%= render partial: 'video_list', locals: {videos: @recent_videos} %>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
         <div id="tabs-2" class="tab_box">
           <div class="inner_page_padding">
             <p class="recommended_tab_sub_title">The below lectures are recommended to you because you have either not watched it, it's part watched or you did not reach a pass grade of atleast 78%</p>
-            <%= render partial: 'video_list', locals: {videos: @videos} %>
+            <%= render partial: 'video_list', locals: {videos: @flagged_videos} %>
           </div>
         </div>
 

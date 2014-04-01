@@ -14,6 +14,10 @@ class Video < ActiveRecord::Base
 
   delegate :name, to: :specialty, prefix: true
 
+  def self.recent
+    order(created_at: :desc)
+  end
+
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
       video = find_by_id(row["id"]) || new
