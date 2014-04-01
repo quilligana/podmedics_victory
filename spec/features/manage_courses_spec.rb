@@ -17,4 +17,18 @@ feature 'Manage courses' do
     end
   end
 
+  scenario 'Editing a course' do
+    course = create(:course)
+    sign_in(create(:admin_user))
+    visit admin_courses_path
+    within '.course' do
+      click_link 'Edit'
+    end
+    fill_in 'Title', with: 'Another course'
+    click_button 'Submit'
+    within '.course' do
+      expect(page).to have_content 'Another course'
+    end
+  end
+
 end

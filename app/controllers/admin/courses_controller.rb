@@ -6,6 +6,10 @@ class Admin::CoursesController < InheritedResources::Base
     create!(notice: 'Course added') { admin_courses_path }
   end
 
+  def update
+    update!(notice: 'Course updated') { admin_courses_path }
+  end
+
   private
 
     def permitted_params
