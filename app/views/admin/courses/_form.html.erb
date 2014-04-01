@@ -1,0 +1,36 @@
+<%= simple_form_for [:admin, @course] do |f| %>
+  <%= f.error_notification %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :title %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :price %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :date, as: :string %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :event_link %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    </div>
+    
+  </div>
+<% end %>
