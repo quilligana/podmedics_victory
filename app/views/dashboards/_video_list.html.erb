@@ -7,9 +7,10 @@
     </div>
     <div class="lecture_icons_wrapper">
       <div class="lecture_status_inline_title">Watched</div>
-
       <a href="#" class="lecture_icon watched"><p class="tooltip">You watched this 20 minutes ago and answered 10 of 10 questions correct</p></a>
-      <a href="#" class="lecture_icon resit"><p class="tooltip">Retake this lecture</p></a>
+      <%= link_to video, class: 'lecture_icon resit', id: 'resit_video' do %>
+        <p class="tooltip">Retake this lecture</p>
+      <% end %>
       <a href="#" class="lecture_icon top_marks"><p class="tooltip"><span>Good Job</span>You anserwed all 10 questions correctly and earned the maximum 800 points avaliable.</p></a>
     </div>
   </div>
