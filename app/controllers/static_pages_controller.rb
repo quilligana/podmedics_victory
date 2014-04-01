@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  layout 'user_application', only: [:support]
 
   def home
     redirect_to dashboard_path if current_user
@@ -19,6 +20,10 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+  end
+
+  def support
+    
   end
 
 end
