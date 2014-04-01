@@ -24,6 +24,10 @@ describe Permission do
       expect(subject.allow?('users', 'create')).to be_true
     end
 
+    it "allows access to courses" do
+      expect(subject.allow?('courses', 'index')).to be_true
+    end
+
   end
 
   describe 'as a user' do
