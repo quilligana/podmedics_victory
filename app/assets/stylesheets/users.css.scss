@@ -1249,13 +1249,15 @@ div.k-chart {
   border-bottom-color: #E8E8E8;
   font-weight: 800;
   padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-bottom: 10px;
   line-height: 38px;
+  width: 90%;
 }
 .lectures_question_title p {
   margin-bottom: 20px;
+  width: 100%;
 }
 .lecture_questions_left_column {
   float: left;
@@ -1334,9 +1336,23 @@ a.default_lecture_question:last-child {
   padding-right: 30px;
   padding-bottom: 40px;
   padding-left: 30px;
-
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #EFEFEF;
   -moz-border-radius-topright: 6px 6px;
   border-top-right-radius: 6px 6px;
+}
+p.questions_info_right_column_number span {
+  font-size: 11px;
+  line-height: 0px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 400;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  margin-left: 0px;
 }
 
 .questions_number_wrapper .questions_placement_bar {
@@ -1405,7 +1421,9 @@ a.default_lecture_question:last-child {
 .lecture_questions_outer_wrapper {
   border-right-width: 1px;
   border-right-style: solid;
-  border-right-color: #EFEFEF; }
+  border-right-color: #EFEFEF;
+  width: 100%;
+}
 
 .active_placement_bar {
   background-color: #F94051;

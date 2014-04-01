@@ -923,10 +923,9 @@ $standard_border_radius: 6px;
     font-size: 18px;
     line-height: 28px;
     padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
     padding-bottom: 30px;
   }
+
   .main_question_user_avatar {
     margin-top: 40px;
   }
@@ -942,7 +941,14 @@ $standard_border_radius: 6px;
     margin-left: 0px;
     margin-top: 20px;
   }
-
+  .lecture_question_blocks input {
+    width: 100%;
+    padding-right: 8%;
+    padding-left: 8%;
+  }
+  .lecture_questions_outer_wrapper {
+    width: 100%;
+  }
   .header_outer .header_navigation a.login_link {
     display: none; }
 
