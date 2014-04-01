@@ -7,6 +7,9 @@ ready = function() {
     mainDiv: '#tabs_container'
   });
 
+  // Rich text editing
+  $('#note_content').redactor();
+
   // Flash alert
   $(".flash_alert").delay(8000).slideUp(400);
 
