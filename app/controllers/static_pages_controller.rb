@@ -23,7 +23,6 @@ class StaticPagesController < ApplicationController
   end
 
   def support
-    
   end
 
 end
