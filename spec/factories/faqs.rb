@@ -1,8 +1,11 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
   factory :faq do
-    title "MyString"
-    content "MyText"
+    title "How to login"
+    content "Fill in your username and password and click the login button"
+
+    factory :member_faq do
+      member_only true
+    end
   end
 end

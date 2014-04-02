@@ -1,43 +1,40 @@
 <div class="inner login_page_inner">
 
-<div class="sub_heading_wrapper">
-  <h1>Log In</h1>
-</div>
+  <div class="sub_heading_wrapper">
+    <h1>Log In</h1>
+  </div>
 
-<div class="page">
-  <div class="left_column_forms">
-    <div class="social_signup_wrapper">
-      <div class="social_signup_button_wrapper">
-        <a href="/auth/twitter" class="twitter_social_button">Log In  via <strong>Twitter</strong></a>
-        <p>Or</p>
-        <a href="/auth/facebook" class="fb_social_button" id="facebook_sign_in">Log In  via <strong>Facebook</strong></a>
+  <div class="page">
+    <div class="left_column_forms">
+      <div class="social_signup_wrapper">
+        <div class="social_signup_button_wrapper">
+          <a href="/auth/twitter" class="twitter_social_button">Log In  via <strong>Twitter</strong></a>
+          <p>Or</p>
+          <a href="/auth/facebook" class="fb_social_button" id="facebook_sign_in">Log In  via <strong>Facebook</strong></a>
+        </div>
       </div>
-      <p class="social_option_final_line">Don't want to use twitter or facebook you can log in below</p>
-    </div>
-    <div class="login_ignup_form_wrapper" id="members_login_form">
-      <h2>Members Log in</h2>
-      <%= form_tag sessions_url do %>
-        <%= email_field_tag :email, nil, class: "podmedics_textfield", placeholder: 'Email' %>
-        <%= password_field_tag :password, nil, class: "podmedics_textfield", placeholder: 'Password' %>
-        <%= button_tag 'Login', class: "red_button" %>
-      <% end %>
-      <div class="password_reset_link"><a href="javascript:;" id="forgot_password_link">Forgot your password?</a></div>
-    </div>
-    <div class="login_ignup_form_wrapper" id="members_reset_password_form">
-      <h2>Password Reset</h2>
-      <input class="podmedics_textfield" type="text" placeholder="Email" />
-      <button type="submit" class="red_button">Reset Password</button>
-      <div class="password_reset_link"><a href="javascript:;" id="forgot_password_back_link">Back</a></div>
+      <div class="login_ignup_form_wrapper" id="members_login_form">
+        <h2>Members Log in</h2>
+        <%= form_tag sessions_url do %>
+          <%= email_field_tag :email, nil, class: "podmedics_textfield", placeholder: 'Email', autofocus: true %>
+          <%= password_field_tag :password, nil, class: "podmedics_textfield", placeholder: 'Password' %>
+          <%= button_tag 'Login', class: "red_button" %>
+        <% end %>
+        <div class="password_reset_link"><a href="javascript:;" id="forgot_password_link">Forgot your password?</a></div>
+      </div>
+      <div class="login_ignup_form_wrapper" id="members_reset_password_form">
+        <h2>Password Reset</h2>
+        <input class="podmedics_textfield" type="text" placeholder="Email" />
+        <button type="submit" class="red_button">Reset Password</button>
+        <div class="password_reset_link"><a href="javascript:;" id="forgot_password_back_link">Back</a></div>
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 
-
-  <%= content_for :footer do %>
+<%= content_for :footer do %>
   <div class="inline_footer_wrapper login_page_footer">
     <%= render 'footer' %>
-    </div>
-  <% end %>
-
+  </div>
+<% end %>

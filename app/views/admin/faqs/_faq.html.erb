@@ -1,6 +1,7 @@
 <tr class="faq">
   <td><%= faq.id %></td>
   <td><%= faq.title %></td>
+  <td><%= faq.member_only %></td>
   <td>
     <%= link_to "Edit", edit_admin_faq_path(faq) %>
     <%= link_to "Show", admin_faq_path(faq) %>

@@ -105,12 +105,14 @@ feature 'Static Pages' do
 
   scenario 'Accessing the support page' do
     sign_in(create(:user))
+    member_faq = create(:member_faq)
     within '#main_navigation' do
       click_link 'Support'
     end
     within 'h1' do
       expect(page).to have_content 'Support'
     end
+    expect(page).to have_content member_faq.title
 
   end
 

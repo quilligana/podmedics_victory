@@ -1,6 +1,6 @@
 <%= simple_form_for [:admin, @faq] do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
+  <%= f.input :member_only %>
   <%= f.submit 'Submit' %>
-  
 <% end %>

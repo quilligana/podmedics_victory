@@ -23,7 +23,7 @@ class StaticPagesController < ApplicationController
   end
 
   def support
-    @faqs = Faq.all
+    @faqs = Faq.for_members
   end
 
 end
