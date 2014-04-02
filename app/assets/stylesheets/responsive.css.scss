@@ -1314,7 +1314,6 @@ $standard_border_radius: 6px;
   }
   .lectures_question_title {
     font-size: 16px;
-    padding: 0px;
     line-height: 24px;
   }
   a.default_lecture_question, .lecture_question_blocks input {
@@ -1329,6 +1328,9 @@ $standard_border_radius: 6px;
   }
   .header_outer a.podmedics_header_icon {
     display: none;
+  }
+  a.default_lecture_question, .lecture_question_blocks input, .default_lecture_question {
+    padding-top: 28px;
   }
 }
 
