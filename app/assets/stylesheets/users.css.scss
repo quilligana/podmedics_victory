@@ -760,7 +760,9 @@ div.k-chart {
 .no_questions_reply_wrapper a:hover {
   color:#333;
 }
-
+.questions_answers_main_question.video_page_comments_wrapper {
+  display: block;
+}
 
 
 
@@ -2340,7 +2342,9 @@ a.video_page_authour_twitter_icon {
   line-height: 400px;
   color: #A8A8A8;
 }
-
+.inner.video_page div div.speciality_left_column .lectures_speciality_outer_wrapper {
+  min-height: inherit;
+}
 
 /* Ask Question */
 

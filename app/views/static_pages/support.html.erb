@@ -1,1 +1,22 @@
-<h1>Support</h1>
+<div class="inner">
+  <div class="sub_heading_wrapper">
+    <h1>Support</h1>
+  </div>
+
+  <div class="page">
+    <div class="inner_page_padding">
+      <p class="lecture_questions_sub_title"></p>
+
+      <% @faqs.each do |faq| %>
+        <a href="javascript:;" class="library_button">
+          <h2><%= faq.title %></h2>
+          <p class="inline_arrow_icon"></p>
+        </a>
+        <div class="library_tab">
+          <p class="faq_inner"><%= faq.content %></p>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
