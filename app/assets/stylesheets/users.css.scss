@@ -1788,10 +1788,10 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 27px;
   padding-bottom: 20px;
   border-radius: 6px;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .lecture_list_item:last-child {
@@ -1809,30 +1809,46 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   margin-top: -20px;
   text-align: right;
   font-size: 12px;
-  color: #a4a4a4; }
+  color: #a4a4a4;
+}
 
 .tab_box {
-  width: 100%; }
+  width: 100%;
+}
 
 .lecture_list {
   float: left;
-  width: 100%; }
+  width: 100%;
+}
 
 .lecture_list_item .lecture_list_left_column a {
   font-size: 18px;
   color: #666;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 .lecture_list_item .lecture_list_left_column .lecture_date_author {
   font-size: 13px;
   font-weight: 400;
   color: #939393;
-  margin-top: 10px; }
+  margin-top: 7px;
+}
 
+.lecture_list .lecture_specialties_link a, .lecture_list_left_column .lecture_specialties_link a {
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 7px;
+  color: #939393;
+  float: left;
+}
 .lecture_list_item .lecture_icons_wrapper {
   float: right;
   margin-right: 25px;
   max-width: 225px;
+  float: right;
+  margin-right: 30px;
+  max-width: 225px;
+  margin-top: 11px;
 }
 
 .lecture_list_item .lecture_icons_wrapper .lecture_icon {
@@ -1842,26 +1858,32 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   float: left;
   height: 35px;
   width: 35px;
-  margin-left: 10px; }
+  margin-left: 10px;
+}
 
 .lecture_list_item .lecture_icons_wrapper .lecture_icon:hover {
-  -webkit-filter: grayscale(100%); }
+  -webkit-filter: grayscale(100%);
+}
 
 .lecture_list_item .lecture_icons_wrapper .lecture_icon:active {
   -webkit-filter: grayscale(100%);
   margin-top: 1px; }
 
 .lecture_icons_wrapper .lecture_icon.part_watched {
-  background-position: 0 -144px; }
+  background-position: 0 -144px;
+}
 
 .lecture_icons_wrapper .lecture_icon.watched {
-  background-position: 0 -36px; }
+  background-position: 0 -36px;
+}
 
 .lecture_icons_wrapper .lecture_icon.not_watched {
-  background-position: 0 -180px; }
+  background-position: 0 -180px;
+}
 
 .lecture_icons_wrapper .lecture_icon.recommended_resit {
-  background-position: 0 -72px; }
+  background-position: 0 -72px;
+}
 
 .lecture_status_inline_title {
   font-size: 14px;
@@ -1870,10 +1892,12 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   float: left;
   width: auto;
   padding-top: 12px;
-  padding-right: 3px; }
+  padding-right: 3px;
+}
 
 .lecture_icons_wrapper .lecture_icon.top_marks {
-  background-position: 0 -108px; }
+  background-position: 0 -108px;
+}
 
 .lecture_icon .tooltip {
   background-image: image-url('lectures_tooltips.png');
@@ -1891,35 +1915,40 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   line-height: 20px;
   display: none;
   margin-right: 3px;
-  padding: 27px 20px 20px; }
+  padding: 27px 20px 20px;
+}
 
 .lecture_icons_wrapper .lecture_icon.watched .tooltip {
   width: 294px;
   height: 43px;
   background-position: -28px -218px;
   z-index: 50;
-  margin-right: -11px; }
+  margin-right: -11px;
+}
 
 .lecture_icons_wrapper .lecture_icon.recommended_resit .tooltip {
   width: 313px;
   height: 43px;
   background-position: -4px -122px;
   z-index: 50;
-  margin-right: -6px; }
+  margin-right: -6px;
+}
 
 .lecture_icons_wrapper .lecture_icon.resit .tooltip {
   width: 145px;
   height: 43px;
   background-position: -171px -312px;
   z-index: 50;
-  margin-right: -5px; }
+  margin-right: -5px;
+}
 
 .lecture_icons_wrapper .lecture_icon.top_marks .tooltip {
   width: 305px;
   height: 73px;
   background-position: -14px 2px;
   z-index: 50;
-  margin-right: -9px; }
+  margin-right: -9px;
+}
 
 .tooltip span {
   font-size: 16px;
@@ -1928,7 +1957,8 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   float: left;
   width: 100%;
   color: #777;
-  padding-top: 7px; }
+  padding-top: 7px;
+}
 
 .recommended_tab_sub_title {
   font-size: 11px;
@@ -1936,7 +1966,8 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   color: #969696;
   float: left;
   margin-bottom: 20px;
-  width: 100%; }
+  width: 100%;
+}
 
 
 

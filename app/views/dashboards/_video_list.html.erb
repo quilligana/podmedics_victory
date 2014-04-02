@@ -3,7 +3,7 @@
     <div class="lecture_list_left_column">
       <%= link_to video.title, video_path(video) %>
       <p class="lecture_date_author"><%= video.duration %> minutes with <%= video.speaker_name %></p>
-      <p><%= link_to video.specialty_name, specialty_path(video.specialty) %></p>
+      <p class="lecture_specialties_link"><%= link_to video.specialty_name, specialty_path(video.specialty) %></p>
     </div>
     <div class="lecture_icons_wrapper">
       <div class="lecture_status_inline_title">Watched</div>
