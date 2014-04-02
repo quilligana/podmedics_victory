@@ -10,8 +10,8 @@ class QuestionsController < ApplicationController
   def specialty_index
     specialty = Specialty.friendly.find(params[:id])
     video_ids = specialty.video_ids
-    @question_ids = Question.where("video_id IN (?)", video_ids).pluck(:id)
-    # initiate_questions
+    @question_ids = Question.where("video_id IN (?)", video_ids).limit(30).order("RANDOM()").pluck(:id)
+    initiate_questions
   end
 
   def show
@@ -36,10 +36,6 @@ class QuestionsController < ApplicationController
     @total_questions = @q_ids.length
     @number_correct = session[:correct_answers]
     reset_session
-  end
-
-  def specialty_result
-    
   end
 
   private

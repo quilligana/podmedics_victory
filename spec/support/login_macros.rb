@@ -11,4 +11,10 @@ module LoginMacros
     session[:user_id] = user.id
   end
 
+  def log_out(user)
+    within '.inner_menu_wrapper' do
+      click_link 'Logout'
+    end
+  end
+
 end

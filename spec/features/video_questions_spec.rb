@@ -88,13 +88,11 @@ feature 'Video Questions' do
     click_button 'First Answer'
 
     click_link 'Result'
-
-    within '.questions_result_title' do
+    within '.video_complete_modal' do
       click_link 'Back to Video'
     end
 
     expect(page).to have_content video_2.title 
-
   end
 
   before do
@@ -119,11 +117,6 @@ feature 'Video Questions' do
     end.to change { user_question_object }.from(false).to(true)
   end
 
-  before do
-    @video_4 = create(:video, specialty: @video_specialty)
-    5.times { FactoryGirl.create(:question, video: @video_4) }
-  end
-
   scenario 'Update the users points for correct answers' do
     visit video_questions_url(video_id: @video_3.id)
 
@@ -135,13 +128,47 @@ feature 'Video Questions' do
 
   scenario 'Dont update the users points for previously answered questions' do
     visit video_questions_url(video_id: @video_3.id)
+    expect(@user.points).to eq(0)
+
     click_button 'Second Answer'
-    click_link 'Next Question'
+    @user.reload
+    expect(@user.points).to eq(5)
+
+    visit video_questions_url(video_id: @video_3.id)
+    click_button 'Second Answer'
+    @user.reload
+    
+    expect(@user.points).to eq(5)
+  end
+
+  scenario 'Showing correct stats' do
+    user_2 = create(:user)
+    user_3 = create(:user)
+
+    visit video_questions_url(video_id: @video_3.id)
+    4.times do
+      click_button "Second Answer"
+      click_link "Next Question"
+    end
+    click_button "First Answer"
+
+    log_out(@user)
+    sign_in(user_2)
+    visit video_questions_url(video_id: @video_3.id)
+    4.times do
+      click_button "Second Answer"
+      click_link "Next Question"
+    end
+    click_button "Second Answer"
+
+    log_out(user_2)
+    sign_in(user_3)
     visit video_questions_url(video_id: @video_3.id)
 
-    expect do
-      click_button 'Second Answer'
-    end.not_to change { @user.points }
+    within '.lecture_questions_right_column' do
+      expect(page).to have_content "33%Of users who took this test scrored on average 5/5 questions correct."
+      expect(page).to have_content "33%Of users who took this test scrored on average 4/5 questions correct."
+    end
   end
 
   # Helpers

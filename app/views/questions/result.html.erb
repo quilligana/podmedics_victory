@@ -8,7 +8,11 @@
               <div class="questions_final_results">
                 <strong>Congratulations! You have completed all the questions.</strong>
                 <p>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</p>
-                <%= link_to "Back to Video", video_path(@video), :class => "red_button medium" %>
+                <% if @total_questions < 30 %>
+                  <%= link_to "Back to Video", video_path(@video), :class => "red_button" %>
+                <% else %>
+                  <%= link_to "Back to Specialty", specialty_path(@video.specialty), :class => "red_button" %>
+                <% end %>
               </div>
             </div>
 
@@ -41,7 +45,11 @@
   <div class="video_complete_modal">
     <div class="questions_complete_icon">Questions Complete</div>
     <p>You scored <%= pluralize(@number_correct, 'question') %>  out of <%= pluralize(@total_questions, 'question') %> Correct</p>
-    <%= link_to "Back to Video", video_path(@video), :class => "red_button" %>
+    <% if @q_ids.length < NUMBER_OF_SPECIALTY_QUESTIONS %>
+      <%= link_to "Back to Video", video_path(@video), :class => "red_button" %>
+    <% else %>
+      <%= link_to "Back to Specialty", specialty_path(@video.specialty), :class => "red_button" %>
+    <% end %>
   </div>
 
   <div class="next_tutorial_modal_wrapper">
