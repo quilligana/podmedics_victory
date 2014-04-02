@@ -14,6 +14,23 @@ ready = function() {
   $( "#questions_complete_modal_click" ).click();
 
 
+    // Comment reply
+
+    (function($){
+        $.fn.setCursorToTextEnd = function() {
+            $initialVal = this.val();
+            this.val($initialVal + ' ');
+            this.val($initialVal);
+        };
+    })(jQuery);
+
+
+  $(".comment_reply_link a").click(function(){
+      $(".comments_textarea").val('@JamiePeak ').focus().setCursorToTextEnd();
+      $(window).scrollTop($("#comment_reply_textarea").offset().top); //scroll to div with container as ID.
+  });
+
+
   // Navigation
   $("#menu_action").click(function(){
     $("body").addClass('cbp-spmenu-push-toleft');
