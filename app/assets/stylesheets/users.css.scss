@@ -708,6 +708,30 @@ div.k-chart {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
 }
+.comment_reply_link {
+  color: #FFFFFF;
+  display: block;
+  float: left;
+  width: auto;
+  padding-right: 0px;
+  padding-left: 0px;
+  font-weight: 800;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  line-height: 11px;
+  display: none;
+}
+.comment_reply_link a {
+  color: #686868;
+}
+.comment_reply_link a:hover {
+  color: #8F8F8F;
+}
+
+.comment:hover .comment_reply_link {
+  display: block;
+}
 
 .comments_textarea {
   font-size: 14px;
