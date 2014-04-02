@@ -5,4 +5,5 @@ class Faq < ActiveRecord::Base
   def self.for_members
     where(member_only: true)
   end
+
 end

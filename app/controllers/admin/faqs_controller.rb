@@ -12,8 +12,8 @@ class Admin::FaqsController < InheritedResources::Base
 
   protected
 
-  def permitted_params
-    params.permit(:faq => [:title, :content])
-  end
+    def permitted_params
+      params.permit(:faq => [:title, :content, :member_only])
+    end
 
 end
