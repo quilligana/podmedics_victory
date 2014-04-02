@@ -23,6 +23,7 @@ class StaticPagesController < ApplicationController
   end
 
   def support
+    @faqs = Faq.all
   end
 
 end
