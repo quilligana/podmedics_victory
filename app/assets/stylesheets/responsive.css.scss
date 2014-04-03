@@ -695,7 +695,17 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 650px) {
-
+  .ask_question_modal_wrapper {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  .reveal-modal.ask_question_modal_resize {
+    width: 500px;
+    margin-left: -250px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
   .questions_answers_question .questions_answers_asked_date {
     padding-left: 0px;
     float: left;
@@ -976,9 +986,27 @@ $standard_border_radius: 6px;
     float: left;
     margin-left: 11%;
   }
+
+}
+
+@media screen and (max-width: 550px) {
+
+
+.ask_question_modal_wrapper {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.reveal-modal.ask_question_modal_resize {
+  width: 400px;
+  margin-left: -200px;
+
+
+}
 }
 
 @media screen and (max-width: 450px) {
+
   .video_page_header .video_page_heading_button_set a.podmedcis_button.take_exam_button {
     margin-left: 0px;
     margin-top: 20px;
@@ -1048,6 +1076,27 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 400px) {
+  .ask_question_modal_textarea {
+    width: 92%;
+    padding-right: 4%;
+    padding-left: 4%;
+
+  }
+  a.podmedcis_button.white_button.ask_question_sub_heading_button {
+    margin-bottom: 15px;
+  }
+  .reveal-modal.ask_question_modal_resize {
+    width: 300px;
+    margin-left: -150px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
+
+  .ask_question_modal_wrapper {
+    width: 84%;
+    margin-right: 8%;
+    margin-left: 8%;
+  }
 
   .question_comments_outer .badge .badge_title {
     -moz-border-radius-topright: 5px 5px;

@@ -3,6 +3,7 @@
   <div class="sub_heading_wrapper">
     <h1><%= @specialty.name %></h1>
     <div class="sub_heading_button_set">
+      <a href="#" class="podmedcis_button white_button ask_question_sub_heading_button"  data-reveal-id="ask_question_modal">Ask a Question</a>
       <%= link_to "Take #{@specialty.name.capitalize} Exam", specialty_exam_url(@specialty.id), class: "podmedcis_button" %>
       </div>
   </div>
@@ -414,3 +415,23 @@
 
 </div>
 <!-- End inner wrapper-->
+
+
+
+<div id="ask_question_modal" class="reveal-modal ask_question_modal_resize">
+  <div class="ask_question_modal_wrapper">
+
+    <div class="ask_question_modal_title">Ask a Question</div>
+    <div class="ask_question_modal_sub_title">Need some advice, ask the community a question and get help..</div>
+
+    <div class="ask_question_modal_form">
+      <form action="#">
+        <textarea name="" cols="" rows="" class="ask_question_modal_textarea" placeholder="Write your question here..."></textarea>
+        <button class="podmedcis_button green">Post Answer</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- End ask question modal-->
