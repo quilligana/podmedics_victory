@@ -30,6 +30,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'binding_of_caller'
+  gem 'nifty-generators'
 end
 
 group :development, :test do
@@ -47,6 +48,7 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'mocha'
 end
 
 group :production do
