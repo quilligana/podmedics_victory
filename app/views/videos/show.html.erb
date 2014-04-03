@@ -158,87 +158,9 @@
 
 
                   <div class="question_comments_outer">
-
-                    <div class="comment">
-                      <div class="inner_page_padding">
-                        <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-
-                        <div class="comment_info">
-                          <h3>Jamie Peak</h3>
-                          <p>Aenean ut felis vel odio viverra pretium. Nam mollis purus sit <a href="#">Amet lacus</a> tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Nam mollis purus sit amet lacus tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Pellent lentesque eu neque dolor.</p>
-                          <p class="comment_date">About  a minute ago</p>
-
-                          <div class="comment_badge_wrapper">
-                            <a href="#" class="badge">
-                              <p class="badge_title houseofficer">HouseOfficer</p>
-                              <p class="badge_speciality small_screen_count">+ 1</p>
-                              <p class="badge_speciality">Cardiology</p>
-                            </a>
-                            <div class="comment_reply_link">
-                              <a href="javascript:;">Reply</a>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End comment -->
-
-
-
-                    <div class="comment_reply">
-                      <div class="comment">
-                        <div class="inner_page_padding">
-
-                          <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-
-                          <div class="comment_info">
-                            <h3>Jamie Peak</h3>
-                            <p>Aenean ut felis vel odio viverra pretium. Nam mollis purus sit amet lacus tempus, et iaculis <a href="#">sapien aliquam teque eu</a> neque dolor. Pellentesque dictum tellus leo, nec viverra ipsum laoreet vel.</p>
-                            <p class="comment_date">About  a minute ago</p>
-
-                            <div class="comment_badge_wrapper">
-                              <a href="#" class="badge">
-                                <p class="badge_title registrar">Registrar</p>
-                                <p class="badge_speciality small_screen_count">+ 1</p>
-                                <p class="badge_speciality">Cardiology</p>
-                              </a>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End comment reply -->
-
-
-
-                    <div class="comment">
-                      <div class="inner_page_padding">
-                        <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-                        <div class="comment_info">
-                          <h3>Jamie Peak</h3>
-                          <p>Nam mollis purus sit lacus tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Aenean ut felis vel odio viverra pretium. Nam mollis purus sit amet lacus tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Pellentesque dictum tellus leo, nec viverra ipsum laoreet vel.</p>
-                          <p class="comment_date">About  a minute ago</p>
-
-                          <div class="comment_badge_wrapper">
-                            <a href="#" class="badge">
-                              <p class="badge_title medical_director">Medical Director</p>
-                              <p class="badge_speciality small_screen_count">+ 1</p>
-                              <p class="badge_speciality">Cardiology</p>
-                            </a>
-                            <div class="comment_reply_link">
-                              <a href="javascript:;">Reply</a>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End comment -->
-
-
-
+                      
+                    <%= render partial: 'comments/comment', collection: @video.comments %>
+                    <!-- End of comments -->
 
                     <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
                       <div class="inner_page_padding">
@@ -248,10 +170,8 @@
                     </div>
                     <!-- End questions textarea -->
 
-
                   </div>
                   <!-- End comments outer -->
-
 
                 </div>
 
