@@ -23,10 +23,10 @@ PodmedicsVictory::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   # Dashboards and admin
-  resource :dashboard, only: [:show]
+  resource :dashboard, only: :show
   namespace :admin do
-    resource :dashboard, only: [:show]
-    resources :categories, only: [:index, :new, :create, :edit, :update]
+    resource :dashboard, only: :show
+    resources :categories, except: :delete 
     resources :specialties
     resources :videos do
       resources :questions
@@ -41,14 +41,12 @@ PodmedicsVictory::Application.routes.draw do
   end
 
   # Specialty/Video
-
-  resources :videos, only: [:show] do
-    resources :questions, only: [:index]
+  resources :videos, only: :show do
+    resources :questions, only: :index
   end  
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
-  resources :questions, only: [:show]
-
+  resources :questions, only: :show
   resources :specialties, only: [:show]
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
