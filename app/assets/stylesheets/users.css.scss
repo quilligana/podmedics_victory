@@ -518,7 +518,7 @@ div.k-chart {
 .ask_question_modal_textarea {
   font-size: 14px;
   color: #A9A9A9;
-  background-color: #FFF;
+  background-color: #F4F4F4;
   float: left;
   width: 96%;
   padding-top: 20px;
@@ -534,9 +534,6 @@ div.k-chart {
   border-left-style: none;
   outline: none;
   resize: none;
-  -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-  -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-  box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   border-radius: $standard_border_radius;
   font-family: 'Montserrat', sans-serif;
 }
@@ -810,7 +807,7 @@ div.k-chart {
 .comments_textarea {
   font-size: 14px;
   color: #A9A9A9;
-  background-color: #FFF;
+  background-color: #f4f4f4;
   float: left;
   width: 96%;
   padding-top: 20px;
@@ -826,15 +823,13 @@ div.k-chart {
   border-left-style: none;
   outline: none;
   resize: none;
-  -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-  -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
-  box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   border-radius: $standard_border_radius;
   font-family: 'Montserrat', sans-serif;
 }
-.comments_textarea:focus {
+.comments_textarea:focus, .ask_question_modal_textarea:focus {
 
   color: #333;
+  background-color: #EBEBEB;
 }
 
 
