@@ -5,4 +5,6 @@ class Comment < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
 
   validates :user, presence: true
+  validates :content, presence: true
+  validates :commentable, presence: true
 end
