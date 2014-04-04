@@ -472,6 +472,18 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 720px) {
+
+  .stats_chart_wrapper {
+
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #E8E8E8;
+  }
+  .stats_chart {
+    display: none;
+  }
+
   .courses_left_column {
    display: none;
   }
