@@ -46,23 +46,6 @@ $standard_border_radius: 6px;
     float: left;
     width: 370px;
   }
-  div.k-chart {
-    background-color: transparent;
-    width:750px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 320px;
-  }
-  .chart-wrapper {
-    margin-left: auto;
-    width: 760px;
-    margin-right: auto;
-  }
-  .stats_chart {
-
-    width: 880px;
-
-  }
 }
 
 
@@ -284,9 +267,7 @@ $standard_border_radius: 6px;
   .video_column iframe {
     min-height: 427px;
   }
-  .stats_chart {
-    width: 800px;
-  }
+
   .lecture_questions_right_column {
     display: none;
   }
@@ -330,9 +311,6 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 900px) {
-  .stats_chart {
-    width: 790px;
-  }
 
   a.library_button h2 {
     margin-right: 0px;
@@ -363,13 +341,6 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 800px) {
-  .stats_chart_wrapper{
-    border-top: none;
-
-  }
-  .stats_chart{
-    display: none;
-  }
 
 .home_section_one {
   width: 96%;
