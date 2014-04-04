@@ -6,7 +6,7 @@
   <div class="inner_page_padding">
     <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
     <div class="comment_info">
-      <h3><%= comment.user.name %></h3>
+      <h3 class="comment_username"><%= comment.user.name %></h3>
       <p><%= comment.content %></p>
       <p class="comment_date"><%= comment.updated_at %></p>
 
@@ -17,7 +17,7 @@
           <p class="badge_speciality">Cardiology</p>
         </a>
         <div class="comment_reply_link">
-          <a href="javascript:;">Reply</a>
+          <a href="javascript:;" id="<%= comment.id %>">Reply</a>
         </div>
       </div>
 
@@ -31,4 +31,3 @@
 </div>
 <% end %>
 <!-- End comment -->
-
