@@ -1,4 +1,3 @@
-//= require retina-1.1.0
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

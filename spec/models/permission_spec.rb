@@ -43,6 +43,7 @@ describe Permission do
 
     it "allows access to the profile page" do
       expect(subject.allow?('users', 'show')).to be_true
+      expect(subject.allow?('users', 'edit')).to be_true
     end
 
     it "allows access to the video page" do

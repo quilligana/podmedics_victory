@@ -25,9 +25,8 @@ $standard_border_radius: 6px;
 .stats_chart {
   display: block;
   float: none;
-  margin-right: auto;
-  margin-left: auto;
-  width: 1000px;
+  margin-right: 32px;
+  margin-left: 32px;
   padding-left: 0px;
   padding-right: 0px;
   margin-top: 40px;
@@ -226,16 +225,18 @@ ul[data-pie-id] {
 
 .dashboard_pie_chart_wrapper {
   float: left;
-  width: 360px;
+  max-width: 350px;
+  min-width: 390px;
   margin-right: 0;
   margin-left: 0;
   height: 230px;
   margin-bottom: 50px;
-  padding-top: 40px; }
+  padding-top: 40px;
+}
 
 .dashboard_charts_set_wrapper {
   height: auto;
-  width: auto;
+  width: 100%;
   float: left;
   padding-left: 40px; }
 
@@ -498,14 +499,13 @@ ul[data-pie-id] {
 
 div.k-chart {
   background-color: transparent;
-  width:970px;
   margin-left: auto;
   margin-right: auto;
   height: 320px;
 }
 .chart-wrapper {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 

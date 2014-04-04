@@ -1,0 +1,40 @@
+<div class="inner signup_page_inner">
+  <div class="sub_heading_wrapper">
+    <h1>Edit your profile</h1>
+  </div>
+
+  <div class="page">
+    <div class="left_column_forms">
+
+      <div class="login_ignup_form_wrapper">
+
+        <h2>Your Details</h2>
+
+        <input class="podmedics_textfield" type="text" placeholder="Name" />
+
+        <input class="podmedics_textfield" type="text" placeholder="Email" />
+
+        <input class="podmedics_textfield" type="password" placeholder="Password" />
+
+        <input class="podmedics_textfield" type="password" placeholder="Password confirmation" />
+
+        <input class="podmedics_textfield" type="password" placeholder="New Password" />
+
+        <button type="submit" class="red_button">Save Changes</button>
+
+      </div>
+
+    </div>
+
+    <div class="right_column_forms">
+      <h3>Membership</h3>
+      <p>Membership info to go here</p>
+    </div>
+
+</div>
+
+<%= content_for :footer do %>
+  <div class="inline_footer_wrapper signup_page_footer">
+    <%= render 'footer' %>
+  </div>
+<% end %>
