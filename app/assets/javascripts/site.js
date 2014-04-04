@@ -10,6 +10,21 @@ ready = function() {
   // Flash alert
   $(".flash_alert").delay(8000).slideUp(400);
 
+  // Comment reply function
+  (function($){
+    $.fn.setCursorToTextEnd = function() {
+        $initialVal = this.val();
+        this.val($initialVal + ' ');
+        this.val($initialVal);
+    };
+  })(jQuery);
+
+  $(".comment_reply_link a").click(function(){
+    $(".comments_textarea").val('@JamiePeak ').focus().setCursorToTextEnd();
+    $(window).scrollTop($("#comment_reply_textarea").offset().top);
+  });
+
+
   // Questions finished - fire modal
   $( "#questions_complete_modal_click" ).click();
 
