@@ -19,7 +19,12 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      begin
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      rescue
+        session[:user_id] = nil
+        redirect_to login_path, notice: 'This account no longer exists, you have been logged out.'
+      end
     end
     helper_method :current_user
 
