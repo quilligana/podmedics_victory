@@ -1,25 +1,38 @@
 <% if @comment %>
+	// Set the comment form to comment on the video again, not the commentable
+	$(".comments_textarea").val("Write your comments here...");
+    $("#comment_commentable_type").val('Video');
+    $("#comment_commentable_id").val(<%= @comment.get_root_commentable.id %>);
+
+    // Create the comment element
 	var div = document.createElement('div');
 	div.innerHTML = "<%= escape_javascript render @comment %>";
 
+	// If it is a reply then .after the comment to the comment's parent.
 	<% if @comment.commentable.class.name == 'Comment' %>
 		var comment = div.getElementsByClassName("comment_reply")[0];
 		$(comment).hide();
 		var parent_comment = $(".comment#<%=@comment.commentable.id%>")[0];
 		$(parent_comment).after(comment);
+	// Otherwise, .appendChild it to the entire comment div.
 	<% else %>
 		var comment = div.getElementsByClassName("comment")[0];
 		$(comment).hide();
 		var comment_container = $(".question_comments_outer")[0];
 		comment_container.appendChild(comment);
 	<% end %>
+	// In both cases we hide it so we can show it again after 
+	// changing the tabs_container height.
+	// Otherwise the comment will appear below the rest of the div, 
+	// and then the div will expand to contain it.
 
-
+	// Expand the tabs_container to be tall enough to hold the new comment.
 	var tab_container = $("#tabs_container");
 	var tab_container_height = tab_container.height();
 	var comment_height = $(comment).outerHeight(true);
 	var height = tab_container_height + comment_height;
 	tab_container.height(height);
 
+	// Animate the comment being shown again so it glides in as the tabs_container expands.
 	setTimeout(function(){$(comment).show(400)},200);
 <% end %>
