@@ -1,0 +1,93 @@
+<div class="lecture_questions_right_column notes_right_column">
+
+  <a href="javascript:;" class="notes_saved_button">
+    <p class="questions_info_right_column_number">8</p>
+    <p>Notes saved within Cardiology</p>
+  </a>
+
+
+  <div id="speciality_default_right_column">
+    <div class="questions_info_right_column_section">
+      <p class="questions_info_right_column_number"> <%= @user_progress.user_specialty_points %> </p>
+      <p>Points earned within Cardiology so far</p>
+    </div>
+
+    <div class="questions_info_right_column_section">
+      <p class="questions_info_right_column_number">64%</p>
+      <p>Of users who took this test scrored on average 4/5 questions correct.</p>
+    </div>
+
+    <div class="questions_info_right_column_section">
+      <%= user_points %>
+    </div>
+
+    <div class="questions_info_right_column_section speciality_inline_count_blocks">
+      <div class="speciality_count_block">
+        <p class="questions_info_right_column_number videos_count_block"><%= @videos.count %></p>
+        <p>Videos</p>
+      </div>
+
+      <div class="speciality_count_block">
+        <p class="questions_info_right_column_number questions_count_block"><%= @specialty.questions.count %></p>
+        <p>Questions</p>
+      </div>
+
+      <div class="speciality_count_block point_count_block" >
+        <p class="questions_info_right_column_number"> <%= @user_progress.max_specialty_points %> </p>
+        <p>Points Avaliable</p>
+      </div>
+    </div>
+  </div>
+  <!-- End speciality right column count -->
+
+  <div class="main_notes_right_column_wrapper">
+    <div class="note_right_column_preview">
+      <p class="note_preview_title">Revision Notes</p>
+      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
+      <a href="javascript:;" id="read_note_one">Read</a>
+    </div>
+    <!-- End notes list example repeated  -->
+
+    <div class="note_right_column_preview">
+      <p class="note_preview_title">Revision Notes</p>
+      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
+      <a href="#">Read</a>
+    </div>
+
+    <div class="note_right_column_preview">
+      <p class="note_preview_title">Revision Notes</p>
+      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
+      <a href="#">Read</a>
+    </div>
+
+    <div class="note_right_column_preview">
+      <p class="note_preview_title">Revision Notes</p>
+      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
+      <a href="#">Read</a>
+    </div>
+    <div class="note_right_column_preview">
+      <p class="note_preview_title">Revision Notes</p>
+      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
+      <a href="#">Read</a>
+    </div>
+  </div>
+  <!-- End notes list wrapper -->
+
+
+  <div class="full_note_outer_wrapper">
+    <div class="note_right_column_full_note" id="full_note_one">
+      <p class="note_title">Revision Notes</p>
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique tempus purus ac scelerisque. Quisque placerat felis in augue hendrerit, ac imperdiet nunc mollis. Sed molestie neque elit, in adipiscing metus volutpat in. Quisque placerat felis in augue hendrerit, ac imperdiet nunc mollis. Sed molestie neque elit, in adipiscing metus volutpat in. Sed molestie neque elit, in adipiscing metus volutpat in.
+      </p>
+      <ul>
+        <li>cras ut massa sit amet libero pharetra gravida</li>
+        <li>sed semper ut massa sit amet libero pharetra gravida</li>
+        <li>cras ut massa sit amet libero pharetra gravida</li>
+        <li>ut massa sit amet libero pharetra gravida</li>
+        <li>sit amet libero pharetra gravida</li>
+      </ul>
+      <a href="javascript:;" class="red_button notes_back_button_clear" id="back_to_notes_button">Back</a>
+    </div>
+  </div>
+  <!-- End note wrapper -->
+</div>

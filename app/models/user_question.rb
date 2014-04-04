@@ -31,17 +31,19 @@ class UserQuestion < ActiveRecord::Base
 
     def self.got_wrong(q_ids, number_incorrect)
       number_of_users = 0
-      users = self.uniq.pluck(:user_id)
-      users.each do |user|
-        number_correct = self.where("user_id = ?", user).
-                                where("question_id IN (?)", q_ids).
-                                where(correct_answer: true).count
-
-        unless number_correct != q_ids.length - number_incorrect
+      user_ids = self.uniq.pluck(:user_id)
+      user_ids.each do |user_id|
+        correct_count = number_correct(user_id, q_ids)
+        unless correct_count != q_ids.length - number_incorrect
           number_of_users += 1
         end
       end
       number_of_users
+    end
+
+    def self.number_correct(user_id, q_ids)
+      self.where("user_id = ?", user_id).where("question_id IN (?)", q_ids).
+           where(correct_answer: true).count
     end
 
 end
