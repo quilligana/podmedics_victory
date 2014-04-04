@@ -13,8 +13,6 @@ ready = function() {
   // Questions finished - fire modal
   $( "#questions_complete_modal_click" ).click();
 
-
-
   // Navigation
   $("#menu_action").click(function(){
     $("body").addClass('cbp-spmenu-push-toleft');
@@ -276,8 +274,7 @@ $(document).ready(createChart);
 $(document).ready(create_questionsChart);
 
 
-<!----  Pie charts ---->
-
+// Pie charts
 $(window).bind("load", function() {
       Pizza.init();
 });
