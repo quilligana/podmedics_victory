@@ -1,7 +1,25 @@
 <% if @comment %>
+	var div = document.createElement('div');
+	div.innerHTML = "<%= escape_javascript render @comment %>";
+
 	<% if @comment.commentable.class.name == 'Comment' %>
-		alert("reply");
+		var comment = div.getElementsByClassName("comment_reply")[0];
+		$(comment).hide();
+		var parent_comment = $(".comment#<%=@comment.commentable.id%>")[0];
+		$(parent_comment).after(comment);
 	<% else %>
-		alert("not a reply");
+		var comment = div.getElementsByClassName("comment")[0];
+		$(comment).hide();
+		var comment_container = $(".question_comments_outer")[0];
+		comment_container.appendChild(comment);
 	<% end %>
+
+
+	var tab_container = $("#tabs_container");
+	var tab_container_height = tab_container.height();
+	var comment_height = $(comment).outerHeight(true);
+	var height = tab_container_height + comment_height;
+	tab_container.height(height);
+
+	setTimeout(function(){$(comment).show(400)},200);
 <% end %>
