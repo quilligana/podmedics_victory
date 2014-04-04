@@ -16,6 +16,7 @@ class Permission < Struct.new(:user)
       return true if controller == 'questions' && action == 'show'
       return true if controller == 'questions' && action == 'answer'
       return true if controller == 'questions' && action == 'result'
+      return true if controller == 'comments' && action == 'create'
 
       return true if user.admin?
     end

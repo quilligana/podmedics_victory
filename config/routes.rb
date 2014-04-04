@@ -51,4 +51,6 @@ PodmedicsVictory::Application.routes.draw do
   resources :specialties, only: [:show]
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
+  resources :comments
+
 end

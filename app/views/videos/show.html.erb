@@ -162,16 +162,15 @@
                     <%= render partial: 'comments/comment', collection: @video.comments %>
                     <!-- End of comments -->
 
-                    <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
+                  </div>
+                  <!-- End comments outer -->
+
+                  <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
                       <div class="inner_page_padding">
-                        <textarea name="" cols="" rows="" class="comments_textarea" placeholder="Write your comments here..."></textarea>
-                        <button class="podmedcis_button green">Post Answer</button>
+                        <%= render 'comments/form' %>
                       </div>
                     </div>
                     <!-- End questions textarea -->
-
-                  </div>
-                  <!-- End comments outer -->
 
                 </div>
 
