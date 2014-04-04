@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
-  layout 'user_application', only: [:show]
+  layout 'user_application', only: [:show, :edit]
 
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create

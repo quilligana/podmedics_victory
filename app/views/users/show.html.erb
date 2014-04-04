@@ -6,6 +6,7 @@
       <div class="profile_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
       <h1><%= @user.name %></h1>
       <p>founder and director of Podmedics</p>
+      <%= link_to "Edit your profile", edit_user_path(@user) %>
     </div>
     <!-- End of profile header -->
 
