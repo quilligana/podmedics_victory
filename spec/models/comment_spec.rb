@@ -48,7 +48,7 @@ describe Comment do
   end
 
   describe "when destroyed" do
-  	before do
+    before do
       @reply = @comment.comments.new( commentable: @comment,
                                       user: @user,
                                       content: "reply text")
