@@ -14,6 +14,9 @@ describe Comment do
   it { should respond_to :content }
   it { should respond_to :commentable }
   it { should respond_to :comments }
+  it { should respond_to :hidden }
+  it { should respond_to :hide }
+  it { should respond_to :show }
 
   it { should be_valid }
   
