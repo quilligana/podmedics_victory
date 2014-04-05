@@ -29,4 +29,22 @@ class Video < ActiveRecord::Base
     end
   end
 
+  # Recursively counts the amount of comments on a video, following down the comment tree.
+  # only_visible lets you get the full count or only unhidden comments
+  def comment_count(only_visible)
+    if(only_visible)
+      comments = self.comments.where(hidden: false)
+    else
+      comments = self.comments
+    end
+
+    count = comments.count
+
+    comments.each do |comment|
+      count += comment.comments_count(only_visible)
+    end
+
+    return count
+  end
+
 end

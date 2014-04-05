@@ -18,4 +18,29 @@ class Comment < ActiveRecord::Base
 
     return comment_parent.commentable
   end
+
+  # Recursively counts the amount of nested comments, following down the comment tree.
+  # only_visible lets you get the full count or only unhidden comments
+  def comment_count(only_visible)
+    if(only_visible)
+      comments = self.comments.where(hidden: false)
+    else
+      comments = self.comments
+    end
+    count = comments.count
+
+    comments.each() do |comment|
+      count += comment.comments_count(only_visible)
+    end
+
+    return count
+  end
+
+  def hide
+    self.hidden = true
+  end
+
+  def show
+    self.hidden = false
+  end
 end

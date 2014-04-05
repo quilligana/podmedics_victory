@@ -17,6 +17,7 @@ describe Comment do
   it { should respond_to :hidden }
   it { should respond_to :hide }
   it { should respond_to :show }
+  it { should respond_to :comment_count }
 
   it { should be_valid }
   

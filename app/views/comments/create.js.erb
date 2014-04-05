@@ -5,7 +5,7 @@
     $("#comment_commentable_id").val(<%= @comment.get_root_commentable.id %>);
 
     // Update the comments count in the tab title
-    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.get_root_commentable.comments.count %>)"
+    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.get_root_commentable.comment_count(true) %>)"
 
     // Create the comment element
 	var div = document.createElement('div');
@@ -39,6 +39,7 @@
 	// Animate the comment being shown again so it glides in as the tabs_container expands.
 	setTimeout(function(){$(comment).show(400)},200);
 
+	// Now let's scroll to the newly created comment.
 	$('html, body').animate({
         scrollTop: $(comment_container).offset().top + 'px'
     }, 'fast');
