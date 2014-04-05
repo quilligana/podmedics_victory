@@ -20,10 +20,18 @@ function show(element)
 }
 
 // Show the element over 400 milliseconds after a 500 millisecond delay.
-// This gives the tab_container to contract before removing the element.
+// This gives the tab_container to contract before hiding the element.
 function hide(element)
 {
 	setTimeout(function(){$(element).hide(400)},500);
+}
+
+// Show the element over 400 milliseconds after a 500 millisecond delay.
+// This gives the tab_container to contract before removing the element.
+function remove(element)
+{
+	hide($(element));
+	setTimeout(function(){$(element).remove()},900);
 }
 
 var tab_container = $("#tabs_container");
@@ -87,6 +95,6 @@ height += notification_height;
 tab_container.height(height);
 
 // Show/Hide appropriate elements.
-hide($(no_comments_div));
+remove($(no_comments_div));
 show($(comment));
 show($(notification));
