@@ -125,43 +125,12 @@
 
                   <!-- End no questions posted notice -->
 
-                  <div class="notification_wrapper">
-                    <div class="notification success">
-                      <p>Success <span>A successful message</span></p>
-                      <p class="close_notification"></p>
+                  <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
+                    <div class="inner_page_padding">
+                      <%= render 'comments/form' %>
                     </div>
                   </div>
-                  <!-- End notifications success -->
-
-                  <div class="notification_wrapper">
-                    <div class="notification error">
-                      <p>Error <span>There has been a problem</span></p>
-                      <p class="close_notification"></p>
-                    </div>
-                  </div>
-                  <!-- End notifications error -->
-
-
-                  <div class="notification_wrapper">
-                    <div class="notification warning">
-                      <p>Warning <span>A small problem</span></p>
-                      <p class="close_notification"></p>
-                    </div>
-                  </div>
-                  <!-- End notifications warning -->
-
-
-                  <div class="notification_wrapper">
-                    <div class="notification info">
-                      <p>Information <span>You have been informed</span></p>
-                      <p class="close_notification"></p>
-                    </div>
-                  </div>
-                  <!-- End notifications info -->
-
-                  <!-- End questions notifications -->
-
-
+                  <!-- End questions textarea -->
 
                   <div class="question_comments_outer">
                       
@@ -170,13 +139,6 @@
 
                   </div>
                   <!-- End comments outer -->
-
-                  <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
-                    <div class="inner_page_padding">
-                      <%= render 'comments/form' %>
-                    </div>
-                  </div>
-                    <!-- End questions textarea -->
 
                 </div>
 

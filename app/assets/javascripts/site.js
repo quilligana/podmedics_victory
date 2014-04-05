@@ -118,8 +118,12 @@ ready = function() {
   });
 
   // Close Notification
-  $(".close_notification").click(function(){
+  $(document).on("click", ".close_notification", function(){
     $(this).parents("div.notification").fadeOut(400);
+    var tab_container = $("#tabs_container");
+    var height =  tab_container.height() - 
+                  $(this).parents("div.notification").outerHeight(true);
+    tab_container.height(height);
   });
 
   // Tooltip

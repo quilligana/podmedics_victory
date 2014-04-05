@@ -4,12 +4,13 @@ class CommentsController < ApplicationController
     @commentable = find_commentable params
     @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
+    unless @comment.save
+      @comment = nil
+    end
 
     respond_to do |format|
-      if @comment.save
-        format.html #only for replies
-        format.js #ajax post, remove for testing
-      end
+      format.html #only for replies
+      format.js #ajax post, remove for testing
     end
   end
 

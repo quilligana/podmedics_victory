@@ -1,51 +1,92 @@
+function set_comment_form_target(message, commentable_type, commentable_id)
+{
+	$(".comments_textarea").val("");
+    $("#comment_commentable_type").val(commentable_type);
+    $("#comment_commentable_id").val(commentable_id);
+}
+
+function create_dom_element(element_string)
+{
+	var div = document.createElement('div');
+	div.innerHTML = element_string;
+	return div
+}
+
+// Show the element over 400 milliseconds after a 500 millisecond delay.
+// This gives the tab_container to expand before inserting the new element.
+function show(element)
+{
+	setTimeout(function(){$(element).show(400)},500);
+}
+
+// Show the element over 400 milliseconds after a 500 millisecond delay.
+// This gives the tab_container to contract before removing the element.
+function hide(element)
+{
+	setTimeout(function(){$(element).show(400)},500);
+}
+
+var tab_container = $("#tabs_container");
+var height;
+
 <% if @comment %>
 	// Set the comment form to comment on the video again, not the commentable
-	$(".comments_textarea").val("Write your comments here...");
-    $("#comment_commentable_type").val('Video');
-    $("#comment_commentable_id").val(<%= @comment.get_root_commentable.id %>);
+	set_comment_form_target("", 'Video', <%= @comment.get_root_commentable.id %>);
 
     // Update the comments count in the tab title
     $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.get_root_commentable.comment_count(true) %>)"
 
     // Create the comment element
-	var div = document.createElement('div');
-	div.innerHTML = "<%= escape_javascript render @comment %>";
+	var comment = create_dom_element("<%= escape_javascript render @comment %>");
 
-	// If it is a reply then .after the comment to the comment's parent.
 	<% if @comment.commentable.class.name == 'Comment' %>
-		var comment = div.getElementsByClassName("comment_reply")[0];
-		$(comment).hide();
+		var comment = comment.getElementsByClassName("comment_reply")[0];
 		var comment_container = $(".comment#<%=@comment.commentable.id%>")[0];
 		$(comment_container).after(comment);
 	// Otherwise, .appendChild it to the entire comment div.
 	<% else %>
-		var comment = div.getElementsByClassName("comment")[0];
-		$(comment).hide();
+		var comment = comment.getElementsByClassName("comment")[0];
 		var comment_container = $(".question_comments_outer")[0];
 		comment_container.insertBefore(comment, comment_container.firstChild);
 	<% end %>
-	// In both cases we hide it so we can show it again after 
-	// changing the tabs_container height.
-	// Otherwise the comment will appear below the rest of the div, 
-	// and then the div will expand to contain it.
+	// Hide the comment so it can be shown after resizing the tab_container.
+	$(comment).hide();
 
 	// Make sure the "No comments" message is gone.
 	var no_comments_div = $(".no_questions_reply_wrapper")[0];
-	setTimeout(function(){$(no_comments_div).hide(400)},200);
-
-	// Expand the tabs_container to be tall enough to hold the new comment.
-	var tab_container = $("#tabs_container");
-	var tab_container_height = tab_container.height();
-	var comment_height = $(comment).outerHeight(true);
 	var no_comments_message_height = $(no_comments_div).outerHeight(true);
-	var height = tab_container_height + comment_height - no_comments_message_height;
-	tab_container.height(height);
 
-	// Animate the comment being shown again so it glides in as the tabs_container expands.
-	setTimeout(function(){$(comment).show(400)},200);
+	// Create success notification.
+	var notification = create_dom_element("<%= escape_javascript render 'comments/success_notification' %>");
+
+	// Store new height of tab_container.
+	height =	tab_container.height() + 
+				$(comment).outerHeight(true) - 
+				$(no_comments_div).outerHeight(true);
 
 	// Now let's scroll to the newly created comment.
 	$('html, body').animate({
         scrollTop: $(comment_container).offset().top + 'px'
     }, 'fast');
+<% else %>
+	// Create error notification
+	var notification = create_dom_element("<%= escape_javascript render 'comments/error_notification' %>");
 <% end %>
+
+// Insert the notification at the top of the tab_container
+var notification_container = $("#tabs-2")[0];
+notification_container.insertBefore(notification, notification_container.firstChild);
+var notification_wrapper = $(notification).children()[0];
+var notification = $(notification_wrapper).children()[0];
+var notification_height = $(notification).outerHeight(true);
+
+// Add height of notification to new tab_container height.
+height += notification_height;
+
+// Apply the height change to the tab_container.
+tab_container.height(height);
+
+// Show/Hide appropriate elements.
+hide($(no_comments_div));
+show($(comment));
+show($(notification));
