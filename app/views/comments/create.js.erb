@@ -29,11 +29,16 @@
 	// Otherwise the comment will appear below the rest of the div, 
 	// and then the div will expand to contain it.
 
+	// Make sure the "No comments" message is gone.
+	var no_comments_div = $(".no_questions_reply_wrapper")[0];
+	setTimeout(function(){$(no_comments_div).hide(400)},200);
+
 	// Expand the tabs_container to be tall enough to hold the new comment.
 	var tab_container = $("#tabs_container");
 	var tab_container_height = tab_container.height();
 	var comment_height = $(comment).outerHeight(true);
-	var height = tab_container_height + comment_height;
+	var no_comments_message_height = $(no_comments_div).outerHeight(true);
+	var height = tab_container_height + comment_height - no_comments_message_height;
 	tab_container.height(height);
 
 	// Animate the comment being shown again so it glides in as the tabs_container expands.
