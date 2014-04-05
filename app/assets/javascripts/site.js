@@ -28,6 +28,11 @@ ready = function() {
     $("#comment_commentable_id").val(this.id);
   });
 
+  $(document).on("click", ".no_questions_reply_wrapper a", function(){
+    $(".comments_textarea").focus().setCursorToTextEnd();
+    $(window).scrollTop($("#comment_reply_textarea").offset().top);
+  });
+
 
   // Questions finished - fire modal
   $( "#questions_complete_modal_click" ).click();

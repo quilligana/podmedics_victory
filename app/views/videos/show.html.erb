@@ -114,8 +114,14 @@
               <div>
                 <div class="questions_answers_main_question video_page_comments_wrapper" >
 
-
-                  <div class="no_questions_reply_wrapper">Nothing posted yet. <a href="#">Be the first to answer</a></div>
+                  <% if @video.comment_count(false) == 0 %>
+                  <div class="no_questions_reply_wrapper">
+                    Nothing posted yet. 
+                    <a href="javascript:;">
+                      Be the first to comment.
+                    </a>
+                  </div>
+                  <% end %>
 
                   <!-- End no questions posted notice -->
 
