@@ -15,14 +15,14 @@
 	<% if @comment.commentable.class.name == 'Comment' %>
 		var comment = div.getElementsByClassName("comment_reply")[0];
 		$(comment).hide();
-		var parent_comment = $(".comment#<%=@comment.commentable.id%>")[0];
-		$(parent_comment).after(comment);
+		var comment_container = $(".comment#<%=@comment.commentable.id%>")[0];
+		$(comment_container).after(comment);
 	// Otherwise, .appendChild it to the entire comment div.
 	<% else %>
 		var comment = div.getElementsByClassName("comment")[0];
 		$(comment).hide();
 		var comment_container = $(".question_comments_outer")[0];
-		comment_container.appendChild(comment);
+		comment_container.insertBefore(comment, comment_container.firstChild);
 	<% end %>
 	// In both cases we hide it so we can show it again after 
 	// changing the tabs_container height.
@@ -38,4 +38,8 @@
 
 	// Animate the comment being shown again so it glides in as the tabs_container expands.
 	setTimeout(function(){$(comment).show(400)},200);
+
+	$('html, body').animate({
+        scrollTop: $(comment_container).offset().top + 'px'
+    }, 'fast');
 <% end %>
