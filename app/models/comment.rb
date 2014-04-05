@@ -30,7 +30,7 @@ class Comment < ActiveRecord::Base
     count = comments.count
 
     comments.each() do |comment|
-      count += comment.comments_count(only_visible)
+      count += comment.comment_count(only_visible)
     end
 
     return count
