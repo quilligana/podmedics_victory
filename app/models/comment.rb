@@ -27,6 +27,7 @@ class Comment < ActiveRecord::Base
     else
       comments = self.comments
     end
+    
     count = comments.count
 
     comments.each() do |comment|
@@ -38,9 +39,11 @@ class Comment < ActiveRecord::Base
 
   def hide
     self.hidden = true
+    self.save
   end
 
   def show
     self.hidden = false
+    self.save
   end
 end
