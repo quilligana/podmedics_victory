@@ -1,6 +1,6 @@
 <%= form_for @comment, remote: true, :authenticity_token => true do |f| %>
   <p>
-    <%= f.text_field :content, class: "comments_textarea", placeholder: "Write your comments here..." %>
+    <%= f.text_area :content, class: "comments_textarea", placeholder: "Write your comments here..." %>
   </p>
   <p>
     <%= f.hidden_field :commentable_id, id: "comment_commentable_id", value: @video.id %>
