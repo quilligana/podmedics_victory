@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
       rescue
         session[:user_id] = nil
-        redirect_to login_path, notice: 'This account no longer exists, you have been logged out.'
+        redirect_to login_path, alert: 'This account no longer exists, you have been logged out.'
       end
     end
     helper_method :current_user

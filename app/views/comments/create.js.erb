@@ -4,6 +4,9 @@
     $("#comment_commentable_type").val('Video');
     $("#comment_commentable_id").val(<%= @comment.get_root_commentable.id %>);
 
+    // Update the comments count in the tab title
+    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.get_root_commentable.comments.count %>)"
+
     // Create the comment element
 	var div = document.createElement('div');
 	div.innerHTML = "<%= escape_javascript render @comment %>";
