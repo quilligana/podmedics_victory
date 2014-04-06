@@ -17,5 +17,4 @@ describe UserProgress do
 
   it { should respond_to(:max_specialty_points) }
   it { should respond_to(:user_specialty_points) }
-  it { should respond_to(:badges) }
 end
