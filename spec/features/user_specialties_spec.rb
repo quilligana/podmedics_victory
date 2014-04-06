@@ -5,7 +5,8 @@ feature 'User Specialties' do
   scenario 'Viewing a specialty page' do
     specialty = create(:specialty, name: 'Cardiology')
     video = create(:video, specialty: specialty)
-    sign_in(create(:user))
+    user = create(:user)
+    sign_in(user)
     visit video_path(video)
     within '.video_breadcrumb' do
       click_link specialty.name
@@ -17,5 +18,10 @@ feature 'User Specialties' do
       expect(page).to have_link("Take #{specialty.name.capitalize} Exam", href: specialty_exam_url(specialty.id))
     end
 
+    within '.lecture_questions_right_column' do
+      expect(page).to have_content user.points
+      expect(page).to have_content { UserProgress.new(specialty, user).max_specialty_points }
+      expect(page).to have_content { UserProgress.new(specialty, user).user_specialty_points }
+    end
   end
 end

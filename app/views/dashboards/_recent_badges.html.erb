@@ -4,7 +4,7 @@
       <%= content_tag(:p, "<strong>#{time_ago_in_words(badge.created_at)}</strong> ago you were awarded".html_safe, class: "badge_earned_date") %>
       <a href="#" class="badge">
         <%= content_tag(:p, badge.level, class: "badge_title #{badge_class(badge.level)}") %>
-        <p class="badge_speciality"><%=badge.specialty.name%></p>
+        <p class="badge_speciality"><%= badge.specialty.name %></p>
       </a>
     </div>
 <% end %>

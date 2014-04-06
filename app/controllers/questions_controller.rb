@@ -24,7 +24,10 @@ class QuestionsController < ApplicationController
   def answer
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
+    q_id = @q_ids[@current_question-1]
+    @question = Question.find(q_id)
     @total_questions = @q_ids.length
+    @user_progress = UserProgress.new(@question.specialty, current_user)
     record_answer(params[:answer])
     @correct_answer = get_correct_answer
   end
@@ -64,12 +67,7 @@ class QuestionsController < ApplicationController
 
     def record_answer(answer)
       @answer = answer
-      @q_ids = session[:q_ids]
-      q_id = @q_ids[@current_question-1]
-      @question = Question.find(q_id)
-
       UserQuestion.save_answer(q_id, current_user, answer)
-
       continue_questions
     end
 

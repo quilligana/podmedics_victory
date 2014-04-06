@@ -21,9 +21,26 @@ class UserProgress
     question_points = UserQuestion.number_correct(@user.id, q_ids) * POINTS_PER_CORRECT_ANSWER
   end
 
-  def badges
-    
-  end
+  private
+
+    def grade_level
+      case self.user_specialty_points
+      when >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
+        "Medical Student"
+      when >= get_points_percentage(PERCENTAGE_HOUSE_OFFICER)
+        "House Officer"
+      when >= get_points_percentage(PERCENTAGE_SENIOR_HOUSE_OFFICER)
+        "Senior House Officer"
+      when >= get_points_percentage(PERCENTAGE_REGISTRAR)
+        "Registrar"
+      when >= get_points_percentage(PERCENTAGE_CONSULTANT)
+        "Consultant"
+      end
+    end
+
+    def get_points_percentage(percentage)
+      percentage * self.max_specialty_points / 100
+    end
   
   
 end
