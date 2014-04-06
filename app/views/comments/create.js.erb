@@ -34,6 +34,13 @@ function remove(element)
 	setTimeout(function(){$(element).remove()},900);
 }
 
+function go_to(element)
+{
+	$('html, body').animate({
+        scrollTop: $(element).offset().top + 'px'
+    }, 'fast');
+}
+
 var tab_container = $("#tabs_container");
 var height;
 
@@ -73,9 +80,11 @@ var height;
 				$(no_comments_div).outerHeight(true);
 
 	// Now let's scroll to the newly created comment.
-	$('html, body').animate({
-        scrollTop: $(comment_container).offset().top + 'px'
-    }, 'fast');
+	setTimeout(function()
+	{
+		go_to($(comment_container))
+	}, 900);
+
 <% else %>
 	// Create error notification
 	var notification = create_dom_element("<%= escape_javascript render 'comments/error_notification' %>");
@@ -83,10 +92,11 @@ var height;
 
 // Insert the notification at the top of the tab_container
 var notification_container = $("#tabs-2")[0];
+$(notification).hide();
 notification_container.insertBefore(notification, notification_container.firstChild);
 var notification_wrapper = $(notification).children()[0];
-var notification = $(notification_wrapper).children()[0];
-var notification_height = $(notification).outerHeight(true);
+var notification_inner = $(notification_wrapper).children()[0];
+var notification_height = $(notification_inner).outerHeight(true);
 
 // Add height of notification to new tab_container height.
 height += notification_height;
@@ -96,5 +106,5 @@ tab_container.height(height);
 
 // Show/Hide appropriate elements.
 remove($(no_comments_div));
-show($(comment));
 show($(notification));
+show($(comment));
