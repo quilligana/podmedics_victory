@@ -1,45 +1,34 @@
 
 <div class="dashboard_count_blocks">
-
   <div class="dashboard_count_block overall_count_red">
     <p class="number"><%= current_user.points %></p>
     <p>Points Earned so far</p>
-
   </div>
-
 
   <div class="dashboard_count_block pass_count_green">
     <p class="number">8</p>
     <p>Exams Passed</p>
-
   </div>
-
 
   <div class="dashboard_count_block">
     <p class="number">22</p>
     <p>Lectures Watched</p>
-
   </div>
 
   <div class="dashboard_count_block">
     <p class="number">178</p>
     <p>Questions Answered</p>
-
   </div>
-
 
   <div class="dashboard_count_block">
     <p class="number">18</p>
     <p>Notes Saved</p>
-
   </div>
 
   <div class="dashboard_count_block">
-    <p class="number">22</p>
+    <p class="number"> <%= current_user.badges.count %> </p>
     <p>Badges Earned</p>
-
   </div>
-
 </div>
 
 
@@ -47,92 +36,17 @@
 
   <div class="dashboard_badges_left_column">
     <div class="dashboard_badges_overview_inner_border">
-
-      <div class="title">Recent Badges</div>
-
-      <div class="dashboard_badges_badge_wrapper">
-        <p class="badge_earned_date"><strong>8 Minutes ago</strong> you was awarded</p>
-        <a href="#" class="badge">
-          <p class="badge_title registrar">Registrar</p>
-          <p class="badge_speciality">Cardiology</p>
-        </a>
-      </div>
-
-
-      <div class="dashboard_badges_badge_wrapper">
-        <p class="badge_earned_date"><strong>8 Minutes ago</strong> you was awarded</p>
-
-        <a href="#" class="badge">
-          <p class="badge_title consultant">Consultant</p>
-          <p class="badge_speciality">Surgery</p>
-        </a>
-      </div>
-
-
-      <div class="dashboard_badges_badge_wrapper">
-        <p class="badge_earned_date"><strong>8 Minutes ago</strong> you was awarded</p>
-        <a href="#" class="badge">
-          <p class="badge_title medical_director">Medical Director</p>
-          <p class="badge_speciality">Cardiology</p>
-        </a>
-      </div>
-
+      <% if current_user.badges.any? %>
+        <%= render 'recent_badges' %>
+      <% end %>
     </div>
-
-
   </div>
 
   <div class="dashboard_badges_right_column">
-    <div class="title">Your Badges</div>
-    <div class="dashboard_badges_inner_wrapper">
-
-
-
-      <a href="#" class="badge">
-        <p class="badge_title medical_director">Medical Director</p>
-        <p class="badge_speciality small_screen_count">+ 1</p>
-        <p class="badge_speciality">Cardiology</p>
-      </a>
-
-      <a href="#" class="badge">
-        <p class="badge_title consultant">Consultant</p>
-        <p class="badge_speciality small_screen_count">+ 1</p>
-        <p class="badge_speciality">Cardiology</p>
-      </a>
-
-      <a href="#" class="badge">
-        <p class="badge_title registrar">Registrar</p>
-        <p class="badge_speciality small_screen_count">+ 1</p>
-        <p class="badge_speciality">Cardiology</p>
-      </a>
-
-      <a href="#" class="badge">
-        <p class="badge_title senior_houseofficer">Senior HouseOfficer</p>
-        <p class="badge_speciality small_screen_count">+ 3</p>
-        <p class="badge_speciality">Cardiology</p>
-        <p class="badge_speciality">Cardiology</p>
-        <p class="badge_speciality">Cardiology</p>
-      </a>
-
-      <a href="#" class="badge">
-        <p class="badge_title houseofficer"> HouseOfficer</p>
-        <p class="badge_speciality small_screen_count">+ 1</p>
-        <p class="badge_speciality">Cardiology</p>
-      </a>
-
-      <a href="#" class="badge">
-        <p class="badge_title medical_student">Medical Student</p>
-        <p class="badge_speciality small_screen_count">+ 1</p>
-        <p class="badge_speciality">Cardiology</p>
-      </a>
-
-
-
-    </div>
-
-
-
-    </div>
+    <% if current_user.badges.any? %>
+        <%= render 'badges' %>
+      <% end %>
+  </div>
 
 
 </div>

@@ -11,7 +11,7 @@ feature 'User dashboard' do
     end
   end
 
-  scenario "shows the user poitns total" do
+  scenario "shows the user points total" do
     user = create(:user, points: 4000)
     sign_in(user)
     within '.overall_count_red' do

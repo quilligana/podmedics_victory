@@ -4,6 +4,7 @@ class Specialty < ActiveRecord::Base
   belongs_to :category
   has_many :videos
   has_many :questions, through: :videos
+  has_many :badges, dependent: :destroy
 
   validates_presence_of :name
 
