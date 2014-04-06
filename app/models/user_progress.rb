@@ -8,7 +8,7 @@ class UserProgress
   def max_specialty_points
     video_ids = @specialty.video_ids
     video_points = video_ids.count * POINTS_PER_WATCHED_VIDEO
-    question_points = Question.where("video_id IN (?)", video_ids).count * POINTS_PER_CORRECT_ANSWER
+    question_points = @specialty.questions.count * POINTS_PER_CORRECT_ANSWER
     # TODO: Add count of questions asked by users in specialty (POINTS_PER_USER_QUESTION_ANSWERED)
     video_points + question_points
   end

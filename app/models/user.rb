@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :user_questions, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :badges, dependent: :destroy
   validates :email, presence: true, email: true
   validates :name, presence: true
 
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
 
   def add_points_for_answer
     current_points = self.points
-    new_points = current_points + 5
+    new_points = current_points + POINTS_PER_CORRECT_ANSWER
     self.update_attributes(points: new_points)
   end
 end

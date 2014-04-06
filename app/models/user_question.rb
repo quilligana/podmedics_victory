@@ -1,6 +1,6 @@
 class UserQuestion < ActiveRecord::Base
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   validates :user_id, :presence => true
   validates :question_id, :presence => true

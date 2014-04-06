@@ -6,6 +6,8 @@ describe User do
   it { should validate_presence_of :email }
   it { should validate_presence_of :name }
   it { should respond_to :points }
+  it { should respond_to :user_questions }
+  it { should respond_to :badges }
 
   it 'should have a valid factory' do
     expect(build(:user)).to be_valid
@@ -25,7 +27,7 @@ describe User do
     user = create(:user)
     expect(user.points).to eq(0)
     user.add_points_for_answer
-    expect(user.points).to eq(5)
+    expect(user.points).to eq(POINTS_PER_CORRECT_ANSWER)
   end
 
 end
