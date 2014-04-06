@@ -27,7 +27,6 @@ class QuestionsController < ApplicationController
     @q_id = @q_ids[@current_question-1]
     @question = Question.find(@q_id)
     @total_questions = @q_ids.length
-    # @user_progress = UserProgress.new(@question.specialty, current_user)
     record_answer(params[:answer])
     @correct_answer = get_correct_answer
   end
