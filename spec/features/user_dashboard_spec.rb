@@ -19,6 +19,16 @@ feature 'User dashboard' do
     end
   end
 
+  scenario "shows the user badges count" do
+    user = create(:user)
+    create(:specialty)
+    create(:badge)
+    sign_in(user)
+    within '.dashboard_count_blocks' do
+      expect(page).to have_content user.badges.count
+    end
+  end
+
   scenario 'Viewing list of recent videos' do
     video1 = create(:video)
     sign_in(create(:user))
@@ -41,6 +51,29 @@ feature 'User dashboard' do
       click_link 'resit_video'
     end
     user_sees_video(video1)
+  end
+
+  scenario 'Shows recent badges' do
+    specialty = create(:specialty)
+    user = create(:user)
+    badge = create(:badge)
+    sign_in(user)
+    within '.dashboard_badges_left_column' do
+      expect(page).to have_content 'less than a minute ago'
+      expect(page).to have_content badge.specialty.name
+      expect(page).to have_content badge.level
+    end
+  end
+
+  scenario 'Shows all badges' do
+    specialty = create(:specialty)
+    user = create(:user)
+    badge = create(:badge)
+    sign_in(user)
+    within '.dashboard_badges_right_column' do
+      expect(page).to have_content badge.specialty.name
+      expect(page).to have_content badge.level
+    end
   end
 
   # Helpers
