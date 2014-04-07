@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
       @current_permission ||= Permission.new(current_user)
     end
 
+    def current_resource
+      nil
+    end
+
     def authorise
-      unless current_permission.allow?(params[:controller], params[:action])
+      if !current_permission.allow?(params[:controller], params[:action], current_resource)
         redirect_to login_path, alert: 'Not authorised'
       end
     end

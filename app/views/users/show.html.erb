@@ -1,11 +1,12 @@
 <div class="inner profile_page_inner">
 
-  <div class="sub_heading_wrapper">
-    <div class="sub_heading_button_set">
-      <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>
+  <% if allow? "users", "edit", current_user %>
+    <div class="sub_heading_wrapper">
+      <div class="sub_heading_button_set">
+        <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>
+      </div>
     </div>
-  </div>
-
+  <% end %>
 
   <div class="page">
 

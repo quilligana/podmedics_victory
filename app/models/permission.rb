@@ -7,7 +7,10 @@ class Permission
     allow :users, [:new, :create]
     if user
       allow :dashboards, [:show]
-      allow :users, [:show, :edit]
+      allow :users, [:show]
+      allow :users, [:edit, :update] do |resource|
+        resource.id == user.id
+      end
       allow :videos, [:show]
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]
@@ -17,15 +20,16 @@ class Permission
     
   end
 
-  def allow?(controller, action)
-    @allow_all || @allowed_actions[[controller.to_s, action.to_s]]
+  def allow?(controller, action, resource = nil)
+    allowed = @allow_all || @allowed_actions[[controller.to_s, action.to_s]]
+    allowed && (allowed == true || resource && allowed.call(resource))
   end
 
-  def allow(controllers, actions)
+  def allow(controllers, actions, &block)
     @allowed_actions ||= {}
     Array(controllers).each do |controller|
       Array(actions).each do |action|
-        @allowed_actions[[controller.to_s, action.to_s]] = true
+        @allowed_actions[[controller.to_s, action.to_s]] = block || true
       end
     end
   end

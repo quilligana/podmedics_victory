@@ -33,7 +33,9 @@ describe Permission do
   end
 
   describe 'as a user' do
-    subject { Permission.new(build(:user))}
+    let(:user) { create(:user) }
+    let(:another_user) { create(:user) }
+    subject { Permission.new(user)}
 
     it "does not allow access to admin dashboard" do
       expect(subject.allow?('admin/dashboards', 'show')).to be_false
@@ -45,8 +47,16 @@ describe Permission do
 
     it "allows access to the profile page" do
       expect(subject.allow?('users', 'show')).to be_true
-      expect(subject.allow?('users', 'edit')).to be_true
     end
+
+    it "allows access to edit your own profile page" do
+      expect(subject.allow?('users', 'edit', user)).to be_true
+    end
+
+    it "does not allow you to edit profiles of other users" do
+      expect(subject.allow?('users', 'edit', another_user)).to be_false
+    end
+
 
     it "allows access to the video page" do
       expect(subject.allow?('videos', 'show')).to be_true

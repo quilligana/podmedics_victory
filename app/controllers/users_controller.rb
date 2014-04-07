@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def current_resource
+    @current_resource || User.find(params[:id]) if params[:id]
+  end
+
   protected
 
     def user_params
