@@ -169,7 +169,7 @@
       <div class="video_page_right_column_lower_info">
         <p>Video Duration: <strong><%= @video.duration %> minutes</strong></p>
         <p>Views: <strong><%= @video.views %></strong></p>
-        <p>Comments: <strong>0</strong></p>
+        <p>Comments: <strong><%= @video.comment_count(true) %></strong></p>
       </div>
     </div>    <!--End of right column video info -->
 
