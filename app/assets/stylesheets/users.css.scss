@@ -1431,6 +1431,11 @@ a.default_lecture_question, .lecture_question_blocks input, .default_lecture_que
   -webkit-appearance: none;
 }
 
+a.default_lecture_question:hover, .lecture_question_blocks input:hover, .default_lecture_question:hover {
+  background-color: #E6E6E6;
+  color: #616161;
+}
+
 a.default_lecture_question:last-child {
   margin-bottom: 0; }
 
