@@ -71,9 +71,6 @@ var height;
 	var no_comments_div = $(".no_questions_reply_wrapper")[0];
 	var no_comments_message_height = $(no_comments_div).outerHeight(true);
 
-	// Create success notification.
-	var notification = create_dom_element("<%= escape_javascript render 'comments/success_notification' %>");
-
 	// Store new height of tab_container.
 	height =	tab_container.height() + 
 				$(comment).outerHeight(true) - 
@@ -88,23 +85,25 @@ var height;
 <% else %>
 	// Create error notification
 	var notification = create_dom_element("<%= escape_javascript render 'comments/error_notification' %>");
+
+	// Insert the notification at the top of the tab_container
+	var notification_container = $("#tabs-2")[0];
+	$(notification).hide();
+	notification_container.insertBefore(notification, notification_container.firstChild);
+	var notification_wrapper = $(notification).children()[0];
+	var notification_inner = $(notification_wrapper).children()[0];
+	var notification_height = $(notification_inner).outerHeight(true);
+
+	// Add height of notification to new tab_container height.
+	height += notification_height;
+
+	show($(notification));
 <% end %>
 
-// Insert the notification at the top of the tab_container
-var notification_container = $("#tabs-2")[0];
-$(notification).hide();
-notification_container.insertBefore(notification, notification_container.firstChild);
-var notification_wrapper = $(notification).children()[0];
-var notification_inner = $(notification_wrapper).children()[0];
-var notification_height = $(notification_inner).outerHeight(true);
-
-// Add height of notification to new tab_container height.
-height += notification_height;
 
 // Apply the height change to the tab_container.
 tab_container.height(height);
 
 // Show/Hide appropriate elements.
 remove($(no_comments_div));
-show($(notification));
 show($(comment));
