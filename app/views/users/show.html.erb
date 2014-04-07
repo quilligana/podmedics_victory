@@ -1,12 +1,18 @@
 <div class="inner profile_page_inner">
 
+  <div class="sub_heading_wrapper">
+    <div class="sub_heading_button_set">
+      <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>
+    </div>
+  </div>
+
+
   <div class="page">
 
     <div class="profile_header">
       <div class="profile_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
       <h1><%= @user.name %></h1>
       <p>founder and director of Podmedics</p>
-      <%= link_to "Edit your profile", edit_user_path(@user) %>
     </div>
     <!-- End of profile header -->
 
