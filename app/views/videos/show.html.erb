@@ -80,7 +80,7 @@
         <div id="tabs">
           <ul>
             <!--<li><a href="#tabs-1" title="" class="lectures_tab"><p>Video Info</p><p class="icon"></p></a></li>-->
-            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.comment_count(true) %>)</p><p class="icon"></p></a></li>
+            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.comments.count %>)</p><p class="icon"></p></a></li>
           </ul>
 
           <div id="tabs_container">
@@ -114,7 +114,7 @@
               <div>
                 <div class="questions_answers_main_question video_page_comments_wrapper" >
 
-                  <% if @video.comment_count(false) == 0 %>
+                  <% if @video.comments.count == 0 %>
                   <div class="no_questions_reply_wrapper">
                     Nothing posted yet. 
                     <a href="javascript:;">

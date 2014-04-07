@@ -1,9 +1,16 @@
 class CommentsController < ApplicationController
 
-  def create 
+  def create
     @commentable = find_commentable params
     @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
+
+    if params[:comment][:commentable_type] == "Comment"
+      @comment.video = @comment.commentable.video
+    else
+      @comment.video = @comment.commentable
+    end
+
     unless @comment.save
       @comment = nil
     end
@@ -23,6 +30,7 @@ class CommentsController < ApplicationController
   private
 
     def find_commentable(params)
+      puts params
       if params[:comment][:commentable_type] == "Comment"
         params[:comment][:commentable_type].classify.constantize.find(params[:comment][:commentable_id])
       else

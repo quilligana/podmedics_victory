@@ -46,10 +46,10 @@ var height;
 
 <% if @comment %>
 	// Set the comment form to comment on the video again, not the commentable
-	set_comment_form_target("", 'Video', <%= @comment.get_root_commentable.id %>);
+	set_comment_form_target("", 'Video', <%= @comment.video.id %>);
 
     // Update the comments count in the tab title
-    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.get_root_commentable.comment_count(true) %>)"
+    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.video.comments.count %>)"
 
     // Create the comment element
 	var comment = create_dom_element("<%= escape_javascript render @comment %>");
