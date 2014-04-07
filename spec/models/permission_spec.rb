@@ -11,6 +11,7 @@ describe Permission do
       expect(subject.allow?('static_pages', 'home')).to be_true
       expect(subject.allow?('static_pages', 'library')).to be_true
       expect(subject.allow?('static_pages', 'terms')).to be_true
+      expect(subject.allow?('static_pages', 'about')).to be_true
     end
 
     it "allows access to login/logout" do
@@ -31,7 +32,7 @@ describe Permission do
   end
 
   describe 'as a user' do
-    subject { Permission.new(create(:user))}
+    subject { Permission.new(build(:user))}
 
     it "does not allow access to admin dashboard" do
       expect(subject.allow?('admin/dashboards', 'show')).to be_false
@@ -59,6 +60,7 @@ describe Permission do
       expect(subject.allow?('questions', 'show')).to be_true
       expect(subject.allow?('questions', 'answer')).to be_true
       expect(subject.allow?('questions', 'result')).to be_true
+      expect(subject.allow?('questions', 'specialty_index')).to be_true
     end
   end
 
