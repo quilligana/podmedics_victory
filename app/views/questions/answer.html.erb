@@ -3,7 +3,7 @@
     <div class="lecture_questions_left_column">
       <div class="lecture_questions_outer_wrapper">
         <div class="lectures_question_title">
-          <%= @question.stem %>
+          <%= @question.stem.html_safe %>
         </div>
         <div class="lecture_question_blocks">
           <div class="inner_page_padding">
