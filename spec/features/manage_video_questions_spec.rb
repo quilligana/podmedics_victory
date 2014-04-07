@@ -22,6 +22,27 @@ feature 'Manage video questions' do
     expect(page).to have_content 'What is the smallest organ in the body?'
   end
 
+  scenario 'Incorrectly adding a new question' do
+    video = create(:video)
+    admin = create(:admin_user)
+    sign_in(admin)
+    add_bad_question_for_video(video)
+    admin_sees_question_error
+  end
+
+  # Helpers
+
+  def admin_sees_question_error
+    expect(page).to have_content 'Please review the form'
+  end
+
+  def add_bad_question_for_video(video)
+    visit admin_video_path(video)
+    click_link 'Add question'
+    fill_in 'Stem', with: 'What is the smallest organ?'
+    click_button 'Submit'
+  end
+
   def add_question_for_video(video)
     visit admin_video_path(video)
     click_link 'Add question'
