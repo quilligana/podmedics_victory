@@ -3,7 +3,7 @@
 
     <div class="lecture_questions_left_column">
       <div class="lecture_questions_outer_wrapper">
-        <div class="lectures_question_title"> <%= simple_format(@question.stem) %> </div>
+        <div class="lectures_question_title"> <%= @question.stem.html_safe %> </div>
         <div class="lecture_question_blocks">
           <div class="inner_page_padding">
             <p class="lecture_questions_sub_title">Select one of the answers below</p>
