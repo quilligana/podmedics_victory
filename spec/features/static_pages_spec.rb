@@ -5,7 +5,7 @@ feature 'Static Pages' do
   scenario 'Accessing the home page' do
     visit root_path
     within 'h1' do
-      expect(page).to have_content 'We Make Medical Revision Videos'
+      expect(page).to have_content 'Welcome to Podmedics'
     end
   end
 
