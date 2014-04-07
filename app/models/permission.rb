@@ -2,7 +2,7 @@ class Permission
 
   def initialize(user)
     allow :static_pages, [:home, :about, :faqs, :library, :terms, :contact, :support]
-    allow :sessions, [:new, :create, :destroy]
+    allow :sessions, [:new, :create, :omniauthcreate, :destroy]
     allow :courses, [:index]
     allow :users, [:new, :create]
     if user
