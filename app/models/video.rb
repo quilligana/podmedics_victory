@@ -5,6 +5,7 @@ class Video < ActiveRecord::Base
   belongs_to :specialty
   has_many :questions, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :nested_comments, class_name: "Comment"
 
   validates :title, :presence => true
   validates :description, :presence => true
@@ -29,4 +30,13 @@ class Video < ActiveRecord::Base
     end
   end
 
+  def comments_count(visible_only)
+    if visible_only
+      comments = self.nested_comments.where(hidden: false)
+    else
+      comments = self.nested_comments
+    end
+
+    return comments.count
+  end
 end

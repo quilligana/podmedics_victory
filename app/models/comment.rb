@@ -11,11 +11,21 @@ class Comment < ActiveRecord::Base
 
   def hide
     self.hidden = true
+
+    self.comments.each do |comment|
+      comment.hide()
+    end
+
     self.save
   end
 
   def show
     self.hidden = false
+
+    self.comments.each do |comment|
+      comment.show()
+    end
+
     self.save
   end
 end

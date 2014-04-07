@@ -2,10 +2,12 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Comment do
   before do
-    @user = build(:user)
-    @comment = Comment.create(commentable: create(:video), 
+    @user = create(:user)
+    @video = create(:video)
+    @comment = Comment.create(commentable: @video, 
                               user: @user, 
-                              content: "comment text")
+                              content: "comment text",
+                              video: @video)
   end
 
   subject { @comment }
@@ -99,7 +101,7 @@ describe Comment do
       end
 
       it "should not count towards commentable's comment count" do
-        expect(@comment.video.comments.count).to eq 0
+        expect(@comment.video.comments_count(true)).to eq 0
       end
     end
   end
