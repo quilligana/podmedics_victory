@@ -52,7 +52,7 @@ var height;
     $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.video.comments_count(true) %>)"
 
     // Create the comment element
-	var comment = create_dom_element("<%= escape_javascript render @comment %>");
+	var comment = create_dom_element("<%= escape_javascript render 'comments/comment', object: @comment %>");
 
 	<% if @comment.commentable.class.name == 'Comment' %>
 		var comment = comment.getElementsByClassName("comment_reply")[0];
