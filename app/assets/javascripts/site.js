@@ -33,7 +33,6 @@ ready = function() {
     $(window).scrollTop($("#comment_reply_textarea").offset().top);
   });
 
-
   // Questions finished - fire modal
   $( "#questions_complete_modal_click" ).click();
 

@@ -751,6 +751,20 @@ div.k-chart {
   margin-top: 35px;
   border-radius: $standard_border_radius;
   clear: both;
+  -webkit-transition: background-color 1000ms linear;
+  -moz-transition: background-color 1000ms linear;
+  -o-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+
+
+}
+
+
+.questions_answers_main_question .comment.new_comment_active_state {
+  background-color: #000;  animation-delay:5s;
+  -webkit-animation-delay:5s; /* Safari and Chrome */
+
 }
 
 .questions_answers_main_question p {
@@ -848,7 +862,7 @@ div.k-chart {
   padding-top: 20px;
   padding-right: 2%;
   padding-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 10px;
   height: 80px;
   margin-bottom: 20px;
   padding-left: 2%;
@@ -866,7 +880,6 @@ div.k-chart {
   color: #333;
   background-color: #EBEBEB;
 }
-
 
 .no_questions_reply_wrapper {
   clear: both;

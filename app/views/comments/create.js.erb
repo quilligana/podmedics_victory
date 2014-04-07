@@ -16,14 +16,14 @@ function create_dom_element(element_string)
 // This gives the tab_container to expand before inserting the new element.
 function show(element)
 {
-	setTimeout(function(){$(element).show(400)},500);
+	setTimeout(function(){$(element).fadeIn(400)},500);
 }
 
 // Show the element over 400 milliseconds after a 500 millisecond delay.
 // This gives the tab_container to contract before hiding the element.
 function hide(element)
 {
-	setTimeout(function(){$(element).hide(400)},500);
+	setTimeout(function(){$(element).fadeOut(400)},500);
 }
 
 // Show the element over 400 milliseconds after a 500 millisecond delay.
@@ -65,7 +65,7 @@ var height;
 		comment_container.insertBefore(comment, comment_container.firstChild);
 	<% end %>
 	// Hide the comment so it can be shown after resizing the tab_container.
-	$(comment).hide();
+	$(comment).hide().addClass('new_comment_active_state');
 
 	// Make sure the "No comments" message is gone.
 	var no_comments_div = $(".no_questions_reply_wrapper")[0];
