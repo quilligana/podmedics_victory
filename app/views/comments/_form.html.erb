@@ -3,10 +3,18 @@
     <%= f.text_area :content, class: "comments_textarea", placeholder: "Write your comments here..." %>
   </p>
   <p>
+    <% unless ENV["RAILS_ENV"] == 'test' %>
     <%= f.hidden_field :commentable_id, id: "comment_commentable_id", value: @video.id %>
+    <% else %>
+    <%= f.text_field :commentable_id, id: "comment_commentable_id", value: @video.id %>
+    <% end %>
   </p>
   <p>
+    <% unless ENV["RAILS_ENV"] == 'test' %>
     <%= f.hidden_field :commentable_type, id: "comment_commentable_type", value: @video.class.name %>
+    <% else %>
+    <%= f.text_field :commentable_type, id: "comment_commentable_type", value: @video.class.name %>
+    <% end %>
   </p>
   <p><%= f.button class: "podmedcis_button green", value: "Post Answer" %></p>
 

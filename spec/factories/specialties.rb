@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :specialty do
-    name "Cardiology"
+    sequence(:name) { |n| "Cardiology#{n}" }
     association :category
   end
 end
