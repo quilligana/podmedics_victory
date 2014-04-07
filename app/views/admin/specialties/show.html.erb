@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <% @specialty.videos.each do |video| %>
-          <tr>
+          <tr id="<%= video.id %>">
             <td><%= video.id %></td>
             <td><%= video.title %></td>
             <td><%= video.position %></td>
