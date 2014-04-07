@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Video do
   it { should respond_to :preview }
+  it { should respond_to :position }
   it { should belong_to :specialty }
   it { should have_many :questions }
   it { should validate_presence_of :title }
@@ -25,4 +26,5 @@ describe Video do
       create(:question, video: video)
     }.to change { Video.last.questions_count}.by(1)
   end  
+
 end

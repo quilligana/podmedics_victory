@@ -23,6 +23,7 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-twitter'
 gem 'newrelic_rpm'
 gem 'roo'
+gem 'acts_as_list'
 
 group :development do
   gem 'thin'

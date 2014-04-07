@@ -28,6 +28,40 @@ feature 'Managing videos' do
     expect(page).to have_content video.description
     expect(page).to have_content video.duration
   end
+
+  scenario 'Moving up in position' do
+    specialty = create(:specialty)
+    video_1 = create(:video, specialty: specialty, position: 1)
+    video_2 = create(:video, specialty: specialty, position: 2)
+    sign_in(admin_user)
+    visit admin_specialty_path(specialty)
+    within "#2" do
+      click_link 'Up'
+    end
+    within '#2' do
+      expect(page).to have_content 1
+    end
+    video_2.reload
+    expect(video_2.position).to eq 1
+  end
+
+  scenario 'Moving up in position' do
+    specialty = create(:specialty)
+    video_1 = create(:video, specialty: specialty, position: 1)
+    video_2 = create(:video, specialty: specialty, position: 2)
+    sign_in(admin_user)
+    visit admin_specialty_path(specialty)
+    within "#1" do
+      click_link 'Down'
+    end
+    within '#1' do
+      expect(page).to have_content 2
+    end
+    video_1.reload
+    expect(video_1.position).to eq 2
+  end
+
+  # Helpers
   
   def add_podcast_with_name_and_specialty(name, specialty)
     click_link 'Videos'

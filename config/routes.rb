@@ -30,6 +30,10 @@ PodmedicsVictory::Application.routes.draw do
     resources :categories, except: :delete 
     resources :specialties
     resources :videos do
+      member do
+        get 'move_up'
+        get 'move_down'
+      end
       resources :questions
       collection { post :import}
     end

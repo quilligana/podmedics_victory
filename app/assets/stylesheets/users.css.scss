@@ -79,11 +79,8 @@ $standard_border_radius: 6px;
   float: left;
   height: auto;
   width: 100%;
-  border-top-width: 1px;
   border-bottom-width: 1px;
-  border-top-style: solid;
   border-bottom-style: solid;
-  border-top-color: #E8E8E8;
   border-bottom-color: #E8E8E8;
 }
 
@@ -164,7 +161,11 @@ a p.badge_speciality.small_screen_count {
 .dashboard_pie_charts {
   float: left;
   height: auto;
-  width: 100%; }
+  width: 100%;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #E8E8E8;
+}
 
 .dashboard_badges_overview_inner_border {
   border-right: solid 1px #E0E0E0;
@@ -2591,4 +2592,22 @@ a.video_page_authour_twitter_icon {
   font-size: 16px;
   line-height: 25px;
   float: left;
+}
+
+.profile_avatar_upload_wrapper{
+  display: none;
+}
+
+.profile_avatar_field {
+  width: 100%;
+  margin-top: 30px;
+}
+.red_button.edit_profile_button {
+  clear: both;
+}
+.profile_avatar_upload_wrapper {
+  width: 100%;
+  float: left;
+  margin-top: 30px;
+  display: none;
 }

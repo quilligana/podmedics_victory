@@ -30,27 +30,21 @@
     <p>Badges Earned</p>
   </div>
 </div>
+<% if current_user.badges.any? %>
+  <div class="dashboard_badges_overview_wrapper">
 
-
-<div class="dashboard_badges_overview_wrapper">
-
-  <div class="dashboard_badges_left_column">
-    <div class="dashboard_badges_overview_inner_border">
-      <% if current_user.badges.any? %>
-        <%= render 'recent_badges' %>
-      <% end %>
+    <div class="dashboard_badges_left_column">
+      <div class="dashboard_badges_overview_inner_border">
+          <%= render 'recent_badges' %>
+      </div>
     </div>
+
+    <div class="dashboard_badges_right_column">
+          <%= render 'badges' %>
+    </div>
+
   </div>
-
-  <div class="dashboard_badges_right_column">
-    <% if current_user.badges.any? %>
-        <%= render 'badges' %>
-      <% end %>
-  </div>
-
-
-</div>
-
+<% end %>
 
 <div class="dashboard_pie_charts">
   <div class="dashboard_charts_set_wrapper">
