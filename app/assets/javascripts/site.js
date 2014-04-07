@@ -36,7 +36,14 @@ ready = function() {
   // Questions finished - fire modal
   $( "#questions_complete_modal_click" ).click();
 
-  // Navigation
+
+
+
+  $('#change_profile_image_button').click(function() {
+    $('.profile_avatar_upload_wrapper').fadeToggle(400);
+   });
+
+    // Navigation
   $("#menu_action").click(function(){
     $("body").addClass('cbp-spmenu-push-toleft');
     $(".cbp-spmenu-right").addClass('active_menu');
