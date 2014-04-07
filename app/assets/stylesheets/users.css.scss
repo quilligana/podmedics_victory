@@ -2592,3 +2592,21 @@ a.video_page_authour_twitter_icon {
   line-height: 25px;
   float: left;
 }
+
+.profile_avatar_upload_wrapper{
+  display: none;
+}
+
+.profile_avatar_field {
+  width: 100%;
+  margin-top: 30px;
+}
+.red_button.edit_profile_button {
+  clear: both;
+}
+.profile_avatar_upload_wrapper {
+  width: 100%;
+  float: left;
+  margin-top: 30px;
+  display: none;
+}
