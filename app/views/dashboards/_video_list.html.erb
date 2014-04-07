@@ -6,12 +6,29 @@
       <p class="lecture_date_author"><%= video.duration %> minutes with <%= video.speaker_name %></p>
     </div>
     <div class="lecture_icons_wrapper">
+
       <div class="lecture_status_inline_title">Watched</div>
+
+      <!-- Green icon -  (show when watched) -->
       <a href="#" class="lecture_icon watched"><p class="tooltip">You watched this 20 minutes ago and answered 10 of 10 questions correct</p></a>
+
+      <!-- Orange icon -  (show when part watched) -->
+      <a href="#" class="lecture_icon part_watched"></a>
+
+      <!-- Red icon -  (show when not watched) -->
+      <a href="#" class="lecture_icon not_watched"></a>
+
+      <!-- Blue icon -  (show when user scores poorly in questions) -->
+      <a href="#" class="lecture_icon recommended_resit"><p class="tooltip">You answered 3 of 10 questions correct you may benefit from retaking this lecture</p></a>
+
+      <!-- Grey icon -  (always show? - only show when user has watched? ) -->
       <%= link_to video, class: 'lecture_icon resit', id: 'resit_video' do %>
         <p class="tooltip">Retake this lecture</p>
       <% end %>
+
+      <!-- Orange icon -  (show when user scored max points) -->
       <a href="#" class="lecture_icon top_marks"><p class="tooltip"><span>Good Job</span>You anserwed all 10 questions correctly and earned the maximum 800 points avaliable.</p></a>
+
     </div>
   </div>
 <% end %>
