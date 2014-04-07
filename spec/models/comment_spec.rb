@@ -17,7 +17,7 @@ describe Comment do
   it { should respond_to :hidden }
   it { should respond_to :hide }
   it { should respond_to :show }
-  it { should respond_to :comment_count }
+  it { should respond_to :video }
 
   it { should be_valid }
   
@@ -99,36 +99,7 @@ describe Comment do
       end
 
       it "should not count towards commentable's comment count" do
-        expect(@comment.commentable.comment_count(true)).to eq 0
-      end
-    end
-  end
-
-  describe "comment_count function" do
-    before do
-      @visible_comment = @comment.comments.create(user: User.first, 
-                                                  content: "This is a reply")
-      @hidden_comment = @comment.comments.create( user: User.first, 
-                                                  content: "This is a hidden reply", 
-                                                  hidden: true)
-    end
-
-    describe "with only_visible as true" do
-      it "should return a count of only visible comments" do
-        expect(@comment.comment_count(true)).to eq 1
-      end
-    end
-
-    describe "with only_visible as false" do
-      it "should return a count of all comments" do
-        expect(@comment.comment_count(false)).to eq 2
-      end
-    end
-
-    describe "should be recursive" do
-      it "should include nested comments" do
-        expect{@visible_comment.comments.create(user: User.first, 
-                                                content: "This is a nested reply")}.to change{@comment.comment_count(true)}.by(1)
+        expect(@comment.video.comments.count).to eq 0
       end
     end
   end
