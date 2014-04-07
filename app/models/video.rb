@@ -3,6 +3,8 @@ class Video < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :specialty
+  acts_as_list scope: :specialty
+
   has_many :questions, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :nested_comments, class_name: "Comment"
