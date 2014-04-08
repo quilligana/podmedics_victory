@@ -18,7 +18,7 @@ describe "video comments" do
     end
   end
 
-  describe "posting a comment" do
+  describe "posting a comment", slow: true do
     describe "with a valid message", :js => true do
       before do
         fill_in "comment_content", with: "This is a comment."
