@@ -893,7 +893,8 @@ div.k-chart {
   height: 70px;
   padding-top: 90px;
   border-bottom: solid 1px $grey_border;
-  color:#838383;
+  color: #838383;
+  margin-bottom: 30px;
 }
 
 .no_questions_reply_wrapper a {
@@ -912,8 +913,8 @@ div.k-chart {
 
 /* Notifications */
 .notification_wrapper {
-  margin-left: 35px;
-  margin-right: 35px;
+  margin-left: 5%;
+  margin-right: 5%;
   clear: both;
 }
 
@@ -922,7 +923,8 @@ div.k-chart {
   padding-top: 25px;
   padding-bottom: 20px;
   display: inline-block;
-  margin-top: 35px;
+  margin-top: 0px;
+  margin-bottom: 10px;
   border-radius: 6px;
   clear: both;
   width: 100%;
@@ -948,8 +950,8 @@ div.k-chart {
   background-image: image-url('close_notification_icon.png');
   width: 15px;
   height: 15px;
-  right: 55px;
-  margin-top: -20px;
+  right: 68px;
+  margin-top: -17px;
   cursor: pointer;
   position: absolute;
 }
