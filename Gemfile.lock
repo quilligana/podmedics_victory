@@ -342,6 +342,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simple_form!
+  simplecov
   thin
   turbolinks
   turbolinks_transitions

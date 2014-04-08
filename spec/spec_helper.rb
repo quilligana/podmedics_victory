@@ -1,5 +1,7 @@
 require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
+require 'simplecov'
+SimpleCov.start 'rails'
 require 'rubygems'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -20,6 +22,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    reset_email
   end
 
   config.after(:each) do
@@ -28,6 +31,7 @@ RSpec.configure do |config|
 
   config.include LoginMacros
   config.include OmniauthMacros
+  config.include MailerMacros
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
