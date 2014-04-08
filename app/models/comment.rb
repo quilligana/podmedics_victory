@@ -10,22 +10,13 @@ class Comment < ActiveRecord::Base
   validates :commentable, presence: true
 
   def hide
-    self.hidden = true
-
-    self.comments.each do |comment|
-      comment.hide()
-    end
-
-    self.save
+    update_attributes(hidden: true)
+    comments.each { |comment| comment.hide }
   end
 
   def show
-    self.hidden = false
-
-    self.comments.each do |comment|
-      comment.show()
-    end
-
-    self.save
+    update_attributes(hidden: false)
+    comments.each { |comment| comment.show }
   end
+
 end
