@@ -7,7 +7,7 @@ class Admin::FaqsController < InheritedResources::Base
   end
 
   def update
-    create!(notice: 'FAQ updated') { admin_faqs_path }
+    update!(notice: 'FAQ updated') { admin_faqs_path }
   end
 
   protected

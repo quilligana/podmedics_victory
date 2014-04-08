@@ -4,6 +4,6 @@
   <td><%= faq.member_only %></td>
   <td>
     <%= link_to "Edit", edit_admin_faq_path(faq) %>
-    <%= link_to "Show", admin_faq_path(faq) %>
+    <%= link_to 'Remove', admin_faq_path(faq), method: :delete %>
   </td>
 </tr>
