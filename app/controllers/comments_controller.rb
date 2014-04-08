@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.commentable_type == "Comment"
-      @comment.video = @comment.commentable.video
+      @comment.root = @comment.commentable.root
     else
-      @comment.video = @comment.commentable
+      @comment.root = @comment.commentable
     end
 
     unless @comment.save
@@ -30,10 +30,10 @@ class CommentsController < ApplicationController
   private
 
     def find_commentable(params)
-      if params[:comment][:commentable_type] == "Comment"
-        params[:comment][:commentable_type].classify.constantize.find(params[:comment][:commentable_id])
-      else
+      if params[:comment][:commentable_type] == "Video"
         params[:comment][:commentable_type].classify.constantize.friendly.find(params[:comment][:commentable_id])
+      else
+        params[:comment][:commentable_type].classify.constantize.find(params[:comment][:commentable_id])
       end
     end
 
