@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :user_questions, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :speciality_questions, dependent: :destroy
   has_many :badges, dependent: :destroy
   validates :email, presence: true, email: true
   validates :name, presence: true
