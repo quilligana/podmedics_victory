@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.commentable_type == "Comment"
-      @comment.video = @comment.commentable.video
+      @comment.root = @comment.commentable.root
     else
-      @comment.video = @comment.commentable
+      @comment.root = @comment.commentable
     end
 
     unless @comment.save

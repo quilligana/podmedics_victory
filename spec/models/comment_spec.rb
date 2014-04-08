@@ -7,7 +7,7 @@ describe Comment do
     @comment = Comment.create(commentable: @video, 
                               user: @user, 
                               content: "comment text",
-                              video: @video)
+                              root: @video)
   end
 
   subject { @comment }
@@ -19,7 +19,7 @@ describe Comment do
   it { should respond_to :hidden }
   it { should respond_to :hide }
   it { should respond_to :show }
-  it { should respond_to :video }
+  it { should respond_to :root }
 
   it { should be_valid }
   
@@ -101,7 +101,7 @@ describe Comment do
       end
 
       it "should not count towards commentable's comment count" do
-        expect(@comment.video.comments_count(true)).to eq 0
+        expect(@comment.root.comments_count(true)).to eq 0
       end
     end
   end

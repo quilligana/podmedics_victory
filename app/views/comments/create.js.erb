@@ -42,15 +42,16 @@ function go_to(element)
     }, 'fast');
 }
 
+debugger;
 var tab_container = $("#tabs_container");
 var height;
 
 <% if @comment %>
-	// Set the comment form to comment on the video again, not the commentable
-	set_comment_form_target("", 'Video', <%= @comment.video.id %>);
+	// Set the comment form to comment on the root again, not the commentable
+	set_comment_form_target("", "<%= @comment.root_type %>", <%= @comment.root_id %>);
 
     // Update the comments count in the tab title
-    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.video.comments_count(true) %>)"
+    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.root.comments_count(true) %>)"
 
     // Create the comment element
 	var comment = create_dom_element("<%= escape_javascript render partial: 'comment', object: @comment %>");
