@@ -53,12 +53,16 @@ var height;
     $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.video.comments_count(true) %>)"
 
     // Create the comment element
-	var comment = create_dom_element("<%= escape_javascript render 'comments/comment', object: @comment %>");
+	var comment = create_dom_element("<%= escape_javascript render partial: 'comment', object: @comment %>");
 
 	<% if @comment.commentable.class.name == 'Comment' %>
 		var comment = comment.getElementsByClassName("comment_reply")[0];
+		<% if @comment.commentable.commentable.class.name == 'Comment' %>	
+		var comment_container = $(".comment_reply#<%=@comment.commentable.id%>")[0];
+		<% else %>
 		var comment_container = $(".comment#<%=@comment.commentable.id%>")[0];
-		$(comment_container).after(comment);
+		<% end %>
+		$(comment).insertAfter($(comment_container));
 	// Otherwise, .appendChild it to the entire comment div.
 	<% else %>
 		var comment = comment.getElementsByClassName("comment")[0];
