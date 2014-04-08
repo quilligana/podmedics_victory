@@ -17,6 +17,7 @@ function create_dom_element(element_string)
 function show(element)
 {
 	setTimeout(function(){$(element).fadeIn(400)},500);
+  setTimeout(function () { $(comment).removeClass('new_comment_active_state');}, 2000);
 }
 
 // Show the element over 400 milliseconds after a 500 millisecond delay.
