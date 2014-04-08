@@ -2613,3 +2613,29 @@ a.video_page_authour_twitter_icon {
   margin-top: 30px;
   display: none;
 }
+
+.exam_button_tooltip_wrapper {
+  float: left;
+}
+
+.exam_button_tooltip_wrapper .exam_button_tooltip {
+  background-image: image-url('lectures_tooltips.png');
+  background-repeat: no-repeat;
+  width: 314px;
+  height: 77px;
+  background-position: -9px 2px;
+  font-size: 13px;
+  color: #A9A9A9;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 0px;
+  right: 38px;
+  padding: 30px 15px 20px;
+  position: absolute;
+  margin-top: 48px;
+  display: none;
+}
+.exam_button_tooltip_wrapper:hover .exam_button_tooltip {
+  display: block;
+
+}

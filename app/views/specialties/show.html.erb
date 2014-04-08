@@ -4,7 +4,10 @@
     <h1><%= @specialty.name %></h1>
     <div class="sub_heading_button_set">
       <a href="#" class="podmedcis_button white_button ask_question_sub_heading_button"  data-reveal-id="ask_question_modal">Ask a Question</a>
-      <%= link_to "Take #{@specialty.name.capitalize} Exam", specialty_exam_url(@specialty.id), class: "podmedcis_button" %>
+      <div class="exam_button_tooltip_wrapper">
+        <%= link_to "Take #{@specialty.name.capitalize} Exam", specialty_exam_url(@specialty.id), class: "podmedcis_button" %>
+        <div class="exam_button_tooltip">Take The <%= @specialty.name %> Exam.<br> Answer all 24 questions<br> (average test time approx 20mins)</div>
+      </div>
       </div>
   </div>
 
