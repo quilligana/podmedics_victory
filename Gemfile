@@ -50,6 +50,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
   gem 'mocha'
+  gem 'simplecov', require: false
 end
 
 group :production do
