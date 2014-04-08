@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140408154602) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "hidden",           default: false
+    t.integer  "video_id"
     t.integer  "root_id"
     t.string   "root_type"
   end
