@@ -2,7 +2,14 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable params
-    @comment = @commentable.comments.build(comment_params)
+
+    if params[:comment][:commentable_type] == "SpecialtyQuestion"
+      @comment = @commentable.answers.new(comment_params)
+    else
+      @comment = @commentable.comments.new(comment_params)
+    end
+
+
     @comment.user = current_user
 
     if @comment.commentable_type == "Comment"

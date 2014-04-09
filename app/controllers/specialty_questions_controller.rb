@@ -12,6 +12,7 @@ class SpecialtyQuestionsController < ApplicationController
     @specialty = Specialty.friendly.find(params[:specialty_id])
     @question = SpecialtyQuestion.find(params[:id])
     @user_progress = UserProgress.new(@specialty, current_user)
+    @comment = @question.answers.new()
   end
 
   def destroy

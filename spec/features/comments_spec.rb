@@ -14,7 +14,7 @@ describe "video comments" do
   describe "before posting a comment" do
     it "should not have any comments" do
       expect(page).to have_content("Nothing posted yet. Be the first to comment.")
-      expect(page).to have_content("Comments (0)")
+      expect(page).to have_content("Comments ( 0 )")
     end
   end
 

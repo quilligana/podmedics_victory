@@ -51,7 +51,11 @@ var height;
 	set_comment_form_target("", "<%= @comment.root_type %>", <%= @comment.root_id %>);
 
     // Update the comments count in the tab title
-    $(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.root.comments_count(true) %>)"
+    <% if @comment.root_type == "Video" %>
+    	$(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.root.comments_count(true) %>)"
+    <% else %>
+    	$(".comments_tab").children()[0].innerHTML = "<%= @comment.root.comments_count(true) %> Answers"
+    <% end %>
 
     // Create the comment element
 	var comment = create_dom_element("<%= escape_javascript render partial: 'comment', object: @comment %>");

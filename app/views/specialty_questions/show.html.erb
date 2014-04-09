@@ -24,134 +24,42 @@
               <div class="main_question_header">
                 <div class="main_question_user_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
                 <h2><%= @question.content %></h2>
-                <p>Posted <%= time_ago_in_words(@question.created_at) %> ago by <a href="#"><%= @question.user.name %></a></p>
+                <p>Posted <%= time_ago_in_words(@question.created_at) %> ago by <a href="#"><%= @question.user.name %></a>
               </div>
               <!-- End question header -->
 
 
-              <div class="no_questions_reply_wrapper">Nothing posted yet. <a href="#">Be the first to answer</a></div>
+              <% if @question.comments_count(true) == 0 %>
+                <div class="no_questions_reply_wrapper">
+                  Nothing posted yet. 
+                  <a href="javascript:;">
+                    Be the first to comment.
+                  </a>
+                </div>
+              <% end %>
               <!-- End nothing posted yet -->
 
-              <div class="notification_wrapper">
-                <div class="notification success">
-                  <p>Sucess <span>A successful message</span></p>
-                  <p class="close_notification"></p>
+              <ul>
+                <li>
+                  <a class="comments_tab"><p><%= @question.comments_count(true) %> Answers</p>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
+                <div class="inner_page_padding comments_textarea_wrapper">
+                  <%= render partial: 'comments/form', locals: {root: @question} %>
                 </div>
               </div>
-
-
-              <div class="notification_wrapper">
-                <div class="notification error">
-                  <p>Error <span>There has been a problem</span></p>
-                  <p class="close_notification"></p>
-                </div>
-              </div>
-
-
-              <div class="notification_wrapper">
-                <div class="notification warning">
-                  <p>Warning <span>A small problem</span></p>
-                  <p class="close_notification"></p>
-                </div>
-              </div>
-
-
-              <div class="notification_wrapper">
-                <div class="notification info">
-                  <p>Information <span>You have been informed</span></p>
-                  <p class="close_notification"></p>
-                </div>
-              </div>
-
-              <!-- End questions notifications -->
-
-
+              <!-- End questions textarea -->
 
               <div class="question_comments_outer">
 
-                <div class="comment">
-                  <div class="inner_page_padding">
-                    <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
+                <%= render partial: 'comments/comment', collection: @question.answers.where(hidden: false) %>
+                <!-- End of comments -->
 
-                    <div class="comment_info">
-                      <h3>Jamie Peak</h3>
-                      <p>Aenean ut felis vel odio viverra pretium. Nam mollis purus sit <a href="#">Amet lacus</a> tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Nam mollis purus sit amet lacus tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Pellent lentesque eu neque dolor.</p>
-                      <p class="comment_date">About  a minute ago</p>
-
-                      <div class="comment_badge_wrapper">
-                        <a href="#" class="badge">
-                          <p class="badge_title houseofficer">HouseOfficer</p>
-                          <p class="badge_speciality small_screen_count">+ 1</p>
-                          <p class="badge_speciality">Cardiology</p>
-                        </a>
-
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                <!-- End comment -->
-
-
-
-                <div class="comment_reply">
-                  <div class="comment">
-                    <div class="inner_page_padding">
-
-                      <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-
-                      <div class="comment_info">
-                        <h3>Jamie Peak</h3>
-                        <p>Aenean ut felis vel odio viverra pretium. Nam mollis purus sit amet lacus tempus, et iaculis <a href="#">sapien aliquam teque eu</a> neque dolor. Pellentesque dictum tellus leo, nec viverra ipsum laoreet vel.</p>
-                        <p class="comment_date">About  a minute ago</p>
-
-                        <div class="comment_badge_wrapper">
-                          <a href="#" class="badge">
-                            <p class="badge_title registrar">Registrar</p>
-                            <p class="badge_speciality small_screen_count">+ 1</p>
-                            <p class="badge_speciality">Cardiology</p>
-                          </a>
-
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End comment reply -->
-
-
-
-                <div class="comment">
-                  <div class="inner_page_padding">
-                    <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-                    <div class="comment_info">
-                      <h3>Jamie Peak</h3>
-                      <p>Nam mollis purus sit lacus tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Aenean ut felis vel odio viverra pretium. Nam mollis purus sit amet lacus tempus, et iaculis sapien aliquam. Pellentesque eu neque dolor. Pellentesque dictum tellus leo, nec viverra ipsum laoreet vel.</p>
-                      <p class="comment_date">About  a minute ago</p>
-
-                      <div class="comment_badge_wrapper">
-                        <a href="#" class="badge">
-                          <p class="badge_title medical_director">Medical Director</p>
-                          <p class="badge_speciality small_screen_count">+ 1</p>
-                          <p class="badge_speciality">Cardiology</p>
-                        </a>
-
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-                <!-- End comment -->
-                <div class="questions_aswer_comment_textarea">
-                  <div class="inner_page_padding">
-                    <textarea name="" cols="" rows="" class="comments_textarea" placeholder="Write your comments here..."></textarea>
-                    <button class="podmedcis_button green">Post Answer</button>
-                  </div>
-                </div>
-                <!-- End questions textarea -->
               </div>
-              <!-- End questions comments outer -->
+              <!-- End comments outer -->
             </div>
           </div>
           <!-- End tab 2 -->

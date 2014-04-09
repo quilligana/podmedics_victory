@@ -131,7 +131,7 @@
 
                   <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
                     <div class="inner_page_padding comments_textarea_wrapper">
-                      <%= render 'comments/form' %>
+                      <%= render partial: 'comments/form', locals: {root: @video} %>
                     </div>
                   </div>
                   <!-- End questions textarea -->
