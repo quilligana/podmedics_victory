@@ -30,7 +30,7 @@ feature 'Video Questions' do
       expect(page).to have_content 'Question 1 of 1'
       expect(page).to have_css('div.active_placement_bar.hundred_percent')
       expect(page).to have_content '0%'
-      expect(page).to have_content 'Of users who took this test scrored on average 1/1 questions correct.'
+      expect(page).to have_content 'Of users answered this question correctly.'
     end
 
     expect(page).to have_button @question_1.answer_1
@@ -147,10 +147,9 @@ feature 'Video Questions' do
 
     visit video_questions_url(video_id: @video_3.id)
     4.times do
-      click_button "Second Answer"
+      click_button "First Answer"
       click_link "Next Question"
     end
-    click_button "First Answer"
 
     log_out(@user)
     sign_in(user_2)
@@ -159,15 +158,13 @@ feature 'Video Questions' do
       click_button "Second Answer"
       click_link "Next Question"
     end
-    click_button "Second Answer"
 
     log_out(user_2)
     sign_in(user_3)
     visit video_questions_url(video_id: @video_3.id)
 
     within '.lecture_questions_right_column' do
-      expect(page).to have_content "33%Of users who took this test scrored on average 5/5 questions correct."
-      expect(page).to have_content "33%Of users who took this test scrored on average 4/5 questions correct."
+      expect(page).to have_content "33%Of users answered this question correctly."
     end
   end
 
