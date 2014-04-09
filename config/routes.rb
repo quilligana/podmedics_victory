@@ -1,6 +1,5 @@
 PodmedicsVictory::Application.routes.draw do
 
-  resources :comments
   # Static pages
   root 'static_pages#home'
   get '/about', to: 'static_pages#about', as: 'about'
@@ -54,7 +53,9 @@ PodmedicsVictory::Application.routes.draw do
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
   resources :questions, only: :show
-  resources :specialties, only: [:show]
+  resources :specialties, only: [:show] do
+    resources :specialty_question, as: :questions, only: [:index, :show]
+  end
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
   resources :comments
