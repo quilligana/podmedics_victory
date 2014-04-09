@@ -26,7 +26,7 @@
         <h2>Password Reset</h2>
         <%= form_tag password_resets_path, method: :post do %>
           <%= text_field_tag :email, params[:email], placeholder: 'Email', class: 'podmedics_textfield' %>
-          <%= submit_tag "Reset Password", class: 'red_button' %>
+          <%= button_tag "Reset Password", class: 'red_button' %>
         <% end %>
         <div class="password_reset_link"><a href="javascript:;" id="forgot_password_back_link">Back</a></div>
       </div>

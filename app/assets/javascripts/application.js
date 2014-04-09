@@ -5,5 +5,6 @@
 //= require tabulous
 //= require icheck
 //= require fresco
+//= require jquery.fitvids
 //= require site
 
