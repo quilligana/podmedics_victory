@@ -1,5 +1,6 @@
 class SpecialtyQuestionsController < ApplicationController
-
+  layout 'user_application'
+  
   def index
     @specialty = Specialty.friendly.find(params[:specialty_id])
     @user_progress = UserProgress.new(@specialty, current_user)
