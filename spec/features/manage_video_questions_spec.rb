@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature 'Manage video questions' do
+  
   scenario 'Adding a new question for a video' do
     video = create(:video)
     admin = create(:admin_user)

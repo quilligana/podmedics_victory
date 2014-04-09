@@ -5,14 +5,18 @@ class Question < ActiveRecord::Base
   validates :stem, :presence => true
   validates :answer_1, :presence => true
   validates :answer_2, :presence => true
-  validates :answer_3, :presence => true
-  validates :answer_4, :presence => true
-  validates :answer_5, :presence => true
-  validates :correct_answer, :presence => true
+  validates :correct_answer, presence: true
+  validate :correct_answer_must_be_an_answer
   validates :explanation, :presence => true
   validates :video_id, :presence => true
 
   delegate :specialty_id, to: :video
+
+  def correct_answer_must_be_an_answer
+    if send("answer_#{correct_answer || 1}").nil?
+      errors.add(:correct_answer, "is not a valid answer")
+    end
+  end
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
