@@ -663,7 +663,6 @@ div.k-chart {
 .questions_answers_main_question {
   float: left;
   width: 100%;
-  display: none;
   height: auto;
 }
 
@@ -2299,13 +2298,13 @@ a.video_download_dropdown_link.slides_file_icon {
   font-weight: 800;
 }
 
-#tabs .inner_page_padding.video_info ul {
+#tabs .inner_page_padding.video_info ul, #tabs_single_page .inner_page_padding.video_info ul {
   float: left;
   margin: 0px;
 }
 
 
-#tabs .inner_page_padding.video_info ul li {
+#tabs .inner_page_padding.video_info ul li, #tabs_single_page .inner_page_padding.video_info ul li {
   margin-bottom: 15px;
   font-weight: 800;
 

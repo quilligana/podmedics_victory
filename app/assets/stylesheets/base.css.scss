@@ -359,7 +359,7 @@ h4 {
 
 /* Tabs */
 
-#tabs, #tabs2, #tabs3, #tabs4, #tabs5 {
+#tabs, #tabs2, #tabs3, #tabs4, #tabs5, #tabs_single_page {
   width: 100%;
   clear: both;
   float: left;
@@ -367,12 +367,12 @@ h4 {
   padding-bottom: 10px;
   margin: 0; }
 
-#tabs li, #tabs2 li, #tabs3 li, #tabs4 li, #tabs5 li {
+#tabs li, #tabs2 li, #tabs3 li, #tabs4 li, #tabs5 li, #tabs_single_page li {
   float: left;
   margin-right: 0;
   list-style: none; }
 
-#tabs li a {
+#tabs li a, #tabs_single_page li a {
   display: block;
   text-decoration: none;
   color: #797979;
@@ -384,7 +384,7 @@ h4 {
 
   padding: 10px 0 20px; }
 
-#tabs li a:hover, #tabs2 li a:hover, #tabs3 li a:hover, #tabs4 li a:hover, #tabs5 li a:hover {
+#tabs li a:hover, #tabs2 li a:hover, #tabs3 li a:hover, #tabs4 li a:hover, #tabs5 li a:hover, #tabs_single_page li a:hover  {
   color: #4F4F4F; }
 
 #tabs_container {
@@ -444,7 +444,11 @@ h4 {
   -ms-transition-delay: .3s;
   transition-delay: .3s; }
 
-#tabs li a.tabulous_active {
+
+
+
+
+#tabs li a.tabulous_active, #tabs_single_page li a.tabulous_active {
   background: #FFF;
   color: #555;
   opacity: 1.0; }
@@ -453,7 +457,7 @@ h4 {
   display: block;
   clear: both; }
 
-#tabs ul {
+#tabs ul, #tabs_single_page ul {
   clear: both;
   float: left;
   width: 80%; }
@@ -462,11 +466,11 @@ h4 {
   clear: both;
   float: left; }
 
-#tabs ul li a p {
+#tabs ul li a p, #tabs_single_page ul li a p {
   float: left;
   padding: 5px 0 0; }
 
-#tabs ul li .icon {
+#tabs ul li .icon, #tabs_single_page ul li .icon {
   height: 22px;
   width: 28px;
   float: left;
@@ -477,20 +481,20 @@ h4 {
   margin-top: 2px;
   padding: 0; }
 
-#tabs ul li .recommended_lectures_tab .icon {
+#tabs ul li .recommended_lectures_tab .icon,  #tabs_single_page  ul li .recommended_lectures_tab .icon {
   background-position: 0 -26px; }
 
-#tabs ul li .stats_tab .icon {
+#tabs ul li .stats_tab .icon, #tabs_single_page ul li .stats_tab .icon {
   background-position: 0 -53px; }
 
-#tabs ul li .lectures_tab .icon {
+#tabs ul li .lectures_tab .icon, #tabs_single_page ul li .lectures_tab .icon  {
   background-position: 0 0; }
 
-#tabs ul li .questions_answers_tab .icon {
+#tabs ul li .questions_answers_tab .icon, #tabs_single_page ul li .questions_answers_tab .icon {
   background-position: 0 -79px; }
 
 
-#tabs ul li .comments_tab .icon {
+#tabs ul li .comments_tab .icon, #tabs_single_page ul li .comments_tab .icon {
   background-position: 0 -109px;
 }
 
@@ -501,7 +505,7 @@ h4 {
   height: 1px;
   width: 100%; }
 
-#tabs ul {
+#tabs ul, #tabs_single_page ul  {
   margin-left: 40px; }
 
 
