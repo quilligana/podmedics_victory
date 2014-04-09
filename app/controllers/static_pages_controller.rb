@@ -26,4 +26,8 @@ class StaticPagesController < ApplicationController
     @faqs = Faq.for_members
   end
 
+  def plans
+    
+  end
+
 end
