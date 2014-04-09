@@ -42,7 +42,11 @@
       <div class="video_header_inner">
 
         <div class="video_column">
-          <iframe src="//player.vimeo.com/video/<%= @video.vimeo_identifier %>?portrait=0&color=fa3f52" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+          <div class="vendor">
+            <iframe src="//player.vimeo.com/video/<%= @video.vimeo_identifier %>?portrait=0&color=fa3f52" width="400" height="225" frameborder="0"></iframe>
+          </div>
+
         </div>
 
         <div class="video_page_notes_column">

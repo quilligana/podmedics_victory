@@ -7,6 +7,11 @@ ready = function() {
     mainDiv: '#tabs_container'
   });
 
+
+  // Fitvid.js
+
+  $(".video_column").fitVids();
+
   // Flash alert
   $(".flash_alert").delay(8000).slideUp(400);
 

@@ -2138,8 +2138,8 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
 /* Video Page */
 .video_header_outer {
   float: left;
-  height: 650px;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .video_page_heading_wrapper {
@@ -2257,20 +2257,17 @@ a.video_download_dropdown_link.slides_file_icon {
 .video_header_inner {
   width: 100%;
   background-color: #F8F8F8;
-  height: 550px;
+  float: left;
 }
 .video_page_author_duration_header {
   padding-bottom: 25px;
 }
 .video_header_inner div.video_column {
   width: 70%;
-  height: 550px;
-  background-color: #000;
   float: left;
 }
 .video_header_inner div.video_page_notes_column {
   width: 30%;
-  height: 550px;
   float: right;
   background-color: #F8F8F8;
 }
@@ -2351,7 +2348,7 @@ a.video_download_dropdown_link.slides_file_icon {
   font-size: 14px;
   color: #8D8D8D;
   resize: none;
-  height: 240px;
+  height: 197px;
   float: none;
 }
 
@@ -2639,3 +2636,18 @@ a.video_page_authour_twitter_icon {
   display: block;
 
 }
+
+
+
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+

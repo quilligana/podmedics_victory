@@ -8,6 +8,7 @@
 //= require pizza
 //= require kendo.dataviz.min
 //= require redactor
+//= require jquery.fitvids
 //= require site
 
 
