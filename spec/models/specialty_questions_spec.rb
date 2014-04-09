@@ -20,6 +20,4 @@ describe SpecialtyQuestion do
 
   it { should be_valid }
 
-  
-
 end
