@@ -1,0 +1,15 @@
+<% 
+	specialty_tab_classes = "lectures_tab"
+	question_and_answers_tab_classes = "questions_answers_tab"
+
+	if params[:controller] == 'specialty_questions'
+		question_and_answers_tab_classes += ' tabulous_active'
+	else
+		specialty_tab_classes += ' tabulous_active'
+	end
+%>
+
+<ul>
+  <li><a href="<%= specialty_path(@specialty) %>" title="" class="<%= specialty_tab_classes %>"><p>Lectures</p><p class="icon"></p></a></li>
+  <li><a href="<%= specialty_questions_path(@specialty) %>" title="" class="<%= question_and_answers_tab_classes %>"><p>Questions & Answers</p><p class="icon"></p></a></li>
+</ul>

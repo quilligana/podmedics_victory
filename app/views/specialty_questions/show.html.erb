@@ -15,10 +15,7 @@
   <div class="speciality_left_column">
     <div class="lectures_speciality_outer_wrapper">
       <div id="tabs_single_page">
-        <ul>
-          <li><a href="#" title="" class="lectures_tab"><p>Lectures</p><p class="icon"></p></a></li>
-          <li><a href="#" title="" class="questions_answers_tab tabulous_active"><p>Questions & Answers</p><p class="icon"></p></a></li>
-        </ul>
+        <%= render 'specialties/tab_links' %>
 
         <div id="tabs_container">
           <div id="tabs-2" class="tab_box">
@@ -26,8 +23,8 @@
 
               <div class="main_question_header">
                 <div class="main_question_user_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-                <h2>Question</h2>
-                <p>Posted 24 Minutes ago by <a href="#">User</a></p>
+                <h2><%= @question.content %></h2>
+                <p>Posted <%= time_ago_in_words(@question.created_at) %> ago by <a href="#"><%= @question.user.name %></a></p>
               </div>
               <!-- End question header -->
 
@@ -167,7 +164,7 @@
   </div>
   <!-- End speciality left column -->
 
-  <%= render 'specialty_stats' %>
+  <%= render 'specialties/specialty_stats' %>
 
   <!-- End right column -->
 
