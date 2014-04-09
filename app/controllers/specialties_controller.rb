@@ -5,6 +5,7 @@ class SpecialtiesController < ApplicationController
     @specialty = Specialty.friendly.find(params[:id]) 
     @videos = @specialty.videos
     @user_progress = UserProgress.new(@specialty, current_user)
+    @newQuestion = SpecialtyQuestion.new()
   end
 
 end
