@@ -26,9 +26,9 @@ Video.create!([
 
 # Create sample questions for video 1
 Question.create!([
-  { stem: 'This is a stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 4, explanation: 'This is an explanation.', video_id: 1 },
+  { stem: 'This is a stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', correct_answer: 1, explanation: 'This is an explanation.', video_id: 1 },
   { stem: 'This is a second stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 3, explanation: 'This is an explanation.', video_id: 1 },
-  { stem: 'This is a third stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 2, explanation: 'This is an explanation.', video_id: 1 },
+  { stem: 'This is a third stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', correct_answer: 2, explanation: 'This is an explanation.', video_id: 1 },
   { stem: 'This is a fourth stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 1, explanation: 'This is an explanation.', video_id: 1 },
   { stem: 'This is a fifth stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 5, explanation: 'This is an explanation.', video_id: 1 },
   { stem: 'This is a heart failure stem?', answer_1: 'ACE-inhibitor', answer_2: 'Beta-blocker', answer_3: 'Diuretic', answer_4: 'Calcium channel blocker', answer_5: 'Spironolactone', correct_answer: 4, explanation: 'This is an explanation.', video_id: 2 },
