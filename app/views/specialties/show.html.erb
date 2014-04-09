@@ -32,65 +32,7 @@
 
             <div id="tabs-2" class="tab_box">
               <div class="questions_answers_list">
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
-
-
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
-
-
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
-
-
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
-
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
-
-
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
-
-                <div class="questions_answers_question">
-                  <div class="inner_page_padding">
-                    <h2><a href="javascript:;" class="question_link">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</a></h2>
-                    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
-                    <p class="questions_answers_asked_date"><a href="#">Ed Wallitt</a>  asked a question about 24 Minutes ago</p>
-                  </div>
-                </div>
+                <%= render partial: 'question', collection: @specialty.user_questions %>
                 <!-- End questions list -->
 
                 <div class="load_more_questions_answers_wrapper"> <a href="#" class="podmedcis_button grey">Load More Questions</a>
@@ -107,8 +49,8 @@
 
               <div class="main_question_header">
                 <div class="main_question_user_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
-                <h2>If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</h2>
-                <p>Posted 24 Minutes ago by <a href="#">Ed Wallitt</a></p>
+                <h2>Question</h2>
+                <p>Posted 24 Minutes ago by <a href="#">User</a></p>
               </div>
               <!-- End question header -->
 

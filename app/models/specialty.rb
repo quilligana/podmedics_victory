@@ -5,6 +5,7 @@ class Specialty < ActiveRecord::Base
   has_many :videos, -> { order("position ASC") }
   has_many :questions, through: :videos
   has_many :badges, dependent: :destroy
+  has_many :user_questions, class_name: 'SpecialtyQuestion'
 
   validates_presence_of :name
 

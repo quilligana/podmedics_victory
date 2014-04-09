@@ -1,0 +1,8 @@
+<div class="questions_answers_question">
+  <div class="inner_page_padding">
+    <h2><a href="javascript:;" class="question_link"><%= question.content %></a></h2>
+    <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
+    <p class="questions_answers_asked_date">
+    	<a href="#"><%= question.user.name %></a> asked a question about <%= time_ago_in_words(question.updated_at) %> ago</p>
+  </div>
+</div>
