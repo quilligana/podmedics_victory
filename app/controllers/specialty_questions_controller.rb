@@ -1,4 +1,4 @@
-class SpecialtyQuestionController < ApplicationController
+class SpecialtyQuestionsController < ApplicationController
   def index
   end
 
