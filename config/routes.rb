@@ -53,9 +53,11 @@ PodmedicsVictory::Application.routes.draw do
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
   resources :questions, only: :show
+
   resources :specialties, only: [:show] do
-    resources :questions, controller: :specialty_questions, as: :questions, only: [:index, :show]
+    resources :questions, controller: :specialty_questions, as: :questions
   end
+
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
   resources :comments

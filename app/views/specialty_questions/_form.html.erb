@@ -1,0 +1,21 @@
+<div id="ask_question_modal" class="reveal-modal ask_question_modal_resize">
+  <div class="ask_question_modal_wrapper">
+
+    <div class="ask_question_modal_title">Ask a Question</div>
+    <div class="ask_question_modal_sub_title">Need some advice, ask the community a question and get help..</div>
+
+    <div class="ask_question_modal_form">
+      <%= form_for(@newQuestion, :url => specialty_questions_path(@specialty)) do |f| %>
+        <p>
+          <%= f.text_area :content, class: "ask_question_modal_textarea", placeholder: "Write your comments here..." %>
+        </p>
+        <p>
+          <%= f.button class: "podmedcis_button green", value: "Post Answer" %>
+        </p>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<!-- End ask question modal-->
