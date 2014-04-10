@@ -16,7 +16,7 @@ class Permission
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]
       allow :comments, [:create, :vote, :accept]
-      allow :specialty_questions, [:show, :index, :create]
+      allow :specialty_questions, [:show, :index, :create, :destroy]
       allow_all if user.admin?
     end
     

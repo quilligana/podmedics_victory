@@ -21,6 +21,10 @@
           <div id="tabs-2" class="tab_box">
             <div class="questions_answers_main_question">
 
+              <% if @question.user.id == current_user.id %>
+                <%= link_to "Delete question", specialty_question_path(@question.specialty, @question), method: :delete %>
+              <% end %>
+
               <div class="main_question_header">
                 <div class="main_question_user_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
                 <h2><%= @question.content %></h2>

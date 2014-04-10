@@ -30,6 +30,13 @@ class SpecialtyQuestionsController < ApplicationController
   end
 
   def destroy
+    @question = SpecialtyQuestion.find(params[:id])
+    if @question.user == current_user
+      @question = SpecialtyQuestion.find(params[:id])
+      @question.destroy
+    end
+
+    redirect_to specialty_questions_path(@question.specialty)
   end
 
   private 
