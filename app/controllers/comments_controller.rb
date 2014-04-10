@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new(comment_params)
     end
 
-
     @comment.user = current_user
 
     if @comment.commentable_type == "Comment"

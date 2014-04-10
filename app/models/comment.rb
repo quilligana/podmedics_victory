@@ -52,7 +52,7 @@ class Comment < ActiveRecord::Base
     self.votes.new(user: self.user)
   end
 
-  def accept(user)
+  def accept
     if acceptable?
       self.accepted = true
       self.save

@@ -14,9 +14,15 @@ describe SpecialtyQuestion do
   it { should respond_to :user }
   it { should respond_to :content }
   it { should respond_to :specialty }
-  it { should respond_to :answers }
-  it { should respond_to :nested_answers }
   it { should respond_to :comments_count }
+  it { should respond_to :get_answers }
+  it { should respond_to :comments_count }
+  it { should respond_to :accept_answer }
+  it { should respond_to :accepted_answer }
+  it { should respond_to :accept_answer }
+  it { should respond_to :already_accepted_answer? }
+  it { should have_many :answers }
+  it { should have_many :nested_answers }
 
   it { should be_valid }
 
