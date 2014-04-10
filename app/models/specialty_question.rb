@@ -17,17 +17,12 @@ class SpecialtyQuestion < ActiveRecord::Base
 
   def accept_answer(comment, user)
     if self.user = user
-      self.accepted_answer = comment
+      comment.accept(user)
     end
   end
 
   def accepted_answer
     return self.nested_answers.find_by(accepted: true)
-  end
-
-  def accepted_answer=(comment)
-    comment.accepted = true
-    comment.save
   end
 
   def already_accepted_answer?

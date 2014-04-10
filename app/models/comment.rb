@@ -43,13 +43,17 @@ class Comment < ActiveRecord::Base
   end
 
   def accept(user)
-    self.accepted = true
-    self.save
+    if acceptable?
+      self.accepted = true
+      self.save
+    end
   end
 
   def vote(user)
-    @vote = self.votes.find_by(user: user) || self.votes.new(user: user)
-    @vote.save
+    if votable?
+      @vote = self.votes.find_by(user: user) || self.votes.new(user: user)
+      @vote.save
+    end
   end
 
 end
