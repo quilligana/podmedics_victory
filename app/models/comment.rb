@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  before_save :owner_vote
+  before_create :owner_vote
 
   belongs_to :commentable, polymorphic: true
   belongs_to :root, polymorphic: true
@@ -43,10 +43,8 @@ class Comment < ActiveRecord::Base
   end
 
   def accept(user)
-    if self.root.user == user
-      self.accepted = true
-      self.save
-    end
+    self.accepted = true
+    self.save
   end
 
   def vote(user)

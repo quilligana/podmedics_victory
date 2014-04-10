@@ -30,7 +30,9 @@ class CommentsController < ApplicationController
 
   def accept
     @comment = Comment.find(params[:comment_id])
-    @comment.accept(current_user)
+    if @comment.acceptable?
+      @comment.root.accept_answer(@comment, current_user)
+    end
 
     redirect_to request.referer
   end

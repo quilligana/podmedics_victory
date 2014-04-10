@@ -20,24 +20,40 @@
           <a href="javascript:;" id="<%= comment.id %>">Reply</a>
         </div>
       </div>
+
+
       <% if comment.acceptable? %>
+
         <% if comment.root.user == current_user %>
           <div>
-          <%= link_to "Accept Comment", comment_accept_path(comment) %>
-          <% if comment.accepted %>
-            This is the accepted answer
+
+          <% unless comment.root.already_accepted_answer? %>
+            <%= link_to "Accept Comment", comment_accept_path(comment) %>
           <% end %>
+
           </div>
+
         <% end %>
+
+        <% if comment.accepted %>
+          This is the accepted answer
+        <% end %>
+
       <% end %>
+
+
       <% if comment.votable? %>
         <div>
+
         <% unless comment.already_voted?(current_user) %>
           <%= link_to "^", comment_vote_path(comment) %>
         <% end %>
+
         <%= "Score: #{comment.votes.count}" %>
+
         </div>
       <% end %>
+
     </div>
   </div>
 </div>

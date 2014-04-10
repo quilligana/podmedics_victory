@@ -14,4 +14,27 @@ class SpecialtyQuestion < ActiveRecord::Base
 
     return comments.count
   end
+
+  def accept_answer(comment, user)
+    if self.user = user
+      self.accepted_answer = comment
+    end
+  end
+
+  def accepted_answer
+    return self.nested_answers.find_by(accepted: true)
+  end
+
+  def accepted_answer=(comment)
+    comment.accepted = true
+    comment.save
+  end
+
+  def already_accepted_answer?
+    if self.nested_answers.where(accepted: true).count > 0
+      return true
+    else
+      return false
+    end
+  end
 end
