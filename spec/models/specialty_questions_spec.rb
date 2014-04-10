@@ -23,6 +23,9 @@ describe SpecialtyQuestion do
   it { should respond_to :already_accepted_answer? }
   it { should have_many :answers }
   it { should have_many :nested_answers }
+  it { should validate_presence_of :content }
+  it { should validate_presence_of :specialty }
+  it { should validate_presence_of :user }
 
   it { should be_valid }
 

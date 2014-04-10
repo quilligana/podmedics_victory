@@ -5,6 +5,10 @@ class SpecialtyQuestion < ActiveRecord::Base
   has_many :answers, as: :commentable, class_name: "Comment", dependent: :destroy
   has_many :nested_answers, as: :root, class_name: "Comment"
 
+  validates :content, presence: true
+  validates :user, presence: true
+  validates :specialty, presence: true
+
   def comments_count(include_hidden = false)
     unless include_hidden
       answers = self.nested_answers.where(hidden: false)
