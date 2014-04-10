@@ -28,6 +28,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def accept
+
+  end
+
+  def vote
+
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
