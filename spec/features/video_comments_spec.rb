@@ -18,8 +18,8 @@ describe "video comments" do
     end
   end
 
-  describe "posting a comment", slow: true do
-    describe "with a valid message", :js => true do
+  describe "posting a comment" do
+    describe "with a valid message", js: true do
       before do
         fill_in "comment_content", with: "This is a comment."
         click_button "Create Comment"
@@ -38,7 +38,7 @@ describe "video comments" do
       end
     end
 
-    describe "with an invalid message", :js => true do
+    describe "with an invalid message", js: true do
       before do
         fill_in "comment_content", with: ""
         click_button "Create Comment"
@@ -58,7 +58,7 @@ describe "video comments" do
       end
     end
 
-    describe "that is a reply", :js => true do
+    describe "that is a reply", js: true do
       before do
         fill_in "comment_content", with: "This is a comment."
         click_button "Create Comment"
@@ -83,7 +83,7 @@ describe "video comments" do
       end
     end
 
-    describe "commenting after replying", :js => true do
+    describe "commenting after replying", js: true do
       before do
         fill_in "comment_content", with: "This is a comment."
         click_button "Create Comment"

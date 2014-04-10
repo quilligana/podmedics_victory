@@ -18,9 +18,19 @@
         <%= render 'specialties/tab_links' %>
 
         <div id="tabs_container">
-
           <div id="tabs-2" class="tab_box">
+            <p><%= @specialty.user_questions.count %> questions.</p>
             <div class="questions_answers_list">
+
+              <% if @specialty.user_questions.count == 0 %>
+                <div class="no_questions_reply_wrapper">
+                  Nothing posted yet. 
+                  <a href="javascript:;">
+                    Be the first to ask a question.
+                  </a>
+                </div>
+              <% end %>
+              <!-- End nothing posted yet -->
               <%= render partial: 'question', collection: @specialty.user_questions %>
               <!-- End questions list -->
 

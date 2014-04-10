@@ -46,7 +46,7 @@
         <div>
 
         <% unless comment.already_voted?(current_user) %>
-          <%= link_to "^", comment_vote_path(comment) %>
+          <%= link_to "^", comment_vote_path(comment), class: "vote", id: comment.id %>
         <% end %>
 
         <%= "Score: #{comment.score}" %>

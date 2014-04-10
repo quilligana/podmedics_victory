@@ -32,6 +32,7 @@ RSpec.configure do |config|
   config.include LoginMacros
   config.include OmniauthMacros
   config.include MailerMacros
+  config.include SpecialtyQuestionMacros
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
