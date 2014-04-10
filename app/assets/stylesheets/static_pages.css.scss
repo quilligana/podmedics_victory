@@ -822,3 +822,239 @@ a.library_button.active .library_count{
 a.preview_video {
   color: blue;
 }
+
+
+
+
+
+
+/* Plans */
+.plans_header {
+  float: left;
+  width: 100%;
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
+.plans_header h1 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 32px;
+}
+
+.plans_header p {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #b2b2b2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+}
+
+.plans_columns_wrapper {
+  width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  height: auto;
+  min-height: 680px;
+}
+
+.plans_column {
+  background-color: #FFF;
+  float: left;
+  width: 350px;
+  margin-right: 80px;
+  border-radius: 6px;
+  -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+  -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+  box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
+  margin-top: 110px;
+}
+
+.plans_column:last-child {
+   margin-right: 0px;
+  margin-top: 0px;
+}
+
+.plans_column h2 {
+  color: #606060;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.plans_column p.plans_column_price {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #626262;
+  letter-spacing: 0px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.plans_column p.plans_column_price span {
+  font-size: 12px;
+  font-weight: 200;
+  color: #A5A5A5;
+}
+.plans_column ul.plans_column_features_list {
+  background-color: #FBFBFB;
+  border-top: solid 1px #E7E7E7;
+  border-bottom: solid 1px #E7E7E7;
+  list-style: none;
+  text-align: center;
+  line-height: 44px;
+  font-size: 12px;
+  color: #878787;
+  text-transform: uppercase;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+.plans_column a.red_button {
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 200;
+  margin-bottom: 28px;
+}
+
+.plans_column .plans_button_wrapper {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
+.plans_lower_info_blocks {
+  background-color: #FFF;
+  width: 100%;
+  float: left;
+}
+
+.plans_lower_info_block_wrapper {
+  width: 49.9%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: inset 1px #f6f6f6;
+}
+
+.plans_lower_info_block_wrapper:last-child {
+  border-right: none;
+}
+.plans_lower_info_block_wrapper p {
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #a5a5a5;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.mail_icon_plans_lower_block {
+  background-image: image-url('plans_page_blocks_icons.png');
+  width: 58px;
+  height: 20px;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.payment_system_icon_plans_lower_block {
+  background-image: image-url('plans_page_blocks_icons.png');
+  width: 58px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: 0px -26px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+
+.plans_lower_info_block_wrapper p a {
+  font-weight: 800;
+  color: #888;
+}
+.plans_lower_info_block_wrapper p a:hover {
+  color: #333;
+}
+
+.plans_button_dropdown_wrapper:hover .plans_button_dropdown {
+  display: block;
+}
+.plans_button_dropdown_wrapper:hover a.red_button {
+  -moz-border-radius-bottomright: 0px 0px;
+  border-bottom-right-radius: 0px 0px;
+  -moz-border-radius-bottomleft: 0px 0px;
+  border-bottom-left-radius: 0px 0px;
+
+}
+
+
+
+
+
+.plans_button_dropdown {
+  width: 290px;
+  float: left;
+  background-color: #fa3f52;
+  position: absolute;
+  margin-top: 56px;
+  -moz-border-radius-bottomright: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  -moz-border-radius-bottomleft: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+  display: none;
+}
+.plans_button_dropdown button {
+  width: 100%;
+  float: left;
+  text-align: center;
+  color: #FFF;
+  border-top: solid 1px #B83542;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  padding-top: 21px;
+  padding-bottom: 18px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 200;
+  outline: none;
+  background-color: $podmedics_red;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+}
+.plans_button_dropdown button:hover {
+  background-color: #9B2530;
+  border-top: solid 1px #9B2530;
+
+}
+.plans_button_dropdown button span {
+  font-size: 10px;
+}
+.plans_button_dropdown button:last-child {
+  -moz-border-radius-bottomright: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+  -moz-border-radius-bottomleft: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+}

@@ -478,8 +478,34 @@ $standard_border_radius: 6px;
     overflow: hidden;
   }
 
+
+  .plans_columns_wrapper {
+    width: 730px;
+  }
+  .plans_column {
+    margin-right: 30px;
+  }
+
 }
 
+@media screen and (max-width: 760px) {
+
+  .plans_column {
+    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-top: 0px;
+  }
+  .plans_columns_wrapper {
+    width: 350px;
+  }
+  .plans_lower_info_block_wrapper {
+    width: 100%;
+    float: left;
+    border-bottom: solid 1px #f6f6f6;
+    border-right: none;
+  }
+
+}
 @media screen and (max-width: 720px) {
 
   .stats_chart_wrapper {
@@ -991,7 +1017,12 @@ $standard_border_radius: 6px;
   .text_based_page h2 {
     font-size: 14px;
   }
-
+  .plans_header h1 {
+    font-size: 24px;
+  }
+  .plans_header p {
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -1400,6 +1431,12 @@ $standard_border_radius: 6px;
   .podmedics_textfield{
     width: 90%;
     }
+  .plans_columns_wrapper {
+    width: 310px;
+  }
+  .plans_column {
+    width: 100%;
+  }
 }
 
 
