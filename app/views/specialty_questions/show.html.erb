@@ -29,7 +29,7 @@
               <!-- End question header -->
 
 
-              <% if @question.comments_count(true) == 0 %>
+              <% if @question.comments_count == 0 %>
                 <div class="no_questions_reply_wrapper">
                   Nothing posted yet. 
                   <a href="javascript:;">
@@ -41,7 +41,7 @@
 
               <ul>
                 <li>
-                  <a class="comments_tab"><p><%= @question.comments_count(true) %> Answers</p>
+                  <a class="comments_tab"><p><%= @question.comments_count %> Answers</p>
                   </a>
                 </li>
               </ul>

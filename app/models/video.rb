@@ -32,13 +32,23 @@ class Video < ActiveRecord::Base
     end
   end
 
-  def comments_count(visible_only)
-    if visible_only
+  def comments_count(include_hidden = false)
+    unless include_hidden
       comments = self.nested_comments.where(hidden: false)
     else
       comments = self.nested_comments
     end
 
     return comments.count
+  end
+
+  def get_comments(include_hidden = false)
+    unless include_hidden
+      comments = self.comments.where(hidden: false).order(created_at: :desc)
+    else
+      comments = self.comments.order(created_at: :desc)
+    end
+
+    return comments.sort_by(&:score).reverse
   end
 end

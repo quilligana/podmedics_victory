@@ -84,7 +84,7 @@
         <div id="tabs">
           <ul>
             <!--<li><a href="#tabs-1" title="" class="lectures_tab"><p>Video Info</p><p class="icon"></p></a></li>-->
-            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.comments_count(true) %>)</p><p class="icon"></p></a></li>
+            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.comments_count %>)</p><p class="icon"></p></a></li>
           </ul>
 
           <div id="tabs_container">
@@ -118,7 +118,7 @@
               <div>
                 <div class="questions_answers_main_question video_page_comments_wrapper" >
 
-                  <% if @video.comments_count(true) == 0 %>
+                  <% if @video.comments_count == 0 %>
                   <div class="no_questions_reply_wrapper">
                     Nothing posted yet. 
                     <a href="javascript:;">
@@ -138,7 +138,7 @@
 
                   <div class="question_comments_outer">
 
-                    <%= render partial: 'comments/comment', collection: @video.comments.where(hidden: false) %>
+                    <%= render partial: 'comments/comment', collection: @video.get_comments %>
                     <!-- End of comments -->
 
                   </div>
@@ -173,7 +173,7 @@
       <div class="video_page_right_column_lower_info">
         <p>Video Duration: <strong><%= @video.duration %> minutes</strong></p>
         <p>Views: <strong><%= @video.views %></strong></p>
-        <p>Comments: <strong><%= @video.comments_count(true) %></strong></p>
+        <p>Comments: <strong><%= @video.comments_count %></strong></p>
       </div>
     </div>    <!--End of right column video info -->
 

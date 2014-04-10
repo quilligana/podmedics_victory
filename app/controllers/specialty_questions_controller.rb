@@ -26,11 +26,7 @@ class SpecialtyQuestionsController < ApplicationController
     @comment = @question.answers.new()
     @newQuestion = SpecialtyQuestion.new()
 
-    # This is sorting the comments by score, high scores to low scores.
-    # The comments are also sorted within that from newest to oldest.
-    # Uncomment the end of the first line to swap that from oldest to newest.
-    @comments = @question.answers.where(hidden: false)#.order(created_at: :desc)
-    @comments = @comments.sort_by(&:score).reverse
+    @comments = @question.get_answers
   end
 
   def destroy

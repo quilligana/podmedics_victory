@@ -63,4 +63,4 @@
 <% end %>
 <!-- End comment -->
 
-<%= render partial: 'comments/comment', collection: comment.comments.where(hidden: false) %>
+<%= render partial: 'comments/comment', collection: comment.get_comments %>

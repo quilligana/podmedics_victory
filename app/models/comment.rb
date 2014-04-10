@@ -12,6 +12,16 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
   validates :commentable, presence: true
 
+  def get_comments(include_hidden = false)
+    unless include_hidden
+      comments = self.comments.where(hidden: false).order(created_at: :desc)
+    else
+      comments = self.comments.order(created_at: :desc)
+    end
+
+    return comments.sort_by(&:score).reverse
+  end
+
   def hide
     update_attributes(hidden: true)
     comments.each { |comment| comment.hide }
