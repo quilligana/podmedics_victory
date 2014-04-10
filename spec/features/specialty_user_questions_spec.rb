@@ -93,11 +93,13 @@ describe "specialty user questions and answers" do
 
     describe "and then replying to that question" do
       before do
+        sleep 1.seconds
         fill_in "comment_commentable_id", with: Comment.first.id
         fill_in "comment_commentable_type", with: "Comment"
         fill_in "comment_content", with: @reply_text
         click_button "Create Comment"
       end
+
 
       Capybara.using_wait_time 10 do
         it "should have a reply comment" do
