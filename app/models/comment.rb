@@ -56,4 +56,7 @@ class Comment < ActiveRecord::Base
     end
   end
 
+  def score
+    return self.votes.count
+  end
 end
