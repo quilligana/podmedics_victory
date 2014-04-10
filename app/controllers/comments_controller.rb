@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   end
 
   def accept
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:comment_id])
     if @comment.root.user == current_user
       @comment.accepted = true
       @comment.save
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   end
 
   def vote
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:comment_id])
     @vote = @comment.votes.find_by(user: current_user) || @comment.votes.new(user: current_user)
     @vote.save
 

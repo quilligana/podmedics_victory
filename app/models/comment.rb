@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  before_save :owner_vote
+
   belongs_to :commentable, polymorphic: true
   belongs_to :root, polymorphic: true
   belongs_to :user
@@ -18,6 +20,26 @@ class Comment < ActiveRecord::Base
   def show
     update_attributes(hidden: false)
     comments.each { |comment| comment.show }
+  end
+
+  def votable?
+    return self.root_type == "SpecialtyQuestion"
+  end
+
+  def acceptable?
+    return self.root_type == "SpecialtyQuestion"
+  end
+
+  def already_voted?(user)
+    if self.votes.find_by(user: user)
+      return true
+    else
+      return false
+    end
+  end
+
+  def owner_vote
+    self.votes.new(user: self.user)
   end
 
 end

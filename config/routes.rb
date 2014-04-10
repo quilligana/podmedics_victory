@@ -61,8 +61,8 @@ PodmedicsVictory::Application.routes.draw do
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
   resources :comments do
-    put 'vote', to: 'comments#vote', as: :vote
-    put 'accept', to: 'comments#accept', as: :accept
+    get 'vote', to: 'comments#vote', as: :vote
+    get 'accept', to: 'comments#accept', as: :accept
   end
 
 end

@@ -15,7 +15,7 @@ class Permission
       allow :videos, [:show]
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]
-      allow :comments, [:create]
+      allow :comments, [:create, :vote, :accept]
       allow :specialty_questions, [:show, :index, :create]
       allow_all if user.admin?
     end
