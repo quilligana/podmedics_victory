@@ -102,7 +102,7 @@ describe Comment do
       end
 
       it "should not count towards commentable's comment count" do
-        expect(@comment.root.comments_count(true)).to eq 0
+        expect(@comment.root.comments_count).to eq 0
       end
     end
   end
