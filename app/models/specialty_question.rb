@@ -25,9 +25,11 @@ class SpecialtyQuestion < ActiveRecord::Base
     return answers.sort_by(&:score).reverse
   end
 
-  def accept_answer(comment, user)
-    if self.user = user
-      comment.accept(user)
+  def accept_answer(answer, user)
+    unless self.already_accepted_answer?
+      if self.user == user
+        answer.accept
+      end
     end
   end
 
