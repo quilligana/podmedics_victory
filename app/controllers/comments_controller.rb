@@ -30,18 +30,14 @@ class CommentsController < ApplicationController
 
   def accept
     @comment = Comment.find(params[:comment_id])
-    if @comment.root.user == current_user
-      @comment.accepted = true
-      @comment.save
-    end
+    @comment.accept(current_user)
 
     redirect_to request.referer
   end
 
   def vote
     @comment = Comment.find(params[:comment_id])
-    @vote = @comment.votes.find_by(user: current_user) || @comment.votes.new(user: current_user)
-    @vote.save
+    @comment.vote(current_user)
 
     redirect_to request.referer
   end

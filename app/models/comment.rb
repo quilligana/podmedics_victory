@@ -42,4 +42,16 @@ class Comment < ActiveRecord::Base
     self.votes.new(user: self.user)
   end
 
+  def accept(user)
+    if self.root.user == user
+      self.accepted = true
+      self.save
+    end
+  end
+
+  def vote(user)
+    @vote = self.votes.find_by(user: user) || self.votes.new(user: user)
+    @vote.save
+  end
+
 end
