@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410132623) do
+ActiveRecord::Schema.define(version: 20140410133648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140410132623) do
     t.boolean  "hidden",           default: false
     t.integer  "root_id"
     t.string   "root_type"
+    t.boolean  "accepted"
   end
 
   create_table "courses", force: true do |t|
@@ -156,5 +157,12 @@ ActiveRecord::Schema.define(version: 20140410132623) do
 
   add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true, using: :btree
   add_index "videos", ["specialty_id"], name: "index_videos_on_specialty_id", using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

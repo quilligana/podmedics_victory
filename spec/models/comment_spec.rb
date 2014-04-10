@@ -20,6 +20,7 @@ describe Comment do
   it { should respond_to :hide }
   it { should respond_to :show }
   it { should respond_to :root }
+  it { should respond_to :accepted }
 
   it { should be_valid }
   
