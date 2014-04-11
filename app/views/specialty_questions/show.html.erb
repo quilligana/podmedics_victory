@@ -30,7 +30,7 @@
               <div class="main_question_header">
                 <div class="main_question_user_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
                 <h2><%= @question.content %></h2>
-                <p>Posted <%= time_ago_in_words(@question.created_at) %> ago by <a href="#"><%= @question.user.name %></a>
+                <p>Posted <%= time_ago_in_words(@question.created_at) %> ago by <%= link_to @question.user.name, @question.user %>
               </div>
               <!-- End question header -->
 
