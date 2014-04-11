@@ -130,9 +130,9 @@ describe "specialty user questions and answers" do
       end
 
       it "should increase the score of the comment" do
-        expect(page).to have_content "Score: 1"
+        expect(page).to have_content "SCORE: 1"
         click_link "^"
-        expect(page).to have_content "Score: 2"
+        expect(page).to have_content "SCORE: 2"
       end
     end
 
@@ -142,6 +142,14 @@ describe "specialty user questions and answers" do
         visit specialty_question_path(Specialty.first, SpecialtyQuestion.first)
       end
 
+      it "should increase the comment's score by 5" do
+        expect(page).to_not have_content "SCORE: 6" 
+        expect(page).to have_content "SCORE: 1" 
+        click_link "Accept Answer"
+        expect(page).to_not have_content "SCORE: 1" 
+        expect(page).to have_content "SCORE: 6"
+      end 
+
       it "should set a comment as the accepted answer" do
         expect(page).to_not have_content "This is the accepted answer"
         click_link "Accept Answer"
@@ -149,9 +157,9 @@ describe "specialty user questions and answers" do
       end
 
       it "should remove accept answer link from page" do
-        expect(page).to have_content "Accept Answer"
+        expect(page).to have_content "ACCEPT ANSWER"
         click_link "Accept Answer"
-        expect(page).to_not have_content "Accept Answer"
+        expect(page).to_not have_content "ACCEPT ANSWER"
       end
     end
   end

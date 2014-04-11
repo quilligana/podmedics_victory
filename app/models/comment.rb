@@ -70,7 +70,7 @@ class Comment < ActiveRecord::Base
   end
 
   def score
-    votes.count
+    score = (accepted ? 5 : 0) + votes.count
   end
 
 end
