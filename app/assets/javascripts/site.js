@@ -27,7 +27,7 @@ ready = function() {
   $(document).on("click", ".comment_reply_link a", function(){
     var comment_info = $(this).parents(".comment_info")
     var comment_username = $(comment_info).find("h3.comment_username")[0].innerHTML;
-    $(".comments_textarea").val('@' + comment_username).focus().setCursorToTextEnd();
+    $(".comments_textarea").val('@' + comment_username + ' ').focus().setCursorToTextEnd();
     $(window).scrollTop($("#comment_reply_textarea").offset().top);
     $("#comment_commentable_type").val('Comment');
     $("#comment_commentable_id").val(this.id);
