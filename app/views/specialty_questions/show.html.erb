@@ -22,7 +22,9 @@
             <div class="questions_answers_main_question">
 
               <% if @question.user.id == current_user.id %>
-                <%= link_to "Delete question", specialty_question_path(@question.specialty, @question), method: :delete %>
+                <div class="delete_comment_button_wrapper">
+                  <%= link_to "Delete question", specialty_question_path(@question.specialty, @question), method: :delete, class: "grey_button delete_comment_button" %>
+                </div>
               <% end %>
 
               <div class="main_question_header">
