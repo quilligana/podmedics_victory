@@ -1,1 +1,17 @@
-alert("Accepted <%= @comment.id %> :)")
+var comment_id = <%= @comment.root.accepted_answer.id %>
+
+accepted_message = $("#" + comment_id + ".accepted")[0];
+
+$(accepted_message).show(100);
+
+var accept_answer_buttons = $(".accept_answer_button");
+
+// ie8> doesn't like foreach loops.
+for (index = 0; index < accept_answer_buttons.length; ++index) 
+{
+    $(accept_answer_buttons[index]).hide(100);
+}
+
+var score_box = $("#" + comment_id + ".comment_score")[0];
+
+$(score_box).html("Score: " + <%= @comment.score %>);

@@ -1,1 +1,9 @@
-alert("Voted for <%= @comment.id %> :)")
+var comment_id = <%= @comment.id %>
+
+var score_box = $("#" + comment_id + ".comment_score")[0];
+
+$(score_box).html("Score: " + <%= @comment.score %>);
+
+var vote_button = $("#" + comment_id + ".vote")[0];
+
+$(vote_button).hide();

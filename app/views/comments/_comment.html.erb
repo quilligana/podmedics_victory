@@ -11,7 +11,9 @@
         <%= link_to "^", comment_vote_path(comment), class: "vote", id: comment.id, remote: true %>
       <% end %>
 
+      <span class="comment_score" id="<%= comment.id %>" >
       <%= "Score: #{comment.score}" %>
+      </span>
 
     </div>
   <% end %>
@@ -30,9 +32,14 @@
 
     <% end %>
 
+
     <% if comment.accepted %>
-      This is the accepted answer
+      <span class="accepted" id="<%= comment.id %>">
+    <% else %>
+      <span class="accepted" id="<%= comment.id %>" style="display: none">
     <% end %>
+    This is the accepted answer
+    </span>
 
   <% end %>
 
