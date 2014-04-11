@@ -2,8 +2,8 @@ class SpecialtyQuestion < ActiveRecord::Base
   belongs_to :user
   belongs_to :specialty
 
-  has_many :answers, as: :commentable, class_name: "Comment", dependent: :destroy
-  has_many :nested_answers, as: :root, class_name: "Comment"
+  has_many :answers, as: :commentable, class_name: 'Comment', dependent: :destroy
+  has_many :nested_answers, as: :root, class_name: 'Comment'
 
   validates :content, presence: true
   validates :user, presence: true
@@ -18,9 +18,7 @@ class SpecialtyQuestion < ActiveRecord::Base
   end
 
   def accept_answer(answer, user)
-    unless already_accepted_answer?
-      answer.accept if self.user == user
-    end
+    answer.accept if !already_accepted_answer? && self.user == user
   end
 
   def accepted_answer

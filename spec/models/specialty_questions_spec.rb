@@ -1,6 +1,9 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe SpecialtyQuestion do
+
+  it { should belong_to :user }
+  it { should belong_to :specialty }
 
   before do
     @category = create(:category, name: 'Medicine') 
@@ -21,8 +24,10 @@ describe SpecialtyQuestion do
   it { should respond_to :accepted_answer }
   it { should respond_to :accept_answer }
   it { should respond_to :already_accepted_answer? }
-  it { should have_many :answers }
-  it { should have_many :nested_answers }
+
+  it { should have_many(:answers).class_name("Comment").dependent(:destroy) }
+  it { should have_many(:nested_answers).class_name("Comment") }
+
   it { should validate_presence_of :content }
   it { should validate_presence_of :specialty }
   it { should validate_presence_of :user }

@@ -33,7 +33,6 @@ describe "specialty user questions and answers" do
     it "should not have any questions" do
       expect(page).to_not have_content "asked a question"
       expect(page).to_not have_selector ".questions_answers_question"
-      expect(page).to     have_content "#{@specialty.user_questions.count} questions."
     end
 
     it "should say there are no questions" do
