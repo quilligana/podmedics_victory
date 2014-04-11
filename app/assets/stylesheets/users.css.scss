@@ -1479,7 +1479,7 @@ a.default_lecture_question:last-child {
   color: #7F7F7F; }
 
 .lecture_questions_right_column .questions_number_wrapper {
-  background-color: #F9F9F9;
+  background-color: rgba(248, 248, 248, 0.46);
   padding-top: 45px;
   padding-right: 30px;
   padding-bottom: 40px;
@@ -2650,3 +2650,36 @@ object {
   max-width: 100%;
 }
 
+.points_until_next_badge_section {
+  float: left;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.points_until_next_badge_wrapper .questions_placement_bar {
+  height: 10px;
+  background-color: #EBEBEB;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.lecture_questions_right_column .points_until_next_badge_wrapper {
+  padding-top: 0px;
+  padding-right: 30px;
+  padding-bottom: 0px;
+  padding-left: 30px;
+  -moz-border-radius-topright: 6px 6px;
+  border-top-right-radius: 6px 6px;
+}
+.lecture_questions_right_column .points_until_next_badge_section .points_until_next_badge_wrapper p {
+  margin-left: 0px;
+}
+
+.points_away_title {
+  font-size: 11px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #999;
+  padding-bottom: 10px;
+  width: 100%;
+}

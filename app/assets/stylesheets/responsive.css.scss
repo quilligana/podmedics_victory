@@ -109,7 +109,19 @@ $standard_border_radius: 6px;
   }
 
 }
+@media screen and (max-width: 1110px) {
 
+  .points_until_next_badge_wrapper a.badge .badge_speciality:last-child{
+    display: none;
+  }
+  .points_until_next_badge_wrapper a.badge .badge_title{
+    -moz-border-radius-topright: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    -moz-border-radius-bottomright: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+  }
+
+}
 
 @media screen and (max-width: 1020px) {
 
