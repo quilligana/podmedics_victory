@@ -8,7 +8,7 @@
     <div class="comment_score_wrapper">
 
       <% unless comment.already_voted?(current_user) %>
-        <%= link_to "^", comment_vote_path(comment), class: "vote", id: comment.id %>
+        <%= link_to "^", comment_vote_path(comment), class: "vote", id: comment.id, remote: true %>
       <% end %>
 
       <%= "Score: #{comment.score}" %>
@@ -23,7 +23,7 @@
 
 
       <% unless comment.root.already_accepted_answer? %>
-        <%= link_to "Accept Answer", comment_accept_path(comment), class: "podmedcis_button green accept_answer_button" %>
+        <%= link_to "Accept Answer", comment_accept_path(comment), class: "podmedcis_button green accept_answer_button", remote: true %>
       <% end %>
 
 

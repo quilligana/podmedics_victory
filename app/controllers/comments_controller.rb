@@ -22,8 +22,8 @@ class CommentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html #only for replies
-      format.js #ajax post, remove for testing
+      format.html
+      format.js
     end
   end
 
@@ -33,14 +33,20 @@ class CommentsController < ApplicationController
       @comment.root.accept_answer(@comment, current_user)
     end
 
-    redirect_to request.referer
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def vote
     @comment = Comment.find(params[:comment_id])
     @comment.vote(current_user)
 
-    redirect_to request.referer
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
