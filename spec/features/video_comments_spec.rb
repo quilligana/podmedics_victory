@@ -18,8 +18,8 @@ describe "video comments" do
     end
   end
 
-  describe "posting a comment" do
-    describe "with a valid message", js: true do
+  describe "posting a comment", js: true do
+    describe "with a valid message"do
       before do
         fill_in "comment_content", with: "This is a comment."
         click_button "Create Comment"
@@ -38,7 +38,7 @@ describe "video comments" do
       end
     end
 
-    describe "with an invalid message", js: true do
+    describe "with an invalid message" do
       before do
         fill_in "comment_content", with: ""
         click_button "Create Comment"
@@ -58,7 +58,7 @@ describe "video comments" do
       end
     end
 
-    describe "that is a reply", js: true do
+    describe "that is a reply" do
       before do
         fill_in "comment_content", with: "This is a comment."
         click_button "Create Comment"
@@ -83,15 +83,14 @@ describe "video comments" do
       end
     end
 
-    describe "commenting after replying", js: true do
+    describe "commenting after replying" do
       before do
         fill_in "comment_content", with: "This is a comment."
         click_button "Create Comment"
 
         sleep 1.seconds
 
-        fill_in "comment_commentable_id", with: Comment.first.id
-        fill_in "comment_commentable_type", with: "Comment"
+        click_link "Reply"
         fill_in "comment_content", with: "This is a reply."
         click_button "Create Comment"
 
@@ -110,6 +109,39 @@ describe "video comments" do
           expect(page).to      have_css( "div.comment div.inner_page_padding div.comment_info p", 
                                          text: "This is a comment after a reply.")
           expect(page).to_not have_content("Nothing posted yet. Be the first to comment.")
+        end
+      end
+    end
+
+    describe "after pressing the cancel reply button" do
+      before do
+        fill_in "comment_content", with: "This is a comment."
+        click_button "Create Comment"
+
+        sleep 1.seconds
+
+        click_link "Reply"
+
+        sleep 1.seconds
+
+        click_link "Cancel Reply"
+
+        sleep 1.seconds
+
+        fill_in "comment_content", with: "This is a comment after cancelling a reply."
+        click_button "Create Comment"
+      end
+
+      Capybara.using_wait_time 10 do
+        it "should have a new non-reply comment" do
+          expect(page).to     have_content(@user.name)
+          expect(page).to     have_selector("div.comment")
+          expect(page).to     have_content("Comments (2)")
+          expect(page).to     have_content("This is a comment after cancelling a reply.")
+          expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p", 
+                                       text: "This is a comment after cancelling a reply.")
+          expect(page).to_not have_content("Nothing posted yet. Be the first to comment.")
+          expect(page).to_not have_selector("div.comment_reply")
         end
       end
     end
