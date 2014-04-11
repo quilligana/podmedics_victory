@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
   validates :commentable, presence: true
 
-  default_scope order(created_at: :desc)
+  default_scope { order(created_at: :desc) }
 
   def self.available
     where(hidden: false)
@@ -63,10 +63,6 @@ class Comment < ActiveRecord::Base
       @vote = self.votes.find_by(user: user) || self.votes.new(user: user)
       @vote.save
     end
-  end
-
-  def self.by_score
-    sort_by(&:score).reverse
   end
 
   def score

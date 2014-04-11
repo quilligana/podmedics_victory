@@ -3,11 +3,18 @@ require 'spec_helper'
 feature 'User Profile' do
 
   scenario 'Viewing the profile page' do
-    user = create(:user)
+    user = create(:user, points: 200)
+    badge = create(:badge, user: user)
     sign_in(user)
     click_link 'Your Profile'
     expect(page).to have_content user.name
     expect(page).to have_content 'Badges'
+    within '.points' do
+      expect(page).to have_content 200
+    end
+    within '.badges' do
+      expect(page).to have_content 1
+    end
   end
 
   scenario 'Editing the profile' do
