@@ -891,17 +891,19 @@ a.preview_video {
   padding-bottom: 10px;
 }
 
-.plans_column p.plans_column_price {
-  width: 100%;
+.plans_column div.plans_column_price {
+  width: 247px;
   text-align: center;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 800;
   color: #626262;
   letter-spacing: 0px;
   padding-top: 5px;
-  padding-bottom: 10px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.plans_column p.plans_column_price span {
+.plans_column div.plans_column_price span {
   font-size: 12px;
   font-weight: 200;
   color: #A5A5A5;
@@ -1057,4 +1059,65 @@ a.preview_video {
   border-bottom-right-radius: 5px 5px;
   -moz-border-radius-bottomleft: 5px 5px;
   border-bottom-left-radius: 5px 5px;
+}
+
+
+.plans_column_price p.plans_column_price_or_divide {
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 25px;
+  height: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: #ccc;
+  background-color: #FFF;
+}
+.plans_column_price p {
+  float: left;
+  background-color: $podmedics_grey;
+  border-radius: 6px;
+  padding: 14px;
+}
+.error_page_inner {
+  padding-left: 40px;
+  padding-right: 40px;
+  float: left;
+}
+.error_page {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  float: left;
+}
+
+.error_page_inner h1 {
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 0px;
+}
+
+.error_page_inner p {
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: #9B9B9B;
+  margin-top: 15px;
+}
+
+.error_question_mark {
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: #4d4d4d;
+  padding-bottom: 20px;
 }
