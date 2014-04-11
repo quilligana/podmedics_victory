@@ -1,4 +1,7 @@
 <%= form_for @comment, remote: true, :authenticity_token => true do |f| %>
+  <div id="reply_cancel_box" >
+  You are replying to <%= link_to "nobody", "#", id: "reply_user_name" %>. <%= link_to "Cancel Reply", "#", id: "reply_cancel_button" %>
+  </div>
   <p>
     <%= f.text_area :content, class: "comments_textarea", placeholder: "Write your comments here..." %>
   </p>

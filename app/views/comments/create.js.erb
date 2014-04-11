@@ -38,17 +38,17 @@ function remove(element)
 function go_to(element)
 {
 	$('html, body').animate({
-        scrollTop: $(element).offset().top + 'px'
+        scrollTop: $(element).offset().top - 2 + 'px'
     }, 'fast');
 }
 
-debugger;
 var tab_container = $("#tabs_container");
 var height;
 
 <% if @comment %>
 	// Set the comment form to comment on the root again, not the commentable
 	set_comment_form_target("", "<%= @comment.root_type %>", <%= @comment.root_id %>);
+    $("#reply_cancel_box").hide(100);
 
     // Update the comments count in the tab title
     <% if @comment.root_type == "Video" %>
@@ -68,11 +68,23 @@ var height;
 		var comment_container = $(".comment#<%=@comment.commentable.id%>")[0];
 		<% end %>
 		$(comment).insertAfter($(comment_container));
+
+		// Now let's scroll to the newly created comment.
+		setTimeout(function()
+		{
+			go_to($(comment_container))
+		}, 900);
 	// Otherwise, .appendChild it to the entire comment div.
 	<% else %>
 		var comment = comment.getElementsByClassName("comment")[0];
 		var comment_container = $(".question_comments_outer")[0];
 		comment_container.insertBefore(comment, comment_container.firstChild);
+
+		// Now let's scroll to the newly created comment.
+		setTimeout(function()
+		{
+			go_to($(comment))
+		}, 900);
 	<% end %>
 	// Hide the comment so it can be shown after resizing the tab_container.
 	$(comment).hide().addClass('new_comment_active_state');
@@ -85,13 +97,6 @@ var height;
 	height =	tab_container.height() + 
 				$(comment).outerHeight(true) - 
 				$(no_comments_div).outerHeight(true);
-
-	// Now let's scroll to the newly created comment.
-	setTimeout(function()
-	{
-		go_to($(comment_container))
-	}, 900);
-
 <% else %>
 	// Create error notification
 	var notification = create_dom_element("<%= escape_javascript render 'comments/error_notification' %>");

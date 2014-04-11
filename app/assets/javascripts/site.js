@@ -28,9 +28,18 @@ ready = function() {
     var comment_info = $(this).parents(".comment_info")
     var comment_username = $(comment_info).find("h3.comment_username")[0].innerHTML;
     $(".comments_textarea").val('@' + comment_username + ' ').focus().setCursorToTextEnd();
-    $(window).scrollTop($("#comment_reply_textarea").offset().top);
+    $(window).scrollTop($("#comment_reply_textarea").offset().top - 50);
+
+    if($("#comment_commentable_type").val() != "Comment")
+    {
+      jQuery.data(document.body, "root_type", $("#comment_commentable_type").val());
+      jQuery.data(document.body, "root_id", $("#comment_commentable_id").val());
+    }
+
     $("#comment_commentable_type").val('Comment');
     $("#comment_commentable_id").val(this.id);
+    $("#reply_cancel_box").show(100);
+    $("#reply_user_name").html(comment_username);
   });
 
   $(document).on("click", ".no_questions_reply_wrapper a", function(){
@@ -38,11 +47,16 @@ ready = function() {
     $(window).scrollTop($("#comment_reply_textarea").offset().top);
   });
 
+  $(document).on("click", "#reply_cancel_button", function(){
+    $("#reply_cancel_box").hide(100);
+    $(".comments_textarea").val("");
+    $("#comment_commentable_type").val(jQuery.data(document.body, "root_type"));
+    $("#comment_commentable_id").val(jQuery.data(document.body, "root_id"));
+    event.preventDefault();
+  });
+
   // Questions finished - fire modal
   $( "#questions_complete_modal_click" ).click();
-
-
-
 
   $('#change_profile_image_button').click(function() {
     $('.profile_avatar_upload_wrapper').fadeToggle(400);
