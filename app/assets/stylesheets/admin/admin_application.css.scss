@@ -1,4 +1,7 @@
-@import 'redactor';
-@import 'bootstrap';
-@import 'bootstrap/theme';
-@import 'dashboard';
+@import "bootstrap";
+@import "bootstrap-overrides";
+@import "jquery-ui-1.10.2.custom";
+@import "font-awesome";
+@import "layout";
+@import "elements";
+@import "icons";

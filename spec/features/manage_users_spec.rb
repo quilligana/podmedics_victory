@@ -47,7 +47,7 @@ feature 'Manage users' do
   end
 
   def add_user_with_email(email, admin=false)
-    within '.sidebar' do
+    within '#sidebar-nav' do
       click_link 'Users'
     end
     click_link 'New User'
