@@ -3,6 +3,43 @@
 <% end %>
 
 <div class="comment" id="<%= comment.id %>">
+
+  <% if comment.votable? %>
+    <div class="comment_score_wrapper">
+
+      <% unless comment.already_voted?(current_user) %>
+        <%= link_to "^", comment_vote_path(comment), class: "vote", id: comment.id %>
+      <% end %>
+
+      <%= "Score: #{comment.score}" %>
+
+    </div>
+  <% end %>
+
+
+  <% if comment.acceptable? %>
+
+    <% if comment.root.user == current_user %>
+
+
+      <% unless comment.root.already_accepted_answer? %>
+        <%= link_to "Accept Answer", comment_accept_path(comment), class: "podmedcis_button green accept_answer_button" %>
+      <% end %>
+
+
+
+    <% end %>
+
+    <% if comment.accepted %>
+      This is the accepted answer
+    <% end %>
+
+  <% end %>
+
+
+
+
+
   <div class="inner_page_padding">
     <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
     <div class="comment_info">
@@ -20,40 +57,6 @@
           <a href="javascript:;" id="<%= comment.id %>">Reply</a>
         </div>
       </div>
-
-
-      <% if comment.acceptable? %>
-
-        <% if comment.root.user == current_user %>
-          <div>
-
-          <% unless comment.root.already_accepted_answer? %>
-            <%= link_to "Accept Answer", comment_accept_path(comment) %>
-          <% end %>
-
-          </div>
-
-        <% end %>
-
-        <% if comment.accepted %>
-          This is the accepted answer
-        <% end %>
-
-      <% end %>
-
-
-      <% if comment.votable? %>
-        <div>
-
-        <% unless comment.already_voted?(current_user) %>
-          <%= link_to "^", comment_vote_path(comment), class: "vote", id: comment.id %>
-        <% end %>
-
-        <%= "Score: #{comment.score}" %>
-
-        </div>
-      <% end %>
-
     </div>
   </div>
 </div>

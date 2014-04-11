@@ -2718,3 +2718,46 @@ object {
 .delete_comment_button_wrapper a.grey_button.delete_comment_button:hover {
   background-color: #9B9B9B;
 }
+
+a.podmedcis_button.green.accept_answer_button {
+  display: block;
+  float: right;
+  width: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  -moz-border-radius-topleft: 5px 5px;
+  border-top-left-radius: 5px 5px;
+  -moz-border-radius-bottomleft: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+  line-height: 10px;
+  margin-left: 10px;
+  margin-top: -10px;
+
+}
+
+.comment_score_wrapper {
+
+  display: block;
+  float: right;
+  width: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  line-height: 10px;
+  background-color: #ccc;
+  border-radius: 6px;
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-right: 25px;
+}
