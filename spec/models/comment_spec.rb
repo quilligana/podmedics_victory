@@ -1,6 +1,16 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Comment do
+
+  it { should belong_to :commentable }
+  it { should belong_to :root }
+  it { should belong_to :user}
+  it { should have_many :comments }
+  it { should have_many :votes }
+  it { should validate_presence_of :user }
+  it { should validate_presence_of :content }
+  it { should validate_presence_of :commentable }
+
   before do
     @user = create(:user)
     @video = create(:video)
@@ -12,46 +22,9 @@ describe Comment do
 
   subject { @comment }
 
-  it { should respond_to :user }
-  it { should respond_to :content }
-  it { should respond_to :commentable }
-  it { should respond_to :comments }
-  it { should respond_to :hidden }
-  it { should respond_to :hide }
-  it { should respond_to :show }
-  it { should respond_to :root }
-  it { should respond_to :accepted }
-  it { should respond_to :get_comments }
-
   it { should be_valid }
-  
-  describe "without required variable" do
-    describe "content" do
-      before do
-        @comment.content = nil
-      end
-    
-      it { should_not be_valid }
-    end
-    
-    describe "user" do
-      before do
-        @comment.user = nil
-      end
-      
-      it { should_not be_valid }
-    end
 
-    describe "commentable" do
-      before do
-        @comment.commentable = nil
-      end
-      
-      it { should_not be_valid }
-    end
-  end
-
-  describe "when destroyed" do
+  describe Comment, "on destroy" do
     before do
       @reply = @comment.comments.new( commentable: @comment,
                                       user: @user,
@@ -60,7 +33,7 @@ describe Comment do
     end
 
     it "should destroy replies" do
-      assert !Comment.exists?(@reply)
+      expect(Comment.exists?(@reply)).to be_false
     end
   end
 
@@ -70,7 +43,7 @@ describe Comment do
     end
 
     it "should be destroyed" do
-      assert !Comment.exists?(@comment)
+      expect(Comment.exists?(@reply)).to be_false
     end
   end
 
