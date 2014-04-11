@@ -70,6 +70,17 @@ describe "specialty user questions and answers" do
     end
   end
 
+  describe "clicking delete" do
+    before do
+      submit_question
+      click_link "Delete question"
+    end
+
+    it "should delete a question" do
+      expect(SpecialtyQuestion.all.count).to eq 0
+    end
+  end
+
   describe "answering a question", js: true do
     before do
       submit_question
