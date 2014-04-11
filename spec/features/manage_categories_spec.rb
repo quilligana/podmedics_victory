@@ -38,9 +38,9 @@ feature 'Manage categories in the admin' do
   # Helper methods
 
   def create_category_with_name(name)
-    click_link 'New category'
+    click_link 'New Category'
     fill_in 'Name', with: name
-    click_button 'Submit'
+    click_button 'Create Category'
   end
 
   def visit_categories_index
@@ -51,7 +51,7 @@ feature 'Manage categories in the admin' do
     within 'tr.category' do click_link 'Edit' end
 
     fill_in 'Name', with: name
-    click_button 'Submit'
+    click_button 'Update Category'
   end
 
 end

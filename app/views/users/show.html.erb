@@ -23,8 +23,8 @@
 
         <div class="profile_count_wrapper">
 
-          <div class="profile_count">
-            <p class="number">8,625</p>
+          <div class="profile_count points">
+            <p class="number"><%= @user.points %></p>
             <p>Points in total</p>
           </div>
 
@@ -33,8 +33,8 @@
             <p>Exams Passed</p>
           </div>
 
-          <div class="profile_count">
-            <p class="number">17</p>
+          <div class="profile_count badges">
+            <p class="number"><%= @user.badges.count %></p>
             <p>Badges Earned</p>
           </div>
 

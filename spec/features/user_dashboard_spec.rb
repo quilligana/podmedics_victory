@@ -22,7 +22,7 @@ feature 'User dashboard' do
   scenario "shows the user badges count" do
     user = create(:user)
     create(:specialty)
-    create(:badge)
+    create(:badge, user: user)
     sign_in(user)
     within '.dashboard_count_blocks' do
       expect(page).to have_content user.badges.count
@@ -56,7 +56,7 @@ feature 'User dashboard' do
   scenario 'Shows recent badges' do
     specialty = create(:specialty)
     user = create(:user)
-    badge = create(:badge)
+    badge = create(:badge, user: user, specialty: specialty)
     sign_in(user)
     within '.dashboard_badges_left_column' do
       expect(page).to have_content 'less than a minute ago'
@@ -68,7 +68,7 @@ feature 'User dashboard' do
   scenario 'Shows all badges' do
     specialty = create(:specialty)
     user = create(:user)
-    badge = create(:badge)
+    badge = create(:badge, user: user, specialty: specialty)
     sign_in(user)
     within '.dashboard_badges_right_column' do
       expect(page).to have_content badge.specialty.name

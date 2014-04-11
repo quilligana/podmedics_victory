@@ -1,4 +1,8 @@
-<%= simple_form_for [:admin, @category] do |f| %>
-  <%= f.input :name %>
-  <%= f.submit 'Submit' %>
-<% end %>
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @category] do |f| %>
+        <%= f.input :name %>
+        <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
