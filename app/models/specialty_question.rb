@@ -10,42 +10,25 @@ class SpecialtyQuestion < ActiveRecord::Base
   validates :specialty, presence: true
 
   def comments_count(include_hidden = false)
-    unless include_hidden
-      answers = self.nested_answers.where(hidden: false)
-    else
-      answers = self.nested_answers
-    end
-
-    return answers.count
+    include_hidden ? self.nested_answers.count : self.nested_answers.available.count
   end
 
   def get_answers(include_hidden = false)
-    unless include_hidden
-      answers = self.answers.where(hidden: false).order(created_at: :desc)
-    else
-      answers = self.answers.order(created_at: :desc)
-    end
-
-    return answers.sort_by(&:score).reverse
+    include_hidden ? self.answers.sort_by(&:score).reverse : self.answers.available.sort_by(&:score).reverse
   end
 
   def accept_answer(answer, user)
-    unless self.already_accepted_answer?
-      if self.user == user
-        answer.accept
-      end
+    unless already_accepted_answer?
+      answer.accept if self.user == user
     end
   end
 
   def accepted_answer
-    return self.nested_answers.find_by(accepted: true)
+    nested_answers.find_by(accepted: true)
   end
 
   def already_accepted_answer?
-    if self.nested_answers.where(accepted: true).count > 0
-      return true
-    else
-      return false
-    end
+    nested_answers.where(accepted: true).count > 0 ? true : false
   end
+
 end
