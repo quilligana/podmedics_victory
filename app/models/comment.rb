@@ -19,7 +19,7 @@ class Comment < ActiveRecord::Base
       comments = self.comments.order(created_at: :desc)
     end
 
-    return comments.sort_by(&:score).reverse
+    comments.sort_by(&:score).reverse
   end
 
   def hide
@@ -33,30 +33,23 @@ class Comment < ActiveRecord::Base
   end
 
   def votable?
-    return self.root_type == "SpecialtyQuestion"
+    root_type == "SpecialtyQuestion"
   end
 
   def acceptable?
-    return self.root_type == "SpecialtyQuestion"
+    root_type == "SpecialtyQuestion"
   end
 
   def already_voted?(user)
-    if self.votes.find_by(user: user)
-      return true
-    else
-      return false
-    end
+    votes.where(user: user).exists? ? true : false
   end
 
   def owner_vote
-    self.votes.new(user: self.user)
+    votes.new(user: self.user)
   end
 
   def accept
-    if acceptable?
-      self.accepted = true
-      self.save
-    end
+    update_attributes(accepted: true) if acceptable?
   end
 
   def vote(user)
@@ -67,6 +60,7 @@ class Comment < ActiveRecord::Base
   end
 
   def score
-    return self.votes.count
+    votes.count
   end
+
 end

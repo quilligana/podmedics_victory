@@ -31,7 +31,7 @@ describe Video do
     }.to change { Video.last.questions_count}.by(1)
   end  
 
-  describe "get_comments" do
+  describe Video, ".get_comments" do
     before do
       @video = create(:video)
       user = create(:user)
@@ -58,7 +58,7 @@ describe Video do
     end
   end
 
-  describe "comments_count" do
+  describe Video, ".comments_count" do
     before do
       @video = create(:video)
       user = create(:user)
