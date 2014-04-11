@@ -57,7 +57,6 @@ describe Permission do
       expect(subject.allow?('users', 'edit', another_user)).to be_false
     end
 
-
     it "allows access to the video page" do
       expect(subject.allow?('videos', 'show')).to be_true
     end
@@ -72,6 +71,19 @@ describe Permission do
       expect(subject.allow?('questions', 'answer')).to be_true
       expect(subject.allow?('questions', 'result')).to be_true
       expect(subject.allow?('questions', 'specialty_index')).to be_true
+    end
+
+    it "allows commenting" do
+      expect(subject.allow?('comments', 'create')).to be_true
+      expect(subject.allow?('comments', 'vote')).to be_true
+      expect(subject.allow?('comments', 'accept')).to be_true
+    end
+
+    it "allows viewing, creation and removal of specialty questions" do
+      expect(subject.allow?('specialty_questions', 'show')).to be_true
+      expect(subject.allow?('specialty_questions', 'index')).to be_true
+      expect(subject.allow?('specialty_questions', 'create')).to be_true
+      expect(subject.allow?('specialty_questions', 'destroy')).to be_true
     end
   end
 
