@@ -1,15 +1,11 @@
 class SpecialtyQuestionsController < ApplicationController
   layout 'user_application'
-  
-  def index
-    @specialty = Specialty.friendly.find(params[:specialty_id])
-    @questions = SpecialtyQuestion.page(1).order('created_at DESC')
-    @user_progress = UserProgress.new(@specialty, current_user)
-    @newQuestion = SpecialtyQuestion.new()
-  end
+
+  before_action :get_specialty, only: [:create, :index, :show, :load]
+  before_action :load_user_progress, only: [:show, :index]
+  before_action :new_question, only: [:show, :index]
 
   def create
-    @specialty = Specialty.friendly.find(params[:specialty_id])
     @question = @specialty.user_questions.new(specialty_question_params)
     @question.user = current_user
 
@@ -19,20 +15,23 @@ class SpecialtyQuestionsController < ApplicationController
       redirect_to :back
     end
   end
+  
+  def index
+    @questions = SpecialtyQuestion.page(1).order('created_at DESC')
+  end
 
   def show
-    @specialty = Specialty.friendly.find(params[:specialty_id])
     @question = SpecialtyQuestion.find(params[:id])
-    @user_progress = UserProgress.new(@specialty, current_user)
     @comment = @question.answers.new()
-    @newQuestion = SpecialtyQuestion.new()
-
     @comments = @question.get_answers
   end
 
   def load
-    @specialty = Specialty.friendly.find(params[:specialty_id])
+    # Using will-paginate to get the SpecialtyQuestions in chunks.
+    # Amount on each page defined in constants.rb
     @questions = SpecialtyQuestion.page(params[:page]).order('created_at DESC')
+
+    # This is the page number that will be included in the new 'load more questions' link.
     @next_page_number = params[:page].to_i + 1
 
     respond_to do |format|
@@ -56,4 +55,17 @@ class SpecialtyQuestionsController < ApplicationController
     def specialty_question_params
       params.require(:specialty_question).permit(:content)
     end
+
+    def get_specialty
+      @specialty = Specialty.friendly.find(params[:specialty_id])
+    end
+
+    def load_user_progress
+      @user_progress = UserProgress.new(@specialty, current_user)
+    end
+
+    def new_question
+      @newQuestion = SpecialtyQuestion.new()
+    end
+
 end
