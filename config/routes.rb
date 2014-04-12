@@ -56,13 +56,14 @@ PodmedicsVictory::Application.routes.draw do
 
   resources :specialties, only: [:show] do
     resources :questions, controller: :specialty_questions, as: :questions
+    get 'questions/load/:offset', to: 'specialty_questions#load', as: :question_load
   end
 
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
   resources :comments do
-    get 'vote', to: 'comments#vote', as: :vote
-    get 'accept', to: 'comments#accept', as: :accept
+    put 'vote', to: 'comments#vote', as: :vote
+    put 'accept', to: 'comments#accept', as: :accept
   end
 
 end

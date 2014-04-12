@@ -29,6 +29,15 @@ class SpecialtyQuestionsController < ApplicationController
     @comments = @question.get_answers
   end
 
+  def load
+    @comments = Comment.all.paginate(page: params[:offset] * 15)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def destroy
     @question = SpecialtyQuestion.find(params[:id])
     if @question.user == current_user
