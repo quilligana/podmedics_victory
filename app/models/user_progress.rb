@@ -21,20 +21,43 @@ class UserProgress
     question_points = UserQuestion.number_correct(@user.id, q_ids) * POINTS_PER_CORRECT_ANSWER
   end
 
+  def current_badge
+    badge ||= Badge.where(user_id: @user.id).where(specialty_id: @specialty.id).last
+  end
+
+  def next_badge
+    if current_badge.name == grades(grade_level)
+      grades(grade_level + 1)
+    end
+  end
+
+  def award_badge?
+    if current_badge.nil? && grade_level == 0
+      @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
+    elsif current_badge && current_badge.level != grades(grade_level)
+      @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
+    end
+  end
+
   private
 
+    def grades(level)
+      grade_levels = ["Medical Student", "House Officer", "Senior House Officer",
+        "Registrar", "Consultant", "Professor"]
+      grade_levels[level] unless level.nil?
+    end
+
     def grade_level
-      user_points = self.user_specialty_points
-      if user_points >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
-        "Medical Student"
-      elsif user_points >= get_points_percentage(PERCENTAGE_HOUSE_OFFICER)
-        "House Officer"
-      elsif user_points >= get_points_percentage(PERCENTAGE_SENIOR_HOUSE_OFFICER)
-        "Senior House Officer"
-      elsif user_points >= get_points_percentage(PERCENTAGE_REGISTRAR)
-        "Registrar"
-      elsif user_points >= get_points_percentage(PERCENTAGE_CONSULTANT)
-        "Consultant"
+      if user_specialty_points >= get_points_percentage(PERCENTAGE_CONSULTANT)
+        4
+      elsif user_specialty_points >= get_points_percentage(PERCENTAGE_REGISTRAR)
+        3
+      elsif user_specialty_points >= get_points_percentage(PERCENTAGE_SENIOR_HOUSE_OFFICER)
+        2
+      elsif user_specialty_points >= get_points_percentage(PERCENTAGE_HOUSE_OFFICER)
+        1
+      elsif user_specialty_points >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
+        0
       end
     end
 

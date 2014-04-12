@@ -1,10 +1,6 @@
 <div class="title">Your Badges</div>
 <div class="dashboard_badges_inner_wrapper">
   <% @badges.each do |badge| %>
-    <a href="#" class="badge">
-      <%= content_tag(:p, badge.level,class: "badge_title #{badge_class(badge.level)}") %>
-      <p class="badge_speciality small_screen_count">+ 1</p>
-      <p class="badge_speciality"><%=badge.specialty.name%></p>
-    </a>
+    <%= show_badge(badge) %>
   <% end %>
 </div>

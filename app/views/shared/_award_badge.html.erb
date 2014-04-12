@@ -1,0 +1,11 @@
+<% if @user_progress.award_badge? %>
+  <a href="javascript:;" data-reveal-id="questions_complete_modal" id="questions_complete_modal_click" style="display: none">New Badge Modal</a>
+  <div id="questions_complete_modal" class="reveal-modal 
+          questions_complete_modal_spacing">
+    <div class="video_complete_modal">
+      <div class="questions_complete_icon">New Badge</div>
+      <p>Congratulations! You have just been awarded a new badge</p>
+      <%= show_badge(@user_progress.current_badge) %>
+    </div>
+  </div>
+<% end %>
