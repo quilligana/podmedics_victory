@@ -36,4 +36,6 @@ PodmedicsVictory::Application.configure do
 
   # for testing
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+  WillPaginate.per_page = 1
 end
