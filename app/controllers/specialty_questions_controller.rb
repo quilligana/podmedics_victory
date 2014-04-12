@@ -3,6 +3,7 @@ class SpecialtyQuestionsController < ApplicationController
   
   def index
     @specialty = Specialty.friendly.find(params[:specialty_id])
+    @questions = SpecialtyQuestion.page(1).order('created_at DESC')
     @user_progress = UserProgress.new(@specialty, current_user)
     @newQuestion = SpecialtyQuestion.new()
   end
@@ -30,7 +31,9 @@ class SpecialtyQuestionsController < ApplicationController
   end
 
   def load
-    @comments = Comment.all.paginate(page: params[:offset] * 15)
+    @specialty = Specialty.friendly.find(params[:specialty_id])
+    @questions = SpecialtyQuestion.page(params[:page]).order('created_at DESC')
+    @next_page_number = params[:page].to_i + 1
 
     respond_to do |format|
       format.html

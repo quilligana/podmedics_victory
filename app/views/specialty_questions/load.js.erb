@@ -1,1 +1,34 @@
-alert("Loading more questions")
+function create_dom_element(element_string)
+{
+	var div = document.createElement('div');
+	div.innerHTML = element_string;
+	return div
+}
+
+var question_container = $(".questions_answers_list")[0];
+var load_more_link_container = question_container.getElementsByClassName("load_more_questions_answers_wrapper")[0];
+var load_more_link = $("#load_more_link");
+
+<% if @questions.length > 0 %>
+	<% @questions.each do |question| %>
+		
+		// Create the question and extract it from the container div.
+		var question = create_dom_element("<%= escape_javascript render partial: 'question', object: question %>");
+		question = question.getElementsByClassName("questions_answers_question")[0];
+
+		// Hide the question so we can show it insertion.
+		$(question).hide();
+
+		// Insert question before "load more questions" link.
+		question_container.insertBefore(question, load_more_link_container);
+
+		// Show the question.
+		$(question).show(200);
+
+		// Update the link to load the next set of questions.
+		$(load_more_link).attr("href", "<%= escape_javascript specialty_question_load_path(@specialty, @next_page_number) %>" );
+	<% end %>
+<% else %>
+	// When there are no more questions to load, set the message to tell the user there are no more questions.
+	$(load_more_link).html("Reached end of questions");
+<% end %>

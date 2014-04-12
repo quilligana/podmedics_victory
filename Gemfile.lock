@@ -288,6 +288,7 @@ GEM
       rack
       raindrops (~> 0.7)
     websocket (1.0.7)
+    will_paginate (3.0.5)
     win32console (1.3.2-x86-mingw32)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -340,3 +341,4 @@ DEPENDENCIES
   turbolinks_transitions
   uglifier (>= 1.3.0)
   unicorn
+  will_paginate
