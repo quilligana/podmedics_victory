@@ -39,6 +39,10 @@ class UserProgress
     end
   end
 
+  def professor_badge
+    
+  end
+
   private
 
     def grades(level)

@@ -1,15 +1,23 @@
 class ProgressBar
 
-  def initialize(current_question, total_questions, template)
+  def initialize(current_value, target_value, template)
     @template = template
-    @current_question = current_question
-    @total_questions = total_questions
+    @current__value = current_value
+    @target_value = target_value
   end
 
   def test_progress
     content_tag(:div, content_tag(:div, '', class: progress_bar_class), 
                 class: "questions_placement_bar") +
-    content_tag(:p, "Question #{@current_question} of #{@total_questions}")
+    content_tag(:p, "Question #{@current_value} of #{@target_value}")
+  end
+
+  def next_badge(badge)
+    content_tag(:div, content_tag(:div, '', class: progress_bar_class), 
+                class: "questions_placement_bar") +
+    content_tag(:div, "You are just 800 points away from becoming a:", 
+                class: "points_away_title") +
+    show_badge(badge)
   end
 
   private
@@ -19,7 +27,7 @@ class ProgressBar
     end
 
     def percentage_complete
-      complete = 10*((10*@current_question/@total_questions).round)
+      complete = 10*((10*@current_value/@target_value).round)
       case complete
       when 0
         "zero"

@@ -1,7 +1,7 @@
 <div class="title">Recent Badges</div>
-  <% @badges.take(3).each do |badge| %>
+  <% @badges.last(3).reverse.each do |badge| %>
     <div class="dashboard_badges_badge_wrapper">
-      <%= content_tag(:p, "<strong>#{time_ago_in_words(badge.created_at)}</strong> ago you were awarded".html_safe, class: "badge_earned_date") %>
+      <%= badge_award_time(badge) %>
       <%= show_badge(badge) %>
     </div>
 <% end %>

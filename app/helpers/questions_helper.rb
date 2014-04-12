@@ -9,8 +9,8 @@ module QuestionsHelper
   end
 
   def get_next_badge
-    content_tag(:p, "50", class: "questions_info_right_column_number") +
-    content_tag(:p, "You require 50 more points to recieve a Registrar badge")
+    ProgressBar.new(@user_progress.user_specialty_points, @user_progress.target_points, self).
+                    next_badge(@user_progress.next_badge)
   end
 
 end
