@@ -26,8 +26,18 @@ class UserProgress
   end
 
   def next_badge
-    if current_badge.name == grades(grade_level)
+    if grade_level.nil?
+      grades(0)
+    else
       grades(grade_level + 1)
+    end
+  end
+
+  def next_badge_points
+    if next_badge == "Professor"
+      professor_points
+    else
+      get_points_percentage(eval("PERCENTAGE_#{ next_badge.gsub(/ /, '_').upcase }"))
     end
   end
 
@@ -39,8 +49,8 @@ class UserProgress
     end
   end
 
-  def professor_badge
-    
+  def professor_points
+    150
   end
 
   private

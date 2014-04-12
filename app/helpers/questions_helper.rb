@@ -9,8 +9,8 @@ module QuestionsHelper
   end
 
   def get_next_badge
-    ProgressBar.new(@user_progress.user_specialty_points, @user_progress.target_points, self).
-                    next_badge(@user_progress.next_badge)
+    ProgressBar.new(@user_progress.user_specialty_points, @user_progress.next_badge_points, self).
+                    next_badge(Badge.new(user_id: current_user, specialty_id: @question.video.specialty.id, level: @user_progress.next_badge))
   end
 
 end

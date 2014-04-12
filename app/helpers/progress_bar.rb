@@ -2,7 +2,7 @@ class ProgressBar
 
   def initialize(current_value, target_value, template)
     @template = template
-    @current__value = current_value
+    @current_value = current_value
     @target_value = target_value
   end
 
@@ -15,7 +15,7 @@ class ProgressBar
   def next_badge(badge)
     content_tag(:div, content_tag(:div, '', class: progress_bar_class), 
                 class: "questions_placement_bar") +
-    content_tag(:div, "You are just 800 points away from becoming a:", 
+    content_tag(:div, "You are just #{ @target_value - @current_value } points away from becoming a:", 
                 class: "points_away_title") +
     show_badge(badge)
   end

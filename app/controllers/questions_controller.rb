@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
     @total_questions = @q_ids.length
+    @user_progress = UserProgress.new(@question.video.specialty, current_user)
   end
 
   def answer
@@ -34,10 +35,12 @@ class QuestionsController < ApplicationController
 
   def result
     @q_ids = session[:q_ids]
-    @video = Question.find(@q_ids.first).video
+    @question = Question.find(@q_ids.first)
+    @video = @question.video
     @current_question = session[:current_question]
     @total_questions = @q_ids.length
     @number_correct = session[:correct_answers]
+    @user_progress = UserProgress.new(@video.specialty, current_user)
     reset_session
   end
 
