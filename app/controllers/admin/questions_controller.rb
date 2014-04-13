@@ -30,7 +30,7 @@ class Admin::QuestionsController < ApplicationController
 
   def import
     Question.import(params[:file])
-    redirect_to admin_questions_path, notice: 'Questions imported'
+    redirect_to admin_videos_path, notice: 'Questions imported'
   end
 
   protected
