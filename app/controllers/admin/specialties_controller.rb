@@ -1,6 +1,6 @@
 class Admin::SpecialtiesController < InheritedResources::Base
   layout 'admin_application'
-  respond_to :html, :js
+  respond_to :html
 
   before_action :set_specialty, only: [:show, :edit, :update, :destroy]
 
@@ -19,7 +19,7 @@ class Admin::SpecialtiesController < InheritedResources::Base
   protected
 
     def collection
-      @specialties ||= end_of_association_chain.order(:name)
+      @specialties ||= end_of_association_chain.includes(:videos, :questions, :user_questions).order(:name)
     end
 
   private

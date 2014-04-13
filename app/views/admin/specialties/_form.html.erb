@@ -1,5 +1,9 @@
-<%= simple_form_for [:admin, @specialty] do |f| %>
-  <%= f.input :name %>
-  <%= f.association :category, as: :select %>
-  <%= f.submit 'Submit' %>
-<% end %>
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @specialty] do |f| %>
+      <%= f.input :name %>
+      <%= f.association :category, as: :select %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
