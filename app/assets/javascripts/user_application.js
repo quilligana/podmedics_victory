@@ -10,5 +10,7 @@
 //= require redactor
 //= require jquery.fitvids
 //= require site
+//= require froogaloop
+//= require vimeo
 
 

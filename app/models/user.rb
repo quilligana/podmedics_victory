@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :user_questions, dependent: :destroy
+  has_many :vimeos, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :specialty_questions, dependent: :destroy
   has_many :badges, dependent: :destroy

@@ -6,6 +6,7 @@ class Video < ActiveRecord::Base
   acts_as_list scope: :specialty
 
   has_many :questions, dependent: :destroy
+  has_many :vimeos, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :nested_comments, as: :root, class_name: "Comment"
 

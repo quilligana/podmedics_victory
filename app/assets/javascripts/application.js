@@ -7,4 +7,6 @@
 //= require fresco
 //= require jquery.fitvids
 //= require site
+//= require froogaloop
+//= require vimeo
 
