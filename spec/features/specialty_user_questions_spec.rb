@@ -22,6 +22,7 @@ describe "specialty user questions and answers" do
       expect(page).to have_content @question_text
       expect(page).to have_content @user_one.name
       expect(page).to have_content "Posted less than a minute ago by"
+      expect(page).to have_link "Delete Question"
     end
   end
 
@@ -67,12 +68,26 @@ describe "specialty user questions and answers" do
 
       it_should_behave_like "a question_page"
     end
+
+    describe "with no content" do
+      before do
+        click_link "Ask a Question"
+        click_button "Create Specialty question"
+      end
+
+      it "should not post a question" do
+        expect(page).to_not have_content @question_text
+        expect(page).to_not have_content @user_one.name
+        expect(page).to_not have_content "Posted less than a minute ago by"
+        expect(page).to_not have_link "Delete Question"
+      end
+    end
   end
 
   describe "clicking delete" do
     before do
       submit_question
-      click_link "Delete question"
+      click_link "Delete Question"
     end
 
     it "should delete a question" do
@@ -162,6 +177,53 @@ describe "specialty user questions and answers" do
         click_link "Accept Answer"
         expect(page).to_not have_content "ACCEPT ANSWER"
       end
+    end
+  end
+
+  describe "Load More Questions button on index page", js: true do
+    before do
+      @question_one_text = "Question one"
+      @question_two_text = "Question two"
+      @question_three_text = "Question three"
+      @question_text = @question_one_text
+      submit_question
+      @question_text = @question_two_text
+      submit_question
+      @question_text = @question_three_text
+      submit_question
+    end
+
+    it "should display latest page before being clicked" do
+      visit specialty_questions_path(@specialty)
+      expect(page).to     have_content @question_three_text
+      expect(page).to_not have_content @question_one_text
+      expect(page).to_not have_content @question_two_text
+    end
+
+    it "should display latest two pages after being clicked" do
+      visit specialty_questions_path(@specialty)
+      click_link "Load More Questions"
+      expect(page).to     have_content @question_three_text
+      expect(page).to     have_content @question_two_text
+      expect(page).to_not have_content @question_one_text
+    end
+
+    it "should display latest three pages after being clicked twice" do
+      visit specialty_questions_path(@specialty)
+      click_link "Load More Questions"
+      click_link "Load More Questions"
+      expect(page).to have_content @question_three_text
+      expect(page).to have_content @question_two_text
+      expect(page).to have_content @question_one_text
+    end
+
+    it "should inform the user when there are no questions to load" do
+      visit specialty_questions_path(@specialty)
+      click_link "Load More Questions"
+      click_link "Load More Questions"
+      click_link "Load More Questions"
+      expect(page).to_not have_link "Load More Questions"
+      expect(page).to_not have_link "Reached End Of Questions"
     end
   end
 end
