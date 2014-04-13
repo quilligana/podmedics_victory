@@ -4,8 +4,11 @@
   <td><%= video.specialty_name %></td>
   <td><%= video.preview %></td>
   <td><%= video.questions_count %></td>
+  <td><%= video.comments_count(true) %></td>
   <td>
-    <%= link_to "Edit", edit_admin_video_path(video) %>
-    <%= link_to "Show", admin_video_path(video) %>
+    <ul class="actions">
+      <li><%= link_to "Edit", edit_admin_video_path(video) %></li>
+      <li><%= link_to "Show", admin_video_path(video) %></li>
+    </ul>
   </td>
 </tr>

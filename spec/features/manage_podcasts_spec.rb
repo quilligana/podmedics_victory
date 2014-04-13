@@ -72,7 +72,7 @@ feature 'Managing videos' do
     fill_in 'Vimeo Identifier', with: '324567'
     fill_in 'Download file name', with: 'test_file'
     fill_in 'Duration', with: '10'
-    click_button 'Submit'
+    click_button 'Create Video'
   end
 
   def edit_podcast_to_name(name)
@@ -81,7 +81,7 @@ feature 'Managing videos' do
       click_link 'Edit'
     end
     fill_in 'Title', with: name
-    click_button 'Submit'
+    click_button 'Update Video'
   end
 
   def admin_sees_podcast_name(name)

@@ -9,7 +9,7 @@
     <ul class="actions">
       <li><%= link_to "Show", admin_specialty_path(specialty) %></li>
       <li><%= link_to "Edit", edit_admin_specialty_path(specialty) %></li>
-      <li><%= link_to "Delete", admin_specialty_path(specialty), method: :delete %></li>
+      <li><%= link_to "Delete", admin_specialty_path(specialty), method: :delete, data: { confirm: 'Are you sure?'} %></li>
     </ul>
   </td>
 </tr>
