@@ -23,6 +23,7 @@ gem 'omniauth-twitter'
 gem 'newrelic_rpm'
 gem 'roo'
 gem 'acts_as_list'
+gem 'will_paginate'
 
 group :development do
   gem 'thin'

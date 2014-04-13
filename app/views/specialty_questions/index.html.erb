@@ -30,20 +30,20 @@
                 </div>
               <% end %>
               <!-- End nothing posted yet -->
-              <%= render partial: 'question', collection: @specialty.user_questions %>
+              <%= render partial: 'question', collection: @questions %>
               <!-- End questions list -->
 
-              <div class="load_more_questions_answers_wrapper"> <a href="#" class="podmedcis_button grey">Load More Questions</a>
-
+              <div class="load_more_questions_answers_wrapper">
+                <%= link_to "Load More Questions", 
+                            specialty_question_load_path(@specialty, 2),
+                            id: "load_more_link",
+                            class: "podmedcis_button grey",
+                            remote: true %>
               </div>
               <!-- End questions wrapper -->
 
             </div>
             <!-- End questions tab -->
-
-
-
-
           </div>
           <!-- End tab 2 -->
         </div>

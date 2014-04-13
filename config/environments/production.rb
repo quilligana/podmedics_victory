@@ -77,4 +77,6 @@ PodmedicsVictory::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  WillPaginate.per_page = 15
 end
