@@ -76,7 +76,7 @@ class UserProgress
     end
 
     def get_points_percentage(percentage)
-      percentage * self.max_specialty_points / 100
+      (percentage * max_specialty_points / 100).round
     end
   
   

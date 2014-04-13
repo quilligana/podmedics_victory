@@ -44,7 +44,6 @@ feature 'Video Questions' do
     visit video_questions_url(video_id: @video.id)
     click_button 'First Answer'
 
-
     expect(page).to have_content @question_1.explanation
     expect(page).to have_content 'Sorry!'
     expect(page).to have_content 'Question 1 of 1'
@@ -68,24 +67,53 @@ feature 'Video Questions' do
     visit video_questions_url(video_id: video_2.id)
 
     expect(page).to have_content 'Question 1 of 5'
+    expect(page).to have_css('div.active_placement_bar.twenty_percent')  
+    expect(page).to have_css('div.active_placement_bar.zero_percent')
+    expect(page).to have_content 'You are just 24 points away from becoming a:Medical Student'
+    
+    click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    click_button 'First Answer'
+    expect(page).to have_content 'You are just 19 points away from becoming a:Medical Student'
+    
     click_link 'Next Question'
     expect(page).to have_content 'Question 2 of 5'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    click_button 'First Answer'
+    expect(page).to have_css('div.active_placement_bar.twenty_percent')
+    expect(page).to have_content 'You are just 19 points away from becoming a:Medical Student'
+    
+    click_button 'Second Answer'
+    expect(page).to have_css('div.active_placement_bar.forty_percent')
+    expect(page).to have_content 'You are just 14 points away from becoming a:Medical Student'
+    
     click_link 'Next Question'
     expect(page).to have_content 'Question 3 of 5'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    click_button 'First Answer'
+    expect(page).to have_css('div.active_placement_bar.forty_percent')
+    expect(page).to have_content 'You are just 14 points away from becoming a:Medical Student'
+    
+    click_button 'Second Answer'
+    expect(page).to have_css('div.active_placement_bar.sixty_percent')
+    expect(page).to have_content 'You are just 9 points away from becoming a:Medical Student'
+    
     click_link 'Next Question'
     expect(page).to have_content 'Question 4 of 5'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    click_button 'First Answer'
+    expect(page).to have_css('div.active_placement_bar.sixty_percent')
+    expect(page).to have_content 'You are just 9 points away from becoming a:Medical Student'
+    
+    click_button 'Second Answer'
+    expect(page).to have_css('div.active_placement_bar.eighty_percent')
+    expect(page).to have_content 'You are just 4 points away from becoming a:Medical Student'
+    
     click_link 'Next Question'
     expect(page).to have_content 'Question 5 of 5'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
-    click_button 'First Answer'
+    expect(page).to have_css('div.active_placement_bar.eighty_percent')
+    expect(page).to have_content 'You are just 4 points away from becoming a:Medical Student'
+    
+    click_button 'Second Answer'
+    expect(page).to have_content 'Congratulations! You have just been awarded a new badge Medical Student'
+    expect(page).to have_content 'You are just 10 points away from becoming a:House Officer'
 
     click_link 'Result'
     within '.video_complete_modal' do

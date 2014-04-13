@@ -46,9 +46,9 @@
     <div class="questions_complete_icon">Questions Complete</div>
     <p>You scored <%= pluralize(@number_correct, 'question') %>  out of <%= pluralize(@total_questions, 'question') %> Correct</p>
     <% if @q_ids.length < NUMBER_OF_SPECIALTY_QUESTIONS %>
-      <%= link_to "Back to Video", video_path(@video), :class => "red_button" %>
+      <%= link_to "Back to Video", video_path(@video), class: "red_button" %>
     <% else %>
-      <%= link_to "Back to Specialty", specialty_path(@video.specialty), :class => "red_button" %>
+      <%= link_to "Back to Specialty", specialty_path(@video.specialty), class: "red_button" %>
     <% end %>
   </div>
 
