@@ -6,9 +6,9 @@ class Question < ActiveRecord::Base
   validates :answer_1, :presence => true
   validates :answer_2, :presence => true
   validates :correct_answer, presence: true
-  validate :correct_answer_must_be_an_answer
   validates :explanation, :presence => true
   validates :video_id, :presence => true
+  validate :correct_answer_must_be_an_answer
 
   delegate :specialty_id, to: :video
 
@@ -20,7 +20,7 @@ class Question < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      question = Question.new
+      question = find_by_id(row["id"]) || new
       parameters = ActionController::Parameters.new(row.to_hash)
       question.update(parameters.permit(:stem, :answer_1, :answer_2, :answer_3, :answer_4, :answer_5, :explanation, :correct_answer, :video_id))
       question.save!

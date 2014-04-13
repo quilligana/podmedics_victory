@@ -1,6 +1,6 @@
 class Admin::CategoriesController < InheritedResources::Base
   layout 'admin_application'
-  respond_to :html, :js
+  respond_to :html
 
   def create
     create!(notice: 'New Category added') { admin_categories_path }

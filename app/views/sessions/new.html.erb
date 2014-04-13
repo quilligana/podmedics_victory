@@ -21,6 +21,9 @@
           <%= button_tag 'Login', class: "red_button" %>
         <% end %>
         <div class="password_reset_link"><a href="javascript:;" id="forgot_password_link">Forgot your password?</a></div>
+        <div class="sign_up_link">
+          New member? <%= link_to "Sign Up Now", signup_path %>
+        </div>
       </div>
       <div class="login_ignup_form_wrapper" id="members_reset_password_form">
         <h2>Password Reset</h2>

@@ -41,7 +41,7 @@ feature 'Managing specialties' do
     click_link 'New Specialty'
     fill_in 'Name', with: name 
     select category.name, from: 'Category'
-    click_button 'Submit'
+    click_button 'Create Specialty'
   end
 
   def edit_specialty(new_name, category)
@@ -51,7 +51,7 @@ feature 'Managing specialties' do
     end
     fill_in 'Name', with: new_name
     select category.name, from: 'Category'
-    click_button 'Submit'
+    click_button 'Update Specialty'
   end
 
   def admin_removes_specialty
