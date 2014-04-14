@@ -2,8 +2,8 @@ class UserQuestion < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :user_id, :presence => true
-  validates :question_id, :presence => true
+  validates :user_id, presence: true
+  validates :question_id, presence: true
 
   def self.register_ids(q_ids, user)
     q_ids.each do |q_id|

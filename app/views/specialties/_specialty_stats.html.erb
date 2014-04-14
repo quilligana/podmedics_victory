@@ -1,9 +1,11 @@
 <div class="lecture_questions_right_column notes_right_column">
 
-  <a href="javascript:;" class="notes_saved_button">
-    <p class="questions_info_right_column_number">8</p>
-    <p>Notes saved within Cardiology</p>
-  </a>
+  <% if @specialty.notes.count > 0 %>
+    <a href="javascript:;" class="notes_saved_button">
+      <p class="questions_info_right_column_number"><%= @specialty.notes.count %></p>
+      <p><%= pluralize(@specialty.notes.count, 'Note').split[1] %> saved within Cardiology</p>
+    </a>
+  <% end %>
 
 
   <div id="speciality_default_right_column">
@@ -36,53 +38,12 @@
   <!-- End speciality right column count -->
 
   <div class="main_notes_right_column_wrapper">
-    <div class="note_right_column_preview">
-      <p class="note_preview_title">Revision Notes</p>
-      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
-      <a href="javascript:;" id="read_note_one">Read</a>
-    </div>
-    <!-- End notes list example repeated  -->
-
-    <div class="note_right_column_preview">
-      <p class="note_preview_title">Revision Notes</p>
-      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
-      <a href="#">Read</a>
-    </div>
-
-    <div class="note_right_column_preview">
-      <p class="note_preview_title">Revision Notes</p>
-      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
-      <a href="#">Read</a>
-    </div>
-
-    <div class="note_right_column_preview">
-      <p class="note_preview_title">Revision Notes</p>
-      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
-      <a href="#">Read</a>
-    </div>
-    <div class="note_right_column_preview">
-      <p class="note_preview_title">Revision Notes</p>
-      <p >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique....</p>
-      <a href="#">Read</a>
-    </div>
+    <%= render partial: 'notes/note', collection: @specialty.notes %>
   </div>
   <!-- End notes list wrapper -->
 
 
   <div class="full_note_outer_wrapper">
-    <div class="note_right_column_full_note" id="full_note_one">
-      <p class="note_title">Revision Notes</p>
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices pptus et ultrices posuere cam trtristique tempus purus ac scelerisque. Quisque placerat felis in augue hendrerit, ac imperdiet nunc mollis. Sed molestie neque elit, in adipiscing metus volutpat in. Quisque placerat felis in augue hendrerit, ac imperdiet nunc mollis. Sed molestie neque elit, in adipiscing metus volutpat in. Sed molestie neque elit, in adipiscing metus volutpat in.
-      </p>
-      <ul>
-        <li>cras ut massa sit amet libero pharetra gravida</li>
-        <li>sed semper ut massa sit amet libero pharetra gravida</li>
-        <li>cras ut massa sit amet libero pharetra gravida</li>
-        <li>ut massa sit amet libero pharetra gravida</li>
-        <li>sit amet libero pharetra gravida</li>
-      </ul>
-      <a href="javascript:;" class="red_button notes_back_button_clear" id="back_to_notes_button">Back</a>
-    </div>
   </div>
   <!-- End note wrapper -->
 </div>

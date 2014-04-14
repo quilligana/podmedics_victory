@@ -1,0 +1,17 @@
+function create_dom_element(element_string)
+{
+	var div = document.createElement('div');
+	div.innerHTML = element_string;
+	return div
+}
+
+var notes = create_dom_element("<%= escape_javascript render partial: 'full_note', object: @notes %>");
+notes = notes.getElementsByClassName("note_right_column_full_note")[0];
+
+var notes_container = document.getElementsByClassName("full_note_outer_wrapper")[0];
+$(notes_container).empty()
+notes_container.insertBefore(notes, notes_container.firstChild);
+
+$(".main_notes_right_column_wrapper").removeClass('animated fadeInRight').addClass('animated fadeInRight').fadeToggle(1);
+$(".full_note_outer_wrapper").show();
+$("#full_note_one").addClass('animated fadeInRight').fadeIn(1);

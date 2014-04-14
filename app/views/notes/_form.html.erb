@@ -1,0 +1,18 @@
+<div id="comment_saved_message">
+	Comment Saved
+</div>
+
+<%= form_for @notes, remote: true, :authenticity_token => true do |f| %>
+
+  <%= f.text_field :title, class: "notes_column_text_field", placeholder: "Note Title" %>
+
+  <%= f.text_area :content, class: "notes_column_text_area", placeholder: "Write your notes here.." %>
+  <div class="notes_private_textarea_notice">Notes are private & only visble to you</div>
+
+  <%= f.hidden_field :video_id, id: "notes_video_id", value: @video.id %>
+
+  <div class="notes_column_save_button" >
+	<%= f.button "Save Notes", class: "podmedcis_button" %>
+  </div>
+
+<% end %>

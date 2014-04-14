@@ -101,7 +101,7 @@ describe "specialty user questions and answers" do
       sign_in(@user_two)
       visit specialty_question_path(Specialty.first, SpecialtyQuestion.first)
       fill_in "comment_content", with: @comment_text
-      click_button "Create Comment"
+      click_button "Post"
     end
 
     Capybara.using_wait_time 10 do
@@ -122,7 +122,7 @@ describe "specialty user questions and answers" do
         fill_in "comment_commentable_id", with: Comment.first.id
         fill_in "comment_commentable_type", with: "Comment"
         fill_in "comment_content", with: @reply_text
-        click_button "Create Comment"
+        click_button "Post"
       end
 
 

@@ -9,13 +9,14 @@ class Video < ActiveRecord::Base
   has_many :vimeos, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :nested_comments, as: :root, class_name: "Comment"
+  has_one :note, dependent: :destroy
 
-  validates :title, :presence => true
-  validates :description, :presence => true
-  validates :specialty_id, :presence => true
-  validates :duration, :presence => true
-  validates :vimeo_identifier, :presence => true
-  validates :file_name, :presence => true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :specialty_id, presence: true
+  validates :duration, presence: true
+  validates :vimeo_identifier, presence: true
+  validates :file_name, presence: true
 
   delegate :name, to: :specialty, prefix: true
 
