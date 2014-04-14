@@ -27,4 +27,8 @@ class Question < ActiveRecord::Base
     end
   end
 
+  def self.remaining_to_add
+    (Video.count * 10) - self.count
+  end
+
 end
