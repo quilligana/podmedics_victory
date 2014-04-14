@@ -13,7 +13,7 @@ feature 'Manage FAQs' do
     click_link '+ New FAQ'
     fill_in 'Title', with: 'What does Podmedics cost?'
     fill_in 'Content', with: 'Not much!'
-    click_button 'Submit'
+    click_button 'Create Faq'
     expect(page).to have_content 'FAQ added'
   end
 
@@ -30,7 +30,7 @@ feature 'Manage FAQs' do
       click_link 'Edit'
     end
     fill_in 'Title', with: 'Another FAQ title'
-    click_button 'Submit'
+    click_button 'Update Faq'
     expect(page).to have_content 'Another FAQ title'
   end
 end

@@ -1,22 +1,30 @@
-<div class="page-header">
-  <h1>Courses</h1>
+<div class="row header">
+  <h3>Courses</h3>
+  <div class="col-md-10 pull-right">
+    <%= link_to "New Course", new_admin_course_path, class: 'btn-flat success pull-right' %>
+  </div>
 </div>
 
-<%= link_to "New Course", new_admin_course_path %>
 
-<table border="0" class='table'>
-  <thead>
-    <tr>
-      <td>#ID</td>
-      <td>Title</td>
-      <td>Date</td>
-      <td>Price</td>
-      <td>Event Link</td>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @courses %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-wrapper">
+      <table border="0" class='table table-hover' border="0">
+        <thead>
+          <tr>
+            <td>#ID</td>
+            <td>Title</td>
+            <td>Date</td>
+            <td>Price</td>
+            <td>Event Link</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @courses %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 

@@ -1,8 +1,7 @@
 <tr class='video'>
   <td><%= video.id %></td>
   <td><%= link_to video.title, admin_video_path(video) %></td>
-  <td><%= video.specialty_name %></td>
-  <td><%= video.preview %></td>
+  <td><%= link_to video.specialty_name, admin_specialty_path(video.specialty) %></td>
   <td><%= video.questions_count %></td>
   <td><%= video.comments_count(true) %></td>
   <td>

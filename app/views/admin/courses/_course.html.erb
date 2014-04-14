@@ -1,10 +1,12 @@
 <tr class='course'>
   <td><%= course.id %></td>
   <td><%= course.title %></td>
-  <td><%= course.date %></td>
+  <td><%= course.date.to_s(:long) %></td>
   <td><%= course.price %></td>
   <td><%= course.event_link %></td>
   <td>
-    <%= link_to "Edit", edit_admin_course_path(course) %>
+    <ul class="actions">
+      <li><%= link_to "Edit", edit_admin_course_path(course) %></li>
+    </ul>
   </td>
 </tr>

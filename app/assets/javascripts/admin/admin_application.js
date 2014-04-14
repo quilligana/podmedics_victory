@@ -8,4 +8,5 @@ $(function(){
   $('#course_description').redactor();
   $('#question_stem').redactor();
   $('#question_explanation').redactor();
+  $('#faq_content').redactor();
 });

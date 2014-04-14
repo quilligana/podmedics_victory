@@ -3,7 +3,9 @@
   <td><%= faq.title %></td>
   <td><%= faq.member_only %></td>
   <td>
-    <%= link_to "Edit", edit_admin_faq_path(faq) %>
-    <%= link_to 'Remove', admin_faq_path(faq), method: :delete %>
+    <ul class="actions">
+      <li><%= link_to "Edit", edit_admin_faq_path(faq) %></li>
+      <li><%= link_to 'Remove', admin_faq_path(faq), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
   </td>
 </tr>

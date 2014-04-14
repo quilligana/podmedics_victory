@@ -1,6 +1,10 @@
-<%= simple_form_for [:admin, @faq] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :member_only %>
-  <%= f.submit 'Submit' %>
-<% end %>
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @faq] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.input :member_only %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
