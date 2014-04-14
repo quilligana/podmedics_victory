@@ -1,12 +1,13 @@
 <% if @saved %>
-
+	
 	$("#comment_saved_message").html("Notes saved")
 	
 	$("#comment_saved_message").show(100);
+	
 	setTimeout(function()
 	{
 		$("#comment_saved_message").hide(100);
-	}, 5000);
+	}, 3000);
 
 <% else %>
 
@@ -16,6 +17,6 @@
 	setTimeout(function()
 	{
 		$("#comment_saved_message").hide(100);
-	}, 5000);
+	}, 3000);
 
 <% end %>

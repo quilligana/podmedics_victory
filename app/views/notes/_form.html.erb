@@ -2,7 +2,7 @@
 	Comment Saved
 </div>
 
-<%= form_for @notes, remote: true, :authenticity_token => true do |f| %>
+<%= form_for @notes, remote: true, authenticity_token: true do |f| %>
 
   <%= f.text_field :title, class: "notes_column_text_field", placeholder: "Note Title" %>
 
@@ -12,7 +12,33 @@
   <%= f.hidden_field :video_id, id: "notes_video_id", value: @video.id %>
 
   <div class="notes_column_save_button" >
-	<%= f.button "Save Notes", class: "podmedcis_button" %>
+	<%= f.button "Save Notes", class: "podmedcis_button green", id: "save_notes_button" %>
   </div>
 
+  <input type="reset" value="Reset!" class: "podmedcis_button" >
+
 <% end %>
+
+<script>
+
+	// Set the interval for autosaving. (Once a minute)
+	setInterval(function () { auto_save(); }, 60000);
+
+	function auto_save()
+	{
+		var title = $(".notes_column_text_field")[0];
+		var form = $(title).parent();
+
+		// Create the hash for sending in the ajax request.
+		var hash = {
+					  url: $(form).attr("action"),
+					  data: $(form).serialize(),
+					  dataType: "script",
+					  type: 'POST'
+					};
+
+		// Send the request
+		$.ajax(hash);
+	}
+
+</script>

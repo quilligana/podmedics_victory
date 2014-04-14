@@ -80,6 +80,13 @@ ready = function() {
     $(".cbp-spmenu-right").removeClass('active_menu');
   });
 
+  // When the save button is manually clicked on the notes form save the data so that the reste
+  // button reverts to the last manual save.
+  $(document).on("click", "#save_notes_button", function(){
+    $("#note_title").attr("value", $("#note_title").val());
+    $("#note_content").attr("value", $("#note_content").val());
+  });
+
   $(".notes_saved_button").click(function(){
     $( this ).toggleClass('active_notes_saved_button');
     $("#speciality_default_right_column").toggleClass('animated fadeOutRight').fadeToggle(1);
