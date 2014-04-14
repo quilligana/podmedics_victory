@@ -24,7 +24,6 @@ class NotesController < ApplicationController
   	@notes = @video.note
   	@notes.content = params[:note][:content]
   	@notes.title = params[:note][:title]
-  	@notes.save!
 
   	if @notes.save
   		@saved = true
