@@ -12,5 +12,3 @@
 //= require site
 //= require froogaloop
 //= require vimeo
-
-

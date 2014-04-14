@@ -332,3 +332,9 @@ $(document).ready(create_questionsChart);
 $(window).bind("load", function() {
       Pizza.init();
 });
+
+$(function(){
+  var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'] };
+
+  $('#note_content').redactor(redactor_button_hash);
+});
