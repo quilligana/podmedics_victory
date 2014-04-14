@@ -11,7 +11,7 @@ feature 'Login' do
 
     scenario 'Registered user signs in' do
       sign_in(user)
-      expect(page).to have_content 'Welcome to Podmedics'
+      expect(current_path).to eq dashboard_path
     end
 
     scenario 'Non-registered user tries to sign in' do
@@ -24,7 +24,6 @@ feature 'Login' do
 
     scenario 'Admin user signs in' do
       sign_in(admin_user)
-      expect(page).to have_content 'Welcome to Podmedics Admin'
       expect(current_path).to eq admin_dashboard_path
     end
 
@@ -42,6 +41,19 @@ feature 'Login' do
 
       scenario 'dashboard should not be viewable' do
         expect(page).to_not have_content 'Dashboard'
+      end
+    end
+
+    feature 'access requested page after login' do
+
+      scenario 'redirects to correct page' do
+        visit edit_user_path(user)
+        within '#members_login_form' do
+          fill_in 'Email', with: user.email
+          fill_in 'Password', with: user.password
+          click_button 'Login'
+        end
+        expect(current_path).to eq edit_user_path(user)
       end
     end
 end

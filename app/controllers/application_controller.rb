@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  include SessionsHelper
   before_action :authorise
   before_action :get_content
 
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
 
     def authorise
       if !current_permission.allow?(params[:controller], params[:action], current_resource)
+        store_location
         redirect_to login_path, alert: 'Not authorised'
       end
     end

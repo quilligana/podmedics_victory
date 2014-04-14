@@ -28,13 +28,11 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Successfully signed out'
   end
 
-  private
-
   def login_for_user(user)
     if user.admin
-      redirect_to admin_dashboard_path, notice: 'Welcome to Podmedics Admin'
+      redirect_back_or admin_dashboard_path
     else
-      redirect_to dashboard_path, notice: 'Welcome to Podmedics'
+      redirect_back_or dashboard_path
     end
   end
 
