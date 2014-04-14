@@ -1,0 +1,30 @@
+<div id="main-stats">
+  <div class="row stats-row">
+    <div class="col-md-3 stat">
+      <div class="data">
+        <span class="number"><%= Video.count %></span>
+        videos 
+      </div>
+    </div>
+    <div class="col-md-3 stat">
+      <div class="data">
+        <span class="number"><%= Question.count %></span>
+        questions 
+      </div>
+      <span class="date"><%= Question.remaining_to_add %> to add!</span>
+    </div>
+    <div class="col-md-3 stat">
+      <div class="data">
+        <span class="number"><%= User.count %></span>
+        users 
+      </div>
+    </div>
+    <div class="col-md-3 stat last">
+      <div class="data">
+        <span class="number"><%= UserQuestion.count %></span>
+        user questions 
+      </div>
+    </div>
+  </div>
+</div>
+
