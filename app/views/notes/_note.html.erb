@@ -1,0 +1,5 @@
+<div class="note_right_column_preview" id="<%= note.id %>">
+  <p class="note_preview_title"><%= note.title %></p>
+  <p><%= truncate(note.content, :length => 100, :separator => ' ') %></p>
+  <%= link_to "Read", note_load_path(note.id), remote: true %>
+</div>

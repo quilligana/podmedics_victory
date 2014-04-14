@@ -1,0 +1,20 @@
+<% if @saved %>
+	$("#comment_saved_message").html("Notes saved")
+	
+	$("#comment_saved_message").show(100);
+	setTimeout(function()
+	{
+		$("#comment_saved_message").hide(100);
+	}, 5000);
+
+<% else %>
+
+	$("#comment_saved_message").html("Notes failed to save.<br>Fields cannot be blank.")
+	
+	$("#comment_saved_message").show(100);
+	setTimeout(function()
+	{
+		$("#comment_saved_message").hide(100);
+	}, 5000);
+
+<% end %>

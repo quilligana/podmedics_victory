@@ -22,7 +22,7 @@ describe "video comments" do
     describe "with a valid message"do
       before do
         fill_in "comment_content", with: "This is a comment."
-        click_button "Create Comment"
+        click_button "Post"
       end
 
       Capybara.using_wait_time 10 do
@@ -41,7 +41,7 @@ describe "video comments" do
     describe "with an invalid message" do
       before do
         fill_in "comment_content", with: ""
-        click_button "Create Comment"
+        click_button "Post"
       end
 
       Capybara.using_wait_time 10 do
@@ -61,14 +61,14 @@ describe "video comments" do
     describe "that is a reply" do
       before do
         fill_in "comment_content", with: "This is a comment."
-        click_button "Create Comment"
+        click_button "Post"
 
         sleep 1.seconds
 
         fill_in "comment_commentable_id", with: Comment.first.id
         fill_in "comment_commentable_type", with: "Comment"
         fill_in "comment_content", with: "This is a reply."
-        click_button "Create Comment"
+        click_button "Post"
       end
 
       Capybara.using_wait_time 10 do
@@ -86,18 +86,18 @@ describe "video comments" do
     describe "commenting after replying" do
       before do
         fill_in "comment_content", with: "This is a comment."
-        click_button "Create Comment"
+        click_button "Post"
 
         sleep 1.seconds
 
         click_link "Reply"
         fill_in "comment_content", with: "This is a reply."
-        click_button "Create Comment"
+        click_button "Post"
 
         sleep 1.seconds
 
         fill_in "comment_content", with: "This is a comment after a reply."
-        click_button "Create Comment"
+        click_button "Post"
       end
 
       Capybara.using_wait_time 10 do
@@ -116,7 +116,7 @@ describe "video comments" do
     describe "after pressing the cancel reply button" do
       before do
         fill_in "comment_content", with: "This is a comment."
-        click_button "Create Comment"
+        click_button "Post"
 
         sleep 1.seconds
 
@@ -129,7 +129,7 @@ describe "video comments" do
         sleep 1.seconds
 
         fill_in "comment_content", with: "This is a comment after cancelling a reply."
-        click_button "Create Comment"
+        click_button "Post"
       end
 
       Capybara.using_wait_time 10 do

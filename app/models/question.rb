@@ -2,12 +2,12 @@ class Question < ActiveRecord::Base
 
   belongs_to :video, counter_cache: true
 
-  validates :stem, :presence => true
-  validates :answer_1, :presence => true
-  validates :answer_2, :presence => true
+  validates :stem, presence: true
+  validates :answer_1, presence: true
+  validates :answer_2, presence: true
   validates :correct_answer, presence: true
-  validates :explanation, :presence => true
-  validates :video_id, :presence => true
+  validates :explanation, presence: true
+  validates :video_id, presence: true
   validate :correct_answer_must_be_an_answer
 
   delegate :specialty_id, to: :video

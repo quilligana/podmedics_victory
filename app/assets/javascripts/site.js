@@ -85,14 +85,8 @@ ready = function() {
     $("#speciality_default_right_column").toggleClass('animated fadeOutRight').fadeToggle(1);
     $(".main_notes_right_column_wrapper").addClass('animated fadeInRight').fadeToggle(1);
   });
-
-  $("#read_note_one").click(function(){
-    $(".main_notes_right_column_wrapper").removeClass('animated fadeInRight').addClass('animated fadeInRight').fadeToggle(1);
-    $(".full_note_outer_wrapper").show();
-    $("#full_note_one").addClass('animated fadeInRight').fadeIn(1);
-  });
-
-  $("#back_to_notes_button").click(function(){
+  
+  $(document).on("click", "#back_to_notes_button", function(){
     $(".main_notes_right_column_wrapper").removeClass('animated fadeInRight').addClass('animated fadeInRight').fadeToggle(1);
     $(".full_note_outer_wrapper").hide();
   });
