@@ -12,11 +12,6 @@ class Admin::VideosController < InheritedResources::Base
     update!(notice: 'Video updated') { admin_videos_path }
   end
 
-  def import
-    Video.import(params[:file])
-    redirect_to admin_videos_path, notice: 'Videos imported'
-  end
-
   def permitted_params
     params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id])
   end

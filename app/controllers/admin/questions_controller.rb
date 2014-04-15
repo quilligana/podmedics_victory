@@ -24,13 +24,9 @@ class Admin::QuestionsController < ApplicationController
     if @question.update(permitted_params)
       redirect_to admin_video_path(@video)
     else
+      flash.now.alert = 'Please review the form'
       render :new
     end
-  end
-
-  def import
-    Question.import(params[:file])
-    redirect_to admin_videos_path, notice: 'Questions imported'
   end
 
   protected

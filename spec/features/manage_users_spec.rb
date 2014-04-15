@@ -19,11 +19,24 @@ feature 'Manage users' do
     expect(User.where(admin: true).count).to eq 2
   end
 
+  scenario 'Adding a user without an email address' do
+    sign_in(@admin_user)
+    add_user_with_email('', true)
+    expect(page).to have_content 'Please review the form'
+  end
+
   scenario 'Editing a user' do
     user = create(:user)
     sign_in(@admin_user)
     update_email_of_user('user2@example.com', user)
     admin_sees_user_with_email 'user2@example.com'
+  end
+
+  scenario 'Editing a user incorrectly' do
+    user = create(:user)
+    sign_in(@admin_user)
+    update_email_of_user('', user)
+    expect(page).to have_content 'Please review the form'
   end
 
   scenario 'Removing a user' do

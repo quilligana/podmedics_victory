@@ -18,15 +18,6 @@ class Question < ActiveRecord::Base
     end
   end
 
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      question = find_by_id(row["id"]) || new
-      parameters = ActionController::Parameters.new(row.to_hash)
-      question.update(parameters.permit(:stem, :answer_1, :answer_2, :answer_3, :answer_4, :answer_5, :explanation, :correct_answer, :video_id))
-      question.save!
-    end
-  end
-
   def self.remaining_to_add
     (Video.count * 10) - self.count
   end
