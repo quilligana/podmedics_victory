@@ -67,7 +67,7 @@ describe "specialty notes", js: true do
     before do
       fill_in "note_title", with: @title
       fill_in "note_content", with: @content
-      sleep 1.second
+      sleep 5.second
     end
 
     it "should save automatically every second" do

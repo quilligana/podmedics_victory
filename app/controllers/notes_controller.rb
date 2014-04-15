@@ -3,7 +3,7 @@ class NotesController < ApplicationController
     
   def create
   	@video = Video.find(params[:note][:video_id])
-  	@notes = @video.note || Note.create(specialty: @video.specialty, 
+  	@notes = @video.note || Note.new(specialty: @video.specialty, 
     						                        video: @video, 
     						                        user: current_user)
   	@notes.content = params[:note][:content]
