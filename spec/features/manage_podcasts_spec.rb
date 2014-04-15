@@ -64,11 +64,13 @@ feature 'Managing videos' do
   # Helpers
   
   def add_podcast_with_name_and_specialty(name, specialty)
+    author = create(:author)
     click_link 'Videos'
     click_link 'New video'
     fill_in 'Title', with: name
     fill_in 'Description', with: 'This is a podcast about ECGs'
     select specialty.name, from: 'Specialty'
+    select author.name, from: 'Author'
     fill_in 'Vimeo Identifier', with: '324567'
     fill_in 'Download file name', with: 'test_file'
     fill_in 'Duration', with: '10'

@@ -5,7 +5,8 @@
       <%= f.input :position %>
       <%= f.input :title %>
       <%= f.input :description %>
-      <%= f.association :specialty, as: :select %>
+      <%= f.association :specialty, as: :select, collection: Specialty.all.order(:name) %>
+      <%= f.association :author, as: :select, collection: Author.all.order(:name) %>
       <%= f.input :vimeo_identifier, label: 'Vimeo Identifier' %>
       <%= f.input :file_name, label: 'Download file name' %>
       <%= f.input :duration %>
