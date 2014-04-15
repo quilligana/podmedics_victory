@@ -35,10 +35,6 @@ feature 'Login' do
         visit root_url
       end
 
-      scenario 'should inform user that account has been deleted' do
-        expect(page).to have_content 'This account no longer exists, you have been logged out.'
-      end
-
       scenario 'dashboard should not be viewable' do
         expect(page).to_not have_content 'Dashboard'
       end

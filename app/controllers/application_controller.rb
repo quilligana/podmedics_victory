@@ -32,7 +32,6 @@ class ApplicationController < ActionController::Base
       rescue
         @current_user = nil
         session[:user_id] = nil
-        redirect_to login_path, alert: 'This account no longer exists, you have been logged out.'
       end
 
       return @current_user

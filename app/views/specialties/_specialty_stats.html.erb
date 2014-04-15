@@ -1,7 +1,7 @@
 <div class="lecture_questions_right_column notes_right_column">
 
   <% if @specialty.notes.count > 0 %>
-    <a href="javascript:;" class="notes_saved_button">
+    <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
       <p class="questions_info_right_column_number"><%= @specialty.notes.count %></p>
       <p><%= pluralize(@specialty.notes.count, 'Note').split[1] %> saved within Cardiology</p>
     </a>

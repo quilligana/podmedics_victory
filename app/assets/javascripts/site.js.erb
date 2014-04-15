@@ -336,5 +336,7 @@ $(window).bind("load", function() {
 $(function(){
   var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'] };
 
-  $('#note_content').redactor(redactor_button_hash);
+  <% unless Rails.env.test? %>
+    $('#note_content').redactor(redactor_button_hash);
+  <% end %>
 });

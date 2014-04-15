@@ -1,5 +1,4 @@
-<div id="comment_saved_message">
-	Comment Saved
+<div id="notes_saved_message">
 </div>
 
 <%= form_for @notes, remote: true, authenticity_token: true do |f| %>
@@ -15,14 +14,14 @@
 	<%= f.button "Save Notes", class: "podmedcis_button green", id: "save_notes_button" %>
   </div>
 
-  <input type="reset" value="Reset!" class: "podmedcis_button" >
+  <input type="reset" value="Revert" class: "podmedcis_button" >
 
 <% end %>
 
 <script>
 
 	// Set the interval for autosaving. (Once a minute)
-	setInterval(function () { auto_save(); }, 60000);
+	setInterval(function () { auto_save(); }, <%= Rails.application.config.autosave_timer %>);
 
 	function auto_save()
 	{

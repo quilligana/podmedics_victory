@@ -67,7 +67,7 @@ PodmedicsVictory::Application.routes.draw do
     get 'accept', to: 'comments#accept', as: :accept
   end
 
-  resources :notes do
+  resources :notes, only: [:create, :update] do
     get '', to: 'notes#load', as: :load
   end
 

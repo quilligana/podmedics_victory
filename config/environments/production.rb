@@ -79,4 +79,6 @@ PodmedicsVictory::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   WillPaginate.per_page = 15
+  
+  config.autosave_timer = 60000
 end
