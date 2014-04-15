@@ -26,15 +26,3 @@
     </div>
   </div>
 </div>
-
-<h2>Import Videos</h2>
-<%= form_tag import_admin_videos_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
-<h2>Import Questions</h2>
-<%= form_tag import_admin_questions_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>

@@ -25,16 +25,6 @@ class Video < ActiveRecord::Base
     order(created_at: :desc)
   end
 
-  def self.import(file)
-    CSV.foreach(file.path, headers:true) do |row|
-      video = find_by_id(row["id"]) || new
-      parameters = ActionController::Parameters.new(row.to_hash)
-      video.update(parameters.permit(:id, :title, :description, :vimeo_identifier, :duration, :specialty_id,
-                                    :preview, :created_at, :updated_at, :views, :speaker_name, :file_name))
-      video.save!
-    end
-  end
-
   def comments_count(include_hidden = false)
     unless include_hidden
       comments = self.nested_comments.where(hidden: false)

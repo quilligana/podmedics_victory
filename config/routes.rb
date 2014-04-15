@@ -36,15 +36,12 @@ PodmedicsVictory::Application.routes.draw do
         get 'move_down'
       end
       resources :questions
-      collection { post :import}
     end
     resources :users
     resources :authors
     resources :faqs
     resources :courses
-    resources :questions do
-      collection { post :import}
-    end
+    resources :questions
   end
 
   # Specialty/Video

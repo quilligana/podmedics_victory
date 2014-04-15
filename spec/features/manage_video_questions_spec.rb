@@ -31,6 +31,19 @@ feature 'Manage video questions' do
     admin_sees_question_error
   end
 
+  scenario 'Incorrect editing a question' do
+    video = create(:video)
+    question = create(:question, video: video)
+    sign_in(create(:admin_user))
+    visit admin_video_path(video)
+    within '.questions' do
+      click_link 'Edit'
+    end
+    fill_in 'Stem', with: ''
+    click_button 'Submit'
+    expect(page).to have_content 'Please review the form'
+  end
+
   # Helpers
 
   def admin_sees_question_error
