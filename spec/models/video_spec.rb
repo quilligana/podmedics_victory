@@ -6,6 +6,7 @@ describe Video do
   it { should respond_to :get_comments }
   it { should respond_to :comments_count }
   it { should belong_to :specialty }
+  it { should belong_to :author }
   it { should have_many :questions }
   it { should have_many :comments }
   it { should have_many :nested_comments }

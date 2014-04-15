@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414140405) do
+ActiveRecord::Schema.define(version: 20140415120319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: true do |t|
+    t.string   "name"
+    t.string   "tagline"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "badges", force: true do |t|
     t.integer  "user_id"
@@ -170,8 +179,10 @@ ActiveRecord::Schema.define(version: 20140414140405) do
     t.string   "file_name"
     t.integer  "questions_count",  default: 0,     null: false
     t.integer  "position"
+    t.integer  "author_id"
   end
 
+  add_index "videos", ["author_id"], name: "index_videos_on_author_id", using: :btree
   add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true, using: :btree
   add_index "videos", ["specialty_id"], name: "index_videos_on_specialty_id", using: :btree
 

@@ -39,6 +39,7 @@ PodmedicsVictory::Application.routes.draw do
       collection { post :import}
     end
     resources :users
+    resources :authors
     resources :faqs
     resources :courses
     resources :questions do

@@ -1,0 +1,11 @@
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @author] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :tagline %>
+      <%= f.input :twitter %>
+      <%= f.input :facebook %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

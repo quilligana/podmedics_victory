@@ -17,4 +17,12 @@ describe DashboardsController do
     end
   end
 
+  describe "GET 'show' with admin login" do
+    it "returns https success" do
+      set_session_for(create(:admin_user))
+      get 'show'
+      response.should be_success
+    end
+  end
+
 end

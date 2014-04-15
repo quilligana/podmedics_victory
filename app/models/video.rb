@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   belongs_to :specialty
+  belongs_to :author
   acts_as_list scope: :specialty
 
   has_many :questions, dependent: :destroy
