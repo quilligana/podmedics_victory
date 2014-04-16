@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def faqs
-    @faqs = Faq.all_cached
+    @faqs = Faq.all
   end
 
   def library
