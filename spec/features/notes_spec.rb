@@ -5,8 +5,8 @@ describe "specialty notes", js: true do
   before do
     @content = "This is the content"
     @title = "This is the title"
-    @saved_message = "Notes saved"
-    @failed_message = "Notes failed to save."
+    @saved_message = "NOTES SAVED"
+    @failed_message = "NOTES FAILED TO SAVE."
     @user = create(:user)
     @video = create(:video)
     @specialty = create(:specialty)
