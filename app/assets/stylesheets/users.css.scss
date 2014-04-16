@@ -2657,6 +2657,7 @@ a.video_page_authour_twitter_icon {
   position: absolute;
   margin-top: 48px;
   display: none;
+  z-index: 1;
 }
 .exam_button_tooltip_wrapper:hover .exam_button_tooltip {
   display: block;
