@@ -25,6 +25,8 @@ gem 'roo'
 gem 'acts_as_list'
 gem 'will_paginate'
 gem 'delayed_job_active_record'
+gem 'dalli'
+gem 'memcachier'
 
 group :development do
   gem 'thin'
