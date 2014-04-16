@@ -9,6 +9,6 @@
 //= require kendo.dataviz.min
 //= require redactor
 //= require jquery.fitvids
-//= require site
 //= require froogaloop
+//= require site
 //= require vimeo
