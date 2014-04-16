@@ -80,11 +80,20 @@ ready = function() {
     $(".cbp-spmenu-right").removeClass('active_menu');
   });
 
-  // When the save button is manually clicked on the notes form save the data so that the reste
-  // button reverts to the last manual save.
+  // When save is clicked store the data in the field's value attributes, this sets
+  // what the revert button resets to.
   $(document).on("click", "#save_notes_button", function(){
     $("#note_title").attr("value", $("#note_title").val());
     $("#note_content").attr("value", $("#note_content").val());
+  });
+
+  // Revert the redactor editor as well.
+  $(document).on("click", "#revert_notes_button", function(){
+    // Get the redactor box, it's the first sibling before #note_content.
+    var redactor_box = $("#note_content").prev()[0];
+    // Set the redactor_box html to the value stored in #note_content's value.
+    // This is stored on #save_notes_button clicks and page load.
+    $(redactor_box).html($("#note_content").attr("value"));
   });
 
   $(".notes_saved_button").click(function(){
@@ -336,7 +345,11 @@ $(window).bind("load", function() {
 $(function(){
   var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'] };
 
+  // Don't enable redactor in the test environment.
   <% unless Rails.env.test? %>
+    // Enable redactor.
     $('#note_content').redactor(redactor_button_hash);
+    // Put the content of note_content into it's value tag. This is used for the revert button.
+    $("#note_content").attr("value", $("#note_content").val());
   <% end %>
 });
