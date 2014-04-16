@@ -167,9 +167,9 @@ describe "specialty user questions and answers" do
       end 
 
       it "should set a comment as the accepted answer" do
-        expect(page).to_not have_content "This is the accepted answer"
+        expect(page).to_not have_content "THIS IS THE ACCEPTED ANSWER"
         click_link "Accept Answer"
-        expect(page).to have_content "This is the accepted answer"
+        expect(page).to have_content "THIS IS THE ACCEPTED ANSWER"
       end
 
       it "should remove accept answer link from page" do
