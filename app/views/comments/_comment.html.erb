@@ -3,6 +3,9 @@
 <% end %>
 
 <div class="comment" id="<%= comment.id %>">
+  <% if current_user.admin? %>
+    <%= link_to "Delete Comment", comment_path(comment), method: "delete" %>
+  <% end %>
 
   <% if comment.votable? %>
     <div class="comment_score_wrapper">

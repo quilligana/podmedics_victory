@@ -1,9 +1,11 @@
 require 'spec_helper'
 
-describe "video comments" do
+describe "video comments", js: true do
 
   before do
     @user = create(:user)
+    @user.admin = true
+    @user.save
     @video = create(:video)
     sign_in(@user)
     visit video_path(@video)
@@ -18,7 +20,20 @@ describe "video comments" do
     end
   end
 
-  describe "posting a comment", js: true do
+  describe "clicking the delete comment button" do
+    before do
+      fill_in "comment_content", with: "This is a comment."
+      click_button "Post"
+      click_link "Delete Comment"
+    end
+
+    it "should delete the comment" do
+      expect(page).to_not have_content "This is a comment"
+      expect(Comment.all.count).to eq 0
+    end
+  end
+
+  describe "posting a comment" do
     describe "with a valid message"do
       before do
         fill_in "comment_content", with: "This is a comment."
