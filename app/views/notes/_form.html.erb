@@ -1,10 +1,7 @@
-<div id="notes_saved_message">
-</div>
-
 <%= form_for @notes, remote: true, authenticity_token: true do |f| %>
 
   <%= f.text_field :title, class: "notes_column_text_field", placeholder: "Note Title" %>
-
+  <div id="notes_saved_message"></div>
   <%= f.text_area :content, class: "notes_column_text_area", placeholder: "Write your notes here.." %>
   <div class="notes_private_textarea_notice">Notes are private & only visble to you</div>
 
@@ -12,11 +9,13 @@
 
   <div class="notes_column_save_button" >
 	<%= f.button "Save Notes", class: "podmedcis_button green", id: "save_notes_button" %>
+  <button type="reset" class="podmedcis_button grey_button">Revert</button>
+
   </div>
 
-  <input type="reset" value="Revert" class: "podmedcis_button" >
-
 <% end %>
+
+
 
 <script>
 

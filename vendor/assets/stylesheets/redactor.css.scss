@@ -3,6 +3,8 @@
   overflow: visible;
   border: 1px solid #ddd;
   background-color: #fff;
+  margin-top: 20px;
+  border-radius: 6px;
 }
 
 body .redactor_air {
@@ -40,7 +42,7 @@ body .redactor_box_fullscreen {
 .redactor-link-tooltip,
 .redactor-link-tooltip a {
   font-size: 12px;
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
+  font-family: 'Montserrat', sans-serif;
 }
 .redactor-link-tooltip a {
   color: #ccc;
@@ -64,10 +66,11 @@ body .redactor_box_fullscreen {
   border: none;
   background-color: #222;
   box-shadow: none;
-  color: #ccc;
+  color: #8D8D8D;
   font-size: 13px;
-  font-family: Menlo, Monaco, monospace, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   resize: none;
+  min-height: 190px;
 }
 
 .redactor_editor,
@@ -86,12 +89,14 @@ body .redactor_box_fullscreen {
 .redactor_editor h4,
 .redactor_editor h5,
 .redactor_editor h6 {
-  font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
+  font-family: 'Montserrat', sans-serif;
+  color: #8D8D8D;
+
 }
 
 .redactor_editor code,
 .redactor_editor pre {
-  font-family: Menlo, Monaco, monospace, sans-serif !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .redactor_editor,
@@ -120,6 +125,11 @@ body .redactor_box_fullscreen {
   background: #fff !important;
   box-shadow: none !important;
   white-space: normal;
+  min-height: 190px;
+  -moz-border-radius-bottomright: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+  -moz-border-radius-bottomleft: 6px 6px;
+  border-bottom-left-radius: 6px 6px;
 }
 .redactor_editor a {
   color: #15c !important;
@@ -336,7 +346,10 @@ body .redactor_box_fullscreen {
 }
 .redactor_box .redactor_toolbar {
   border: none;
-  border-bottom: 1px solid #b8b8b8;
+  -moz-border-radius-topright: 6px 6px;
+  border-top-right-radius: 6px 6px;
+  -moz-border-radius-topleft: 6px 6px;
+  border-top-left-radius: 6px 6px;
 }
 .redactor_toolbar.toolbar_fixed_box {
   border: 1px solid #ddd;
@@ -404,6 +417,7 @@ only screen and (                min-resolution: 2dppx) {
   border-color: rgba(162, 185, 208, .8);
   background-color: #d4dce9;
   background-color: rgba(176, 199, 223, .5);
+  border-radius:3px;
 }
 .redactor_toolbar li a:active,
 .redactor_toolbar li a.redactor_act {

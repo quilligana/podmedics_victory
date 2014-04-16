@@ -884,8 +884,26 @@ div.k-chart {
 
 #notes_saved_message {
   display: none;
+  padding: 14px;
+  border-radius: 5px;
+  padding-bottom: 13px;
+  margin-top: -48px;
+  position: absolute;
+  width: 100px;
+  margin-right: 0px;
+  margin-left: 202px;
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: #8BDD7F;
+  color: #FFF;
+  z-index: 500;
 }
-
+button.podmedcis_button.grey_button {
+  background-color: #CCC;
+}
+.notes_column_save_button button.podmedcis_button.grey_button {
+  margin-left: 10px;
+}
 
 .no_questions_reply_wrapper {
   clear: both;
