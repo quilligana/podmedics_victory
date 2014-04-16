@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
     @total_questions = @q_ids.length
     record_answer(params[:answer])
     @user_progress = UserProgress.new(@question.video.specialty, current_user)
-    @correct_answer = get_correct_answer
+    @correct_answer = @question.get_correct_answer
   end
 
   def result
@@ -84,20 +84,5 @@ class QuestionsController < ApplicationController
         update_session
       end
     end
-
-    def get_correct_answer
-      case @question.correct_answer
-      when 1
-        @question.answer_1
-      when 2
-        @question.answer_2
-      when 3
-        @question.answer_3
-      when 4
-        @question.answer_4
-      when 5
-        @question.answer_5
-      end
-    end 
 
 end

@@ -22,4 +22,19 @@ class Question < ActiveRecord::Base
     (Video.count * 10) - self.count
   end
 
+  def get_correct_answer
+    case self.correct_answer
+    when 1
+      self.answer_1
+    when 2
+      self.answer_2
+    when 3
+      self.answer_3
+    when 4
+      self.answer_4
+    when 5
+      self.answer_5
+    end
+  end
+
 end
