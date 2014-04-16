@@ -6,7 +6,7 @@
 //= require icheck
 //= require fresco
 //= require jquery.fitvids
-//= require site
 //= require froogaloop
+//= require site
 //= require vimeo
 

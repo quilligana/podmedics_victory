@@ -68,5 +68,8 @@ PodmedicsVictory::Application.routes.draw do
     get '', to: 'notes#load', as: :load
   end
 
+  # VimeosController
+  post 'vimeos/completed', to: 'vimeos#completed', as: :vimeos_completed
+  post 'vimeos/paused', to: 'vimeos#paused', as: :vimeos_paused
 
 end
