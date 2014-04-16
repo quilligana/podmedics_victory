@@ -2009,7 +2009,6 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   color: #939393;
   margin-top: 7px;
   float: left;
-  clear: both;
 }
 p.lecture_specialties_link {
   float: left;
@@ -2020,12 +2019,12 @@ p.lecture_specialties_link {
   font-size: 13px;
   font-weight: 400;
   margin-top: 7px;
-  color: #BEBEBE;
+  color: #5E5E5E;
   float: left;
 }
 
 .lecture_list .lecture_specialties_link a:hover, .lecture_list_left_column .lecture_specialties_link a:hover {
-  color: #5C5C5C;
+  color: #333;
 }
 
 .lecture_list_item .lecture_icons_wrapper {
