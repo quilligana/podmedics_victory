@@ -904,7 +904,9 @@ button.podmedcis_button.grey_button {
 .notes_column_save_button button.podmedcis_button.grey_button {
   margin-left: 10px;
 }
-
+a#back_to_notes_button {
+  clear: both;
+}
 .no_questions_reply_wrapper {
   clear: both;
   float: left;
@@ -2766,7 +2768,6 @@ a.podmedcis_button.green.accept_answer_button {
 }
 
 .comment_score_wrapper {
-
   display: block;
   float: right;
   width: auto;
@@ -2784,4 +2785,24 @@ a.podmedcis_button.green.accept_answer_button {
   margin-top: -10px;
   margin-left: 10px;
   margin-right: 25px;
+}
+
+span.accepted {
+  background-color: #8BDD7F;
+  display: block;
+  float: right;
+  width: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  line-height: 10px;
+  border-radius: 6px;
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-right: 0px;
 }
