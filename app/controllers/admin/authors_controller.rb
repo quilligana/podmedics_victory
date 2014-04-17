@@ -9,7 +9,7 @@ class Admin::AuthorsController < InheritedResources::Base
   protected
 
     def permitted_params
-      params.permit(:author => [:name, :tagline, :twitter, :facebook])
+      params.permit(:author => [:name, :tagline, :twitter, :facebook, :avatar])
     end
 
 end
