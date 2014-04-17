@@ -100,7 +100,7 @@ describe "specialty notes", js: true do
 
   describe "specialty page" do
     before do
-      @specialty.notes.create(video: @video, user: @user, content: @content, title: @title)
+      @specialty.notes.create(noteable: @video, user: @user, content: @content, title: @title)
       visit specialty_path(@specialty)
       click_link "notes_saved_button"
     end

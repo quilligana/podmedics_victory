@@ -5,7 +5,8 @@
   <%= f.text_area :content, class: "notes_column_text_area", placeholder: "Write your notes here..", value: @notes.content %>
   <div class="notes_private_textarea_notice">Notes are private & only visble to you</div>
 
-  <%= f.hidden_field :video_id, id: "notes_video_id", value: @video.id %>
+  <%= f.hidden_field :noteable_id, value: @notes.noteable_id %>
+  <%= f.hidden_field :noteable_type, value: @notes.noteable_type %>
 
   <div class="notes_column_save_button" >
 	<%= f.button "Save Notes", class: "podmedcis_button green", id: "save_notes_button" %>

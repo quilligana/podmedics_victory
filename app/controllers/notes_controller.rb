@@ -2,10 +2,17 @@ class NotesController < ApplicationController
   layout 'user_application'
     
   def create
-  	@video = Video.find(params[:note][:video_id])
-  	@notes = @video.note || Note.new(specialty: @video.specialty, 
-    						                        video: @video, 
-    						                        user: current_user)
+    @noteable = find_noteable params
+
+  	@notes = @noteable.notes.find_by(user: current_user) || Note.new( noteable: @noteable, 
+                                                                      user: current_user)
+
+    if @notes.noteable_type == "specialty"
+      @notes.specialty = @notes.noteable
+    else
+      @notes.specialty = @notes.noteable.specialty
+    end
+
   	@notes.content = params[:note][:content]
   	@notes.title = params[:note][:title]
   	
@@ -20,8 +27,8 @@ class NotesController < ApplicationController
   end
 
   def update
-	  @video = Video.find(params[:note][:video_id])
-  	@notes = @video.note
+    @noteable = find_noteable params
+  	@notes = @noteable.notes.find_by(user: current_user)
   	@notes.content = params[:note][:content]
   	@notes.title = params[:note][:title]
 
@@ -47,4 +54,14 @@ class NotesController < ApplicationController
   def destroy
 
   end
+
+  private
+
+    def find_noteable(params)
+      if params[:note][:noteable_type] == "Video"
+        params[:note][:noteable_type].classify.constantize.friendly.find(params[:note][:noteable_id])
+      else
+        params[:note][:noteable_type].classify.constantize.find(params[:note][:noteable_id])
+      end
+    end
 end

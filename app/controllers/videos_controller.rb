@@ -5,7 +5,7 @@ class VideosController < ApplicationController
     @video = Video.friendly.find(params[:id])
     Vimeo.register_ids(@video.id, current_user)
     @comment = Comment.new(user: current_user)
-    @notes = @video.note || Note.new()
+    @notes = @video.notes.find_by(user: current_user) || Note.new(noteable: @video)
   end
 
 end
