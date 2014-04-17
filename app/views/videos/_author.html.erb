@@ -1,7 +1,9 @@
 <p class="lecture_by_title">Lecture by</p>
 
 <div class="video_page_authour_right_column_user_info">
-  <div class="video_page_authour_right_column_avatar"><img src="<%=asset_path "avatar-128.jpg"%>" width="128" height="128" /></div>
+  <div class="video_page_authour_right_column_avatar">
+    <%= image_tag @video.author.avatar.url(:square), width: '128', height: '128' %>
+  </div>
   <div class="video_page_authour_right_column_user_info_inner_wrapper">
     <p class="video_page_authour_right_column_name"><%= @video.author_name %><p>
     <p class="video_page_authour_right_column_title"><%= @video.author_tagline %></p>
