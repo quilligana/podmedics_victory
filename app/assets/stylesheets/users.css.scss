@@ -2835,3 +2835,23 @@ span.accepted {
   font-size: 14px;
   color: #6D6D6D;
 }
+
+a#reply_cancel_button {
+  color: #B6B6B6;
+}
+
+a#reply_cancel_button:hover {
+  color: #cccccc;
+}
+a#reply_user_name {
+  font-weight: 800;
+}
+#tabs_single_page li a.comments_tab {
+  margin-left: 20px;
+  margin-top: 15px;
+  padding: 0px;
+}
+#tabs_single_page li a.comments_tab p {
+  font-weight: 800;
+  color: #000;
+}
