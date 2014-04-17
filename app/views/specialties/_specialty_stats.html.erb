@@ -1,12 +1,20 @@
 <div class="lecture_questions_right_column notes_right_column">
 
+  <div class="video_page_notes_column">
+    <div class="video_page_notes_column_title">
+      <strong>Notes</strong>
+      <p>Save personal notes for reference later</p>
+    </div>
+    <div class="video_page_notes_column_divide"></div>
+    <%= render partial: 'notes/form' %>
+  </div>
+
   <% if @specialty.notes.count > 0 %>
     <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
       <p class="questions_info_right_column_number"><%= @specialty.notes.count %></p>
       <p><%= pluralize(@specialty.notes.count, 'Note').split[1] %> saved within Cardiology</p>
     </a>
   <% end %>
-
 
   <div id="speciality_default_right_column">
     <div class="questions_info_right_column_section">

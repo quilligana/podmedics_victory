@@ -7,7 +7,7 @@ class NotesController < ApplicationController
   	@notes = @noteable.notes.find_by(user: current_user) || Note.new( noteable: @noteable, 
                                                                       user: current_user)
 
-    if @notes.noteable_type == "specialty"
+    if @notes.noteable_type == "Specialty"
       @notes.specialty = @notes.noteable
     else
       @notes.specialty = @notes.noteable.specialty

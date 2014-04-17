@@ -6,6 +6,7 @@ class SpecialtiesController < ApplicationController
     @videos = @specialty.videos
     @user_progress = UserProgress.new(@specialty, current_user)
     @newQuestion = SpecialtyQuestion.new()
+    @notes = @specialty.notes.find_by(user: current_user) || Note.new(noteable: @specialty)
   end
 
 end

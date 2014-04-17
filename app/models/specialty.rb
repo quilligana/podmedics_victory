@@ -16,4 +16,8 @@ class Specialty < ActiveRecord::Base
   validates_presence_of :name
 
   delegate :name, to: :category, prefix: true
+
+  def title
+    name
+  end
 end
