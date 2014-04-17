@@ -39,5 +39,6 @@ PodmedicsVictory::Application.configure do
 
   WillPaginate.per_page = 1
 
-  config.autosave_timer = 4000
+  config.autosave_save_timer = 1000
+  config.autosave_check_timer = 100
 end

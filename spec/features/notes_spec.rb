@@ -43,7 +43,7 @@ describe "specialty notes", js: true do
 
       it "should save the notes" do
         expect(page).to have_content(@saved_message)
-        expect(Note.all.count).to eq 0
+        expect(Note.all.count).to eq 1
       end
     end
 
@@ -63,18 +63,20 @@ describe "specialty notes", js: true do
     end
   end
 
-  describe "autosave feature" do
+  describe "autosave" do
     before do
       fill_in "note_title", with: @title
       fill_in "note_content", with: @content
-      sleep 5.second
+      sleep 3.second
     end
 
-    it "should save automatically every second" do
-      expect(page).to have_content(@saved_message)
-      expect(Note.all.count).to eq 1
-      expect(Note.first.content).to eq @content
-      expect(Note.first.title).to eq @title
+    Capybara.using_wait_time 10 do
+      it "should save automatically every second" do
+        expect(page).to have_content(@saved_message)
+        expect(Note.all.count).to eq 1
+        expect(Note.first.content).to eq @content
+        expect(Note.first.title).to eq @title
+      end
     end
   end
 

@@ -31,7 +31,8 @@ PodmedicsVictory::Application.configure do
 
   WillPaginate.per_page = 15
 
-  config.autosave_timer = 60000
+  config.autosave_save_timer = 60000
+  config.autosave_check_timer = 5000
 
   # Config for paperclip
   config.paperclip_defaults = {
