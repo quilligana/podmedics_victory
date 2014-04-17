@@ -20,6 +20,10 @@ class Video < ActiveRecord::Base
   validates :file_name, presence: true
 
   delegate :name, to: :specialty, prefix: true
+  delegate :name, to: :author, prefix: true
+  delegate :tagline, to: :author, prefix: true
+  delegate :twitter, to: :author, prefix: true
+  delegate :facebook, to: :author, prefix: true
 
   def self.recent
     order(created_at: :desc)

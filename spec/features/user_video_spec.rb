@@ -4,7 +4,8 @@ feature 'User Videos' do
 
   before(:each) do
     video_specialty = create(:specialty)
-    @video = create(:video, specialty: video_specialty)
+    @author = create(:author)
+    @video = create(:video, specialty: video_specialty, author: @author)
     @video_2 = create(:video, specialty: video_specialty)
     @question = create(:question, video: @video_2)
     sign_in(create(:user))
@@ -33,6 +34,15 @@ feature 'User Videos' do
     within '.video_page_heading_button_set' do
       expect(page).not_to have_link('Answer Questions', href: video_questions_url(@video.id))
     end
+  end
+
+  scenario 'Viewing the video author' do
+    visit video_path(@video)
+    within '.video_page_authour_right_column_user_info' do
+      expect(page).to have_content @author.name
+      expect(page).to have_content @author.tagline
+    end
+
   end
 
 end

@@ -28,6 +28,30 @@ describe Video do
     end
   end
 
+  describe Video, '.author_name' do
+    before do
+      @author = create(:author)
+      @video = create(:video, author: @author)
+    end
+
+    it "delegates name of author to author_name" do
+      expect(@video.author_name).to eq @author.name
+    end
+
+    it "delegates tagline of author to author_tagline" do
+      expect(@video.author_tagline).to eq @author.tagline
+    end
+
+    it "delegates twitter of author to author_twitter" do
+      expect(@video.author_twitter).to eq @author.twitter
+    end
+
+    it "delegates twitter of author to author_twitter" do
+      expect(@video.author_facebook).to eq @author.facebook
+    end
+
+  end
+
   it "has a counter cache" do
     video = create(:video)
     expect {
