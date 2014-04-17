@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="comment" id="<%= comment.id %>">
-  <% if current_user.admin? %>
+  <% if current_user.admin? || comment.user == current_user %>
     <%= link_to "Delete Comment", comment_path(comment), method: "delete" %>
   <% end %>
 

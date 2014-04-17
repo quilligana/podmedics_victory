@@ -16,7 +16,7 @@ class Permission
       allow :hosted_files, [:video, :audio, :slides]
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]
-      allow :comments, [:create, :vote, :accept]
+      allow :comments, [:create, :vote, :accept, :destroy]
       allow :specialty_questions, [:show, :index, :create, :destroy, :load]
       allow :notes, [:create, :update, :load]
       allow_all if user.admin?
