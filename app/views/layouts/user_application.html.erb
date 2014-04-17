@@ -26,8 +26,7 @@
     <%= content_for?(:footer) ? yield(:footer) : (render 'footer') %>
     <%= javascript_include_tag "user_application" %>
     
-    <% page_specific_js = "#{params[:controller]}_#{params[:action]}" %> 
-    <% puts page_specific_js %>
+    <% page_specific_js = "#{params[:controller]}_#{params[:action]}" %>
     <%= javascript_include_tag page_specific_js if Rails.application.assets.find_asset page_specific_js %>
   </body>
 </html>
