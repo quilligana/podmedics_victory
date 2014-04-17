@@ -5,6 +5,9 @@ class Note < ActiveRecord::Base
   belongs_to :specialty
 
   validates :content, presence: true
-  validates :title, presence: true
+
+  def get_title
+  	title.blank? ? video.title : title
+  end
 
 end
