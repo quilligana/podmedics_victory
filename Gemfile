@@ -29,6 +29,7 @@ gem 'dalli'
 gem 'memcachier'
 gem 'paperclip'
 gem 'aws-s3'
+gem 'aws-sdk'
 
 group :development do
   gem 'thin'
