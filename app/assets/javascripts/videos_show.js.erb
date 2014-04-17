@@ -1,0 +1,80 @@
+// This is the javascript for the show action on the video controller.
+// It handles the autosaving of notes.
+
+// On page load.
+$( document ).ready(function() {
+  // Store the existing notes in html5 data.
+  jQuery.data(document.body, "oldNotes", $("#note_content").val());
+
+  // Set the interval for checking whether notes has changed.
+  window.checkIntervalID = setInterval( function () 
+                      { 
+                        check_for_change(); 
+                      }, 
+                      5000);
+});
+
+// Checks whether the notes content has been changed since the last check.
+function check_for_change()
+{
+  // If the current notes aren't the same as the ones stored in html5 data,
+  // we'll start autosaving.
+  if(jQuery.data(document.body, "oldNotes") != $("#note_content").val())
+  {
+    // Stop the checking interval
+    clearInterval(window.checkIntervalID);
+
+    // Start autosaving
+    window.autosaveIntervalID = setInterval(function () 
+                        { 
+                          auto_save(); 
+                        }, 
+                        <%= Rails.application.config.autosave_timer %>);
+  }
+}
+
+function auto_save()
+{
+  var title = $(".notes_column_text_field")[0];
+  var form = $(title).parent();
+
+  // Create the hash for sending in the ajax request.
+  var hash = {
+          url: $(form).attr("action"),
+          data: $(form).serialize(),
+          dataType: "script",
+          type: 'POST'
+        };
+
+  // Send the request
+  $.ajax(hash);
+
+  // Stop autosaving
+  clearInterval(window.autosaveIntervalID);
+
+  // Store current notes for use in checking.
+  jQuery.data(document.body, "oldNotes", $("#note_content").val());
+
+  // Start checking for changes again.
+  window.checkIntervalID = setInterval( function () 
+                                        { 
+                                          check_for_change(); 
+                                        }, 
+                                        5000);
+}
+
+// When a manual save is done stop the autosave and start checking for changes again.
+$(document).on("click", "#save_notes_button", function(){
+  // Stop the autosaving.
+  clearInterval(window.autosaveIntervalID);
+
+  // Start the checking
+  window.checkIntervalID = setInterval( function () 
+                                        { 
+                                          check_for_change(); 
+                                        }, 
+                                        5000);
+
+  // Save the current data to ensure checks work correctly.
+  jQuery.data(document.body, "oldNotes", $("#note_content").val());
+});

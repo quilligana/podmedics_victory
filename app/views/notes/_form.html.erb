@@ -14,29 +14,3 @@
   </div>
 
 <% end %>
-
-
-
-<script>
-
-	// Set the interval for autosaving. (Once a minute)
-	setInterval(function () { auto_save(); }, <%= Rails.application.config.autosave_timer %>);
-
-	function auto_save()
-	{
-		var title = $(".notes_column_text_field")[0];
-		var form = $(title).parent();
-
-		// Create the hash for sending in the ajax request.
-		var hash = {
-					  url: $(form).attr("action"),
-					  data: $(form).serialize(),
-					  dataType: "script",
-					  type: 'POST'
-					};
-
-		// Send the request
-		$.ajax(hash);
-	}
-
-</script>
