@@ -27,6 +27,7 @@ gem 'will_paginate'
 gem 'delayed_job_active_record'
 gem 'dalli'
 gem 'memcachier'
+gem 'aws-s3'
 
 group :development do
   gem 'thin'

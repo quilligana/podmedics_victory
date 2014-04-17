@@ -5,6 +5,9 @@ describe Video do
   it { should respond_to :position }
   it { should respond_to :get_comments }
   it { should respond_to :comments_count }
+  it { should respond_to :video_download_count }
+  it { should respond_to :audio_download_count }
+  it { should respond_to :slide_download_count }
   it { should belong_to :specialty }
   it { should belong_to :author }
   it { should have_many :questions }

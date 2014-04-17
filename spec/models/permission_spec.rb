@@ -61,6 +61,12 @@ describe Permission do
       expect(subject.allow?('videos', 'show')).to be_true
     end
 
+    it "allows video downloads" do
+      expect(subject.allow?('hosted_files', 'video')).to be_true
+      expect(subject.allow?('hosted_files', 'audio')).to be_true
+      expect(subject.allow?('hosted_files', 'slides')).to be_true
+    end
+
     it "allows access to the specialties page" do
       expect(subject.allow?('specialties', 'show')).to be_true
     end

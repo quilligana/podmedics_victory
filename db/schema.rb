@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416173916) do
+ActiveRecord::Schema.define(version: 20140417085929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,13 @@ ActiveRecord::Schema.define(version: 20140416173916) do
 
   add_index "questions", ["video_id"], name: "index_questions_on_video_id", using: :btree
 
+  create_table "speciality_questions", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialties", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -181,14 +188,17 @@ ActiveRecord::Schema.define(version: 20140416173916) do
     t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "preview",          default: false
+    t.boolean  "preview",              default: false
     t.string   "slug"
     t.string   "speaker_name"
-    t.integer  "views",            default: 0
+    t.integer  "views",                default: 0
     t.string   "file_name"
-    t.integer  "questions_count",  default: 0,     null: false
+    t.integer  "questions_count",      default: 0,     null: false
     t.integer  "position"
     t.integer  "author_id"
+    t.integer  "slide_download_count"
+    t.integer  "audio_download_count"
+    t.integer  "video_download_count"
   end
 
   add_index "videos", ["author_id"], name: "index_videos_on_author_id", using: :btree

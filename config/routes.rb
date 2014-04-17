@@ -47,6 +47,9 @@ PodmedicsVictory::Application.routes.draw do
   # Specialty/Video
   resources :videos, only: :show do
     resources :questions, only: :index
+    get 'video', to: 'hosted_files#video', as: 'download_video'
+    get 'audio', to: 'hosted_files#audio', as: 'download_audio'
+    get 'slides', to: 'hosted_files#slides', as: 'download_slides'
   end  
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
