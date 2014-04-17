@@ -41,8 +41,8 @@ describe "specialty notes", js: true do
         click_button "Save Notes"
       end
 
-      it "should not save the notes" do
-        expect(page).to have_content(@failed_message)
+      it "should save the notes" do
+        expect(page).to have_content(@saved_message)
         expect(Note.all.count).to eq 0
       end
     end
