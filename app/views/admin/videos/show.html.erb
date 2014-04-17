@@ -2,6 +2,7 @@
   <h1>
     <%= @video.title  %>
     <small><%= link_to "Edit", edit_admin_video_path(@video) %></small>
+    <small><%= link_to 'View on frontend', video_path(@video) %></small>
   </h1>
 </div>
 
