@@ -4,6 +4,7 @@ class SpecialtyQuestionsController < ApplicationController
   before_action :get_specialty, only: [:create, :index, :show, :load]
   before_action :load_user_progress, only: [:show, :index]
   before_action :new_question, only: [:show, :index]
+  before_action :load_specialty_notes, only: [:show, :index]
 
   def create
     @question = @specialty.user_questions.new(specialty_question_params)
@@ -66,6 +67,10 @@ class SpecialtyQuestionsController < ApplicationController
 
     def new_question
       @newQuestion = SpecialtyQuestion.new()
+    end
+
+    def load_specialty_notes
+      @notes = @specialty.notes.find_by(user: current_user) || Note.new(noteable: @specialty)
     end
 
 end
