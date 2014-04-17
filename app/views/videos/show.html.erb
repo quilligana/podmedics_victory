@@ -1,5 +1,4 @@
 <div class="video_page_header">
-
   <div class="inner video_page">
     <div class="video_page_heading_wrapper">
       <h1><%= @video.title %></h1>
@@ -27,8 +26,7 @@
       <% end %>
     </div>
   </div>
-</div><!-- End of video header -->
-
+</div>
 
 <div class="inner_divide_video_wrapper">
   <div class="inner video_page">
@@ -40,34 +38,23 @@
       </div>
 
       <div class="video_header_inner">
-
         <div class="video_column">
-
           <div class="vendor">
             <iframe src="//player.vimeo.com/video/<%= @video.vimeo_identifier %>?api=1&portrait=0&color=fa3f52&player_id=vimeoplayer" width="400" height="225" frameborder="0" id="vimeoplayer"></iframe>
           </div>
-
         </div>
-
         <div class="video_page_notes_column">
           <div class="video_page_notes_column_title">
             <strong>Notes</strong>
             <p>Save personal notes for reference later</p>
           </div>
-
           <div class="video_page_notes_column_divide"></div>
-
           <%= render partial: 'notes/form' %>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
-
-</div>  <!-- End of video & notes section -->
+</div>
 
 <div class="inner video_page">
   <div class="page">
@@ -76,38 +63,11 @@
       <div class="lectures_speciality_outer_wrapper">
         <div id="tabs">
           <ul>
-            <!--<li><a href="#tabs-1" title="" class="lectures_tab"><p>Video Info</p><p class="icon"></p></a></li>-->
             <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.comments_count %>)</p><p class="icon"></p></a></li>
           </ul>
 
           <div id="tabs_container">
-            <!--
-            <div id="tabs-1" class="tab_box">
-              <div class="inner_page_padding video_info">
-                <p>cras ut massa sit amet libero pharetra gravida id nec mauris. sed semper, elit at dapibus mollis, magna mi tempor arcu, sit amet lacinia est lacus sed quam. ut porttitor sit amet tortor eget vulputate edulputate.</p>
-                <p>cras ut massa sit amet libero pharetra gravida id nec mauris. sed semper, elit at dapibus mollis, magna mi tempor arcu, sit amet lacinia est lacus sed quam. ut porttitor sit amet tortor eget vulputate edulputate.</p>
-                <p><a href="#">www.induction-app.com</a></p>
-                <p><a href="#">www.rekki.io</a></p>
-                <p><a href="#">www.podmedics.com</a></p>
-
-                <ul>
-                  <li>cras ut massa sit amet libero pharetra gravida</li>
-                  <li>sed semper ut massa sit amet libero pharetra gravida</li>
-                  <li>cras ut massa sit amet libero pharetra gravida</li>
-                  <li>ut massa sit amet libero pharetra gravida</li>
-                  <li>sit amet libero pharetra gravida</li>
-                </ul>
-
-
-
-
-              </div>
-            </div>  <!--Tab one video info -->
-
-
-
             <div id="tabs-2" class="tab_box">
-              <!--Start of members comments-->
               <div>
                 <div class="questions_answers_main_question video_page_comments_wrapper" >
 
@@ -120,60 +80,38 @@
                   </div>
                   <% end %>
 
-                  <!-- End no questions posted notice -->
-
                   <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
                     <div class="inner_page_padding comments_textarea_wrapper">
                       <%= render partial: 'comments/form', locals: {root: @video} %>
                     </div>
                   </div>
-                  <!-- End questions textarea -->
 
                   <div class="question_comments_outer">
-
                     <%= render partial: 'comments/comment', collection: @video.get_comments %>
-                    <!-- End of comments -->
-
                   </div>
-                  <!-- End comments outer -->
 
                 </div>
-
               </div>
-            </div>  <!--End of tab two comments-->
-
-
-          </div>  <!--End of tabs container-->
-
+            </div>
+          </div>
         </div>
-
       </div>
-
-    </div><!--End of left column video info-->
+    </div>
 
     <div class="video_page_right_column">
-      <p class="lecture_by_title">Lecture by</p>
-
-      <div class="video_page_authour_right_column_user_info">
-        <div class="video_page_authour_right_column_avatar"><img src="<%=asset_path "avatar-128.jpg"%>" width="128" height="128" /></div>
-        <div class="video_page_authour_right_column_user_info_inner_wrapper">
-          <p class="video_page_authour_right_column_name">Ed Wallitt</p>
-          <p class="video_page_authour_right_column_title">Founder</p>
-        </div>
-        <a href="#" class="video_page_authour_twitter_icon"></a> <a href="#" class="video_page_authour_fb_icon"></a>
-      </div>
+      <% if @video.author %>
+        <%= render 'author' %>
+      <% end %>
 
       <div class="video_page_right_column_lower_info">
         <p>Video Duration: <strong><%= @video.duration %> minutes</strong></p>
         <p>Views: <strong><%= @video.views %></strong></p>
         <p>Comments: <strong><%= @video.comments_count %></strong></p>
       </div>
-    </div>    <!--End of right column video info -->
+    </div>
 
     <div class="clear"></div>
-
-
-  </div> <!--End of inner video page -->
+  </div>
 
 
   <%= content_for :footer do %>

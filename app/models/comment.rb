@@ -19,13 +19,7 @@ class Comment < ActiveRecord::Base
   end
 
   def get_comments(include_hidden = false)
-    unless include_hidden
-      comments = self.comments.available
-    else
-      comments = self.comments
-    end
-
-    comments.sort_by(&:score).reverse
+    include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
   end
 
   def hide
