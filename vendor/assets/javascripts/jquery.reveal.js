@@ -7,7 +7,8 @@
 */
 
 
-(function($) {
+var ready;
+ready = function() {
 
 /*---------------------------
  Defaults for Reveal
@@ -159,5 +160,7 @@
 			
         });//each call
     }//orbit plugin call
-})(jQuery);
+};
         
+$(document).ready(ready);
+$(document).on('page:load', ready);
