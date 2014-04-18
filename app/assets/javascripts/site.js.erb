@@ -24,6 +24,18 @@ ready = function() {
     };
   })(jQuery);
 
+  $(function(){
+    var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'] };
+
+    // Don't enable redactor in the test environment.
+    <% unless Rails.env.test? %>
+      // Enable redactor.
+      $('#note_content').redactor(redactor_button_hash);
+      // Put the content of note_content into it's value tag. This is used for the revert button.
+      $("#note_content").attr("value", $("#note_content").val());
+    <% end %>
+  });
+
   $(document).on("click", ".comment_reply_link a", function(){
     var comment_info = $(this).parents(".comment_info")
     var comment_username = $(comment_info).find("h3.comment_username")[0].innerHTML;
@@ -340,16 +352,4 @@ $(document).ready(create_questionsChart);
 // Pie charts
 $(window).bind("load", function() {
       Pizza.init();
-});
-
-$(function(){
-  var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'] };
-
-  // Don't enable redactor in the test environment.
-  <% unless Rails.env.test? %>
-    // Enable redactor.
-    $('#note_content').redactor(redactor_button_hash);
-    // Put the content of note_content into it's value tag. This is used for the revert button.
-    $("#note_content").attr("value", $("#note_content").val());
-  <% end %>
 });

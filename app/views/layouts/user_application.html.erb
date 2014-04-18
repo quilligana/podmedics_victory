@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <title><%= content_for?(:title) ? yield(:title) : "Podmedics Victory" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Podmedics Victory" %>">
+    
+    <%= javascript_include_tag "user_application" %>
+    
     <%= stylesheet_link_tag "user_application", media: "all" %>
     <%= csrf_meta_tags %>
 
@@ -24,8 +27,7 @@
     </main>
 
     <%= content_for?(:footer) ? yield(:footer) : (render 'footer') %>
-    <%= javascript_include_tag "user_application" %>
-    
+
     <% page_specific_js = "#{params[:controller]}_#{params[:action]}" %>
     <%= javascript_include_tag page_specific_js if Rails.application.assets.find_asset page_specific_js %>
   </body>
