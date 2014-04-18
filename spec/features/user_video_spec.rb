@@ -11,6 +11,12 @@ feature 'User Videos' do
     sign_in(create(:user))
   end
 
+  scenario 'Visiting a video for the first time' do
+    expect do
+      visit video_path(@video)
+    end.to change { Vimeo.count }.by(1)
+  end
+
   scenario 'Viewing a video and meta information' do
     visit video_path(@video)
     
@@ -42,7 +48,6 @@ feature 'User Videos' do
       expect(page).to have_content @author.name
       expect(page).to have_content @author.tagline
     end
-
   end
 
 end
