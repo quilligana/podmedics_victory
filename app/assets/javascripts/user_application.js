@@ -13,3 +13,4 @@
 //= require jquery.fitvids
 //= require froogaloop
 //= require site
+//= require autosave
