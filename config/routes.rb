@@ -72,7 +72,7 @@ PodmedicsVictory::Application.routes.draw do
   end
 
   # VimeosController
-  post 'vimeos/completed', to: 'vimeos#completed', as: :vimeos_completed
-  post 'vimeos/paused', to: 'vimeos#paused', as: :vimeos_paused
+  get 'vimeos/completed', to: 'vimeos#completed', as: :vimeos_completed
+  get 'vimeos/paused', to: 'vimeos#paused', as: :vimeos_paused
 
 end
