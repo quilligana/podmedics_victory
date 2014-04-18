@@ -9,7 +9,7 @@ describe "specialty user questions and answers" do
 
     @user_one = create(:user)
     @user_two = create(:user)
-    @category = create(:category, name: 'Medicine') 
+    @category = create(:category, name: 'Medicine')
     @specialty = create(:specialty, category: @category)
     sign_in(@user_one)
     visit specialty_path(@specialty)
