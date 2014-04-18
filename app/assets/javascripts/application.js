@@ -8,3 +8,8 @@
 //= require jquery.fitvids
 //= require froogaloop
 //= require site
+<<<<<<< HEAD
+=======
+//= require autosave
+//= require vimeo
+>>>>>>> vimeo
