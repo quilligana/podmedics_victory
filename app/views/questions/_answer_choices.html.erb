@@ -4,6 +4,7 @@
   <% else %>
     <%= hidden_field_tag :answer, :false %>
   <% end %>
+  <%= hidden_field_tag :answer_given, 1 %>
   <%= submit_tag @question.answer_1 %>
 <% end %>
 
@@ -13,6 +14,7 @@
   <% else %>
     <%= hidden_field_tag :answer, :false %>
   <% end %>
+  <%= hidden_field_tag :answer_given, 2 %>
   <%= submit_tag @question.answer_2 %>
 <% end %>
 
@@ -23,6 +25,7 @@
     <% else %>
       <%= hidden_field_tag :answer, :false %>
     <% end %>
+    <%= hidden_field_tag :answer_given, 3 %>
     <%= submit_tag @question.answer_3 %>
   <% end %>
 <% end %>
@@ -34,6 +37,7 @@
     <% else %>
       <%= hidden_field_tag :answer, :false %>
     <% end %>
+    <%= hidden_field_tag :answer_given, 4 %>
     <%= submit_tag @question.answer_4 %>
   <% end %>
 <% end %>
@@ -45,6 +49,7 @@
     <% else %>
       <%= hidden_field_tag :answer, :false %>
     <% end %>
+    <%= hidden_field_tag :answer_given, 5 %>
     <%= submit_tag @question.answer_5 %>
   <% end %>
 <% end %>
