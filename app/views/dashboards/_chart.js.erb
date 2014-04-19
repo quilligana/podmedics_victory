@@ -3,8 +3,8 @@ function getUserProgress()
 {
   var stats = [];
 
-  <% for i in 0..DASHBOARD_CHART_DAYS %>
-  stats[<%= i %>] = { value: <%= current_user.dailyStat(i) %>, date: getDate(<%= i %>) }
+  <% (0..DASHBOARD_CHART_DAYS).each do |daysAgo| %>
+  stats[<%= daysAgo %>] = { value: <%= current_user.dailyStat(daysAgo) %>, date: getDate(<%= daysAgo %>) }
   <% end %>
 
   console.log(stats);
