@@ -9,7 +9,7 @@ describe "specialty notes", js: true do
     @failed_message = "NOTES FAILED TO SAVE."
     @user = create(:user)
     @video = create(:video)
-    @specialty = create(:specialty)
+    @specialty = @video.specialty
     sign_in(@user)
     visit video_path(@video)
   end
@@ -100,7 +100,9 @@ describe "specialty notes", js: true do
 
   describe "specialty page" do
     before do
-      @specialty.notes.create(noteable: @video, user: @user, content: @content, title: @title)
+      fill_in "note_title", with: @title
+      fill_in "note_content", with: @content
+      click_button "Save Notes"
       visit specialty_path(@specialty)
       click_link "notes_saved_button"
     end

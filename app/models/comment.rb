@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  before_create :set_root
   before_create :owner_vote
 
   belongs_to :commentable, polymorphic: true
@@ -44,10 +45,6 @@ class Comment < ActiveRecord::Base
     votes.where(user: user).exists? ? true : false
   end
 
-  def owner_vote
-    votes.new(user: self.user)
-  end
-
   def accept
     update_attributes(accepted: true) if acceptable?
   end
@@ -63,4 +60,17 @@ class Comment < ActiveRecord::Base
     score = (accepted ? 5 : 0) + votes.count
   end
 
+  private
+
+    def owner_vote
+      votes.new(user: self.user)
+    end
+
+    def set_root
+      if self.commentable_type == "Comment"
+        self.root = self.commentable.root
+      else
+        self.root = self.commentable
+      end
+    end
 end

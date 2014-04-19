@@ -22,7 +22,6 @@ describe SpecialtyQuestion do
   it { should respond_to :comments_count }
   it { should respond_to :accept_answer }
   it { should respond_to :accepted_answer }
-  it { should respond_to :accept_answer }
   it { should respond_to :already_accepted_answer? }
 
   it { should have_many(:answers).class_name("Comment").dependent(:destroy) }
