@@ -57,4 +57,7 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
+  def dailyStat(daysAgo)
+    rand(daysAgo)
+  end
 end
