@@ -3,9 +3,7 @@ function getUserProgress()
 {
   var stats = [];
 
-  <% daysToRender = 12 %>
-
-  <% for i in 0..daysToRender %>
+  <% for i in 0..DASHBOARD_CHART_DAYS %>
   stats[<%= i %>] = { value: <%= current_user.dailyStat(i) %>, date: getDate(<%= i %>) }
   <% end %>
 
