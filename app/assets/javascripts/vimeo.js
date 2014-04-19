@@ -1,10 +1,10 @@
 (function(){
     // Listen for the ready event for any vimeo video players on the page
-    var vimeoPlayers = document.querySelectorAll('iframe'), player;
+    var vimeoPlayers = document.querySelectorAll('iframe'), player, vim_url;
 
     for (var i = 0, length = vimeoPlayers.length; i < length; i++) {
         player = vimeoPlayers[i];
-        $f(player).addEvent('ready', ready);
+        $f(player).addEvent('ready', vid_ready);
     }
 
     /**
@@ -26,29 +26,39 @@
      * commands. You can add events and make api calls only after this
      * function has been called.
      */
-    function ready(player_id) {
+    function vid_ready(player_id) {
 
-        var froogaloop = $f(player_id)     
+        var froogaloop = $f(player_id);
 
         function setupEventListeners() {
 
             function onPlayProgress() {
                 froogaloop.addEvent('playProgress', function(data) {
                     if (data.percent > 0.75) {
-                        // ajax call to update Vimeo.completed attribute
+                        var video_url = $(location).attr('pathname');
+                        $.ajax({
+                            type: 'GET',
+                            url: '/vimeos/completed',
+                            data: {'path': video_url},
+                        });
+                        froogaloop.removeEvent('playProgress');
                     };
                 });
             };
 
             function onPause() {
+                var elapsed;
                 froogaloop.addEvent('pause', function(data) {
-                    // ajax call to update Vimeo.progress attribute
-                    // $.ajax({
-                    //     alert("Ajax")
-                    //     type: "POST", 
-                    //     url: vimeos/paused, 
-                    //     data: { progress: data.percent }
-                    });
+                    froogaloop.api('getCurrentTime', function(value, player_id) {
+                        elapsed = value;
+                        var video_url = $(location).attr('pathname');
+                        // alert(vimeo_url);
+                        $.ajax({
+                            type: 'GET',
+                            url: '/vimeos/paused',
+                            data: {'path': video_url, 'progress': elapsed},
+                        }); 
+                    });                   
                 });
             };
 
@@ -58,53 +68,4 @@
 
         setupEventListeners();
     };
-
-    // function createRequestObject() {
-    //     var tmpXmlHttpObject;
-        
-    //     //depending on what the browser supports, use the right way to create the XMLHttpRequest object
-    //     if (window.XMLHttpRequest) { 
-    //         // Mozilla, Safari would use this method ...
-    //         tmpXmlHttpObject = new XMLHttpRequest();
-        
-    //     } else if (window.ActiveXObject) { 
-    //         // IE would use this method ...
-    //         tmpXmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP");
-    //     }
-        
-    //     return tmpXmlHttpObject;
-    // }
-
-    // //call the above function to create the XMLHttpRequest object
-    // var http = createRequestObject();
-
-    // function makeGetRequest(percent) {
-    //     //make a connection to the server ... specifying that you intend to make a GET request 
-    //     //to the server. Specifiy the page name and the URL parameters to send
-    //     http.open('get', 'definition.jsp?id=' + wordId);
-        
-    //     //assign a handler for the response
-    //     http.onreadystatechange = processResponse;
-        
-    //     //actually send the request to the server
-    //     http.send(null);
-    // }
-
-    // function processResponse() {
-    //     //check if the response has been received from the server
-    //     if(http.readyState == 4){
-        
-    //         //read and assign the response from the server
-    //         var response = http.responseText;
-    //         alert(response)
-            
-    //         //do additional parsing of the response, if needed
-            
-    //         //in this case simply assign the response to the contents of the <div> on the page. 
-    //         // document.getElementById('description').innerHTML = response;
-            
-    //         //If the server returned an error message like a 404 error, that message would be shown within the div tag!!. 
-    //         //So it may be worth doing some basic error before setting the contents of the <div>
-    //     }
-    // }
 })();

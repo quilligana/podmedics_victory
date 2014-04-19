@@ -19,6 +19,7 @@ class Permission
       allow :comments, [:create, :vote, :accept, :destroy]
       allow :specialty_questions, [:show, :index, :create, :destroy, :load]
       allow :notes, [:create, :update, :load]
+      allow :vimeos, [:paused, :completed]
       allow_all if user.admin?
     end
     

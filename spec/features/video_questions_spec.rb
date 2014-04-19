@@ -44,6 +44,12 @@ feature 'Video Questions' do
     visit video_questions_url(video_id: @video.id)
     click_button 'First Answer'
 
+
+    expect(page).to have_content @question_1.answer_1
+    expect(page).to have_content @question_1.answer_2
+    expect(page).to have_content @question_1.answer_3
+    expect(page).to have_content @question_1.answer_4
+    expect(page).to have_content @question_1.answer_5
     expect(page).to have_content @question_1.explanation
     expect(page).to have_content 'Sorry!'
     expect(page).to have_content 'Question 1 of 1'
