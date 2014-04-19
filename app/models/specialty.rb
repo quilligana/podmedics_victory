@@ -9,11 +9,10 @@ class Specialty < ActiveRecord::Base
   has_many :badges, dependent: :destroy
   has_many :user_questions, class_name: 'SpecialtyQuestion'
   has_many :notes, dependent: :destroy
-
   # These are notes made directly on a specialty
   has_many :direct_notes, as: :noteable, dependent: :destroy, class_name: "Note"
 
-  validates_presence_of :name
+  validates :name, presence: true
 
   delegate :name, to: :category, prefix: true
 

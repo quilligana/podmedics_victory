@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
-  before_create :set_root
-  before_create :owner_vote
+  
+  default_scope { order(created_at: :desc) }
 
   belongs_to :commentable, polymorphic: true
   belongs_to :root, polymorphic: true
@@ -13,7 +13,9 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
   validates :commentable, presence: true
 
-  default_scope { order(created_at: :desc) }
+  before_create :set_root
+  before_create :owner_vote
+  
 
   def self.available
     where(hidden: false)

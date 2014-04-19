@@ -1,4 +1,5 @@
 class SpecialtyQuestion < ActiveRecord::Base
+  
   belongs_to :user
   belongs_to :specialty
 

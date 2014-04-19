@@ -1,5 +1,4 @@
 class Note < ActiveRecord::Base
-  before_create :set_specialty
 
   belongs_to :noteable, polymorphic: true
   belongs_to :user
@@ -7,6 +6,8 @@ class Note < ActiveRecord::Base
 
   validates :content, presence: true
 
+  before_create :set_specialty
+  
   def get_title
   	title.blank? ? noteable.title : title
   end
