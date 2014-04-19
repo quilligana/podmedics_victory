@@ -63,12 +63,12 @@ PodmedicsVictory::Application.routes.draw do
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
 
   resources :comments do
-    get 'vote', to: 'comments#vote', as: :vote
-    get 'accept', to: 'comments#accept', as: :accept
+    get 'vote', on: :member
+    get 'accept', on: :member
   end
 
   resources :notes, only: [:create, :update] do
-    get '', to: 'notes#load', as: :load
+    get 'load', on: :member
   end
 
   # VimeosController

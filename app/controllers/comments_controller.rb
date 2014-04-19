@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   end
 
   def accept
-    @comment = Comment.find(params[:comment_id])
+    @comment = Comment.find(params[:id])
     if @comment.acceptable?
       @comment.root.accept_answer(@comment, current_user)
     end
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
   end
 
   def vote
-    @comment = Comment.find(params[:comment_id])
+    @comment = Comment.find(params[:id])
     @comment.vote(current_user)
 
     respond_to do |format|

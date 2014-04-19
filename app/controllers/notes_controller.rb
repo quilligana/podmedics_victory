@@ -43,7 +43,7 @@ class NotesController < ApplicationController
   end
 
   def load
-    @notes = Note.find(params[:note_id])
+    @notes = Note.find(params[:id])
 
     respond_to do |format|
       format.html
