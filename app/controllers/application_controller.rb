@@ -25,14 +25,11 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      # The begin/rescue block makes sure that if a user's session is set to an id for a user
-      # account that does not exist we log them out and inform them.
-      begin
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
-      rescue
-        @current_user = nil
-        session[:user_id] = nil
-      end
+      @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+      
+      # If no user was found then log the user out since the account they were logged into
+      # has been deleted.
+      session[:user_id] = nil if @current_user == nil
 
       return @current_user
     end
