@@ -211,6 +211,7 @@ describe "specialty user questions and answers" do
     it "should display latest three pages after being clicked twice" do
       visit specialty_questions_path(@specialty)
       click_link "Load More Questions"
+      sleep 1.second
       click_link "Load More Questions"
       expect(page).to have_content @question_three_text
       expect(page).to have_content @question_two_text
@@ -220,7 +221,9 @@ describe "specialty user questions and answers" do
     it "should inform the user when there are no questions to load" do
       visit specialty_questions_path(@specialty)
       click_link "Load More Questions"
+      sleep 1.second
       click_link "Load More Questions"
+      sleep 1.second
       click_link "Load More Questions"
       expect(page).to_not have_link "Load More Questions"
       expect(page).to_not have_link "Reached End Of Questions"

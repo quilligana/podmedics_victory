@@ -90,7 +90,7 @@ describe SpecialtyQuestion do
 
       it "should set the answer as accepted" do
         expect(@answer.accepted).to_not be_true
-        puts @specialty_question.accept_answer(@answer, @user)
+        @specialty_question.accept_answer(@answer, @user)
         expect(@answer.accepted).to be_true
       end
     end

@@ -9,7 +9,7 @@ professionals.
 
 ## Team
 
-Ed Wallitt, Jamie Peak, Danieli Lockhart, Aidan Quilligan
+Ed Wallitt, Jamie Peak, Daniel Lockhart, Aidan Quilligan
 
 ## Project
 
@@ -25,7 +25,7 @@ New features include
 
 ## Stack
 
-Ruby 2, Rails 4, postresgql, jquery, kendoui
+Ruby 2, Rails 4, postresgql, jquery, kendoui, phantomjs
 
 Designed for deployment on [Heroku](http://www.heroku.com)
 

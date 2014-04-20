@@ -103,6 +103,7 @@ describe "specialty notes", js: true do
       fill_in "note_title", with: @title
       fill_in "note_content", with: @content
       click_button "Save Notes"
+      sleep 1.second
       visit specialty_path(@specialty)
       click_link "notes_saved_button"
     end
