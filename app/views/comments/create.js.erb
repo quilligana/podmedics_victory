@@ -1,6 +1,6 @@
 function set_comment_form_target(message, commentable_type, commentable_id)
 {
-	$(".comments_textarea").val("");
+	$(".comments_textarea").val(message);
     $("#comment_commentable_type").val(commentable_type);
     $("#comment_commentable_id").val(commentable_id);
 }
@@ -9,7 +9,7 @@ function create_dom_element(element_string)
 {
 	var div = document.createElement('div');
 	div.innerHTML = element_string;
-	return div
+	return $(div).children()[0];
 }
 
 // Show the element over 400 milliseconds after a 500 millisecond delay.
@@ -42,62 +42,102 @@ function go_to(element)
     }, 'fast');
 }
 
+function update_comment_count(page, count)
+{
+	if(page == "Video")
+	{
+    	$(".comments_tab").children()[0].innerHTML = "Comments (" + count + ")"
+	}
+    else
+    {
+    	$(".comments_tab").children()[0].innerHTML = count + " Answers"
+    }
+}
+
 var tab_container = $("#tabs_container");
 var height;
 
+<%
+
+if @comment
+	comment_root_type = @comment.root_type
+	comment_root_id = @comment.root_id
+
+	comment_count = @comment.root.comments_count
+
+	comment_parent_type = @comment.commentable.class.name
+
+
+	if comment_parent_type == "Comment"
+
+		comment_grandparent_type = @comment.commentable.commentable.class.name 
+
+		if comment_grandparent_type == 'Comment'
+			comment_class_string = ".comment_reply"
+		else
+			comment_class_string = ".comment"
+		end
+
+		comment_container_string = "#{comment_class_string}##{@comment.commentable.id}"
+	end
+end
+
+%>
+
 <% if @comment %>
+
 	// Set the comment form to comment on the root again, not the commentable
-	set_comment_form_target("", "<%= @comment.root_type %>", <%= @comment.root_id %>);
+	set_comment_form_target("", "<%= comment_root_type %>", <%= comment_root_id %>);
+
+	// Hide the box telling the user who they're replying to
     $("#reply_cancel_box").hide(100);
 
-    // Update the comments count in the tab title
-    <% if @comment.root_type == "Video" %>
-    	$(".comments_tab").children()[0].innerHTML = "Comments (<%= @comment.root.comments_count %>)"
-    <% else %>
-    	$(".comments_tab").children()[0].innerHTML = "<%= @comment.root.comments_count %> Answers"
-    <% end %>
+    // Update the count of the comments
+    update_comment_count("<%= comment_root_type %>", <%= comment_count %>); 
 
     // Create the comment element
 	var comment = create_dom_element("<%= escape_javascript render partial: 'comment', object: @comment %>");
 
-	<% if @comment.commentable.class.name == 'Comment' %>
-		var comment = comment.getElementsByClassName("comment_reply")[0];
-		<% if @comment.commentable.commentable.class.name == 'Comment' %>	
-		var comment_container = $(".comment_reply#<%=@comment.commentable.id%>")[0];
-		<% else %>
-		var comment_container = $(".comment#<%=@comment.commentable.id%>")[0];
-		<% end %>
+	<% if comment_parent_type == 'Comment' %>
+
+		// Get the comment we're inserting the comment after
+		var comment_container = $("<%= comment_container_string %>")[0];
+
+		// Insert the comment into the page
 		$(comment).insertAfter($(comment_container));
 
-		// Now let's scroll to the newly created comment.
-		setTimeout(function()
-		{
-			go_to($(comment_container))
-		}, 900);
-	// Otherwise, .appendChild it to the entire comment div.
+		// Store where we're going to focus the page
+		var focus_div = comment_container;
+
 	<% else %>
-		var comment = comment.getElementsByClassName("comment")[0];
+
+		// Get the comments container.
 		var comment_container = $(".question_comments_outer")[0];
+
+		// Insert the comment at the top of the comments list.
 		comment_container.insertBefore(comment, comment_container.firstChild);
 
-		// Now let's scroll to the newly created comment.
-		setTimeout(function()
-		{
-			go_to($(comment))
-		}, 900);
+		// Store where we're going to focus the page.
+		var focus_div = comment;
+
 	<% end %>
-	// Hide the comment so it can be shown after resizing the tab_container.
+
+	// Focus the page on the comment in 900 milliseconds (after all the animations have inserted the comment)
+	setTimeout(function() { go_to($(focus_div)) }, 900);
+
+	// Hide the comment and highlight it.
 	$(comment).hide().addClass('new_comment_active_state');
 
-	// Make sure the "No comments" message is gone.
+	// Get the div telling the user there are no comments.
 	var no_comments_div = $(".no_questions_reply_wrapper")[0];
-	var no_comments_message_height = $(no_comments_div).outerHeight(true);
 
-	// Store new height of tab_container.
+	// Calculate the new height of the comments container
 	height =	tab_container.height() + 
 				$(comment).outerHeight(true) - 
 				$(no_comments_div).outerHeight(true);
+
 <% else %>
+
 	// Create error notification
 	var notification = create_dom_element("<%= escape_javascript render 'comments/error_notification' %>");
 
@@ -105,14 +145,16 @@ var height;
 	var notification_container = $("#tabs-2")[0];
 	$(notification).hide();
 	notification_container.insertBefore(notification, notification_container.firstChild);
+
+	// Get height of notification
 	var notification_wrapper = $(notification).children()[0];
 	var notification_inner = $(notification_wrapper).children()[0];
-	var notification_height = $(notification_inner).outerHeight(true);
 
 	// Add height of notification to new tab_container height.
-	height += notification_height;
+	height += $(notification_inner).outerHeight(true);
 
 	show($(notification));
+
 <% end %>
 
 
