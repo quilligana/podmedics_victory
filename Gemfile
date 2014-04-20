@@ -54,6 +54,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'codeclimate-test-reporter', require: nil
   gem 'mocha'
   gem 'simplecov', require: false

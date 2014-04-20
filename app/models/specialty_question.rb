@@ -1,4 +1,5 @@
 class SpecialtyQuestion < ActiveRecord::Base
+  
   belongs_to :user
   belongs_to :specialty
 
@@ -18,7 +19,9 @@ class SpecialtyQuestion < ActiveRecord::Base
   end
 
   def accept_answer(answer, user)
-    answer.accept if !already_accepted_answer? && self.user == user
+    if !already_accepted_answer? && self.user == user && answer.acceptable?
+      answer.accept
+    end
   end
 
   def accepted_answer

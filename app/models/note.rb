@@ -6,8 +6,25 @@ class Note < ActiveRecord::Base
 
   validates :content, presence: true
 
+  before_create :set_specialty
+  
   def get_title
   	title.blank? ? noteable.title : title
   end
 
+  def update(title, content)
+  	self.title = title
+  	self.content = content
+  end
+
+  private
+  
+    def set_specialty
+      self.specialty = 
+        if noteable_type == "Specialty"
+          noteable
+        else
+          noteable.specialty
+        end
+    end
 end

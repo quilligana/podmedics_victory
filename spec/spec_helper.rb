@@ -9,12 +9,17 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+
+  OmniAuth.config.test_mode = true
+
+  Capybara.javascript_driver = :poltergeist
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -39,6 +44,3 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
 end
-
-OmniAuth.config.test_mode = true
-

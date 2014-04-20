@@ -1,3 +1,5 @@
 class Course < ActiveRecord::Base
-  validates_presence_of :title, :date, :price, :description, :event_link
+
+  validates :title, :date, :price, :description, :event_link, presence: true
+
 end

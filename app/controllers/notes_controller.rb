@@ -7,14 +7,7 @@ class NotesController < ApplicationController
   	@notes = @noteable.notes.find_by(user: current_user) || Note.new( noteable: @noteable, 
                                                                       user: current_user)
 
-    if @notes.noteable_type == "Specialty"
-      @notes.specialty = @notes.noteable
-    else
-      @notes.specialty = @notes.noteable.specialty
-    end
-
-  	@notes.content = params[:note][:content]
-  	@notes.title = params[:note][:title]
+    @notes.update(params[:note][:title], params[:note][:content])
   	
   	if @notes.save
   		@saved = true
@@ -29,8 +22,8 @@ class NotesController < ApplicationController
   def update
     @noteable = find_noteable params
   	@notes = @noteable.notes.find_by(user: current_user)
-  	@notes.content = params[:note][:content]
-  	@notes.title = params[:note][:title]
+
+  	@notes.update(params[:note][:title], params[:note][:content])
 
   	if @notes.save
   		@saved = true
@@ -43,7 +36,7 @@ class NotesController < ApplicationController
   end
 
   def load
-    @notes = Note.find(params[:note_id])
+    @notes = Note.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -52,7 +45,13 @@ class NotesController < ApplicationController
   end
 
   def destroy
-
+    @notes = Comment.find(params[:id])
+    if @notes.user == current_user || current_user.admin?
+      @notes.destroy
+      redirect_to :back, notice: "Successfully destroyed notes."
+    else
+      render status: :forbidden
+    end
   end
 
   private

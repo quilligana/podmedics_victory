@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
-  before_create :owner_vote
+  
+  default_scope { order(created_at: :desc) }
 
   belongs_to :commentable, polymorphic: true
   belongs_to :root, polymorphic: true
@@ -12,7 +13,9 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
   validates :commentable, presence: true
 
-  default_scope { order(created_at: :desc) }
+  before_create :set_root
+  before_create :owner_vote
+  
 
   def self.available
     where(hidden: false)
@@ -44,10 +47,6 @@ class Comment < ActiveRecord::Base
     votes.where(user: user).exists? ? true : false
   end
 
-  def owner_vote
-    votes.new(user: self.user)
-  end
-
   def accept
     update_attributes(accepted: true) if acceptable?
   end
@@ -63,4 +62,18 @@ class Comment < ActiveRecord::Base
     score = (accepted ? 5 : 0) + votes.count
   end
 
+  private
+
+    def owner_vote
+      votes.new(user: self.user)
+    end
+
+    def set_root
+      self.root = 
+        if commentable_type == "Comment"
+          commentable.root 
+        else
+          commentable
+        end
+    end
 end

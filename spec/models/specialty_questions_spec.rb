@@ -22,7 +22,6 @@ describe SpecialtyQuestion do
   it { should respond_to :comments_count }
   it { should respond_to :accept_answer }
   it { should respond_to :accepted_answer }
-  it { should respond_to :accept_answer }
   it { should respond_to :already_accepted_answer? }
 
   it { should have_many(:answers).class_name("Comment").dependent(:destroy) }
@@ -91,7 +90,7 @@ describe SpecialtyQuestion do
 
       it "should set the answer as accepted" do
         expect(@answer.accepted).to_not be_true
-        puts @specialty_question.accept_answer(@answer, @user)
+        @specialty_question.accept_answer(@answer, @user)
         expect(@answer.accepted).to be_true
       end
     end
