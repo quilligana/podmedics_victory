@@ -1,10 +1,11 @@
 (function(){
     // Listen for the ready event for any vimeo video players on the page
-    var vimeoPlayers = document.querySelectorAll('iframe'), player, vim_url;
+    var vimeoPlayers = document.querySelectorAll('iframe'), player;
 
     for (var i = 0, length = vimeoPlayers.length; i < length; i++) {
         player = vimeoPlayers[i];
         $f(player).addEvent('ready', vid_ready);
+                alert("Hello")
     }
 
     /**
@@ -52,7 +53,6 @@
                     froogaloop.api('getCurrentTime', function(value, player_id) {
                         elapsed = value;
                         var video_url = $(location).attr('pathname');
-                        // alert(vimeo_url);
                         $.ajax({
                             type: 'GET',
                             url: '/vimeos/paused',
