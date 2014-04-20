@@ -69,10 +69,11 @@ class Comment < ActiveRecord::Base
     end
 
     def set_root
-      if self.commentable_type == "Comment"
-        self.root = self.commentable.root
-      else
-        self.root = self.commentable
-      end
+      self.root = 
+        if commentable_type == "Comment"
+          commentable.root 
+        else
+          commentable
+        end
     end
 end

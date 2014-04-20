@@ -4,7 +4,7 @@ function getUserProgress()
   var stats = [];
 
   <% (0..DASHBOARD_CHART_DAYS).each do |daysAgo| %>
-  stats[<%= daysAgo %>] = { value: <%= current_user.dailyStat(daysAgo) %>, date: getDate(<%= daysAgo %>) }
+  stats[<%= daysAgo %>] = { value: <%= current_user.daily_stat(daysAgo) %>, date: getDate(<%= daysAgo %>) }
   <% end %>
 
   console.log(stats);

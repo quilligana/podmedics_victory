@@ -24,11 +24,7 @@ class User < ActiveRecord::Base
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       end
 
-      unless auth.provider == "twitter"
-        user.email = auth.info.email
-      else
-        user.email = "mail@example.com"
-      end
+      user.email = auth.provider == "twitter" ? "mail@example.com" : auth.info.email
 
       password = SecureRandom.hex(64)
       user.password = password
@@ -57,7 +53,7 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
-  def dailyStat(daysAgo)
+  def daily_stat(daysAgo)
     rand(daysAgo)
   end
 end

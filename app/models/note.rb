@@ -20,10 +20,11 @@ class Note < ActiveRecord::Base
   private
   
     def set_specialty
-      if self.noteable_type == "Specialty"
-        self.specialty = self.noteable
-      else
-        self.specialty = self.noteable.specialty
-      end
+      self.specialty = 
+        if noteable_type == "Specialty"
+          noteable
+        else
+          noteable.specialty
+        end
     end
 end
