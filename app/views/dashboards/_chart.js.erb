@@ -7,8 +7,6 @@ function getUserProgress()
   stats[<%= daysAgo %>] = { value: <%= current_user.daily_stat(daysAgo) %>, date: getDate(<%= daysAgo %>) }
   <% end %>
 
-  console.log(stats);
-
   return stats;
 }
 
