@@ -50,4 +50,9 @@ feature 'User Videos' do
     end
   end
 
+  scenario 'Pausing a video', js: true do
+    visit video_path(@video)
+    click_link 'Play'
+  end
+
 end
