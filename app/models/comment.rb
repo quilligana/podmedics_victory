@@ -59,13 +59,13 @@ class Comment < ActiveRecord::Base
   end
 
   def score
-    score = (accepted ? 5 : 0) + votes.count
+    (accepted ? 5 : 0) + votes.size
   end
 
   private
 
     def owner_vote
-      votes.new(user: self.user)
+      vote(user)
     end
 
     def set_root

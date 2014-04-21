@@ -11,7 +11,7 @@ class SpecialtyQuestion < ActiveRecord::Base
   validates :specialty, presence: true
 
   def comments_count(include_hidden = false)
-    include_hidden ? self.nested_answers.count : self.nested_answers.available.count
+    include_hidden ? self.nested_answers.size : self.nested_answers.available.size
   end
 
   def get_answers(include_hidden = false)
@@ -29,7 +29,7 @@ class SpecialtyQuestion < ActiveRecord::Base
   end
 
   def already_accepted_answer?
-    nested_answers.where(accepted: true).count > 0 ? true : false
+    nested_answers.where(accepted: true).size > 0 ? true : false
   end
 
 end

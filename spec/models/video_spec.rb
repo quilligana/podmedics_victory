@@ -63,13 +63,10 @@ describe Video do
     before do
       @video = create(:video)
       user = create(:user)
-      comment = @video.comments.create( user: user, 
-                                        content: "content",
-                                        root: @video)
-      hidden_comment = @video.comments.create( user: user, 
-                                              content: "hidden content", 
-                                              hidden: true,
-                                               root: @video)
+      create(:comment,  user: user, 
+                        commentable: @video)
+      create(:hidden_comment, user: user, 
+                              commentable: @video)
       @video.save
     end
 
@@ -90,13 +87,10 @@ describe Video do
     before do
       @video = create(:video)
       user = create(:user)
-      comment = @video.comments.create( user: user, 
-                                        content: "content",
-                                        root: @video)
-      hidden_comment = @video.comments.create( user: user, 
-                                               content: "hidden content", 
-                                               hidden: true,
-                                               root: @video)
+      create(:comment,  user: user, 
+                        commentable: @video)
+      create(:hidden_comment,  user: user, 
+                        commentable: @video)
       @video.save
     end
 
