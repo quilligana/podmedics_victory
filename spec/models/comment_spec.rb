@@ -26,11 +26,10 @@ describe Comment do
     before do
       @reply = create(:comment, commentable: @comment,
                                 user: @user)
-      @comment.destroy
     end
 
-    it "destroys replies" do
-      expect(Comment.exists?(@reply)).to be_false
+    it "destroys its replies" do
+      expect{ @comment.destroy }.to change{ Comment.exists?(@reply) }.to(false)
     end
   end
 
@@ -39,34 +38,24 @@ describe Comment do
       @comment.commentable.destroy
     end
 
-    it "should be destroyed" do
+    it "destroys the comment" do
       expect(Comment.exists?(@comment)).to be_false
     end
   end
 
   describe ".hide" do
-    before do
-      @comment.hidden = false
-      @comment.hide
-    end
-
-    it "should set comments hidden variable to true" do
-      expect(@comment.hidden).to eq true
-    end
-
-    it "should not count towards commentable's comment count" do
-      expect(@comment.root.comments_count).to eq 0
+    it "sets hidden to true" do
+      expect{ @comment.hide }.to change{ @comment.hidden }.to(true)
     end
   end
 
   describe ".show" do
     before do
       @comment.hidden = true
-      @comment.show
     end
 
-    it "should set comments hidden variable to true" do
-      expect(@comment.hidden).to eq false
+    it "sets hidden to false" do
+      expect{ @comment.show }.to change{ @comment.hidden }.to(false)
     end
   end
 
@@ -78,54 +67,53 @@ describe Comment do
                               user: @user)
     end
 
-    describe "without include_hidden as false" do
-      it "should return a list of comments" do
+    context "without include_hidden as false" do
+      it "does not include hidden comments" do
         expect(@comment.get_comments(false).count).to eq 1
       end
     end
 
-    describe "with include_hidden as true" do
-      it "should return a list of comments" do
+    context "with include_hidden as true" do
+      it "includes hidden comments" do
         expect(@comment.get_comments(true).count).to eq 2
       end
     end
   end
 
   describe ".votable?" do
-    describe "when the root is a specialty_question" do
+    context "when the root is a specialty_question" do
       before do
         @specialty_question = create(:specialty_question, user: @user)
         @comment.root = @specialty_question
         @comment.save
       end
 
-      it "should be votable" do
+      it "returns true" do
         expect(@comment.votable?).to be_true
       end
     end
 
-    describe "when the root is not a specialty_question" do
-      it "should not be votable" do
+    context "when the root is not a specialty_question" do
+      it "returns false" do
         expect(@comment.votable?).to_not be_true
       end
     end
   end
 
   describe ".acceptable?" do
-    describe "when the root is a specialty_question" do
+    context "when the root is a specialty_question" do
       before do
-        @specialty_question = create(:specialty_question, user: @user)
-        @comment.root = @specialty_question
+        @comment.root = create(:specialty_question)
         @comment.save
       end
 
-      it "should be acceptable" do
+      it "returns true" do
         expect(@comment.acceptable?).to be_true
       end
     end
 
-    describe "when the root is not a specialty_question" do
-      it "should not be acceptable" do
+    context "when the root is not a specialty_question" do
+      it "returns false" do
         expect(@comment.acceptable?).to_not be_true
       end
     end
@@ -134,21 +122,17 @@ describe Comment do
   describe ".already_voted?(user)" do
     before do
       @newUser = build(:user)
-      @comment.root = create(:specialty_question, user: @user)
+      @comment.root = create(:specialty_question)
       @comment.save
     end
 
-    describe "when the user has voted for a comment already" do
-      before do
-        @comment.vote(@newUser)
-      end
-
+    context "when the user has voted for a comment already" do
       it "should return true" do
-        expect(@comment.already_voted?(@newUser)).to be_true
+        expect{ @comment.vote(@newUser) }.to change{ @comment.already_voted?(@newUser) }.to(true)
       end
     end
 
-    describe "when the user has not voted for a comment yet" do
+    context "when the user has not voted for a comment yet" do
       it "should return false" do
         expect(@comment.already_voted?(@newUser)).to_not be_true
       end
@@ -156,19 +140,23 @@ describe Comment do
   end
 
   describe ".accept" do
-    describe "when the comment is not acceptable" do
+    context "when the comment is not acceptable" do
       it "should not change anything" do
         expect(@comment.accept).to_not be_true
       end
     end
 
-    describe "when the comment is acceptable" do
+    context "when the comment is acceptable" do
       before do
-        @comment.root = create(:specialty_question, user: @user)
+        @comment.root = create(:specialty_question)
       end
 
-      it "should make the comment acceptable" do
-        expect(@comment.accept).to be_true
+      it "makes the answer the accepted answer" do
+        expect{ @comment.accept }.to be_true
+      end
+
+      it "increases the comment's score by 5" do
+        expect{ @comment.accept }.to change{ @comment.score }.by(5)
       end
     end
   end
@@ -178,24 +166,19 @@ describe Comment do
       @comment.votes.delete_all
     end
 
-    describe "when the comment is not votable" do
-      before do
-        @comment.vote(@user)
-      end
-
-      it "should not change anything" do
-        expect(@comment.score).to eq 0
+    context "when the comment is not votable" do
+      it "does nothing" do
+        expect{ @comment.vote(@user) }.to_not change{ @comment.score }
       end
     end
 
-    describe "when the comment is votable" do
+    context "when the comment is votable" do
       before do
-        @comment.root = create(:specialty_question, user: @user)
-        @comment.vote(@user)
+        @comment.root = create(:specialty_question)
       end
 
-      it "should make the comment acceptable" do
-        expect(@comment.score).to eq 1
+      it "increases the score by one" do
+        expect{ @comment.vote(@user) }.to change{ @comment.score }.by(1)
       end
     end
   end
@@ -203,13 +186,16 @@ describe Comment do
   describe "when created" do
     before do
       @user = create(:user)
-      @specialty_question = create(:specialty_question, user: @user)
+      @specialty_question = create(:specialty_question)
       @comment = create(:comment, commentable: @specialty_question,
                                   user: @user)
     end
 
-    it "should have a vote from its creator" do
+    it "has a single vote" do
       expect(@comment.score).to eq 1
+    end
+
+    it "is voted for by its owner" do
       expect(@comment.already_voted?(@user)).to be_true
     end
   end
