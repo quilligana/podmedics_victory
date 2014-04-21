@@ -22,7 +22,7 @@
 
   <% if comment.acceptable? %>
 
-    <% if comment.root.user == current_user %>
+    <% if @owner == current_user %>
 
 
       <% unless comment.root.already_accepted_answer? %>
