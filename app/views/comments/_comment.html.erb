@@ -1,4 +1,4 @@
-<% if comment.commentable.class.name == 'Comment'%>
+<% if comment.commentable_type == 'Comment'%>
 <div class="comment_reply" id="<%= comment.id %>">
 <% end %>
 
@@ -10,10 +10,8 @@
   <% if comment.votable? %>
     <div class="comment_score_wrapper">
 
-      <% unless comment.already_voted?(current_user) %>
-        <%= link_to "^", vote_comment_path(comment), class: "vote", id: comment.id, remote: true %>
-      <% end %>
-
+      <%= link_to "^", vote_comment_path(comment), class: "vote", id: comment.id, remote: true %>
+      
       <span class="comment_score" id="<%= comment.id %>" >
       <%= "Score: #{comment.score}" %>
       </span>
@@ -78,7 +76,7 @@
   </div>
 </div>
 
-<% if comment.commentable.class.name == 'Comment' %>
+<% if comment.commentable_type == 'Comment' %>
 </div>
 <% end %>
 <!-- End comment -->
