@@ -14,25 +14,22 @@ describe Comment do
   before do
     @user = create(:user)
     @video = create(:video)
-    @comment = Comment.create(commentable: @video, 
-                              user: @user, 
-                              content: "comment text",
-                              root: @video)
+    @comment = create(:comment, commentable: @video, 
+                                user: @user)
   end
 
   subject { @comment }
 
   it { should be_valid }
 
-  describe Comment, "on destroy" do
+  describe ".destroy" do
     before do
-      @reply = @comment.comments.new( commentable: @comment,
-                                      user: @user,
-                                      content: "reply text")
+      @reply = create(:comment, commentable: @comment,
+                                user: @user)
       @comment.destroy
     end
 
-    it "should destroy replies" do
+    it "destroys replies" do
       expect(Comment.exists?(@reply)).to be_false
     end
   end
@@ -43,53 +40,42 @@ describe Comment do
     end
 
     it "should be destroyed" do
-      expect(Comment.exists?(@reply)).to be_false
+      expect(Comment.exists?(@comment)).to be_false
     end
   end
 
-  describe "hide/show functions" do
-    describe "hide" do
-      before do
-        @comment.hidden = false
-        @comment.hide
-      end
-
-      it "should set comments hidden variable to true" do
-        expect(@comment.hidden).to eq true
-      end
-    end
-
-    describe "show" do
-      before do
-        @comment.hidden = true
-        @comment.show
-      end
-
-      it "should set comments hidden variable to true" do
-        expect(@comment.hidden).to eq false
-      end
-    end
-
-    describe "when hidden" do
-      before do
-        @comment.hide
-      end
-
-      it "should not count towards commentable's comment count" do
-        expect(@comment.root.comments_count).to eq 0
-      end
-    end
-  end
-
-  describe "get_comments" do
+  describe ".hide" do
     before do
-      comment_reply = @comment.comments.create( user: @user, 
-                                                content: "hidden content",
-                                                root: @video)
-      hidden_comment_reply = @comment.comments.create(user: @user, 
-                                                      content: "hidden content", 
-                                                      hidden: true,
-                                                      root: @video)
+      @comment.hidden = false
+      @comment.hide
+    end
+
+    it "should set comments hidden variable to true" do
+      expect(@comment.hidden).to eq true
+    end
+
+    it "should not count towards commentable's comment count" do
+      expect(@comment.root.comments_count).to eq 0
+    end
+  end
+
+  describe ".show" do
+    before do
+      @comment.hidden = true
+      @comment.show
+    end
+
+    it "should set comments hidden variable to true" do
+      expect(@comment.hidden).to eq false
+    end
+  end
+
+  describe ".get_comments" do
+    before do
+      create(:comment,  commentable: @comment,
+                        user: @user)
+      create(:hidden_comment, commentable: @comment,
+                              user: @user)
     end
 
     describe "without include_hidden as false" do
@@ -108,8 +94,7 @@ describe Comment do
   describe ".votable?" do
     describe "when the root is a specialty_question" do
       before do
-        @specialty_question = SpecialtyQuestion.new(user: @user,
-                                                    content: "question?")
+        @specialty_question = create(:specialty_question, user: @user)
         @comment.root = @specialty_question
         @comment.save
       end
@@ -129,8 +114,7 @@ describe Comment do
   describe ".acceptable?" do
     describe "when the root is a specialty_question" do
       before do
-        @specialty_question = SpecialtyQuestion.new(user: @user,
-                                                    content: "question?")
+        @specialty_question = create(:specialty_question, user: @user)
         @comment.root = @specialty_question
         @comment.save
       end
@@ -150,8 +134,7 @@ describe Comment do
   describe ".already_voted?(user)" do
     before do
       @newUser = build(:user)
-      @comment.root = SpecialtyQuestion.new(user: @user,
-                                            content: "question?")
+      @comment.root = create(:specialty_question, user: @user)
       @comment.save
     end
 
@@ -181,8 +164,7 @@ describe Comment do
 
     describe "when the comment is acceptable" do
       before do
-        @comment.root = SpecialtyQuestion.new(user: @user,
-                                              content: "question?")
+        @comment.root = create(:specialty_question, user: @user)
       end
 
       it "should make the comment acceptable" do
@@ -208,8 +190,7 @@ describe Comment do
 
     describe "when the comment is votable" do
       before do
-        @comment.root = SpecialtyQuestion.new(user: @user,
-                                              content: "question?")
+        @comment.root = create(:specialty_question, user: @user)
         @comment.vote(@user)
       end
 
@@ -222,12 +203,9 @@ describe Comment do
   describe "when created" do
     before do
       @user = create(:user)
-      @question = SpecialtyQuestion.new(user: @user,
-                                        content: "question?")
-      @comment = Comment.create(commentable: @question, 
-                                user: @user, 
-                                content: "comment text",
-                                root: @question)
+      @specialty_question = create(:specialty_question, user: @user)
+      @comment = create(:comment, commentable: @specialty_question,
+                                  user: @user)
     end
 
     it "should have a vote from its creator" do
