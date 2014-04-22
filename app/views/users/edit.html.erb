@@ -7,22 +7,28 @@
     <div class="left_column_forms">
       <div class="login_ignup_form_wrapper">
         <h2>Your Details</h2>
-        <input class="podmedics_textfield" type="text" placeholder="Name" />
-        <input class="podmedics_textfield" type="text" placeholder="Email" />
-        <input class="podmedics_textfield" type="password" placeholder="Password" />
-        <input class="podmedics_textfield" type="password" placeholder="Password confirmation" />
-        <input class="podmedics_textfield" type="password" placeholder="New Password" />
-        <div class="profile_avatar_field">
-          <a  href="javascript:;" id="change_profile_image_button" class="grey_button">Change Profile Image</a>
-          <div class="profile_avatar_upload_wrapper"><input type="file" name="image"/></div>
-        </div>
-        <button type="submit" class="red_button edit_profile_button">Save Changes</button>
+        <%= form_for @user do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'podmedics_textfield' %>
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'podmedics_textfield' %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'podmedics_textfield' %>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'podmedics_textfield' %>
+          <div class="profile_avatar_field">
+            <a  href="javascript:;" id="change_profile_image_button" class="grey_button">Change Profile Image</a>
+            <div class="profile_avatar_upload_wrapper"><input type="file" name="image"/></div>
+          </div>
+          <%= f.submit 'Update profile', class: 'red_button edit_profile_button' %>
+        <% end %>
       </div>
     </div>
 
     <div class="right_column_forms">
       <h3>Membership</h3>
       <p>Membership info to go here</p>
+      <p>e.g. last payment, subscription valid, link to generate receipt etc.</p>
     </div>
 </div>
 
