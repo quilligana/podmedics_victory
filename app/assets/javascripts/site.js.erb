@@ -12,6 +12,13 @@ ready = function() {
 
   $(".video_column").fitVids();
 
+
+  // Ask question modal cursor focus
+
+  $('a.podmedcis_button.white_button.ask_question_sub_heading_button').click(function() {
+    $('.ask_question_modal_textarea').focus();
+  });
+
   // Flash alert
   $(".flash_alert").delay(8000).slideUp(400);
 
