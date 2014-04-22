@@ -122,9 +122,7 @@ feature 'Video Questions' do
     expect(page).to have_content 'You are just 10 points away from becoming a:House Officer'
 
     click_link 'Result'
-    within '.video_complete_modal' do
-      click_link 'Back to Video'
-    end
+    click_link 'Back to Video'
 
     expect(page).to have_content video_2.title 
   end
