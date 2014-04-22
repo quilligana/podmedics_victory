@@ -2818,21 +2818,41 @@ a.podmedcis_button.green.accept_answer_button {
   float: right;
   width: auto;
   padding-right: 10px;
-  padding-left: 10px;
+  padding-left: 0px;
   color: #FFFFFF;
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
-  padding-top: 9px;
-  padding-bottom: 8px;
-  line-height: 10px;
   background-color: #ccc;
   border-radius: 6px;
   margin-top: -10px;
   margin-left: 10px;
   margin-right: 25px;
 }
+span.upvote_arrow {
+  width: 26px;
+  margin-right: 6px;
+  float: left;
+  height: 26px;
+  border-right: solid 1px #B6B6B6;
+}
+span.upvote_arrow .vote {
+  width: 27px;
+  float: left;
+  height: 27px;
+  text-indent: -5000px;
+  background-image: image-url('up_vote_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+span.upvote_arrow:hover {
+  background-color: #AFAFAF;
+  -moz-border-radius-topleft: 6px 6px;
+  border-top-left-radius: 6px 6px;
 
+  -moz-border-radius-bottomleft: 6px 6px;
+  border-bottom-left-radius: 6px 6px;
+}
 span.accepted {
   background-color: #8BDD7F;
   display: block;
@@ -2852,7 +2872,11 @@ span.accepted {
   margin-left: 10px;
   margin-right: 0px;
 }
-
+.comment_score {
+  padding-top: 9px;
+  padding-bottom: 7px;
+  float: left;
+}
 #reply_cancel_box {
   font-size: 14px;
   color: #6D6D6D;
@@ -2876,4 +2900,27 @@ a#reply_user_name {
 #tabs_single_page li a.comments_tab p {
   font-weight: 800;
   color: #000;
+}
+
+a.delete_comment_button {
+  background-color: #FF3F3F;
+  display: block;
+  float: right;
+  width: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  line-height: 10px;
+  border-radius: 6px;
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+a.delete_comment_button:hover {
+  background-color: #A80007;
 }

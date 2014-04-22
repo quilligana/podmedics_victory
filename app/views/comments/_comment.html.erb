@@ -3,17 +3,16 @@
 <% end %>
 
 <div class="comment" id="<%= comment.id %>">
-  <% if current_user.admin? || comment.user == current_user %>
-    <%= link_to "Delete Comment", comment_path(comment), method: "delete" %>
-  <% end %>
 
   <% if comment.votable? %>
     <div class="comment_score_wrapper">
 
-      <%= link_to "^", vote_comment_path(comment), class: "vote", id: comment.id, remote: true %>
+      <span class="upvote_arrow">
+        <%= link_to "^", vote_comment_path(comment), class: "vote", id: comment.id, remote: true %>
+      </span>
       
       <span class="comment_score" id="<%= comment.id %>" >
-      <%= "Score: #{comment.score}" %>
+        <%= "Score: #{comment.score}" %>
       </span>
 
     </div>
@@ -44,6 +43,10 @@
 
   <% end %>
 
+
+  <% if current_user.admin? || comment.user == current_user %>
+    <%= link_to "Delete Comment", comment_path(comment), method: "delete", class: "delete_comment_button" %>
+  <% end %>
 
 
 
