@@ -1564,7 +1564,8 @@ p.questions_info_right_column_number span {
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 800;
-  color: #555; }
+  color: #555;
+}
 
 .lecture_questions_right_column .questions_info_right_column_section {
   padding-top: 34px;
@@ -1573,7 +1574,8 @@ p.questions_info_right_column_number span {
   width: 100%;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: #EFEFEF; }
+  border-bottom-color: #EFEFEF;
+}
 
 .notes_saved_button {
   padding-top: 45px;
@@ -1585,23 +1587,29 @@ p.questions_info_right_column_number span {
   height: 75px;
   background-color: rgba(240, 240, 240, 0.2);
   float: left;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #EFEFEF;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #EFEFEF;
   background-image: image-url('notes_right_arrow_button.png');
-
   background-repeat: no-repeat;
-  background-position: top right; }
+  background-position: top right;
+  margin-top: 30px;
+}
 
 .notes_saved_button.active_notes_saved_button {
-  background-position: bottom right; }
+  background-position: bottom right;
+}
 
 .lecture_questions_right_column .questions_info_right_column_section p.questions_info_right_column_number, .lecture_questions_right_column a.notes_saved_button p.questions_info_right_column_number {
   font-size: 34px;
   font-weight: 800;
   color: #444;
   float: left;
-  width: 100%; }
+  width: 100%;
+}
 
 .lecture_questions_right_column .questions_info_right_column_section p {
   font-size: 11px;
@@ -1614,7 +1622,8 @@ p.questions_info_right_column_number span {
   margin-bottom: 10px;
   float: left;
   margin-left: 30px;
-  clear: both; }
+  clear: both;
+}
 
 .lecture_questions_outer_wrapper {
   border-right-width: 1px;
@@ -1631,40 +1640,52 @@ p.questions_info_right_column_number span {
   border-radius: $standard_border_radius;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease;
+}
 
 .questions_placement_bar .active_placement_bar.zero_percent {
-  width: 0%; }
+  width: 0%;
+}
 
 .questions_placement_bar .active_placement_bar.ten_percent {
-  width: 10%; }
+  width: 10%;
+}
 
 .questions_placement_bar .active_placement_bar.twenty_percent {
-  width: 20%; }
+  width: 20%;
+}
 
 .questions_placement_bar .active_placement_bar.thirty_percent {
-  width: 30%; }
+  width: 30%;
+}
 
 .questions_placement_bar .active_placement_bar.forty_percent {
-  width: 40%; }
+  width: 40%;
+}
 
 .questions_placement_bar .active_placement_bar.fifty_percent {
-  width: 50%; }
+  width: 50%;
+}
 
 .questions_placement_bar .active_placement_bar.sixty_percent {
-  width: 60%; }
+  width: 60%;
+}
 
 .questions_placement_bar .active_placement_bar.seventy_percent {
-  width: 70%; }
+  width: 70%;
+}
 
 .questions_placement_bar .active_placement_bar.eighty_percent {
-  width: 80%; }
+  width: 80%;
+}
 
 .questions_placement_bar .active_placement_bar.ninety_percent {
-  width: 90%; }
+  width: 90%;
+}
 
 .questions_placement_bar .active_placement_bar.hundred_percent {
-  width: 100%; }
+  width: 100%;
+}
 
 .lecture_question_status_icon {
   color: #FFF;
