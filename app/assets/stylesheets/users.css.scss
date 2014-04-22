@@ -1499,9 +1499,14 @@ a.default_lecture_question:last-child {
   margin-top: 50px;
   float: left;
   line-height: 24px;
-  font-size: 20px;
+  font-size: 24px;
   width: 100%;
 
+}
+.questions_final_results a.red_button {
+  float: none;
+  display: inline-block;
+  margin-top: 20px;
 }
 .questions_final_results p {
   font-size: 12px;
@@ -1914,6 +1919,11 @@ div.lecture_question_blocks div h1 {
 .questions_result_title {
   float: left;
   clear: both;
+  text-align: center;
+  padding-top: 160px;
+  background-image: image-url('questions_complete_icon.png');
+  background-repeat: no-repeat;
+  background-position: center 110px;
 }
 
 .questions_result_sub_title.correct_question_sub_title {
