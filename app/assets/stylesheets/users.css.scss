@@ -85,7 +85,7 @@ $standard_border_radius: 6px;
   width: 35%;
   float: left;
 }
-.dashboard_badges_inner_wrapper a.badge {
+.dashboard_badges_inner_wrapper .badge {
   float: left;
   clear: none;
 }
@@ -133,7 +133,7 @@ a p.badge_speciality.small_screen_count {
   -moz-border-radius-bottomright: 5px 5px;
   border-bottom-right-radius: 5px 5px;
 }
-.dashboard_badges_badge_wrapper a.badge {
+.dashboard_badges_badge_wrapper .badge {
   margin-left: 32px;
   margin-bottom: 20px;
   margin-top: 10px; }
@@ -485,7 +485,7 @@ ul[data-pie-id] {
 .share_block_wrapper.fb {
   display: none; }
 
-.modal_badge_wrapper a.badge {
+.modal_badge_wrapper .badge {
   display: block;
   float: none;
   margin-right: auto;

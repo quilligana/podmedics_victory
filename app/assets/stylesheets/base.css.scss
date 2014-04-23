@@ -1330,7 +1330,7 @@ a.podmedcis_button.white_button:hover {
 
 /* Badges */
 
-a.badge {
+.badge {
   display: block;
   float: left;
   margin-right: 20px;
@@ -1356,7 +1356,7 @@ a.badge {
   border-bottom-left-radius: 5px 5px;
   line-height: 10px; }
 
-a.badge .badge_speciality {
+.badge .badge_speciality {
   color: #ADADAD;
   background-color: $podmedics_grey;
   display: block;
@@ -1373,30 +1373,30 @@ a.badge .badge_speciality {
   border-right-color: #D3D3D3;
   line-height: 11px; }
 
-a.badge .badge_speciality:last-child {
+.badge .badge_speciality:last-child {
   -moz-border-radius-topright: 5px 5px;
   border-top-right-radius: 5px 5px;
   -moz-border-radius-bottomright: 5px 5px;
   border-bottom-right-radius: 5px 5px;
   border-right: none; }
 
-a.badge .badge_title.houseofficer {
+.badge .badge_title.houseofficer {
   background-color: #737373; }
 
-a.badge .badge_title.senior_houseofficer {
+.badge .badge_title.senior_houseofficer {
   background-color: #00E070; }
 
-a.badge .badge_title.medical_student {
+.badge .badge_title.medical_student {
   background-color: #B4F4FF;
   color: #7dbed3; }
 
-a.badge .badge_title.registrar {
+.badge .badge_title.registrar {
   background-color: #FF5A21; }
 
-a.badge .badge_title.consultant {
+.badge .badge_title.consultant {
   background-color: #D4D4D4; }
 
-a.badge .badge_title.medical_director {
+.badge .badge_title.medical_director {
   background-color: #FFBC1A; }
 
 .badges_temp_wrapper {
@@ -1546,7 +1546,7 @@ a.badge .badge_title.medical_director {
   width: 100%;
 }
 
-.profile_inner a.badge {
+.profile_inner .badge {
   margin-bottom: 0px;
   margin-top: 30px;
   clear: none;

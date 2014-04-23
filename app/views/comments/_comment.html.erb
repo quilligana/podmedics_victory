@@ -59,11 +59,11 @@
       <p class="comment_date"><%= time_ago_in_words(comment.updated_at) + " ago" %></p>
 
       <div class="comment_badge_wrapper">
-        <a href="#" class="badge">
+        <div class="badge">
           <p class="badge_title medical_director">Medical Director</p>
           <p class="badge_speciality small_screen_count">+ 1</p>
           <p class="badge_speciality">Cardiology</p>
-        </a>
+        </div>
 
         <% # Stop hiding the button during tests because activating a hover doesn't play nicely with selenium %>
         <% if ENV["RAILS_ENV"] == 'test' %>
