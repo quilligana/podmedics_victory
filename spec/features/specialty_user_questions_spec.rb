@@ -14,6 +14,7 @@ describe "specialty user questions and answers" do
     sign_in(@user_one)
     visit specialty_path(@specialty)
   end
+  
 
   subject { page }
 

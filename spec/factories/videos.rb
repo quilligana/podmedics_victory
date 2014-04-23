@@ -3,7 +3,7 @@ FactoryGirl.define do
     title "Heart Failure"
     description "A video all about heart failure"
     association :specialty
-    vimeo_identifier "1234565"
+    vimeo_identifier 123456
     duration 10
     file_name 'static_file'
     association :author

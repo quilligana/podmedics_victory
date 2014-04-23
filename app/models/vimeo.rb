@@ -12,4 +12,25 @@ class Vimeo < ActiveRecord::Base
     end
   end
 
+  def self.pause_video(user_id, params)
+    video_id = get_video(params[:path])
+    vimeo = self.where(user_id: user_id).where(video_id: video_id).first
+    vimeo.update_attributes(progress: params[:progress])
+  end
+
+  def self.video_completed(user_id, params)
+    video_id = get_video(params[:path])
+    vimeo = self.where(user_id: user_id).where(video_id: video_id).first
+    unless vimeo.completed
+      vimeo.update_attributes(completed: true)
+    end
+  end
+
+private
+
+  def self.get_video(path)
+    video_name = path.gsub(/\/videos\//, "")
+    Video.friendly.find(video_name).id
+  end
+
 end
