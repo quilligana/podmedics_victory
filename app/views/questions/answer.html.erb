@@ -3,18 +3,22 @@
     <div class="lecture_questions_left_column">
       <div class="lecture_questions_outer_wrapper">
         <div class="lectures_question_title">
-          <%= @question.stem.html_safe %>
+          <div class="lectures_question_title_outer_spacing">
+            <%= @question.stem.html_safe %>
+          </div>
         </div>
         <div class="lecture_question_blocks">
           <div class="inner_page_padding">
 
             <% if @answer == "true" %>
+              <div class="correct_question_icon"></div>
               <p class="questions_result_sub_title correct_question_sub_title"><strong>Congratulations!</strong> That is the correct answer.</p>
               <div class="default_lecture_question correct_lecture_answer">
                 <p class="lecture_questions_list_left_column"><%= @correct_answer %></p>
                 <p class="lecture_question_status_icon">Correct</p>
               </div>
             <% else %>
+              <div class="incorrect_question_icon"></div>
               <p class="questions_result_sub_title"><strong>Sorry!</strong> That is not the correct answer.</p>
               <%= render 'wrong_answer' %>
             <% end %>

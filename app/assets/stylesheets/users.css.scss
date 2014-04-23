@@ -1439,16 +1439,21 @@ a#back_to_notes_button {
   border-bottom-style: solid;
   border-bottom-color: #E8E8E8;
   font-weight: 800;
-  padding-top: 40px;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 10px;
+  padding-top: 60px;
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-bottom: 50px;
   line-height: 38px;
-  width: 90%;
+  text-align: center;
+  width: 100%;
 }
 .lectures_question_title p {
   margin-bottom: 20px;
   width: 100%;
+}
+.lectures_question_title_outer_spacing {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 .lecture_questions_left_column {
   float: left;
@@ -1467,8 +1472,8 @@ a.default_lecture_question, .lecture_question_blocks input, .default_lecture_que
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-left: 4%;
-  padding-right: 0%;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-top: 38px;
   padding-bottom: 28px;
   border-radius: 6px;
@@ -1719,14 +1724,14 @@ p.questions_info_right_column_number span {
 .questions_result_sub_title{
   width: 100%;
   float: left;
-  padding-top: 20px;
-  padding-bottom: 5px;
-  font-size: 13px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  font-size: 15px;
   line-height: 30px;
   color: $podmedics_red;
   font-weight: 400;
   text-transform: uppercase;
-
+  text-align: center;
 }
 .default_lecture_question.incorrect_lecture_answer {
   background-color: #F94051;
@@ -1738,6 +1743,30 @@ p.questions_info_right_column_number span {
   cursor: default;
 
 }
+
+div.incorrect_question_icon {
+  width: 58px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  background-image: image-url('questions_results_icon.png');
+  background-position: 12px -46px;
+  margin-top: 30px;
+}
+
+div.correct_question_icon {
+  width: 58px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  background-image: image-url('questions_results_icon.png');
+  background-position: 0px 4px;
+  margin-top: 30px;
+}
+
+
 .default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
   background-position: right -31px;
 }
@@ -1914,6 +1943,7 @@ div.lecture_question_blocks div h1 {
   clear: both;
   min-height: 565px;
   height: auto;
+  padding-top: 35px;
 }
 .questions_result_title {
   float: left;
@@ -1926,7 +1956,7 @@ div.lecture_question_blocks div h1 {
 }
 
 .questions_result_sub_title.correct_question_sub_title {
-  color: #6D996D;
+  color: #5CC25C;
 }
 
 
