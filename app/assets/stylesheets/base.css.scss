@@ -576,7 +576,15 @@ a.podmedcis_button.medium, button.podmedcis_button.medium {
 
 a.podmedcis_button.grey {
   background-color: #F0F0F0;
-  color: #7C7C7C; }
+  color: #7C7C7C;
+}
+
+
+a.podmedcis_button.grey:hover {
+  background-color: #E9E9E9;
+  color: #333;
+}
+
 
 button.podmedcis_button.green, a.podmedcis_button.green {
   background-color: #8BDD7F;
@@ -592,9 +600,8 @@ a.podmedcis_button.white_button {
 }
 
 a.podmedcis_button.white_button:hover {
-  background-color: #FFF;
-  color: #4E4E4E;
-  opacity:0.8;
+  background-color: #ECECEC;
+  color: #333;
 }
 
 

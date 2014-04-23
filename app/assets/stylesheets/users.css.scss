@@ -901,6 +901,10 @@ div.k-chart {
 button.podmedcis_button.grey_button {
   background-color: #CCC;
 }
+button.podmedcis_button.grey_button:hover {
+  background-color: #9B9B9B;
+}
+
 .notes_column_save_button button.podmedcis_button.grey_button {
   margin-left: 10px;
 }
