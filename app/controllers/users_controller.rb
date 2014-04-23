@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   layout 'user_application', only: [:show, :edit]
+  before_action :find_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -19,13 +19,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to @user, notice: 'Account details updated'
+    else
+      render :new
+    end
+  end
+
   def show
-    @user = User.find(params[:id])
   end
 
   def current_resource
     @current_resource || User.find(params[:id]) if params[:id]
   end
+
+  private
+
+    def find_user
+      @user = User.find(params[:id])
+    end
 
   protected
 

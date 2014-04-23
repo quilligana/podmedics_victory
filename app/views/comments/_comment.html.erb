@@ -1,21 +1,18 @@
-<% if comment.commentable.class.name == 'Comment'%>
+<% if comment.commentable_type == 'Comment'%>
 <div class="comment_reply" id="<%= comment.id %>">
 <% end %>
 
 <div class="comment" id="<%= comment.id %>">
-  <% if current_user.admin? || comment.user == current_user %>
-    <%= link_to "Delete Comment", comment_path(comment), method: "delete" %>
-  <% end %>
 
   <% if comment.votable? %>
     <div class="comment_score_wrapper">
 
-      <% unless comment.already_voted?(current_user) %>
+      <span class="upvote_arrow">
         <%= link_to "^", vote_comment_path(comment), class: "vote", id: comment.id, remote: true %>
-      <% end %>
-
+      </span>
+      
       <span class="comment_score" id="<%= comment.id %>" >
-      <%= "Score: #{comment.score}" %>
+        <%= "Score: #{comment.score}" %>
       </span>
 
     </div>
@@ -24,7 +21,7 @@
 
   <% if comment.acceptable? %>
 
-    <% if comment.root.user == current_user %>
+    <% if @owner == current_user %>
 
 
       <% unless comment.root.already_accepted_answer? %>
@@ -47,22 +44,30 @@
   <% end %>
 
 
+  <% if current_user.admin? || comment.user == current_user %>
+    <%= link_to "Delete Comment", comment_path(comment), method: "delete", class: "delete_comment_button" %>
+  <% end %>
+
 
 
 
   <div class="inner_page_padding">
-    <div class="comment_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
+    <div class="comment_avatar">
+      <a href="#">
+        <img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" />
+      </a>
+    </div>
     <div class="comment_info">
-      <h3 class="comment_username"><%= comment.user.name %></h3>
+      <h3 class="comment_username"><a href="#"><%= comment.user.name %></a></h3>
       <p><%= comment.content %></p>
       <p class="comment_date"><%= time_ago_in_words(comment.updated_at) + " ago" %></p>
 
       <div class="comment_badge_wrapper">
-        <a href="#" class="badge">
+        <div class="badge">
           <p class="badge_title medical_director">Medical Director</p>
           <p class="badge_speciality small_screen_count">+ 1</p>
           <p class="badge_speciality">Cardiology</p>
-        </a>
+        </div>
 
         <% # Stop hiding the button during tests because activating a hover doesn't play nicely with selenium %>
         <% if ENV["RAILS_ENV"] == 'test' %>
@@ -78,7 +83,7 @@
   </div>
 </div>
 
-<% if comment.commentable.class.name == 'Comment' %>
+<% if comment.commentable_type == 'Comment' %>
 </div>
 <% end %>
 <!-- End comment -->

@@ -30,7 +30,7 @@ class Video < ActiveRecord::Base
   end
 
   def comments_count(include_hidden = false)
-    include_hidden ? self.nested_comments.count : self.nested_comments.available.count
+    include_hidden ? self.nested_comments.size : self.nested_comments.available.size
   end
 
   def get_comments(include_hidden = false)

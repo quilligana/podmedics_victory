@@ -17,12 +17,20 @@ feature 'User Profile' do
     end
   end
 
-  scenario 'Editing the profile' do
+  scenario 'Editing your profile' do
     user = create(:user)
     sign_in(user)
     visit user_path(user)
     click_link 'Edit your profile'
     expect(page).to have_content 'Your Details'
+
+    fill_in 'Name', with: 'A random user name'
+    click_button 'Update profile'
+
+    expect(page).to have_content 'Account details updated'
+    within '.profile_header' do
+      expect(page).to have_content 'A random user name'
+    end
   end
 
   scenario 'Editing another users profile' do

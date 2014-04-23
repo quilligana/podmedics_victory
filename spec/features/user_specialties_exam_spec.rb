@@ -46,11 +46,7 @@ feature 'User Specialties Exam' do
     click_button "Second Answer"
     click_link "Result"
 
-    within '.video_complete_modal' do
-      expect(page).to have_content "Questions Complete"
-      expect(page).to have_content "You scored 30 questions out of 30 questions Correct"
-      expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1)) 
-    end    
+    expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1)) 
   end
 
   scenario 'No questions from the wrong specialty should be served' do

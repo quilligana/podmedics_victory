@@ -25,6 +25,7 @@ class SpecialtyQuestionsController < ApplicationController
     @question = SpecialtyQuestion.find(params[:id])
     @comment = @question.answers.new()
     @comments = @question.get_answers
+    @owner = @question.user
   end
 
   def load

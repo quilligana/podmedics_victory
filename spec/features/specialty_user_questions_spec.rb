@@ -149,7 +149,6 @@ describe "specialty user questions and answers" do
         expect(page).to     have_content "SCORE: 1"
         click_link "^"
         expect(page).to     have_content "SCORE: 2"
-        expect(page).to_not have_content "^"
       end
     end
 

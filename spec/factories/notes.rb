@@ -1,9 +1,11 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :note do
-    title 'Note Title'
-    content 'Note Content'
-    association :noteable
-    association :user
-    association :specialty
+    title { Faker::Lorem.sentence }
+    content { Faker::Lorem.sentence }
+    user
+    specialty
+    association :noteable, factory: :video
   end
 end
