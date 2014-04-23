@@ -67,4 +67,4 @@ $(document).ready(function(){
 
         setupEventListeners();
     };
-})();
+});
