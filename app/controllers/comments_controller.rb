@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:accept, :vote, :destroy]
+  respond_to :html, :js
 
   def create
     @commentable = find_commentable params
@@ -14,35 +16,17 @@ class CommentsController < ApplicationController
     unless @comment.save
       @comment = nil
     end
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def accept
-    @comment = Comment.find(params[:id])
     @comment.root.accept_answer(@comment, current_user)
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def vote
-    @comment = Comment.find(params[:id])
     @comment.vote(current_user)
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     if @comment.user == current_user || current_user.admin?
       @comment.destroy
       redirect_to :back, notice: "Successfully destroyed comment."
@@ -52,6 +36,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
 
     def find_commentable(params)
       if params[:comment][:commentable_type] == "Video"
