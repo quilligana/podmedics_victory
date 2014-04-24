@@ -1,5 +1,3 @@
-<% @owner ||= comment.root.user %>
-
 <% if comment.commentable_type == 'Comment'%>
 <div class="comment_reply" id="<%= comment.id %>">
 <% end %>
@@ -45,6 +43,7 @@
 
       <div class="comment_lower_action_buttons_left">
         <% if comment.acceptable? %>
+          <% @owner ||= comment.root.user %>
           <% if @owner == current_user && !comment.root.already_accepted_answer? %>
             <%= link_to "Accept Answer", 
                         accept_comment_path(comment), 
