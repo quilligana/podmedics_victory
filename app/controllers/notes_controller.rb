@@ -1,47 +1,28 @@
 class NotesController < ApplicationController
   layout 'user_application'
+  respond_to :html, :js
     
   def create
     @noteable = find_noteable params
-
   	@notes = @noteable.notes.find_by(user: current_user) || Note.new( noteable: @noteable, 
                                                                       user: current_user)
-
     @notes.update(params[:note][:title], params[:note][:content])
-  	
   	if @notes.save
   		@saved = true
   	end
-
-  	respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def update
     @noteable = find_noteable params
   	@notes = @noteable.notes.find_by(user: current_user)
-
   	@notes.update(params[:note][:title], params[:note][:content])
-
   	if @notes.save
   		@saved = true
   	end
-
-  	respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def load
     @notes = Note.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def destroy

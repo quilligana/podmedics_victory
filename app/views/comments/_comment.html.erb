@@ -19,6 +19,37 @@
   <% end %>
 
 
+  <% if comment.acceptable? %>
+
+    <% if @owner == current_user %>
+
+
+      <% unless comment.root.already_accepted_answer? %>
+        <%= link_to "Accept Answer", accept_comment_path(comment), class: "podmedcis_button green accept_answer_button", remote: true %>
+      <% end %>
+
+
+
+    <% end %>
+
+
+    <% if comment.accepted %>
+      <span class="accepted" id="<%= comment.id %>">
+    <% else %>
+      <span class="accepted" id="<%= comment.id %>" style="display: none">
+    <% end %>
+    This is the accepted answer
+    </span>
+
+  <% end %>
+
+
+  <% if current_user.admin? || comment.user == current_user %>
+    <%= link_to "Delete Comment", comment_path(comment), method: "delete", class: "delete_comment_button" %>
+  <% end %>
+
+
+
 
   <div class="inner_page_padding">
     <div class="comment_avatar">
@@ -27,7 +58,7 @@
       </a>
     </div>
     <div class="comment_info">
-      <a href="#"><h3 class="comment_username"><%= comment.user.name %></h3></a>
+      <h3 class="comment_username"><a href="#"><%= comment.user.name %></a></h3>
       <p><%= comment.content %></p>
       <p class="comment_date"><%= time_ago_in_words(comment.updated_at) + " ago" %></p>
 
@@ -37,47 +68,18 @@
           <p class="badge_speciality small_screen_count">+ 1</p>
           <p class="badge_speciality">Cardiology</p>
         </div>
+
+        <% # Stop hiding the button during tests because activating a hover doesn't play nicely with selenium %>
+        <% if ENV["RAILS_ENV"] == 'test' %>
+        <div class="comment_reply_link" style="display:inline">
+        <% else %>
+        <div class="comment_reply_link">
+        <% end %>
+
+          <a href="javascript:;" id="<%= comment.id %>">Reply</a>
+        </div>
       </div>
-
-
-        <div class="comment_lower_action_buttons_left">
-          <% if comment.acceptable? %>
-
-            <% if @owner == current_user %>
-
-              <% unless comment.root.already_accepted_answer? %>
-                <%= link_to "Accept Answer", accept_comment_path(comment), class: "podmedcis_button green accept_answer_button", remote: true %>
-              <% end %>
-
-            <% end %>
-
-
-            <% if comment.accepted %>
-              <span class="accepted" id="<%= comment.id %>">
-            <% else %>
-              <span class="accepted" id="<%= comment.id %>" style="display: none">
-            <% end %>
-              This is the accepted answer
-            </span>
-
-          <% end %>
-        </div>
     </div>
-
-        <div class="comment_lower_action_buttons_right">
-
-          <div class="comment_reply_link">
-            <a href="javascript:;" id="<%= comment.id %>">Reply</a>
-          </div>
-
-          <% if current_user.admin? || comment.user == current_user %>
-            <%= link_to "Delete Comment", comment_path(comment), method: "delete", class: "delete_comment_button" %>
-          <% end %>
-
-        </div>
-
-
-
   </div>
 </div>
 

@@ -9,6 +9,14 @@ describe User do
   it { should respond_to :user_questions }
   it { should respond_to :badges }
 
+  it { should have_many(:user_questions).dependent(:destroy) }
+  it { should have_many(:vimeos).dependent(:destroy) }
+  it { should have_many(:comments).dependent(:destroy) }
+  it { should have_many(:specialty_questions).dependent(:destroy) }
+  it { should have_many(:badges).dependent(:destroy) }
+  it { should have_many(:votes).dependent(:destroy) }
+  it { should have_many(:notes).dependent(:destroy) }
+
   it 'should have a valid factory' do
     expect(build(:user)).to be_valid
   end
@@ -19,18 +27,19 @@ describe User do
   end
 
   it "validates format of email" do
-   bad_email_user = build(:user, email: 'bad') 
-   expect(bad_email_user).to_not be_valid
+   expect(build(:user, email: 'bad')).to_not be_valid
   end
 
-  it 'has an add_points method' do
-    user = create(:user)
-    expect(user.points).to eq(0)
-    user.add_points_for_answer
-    expect(user.points).to eq(POINTS_PER_CORRECT_ANSWER)
+  describe User, '#add_points_for_answer' do
+    it "adds the points per correct answer to the points total" do
+      user = create(:user)
+      expect(user.points).to eq(0)
+      user.add_points_for_answer
+      expect(user.points).to eq(POINTS_PER_CORRECT_ANSWER)
+    end
   end
 
-  describe '#send_password_reset' do
+  describe User, '#send_password_reset' do
     let(:user) { create(:user) }
 
     it "generates a unique password_reset_token each time" do

@@ -9,7 +9,6 @@ feature 'User dashboard' do
     sign_in(@user)
   end
 
-  # this is passing for some reason!!
   scenario "shows name of the logged in user" do
     within '.sub_heading_dashboard_info' do
       expect(page).to have_content @user.name
@@ -24,6 +23,7 @@ feature 'User dashboard' do
 
   scenario "shows the user badges count" do
     create(:badge, user: @user)
+    visit dashboard_path
     within '.dashboard_count_blocks' do
       expect(page).to have_content @user.badges.count
     end
