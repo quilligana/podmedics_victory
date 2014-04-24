@@ -3015,3 +3015,15 @@ div.comment_lower_action_buttons_right {
   color: #727272;
   padding-left: 2px;
 }
+
+#tabs_single_page li a.comments_tab.tabulous_active.static_comments_tab p {
+  color: #555;
+  opacity: 1.0;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0px;
+}
+
+#tabs_single_page ul.comment_count_tab_ul {
+  margin-left: 32px;
+}

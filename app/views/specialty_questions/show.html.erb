@@ -49,12 +49,15 @@
               <% end %>
               <!-- End nothing posted yet -->
 
-              <ul>
-                <li>
-                  <a class="comments_tab"><p><%= @question.comments_count %> Answers</p>
-                  </a>
-                </li>
-              </ul>
+              <div id="tabs_single_page" >
+                <ul class="comment_count_tab_ul">
+                  <li>
+                    <a href="javascript:;" class="comments_tab tabulous_active static_comments_tab">
+                      <p>Answers (<%= @question.comments_count %>)</p>
+                      <p class="icon"></p></a>
+                  </li>
+                </ul>
+              </div>
 
               <div class="questions_aswer_comment_textarea" id="comment_reply_textarea">
                 <div class="inner_page_padding comments_textarea_wrapper">
