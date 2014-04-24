@@ -1037,7 +1037,15 @@ $standard_border_radius: 6px;
     font-size: 13px;
   }
 }
-
+@media screen and (max-width: 620px) {
+  div.comment_lower_action_buttons_right {
+    float: left;
+    clear: both;
+    margin-top: 17px;
+    min-width: 230px;
+    margin-right: 0px;
+  }
+}
 @media screen and (max-width: 550px) {
 
 
