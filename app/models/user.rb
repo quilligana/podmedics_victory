@@ -35,9 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def add_points_for_answer
-    current_points = self.points
-    new_points = current_points + POINTS_PER_CORRECT_ANSWER
-    self.update_attributes(points: new_points)
+    self.update_attributes(points: self.points + POINTS_PER_CORRECT_ANSWER)
   end
 
   def send_password_reset
@@ -53,7 +51,8 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
-  def daily_stat(daysAgo)
-    rand(daysAgo)
+  def daily_stat(days_ago)
+    rand(days_ago)
   end
+
 end
