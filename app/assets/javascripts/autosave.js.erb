@@ -37,19 +37,22 @@ function check_for_change()
 
 function auto_save()
 {
-  var title = $(".notes_column_text_field")[0];
-  var form = $(title).parent();
-
-  // Create the hash for sending in the ajax request.
-  var hash = {
-          url: $(form).attr("action"),
-          data: $(form).serialize(),
-          dataType: "script",
-          type: 'POST'
-        };
-
-  // Send the request
-  $.ajax(hash);
+  if($("#note_content").val() != "")
+  {
+    var title = $(".notes_column_text_field")[0];
+    var form = $(title).parent();
+  
+    // Create the hash for sending in the ajax request.
+    var hash = {
+            url: $(form).attr("action"),
+            data: $(form).serialize(),
+            dataType: "script",
+            type: 'POST'
+          };
+  
+    // Send the request
+    $.ajax(hash);
+  }
 
   // Stop autosaving
   clearInterval(window.autosaveIntervalID);
