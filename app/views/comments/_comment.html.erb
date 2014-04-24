@@ -2,7 +2,11 @@
 <div class="comment_reply" id="<%= comment.id %>">
 <% end %>
 
+<% if comment.accepted? %>
+<div class="comment accepted_answer_comment" id="<%= comment.id %>">
+<% else %>
 <div class="comment" id="<%= comment.id %>">
+<% end %>
 
   <% if comment.votable? %>
     <div class="comment_score_wrapper">

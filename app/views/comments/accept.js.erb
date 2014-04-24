@@ -15,3 +15,7 @@ for (index = 0; index < accept_answer_buttons.length; ++index)
 var score_box = $("#" + comment_id + ".comment_score")[0];
 
 $(score_box).html("Score: " + <%= @comment.score %>);
+
+var comment = $("#" + comment_id + ".comment")[0];
+
+$(comment).addClass('accepted_answer_comment');
