@@ -44,7 +44,7 @@ ready = function() {
   });
 
   $(document).on("click", ".comment_reply_link a", function(){
-    var comment_info = $(this).parents(".comment_info")
+    var comment_info = $(this).parents('.comment_lower_action_buttons_right').siblings(".comment_info")[0]
     var comment_username = $(comment_info).find("h3.comment_username a")[0].innerHTML;
     $(".comments_textarea").val('@' + comment_username + ' ').focus().setCursorToTextEnd();
     $(window).scrollTop($("#comment_reply_textarea").offset().top - 50);
