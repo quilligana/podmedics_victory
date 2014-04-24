@@ -53,12 +53,14 @@
 
   <div class="inner_page_padding">
     <div class="comment_avatar">
-      <a href="#">
+      <%= link_to user_path(comment.user) do %>
         <img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" />
-      </a>
+      <% end %>
     </div>
     <div class="comment_info">
-      <h3 class="comment_username"><a href="#"><%= comment.user.name %></a></h3>
+      <h3 class="comment_username">
+        <%= link_to comment.user.name, user_path(comment.user) %>
+      </h3>
       <p><%= comment.content %></p>
       <p class="comment_date"><%= time_ago_in_words(comment.updated_at) + " ago" %></p>
 
