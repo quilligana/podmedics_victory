@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @badges = current_user.badges
   end
 
   def current_resource

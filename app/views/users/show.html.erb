@@ -42,57 +42,14 @@
       </div>
       <!-- End of profile counts -->
 
-
-      <div class="profile_inner profile_badges">
-        <div class="inner_page_padding">
-          <div class="sub_title">Badges</div>
-
-          <div class="profile_badge_column">
-
-            <div class="badge">
-              <p class="badge_title medical_director">Medical Director</p>
-              <p class="badge_speciality small_screen_count">+ 1</p>
-              <p class="badge_speciality">Cardiology</p>
-            </div>
-
-            <div class="badge">
-              <p class="badge_title consultant">Consultant</p>
-              <p class="badge_speciality small_screen_count">+ 1</p>
-              <p class="badge_speciality">Cardiology</p>
-            </div>
-
-            <div class="badge">
-              <p class="badge_title registrar">Registrar</p>
-              <p class="badge_speciality small_screen_count">+ 1</p>
-              <p class="badge_speciality">Cardiology</p>
-            </div>
-
-
-            <div class="badge">
-              <p class="badge_title senior_houseofficer">Senior HouseOfficer</p>
-              <p class="badge_speciality small_screen_count">+ 3</p>
-              <p class="badge_speciality">Cardiology</p>
-              <p class="badge_speciality">Cardiology</p>
-              <p class="badge_speciality">Cardiology</p>
-            </div>
-
-            <div class="badge">
-              <p class="badge_title houseofficer"> HouseOfficer</p>
-              <p class="badge_speciality small_screen_count">+ 1</p>
-              <p class="badge_speciality">Cardiology</p>
-            </div>
-
-            <div class="badge">
-              <p class="badge_title medical_student">Medical Student</p>
-              <p class="badge_speciality small_screen_count">+ 1</p>
-              <p class="badge_speciality">Cardiology</p>
-            </div>
-
+      <% if current_user.badges.any? %>
+        <div class="profile_inner profile_badges">
+          <div class="inner_page_padding">
+            <%= render 'shared/badges' %>
           </div>
 
         </div>
-
-      </div>
+      <% end %>
       <!-- End of profile badges -->
 
 
