@@ -125,7 +125,33 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1020px) {
+    .page.edit_profile .right_column_forms {
+      display: inline;
+      width: 90%;
+      padding-left: 5%;
+      padding-right: 5%;
+      border-top: solid 1px $grey_border;
+    }
+    .profile_notifications_block {
+      width: 90%;
+      padding-left: 5%;
+      padding-right: 5%;
+      border-bottom: none;
 
+    }
+    .profile_notifications_block a.podmedcis_button.grey {
+      clear: both;
+    }
+
+    .right_column_forms.receipt_user_settings_block a.podmedcis_button.grey {
+      margin-bottom: 25px;
+    }
+    .page.edit_profile .right_column_forms .icheckbox_minimal-red, .iradio_minimal-red {
+      clear: both;
+      float: left;
+      margin-bottom: 0px;
+      margin-right: 10px;
+    }
     .video_page_heading_button_set {
       float: left;
       width: auto;
