@@ -23,6 +23,7 @@ class Vimeo < ActiveRecord::Base
     vimeo = self.where(user_id: user_id).where(video_id: video_id).first
     unless vimeo.completed
       vimeo.update_attributes(completed: true)
+      User.find_by(id: user_id).add_points_for_video
     end
   end
 

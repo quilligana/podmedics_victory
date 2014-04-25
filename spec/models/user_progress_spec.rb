@@ -28,8 +28,9 @@ describe UserProgress do
     end
 
     it 'should return the users updated points in that specialty' do
-      UserQuestion.create(user_id: @user.id, question_id: @question.id, correct_answer: true)
-      @progress_instance.user_specialty_points.should eq 5
+      create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
+      create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
+      @progress_instance.user_specialty_points.should eq 10
     end
   end
 

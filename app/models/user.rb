@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     self.update_attributes(points: self.points + POINTS_PER_CORRECT_ANSWER)
   end
 
+  def add_points_for_video
+    self.update_attributes(points: self.points + POINTS_PER_WATCHED_VIDEO)
+  end
+
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now

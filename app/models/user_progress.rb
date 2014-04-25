@@ -14,11 +14,15 @@ class UserProgress
   end
 
   def user_specialty_points
-    # TODO: Count of videos watched
     # TODO: Count of user questions answered
     video_ids = @specialty.video_ids
+    videos_watched = @user.vimeos.where("video_id IN (?)", video_ids).
+                      where(completed: true).count
+    video_points = videos_watched * POINTS_PER_WATCHED_VIDEO
     q_ids = Question.where("video_id IN (?)", video_ids).pluck(:id)
-    question_points = UserQuestion.number_correct(@user.id, q_ids) * POINTS_PER_CORRECT_ANSWER
+    question_points = UserQuestion.number_correct(@user.id, q_ids) *
+                      POINTS_PER_CORRECT_ANSWER
+    video_points + question_points
   end
 
   def current_badge
