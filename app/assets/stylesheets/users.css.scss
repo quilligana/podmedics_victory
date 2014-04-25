@@ -3016,6 +3016,39 @@ div.comment_lower_action_buttons_right {
   padding-left: 2px;
 }
 
+.profile_notifications_block {
+  float: right;
+  width: 255px;
+  padding-left: 24px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  border-top: solid 1px $grey_border;
+  border-bottom: solid 1px $grey_border;
+  margin-top: 30px;
+}
+.profile_notifications_block label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #9B9B9B;
+  cursor: pointer;
+}
+.profile_notifications_block .checkbox_wrapper:hover label {
+  color: #333;
+}
+.checkbox_wrapper {
+  float: left;
+  clear: both;
+  margin-top: 20px;
+}
+
+.profile_notifications_block h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #5e5e5e;
+  padding-top: 30px;
+}
+
+
 #tabs_single_page li a.comments_tab.tabulous_active.static_comments_tab p {
   color: #555;
   opacity: 1.0;
