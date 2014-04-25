@@ -2,6 +2,21 @@
 
   <div class="sub_heading_wrapper">
     <h1><%= @specialty.name %></h1>
+
+    <div class="lectures_inline_dropdown_wrapper">
+      <a href="#" class="podmedcis_button lectures_dropdown_button">Lectures</a>
+      <div class="lectures_inline_dropdown">
+        <div class="right_column_search_field">
+          <form action="#">
+            <input name="search" type="text" class="navigation_search_field" placeholder="Search">
+            <button type="submit" class="navigation_search_field_search_button"></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
     <div class="sub_heading_button_set">
       <a href="#" class="podmedcis_button white_button ask_question_sub_heading_button"  data-reveal-id="ask_question_modal">Ask a Question</a>
       <div class="exam_button_tooltip_wrapper">

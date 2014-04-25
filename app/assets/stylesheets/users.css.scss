@@ -3110,3 +3110,65 @@ div.right_column_forms.notifications_inner_wrapper {
 #tabs_single_page ul.comment_count_tab_ul {
   margin-left: 32px;
 }
+
+.lectures_inline_dropdown_wrapper:hover a.podmedcis_button.lectures_dropdown_button {
+
+  -moz-border-radius-bottomleft: 0px 0px;
+  border-bottom-left-radius: 0px 0px;
+
+  -moz-border-radius-bottomright: 0px 0px;
+  border-bottom-right-radius: 0px 0px;
+  background-color: $podmedics_red;
+}
+
+
+.lectures_inline_dropdown_wrapper:hover .lectures_inline_dropdown{
+  display: block;
+}
+
+
+
+
+
+a.podmedcis_button.lectures_dropdown_button {
+  width: 120px;
+  float: left;
+  clear: both;
+  margin-top: 15px;
+  background-image: image-url('nav_icons.png');
+  background-repeat: no-repeat;
+  background-position: 121px -559px;
+  margin-top: 0px;
+}
+
+.lectures_inline_dropdown {
+  width: 390px;
+  background-color: $podmedics_red;
+  height: 380px;
+  position: absolute;
+  margin-top: 96px;
+  z-index: 10;
+  -moz-border-radius-topright: 6px 6px;
+  border-top-right-radius: 6px 6px;
+
+  -moz-border-radius-bottomleft: 6px 6px;
+  border-bottom-left-radius: 6px 6px;
+
+  -moz-border-radius-bottomright: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+  display: none;
+}
+
+
+.lectures_inline_dropdown .right_column_search_field .navigation_search_field {
+  width: 305px;
+  margin-top: 10px;
+}
+
+.lectures_inline_dropdown .right_column_search_field button.navigation_search_field_search_button {
+  margin-top: 19px;
+}
+
+.lectures_inline_dropdown .right_column_search_field {
+  border-bottom: solid 1px #961E2F;
+}
