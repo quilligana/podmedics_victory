@@ -7,26 +7,38 @@ class LectureIcons
   end
 
   def show_lecture_icons
-    (lecture_watched + not_watched + part_watched + poor_score +
-    resit_lecture + top_marks).html_safe
+    (lecture_watched + not_watched + part_watched + user_performance +
+    resit_lecture).html_safe
   end
 
 private
 
   def lecture_watched
-    if @current_user.vimeos.where(video_id: @video.id).first
+    if check_vimeo && check_vimeo.completed == true
       link_to video_path(@video), class: 'lecture_icon watched', id: 'watched' do
-        content_tag(:p, "You watched this 20 minutes ago and answered 10 of 10 questions correct", class:"tooltip")
+        content_tag(:p, "You watched this #{time_ago_in_words(check_vimeo.
+                          updated_at)} ago #{return_results}", class:"tooltip")
       end
     else
       ""
     end
   end
 
+  def return_results
+    if check_questions.any?
+      question_results = QuestionResults.new(check_questions)
+      "and answered #{question_results.correct_count} of #{question_results.
+        total_count} questions correct"
+    end
+  end
+
   def part_watched
-    if @current_user.vimeos.where(video_id: @video.id).where(completed: false).first
+    if check_vimeo && check_vimeo.completed == false
       link_to video_path(@video), class: 'lecture_icon part_watched', id: 'part_watched' do
-        content_tag(:p, "You have not fully completed this lecture - Click here to continue where you left off", class:"tooltip")
+        content_tag(:p, "You have not fully completed this lecture - 
+                        Click here to continue where you left off 
+                        #{time_ago_in_words(check_vimeo.updated_at)} ago", 
+                        class:"tooltip")
       end
     else
       ""
@@ -34,7 +46,7 @@ private
   end
 
   def not_watched
-    if @current_user.vimeos.where(video_id: @video.id).first
+    if check_vimeo
       ""
     else
       link_to video_path(@video), class:"lecture_icon not_watched", id: 'not_watched' do
@@ -43,19 +55,11 @@ private
     end
   end
 
-  def poor_score
-    if @current_user.vimeos.where(video_id: @video.id).first
-      question_ids = @video.question_ids
-      if @current_user.user_questions.where("question_id IN (?)", question_ids).any?
-        questions = @current_user.user_questions.where("question_id IN (?)", question_ids)
-        total_count = questions.count
-        correct_count = questions.where(correct_answer: true).count
-        ratio = correct_count / total_count
-        if 100 * ratio <= PASS_GRADE
-          link_to video_path(@video), class: 'lecture_icon recommended_resit', id: 'recommend_resit' do
-            content_tag(:p, "You only answered #{correct_count} of #{total_count} questions correct - You may benefit from retaking this lecture", class:"tooltip")
-          end
-        end
+  def user_performance
+    if check_vimeo
+      if check_questions.any? 
+        question_results = QuestionResults.new(check_questions)
+        display_performance_icons(question_results)
       else
         ""
       end
@@ -64,8 +68,24 @@ private
     end
   end
 
+  def display_performance_icons(question_results)
+    if 100 * question_results.ratio <= PASS_GRADE
+      link_to video_path(@video), class: 'lecture_icon recommend_resit', id: 'recommend_resit' do
+        content_tag(:p, "You only answered #{question_results.correct_count} of 
+                        #{question_results.total_count} questions correct - You may 
+                        benefit from retaking this lecture", class:"tooltip")
+      end
+    elsif question_results.ratio == 1
+      link_to video_path(@video), class: 'lecture_icon top_marks', id: 'top_marks' do
+        content_tag(:p, ("<span>Good Job</span>You anserwed all 
+                      #{question_results.total_count} questions correctly and earned the
+                      maximum points avaliable.").html_safe, class:"tooltip")
+      end
+    end
+  end
+
   def resit_lecture
-    if @current_user.vimeos.where(video_id: @video.id).where(completed: true).first
+    if check_vimeo && check_vimeo.completed == true
       link_to video_path(@video), class: 'lecture_icon resit', id: 'resit_video' do
         content_tag(:p, "Retake this lecture", class:"tooltip")
       end
@@ -74,24 +94,12 @@ private
     end
   end
 
-  def top_marks
-    if @current_user.vimeos.where(video_id: @video.id).first
-      question_ids = @video.question_ids
-      if @current_user.user_questions.where("question_id IN (?)", question_ids).any?
-        questions = @current_user.user_questions.where("question_id IN (?)", question_ids)
-        total_count = questions.count
-        correct_count = questions.where(correct_answer: true).count
-        ratio = correct_count / total_count
-        if ratio == 1
-          link_to video_path(@video), class: 'lecture_icon top_marks', id: 'top_marks' do
-            content_tag(:p, ("<span>Good Job</span>You anserwed all #{total_count} questions correctly and earned the maximum points avaliable.").html_safe, class:"tooltip")
-          end
-      end
-      end
-    else
-      ""
-    end
-    # <a href="#" class="lecture_icon top_marks"><p class="tooltip"></p></a>
+  def check_vimeo
+    @current_user.vimeos.where(video_id: @video.id).first
+  end
+
+  def check_questions
+    @current_user.user_questions.where("question_id IN (?)", @video.question_ids)
   end
 
   def method_missing(*args, &block)
@@ -99,4 +107,15 @@ private
   end
 
 end
-      
+
+class QuestionResults
+  attr_reader :total_count, :correct_count, :ratio
+
+  def initialize(questions)
+   @total_count = questions.count
+   @correct_count = questions.where(correct_answer: true).count
+   @ratio = @correct_count / @total_count
+  end
+     
+     
+end   

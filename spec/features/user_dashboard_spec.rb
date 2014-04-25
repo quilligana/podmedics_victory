@@ -59,53 +59,69 @@ feature 'User dashboard' do
     end
   end
 
-  scenario 'Seeing watched videos' do
-    create(:vimeo, user_id: @user.id, video_id: @video1.id)
+  scenario 'Having watched a video' do
+    create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
     visit root_path
     within '#tabs-2 .lecture_icons_wrapper' do
       expect(page).to have_css(".lecture_icon.watched")
+      expect(page).to have_css(".lecture_icon.resit")
+      expect(page).not_to have_css(".lecture_icon.part_watched")
+      expect(page).not_to have_css(".lecture_icon.not_watched")
+      expect(page).not_to have_css(".lecture_icon.recommended_resit")
+      expect(page).not_to have_css(".lecture_icon.top_marks")
     end
   end
 
-  scenario 'Seeing part-watched videos' do
+  scenario 'Having part-watched a video' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id)
     visit root_path
     within '#tabs-2 .lecture_icons_wrapper' do
       expect(page).to have_css(".lecture_icon.part_watched")
+      expect(page).not_to have_css(".lecture_icon.watched")
+      expect(page).not_to have_css(".lecture_icon.not_watched")
+      expect(page).not_to have_css(".lecture_icon.recommended_resit")
+      expect(page).not_to have_css(".lecture_icon.resit")
+      expect(page).not_to have_css(".lecture_icon.top_marks")
     end
   end
 
-  scenario 'Seeing unwatched videos' do
+  scenario 'Having not watched a video' do
     within '#tabs-2 .lecture_icons_wrapper' do
       expect(page).to have_css(".lecture_icon.not_watched")
+      expect(page).not_to have_css(".lecture_icon.part_watched")
+      expect(page).not_to have_css(".lecture_icon.watched")
+      expect(page).not_to have_css(".lecture_icon.recommended_resit")
+      expect(page).not_to have_css(".lecture_icon.resit")
+      expect(page).not_to have_css(".lecture_icon.top_marks")
     end
   end
 
-  scenario 'Seeing recommend_resit icon' do
+  scenario 'Having had a poor score' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
     question = create(:question, video: @video1)
     create(:user_question, user_id: @user.id, question_id: question.id, correct_answer: false)
     visit root_path
     within '#tabs-2' do
-      expect(page).to have_css(".lecture_icon.recommended_resit")
-    end
-  end
-
-  scenario 'Seeing resit_lecture icon' do
-    create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
-    visit root_path
-    within '#tabs-2' do
+      expect(page).to have_css(".lecture_icon.recommend_resit")
+      expect(page).to have_css(".lecture_icon.watched")
       expect(page).to have_css(".lecture_icon.resit")
+      expect(page).not_to have_css(".lecture_icon.part_watched")
+      expect(page).not_to have_css(".lecture_icon.recommended_resit")
+      expect(page).not_to have_css(".lecture_icon.top_marks")
     end
   end
 
-  scenario 'Seeing top_marks icon' do
+  scenario 'Having achieved top marks' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
     question = create(:question, video: @video1)
     create(:user_question, user_id: @user.id, question_id: question.id, correct_answer: true)
     visit root_path
     within '#tabs-2' do
       expect(page).to have_css(".lecture_icon.top_marks")
+      expect(page).to have_css(".lecture_icon.watched")
+      expect(page).to have_css(".lecture_icon.resit")
+      expect(page).not_to have_css(".lecture_icon.part_watched")
+      expect(page).not_to have_css(".lecture_icon.recommended_resit")
     end
   end
 
