@@ -3026,13 +3026,14 @@ div.comment_lower_action_buttons_right {
   border-bottom: solid 1px $grey_border;
   margin-top: 30px;
 }
-.profile_notifications_block label {
+.right_column_forms label {
   font-size: 12px;
   text-transform: uppercase;
   color: #9B9B9B;
   cursor: pointer;
 }
-.profile_notifications_block .checkbox_wrapper:hover label {
+
+.right_column_forms .checkbox_wrapper:hover label {
   color: #333;
 }
 .checkbox_wrapper {
@@ -3048,6 +3049,55 @@ div.comment_lower_action_buttons_right {
   padding-top: 30px;
 }
 
+p.active_subscription_text {
+  background-color: #8BDD7F;
+  display: block;
+  float: left;
+  width: auto;
+  padding-right: 13px;
+  padding-left: 13px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 13px;
+  padding-bottom: 11px;
+  line-height: 10px;
+  border-radius: 6px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 12px;
+}
+
+p.expired_subscription_text {
+  background-color: #FF3F3F;
+  display: block;
+  float: left;
+  width: auto;
+  padding-right: 13px;
+  padding-left: 13px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 13px;
+  padding-bottom: 11px;
+  line-height: 10px;
+  border-radius: 6px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 12px;
+  margin-bottom: 15px;
+}
+.right_column_forms.receipt_user_settings_block {
+  padding-top: 15px;
+  border-top: solid 1px $grey_border;
+  width: 255px;
+  padding-left: 24px;
+}
+div.right_column_forms.notifications_inner_wrapper {
+  padding-bottom: 25px;
+}
 
 #tabs_single_page li a.comments_tab.tabulous_active.static_comments_tab p {
   color: #555;

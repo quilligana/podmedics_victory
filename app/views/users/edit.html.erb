@@ -21,7 +21,7 @@
               <a  href="javascript:;" id="change_profile_image_button" class="grey_button">Change Profile Image</a>
               <div class="profile_avatar_upload_wrapper"><input type="file" name="image"/></div>
             </div>
-            <%= f.button 'Update profile', class: 'red_button edit_profile_button' %>
+            <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
           <% end %>
         </div>
       </div>
@@ -31,14 +31,33 @@
       <h3>Membership</h3>
       <p>Membership info to go here</p>
       <p>e.g. last payment, subscription valid, link to generate receipt etc.</p>
+      <p>Last Payment: <strong>12/09/06</strong></p>
     </div>
 
     <div class="profile_notifications_block">
+      <h3>Membership Status</h3>
+
+      <!-- Shown if user has a valid subscription -->
+      <!--
+
+      <p class="active_subscription_text">You have an active subscription</p>
+
+      -->
+
+      <!-- Shown if user has an expired subscription -->
+
+      <p class="expired_subscription_text">Your subscription has expired</p>
+      <p><a href="#" class="podmedcis_button grey">Renew Your Subscription</a></p>
+      <!-- End expired subscription -->
+
+    </div>
+
+    <div class="right_column_forms notifications_inner_wrapper">
       <h3>Notification Settings</h3>
 
       <div class="checkbox_wrapper">
         <input type="checkbox" name="newsletter" id="newsletter" value="1">
-        <label for="email">Receive Newsletter</label>
+        <label for="newsletter">Receive Newsletter</label>
       </div>
 
       <div class="checkbox_wrapper">
@@ -58,7 +77,11 @@
 
     </div>
 
-</div>
+    <div class="right_column_forms receipt_user_settings_block">
+      <p><a href="#" class="podmedcis_button grey">Print Receipt</a></p>
+    </div>
+
+    </div>
 
 <%= content_for :footer do %>
   <div class="inline_footer_wrapper signup_page_footer">
