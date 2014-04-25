@@ -25,7 +25,7 @@ feature 'User Profile' do
     expect(page).to have_content 'Your Details'
 
     fill_in 'Name', with: 'A random user name'
-    click_button 'Update profile'
+    click_button 'Update Profile'
 
     expect(page).to have_content 'Account details updated'
     within '.profile_header' do
