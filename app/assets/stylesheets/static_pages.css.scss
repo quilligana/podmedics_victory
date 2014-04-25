@@ -822,10 +822,29 @@ a.library_button.active .library_count{
 a.preview_video {
   color: blue;
 }
+div.faq_wrapper {
+  padding-top: 40px;
+  padding-bottom: 45px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
+div.faq_inner_wrapper {
+  padding-bottom: 40px;
+}
 
-
-
+div.faq_inner_wrapper:last-child {
+  padding-bottom: 0px;
+}
+p.faq_inner {
+  font-size: 15px;
+  line-height: 20px;
+  color: #858585;
+  margin-top: 5px;
+}
+.faq_inner_wrapper h2 {
+  font-size: 20px;
+}
 
 
 /* Plans */
