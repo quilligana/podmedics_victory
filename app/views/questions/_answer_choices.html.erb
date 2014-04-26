@@ -1,55 +1,55 @@
 <%= form_tag questions_answer_url do %>
-  <% if @question.correct_answer == 1 %>
+  <% if @quiz.current_question.correct_answer == 1 %>
     <%= hidden_field_tag :answer, :true %>
   <% else %>
     <%= hidden_field_tag :answer, :false %>
   <% end %>
   <%= hidden_field_tag :answer_given, 1 %>
-  <%= submit_tag @question.answer_1 %>
+  <%= submit_tag @quiz.current_question.answer_1 %>
 <% end %>
 
 <%= form_tag questions_answer_url do %>
-  <% if @question.correct_answer == 2 %>
+  <% if @quiz.current_question.correct_answer == 2 %>
     <%= hidden_field_tag :answer, :true %>
   <% else %>
     <%= hidden_field_tag :answer, :false %>
   <% end %>
   <%= hidden_field_tag :answer_given, 2 %>
-  <%= submit_tag @question.answer_2 %>
+  <%= submit_tag @quiz.current_question.answer_2 %>
 <% end %>
 
-<% if @question.answer_3? %>
+<% if @quiz.current_question.answer_3? %>
   <%= form_tag questions_answer_url do %>
-    <% if @question.correct_answer == 3 %>
+    <% if @quiz.current_question.correct_answer == 3 %>
       <%= hidden_field_tag :answer, :true %>
     <% else %>
       <%= hidden_field_tag :answer, :false %>
     <% end %>
     <%= hidden_field_tag :answer_given, 3 %>
-    <%= submit_tag @question.answer_3 %>
+    <%= submit_tag @quiz.current_question.answer_3 %>
   <% end %>
 <% end %>
 
-<% if @question.answer_4? %>
+<% if @quiz.current_question.answer_4? %>
   <%= form_tag questions_answer_url do %>
-    <% if @question.correct_answer == 4 %>
+    <% if @quiz.current_question.correct_answer == 4 %>
       <%= hidden_field_tag :answer, :true %>
     <% else %>
       <%= hidden_field_tag :answer, :false %>
     <% end %>
     <%= hidden_field_tag :answer_given, 4 %>
-    <%= submit_tag @question.answer_4 %>
+    <%= submit_tag @quiz.current_question.answer_4 %>
   <% end %>
 <% end %>
 
-<% if @question.answer_5? %>
+<% if @quiz.current_question.answer_5? %>
   <%= form_tag questions_answer_url do %>
-    <% if @question.correct_answer == 5 %>
+    <% if @quiz.current_question.correct_answer == 5 %>
       <%= hidden_field_tag :answer, :true %>
     <% else %>
       <%= hidden_field_tag :answer, :false %>
     <% end %>
     <%= hidden_field_tag :answer_given, 5 %>
-    <%= submit_tag @question.answer_5 %>
+    <%= submit_tag @quiz.current_question.answer_5 %>
   <% end %>
 <% end %>

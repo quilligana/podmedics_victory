@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @quiz = Quiz.new(params, session)
     @question = Question.find(params[:id])
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
@@ -26,6 +27,8 @@ class QuestionsController < ApplicationController
     @current_question = session[:current_question]
     @q_ids = session[:q_ids]
     @q_id = @q_ids[@current_question-1]
+    params[:id] = @q_id
+    @quiz = Quiz.new(params, session)
     @question = Question.find(@q_id)
     @total_questions = @q_ids.length
     @answer_given = params[:answer_given]
