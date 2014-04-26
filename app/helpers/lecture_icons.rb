@@ -69,13 +69,13 @@ private
   end
 
   def display_performance_icons(question_results)
-    if 100 * question_results.ratio <= PASS_GRADE
+    if question_results.bad_result?
       link_to video_path(@video), class: 'lecture_icon recommend_resit', id: 'recommend_resit' do
         content_tag(:p, "You only answered #{question_results.correct_count} of 
                         #{question_results.total_count} questions correct - You may 
                         benefit from retaking this lecture", class:"tooltip")
       end
-    elsif question_results.ratio == 1
+    elsif question_results.top_result?
       link_to video_path(@video), class: 'lecture_icon top_marks', id: 'top_marks' do
         content_tag(:p, ("<span>Good Job</span>You anserwed all 
                       #{question_results.total_count} questions correctly and earned the
@@ -106,16 +106,4 @@ private
     @template.send(*args, &block)
   end
 
-end
-
-class QuestionResults
-  attr_reader :total_count, :correct_count, :ratio
-
-  def initialize(questions)
-   @total_count = questions.count
-   @correct_count = questions.where(correct_answer: true).count
-   @ratio = @correct_count / @total_count
-  end
-     
-     
-end   
+end  

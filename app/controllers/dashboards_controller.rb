@@ -2,8 +2,8 @@ class DashboardsController < ApplicationController
   layout 'user_application'
     
   def show
-    @recent_videos = Video.recent.limit(5).includes(:specialty)
-    @flagged_videos = Video.all.limit(10).includes(:specialty)
+    @recent_videos = Video.recent.limit(10).includes(:specialty)
+    @flagged_videos = Video.flagged(current_user).first(10)
     @badges = current_user.badges
   end
 

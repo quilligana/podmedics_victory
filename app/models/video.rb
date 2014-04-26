@@ -29,12 +29,49 @@ class Video < ActiveRecord::Base
     order(created_at: :desc)
   end
 
+  def self.flagged(user)
+    if user.vimeos.any?
+      unfinished(user.vimeos) | poor_result(user.vimeos) | unwatched(user.vimeos) | self.watched(user.vimeos)
+    else
+      self.all.includes(:specialty)
+    end
+  end
+
   def comments_count(include_hidden = false)
     include_hidden ? self.nested_comments.size : self.nested_comments.available.size
   end
 
   def get_comments(include_hidden = false)
     include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
+  end
+
+  private
+
+  def self.unfinished(vimeos)
+    self.where(id: vimeos.where(completed: false).pluck(:video_id)).includes(:specialty)
+  end
+
+  def self.poor_result(vimeos)
+    user = User.find_by(id: vimeos.first.user_id)
+    id_array = []
+    vimeos.each do |vimeo|
+      if user.user_questions.where(question_id: vimeo.video.question_ids).any?
+        questions = user.user_questions.where(question_id: vimeo.video.question_ids)
+        results = QuestionResults.new(questions)
+        if results.bad_result?
+          id_array << vimeo.video_id
+        end
+      end
+    end
+    self.where(id: id_array).includes(:specialty)
+  end
+
+  def self.unwatched(vimeos)
+    self.where.not(id: vimeos.pluck(:video_id)).includes(:specialty)
+  end
+
+  def self.watched(vimeos)
+    self.where(id: vimeos.where(completed: true).pluck(:video_id)).includes(:specialty)
   end
 
 end
