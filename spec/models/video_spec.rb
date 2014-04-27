@@ -16,6 +16,7 @@ describe Video do
   it { should have_many :questions }
   it { should have_many :comments }
   it { should have_many :nested_comments }
+  it { should have_many :notes }
   
   it { should validate_presence_of :title }
   it { should validate_presence_of :description }
@@ -24,7 +25,7 @@ describe Video do
   it { should validate_presence_of :vimeo_identifier }
   it { should validate_presence_of :file_name }
 
-  describe '.specialty_name' do
+  describe Video, '#specialty_name' do
     it "delegates to specialty" do
       specialty = create(:specialty, name: 'Cardiology')
       video = create(:video, specialty: specialty)
@@ -32,7 +33,7 @@ describe Video do
     end
   end
 
-  describe '.author_name' do
+  describe Video, '#author_name' do
     before do
       @author = create(:author)
       @video = create(:video, author: @author)
@@ -63,7 +64,7 @@ describe Video do
     }.to change { Video.last.questions_count}.by(1)
   end  
 
-  describe ".get_comments" do
+  describe Video, "#get_comments" do
     before do
       @video = create(:video)
       user = create(:user)
@@ -87,7 +88,7 @@ describe Video do
     end
   end
 
-  describe ".comments_count" do
+  describe Video, "#comments_count" do
     before do
       @video = create(:video)
       user = create(:user)
@@ -110,4 +111,17 @@ describe Video do
       end
     end
   end
+
+  describe Video, '.recent' do
+    before :each do
+      @recent_videos = create_list(:video, 5)
+      @new_video = create(:video)
+    end
+
+    it "shows videos in order of created_at" do
+      expect(Video.recent.first).to eq @new_video
+    end
+  end
+  
+
 end

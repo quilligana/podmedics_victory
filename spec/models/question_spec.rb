@@ -23,9 +23,9 @@ describe Question do
 
   describe Question, '.remaining_to_add' do
     it "returns the number of questions we need to add" do
-      target_per_video = 10
+      target_per_video = 7
       create_list(:video, 10)
-      expect(Question.remaining_to_add).to eq 100
+      expect(Question.remaining_to_add).to eq 70
     end
   end
 
