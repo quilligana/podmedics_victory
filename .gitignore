@@ -22,8 +22,10 @@
 # RubyMine
 *.idea
 
-# ENV file
+# ENV files
 .env
+.powenv
 
 # simplecov
 /coverage
+
