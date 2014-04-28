@@ -203,6 +203,42 @@ ready = function() {
     increaseArea: '20%' // optional
   });
 
+
+
+
+  $("a.lectures_inline_dropdown_category_link.medicine").click(function(){
+    $(".lectures_inline_dropdown_categories").hide();
+    $(".lectures_inline_dropdown_specialty_medicine").fadeIn(400);
+  });
+
+  $("a.lectures_inline_dropdown_category_link.surgery").click(function(){
+    $(".lectures_inline_dropdown_categories").hide();
+    $(".lectures_inline_dropdown_specialty_surgery").fadeIn(400);
+  });
+
+  $("a.lectures_inline_dropdown_category_link.clinical_specialties").click(function(){
+    $(".lectures_inline_dropdown_categories").hide();
+    $(".lectures_inline_dropdown_specialty_clinical_specialties").fadeIn(400);
+  });
+
+  $("a.lectures_inline_dropdown_category_link.clinical_sciences").click(function(){
+    $(".lectures_inline_dropdown_categories").hide();
+    $(".lectures_inline_dropdown_specialty_clinical_sciences").fadeIn(400);
+  });
+
+
+
+
+
+  // inline dropdown back button
+  $(".lectures_inline_dropdown_back_button").click(function(){
+    $(".lectures_inline_dropdown_specialty_medicine, .lectures_inline_dropdown_specialty_surgery, .lectures_inline_dropdown_specialty_clinical_specialties, .lectures_inline_dropdown_specialty_clinical_sciences").hide();
+    $(".lectures_inline_dropdown_categories").fadeIn(400);
+  });
+
+
+
+
 };
 //- end of ready function
 	

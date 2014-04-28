@@ -3144,9 +3144,9 @@ a.podmedcis_button.lectures_dropdown_button {
 .lectures_inline_dropdown {
   width: 390px;
   background-color: $podmedics_red;
-  height: 380px;
+  height: auto;
   position: absolute;
-  margin-top: 96px;
+  margin-top: 48px;
   z-index: 10;
   -moz-border-radius-topright: 6px 6px;
   border-top-right-radius: 6px 6px;
@@ -3168,7 +3168,84 @@ a.podmedcis_button.lectures_dropdown_button {
 .lectures_inline_dropdown .right_column_search_field button.navigation_search_field_search_button {
   margin-top: 19px;
 }
-
 .lectures_inline_dropdown .right_column_search_field {
   border-bottom: solid 1px #961E2F;
+  padding-top: 11px;
+  padding-bottom: 18px;
+}
+
+.lectures_inline_dropdown_categories {
+  float: left;
+  width: 100%;
+}
+
+a.lectures_inline_dropdown_category_link {
+  width: 365px;
+  padding-left: 25px;
+  padding-top: 27px;
+  padding-bottom: 22px;
+  border-bottom: solid 1px #961E2F;
+  float: left;
+  background-image: image-url('nav_icons.png');
+  background-repeat: no-repeat;
+  background-position: 351px -448px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+a.lectures_inline_dropdown_category_link:last-child,  .lectures_inline_dropdown_specialty_medicine a:last-child,  .lectures_inline_dropdown_specialty_clinical_sciences a:last-child,  .lectures_inline_dropdown_specialty_clinical_specialties a:last-child,  .lectures_inline_dropdown_specialty_surgery a:last-child {
+  border-bottom: none;
+
+  -moz-border-radius-bottomleft: 6px 6px;
+  border-bottom-left-radius: 6px 6px;
+
+  -moz-border-radius-bottomright: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+}
+
+a.lectures_inline_dropdown_category_link:hover, .lectures_inline_dropdown_specialty_medicine a:hover, .lectures_inline_dropdown_specialty_surgery a:hover, .lectures_inline_dropdown_specialty_clinical_specialties a:hover, .lectures_inline_dropdown_specialty_clinical_sciences a:hover   {
+background-color: #961E2F;
+}
+
+.lectures_inline_dropdown_specialty_medicine, .lectures_inline_dropdown_specialty_surgery, .lectures_inline_dropdown_specialty_clinical_specialties, .lectures_inline_dropdown_specialty_clinical_sciences {
+  display: none;
+}
+
+.lectures_inline_dropdown_back_button {
+  font-size: 12px;
+  color: #6c2122;
+  text-align: right;
+  padding-right: 15px;
+  float: right;
+  cursor: pointer;
+  background-image: image-url('nav_icons.png');
+  background-repeat: no-repeat;
+  background-position: -2px -421px;
+  padding-left: 20px;
+}
+
+.lectures_inline_dropdown_specialty_medicine a, .lectures_inline_dropdown_specialty_surgery a, .lectures_inline_dropdown_specialty_clinical_specialties a, .lectures_inline_dropdown_specialty_clinical_sciences a {
+  width: 365px;
+  padding-left: 25px;
+  padding-top: 27px;
+  padding-bottom: 22px;
+  border-bottom: solid 1px #961E2F;
+  float: left;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.lectures_inline_dropdown .main_nav_inner_lectures_title_wrapper {
+  float: left;
+  width: 100%;
+  margin-top: 25px;
+}
+.lectures_inline_button_wrapper {
+  margin-top: 10px;
+  float: left;
+  width: 100%;
 }
