@@ -143,10 +143,9 @@ feature 'Video Questions' do
  
   scenario 'Saving user progress when correct answer is given' do
    visit video_questions_url(video_id: @video_3.id)
-
-    expect do
-      click_button 'Second Answer'
-    end.to change { user_question_object }.from(false).to(true)
+   expect do 
+     click_button 'Second Answer'
+   end.to change { user_question_object }.from(false).to(true)
   end
 
   scenario 'Update the users points for correct answers' do

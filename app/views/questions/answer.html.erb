@@ -4,7 +4,7 @@
       <div class="lecture_questions_outer_wrapper">
         <div class="lectures_question_title">
           <div class="lectures_question_title_outer_spacing">
-            <%= @question.stem.html_safe %>
+            <%= @quiz.current_question.stem.html_safe %>
           </div>
         </div>
         <div class="lecture_question_blocks">
@@ -14,7 +14,7 @@
               <div class="correct_question_icon"></div>
               <p class="questions_result_sub_title correct_question_sub_title"><strong>Congratulations!</strong> That is the correct answer.</p>
               <div class="default_lecture_question correct_lecture_answer">
-                <p class="lecture_questions_list_left_column"><%= @correct_answer %></p>
+                <p class="lecture_questions_list_left_column"><%= @quiz.correct_answer %></p>
                 <p class="lecture_question_status_icon">Correct</p>
               </div>
             <% else %>
@@ -24,9 +24,9 @@
             <% end %>
 
             <div class="correct_lecture_answer_info" style="display: block">
-              <p><%= simple_format(@question.explanation) %></p>
-              <% if @current_question < @q_ids.length %>
-                <p><%= link_to "Next Question", question_path(@next_question), :class => "red_button medium next_question_button" %></p>
+              <p><%= simple_format(@quiz.current_question.explanation) %></p>
+              <% if @quiz.active? %>
+                <p><%= link_to "Next Question", question_path(@quiz.next_question), :class => "red_button medium next_question_button" %></p>
               <% else %>
                 <p><%= link_to "Result", questions_result_url, :class => "red_button medium" %></p>
               <% end %>
