@@ -2191,28 +2191,54 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
 }
 
 .lecture_icons_wrapper .lecture_icon.recommended_resit .tooltip {
-  width: 313px;
-  height: 43px;
-  background-position: -4px -122px;
-  z-index: 50;
-  margin-right: -6px;
+  width: 302px;
+  height: 50px;
+  background-position: 3px -123px;
+  z-index: 72;
+  margin-right: -1px;
+  margin-top: 34px;
+  padding-left: 30px;
+  padding-right: 23px;
 }
 
-.lecture_icons_wrapper .lecture_icon.resit .tooltip {
-  width: 145px;
-  height: 43px;
-  background-position: -171px -312px;
-  z-index: 50;
-  margin-right: -5px;
+.lecture_icons_wrapper .lecture_icon.recommend_resit .tooltip {
+  width: 281px;
+  height: 70px;
+  background-position: -12px -3px;
+  z-index: 72;
+  margin-right: -1px;
+  margin-top: 44px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .lecture_icons_wrapper .lecture_icon.top_marks .tooltip {
   width: 305px;
   height: 73px;
-  background-position: -14px 2px;
+  background-position: -15px 0px;
   z-index: 50;
   margin-right: -9px;
 }
+
+
+.lecture_icons_wrapper .lecture_icon.not_watched .tooltip {
+  width: 254px;
+  height: 22px;
+  background-position: -62px -390px;
+  z-index: 72;
+  margin-right: -5px;
+}
+
+.lecture_icons_wrapper .lecture_icon.part_watched .tooltip {
+  width: 304px;
+  height: 70px;
+  background-position: -8px -4px;
+  z-index: 72;
+  margin-right: -1px;
+  margin-top: 38px;
+}
+
+
 
 .tooltip span {
   font-size: 16px;
@@ -2728,6 +2754,7 @@ a.video_page_authour_twitter_icon {
   text-align: center;
   line-height: 20px;
   margin-right: 0px;
+  margin-left: -140px;
   right: 38px;
   padding: 30px 15px 20px;
   position: absolute;
