@@ -122,6 +122,15 @@ describe Video do
       expect(Video.recent.first).to eq @new_video
     end
   end
+
+  describe Video, '.increment_view_count' do
+    it "should increment the video view_count by 1" do
+      video = create(:video)
+      video.increment_views
+      video.reload
+      expect(video.views).to eq 1
+    end
+  end
   
 
 end

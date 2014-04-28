@@ -45,6 +45,10 @@ class Video < ActiveRecord::Base
     include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
   end
 
+  def increment_views
+    Video.increment_counter(:views, self.id)
+  end
+
   private
 
   def self.unfinished(vimeos)
