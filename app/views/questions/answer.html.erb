@@ -10,7 +10,7 @@
         <div class="lecture_question_blocks">
           <div class="inner_page_padding">
 
-            <% if @answer == "true" %>
+            <% if @quiz.answered_correct?(params[:answer_given]) %>
               <div class="correct_question_icon"></div>
               <p class="questions_result_sub_title correct_question_sub_title"><strong>Congratulations!</strong> That is the correct answer.</p>
               <div class="default_lecture_question correct_lecture_answer">

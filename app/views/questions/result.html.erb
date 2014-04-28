@@ -5,11 +5,11 @@
         <div class="questions_result_title">
           <div class="questions_final_results">
             <strong>Congratulations! You have completed all the questions.</strong>
-            <p>You answered <%= pluralize(@number_correct, 'question') %>  correctly out of a total of <%= pluralize(@total_questions, 'question') %>.</p>
-            <% if @total_questions < 30 %>
-              <%= link_to "Back to Video", video_path(@video), :class => "red_button" %>
+            <p>You answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>.</p>
+            <% if @quiz.total_questions < 30 %>
+              <%= link_to "Back to Video", video_path(@quiz.video), :class => "red_button" %>
             <% else %>
-              <%= link_to "Back to Specialty", specialty_path(@video.specialty), :class => "red_button" %>
+              <%= link_to "Back to Specialty", specialty_path(@quiz.video.specialty), :class => "red_button" %>
             <% end %>
           </div>
         </div>
