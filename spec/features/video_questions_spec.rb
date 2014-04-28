@@ -143,6 +143,8 @@ feature 'Video Questions' do
  
   scenario 'Saving user progress when correct answer is given' do
    visit video_questions_url(video_id: @video_3.id)
+   record = UserQuestion.where(user_id: @user.id).where(question_id: @video_3.question_ids.first).first
+   expect(record.correct_answer).to be(false)
    expect do 
      click_button 'Second Answer'
    end.to change { user_question_object }.from(false).to(true)
