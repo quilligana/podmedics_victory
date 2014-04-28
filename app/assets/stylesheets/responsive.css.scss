@@ -1334,8 +1334,22 @@ $standard_border_radius: 6px;
   display: none;
   }
 
+  .lectures_inline_dropdown {
+    width: 301px;
+  }
+  .lectures_inline_dropdown .right_column_search_field .navigation_search_field {
+    width: 217px;
+  }
 
 
+  a.lectures_inline_dropdown_category_link {
+    width: 276px;
+    background-position: 265px -449px;
+  }
+
+  .lectures_inline_dropdown_specialty_medicine a, .lectures_inline_dropdown_specialty_surgery a, .lectures_inline_dropdown_specialty_clinical_specialties a, .lectures_inline_dropdown_specialty_clinical_sciences a {
+    width: 276px;
+  }
 }
 
 
