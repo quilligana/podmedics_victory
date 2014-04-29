@@ -334,18 +334,6 @@ ul[data-pie-id] {
   margin-left: -440px;
 }
 
-.reveal-modal .close-reveal-modal {
-  font-size: 22px;
-  line-height: .5;
-  position: absolute;
-  top: 8px;
-  right: 11px;
-  color: #aaa;
-  text-shadow: 0 -1px 1px rbga(0, 0, 0, 0.6);
-  font-weight: bold;
-  cursor: pointer;
-}
-
 .video_complete_icon {
   background-image: image-url('video_complete_icon.png');
 
@@ -3275,4 +3263,17 @@ background-color: #961E2F;
   margin-top: 10px;
   float: left;
   width: 100%;
+}
+
+
+.badge_awarded_wrapper {
+  text-align: center;
+}
+
+.badge_awarded_wrapper .badge {
+  display: inline-block;
+  float: none;
+  clear: both;
+  margin-bottom: 0px;
+  margin-right: 0px;
 }
