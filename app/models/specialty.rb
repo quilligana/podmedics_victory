@@ -2,6 +2,8 @@ class Specialty < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  after_commit :flush_cache
+
   belongs_to :category
   
   has_many :videos, -> { order("position ASC") }
@@ -15,6 +17,14 @@ class Specialty < ActiveRecord::Base
   validates :name, presence: true
 
   delegate :name, to: :category, prefix: true
+
+  def self.cached_find(id)
+    Rails.cache.fetch([name, id], expires_in: 5.minutes) { find(id) }
+  end
+
+  def flush_cache
+    Rails.cache.delete([self.class.name, id])
+  end
 
   def title
     name

@@ -2,8 +2,8 @@ class Comment < ActiveRecord::Base
   
   default_scope { includes(:votes, :comments, :user).order(created_at: :desc) }
 
-  belongs_to :commentable, polymorphic: true
-  belongs_to :root, polymorphic: true
+  belongs_to :commentable, polymorphic: true, touch: true
+  belongs_to :root, polymorphic: true, touch: true
   belongs_to :user
   
   has_many :comments, as: :commentable, dependent: :destroy

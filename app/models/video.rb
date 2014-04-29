@@ -25,6 +25,18 @@ class Video < ActiveRecord::Base
   delegate :twitter, to: :author, prefix: true
   delegate :facebook, to: :author, prefix: true
 
+  def cached_comments(include_hidden = false)
+    Rails.cache.fetch([self, "comments"]) { get_comments.to_a }
+  end
+
+  def cached_comments_count
+    Rails.cache.fetch([self, "comments_count"]) { comments_count }
+  end
+
+  def cached_questions_count
+    Rails.cache.fetch([self, "questions_count"]) { questions.count }
+  end
+
   def self.recent
     order(created_at: :desc)
   end

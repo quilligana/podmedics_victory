@@ -3,7 +3,7 @@
     <div class="video_page_heading_wrapper">
       <h1><%= @video.title %></h1>
       <p class="video_breadcrumb">
-        <%= link_to @video.specialty_name, specialty_path(@video.specialty) %>
+        <%= link_to @specialty.name, specialty_path(@specialty) %>
         / 
         <%= link_to @video.title, video_path(@video) %>
       </p>
@@ -63,7 +63,7 @@
       <div class="lectures_speciality_outer_wrapper">
         <div id="tabs">
           <ul>
-            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.comments_count %>)</p><p class="icon"></p></a></li>
+            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.cached_comments_count %>)</p><p class="icon"></p></a></li>
           </ul>
 
           <div id="tabs_container">
@@ -71,7 +71,7 @@
               <div>
                 <div class="questions_answers_main_question video_page_comments_wrapper" >
 
-                  <% if @video.comments_count == 0 %>
+                  <% if @video.cached_comments_count == 0 %>
                   <div class="no_questions_reply_wrapper">
                     Nothing posted yet. 
                     <a href="javascript:;">
@@ -87,7 +87,7 @@
                   </div>
 
                   <div class="question_comments_outer">
-                    <%= render partial: 'comments/comment', collection: @video.get_comments %>
+                    <%= render partial: 'comments/comment', collection: @video.cached_comments %>
                   </div>
 
                 </div>
@@ -106,7 +106,7 @@
       <div class="video_page_right_column_lower_info">
         <p>Video Duration: <strong><%= @video.duration %> minutes</strong></p>
         <p>Views: <strong><%= @video.views %></strong></p>
-        <p>Comments: <strong><%= @video.comments_count %></strong></p>
+        <p>Comments: <strong><%= @video.cached_comments_count %></strong></p>
       </div>
     </div>
 
