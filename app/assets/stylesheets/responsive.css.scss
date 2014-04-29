@@ -524,7 +524,28 @@ $standard_border_radius: 6px;
   .plans_column {
     margin-right: 30px;
   }
+  .sub_heading_wrapper .sub_heading_button_set {
+    float: left;
+    clear: both;
+    margin-top: 15px;
+  }
 
+
+
+  .lectures_inline_dropdown {
+
+    margin-left: 0px;
+    z-index: 10;
+    -moz-border-radius-topleft: 0px 0px;
+    border-top-left-radius: 0px 0px;
+
+    -moz-border-radius-topright: 6px 6px;
+    border-top-right-radius: 6px 6px;
+
+  }
+  .exam_button_tooltip_wrapper .exam_button_tooltip {
+    left: -5000px;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -543,6 +564,9 @@ $standard_border_radius: 6px;
     border-bottom: solid 1px #f6f6f6;
     border-right: none;
   }
+
+
+
 
 }
 @media screen and (max-width: 720px) {
@@ -874,19 +898,18 @@ $standard_border_radius: 6px;
   .default_lecture_question.correct_lecture_answer {
     padding-bottom: 15px;
   }
+
 }
 
 @media screen and (max-width: 600px) {
-
+  .exam_button_tooltip_wrapper .exam_button_tooltip {
+    left: -5000px;
+  }
   .page.dashboard_page #tabs .dashboard_pie_charts ul {
     width: 90px;
   }
 
-  .sub_heading_wrapper .sub_heading_button_set {
-    float: left;
-    clear: both;
-    margin-top: 15px;
-  }
+
   .sub_heading_dashboard_info {
     float: left;
     text-align: left;
@@ -1057,6 +1080,9 @@ $standard_border_radius: 6px;
     min-width: 230px;
     margin-right: 0px;
   }
+  a.podmedcis_button.white_button.ask_question_sub_heading_button {
+    margin-bottom: 15px;
+  }
 }
 @media screen and (max-width: 550px) {
 
@@ -1072,6 +1098,7 @@ $standard_border_radius: 6px;
 
 
 }
+
 }
 
 @media screen and (max-width: 450px) {
@@ -1155,9 +1182,7 @@ $standard_border_radius: 6px;
     padding-left: 4%;
 
   }
-  a.podmedcis_button.white_button.ask_question_sub_heading_button {
-    margin-bottom: 15px;
-  }
+
   .reveal-modal.ask_question_modal_resize {
     width: 300px;
     margin-left: -150px;
