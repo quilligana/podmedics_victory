@@ -38,6 +38,7 @@ group :development do
   gem 'rails_layout'
   gem 'binding_of_caller'
   gem 'nifty-generators'
+  gem 'rack-mini-profiler'
 end
 
 group :development, :test do
