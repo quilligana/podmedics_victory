@@ -113,6 +113,15 @@ ready = function() {
     $(redactor_box).html($("#note_content").attr("value"));
   });
 
+
+
+
+  $("#save_new_note_button").click(function(){
+    $(".right_column_save_note_button").toggleClass('animated fadeOutRight').fadeToggle(1);
+    $(".video_page_notes_column").addClass('animated fadeInRight').fadeToggle(1);
+  });
+
+
   $(".notes_saved_button").click(function(){
     $( this ).toggleClass('active_notes_saved_button');
     $("#speciality_default_right_column").toggleClass('animated fadeOutRight').fadeToggle(1);

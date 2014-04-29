@@ -3284,3 +3284,31 @@ background-color: #961E2F;
 }
 
 
+.video_page_notes_column {
+  display: none;
+  border-bottom: solid 1px #EFEFEF;
+  padding-bottom: 30px;
+  float: left;
+  width: 100%;
+}
+
+
+.right_column_save_note_button_wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.right_column_save_note_button {
+  float: left;
+  width: 100%;
+  border-bottom: solid 1px #EFEFEF;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.right_column_save_note_button a.podmedcis_button.grey {
+  width: 100%;
+  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
