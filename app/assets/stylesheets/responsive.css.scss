@@ -781,20 +781,12 @@ $standard_border_radius: 6px;
 
   .lecture_list_item .lecture_icons_wrapper {
     float: left;
-    width: 100%;
-    min-width: 100%;
     margin-right: 0px;
+    margin-left: 15px;
     margin-top: 15px;
   }
 
-  .lecture_icons_wrapper .lecture_icon.watched .tooltip {
-    display: none;
-    position: absolute;
-    top: -500px;
-    left: -500px;
-
-  }
-  .lecture_icons_wrapper .lecture_icon.resit .tooltip {
+  .lecture_icons_wrapper .lecture_icon .tooltip {
     display: none;
     position: absolute;
     top: -500px;
@@ -802,12 +794,6 @@ $standard_border_radius: 6px;
 
   }
 
-  .lecture_icons_wrapper .lecture_icon.top_marks .tooltip {
-    display: none;
-    position: absolute;
-    top: -500px;
-    left: -500px;
-  }
 
 
 
