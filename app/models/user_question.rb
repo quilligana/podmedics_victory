@@ -14,10 +14,9 @@ class UserQuestion < ActiveRecord::Base
   end
 
   def self.save_answer(q_id, user, answer)
-    user_question = self.where(question_id: q_id).where(user_id: user.id).first
-
-    if answer == "true" && user_question.correct_answer == false
-      user_question.update_attributes(correct_answer: true)
+    record = self.where(question_id: q_id).where(user_id: user.id).first
+    if record.correct_answer == false
+      record.update_attributes(correct_answer: true)
       user.add_points_for_answer
     end
   end

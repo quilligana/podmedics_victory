@@ -1,11 +1,11 @@
 <%= show_answer(1) %>
 <%= show_answer(2) %>
-<% if @question.answer_3? %>
+<% if @quiz.current_question.answer_3? %>
   <%= show_answer(3) %>
 <% end %>
-<% if @question.answer_4? %>
+<% if @quiz.current_question.answer_4? %>
   <%= show_answer(4) %>
 <% end %>
-<% if @question.answer_5? %>
+<% if @quiz.current_question.answer_5? %>
   <%= show_answer(5) %>
 <% end %>
