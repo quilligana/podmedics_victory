@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "specialty notes", js: true do
+describe "notes", js: true do
 
   before do
     @content = "This is the content"

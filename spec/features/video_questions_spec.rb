@@ -118,7 +118,7 @@ feature 'Video Questions' do
     expect(page).to have_content 'You are just 4 points away from becoming a:Medical Student'
     
     click_button 'Second Answer'
-    expect(page).to have_content 'Congratulations! You have just been awarded a new badge Medical Student'
+    expect(page).to have_content 'Congratulations! You have just been awarded a new badge'
     expect(page).to have_content 'You are just 10 points away from becoming a:House Officer'
 
     click_link 'Result'
