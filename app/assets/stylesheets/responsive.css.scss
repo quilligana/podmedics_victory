@@ -1361,6 +1361,7 @@ $standard_border_radius: 6px;
   .lectures_inline_dropdown_specialty_medicine a, .lectures_inline_dropdown_specialty_surgery a, .lectures_inline_dropdown_specialty_clinical_specialties a, .lectures_inline_dropdown_specialty_clinical_sciences a {
     width: 276px;
   }
+
 }
 
 
@@ -1509,6 +1510,10 @@ $standard_border_radius: 6px;
   }
   .plans_column {
     width: 100%;
+  }
+  a.podmedcis_button.white_button.ask_question_sub_heading_button {
+    margin-bottom: 15px;
+    margin-top: 15px;
   }
 }
 
