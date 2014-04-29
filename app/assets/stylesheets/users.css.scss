@@ -170,7 +170,9 @@ p.badge_speciality.small_screen_count {
 
 .dashboard_badges_overview_inner_border {
   border-right: solid 1px #E0E0E0;
-  float: left; }
+  float: left;
+  width: 100%;
+}
 
 [data-pie-id] li:nth-child(0) {
   color: blue; }
