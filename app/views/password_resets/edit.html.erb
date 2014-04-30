@@ -1,0 +1,55 @@
+<%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inner login_page_inner">
+
+    <div class="sub_heading_wrapper">
+      <h1>Password Reset</h1>
+    </div>
+
+    <div class="page">
+      <div class="left_column_forms">
+
+        <div class="login_ignup_form_wrapper" id="members_login_form">
+
+          <p class="password_reset_subtitle">Enter &amp; confirm your new password below</p>
+
+          <div class="field password_reset_field">
+            <%= f.password_field :password, placeholder: 'Password', class: 'podmedics_textfield' %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'podmedics_textfield' %>
+          </div>
+
+          <div class="actions">
+            <%= button_tag 'Update Password', class: "red_button" %>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <%= content_for :footer do %>
+    <div class="inline_footer_wrapper login_page_footer">
+      <%= render 'footer' %>
+    </div>
+  <% end %>
+
+
+<% end %>

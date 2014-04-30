@@ -30,6 +30,12 @@ describe Permission do
       expect(subject.allow?('courses', 'index')).to be_true
     end
 
+    it "allows password recovery" do
+      expect(subject.allow?('password_resets', 'create')).to be_true
+      expect(subject.allow?('password_resets', 'edit')).to be_true
+      expect(subject.allow?('password_resets', 'update')).to be_true
+    end
+
   end
 
   describe 'as a user' do

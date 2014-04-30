@@ -28,8 +28,8 @@ gem 'delayed_job_active_record'
 gem 'dalli'
 gem 'memcachier'
 gem 'paperclip'
-gem 'aws-s3'
 gem 'aws-sdk'
+gem 'httparty'
 
 group :development do
   gem 'thin'
@@ -38,6 +38,7 @@ group :development do
   gem 'rails_layout'
   gem 'binding_of_caller'
   gem 'nifty-generators'
+  gem 'letter_opener'
   gem 'rack-mini-profiler'
 end
 
