@@ -3180,6 +3180,8 @@ a.podmedcis_button.lectures_dropdown_button {
   -moz-border-radius-bottomright: 6px 6px;
   border-bottom-right-radius: 6px 6px;
   display: none;
+
+
 }
 
 
@@ -3273,6 +3275,11 @@ background-color: #961E2F;
   width: 100%;
 }
 
+.lectures_inline_dropdown .lectures_inline_dropdown_specialty_medicine {
+  max-height: 520px;
+  overflow-x: scroll;
+  float: left;
+}
 
 .badge_awarded_wrapper {
   text-align: center;
