@@ -23,11 +23,13 @@
         <div class="login_ignup_form_wrapper" id="members_login_form">
 
           <div class="field">
-            <%= f.password_field :password, nil, class: "podmedics_textfield", placeholder: 'Password', autofocus: true  %>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
           </div>
 
           <div class="field">
-            <%= f.password_field :password_confirmation, nil, class: "podmedics_textfield", placeholder: 'Password Confirmation' %>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
           </div>
 
           <div class="actions">
