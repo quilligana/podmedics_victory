@@ -17,13 +17,12 @@ class SpecialtyQuestion < ActiveRecord::Base
   end
   
   def cached_answers(include_hidden = false)
-    Rails.cache.fetch([self, "comments"]) { get_answers(include_hidden).to_a }
+    Rails.cache.fetch([self, include_hidden, "comments"]) { get_answers(include_hidden).to_a }
   end
 
   def cached_comments_count(include_hidden = false)
-    Rails.cache.fetch([self, "comments_count"]) { comments_count(include_hidden) }
-  end
-  
+    Rails.cache.fetch([self, include_hidden, "comments_count"]) { comments_count(include_hidden) }
+  end  
 
   # Answer functions
 

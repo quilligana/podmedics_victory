@@ -28,11 +28,11 @@ class Video < ActiveRecord::Base
   # Caching functions
 
   def cached_comments(include_hidden = false)
-    Rails.cache.fetch([self, "comments"]) { get_comments.to_a }
+    Rails.cache.fetch([self, include_hidden, "comments"]) { get_comments.to_a }
   end
 
   def cached_comments_count(include_hidden = false)
-    Rails.cache.fetch([self, "comments_count"]) { comments_count(include_hidden) }
+    Rails.cache.fetch([self, include_hidden, "comments_count"]) { comments_count(include_hidden) }
   end
 
   def cached_questions_count
