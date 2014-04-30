@@ -28,8 +28,8 @@ gem 'delayed_job_active_record'
 gem 'dalli'
 gem 'memcachier'
 gem 'paperclip'
-gem 'aws-s3'
 gem 'aws-sdk'
+gem 'httparty'
 
 group :development do
   gem 'thin'
