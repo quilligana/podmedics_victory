@@ -24,12 +24,12 @@
 
           <div class="field">
             <%= f.label :password %>
-            <%= f.password_field :password %>
+            <%= f.password_field :password, placeholder: 'Password', class: 'podmedics_textfield' %>
           </div>
 
           <div class="field">
             <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %>
+            <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'podmedics_textfield' %>
           </div>
 
           <div class="actions">
@@ -42,5 +42,14 @@
     </div>
 
   </div>
+
+
+
+  <%= content_for :footer do %>
+    <div class="inline_footer_wrapper login_page_footer">
+      <%= render 'footer' %>
+    </div>
+  <% end %>
+
 
 <% end %>
