@@ -14,10 +14,10 @@
     <%= render partial: 'notes/form' %>
   </div>
 
-  <% if @specialty.notes.count > 0 %>
+  <% if @specialty.cached_notes_count > 0 %>
     <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
-      <p class="questions_info_right_column_number"><%= @specialty.notes.count %></p>
-      <p><%= pluralize(@specialty.notes.count, 'Note').split[1] %> saved within Cardiology</p>
+      <p class="questions_info_right_column_number"><%= @specialty.cached_notes_count %></p>
+      <p><%= pluralize(@specialty.cached_notes_count, 'Note').split[1] %> saved within Cardiology</p>
     </a>
   <% end %>
 
@@ -33,12 +33,12 @@
 
     <div class="questions_info_right_column_section speciality_inline_count_blocks">
       <div class="speciality_count_block">
-        <p class="questions_info_right_column_number videos_count_block"><%= @specialty.videos.count %></p>
+        <p class="questions_info_right_column_number videos_count_block"><%= @specialty.cached_videos_count %></p>
         <p>Videos</p>
       </div>
 
       <div class="speciality_count_block">
-        <p class="questions_info_right_column_number questions_count_block"><%= @specialty.questions.count %></p>
+        <p class="questions_info_right_column_number questions_count_block"><%= @specialty.cached_questions_count %></p>
         <p>Questions</p>
       </div>
 

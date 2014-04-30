@@ -2,7 +2,7 @@ class Note < ActiveRecord::Base
 
   belongs_to :noteable, polymorphic: true
   belongs_to :user, touch: true
-  belongs_to :specialty
+  belongs_to :specialty, touch: true
 
   validates :content, presence: true
 

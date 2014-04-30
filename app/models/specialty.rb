@@ -18,12 +18,26 @@ class Specialty < ActiveRecord::Base
 
   delegate :name, to: :category, prefix: true
 
+  # Cache functions
+
   def self.cached_find(id)
     Rails.cache.fetch([name, id], expires_in: 5.minutes) { find(id) }
   end
 
   def flush_cache
     Rails.cache.delete([self.class.name, id])
+  end
+
+  def cached_notes_count
+    Rails.cache.fetch([self, "notes_count"]) { notes.size }
+  end
+
+  def cached_videos_count
+    Rails.cache.fetch([self, "videos_count"]) { videos.size }
+  end
+
+  def cached_questions_count
+    Rails.cache.fetch([self, "questions_count"]) { questions.size }
   end
 
   def title
