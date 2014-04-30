@@ -40,6 +40,14 @@ class Specialty < ActiveRecord::Base
     Rails.cache.fetch([self, "questions_count"]) { questions.size }
   end
 
+  def cached_specialty_questions_count
+    Rails.cache.fetch([self, "specialty_questions_count"]) { user_questions.size }
+  end
+
+  def cached_specialty_questions(page)
+    Rails.cache.fetch([self, page, "specialty_questions"]) { user_questions.page(page).order('created_at DESC').to_a }
+  end
+
   def title
     name
   end

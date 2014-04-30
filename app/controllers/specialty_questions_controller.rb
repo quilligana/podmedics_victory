@@ -18,7 +18,7 @@ class SpecialtyQuestionsController < ApplicationController
   end
   
   def index
-    @questions = SpecialtyQuestion.where(specialty_id: @specialty.id).page(1).order('created_at DESC')
+    @questions = @specialty.cached_specialty_questions(1)
   end
 
   def show
@@ -31,7 +31,7 @@ class SpecialtyQuestionsController < ApplicationController
   def load
     # Using will-paginate to get the SpecialtyQuestions in chunks.
     # Amount on each page defined in constants.rb
-    @questions = SpecialtyQuestion.where(specialty_id: @specialty.id).page(params[:page]).order('created_at DESC')
+    @questions = @specialty.cached_specialty_questions(params[:page])
 
     # This is the page number that will be included in the new 'load more questions' link.
     @next_page_number = params[:page].to_i + 1

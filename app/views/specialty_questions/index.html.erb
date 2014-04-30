@@ -52,7 +52,7 @@
             <div id="tabs-2" class="tab_box">
               <div class="questions_answers_list">
 
-                <% if @specialty.user_questions.count == 0 %>
+                <% if @specialty.cached_specialty_questions_count == 0 %>
                   <div class="no_questions_reply_wrapper">
                     Nothing posted yet.
                     <a href="javascript:;"  data-reveal-id="ask_question_modal">
@@ -61,7 +61,7 @@
                   </div>
                 <% end %>
                 <!-- End nothing posted yet -->
-                <%= render partial: 'question', collection: @questions %>
+                <%= render partial: 'question', collection: @specialty.cached_specialty_questions(1) %>
                 <!-- End questions list -->
 
                 <div class="load_more_questions_answers_wrapper">

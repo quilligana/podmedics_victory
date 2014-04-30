@@ -1,7 +1,7 @@
 class SpecialtyQuestion < ActiveRecord::Base
   
   belongs_to :user, touch: true
-  belongs_to :specialty
+  belongs_to :specialty, touch: true
 
   has_many :answers, as: :commentable, class_name: 'Comment', dependent: :destroy
   has_many :nested_answers, as: :root, class_name: 'Comment'
