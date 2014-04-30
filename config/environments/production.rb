@@ -29,7 +29,7 @@ PodmedicsVictory::Application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # Generate digests for assets URLs.
+  # Generate digests for assets URLs, required to be true for CDN Sumo (fastly)
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
@@ -54,8 +54,9 @@ PodmedicsVictory::Application.configure do
   # Use a different cache store in production.
   config.cache_store = :dalli_store
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # Setup CDN Sumo asset hosting
+  config.action_controller.asset_host = ENV['CDN_SUMO_URL']
+  config.static_cache_control = "public, max-age=2592000"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

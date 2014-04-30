@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417171653) do
+ActiveRecord::Schema.define(version: 20140430170413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,6 +132,13 @@ ActiveRecord::Schema.define(version: 20140417171653) do
 
   add_index "questions", ["video_id"], name: "index_questions_on_video_id", using: :btree
 
+  create_table "speciality_questions", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialties", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -149,6 +156,22 @@ ActiveRecord::Schema.define(version: 20140417171653) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "specialty_id"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["video_id"], name: "index_taggings_on_video_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_questions", force: true do |t|
