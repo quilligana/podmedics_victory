@@ -22,11 +22,11 @@ class NotesController < ApplicationController
   end
 
   def load
-    @notes = Note.find(params[:id])
+    @notes = Note.cached_find(params[:id])
   end
 
   def destroy
-    @notes = Comment.find(params[:id])
+    @notes = Note.cached_find(params[:id])
     if @notes.cached_user == current_user || current_user.admin?
       @notes.destroy
       redirect_to :back, notice: "Successfully destroyed notes."

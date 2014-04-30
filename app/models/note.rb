@@ -8,10 +8,28 @@ class Note < ActiveRecord::Base
 
   before_create :set_specialty
 
-  # Caching functions
+  after_commit :flush_cache
+
+  # Cache functions
+
+  def self.cached_find(id)
+    Rails.cache.fetch([name, id]) { find_by_id(id) }
+  end
+
+  def flush_cache
+    Rails.cache.delete([self.class.name, id])
+  end
 
   def cached_user
     User.cached_find(user_id)
+  end
+
+  def cached_noteable 
+    Rails.cache.fetch([self, "noteable"]) { noteable }
+  end
+
+  def cached_title
+    Rails.cache.fetch([self, "title"]) { get_title }
   end
   
   def get_title
