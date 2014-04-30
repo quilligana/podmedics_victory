@@ -71,7 +71,7 @@ class SpecialtyQuestionsController < ApplicationController
     end
 
     def load_specialty_notes
-      @notes = @specialty.notes.find_by(user: current_user) || Note.new(noteable: @specialty)
+      @notes = @specialty.cached_specialty_note(current_user) || Note.new(noteable: @specialty)
     end
 
 end

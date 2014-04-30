@@ -53,6 +53,17 @@ class Specialty < ActiveRecord::Base
     Rails.cache.fetch([self, page, "specialty_questions"]) { user_questions.page(page).order('created_at DESC').to_a }
   end
 
+  # These are notes made directly on a specialty
+  def cached_specialty_note(user)
+    Rails.cache.fetch([self, user.id, "direct_notes"]) { direct_notes.find_by(user: user) }
+  end
+
+  # These are all the notes on a specialty, i.e. those on videos for a specialty
+  def cached_notes
+    Rails.cache.fetch([self, "notes"]) { notes.to_a }
+  end
+
+
   def title
     name
   end

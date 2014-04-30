@@ -51,7 +51,7 @@
   <!-- End speciality right column count -->
 
   <div class="main_notes_right_column_wrapper">
-    <%= render partial: 'notes/note', collection: @specialty.notes %>
+    <%= render partial: 'notes/note', collection: @specialty.cached_notes %>
   </div>
   <!-- End notes list wrapper -->
 
