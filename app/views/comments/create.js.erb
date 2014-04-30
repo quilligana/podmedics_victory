@@ -63,7 +63,7 @@ if @comment
 	comment_root_type = @comment.root_type
 	comment_root_id = @comment.root_id
 
-	comment_count = @comment.root.comments_count
+	comment_count = @comment.root.cached_comments_count
 
 	comment_parent_type = @comment.commentable.class.name
 

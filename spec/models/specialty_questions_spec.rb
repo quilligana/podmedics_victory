@@ -19,7 +19,6 @@ describe SpecialtyQuestion do
   it { should respond_to :specialty }
   it { should respond_to :comments_count }
   it { should respond_to :get_answers }
-  it { should respond_to :comments_count }
   it { should respond_to :accept_answer }
   it { should respond_to :accepted_answer }
   it { should respond_to :already_accepted_answer? }
@@ -52,7 +51,7 @@ describe SpecialtyQuestion do
     end
   end
 
-  describe ".comments_count" do
+  describe ".answers_count" do
     before do
       comment = create(:comment, user: @user, commentable: @specialty_question)
       hidden_comment = create(:hidden_comment, user: @user, commentable: @specialty_question)

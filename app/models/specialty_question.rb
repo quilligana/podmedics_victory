@@ -23,12 +23,12 @@ class SpecialtyQuestion < ActiveRecord::Base
 
   # Answers count
   
-  def answers_count(include_hidden = false)
+  def comments_count(include_hidden = false)
     include_hidden ? self.nested_answers.size : self.nested_answers.available.size
   end
 
-  def cached_answers_count(include_hidden = false)
-    Rails.cache.fetch([self, "comments_count"]) { answers_count(include_hidden) }
+  def cached_comments_count(include_hidden = false)
+    Rails.cache.fetch([self, "comments_count"]) { comments_count(include_hidden) }
   end
   
 
