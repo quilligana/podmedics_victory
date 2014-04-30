@@ -25,7 +25,7 @@ class Admin::SpecialtiesController < InheritedResources::Base
   private
 
     def set_specialty
-      @specialty = Specialty.friendly.find(params[:id])
+      @specialty = Specialty.cached_friendly_find(params[:id])
     end
 
 end

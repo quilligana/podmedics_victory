@@ -2,7 +2,7 @@ class SpecialtiesController < ApplicationController
   layout 'user_application'
 
   def show
-    @specialty = Specialty.friendly.find(params[:id]) 
+    @specialty = Specialty.cached_friendly_find(params[:id]) 
     @videos = @specialty.videos
     @user_progress = UserProgress.new(@specialty, current_user)
     @newQuestion = SpecialtyQuestion.new()

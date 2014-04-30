@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def specialty_index
-    specialty = Specialty.friendly.find(params[:id])
+    specialty = Specialty.cached_friendly_find(params[:id])
     video_ids = specialty.video_ids
     @question_ids = Question.where("video_id IN (?)", video_ids).limit(30).order("RANDOM()").pluck(:id)
     initiate_questions

@@ -59,7 +59,7 @@ class SpecialtyQuestionsController < ApplicationController
     end
 
     def get_specialty
-      @specialty = Specialty.friendly.find(params[:specialty_id])
+      @specialty = Specialty.cached_friendly_find(params[:specialty_id])
     end
 
     def load_user_progress

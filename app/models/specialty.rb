@@ -24,8 +24,13 @@ class Specialty < ActiveRecord::Base
     Rails.cache.fetch([name, id], expires_in: 5.minutes) { find(id) }
   end
 
+  def self.cached_friendly_find(slug)
+    Rails.cache.fetch([name, slug], expires_in: 5.minutes) { friendly.find(slug) }
+  end
+
   def flush_cache
     Rails.cache.delete([self.class.name, id])
+    Rails.cache.delete([self.class.name, slug])
   end
 
   def cached_notes_count
