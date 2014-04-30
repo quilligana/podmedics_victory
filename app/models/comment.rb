@@ -22,6 +22,10 @@ class Comment < ActiveRecord::Base
     User.cached_find(user_id)
   end
 
+  def cached_comments(include_hidden = false)
+    Rails.cache.fetch([self, "comments"]) { get_comments(include_hidden).to_a }
+  end
+
   def self.available
     where(hidden: false)
   end
