@@ -17,6 +17,8 @@ describe Video do
   it { should have_many :comments }
   it { should have_many :nested_comments }
   it { should have_many :notes }
+  it { should have_many :taggings }
+  it { should have_many(:tags).through(:taggings) }
   
   it { should validate_presence_of :title }
   it { should validate_presence_of :description }
