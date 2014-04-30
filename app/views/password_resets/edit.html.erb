@@ -11,17 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+  <div class="inner login_page_inner">
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Update Password" %>
+    <div class="sub_heading_wrapper">
+      <h1>Password Reset</h1>
+    </div>
+
+    <div class="page">
+      <div class="left_column_forms">
+
+        <div class="login_ignup_form_wrapper" id="members_login_form">
+
+          <div class="field">
+            <%= f.password_field :password, nil, class: "podmedics_textfield", placeholder: 'Password', autofocus: true  %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password_confirmation, nil, class: "podmedics_textfield", placeholder: 'Password Confirmation' %>
+          </div>
+
+          <div class="actions">
+            <%= button_tag 'Update Password', class: "red_button" %>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
 <% end %>
