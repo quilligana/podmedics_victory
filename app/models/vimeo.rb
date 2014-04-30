@@ -6,6 +6,10 @@ class Vimeo < ActiveRecord::Base
   validates :user_id, presence: true
   validates :video_id, presence: true
 
+  def self.cached_find(user_id, video_id)
+    Rails.cache.fetch([name, user_id, video_id]) { User.cached_find(user_id).vimeos.where(video_id: video_id).first }
+  end
+
   def self.register_ids(video_id, user)
     unless self.find_by(user_id: user.id, video_id: video_id)
       user.vimeos.create(video_id: video_id)
@@ -25,6 +29,10 @@ class Vimeo < ActiveRecord::Base
       vimeo.update_attributes(completed: true)
       User.find_by(id: user_id).add_points_for_video
     end
+  end
+
+  def self.flush_cache(user_id, params)
+    Rails.cache.delete([name, user_id, get_video(params[:path])])
   end
 
 private

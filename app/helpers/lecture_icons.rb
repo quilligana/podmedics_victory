@@ -95,7 +95,7 @@ private
   end
 
   def check_vimeo
-    @current_user.vimeos.where(video_id: @video.id).first
+    Vimeo.cached_find(@current_user.id, @video.id)
   end
 
   def check_questions
