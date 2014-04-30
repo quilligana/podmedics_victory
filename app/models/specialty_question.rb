@@ -10,13 +10,29 @@ class SpecialtyQuestion < ActiveRecord::Base
   validates :user, presence: true
   validates :specialty, presence: true
 
-  def comments_count(include_hidden = false)
-    include_hidden ? self.nested_answers.size : self.nested_answers.available.size
-  end
+  # Answers
 
   def get_answers(include_hidden = false)
     include_hidden ? self.answers.sort_by(&:score).reverse : self.answers.available.sort_by(&:score).reverse
   end
+  
+  def cached_answers(include_hidden = false)
+    Rails.cache.fetch([self, "comments"]) { get_answers(include_hidden).to_a }
+  end
+
+
+  # Answers count
+  
+  def answers_count(include_hidden = false)
+    include_hidden ? self.nested_answers.size : self.nested_answers.available.size
+  end
+
+  def cached_answers_count(include_hidden = false)
+    Rails.cache.fetch([self, "comments_count"]) { answers_count(include_hidden) }
+  end
+  
+
+  # Accepted Answer functions
 
   def accept_answer(answer, user)
     if !already_accepted_answer? && self.user == user && answer.acceptable?
