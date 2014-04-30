@@ -1,6 +1,6 @@
 class SpecialtyQuestion < ActiveRecord::Base
   
-  belongs_to :user
+  belongs_to :user, touch: true
   belongs_to :specialty
 
   has_many :answers, as: :commentable, class_name: 'Comment', dependent: :destroy
@@ -10,21 +10,14 @@ class SpecialtyQuestion < ActiveRecord::Base
   validates :user, presence: true
   validates :specialty, presence: true
 
-  # Answers
+  # Caching functions
 
-  def get_answers(include_hidden = false)
-    include_hidden ? self.answers.sort_by(&:score).reverse : self.answers.available.sort_by(&:score).reverse
+  def cached_user
+    User.cached_find(user_id)
   end
   
   def cached_answers(include_hidden = false)
     Rails.cache.fetch([self, "comments"]) { get_answers(include_hidden).to_a }
-  end
-
-
-  # Answers count
-  
-  def comments_count(include_hidden = false)
-    include_hidden ? self.nested_answers.size : self.nested_answers.available.size
   end
 
   def cached_comments_count(include_hidden = false)
@@ -32,10 +25,21 @@ class SpecialtyQuestion < ActiveRecord::Base
   end
   
 
+  # Answer functions
+
+  def get_answers(include_hidden = false)
+    include_hidden ? self.answers.sort_by(&:score).reverse : self.answers.available.sort_by(&:score).reverse
+  end
+
+  def comments_count(include_hidden = false)
+    include_hidden ? self.nested_answers.size : self.nested_answers.available.size
+  end  
+
+
   # Accepted Answer functions
 
   def accept_answer(answer, user)
-    if !already_accepted_answer? && self.user == user && answer.acceptable?
+    if !already_accepted_answer? && self.cached_user == user && answer.acceptable?
       answer.accept
     end
   end

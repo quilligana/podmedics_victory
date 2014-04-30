@@ -25,17 +25,32 @@ class Video < ActiveRecord::Base
   delegate :twitter, to: :author, prefix: true
   delegate :facebook, to: :author, prefix: true
 
+  # Caching functions
+
   def cached_comments(include_hidden = false)
     Rails.cache.fetch([self, "comments"]) { get_comments.to_a }
   end
 
-  def cached_comments_count
-    Rails.cache.fetch([self, "comments_count"]) { comments_count }
+  def cached_comments_count(include_hidden = false)
+    Rails.cache.fetch([self, "comments_count"]) { comments_count(include_hidden) }
   end
 
   def cached_questions_count
     Rails.cache.fetch([self, "questions_count"]) { questions.count }
   end
+
+
+  # Comment functions
+
+  def comments_count(include_hidden = false)
+    include_hidden ? self.nested_comments.size : self.nested_comments.available.size
+  end
+
+  def get_comments(include_hidden = false)
+    include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
+  end
+
+  # Class functions
 
   def self.recent
     order(created_at: :desc)
@@ -49,13 +64,8 @@ class Video < ActiveRecord::Base
     end
   end
 
-  def comments_count(include_hidden = false)
-    include_hidden ? self.nested_comments.size : self.nested_comments.available.size
-  end
 
-  def get_comments(include_hidden = false)
-    include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
-  end
+  # Stat functions
 
   def increment_views
     Video.increment_counter(:views, self.id)

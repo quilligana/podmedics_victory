@@ -25,7 +25,7 @@ class SpecialtyQuestionsController < ApplicationController
     @question = SpecialtyQuestion.find(params[:id])
     @comment = @question.answers.new()
     @answers = @question.cached_answers
-    @owner = @question.user
+    @owner = @question.cached_user
   end
 
   def load
@@ -45,7 +45,7 @@ class SpecialtyQuestionsController < ApplicationController
   def destroy
     @question = SpecialtyQuestion.find(params[:id])
     
-    if @question.user == current_user
+    if @question.cached_user == current_user
       @question.destroy
     end
 

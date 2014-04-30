@@ -3,6 +3,6 @@
     <h2><a href="<%= specialty_question_path(id: question) %>" class="question_link"><%= question.content %></a></h2>
     <p class="questions_answers_asked_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></p>
     <p class="questions_answers_asked_date">
-    	<%= link_to question.user.name, question.user %> asked a question <%= time_ago_in_words(question.updated_at) %> ago</p>
+    	<%= link_to question.cached_user.name, question.cached_user %> asked a question <%= time_ago_in_words(question.updated_at) %> ago</p>
   </div>
 </div>

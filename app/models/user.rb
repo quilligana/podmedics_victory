@@ -13,6 +13,22 @@ class User < ActiveRecord::Base
   validates :email, presence: true, email: true
   validates :name, presence: true
 
+  after_commit :flush_cache
+  
+
+  # Cache functions
+
+  def self.cached_find(id)
+    Rails.cache.fetch([name, id]) { find_by_id(id) }
+  end
+
+  def flush_cache
+    Rails.cache.delete([self.class.name, id])
+  end
+
+
+  # Authentication System
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -34,14 +50,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def add_points_for_answer
-    self.update_attributes(points: self.points + POINTS_PER_CORRECT_ANSWER)
-  end
-
-  def add_points_for_video
-    self.update_attributes(points: self.points + POINTS_PER_WATCHED_VIDEO)
-  end
-
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
@@ -55,6 +63,17 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
+  # Points
+
+  def add_points_for_answer
+    self.update_attributes(points: self.points + POINTS_PER_CORRECT_ANSWER)
+  end
+
+  def add_points_for_video
+    self.update_attributes(points: self.points + POINTS_PER_WATCHED_VIDEO)
+  end
+
+  # Used on dashboard for graph
   def daily_stat(days_ago)
     rand(days_ago)
   end

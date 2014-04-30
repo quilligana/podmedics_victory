@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to :commentable, polymorphic: true, touch: true
   belongs_to :root, polymorphic: true, touch: true
-  belongs_to :user
+  belongs_to :user, touch: true
   
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :votes, dependent: :destroy
@@ -15,7 +15,12 @@ class Comment < ActiveRecord::Base
 
   before_create :set_root
   before_create :owner_vote
-  
+
+  # Caching functions
+
+  def cached_user
+    User.cached_find(user_id)
+  end
 
   def self.available
     where(hidden: false)

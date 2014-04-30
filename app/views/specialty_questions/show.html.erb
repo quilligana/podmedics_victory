@@ -21,7 +21,7 @@
           <div id="tabs-2" class="tab_box">
             <div class="questions_answers_main_question">
 
-              <% if @question.user.id == current_user.id %>
+              <% if @question.cached_user.id == current_user.id %>
                 <div class="delete_comment_button_wrapper">
                   <%= link_to "Delete Question", 
                               specialty_question_path(@question.specialty, @question), 
@@ -34,7 +34,12 @@
               <div class="main_question_header">
                 <div class="main_question_user_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
                 <h2><%= @question.content %></h2>
-                <p>Posted <%= time_ago_in_words(@question.created_at) %> ago by <%= link_to @question.user.name, @question.user %>
+                <p> Posted 
+                    <%= time_ago_in_words(@question.created_at) %> 
+                    ago 
+                    by 
+                    <%= link_to @question.cached_user.name, 
+                                @question.cached_user %>
               </div>
               <!-- End question header -->
 

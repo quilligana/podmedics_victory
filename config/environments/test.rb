@@ -34,6 +34,9 @@ PodmedicsVictory::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # Turn off caching during tests
+  config.cache_store = :null_store
+
   # for testing
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
 

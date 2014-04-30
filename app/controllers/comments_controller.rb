@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.user == current_user || current_user.admin?
+    if @comment.cached_user == current_user || current_user.admin?
       @comment.destroy
       redirect_to :back, notice: "Successfully destroyed comment."
     else

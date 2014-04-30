@@ -27,7 +27,7 @@ class NotesController < ApplicationController
 
   def destroy
     @notes = Comment.find(params[:id])
-    if @notes.user == current_user || current_user.admin?
+    if @notes.cached_user == current_user || current_user.admin?
       @notes.destroy
       redirect_to :back, notice: "Successfully destroyed notes."
     else
