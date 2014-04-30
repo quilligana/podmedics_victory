@@ -32,13 +32,13 @@ class UsersController < ApplicationController
   end
 
   def current_resource
-    @current_resource || User.find(params[:id]) if params[:id]
+    @current_resource || User.cached_find(params[:id]) if params[:id]
   end
 
   private
 
     def find_user
-      @user = User.find(params[:id])
+      @user = User.cached_find(params[:id])
     end
 
   protected
