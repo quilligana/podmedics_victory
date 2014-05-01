@@ -2380,6 +2380,8 @@ a.video_download_dropdown_link.slides_file_icon {
 }
 .video_page_author_duration_header {
   padding-bottom: 25px;
+  width: 50%;
+  float: left;
 }
 .video_header_inner div.video_column {
   width: 70%;
@@ -3442,4 +3444,46 @@ p.password_reset_subtitle {
   background-image: image-url('trial_user_choose_spec_tick.png');
   background-repeat: no-repeat;
   background-position: 344px 25px;
+}
+
+.video_page_tags_wrapper {
+  max-width: 50%;
+  float: right;
+  padding-top: 5px;
+}
+
+a.tag {
+  background-image: image-url('tags_dot.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  height: 32px;
+  float: left;
+  color: #FFFFFF;
+  padding-left: 16px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+a.tag:hover {
+  background-position: 0px -34px;
+
+}
+a.tag:hover span {
+  background-color: #9C2530;
+
+}
+a.tag span{
+  height: 32px;
+  background-color: #FF4349;
+  -moz-border-radius-topright: 6px 6px;
+  border-top-right-radius: 6px 6px;
+  -moz-border-radius-bottomright: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+  float: left;
+  line-height: 32px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding-left: 9px;
+  padding-right: 12px;
+
 }
