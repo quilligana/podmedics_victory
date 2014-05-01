@@ -31,7 +31,7 @@ $standard_border_radius: 6px;
     background-size: 68px;
   }
 
-  .home_navigation a.nav-signup {
+    .home_navigation a.nav-signup {
     background-position: 81px -19px;
   }
 
@@ -47,8 +47,6 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 1344px) {
 
-
-
   .video_header_inner div.video_column {
     width: 100%;
     height: auto;
@@ -59,7 +57,6 @@ $standard_border_radius: 6px;
     height: 550px;
     float: left;
     background-color: #F8F8F8;
-
   }
 
   .video_header_inner div.video_page_notes_column {
@@ -67,6 +64,7 @@ $standard_border_radius: 6px;
     margin-bottom: 50px;
     padding-bottom: 30px;
   }
+
   .video_header_inner {
     height: auto;
   }
@@ -82,23 +80,21 @@ $standard_border_radius: 6px;
   .video_page_notes_column form {
     width: 93%;
   }
+
   .notes_column_text_field {
     padding-left: 2%;
     width: 93%;
   }
+
   .notes_column_text_area {
     width: 93%;
     padding-left: 2%;
   }
 
-
-  .video_column iframe {
-  }
   #notes_saved_message {
     margin-top: -136px;
     right: 55px;
   }
-
 
 }
 
@@ -110,11 +106,13 @@ $standard_border_radius: 6px;
   }
 
 }
+
 @media screen and (max-width: 1110px) {
 
   .points_until_next_badge_wrapper .badge .badge_speciality:last-child{
     display: none;
   }
+
   .points_until_next_badge_wrapper .badge .badge_title{
     -moz-border-radius-topright: 5px 5px;
     border-top-right-radius: 5px 5px;
@@ -125,91 +123,102 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1020px) {
-    .page.edit_profile .right_column_forms {
-      display: inline;
-      width: 90%;
-      padding-left: 5%;
-      padding-right: 5%;
-      border-top: solid 1px $grey_border;
-    }
-    .profile_notifications_block {
-      width: 90%;
-      padding-left: 5%;
-      padding-right: 5%;
-      border-bottom: none;
 
-    }
-    .profile_notifications_block a.podmedcis_button.grey {
-      clear: both;
-    }
+  .page.edit_profile .right_column_forms {
+    display: inline;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-top: solid 1px $grey_border;
+  }
 
-    .right_column_forms.receipt_user_settings_block a.podmedcis_button.grey {
-      margin-bottom: 25px;
-    }
-    .page.edit_profile .right_column_forms .icheckbox_minimal-red, .iradio_minimal-red {
-      clear: both;
-      float: left;
-      margin-bottom: 0px;
-      margin-right: 10px;
-    }
-    .video_page_heading_button_set {
-      float: left;
-      width: auto;
-      margin-bottom: 20px;
-      margin-top: 5px;
-    }
+  .profile_notifications_block {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-bottom: none;
+  }
 
-    .video_page_heading_wrapper {
-      width: 100%;
-    }
-    .questions_answers_main_question .comment_info {
+  .profile_notifications_block a.podmedcis_button.grey {
+    clear: both;
+  }
+
+  .right_column_forms.receipt_user_settings_block a.podmedcis_button.grey {
+    margin-bottom: 25px;
+  }
+
+  .page.edit_profile .right_column_forms .icheckbox_minimal-red, .iradio_minimal-red {
+    clear: both;
+    float: left;
+    margin-bottom: 0px;
+    margin-right: 10px;
+  }
+
+  .video_page_heading_button_set {
+    float: left;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+
+  .video_page_heading_wrapper {
+    width: 100%;
+  }
+
+  .questions_answers_main_question .comment_info {
     float: left;
     clear: both;
     min-width: 100%;
     max-width: 100%;
     margin-top: 30px;
-    margin-left: 0px; }
+    margin-left: 0px;
+  }
 
   .questions_answers_main_question .main_question_header h2 {
     font-size: 24px;
     line-height: 36px;
     padding-right: 15px;
     padding-bottom: 10px;
-    padding-left: 15px; }
+    padding-left: 15px;
+  }
 
   .right_column_forms {
-    display: none; }
+    display: none;
+  }
 
   .inner.signup_page_inner {
-    width: 690px; }
+    width: 690px;
+  }
 
   .inner.signup_page_inner .left_column_forms {
     float: left;
     height: auto;
-    width: 100%; }
+    width: 100%;
+  }
 
   .inner.signup_page_inner.login_ignup_form_wrapper {
-    height: 390px; }
+    height: 390px;
+  }
 
   .inner.signup_page_inner .left_column_forms a.fb_social_button {
-    padding: 24px 11px 21px 60px; }
+    padding: 24px 11px 21px 60px;
+  }
 
   .dashboard_badges_left_column {
     width: 100%;
     float: left;
   }
+
   .dashboard_badges_right_column {
     width: 100%;
     float: left;
     border-top: solid 1px $grey_border;
   }
+
   .dashboard_badges_overview_inner_border{
     border-right: none;
     width: 100%;
-
   }
-
-
 
   .dashboard_charts_set_wrapper {
     height: auto;
@@ -235,16 +244,18 @@ $standard_border_radius: 6px;
     width: 100%;
     margin-left: 0px;
     border-right: none;
-
   }
+
   .inner.about_page_inner {
     width: 96%;
   }
+
   .home_section_two .left_column {
     float: left;
     width: 47%;
     margin-left: 3%;
   }
+
   .home_section_inner_wrapper {
     width: 96%;
     margin-right: auto;
@@ -262,10 +273,12 @@ $standard_border_radius: 6px;
     width: 100%;
     text-align: center;
   }
+
   .oxford_uni_left_column {
     float: left;
     width: 100%;
   }
+
   .oxford_uni_text {
     float: left;
     width: 80%;
@@ -275,6 +288,7 @@ $standard_border_radius: 6px;
     padding-bottom: 30px;
     border-left: none;
   }
+
   .oxford_uni_logo {
     float: left;
     height: 47px;
@@ -284,38 +298,42 @@ $standard_border_radius: 6px;
     margin-top: 45px;
     background-position: center center;
   }
+
   .inline_footer_wrapper.about_page_footer{
     width: 100%;
   }
+
   .inline_footer_wrapper.signup_page_footer {
     width: 730px;
   }
+
   .video_page_right_column {
     width: 100%;
     float: left;
   }
+
   .speciality_left_column {
     float: left;
     width: 100%;
     border-bottom: solid 1px $grey_border
   }
+
   .video_page_authour_right_column_avatar {
     width: 90px;
     float: left;
   }
+
   .video_page_right_column .video_page_authour_right_column_title {
     width: 60%;
   }
+
   .video_page_right_column p.video_page_authour_right_column_name {
     width: 60%;
   }
 
   .video_page_right_column_lower_info {
-
     padding-bottom: 20px;
-
   }
-
 
   a.video_page_authour_twitter_icon, a.video_page_authour_fb_icon {
     display: none;
@@ -324,24 +342,30 @@ $standard_border_radius: 6px;
   .lecture_questions_right_column {
     display: none;
   }
+
   .notes_saved_button {
     height: 68px;
     background-position: bottom right;
   }
+
   .lecture_questions_right_column.notes_right_column {
     display: block;
     width: 100%;
     border-top: none;
   }
+
   .speciality_count_block:last-child {
     margin-top: 0px;
   }
+
   .notes_back_button_clear {
     clear: both;
   }
+
   .note_right_column_full_note {
     float: left;
   }
+
   .lectures_speciality_outer_wrapper {
     min-height: 310px;
   }
@@ -349,18 +373,23 @@ $standard_border_radius: 6px;
   .lecture_questions_left_column, .speciality_left_column {
     width: 100%;
   }
+
   .home_header_browser_window {
     display: none;
   }
+
   .free_trial_home_sketch {
     display: none;
   }
+
   .home_page_header {
     min-height: 570px;
   }
+
   .lecture_questions_right_column .questions_info_right_column_section p.questions_info_right_column_number{
     width: auto;
   }
+
 }
 
 @media screen and (max-width: 900px) {
@@ -378,29 +407,44 @@ $standard_border_radius: 6px;
     background-color: $podmedics_red;
     background-position: 94% -58px;
   }
+
   .library_count {
     display: none;
   }
+
   div.inner_home_header p {
     width: 96%;
     padding-left: 2%;
     padding-right: 2%;
   }
+
 }
-
-
-
-
-
 
 @media screen and (max-width: 800px) {
 
-.home_section_one {
-  width: 96%;
-  margin-right: auto;
-  margin-left: auto;
+  .video_page_author_duration_header {
+    padding-bottom: 10px;
+    width: 100%;
+    float: left;
+  }
+  .video_page_tags_wrapper {
+    max-width: 100%;
+    width: 100%;
+    float: left;
+    clear: both;
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
 
-}
+  a.tag {
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+  .home_section_one {
+    width: 96%;
+    margin-right: auto;
+    margin-left: auto;
+  }
   .home_section_one_block .icon.podmedics_icon, .home_section_one_block .icon.questions_block, .home_section_one_block .icon.lecture_block, .home_section_one_block .icon.exam_block, .home_section_one_block .icon.badges_block {
     margin-top:-120px;
     margin-left: auto;
@@ -474,6 +518,7 @@ $standard_border_radius: 6px;
     height: auto;
     padding-bottom: 80px;
   }
+
   .home_section_two .left_column h2 {
     margin-top: 80px;
   }
@@ -490,8 +535,6 @@ $standard_border_radius: 6px;
     margin-right: auto;
   }
 
-
-
   .home_section_four .left_column {
     float: none;
     clear: both;
@@ -499,10 +542,12 @@ $standard_border_radius: 6px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .home_section_four {
     height: auto;
     padding-bottom: 80px;
   }
+
   .home_section_four .left_column h2 {
     margin-top: 80px;
   }
@@ -517,23 +562,21 @@ $standard_border_radius: 6px;
     overflow: hidden;
   }
 
-
   .plans_columns_wrapper {
     width: 730px;
   }
+
   .plans_column {
     margin-right: 30px;
   }
+
   .sub_heading_wrapper .sub_heading_button_set {
     float: left;
     clear: both;
     margin-top: 15px;
   }
 
-
-
   .lectures_inline_dropdown {
-
     margin-left: 0px;
     z-index: 10;
     -moz-border-radius-topleft: 0px 0px;
@@ -541,11 +584,12 @@ $standard_border_radius: 6px;
 
     -moz-border-radius-topright: 6px 6px;
     border-top-right-radius: 6px 6px;
-
   }
+
   .exam_button_tooltip_wrapper .exam_button_tooltip {
     left: -5000px;
   }
+
 }
 
 @media screen and (max-width: 760px) {
@@ -555,9 +599,11 @@ $standard_border_radius: 6px;
     margin-right: 20px;
     margin-top: 0px;
   }
+
   .plans_columns_wrapper {
     width: 350px;
   }
+
   .plans_lower_info_block_wrapper {
     width: 100%;
     float: left;
@@ -565,25 +611,22 @@ $standard_border_radius: 6px;
     border-right: none;
   }
 
-
-
-
 }
 @media screen and (max-width: 720px) {
 
   .stats_chart_wrapper {
-
     border-top-width: 0px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #E8E8E8;
   }
+
   .stats_chart {
     display: none;
   }
 
   .courses_left_column {
-   display: none;
+    display: none;
   }
   .courses_right_column {
     width: 88%;
@@ -598,6 +641,7 @@ $standard_border_radius: 6px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .red_button.home_action_button {
     float: none;
     display: inline-block;
@@ -615,6 +659,7 @@ $standard_border_radius: 6px;
     text-align: left;
     padding-top: 10px;
   }
+
   .sub_heading_dashboard_info p {
     float: left;
     text-align: left;
@@ -623,13 +668,15 @@ $standard_border_radius: 6px;
   .inline_footer_wrapper.signup_page_footer {
     width: 100%;
   }
+
   .profile_count_wrapper {
     width: 100%;
     text-align: center;
     float: left;
     margin-left: 0px;
     border-left: none;
-    padding-left: 0px; }
+    padding-left: 0px;
+  }
 
   .profile_count {
     float: left;
@@ -639,16 +686,19 @@ $standard_border_radius: 6px;
     border-bottom: solid 1px #E8E8E8;
     padding-top: 13px;
     padding-bottom: 13px;
-    padding-right: 0px; }
+    padding-right: 0px;
+  }
 
   .profile_count:last-child {
-    border-bottom: none; }
+    border-bottom: none;
+  }
 
   .billing_options {
     float: left;
     width: 100%;
     margin-bottom: 10px;
-    padding-top: 30px; }
+    padding-top: 30px;
+  }
 
   .questions_answers_main_question .comment_info {
     float: left;
@@ -656,13 +706,16 @@ $standard_border_radius: 6px;
     min-width: 100%;
     max-width: 100%;
     margin-top: 30px;
-    margin-left: 0px; }
+    margin-left: 0px;
+  }
 
   .left_column_forms {
-    width: 100%; }
+    width: 100%;
+  }
 
   .inner.login_page_inner {
-    width: 94%; }
+    width: 94%;
+  }
 
   .inner.profile_page_inner {
     width: 94%;
@@ -679,10 +732,8 @@ $standard_border_radius: 6px;
   }
 
   .social_option_final_line {
-
     text-align: left;
   }
-
 
   .social_signup_wrapper .social_signup_button_wrapper {
     padding: 0px;
@@ -695,6 +746,7 @@ $standard_border_radius: 6px;
     height: 160px;
     background-color: #FFF;
   }
+
   .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .twitter_social_button {
     width: 155px;
   }
@@ -731,6 +783,7 @@ $standard_border_radius: 6px;
     padding-right: 0px;
     line-height: 18px;
   }
+
   .inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper {
     padding-left: 0px;
     width: 235px;
@@ -762,36 +815,35 @@ $standard_border_radius: 6px;
     width: 94%;
   }
 
-
   .inline_footer_wrapper.login_page_footer {
     width: 100%;
   }
 
-
-
-
   .page.dashboard_page #tabs li {
     width: 100%;
   }
+
   .tab_title {
     display: none;
   }
 
 }
 
-
 @media screen and (max-width: 650px) {
+
   .ask_question_modal_wrapper {
     width: 90%;
     margin-right: 5%;
     margin-left: 5%;
   }
+
   .reveal-modal.ask_question_modal_resize {
     width: 500px;
     margin-left: -250px;
     padding-bottom: 25px;
     padding-top: 25px;
   }
+
   .questions_answers_question .questions_answers_asked_date {
     padding-left: 0px;
     float: left;
@@ -815,19 +867,16 @@ $standard_border_radius: 6px;
     position: absolute;
     top: -500px;
     left: -500px;
-
   }
-
-
-
-
 
   .lecture_status_inline_title {
     display: none;
   }
+
   .lecture_icons_wrapper .lecture_icon.watched {
     margin-left: 24px;
   }
+
   .profile_badge_column {
     float: left;
     width: 100%;
@@ -846,6 +895,7 @@ $standard_border_radius: 6px;
     float: left;
     clear: both;
   }
+
   .home_page_header div.home_navigation a.nav-login {
     float: left;
     clear: both;
@@ -854,6 +904,7 @@ $standard_border_radius: 6px;
   .home_page_header div.home_navigation a.nav-signup {
     float: left;
   }
+
   div.home_page_header div.home_navigation a {
     float: left;
   }
@@ -869,14 +920,14 @@ $standard_border_radius: 6px;
     float: left;
   }
 
-
   div.inner_home_header {
     padding-top: 40px;
   }
-  div.inner_home_header h1 {
 
+  div.inner_home_header h1 {
     font-size: 22px;
   }
+
   .default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
     float: left;
     clear: both;
@@ -886,7 +937,6 @@ $standard_border_radius: 6px;
     background-position: 10px -30px;
   }
 
-
   .default_lecture_question.correct_lecture_answer p.lecture_question_status_icon {
     float: left;
     clear: both;
@@ -895,6 +945,7 @@ $standard_border_radius: 6px;
     margin-top: 10px;
     background-position: 12px 0px;
   }
+
   .default_lecture_question.correct_lecture_answer {
     padding-bottom: 15px;
   }
@@ -902,6 +953,7 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 600px) {
+
   .exam_button_tooltip_wrapper .exam_button_tooltip {
     left: -5000px;
   }
@@ -909,46 +961,48 @@ $standard_border_radius: 6px;
     width: 90px;
   }
 
-
   .sub_heading_dashboard_info {
     float: left;
     text-align: left;
     display: none;
-
   }
-
 
   .sub_heading_dashboard_info p {
     float: left;
     text-align: left;
-
   }
+
   .inner_page_padding {
     display: block;
-    padding: 0 25px; }
+    padding: 0 25px;
+  }
 
   .billing_options label {
     float: left;
     clear: none;
     width: 230px;
     padding-right: 0px;
-    padding-top: 3px; }
+    padding-top: 3px;
+  }
 
   .icheckbox_minimal-red, .iradio_minimal-red {
     clear: both;
     float: left;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+  }
 
   #tabs ul {
     margin-left: 40px;
-    width: 250px; }
+    width: 250px;
+  }
 
   #tabs li a {
-    margin-right: 0px; }
+    margin-right: 0px;
+  }
 
   .lecture_list_left_column {
-    margin-right: 25px; }
-
+    margin-right: 25px;
+  }
 
   #tabs ul li a.comments_tab {
     margin-right: 10px;
@@ -957,9 +1011,11 @@ $standard_border_radius: 6px;
   .badge .badge_speciality {
     display: none;
   }
+
   p.badge_speciality.small_screen_count {
     display: inline;
   }
+
   .dashboard_badges_left_column a .badge_speciality {
     display: block;
   }
@@ -979,6 +1035,7 @@ $standard_border_radius: 6px;
     margin-top: 5px;
     margin-right: -35px;
   }
+
   .home_page_header {
     min-height: 645px;
   }
@@ -988,8 +1045,9 @@ $standard_border_radius: 6px;
   }
 
   .about_left_column p {
-      font-size: 13px;
+    font-size: 13px;
   }
+
   a.library_button h2 {
     font-size: 20px;
   }
@@ -997,28 +1055,36 @@ $standard_border_radius: 6px;
   .home_section_one h2 {
     font-size: 22px;
   }
+
   .home_section .home_section_one p {
     font-size: 13px;
   }
+
   .home_section_two .left_column h2 {
     font-size: 30px;
   }
+
   .home_section_three_header h2 {
     font-size: 17px;
   }
+
   .home_section_three_header p {
     font-size: 14px;
   }
+
   .home_section_four .right_column h2 {
     font-size: 30px;
   }
+
   .oxford_uni_text h3 {
     font-size: 16px;
   }
+
   .questions_answers_main_question .main_question_header h2 {
     font-size: 18px;
     line-height: 26px;
   }
+
   .questions_answers_main_question .main_question_header p {
     font-size: 12px;
   }
@@ -1028,51 +1094,66 @@ $standard_border_radius: 6px;
     line-height: 28px;
     width: 94%;
   }
+
   .questions_answers_question .questions_answers_asked_date {
     font-size: 12px;
     line-height: 20px;
   }
+
   .no_questions_reply_wrapper {
     font-size: 14px;
     line-height: 20px;
   }
+
   .questions_result_sub_title {
     font-size: 11px;
   }
+
   .lectures_question_title {
     font-size: 18px;
     line-height: 28px;
     padding-top: 30px;
     padding-bottom: 30px;
   }
+
   .courses_right_column .course_title {
     font-size: 18px;
   }
+
   .courses_right_column div.course_info {
     font-size: 14px;
   }
+
   .main_question_user_avatar {
     margin-top: 40px;
   }
+
   .dashboard_badges_inner_wrapper {
     width: 89%;
     float: left;
     margin-left: 11%;
   }
+
   .text_based_page p {
     font-size: 14px;
   }
+
   .text_based_page h2 {
     font-size: 14px;
   }
+
   .plans_header h1 {
     font-size: 24px;
   }
+
   .plans_header p {
     font-size: 13px;
   }
+
 }
+
 @media screen and (max-width: 620px) {
+
   div.comment_lower_action_buttons_right {
     float: left;
     clear: both;
@@ -1080,52 +1161,67 @@ $standard_border_radius: 6px;
     min-width: 230px;
     margin-right: 0px;
   }
+
   a.podmedcis_button.white_button.ask_question_sub_heading_button {
     margin-bottom: 15px;
   }
+
 }
+
 @media screen and (max-width: 550px) {
 
-
-.ask_question_modal_wrapper {
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-}
-.reveal-modal.ask_question_modal_resize {
-  width: 400px;
-  margin-left: -200px;
-
-
-}
+  .ask_question_modal_wrapper {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  .reveal-modal.ask_question_modal_resize {
+    width: 400px;
+    margin-left: -200px;
+  }
 
 }
 
 @media screen and (max-width: 450px) {
 
+  a.tag {
+    margin-bottom: 10px;
+  }
+
+  .video_page_tags_wrapper {
+    padding-bottom: 10px;
+  }
+
   .video_page_header .video_page_heading_button_set a.podmedcis_button.take_exam_button {
     margin-left: 0px;
     margin-top: 20px;
   }
+
   .lecture_question_blocks input {
     width: 100%;
     padding-right: 8%;
     padding-left: 8%;
   }
+
   .lecture_questions_outer_wrapper {
     width: 100%;
   }
+
   .header_outer .header_navigation a.login_link {
-    display: none; }
+    display: none;
+  }
 
   .header_outer .header_navigation a.signup_link {
-    display: none; }
+    display: none;
+  }
 
   .dashboard_charts_set_wrapper {
-    padding-left: 0px; }
+    padding-left: 0px;
+  }
 
   #tabs .dashboard_pie_charts ul {
-    width: 50px; }
+    width: 50px;
+  }
 
   .dashboard_pie_chart_wrapper {
     height: auto;
@@ -1133,19 +1229,24 @@ $standard_border_radius: 6px;
     max-width: 100%;
     min-width: 100%;
   }
+
   .pie_chart_outer {
-     width: 190px;
-     clear: both;
-   }
+    width: 190px;
+    clear: both;
+  }
 
   #tabs .dashboard_pie_charts ul li {
-    margin-left: 30px; }
+    margin-left: 30px;
+  }
 
   #tabs .dashboard_pie_charts ul {
-    width: 250px; }
+    width: 250px;
+  }
+
   .video_header_inner div.video_column {
     min-height: 250px;
   }
+
   a.rounded_home_button.dark_grey {
     background-color: #585858;
     margin-top: 30px;
@@ -1154,10 +1255,12 @@ $standard_border_radius: 6px;
   .video_page_heading_button_set .podmedcis_button.take_exam_button span {
     display: none;
   }
+
   .podmedcis_button.take_exam_button {
     margin-left: 0px;
     width: 60px;
   }
+
   .video_page_header .video_page_heading_button_set a.podmedcis_button.take_exam_button {
     margin-left: 12px;
     margin-top: 0px;
@@ -1170,17 +1273,16 @@ $standard_border_radius: 6px;
     padding-right: 5%;
     padding-left: 5%;
   }
+
 }
 
 
-
-
 @media screen and (max-width: 400px) {
+
   .ask_question_modal_textarea {
     width: 92%;
     padding-right: 4%;
     padding-left: 4%;
-
   }
 
   .reveal-modal.ask_question_modal_resize {
@@ -1221,12 +1323,16 @@ $standard_border_radius: 6px;
     padding: 0 0 20px;
     box-sizing: content-box;
   }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5) {
-    .header_outer .header_navigation a.menu_link {
-      background-position: 21px 28px;
 
-    }
+
+  @media all and (-webkit-min-device-pixel-ratio: 1.5) {
+
+  .header_outer .header_navigation a.menu_link {
+    background-position: 21px 28px;
   }
+
+}
+
   .header_outer .header_navigation a.menu_link {
     padding-right: 0px;
     background-position: 21px 28px;
@@ -1234,6 +1340,7 @@ $standard_border_radius: 6px;
     text-indent: -390px;
     overflow: hidden;
   }
+
   .user_dropdown {
     height: auto;
     width: 90%;
@@ -1259,7 +1366,8 @@ $standard_border_radius: 6px;
   .cbp-spmenu-push {
     -webkit-transition: all 0s ease;
     -moz-transition: all 0s ease;
-    transition: all 0s ease; }
+    transition: all 0s ease;
+  }
 
   .default_body {
     -webkit-transition: all 0s ease;
@@ -1324,11 +1432,12 @@ $standard_border_radius: 6px;
     background-position: 217px -447px;
   }
   .inner_menu_wrapper .nav-logout {
-    background-position: 215px -343px; }
+    background-position: 215px -343px;
+  }
 
   .main_nav_wrapper.speciality a {
-    background-position: 220px -448px; }
-
+    background-position: 220px -448px;
+  }
 
   .main_nav_inner_lectures_title {
     width: 170px;
@@ -1342,16 +1451,16 @@ $standard_border_radius: 6px;
     height: 12px;
   }
   .footer_left, .footer_right {
-  display: none;
+    display: none;
   }
 
   .lectures_inline_dropdown {
     width: 301px;
   }
+
   .lectures_inline_dropdown .right_column_search_field .navigation_search_field {
     width: 217px;
   }
-
 
   a.lectures_inline_dropdown_category_link {
     width: 276px;
@@ -1367,25 +1476,28 @@ $standard_border_radius: 6px;
     float: left;
     max-height: inherit;
   }
+
 }
-
-
 
 @media screen and (max-width: 390px) {
 
   .stats_chart_wrapper {
     display: none;
   }
+
   div.inner_home_header {
     padding-top: 50px;
   }
+
   .library_tab p {
-   margin-left: 0px;
+    margin-left: 0px;
   }
+
   .home_page_header a.podmedics_home_icon {
     margin-top: 25px;
     margin-left: 25px;
   }
+
   .home_page_header .home_navigation {
     width: auto;
     margin-right: 0px;
@@ -1394,9 +1506,11 @@ $standard_border_radius: 6px;
     float: left;
     clear: both;
   }
+
   .library_tab p:first-child {
     text-indent: 0px;
   }
+
   div.inner_home_header p {
     font-size: 13px;
     line-height: 24px;
@@ -1405,6 +1519,7 @@ $standard_border_radius: 6px;
   a.rounded_home_button {
     font-size: 13px;
   }
+
   a.rounded_home_button.dark_grey {
     background-color: #585858;
     margin-top: 25px;
@@ -1416,6 +1531,7 @@ $standard_border_radius: 6px;
     margin-left: 30px;
     margin-top: 5px;
   }
+
   .red_button.home_action_button {
     float: none;
     display: inline-block;
@@ -1434,18 +1550,22 @@ $standard_border_radius: 6px;
   a.library_button p.inline_arrow_icon {
     margin-right: 20px;
   }
+
   a.library_button h2 {
     width: 60%;
   }
+
   .notification p.close_notification {
     margin-top: -15px;
     margin-right: -12px;
   }
+
   .no_questions_reply_wrapper {
     width: 80%;
     padding-left: 10%;
     padding-right: 10%;
   }
+
   .notes_column_text_field {
     padding-left: 5%;
     width: 90%;
@@ -1455,37 +1575,47 @@ $standard_border_radius: 6px;
     width: 90%;
     padding-left: 5%;
   }
+
   .video_page_authour_right_column_user_info_inner_wrapper {
     width: 50%;
   }
+
   .inner.profile_page_inner {
     padding-top: 20px;
   }
+
   .profile_avatar {
     margin-top: 50px;
   }
+
   .profile_header {
     height: auto;
     padding-bottom: 10px;
   }
+
   .page.dashboard_page #tabs .dashboard_pie_charts ul {
     height: 130px;
     padding-top: 10px;
     margin-left: 0px;
   }
+
   .pie_chart_inner_title {
     margin-left: 40px;
   }
+
   .video_page_notes_column_title {
     width: 85%;
   }
+
   .video_page_notes_column form {
     width: 85%;
   }
+
   .lectures_question_title {
     font-size: 16px;
     line-height: 24px;
   }
+
   a.default_lecture_question, .lecture_question_blocks input {
     font-size: 16px;
     width: 100%;
@@ -1496,12 +1626,15 @@ $standard_border_radius: 6px;
   .header_outer .header_navigation a.user_dropdown_link {
     display: none;
   }
+
   .header_outer a.podmedics_header_icon {
     display: none;
   }
+
   a.default_lecture_question, .lecture_question_blocks input, .default_lecture_question, .default_lecture_question.correct_lecture_answer, .default_lecture_question.incorrect_lecture_answer {
     padding-top: 28px;
   }
+
   a.red_button.medium.next_question_button {
     padding-right: 21px;
     background-image: none;
@@ -1509,28 +1642,19 @@ $standard_border_radius: 6px;
 
   .podmedics_textfield{
     width: 90%;
-    }
+  }
+
   .plans_columns_wrapper {
     width: 310px;
   }
+
   .plans_column {
     width: 100%;
   }
+
   a.podmedcis_button.white_button.ask_question_sub_heading_button {
     margin-bottom: 15px;
     margin-top: 15px;
   }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

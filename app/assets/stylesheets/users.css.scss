@@ -331,6 +331,7 @@ ul[data-pie-id] {
   padding-top: 25px;
 }
 
+
 .reveal-modal.xlarge {
   width: 800px;
   margin-left: -440px;
@@ -2379,6 +2380,8 @@ a.video_download_dropdown_link.slides_file_icon {
 }
 .video_page_author_duration_header {
   padding-bottom: 25px;
+  width: 50%;
+  float: left;
 }
 .video_header_inner div.video_column {
   width: 70%;
@@ -3329,4 +3332,158 @@ p.password_reset_subtitle {
   font-size: 14px;
   color: #7E7E7E;
   margin-bottom: 15px;
+}
+
+
+.reveal-modal.trial_user_modal_resize {
+  width: 700px;
+  margin-left: -350px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  min-height: 400px;
+}
+
+.trial_user_modal_podmedics_icon {
+  height: 74px;
+  width: 74px;
+  background-image: image-url('podmedics_icon_x74.png');
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.trial_user_info_wrapper_modal {
+  text-align: center;
+  border-bottom: solid 1px $podmedics_grey;
+  border-top: solid 1px $podmedics_grey;
+}
+
+.trial_user_info_wrapper_modal p {
+  padding: 30px;
+  line-height: 21px;
+  font-size: 12px;
+  color: #838383;
+  text-transform: uppercase;
+}
+
+.reveal-modal.trial_user_modal_resize a.podmedcis_button {
+  float: none;
+  width: 180px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 28px;
+}
+
+
+.trial_user_select_specialities {
+  display: none;
+  width: 100%;
+}
+
+
+
+.reveal-modal.trial_user_select_specialities_modal {
+  width: 430px;
+  margin-left: -215px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+.choose_specialities_modal_title {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #5C5C5C;
+  text-align: center;
+  font-weight: 800;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.choose_specialities_list {
+  border-top: solid 1px $podmedics_grey;
+  border-bottom: solid 1px $podmedics_grey;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.choose_specialities_list a.podmedcis_button.grey {
+  margin-top: 0px;
+  text-align: left;
+  padding-top: 29px;
+  padding-bottom: 23px;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 20px;
+  color: #616161;
+}
+
+.reveal-modal.trial_user_modal_resize .trial_user_select_specialities a.podmedcis_button.grey {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-indent: 20px;
+}
+.reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button a.podmedcis_button {
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 27px;
+  padding-bottom: 23px;
+}
+
+.reveal-modal.trial_user_modal_resize .trial_user_select_specialities a.podmedcis_button.grey.trial_user_selected {
+  background-color: #8BDD7F;
+  color: #FFFFFF;
+  background-image: image-url('trial_user_choose_spec_tick.png');
+  background-repeat: no-repeat;
+  background-position: 344px 25px;
+}
+
+.video_page_tags_wrapper {
+  max-width: 50%;
+  float: right;
+  padding-top: 5px;
+}
+
+a.tag {
+  background-image: image-url('tags_dot.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  height: 32px;
+  float: left;
+  color: #FFFFFF;
+  padding-left: 16px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+a.tag:hover {
+  background-position: 0px -34px;
+
+}
+a.tag:hover span {
+  background-color: #9C2530;
+
+}
+a.tag span{
+  height: 32px;
+  background-color: #FF4349;
+  -moz-border-radius-topright: 6px 6px;
+  border-top-right-radius: 6px 6px;
+  -moz-border-radius-bottomright: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+  float: left;
+  line-height: 32px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding-left: 9px;
+  padding-right: 12px;
+
 }

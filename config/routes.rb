@@ -1,5 +1,6 @@
 PodmedicsVictory::Application.routes.draw do
 
+  resources :products
   # Static pages
   root 'static_pages#home'
   get '/about', to: 'static_pages#about', as: 'about'
@@ -42,6 +43,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :faqs
     resources :courses
     resources :questions
+    resources :products
   end
 
   # Specialty/Video
