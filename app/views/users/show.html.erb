@@ -1,6 +1,6 @@
 <div class="inner profile_page_inner">
 
-  <% if allow? "users", "edit", current_user %>
+  <% if allow? "users", "edit", @user %>
     <div class="sub_heading_wrapper">
       <div class="sub_heading_button_set">
         <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>
