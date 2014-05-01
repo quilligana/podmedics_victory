@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @product] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :permalink %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.button :submit %>
+<% end %>
