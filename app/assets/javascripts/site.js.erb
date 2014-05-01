@@ -115,6 +115,19 @@ ready = function() {
 
 
 
+  // Trial members select lectures.
+
+  $("#choose_trial_lectures_button").click(function(){
+    $(".trial_user_modal_wrapper").hide();
+    $("#welcome_trial_user_modal").removeClass('.trial_user_modal_resize.fadeInUp.animated').addClass('trial_user_select_specialities_modal');
+    $(".trial_user_select_specialities").addClass('animated fadeInUp').fadeToggle(1);
+  });
+
+  $(".reveal-modal.trial_user_modal_resize .trial_user_select_specialities a.podmedcis_button.grey").click(function(){
+    $(this).addClass('trial_user_selected');
+  });
+
+  // Notes
 
   $("#save_new_note_button").click(function(){
     $(".right_column_save_note_button").toggleClass('animated fadeOutRight').fadeToggle(1);
