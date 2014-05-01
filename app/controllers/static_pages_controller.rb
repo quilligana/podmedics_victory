@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
-  layout 'user_application', only: [:support]
-  layout :conditional_layout, only: [:terms, :contact]
+  layout :conditional_layout, only: [:support, :about, :terms, :contact]
 
   def home
     redirect_to dashboard_path if current_user
