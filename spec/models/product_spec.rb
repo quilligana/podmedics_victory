@@ -1,7 +1,8 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Product do
-  it "should be valid" do
-    Product.new.should be_valid
-  end
+
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :price }
+
 end
