@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501124932) do
+ActiveRecord::Schema.define(version: 20140501184746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -211,6 +211,9 @@ ActiveRecord::Schema.define(version: 20140501124932) do
     t.integer  "points",                 default: 0
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "website"
   end
 
   create_table "videos", force: true do |t|

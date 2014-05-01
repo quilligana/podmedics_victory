@@ -33,14 +33,17 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.name = auth.info.name
       user.oauth_token = auth.credentials.token
+      user.name = auth.info.name
 
-      unless auth.provider == "twitter"
+      if auth.provider == "twitter"
+        user.email = "mail@example.com"
+      else
+        user.email = auth.info.email
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       end
 
-      user.email = auth.provider == "twitter" ? "mail@example.com" : auth.info.email
+      user.link_social_url(auth)
 
       password = SecureRandom.hex(64)
       user.password = password
@@ -48,6 +51,18 @@ class User < ActiveRecord::Base
 
       user.save!
     end
+  end
+
+  def link_social_url(auth)
+    if auth.provider == "twitter"
+      self.twitter = auth.info.urls.Twitter
+    end
+
+    if auth.provider == "facebook"
+      self.facebook = auth.info.urls.Facebook
+    end
+
+    self.save
   end
 
   def send_password_reset

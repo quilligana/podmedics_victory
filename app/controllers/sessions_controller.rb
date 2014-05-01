@@ -15,9 +15,18 @@ class SessionsController < ApplicationController
   end
 
   def omniauthcreate
-    user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    login_for_user(user)
+    auth = env["omniauth.auth"]
+
+    # If the user is already logged in
+    # link the omniauth account
+    if current_user
+      current_user.link_social_url(auth)
+      redirect_to current_user
+    else
+      user = User.from_omniauth(auth)
+      session[:user_id] = user.id
+      login_for_user(user)
+    end
   end
 
   def oauth_failure
