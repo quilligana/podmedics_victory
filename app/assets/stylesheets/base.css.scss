@@ -1532,14 +1532,22 @@ a.podmedcis_button.white_button:hover {
   font-size: 18px;
   color: #5C5C5C; }
 
-.profile_inner .sub_title {
+.profile_inner .title {
   font-size: 14px;
   font-weight: 800;
   width: 100%;
   clear: both;
   text-transform: uppercase;
-  color: #4D4D4D; }
-
+  color: #4D4D4D;
+}
+.profile_inner .dashboard_badges_inner_wrapper {
+  width: auto;
+  float: left;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
 .profile_inner.social_links_profile {
   padding-bottom: 13px; }
 
