@@ -26,6 +26,9 @@ class StaticPagesController < ApplicationController
     @faqs = Faq.for_members
   end
 
+  def press
+  end
+
   private
 
     def conditional_layout
