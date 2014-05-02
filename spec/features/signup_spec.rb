@@ -3,8 +3,9 @@ require "spec_helper"
 feature 'Sign up' do
 
   scenario 'Guest signs up with valid credentials' do
+    create_products
     user_signs_up_with_email('test@example.com')
-    expect(page).to have_content 'Welcome to Podmedics'
+    expect(current_path).to eq show_buy_path
   end
 
   scenario 'Guest signs up with no email' do
@@ -18,6 +19,11 @@ feature 'Sign up' do
   end
 
   # Helpers
+  def create_products
+    create(:free_product)
+    create(:paid_product)
+  end
+
   def user_signs_up_with_email(email)
     visit root_path
     within '.inner_home_header' do

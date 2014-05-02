@@ -25,6 +25,11 @@ PodmedicsVictory::Application.routes.draw do
   match 'auth/failure', to: 'sessions#new', via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
+  # Transactions
+  get 'buy', to: 'transactions#new', as: :show_buy
+  post 'buy/:permalink', to: 'transactions#create', as: :buy
+  get 'pickup/:guid', to: 'transactions#pickup', as: :pickup
+
   # Dashboards and admin
   resource :dashboard, only: :show
   namespace :admin do

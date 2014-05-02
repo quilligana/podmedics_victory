@@ -21,9 +21,12 @@ describe Permission do
       expect(subject.allow?('sessions', 'omniauthcreate')).to be_true
     end
 
-    it "allows access to registration" do
+    it "allows access to registration and payment" do
       expect(subject.allow?('users', 'new')).to be_true
       expect(subject.allow?('users', 'create')).to be_true
+      expect(subject.allow?('transactions', 'new')).to be_true
+      expect(subject.allow?('transactions', 'create')).to be_true
+      expect(subject.allow?('transactions', 'pickup')).to be_true
     end
 
     it "allows access to courses" do

@@ -6,6 +6,7 @@ class Permission
     allow :password_resets, [:create, :edit, :update]
     allow :courses, [:index]
     allow :users, [:new, :create]
+    allow :transactions, [:new, :create, :pickup]
     if user
       allow :dashboards, [:show]
       allow :users, [:show]

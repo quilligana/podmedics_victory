@@ -1,0 +1,74 @@
+<% if @error %>
+  <%= @error %>
+<% end %>
+
+<div class="plans_header">
+  <h1>Plans</h1>
+  <p>Choose the plan that suites you best.</p>
+</div>
+
+<div class="plans_columns_wrapper">
+
+  <div class="plans_column">
+    <h2>Free Trial</h2>
+
+    <ul class="plans_column_features_list">
+      <li>Explore the entire site</li>
+      <li>Unlock two specialties of your choice</li>
+      <li>Full access to all videos and questions for each specialty</li>
+      <li>Contribute to questions and answers for all specialties</li>
+      <li>Upgrade at any time</li>
+    </ul>
+
+    <div class="plans_button_wrapper">
+      <%= form_tag buy_path(permalink: @free_product.permalink) do %>
+        <%= submit_tag 'Choose Plan', class: 'red_button' %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="plans_column">
+    <h2>Premium Membership</h2>
+    <div class="plans_column_price">
+      <p>£30<span>/ yr</span></p>
+    </div>
+
+    <ul class="plans_column_features_list">
+      <li>Full access to over 40 specialties (over 200 videos)</li>
+      <li>Access to video, audio and slide downloads</li>
+      <li>In-depth performance tracking</li>
+      <li>Earn badges for your achievements</li>
+      <li>Get answers through our Question and Answers system</li>
+      <li>Priority Support</li>
+    </ul>
+
+    <div class="plans_button_wrapper">
+      <%= form_tag buy_path(permalink: @paid_product.permalink) do %>
+        <script src="https://checkout.stripe.com/v2/checkout.js"
+          class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @paid_product.name %>"
+          data-amount="<%= @paid_product.price %>"></script>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="plans_lower_info_blocks">
+
+  <div class="plans_lower_info_block_wrapper">
+    <div class="mail_icon_plans_lower_block"></div>
+    <p>drop us an email anytime at <a href="mailto:contact@podmedics.com">contact@podmedics.com</a> and we would be delighted to give you any further information that you require.</p>
+  </div>
+
+  <div class="plans_lower_info_block_wrapper payment_system_block_icon">
+    <div class="payment_system_icon_plans_lower_block"></div>
+    <p>We use Stripe to process all our transactions. We never record your credit card data, and all information is encrypted and transmitted securely (over SSL).</p>
+    <p>If you wish to use Paypal please contact us.</p>
+  </div>
+
+</div>
+
