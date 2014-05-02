@@ -9,28 +9,41 @@ feature 'User dashboard' do
     sign_in(@user)
   end
 
-  scenario "shows name of the logged in user" do
+  scenario "Visiting the dashboard page" do
     within '.sub_heading_dashboard_info' do
       expect(page).to have_content @user.name
     end
+
+    within '#tabs-3' do
+      expect(page).to have_content @video1.title
+    end
   end
 
-  scenario "shows the user points total" do
+  scenario "seeing the correct stats" do
+    create(:badge, user: @user)
+    video2 = create(:video, title: "I'm a doctor")
+    create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
+    create(:vimeo, user_id: @user.id, video_id: video2.id, completed: true)
+    @user.exams.create(specialty_id: @specialty.id, percentage: 90)
+    @user.reload
+    visit root_path
+
     within '.overall_count_red' do
       expect(page).to have_content @user.points
     end
-  end
 
-  scenario "shows the user badges count" do
-    create(:badge, user: @user)
-    visit dashboard_path
+    within '.dashboard_count_block.pass_count_green' do
+      expect(page).to have_content exam_passes
+      save_and_open_page
+    end
+
+    within '.dashboard_count_blocks' do
+      expect(page).to have_content watched_videos
+    end
+
     within '.dashboard_count_blocks' do
       expect(page).to have_content @user.badges.count
     end
-  end
-
-  scenario 'Viewing list of recent videos' do
-    expect(page).to have_content @video1.title
   end
 
   scenario 'Navigating to video page' do
@@ -40,19 +53,16 @@ feature 'User dashboard' do
     user_sees_video(@video1)
   end
 
-  scenario 'Shows recent badges' do
+  scenario 'A user with badges' do
     badge = create(:badge, user: @user, specialty: @specialty)
     visit root_path
+
     within '.dashboard_badges_left_column' do
       expect(page).to have_content 'less than a minute ago'
       expect(page).to have_content badge.specialty.name
       expect(page).to have_content badge.level
     end
-  end
 
-  scenario 'Shows all badges' do
-    badge = create(:badge, user: @user, specialty: @specialty)
-    visit root_path
     within '.dashboard_badges_right_column' do
       expect(page).to have_content badge.specialty.name
       expect(page).to have_content badge.level
@@ -62,7 +72,7 @@ feature 'User dashboard' do
   scenario 'Having watched a video' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
     visit root_path
-    within '#tabs-2 .lecture_icons_wrapper' do
+    within '#tabs-2' do
       expect(page).to have_css(".lecture_icon.watched")
       expect(page).to have_css(".lecture_icon.resit")
       expect(page).not_to have_css(".lecture_icon.part_watched")
@@ -75,7 +85,7 @@ feature 'User dashboard' do
   scenario 'Having part-watched a video' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id)
     visit root_path
-    within '#tabs-2 .lecture_icons_wrapper' do
+    within '#tabs-2' do
       expect(page).to have_css(".lecture_icon.part_watched")
       expect(page).not_to have_css(".lecture_icon.watched")
       expect(page).not_to have_css(".lecture_icon.not_watched")
@@ -86,7 +96,7 @@ feature 'User dashboard' do
   end
 
   scenario 'Having not watched a video' do
-    within '#tabs-2 .lecture_icons_wrapper' do
+    within '#tabs-2' do
       expect(page).to have_css(".lecture_icon.not_watched")
       expect(page).not_to have_css(".lecture_icon.part_watched")
       expect(page).not_to have_css(".lecture_icon.watched")
@@ -129,6 +139,14 @@ feature 'User dashboard' do
   
   def user_sees_video(video)
     expect(current_path).to eq video_path(video)
+  end
+
+  def watched_videos
+    @user.vimeos.where(completed: true).count
+  end
+
+  def exam_passes
+    @user.exams.where("percentage > ?", PASS_GRADE).count
   end
 
 end

@@ -8,6 +8,11 @@ module DashboardsHelper
     LectureIcons.new(video, current_user, self).show_lecture_icons
   end
 
+  def lectures_watched
+    content_tag(:p, current_user.vimeos.where(completed: true).count,
+                class:"number")
+  end
+
 private
 
   def badge_class(level)

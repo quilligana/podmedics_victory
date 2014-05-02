@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :badges, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :notes, dependent: :destroy
+  has_many :exams, dependent: :destroy
 
   validates :email, presence: true, email: true
   validates :name, presence: true

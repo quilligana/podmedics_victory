@@ -14,6 +14,11 @@ module ApplicationHelper
     content_tag(:p, "For every video watched or correct answer you will receive #{POINTS_PER_CORRECT_ANSWER} points to your overall score.")
   end
 
+  def exams_passed
+    content_tag(:p, current_user.exams.where("percentage > ?", PASS_GRADE).count,
+                class:"number")
+  end
+
   def to_underscored(string)
     string.downcase.tr(" ", "_")
   end
