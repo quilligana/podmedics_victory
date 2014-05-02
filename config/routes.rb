@@ -9,7 +9,6 @@ PodmedicsVictory::Application.routes.draw do
   get '/terms', to: 'static_pages#terms', as: 'terms'
   get '/contact', to: 'static_pages#contact', as: 'contact'
   get '/support', to: 'static_pages#support', as: 'support'
-  get 'plans', to: 'static_pages#plans', as: 'plans'
   resources :courses, only: [:index]
 
   # Authentication
