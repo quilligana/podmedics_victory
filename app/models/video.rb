@@ -2,6 +2,8 @@ class Video < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  self.per_page = 30
+
   belongs_to :specialty
   belongs_to :author
   acts_as_list scope: :specialty
