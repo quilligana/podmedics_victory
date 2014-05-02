@@ -9,6 +9,18 @@
         <div class="edit_profile_form">
           <h2>Your Details</h2>
           <%= form_for @user do |f| %>
+
+            <% if @user.errors.any? %>
+              <div class="error_messages">
+                <h2>Form is invalid</h2>
+                <ul>
+                  <% for message in @user.errors.full_messages %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            
             <%= f.label :name %>
             <%= f.text_field :name, class: 'podmedics_textfield' %>
 

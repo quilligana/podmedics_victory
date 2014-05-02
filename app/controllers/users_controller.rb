@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to @user, notice: 'Account details updated'
     else
-      render :new
+      render :edit
     end
   end
 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   protected
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :website, :password, :password_confirmation)
     end
 
 end

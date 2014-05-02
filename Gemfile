@@ -29,6 +29,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'httparty'
 gem 'stripe'
+gem 'validate_url'
 
 group :development do
   gem 'thin'
