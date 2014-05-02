@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
   def create
     product = Product.find_by_permalink(params[:permalink])
     if product.free?
+      current_user.mark_plan_selected
       redirect_to dashboard_path, notice: 'Thanks for signing up for our trial'
     end
 

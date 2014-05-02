@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
   validates :name, presence: true
 
   after_commit :flush_cache
+
+  # Plans/Payments
+
+  def mark_plan_selected
+    update_attributes(selected_plan: true)
+  end
   
 
   # Cache functions
