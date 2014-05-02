@@ -52,7 +52,7 @@ PodmedicsVictory::Application.routes.draw do
   end
 
   # Specialty/Video
-  resources :videos, only: :show do
+  resources :videos, only: [:show, :index] do
     resources :questions, only: :index
     get 'video', to: 'hosted_files#video', as: 'download_video'
     get 'audio', to: 'hosted_files#audio', as: 'download_audio'

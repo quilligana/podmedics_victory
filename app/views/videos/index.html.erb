@@ -1,3 +1,6 @@
-<% @videos.each do |video| %>
-  <%= video.title %>
+<% unless @videos.empty? %>
+  <p>Vidoes that cover this topic:</p>
+  <%= render partial: 'dashboards/video_list', locals: {videos: @videos} %>
+<% else %>
+  <p>Sorry nothing found for this search</p>
 <% end %>

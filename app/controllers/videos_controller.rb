@@ -4,6 +4,8 @@ class VideosController < ApplicationController
   def index
     if params[:tag]
       @videos = Video.tagged_with(params[:tag])
+    elsif params[:search]
+      @videos = Video.search(params[:search])
     else
       @videos = Video.all
     end

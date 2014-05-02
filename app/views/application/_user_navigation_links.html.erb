@@ -40,10 +40,9 @@
       </div>
       <div>
         <div class="right_column_search_field">
-          <form action="#">
-            <input name="search" type="text"  class="navigation_search_field" placeholder="Search"/>
-            <button type="submit" class="navigation_search_field_search_button"></button>
-          </form>
+          <%= form_tag videos_path, method: 'get' do %>
+            <%= text_field_tag :search, params[:search], class: 'navigation_search_field', placeholder: 'Search' %>
+          <% end %>
         </div>
 
         <div class="main_nav_wrapper category">
