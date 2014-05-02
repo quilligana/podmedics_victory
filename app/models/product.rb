@@ -3,8 +3,14 @@ class Product < ActiveRecord::Base
   has_many :sales
 
   validates :name, :price, presence: true
-  validates_numericality_of :price,
-    greater_than: 49,
-    message: "must be at least 50 pence"
+
+  def free?
+    price == 0 ? true : false
+  end
+
+  def paid?
+    price > 0 ? true : false
+  end
+
 
 end

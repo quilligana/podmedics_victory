@@ -1,18 +1,19 @@
 class Permission
 
   def initialize(user)
-    allow :static_pages, [:home, :about, :faqs, :library, :terms, :contact, :support, :plans]
+    allow :static_pages, [:home, :about, :faqs, :library, :terms, :contact, :support, :press]
     allow :sessions, [:new, :create, :omniauthcreate, :destroy]
     allow :password_resets, [:create, :edit, :update]
     allow :courses, [:index]
     allow :users, [:new, :create]
+    allow :transactions, [:new, :create, :pickup]
     if user
       allow :dashboards, [:show]
       allow :users, [:show]
       allow :users, [:edit, :update] do |resource|
         resource.id == user.id
       end
-      allow :videos, [:show]
+      allow :videos, [:show, :index]
       allow :hosted_files, [:video, :audio, :slides]
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]

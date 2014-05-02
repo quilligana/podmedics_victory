@@ -9,7 +9,7 @@ PodmedicsVictory::Application.routes.draw do
   get '/terms', to: 'static_pages#terms', as: 'terms'
   get '/contact', to: 'static_pages#contact', as: 'contact'
   get '/support', to: 'static_pages#support', as: 'support'
-  get 'plans', to: 'static_pages#plans', as: 'plans'
+  get '/press', to: 'static_pages#press', as: 'press'
   resources :courses, only: [:index]
 
   # Authentication
@@ -24,6 +24,11 @@ PodmedicsVictory::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#omniauthcreate', via: [:get, :post]
   match 'auth/failure', to: 'sessions#new', via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+  # Transactions
+  get 'buy', to: 'transactions#new', as: :show_buy
+  post 'buy/:permalink', to: 'transactions#create', as: :buy
+  get 'pickup/:guid', to: 'transactions#pickup', as: :pickup
 
   # Dashboards and admin
   resource :dashboard, only: :show
@@ -47,12 +52,13 @@ PodmedicsVictory::Application.routes.draw do
   end
 
   # Specialty/Video
-  resources :videos, only: :show do
+  resources :videos, only: [:show, :index] do
     resources :questions, only: :index
     get 'video', to: 'hosted_files#video', as: 'download_video'
     get 'audio', to: 'hosted_files#audio', as: 'download_audio'
     get 'slides', to: 'hosted_files#slides', as: 'download_slides'
   end  
+  get 'tags/:tag', to: 'videos#index', as: :tag
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
   resources :questions, only: :show

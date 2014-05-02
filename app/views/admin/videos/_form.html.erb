@@ -5,6 +5,7 @@
       <%= f.input :position %>
       <%= f.input :title %>
       <%= f.input :description %>
+      <%= f.input :tag_list, as: :text, hint: 'tags separated by commas' %>
       <%= f.association :specialty, as: :select, collection: Specialty.all.order(:name) %>
       <%= f.association :author, as: :select, collection: Author.all.order(:name) %>
       <%= f.input :vimeo_identifier, label: 'Vimeo Identifier' %>

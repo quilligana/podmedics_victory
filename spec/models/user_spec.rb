@@ -59,4 +59,13 @@ describe User do
       last_email.to.should include(user.email)
     end
   end
+
+  describe User, '#mark_plan_selected' do
+    it "marks the user as having selected a plan" do
+      user = create(:user)
+      user.mark_plan_selected
+      expect(user.selected_plan).to be_true
+    end
+
+  end
 end

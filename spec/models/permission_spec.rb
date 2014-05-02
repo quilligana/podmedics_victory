@@ -21,9 +21,12 @@ describe Permission do
       expect(subject.allow?('sessions', 'omniauthcreate')).to be_true
     end
 
-    it "allows access to registration" do
+    it "allows access to registration and payment" do
       expect(subject.allow?('users', 'new')).to be_true
       expect(subject.allow?('users', 'create')).to be_true
+      expect(subject.allow?('transactions', 'new')).to be_true
+      expect(subject.allow?('transactions', 'create')).to be_true
+      expect(subject.allow?('transactions', 'pickup')).to be_true
     end
 
     it "allows access to courses" do
@@ -63,8 +66,9 @@ describe Permission do
       expect(subject.allow?('users', 'edit', another_user)).to be_false
     end
 
-    it "allows access to the video page" do
+    it "allows access to the video page and video tag page" do
       expect(subject.allow?('videos', 'show')).to be_true
+      expect(subject.allow?('videos', 'index')).to be_true
     end
 
     it "allows video downloads" do

@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
   validates :website, url: { allow_blank: true }
 
   after_commit :flush_cache
+
+  # Plans/Payments
+
+  def mark_plan_selected
+    update_attributes(selected_plan: true)
+  end
   
 
   # Cache functions
