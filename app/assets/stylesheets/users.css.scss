@@ -3321,7 +3321,7 @@ background-color: #961E2F;
   padding-top: 28px;
   padding-bottom: 25px;
   padding-right: 0px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .field.password_reset_field .podmedics_textfield {
@@ -3485,4 +3485,189 @@ a.tag span{
   padding-left: 9px;
   padding-right: 12px;
 
+}
+
+.press_kit_header {
+  float: left;
+  border-bottom: solid 1px $podmedics_grey;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.press_kit_header p {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  color: #666;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.press_kit_blocks {
+  float: left;
+  width: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-bottom: solid 1px $podmedics_grey;
+
+}
+
+.press_kit_blocks h2 {
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+  padding-top: 30px;
+}
+
+.press_kit_blocks p {
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  line-height: 25px;
+  padding-top: 3px;
+  padding-bottom: 10px;
+ }
+
+.press_kit_block_inner {
+  width: 100%;
+  float: left;
+}
+
+a.press_kit_block_image_one {
+  width: 935px;
+  height: 305px;
+  float: left;
+  background-image: image-url('press_kit_image_1.jpg');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+a.press_kit_block_image_two{
+  width: 445px;
+  height: 200px;
+  float: left;
+  background-image: image-url('press_kit_image_2.jpg');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+a.press_kit_block_image_three {
+  width: 445px;
+  height: 200px;
+  float: left;
+  background-image: image-url('press_kit_image_3.jpg');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+.press_kit_block_inner p {
+  float: left;
+  width: 100%;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding-top: 15px;
+}
+
+.press_kit_block_one {
+  float: left;
+  width: 935px;
+  margin-bottom: 15px;
+}
+
+.press_kit_block_two {
+  float: left;
+  width: 445px;
+  margin-right: 45px;
+}
+
+.press_kit_block_three {
+  float: left;
+  width: 445px;
+}
+.press_kit_lower_blocks {
+  width: 50%;
+  border-right: solid 1px #E9E9E9;
+  float: left;
+  height: 260px;
+}
+
+.press_kit_lower_blocks:last-child {
+  width: 49.5%;
+  border-right: none;
+}
+
+.press_kit_lower_block_inner {
+  float: left;
+  padding-top: 35px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+.press_kit_lower_block_inner h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.press_kit_lower_blocks p {
+  font-size: 14px;
+  color: #8A8A8A;
+  line-height: 22px;
+}
+
+.press_kit_lower_blocks a.podmedcis_button {
+  margin-top: 15px;
+}
+
+
+.press_kit_lower_colour_blocks_inner {
+  width: 430px;
+}
+
+.colour_block.red_press_kit_block {
+  width: 100%;
+  height: 60px;
+  background-color: #fa3f52;
+  line-height: 60px;
+  color: #FFF;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+  float: left;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+
+.colour_block.green_press_kit_block {
+  width: 200px;
+  height: 60px;
+  background-color: #8CDE7F;
+  line-height: 60px;
+  color: #FFF;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+  float: left;
+  border-radius: 6px;
+}
+.colour_block.grey_press_kit_block {
+  width: 200px;
+  height: 60px;
+  margin-right: 30px;
+  background-color: #F8F8F8;
+  line-height: 60px;
+  color: #757575;
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
+  float: left;
+  border-radius: 6px;
 }
