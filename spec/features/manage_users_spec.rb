@@ -26,31 +26,28 @@ feature 'Manage users' do
   end
 
   scenario 'Editing a user' do
-    user = create(:user)
     sign_in(@admin_user)
-    update_email_of_user('user2@example.com', user)
+    update_email_of_user('user2@example.com', @admin_user)
     admin_sees_user_with_email 'user2@example.com'
   end
 
   scenario 'Editing a user incorrectly' do
-    user = create(:user)
     sign_in(@admin_user)
-    update_email_of_user('', user)
+    update_email_of_user('', @admin_user)
     expect(page).to have_content 'Please review the form'
   end
 
   scenario 'Removing a user' do
-    user = create(:user)
     sign_in(@admin_user)
-    admin_removes_user(user)
-    admin_sees_no_user_with_email(user.email)
+    admin_removes_user(@admin_user)
+    admin_sees_no_user_with_email(@admin_user.email)
   end
 
   # Helpers
 
   def admin_removes_user(user)
     visit admin_users_path
-    within "table tr.user##{user.id}" do
+    within "tr.user##{user.id}" do
       click_link 'Remove'
     end
   end
@@ -87,7 +84,6 @@ feature 'Manage users' do
     end
     fill_in 'Email', with: email
     click_button 'Submit'
-    
   end
 
 end

@@ -29,7 +29,7 @@ class Admin::VideosController < InheritedResources::Base
   protected
 
     def collection
-      @videos ||= end_of_association_chain.includes(:specialty).order(:title)
+      @videos ||= end_of_association_chain.includes(:specialty).order(:title).paginate(page: params[:page])
     end
 
   private
