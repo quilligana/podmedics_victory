@@ -133,6 +133,41 @@ describe Video do
       expect(video.views).to eq 1
     end
   end
+
+  describe Video, '.search' do
+    it "should search by title" do
+      video = create(:video, title: 'Acne')
+      expect(Video.search('Acne')).to include video
+    end
+  end
+
+  describe Video, '.tagged_with' do
+    before do
+      @tagged_video = create(:video, tag_list: 'ischaemia, acute coronary syndrome')
+      @non_tagged_video = create(:video)
+    end
+
+    it "returns the right video given a tag" do
+      expect(Video.tagged_with('ischaemia')).to include @tagged_video
+      expect(Video.tagged_with('ischaemia')).to_not include @non_tagged_video
+    end
+  end
+
+  describe Video, '#tag_list' do
+    it "retrieves the tags for a video" do
+      video = create(:video, tag_list: 'one, two')
+      expect(video.tag_list).to eq 'one, two'
+    end
+  end
+
+  describe Video, '#tag_list=' do
+    it "creates tags given a set of tags and ignores already created tags" do
+      expect {
+        create(:video, tag_list: 'one, two, one')
+      }.to change(Tag, :count).by(2)
+      
+    end
+  end
   
 
 end

@@ -70,7 +70,6 @@ class Video < ActiveRecord::Base
     Video.where('title LIKE ?', "%#{param}%")
   end
 
-
   # Stat functions
 
   def increment_views
