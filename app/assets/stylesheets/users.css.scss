@@ -1578,16 +1578,12 @@ p.questions_info_right_column_number span {
   height: 75px;
   background-color: rgba(240, 240, 240, 0.2);
   float: left;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: #EFEFEF;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #EFEFEF;
   background-image: image-url('notes_right_arrow_button.png');
   background-repeat: no-repeat;
   background-position: top right;
-  margin-top: 30px;
 }
 
 .notes_saved_button.active_notes_saved_button {
@@ -3322,7 +3318,10 @@ background-color: #961E2F;
   width: 100%;
   text-align: center;
   padding-left: 0px;
+  padding-top: 28px;
+  padding-bottom: 25px;
   padding-right: 0px;
+  font-size: 14px;
 }
 
 .field.password_reset_field .podmedics_textfield {
