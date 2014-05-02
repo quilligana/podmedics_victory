@@ -58,6 +58,7 @@ PodmedicsVictory::Application.routes.draw do
     get 'audio', to: 'hosted_files#audio', as: 'download_audio'
     get 'slides', to: 'hosted_files#slides', as: 'download_slides'
   end  
+  get 'tags/:tag', to: 'videos#index', as: :tag
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
   resources :questions, only: :show

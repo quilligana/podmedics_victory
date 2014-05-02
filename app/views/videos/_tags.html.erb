@@ -1,0 +1,5 @@
+<% @video.tags.each do |tag| %>
+  <%= link_to tag_path(tag.name), class: 'tag' do %>
+    <span><%= tag.name %></span>
+  <% end %>
+<% end %>
