@@ -1,6 +1,16 @@
 class VideosController < ApplicationController
   layout 'user_application'
 
+  def index
+    if params[:tag]
+      @videos = Video.tagged_with(params[:tag])
+    elsif params[:search]
+      @videos = Video.search(params[:search])
+    else
+      @videos = Video.all
+    end
+  end
+
   def show
     @video = Video.friendly.find(params[:id])
     @specialty = Specialty.cached_find(@video.specialty_id)

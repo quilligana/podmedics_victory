@@ -66,6 +66,9 @@ class Video < ActiveRecord::Base
     end
   end
 
+  def self.search(param)
+    Video.where('title LIKE ?', "%#{param}%")
+  end
 
   # Stat functions
 

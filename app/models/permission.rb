@@ -13,7 +13,7 @@ class Permission
       allow :users, [:edit, :update] do |resource|
         resource.id == user.id
       end
-      allow :videos, [:show]
+      allow :videos, [:show, :index]
       allow :hosted_files, [:video, :audio, :slides]
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]
