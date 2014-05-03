@@ -20,15 +20,19 @@ class Quiz
   end
 
   def answered_correct?(answer)
-    true if answer.to_i == @correct_answer_number
+    true if answer == @correct_answer_number
   end
 
   def video
     @current_question.video
   end
 
+  def current_answer(answer)
+    @current_question.get_answer(answer)
+  end
+
   def correct_answer
-    @current_question.get_correct_answer
+    @current_question.get_answer(@current_question.correct_answer)
   end
 
   def total_questions

@@ -22,8 +22,8 @@ class Question < ActiveRecord::Base
     (Video.count * 7) - self.count
   end
 
-  def get_correct_answer
-    case self.correct_answer
+  def get_answer(answer_number)
+    case answer_number
     when 1
       self.answer_1
     when 2

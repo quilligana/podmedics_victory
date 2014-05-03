@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
     reset_session
   end
 
-  private
+private
 
   def initiate_questions
     set_session(@question_ids)
@@ -40,8 +40,8 @@ class QuestionsController < ApplicationController
   end
 
   def process_answer(answer_number)
-    if @quiz.answered_correct?(answer_number)
-      @quiz.record_answer(current_user, params[:answer_given])
+    if @quiz.answered_correct?(answer_number.to_i)
+      @quiz.record_answer(current_user, answer_number.to_i)
       session[:correct_answers] += 1
     end
     update_session

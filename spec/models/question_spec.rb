@@ -29,10 +29,10 @@ describe Question do
     end
   end
 
-  describe Question, '#get_correct_answer' do
-    it "return the correct answer text" do
+  describe Question, '#get_answer' do
+    it "returns the answer text for a given answer" do
       question = create(:question, correct_answer: 3)
-      expect(question.get_correct_answer).to eq question.answer_3
+      expect(question.get_answer(1)).to eq question.answer_1
     end
   end
 
