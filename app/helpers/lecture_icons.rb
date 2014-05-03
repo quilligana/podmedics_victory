@@ -56,7 +56,7 @@ private
   end
 
   def user_performance
-    if check_vimeo
+    if check_vimeo  && check_vimeo.completed == true
       if check_questions.any? 
         question_results = QuestionResults.new(check_questions)
         display_performance_icons(question_results)

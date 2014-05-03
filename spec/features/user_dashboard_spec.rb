@@ -34,7 +34,6 @@ feature 'User dashboard' do
 
     within '.dashboard_count_block.pass_count_green' do
       expect(page).to have_content exam_passes
-      save_and_open_page
     end
 
     within '.dashboard_count_blocks' do
@@ -55,6 +54,7 @@ feature 'User dashboard' do
 
   scenario 'A user with badges' do
     badge = create(:badge, user: @user, specialty: @specialty)
+    badge_2 = create(:badge, user: @user, specialty: @specialty, level: "House Officer")
     visit root_path
 
     within '.dashboard_badges_left_column' do
@@ -64,8 +64,9 @@ feature 'User dashboard' do
     end
 
     within '.dashboard_badges_right_column' do
-      expect(page).to have_content badge.specialty.name
-      expect(page).to have_content badge.level
+      expect(page).to have_content badge_2.specialty.name
+      expect(page).to have_content badge_2.level
+      expect(page).not_to have_content badge.level
     end
   end
 

@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :badge do
     association :user
     association :specialty
-    level 1
+    level "Medical Student"
   end
 end
