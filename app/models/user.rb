@@ -2,6 +2,14 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }, bucket: ENV['S3_USER_AVATAR_BUCKET_NAME']
+
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   has_many :user_questions, dependent: :destroy
   has_many :vimeos, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy

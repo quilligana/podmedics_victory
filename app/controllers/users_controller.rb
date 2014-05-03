@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'user_application', only: [:show, :edit]
+  layout 'user_application', only: [:show, :edit, :update]
   before_action :find_user, only: [:show, :edit, :update]
 
   def new
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   protected
 
     def user_params
-      params.require(:user).permit(:name, :email, :website, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :website, :avatar, :password, :password_confirmation)
     end
 
 end

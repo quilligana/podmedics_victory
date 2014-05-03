@@ -47,7 +47,7 @@
   <div class="page">
 
     <div class="profile_header">
-      <div class="profile_avatar"><img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" /></div>
+      <div class="profile_avatar"><%= image_tag @user.avatar.url(:thumb) %></div>
       <h1><%= @user.name %></h1>
     </div>
     <!-- End of profile header -->
