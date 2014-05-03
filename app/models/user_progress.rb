@@ -37,11 +37,22 @@ class UserProgress
   end
 
   def award_badge
-    if current_badge.nil? && grade_level == 0
+    if current_badge.nil?
+      award_first_badge
+    else
+      award_higher_badges
+    end
+  end
+
+  def award_first_badge
+    @user.badges.create(specialty_id: @specialty.id, level:
+                        grades(grade_level)) if grade_level == 0
+  end
+
+  def award_higher_badges
+    if current_badge.level != grades(grade_level)
       @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
-    elsif current_badge && current_badge.level != grades(grade_level)
-      @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
-    elsif current_badge && current_badge.level == grades(-2)
+    elsif current_badge.level == grades(-2)
         check_professor_badge
     end
   end

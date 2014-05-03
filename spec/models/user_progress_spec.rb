@@ -43,9 +43,6 @@ describe UserProgress do
   end
 
   describe '#next_badge' do
-    before do
-      
-    end
     it 'should return the users next badge in the specialty' do
       @progress_instance.next_badge.should eq "Medical Student"
       UserQuestion.create(user_id: @user.id, question_id: @question.id, correct_answer: true)
