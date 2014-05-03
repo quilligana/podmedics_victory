@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
 
   def index
-    @users = User.all 
+    @users = User.paginate(page: params[:page])
   end
 
   def new

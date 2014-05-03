@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(version: 20140502185446) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "exams", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "specialty_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "percentage",   default: 0
+  end
+
+  add_index "exams", ["user_id"], name: "index_exams_on_user_id", using: :btree
+
   create_table "faqs", force: true do |t|
     t.string   "title"
     t.text     "content"

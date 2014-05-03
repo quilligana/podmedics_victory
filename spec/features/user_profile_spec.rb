@@ -5,12 +5,16 @@ feature 'User Profile' do
   scenario 'Viewing the profile page' do
     user = create(:user, points: 200)
     badge = create(:badge, user: user)
+    user.exams.create(specialty_id: 1, percentage: 90)
     sign_in(user)
     click_link 'Your Profile'
     expect(page).to have_content user.name
     expect(page).to have_content 'Badges'
     within '.points' do
       expect(page).to have_content 200
+    end
+    within '.exams' do
+      expect(page).to have_content 1
     end
     within '.badges' do
       expect(page).to have_content 1
