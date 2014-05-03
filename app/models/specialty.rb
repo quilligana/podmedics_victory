@@ -64,6 +64,10 @@ class Specialty < ActiveRecord::Base
     Rails.cache.fetch([self, "notes"]) { notes.to_a }
   end
 
+  def change_professor(user_id)
+    update_attributes(professor: user_id)
+  end
+
 
   def title
     name
