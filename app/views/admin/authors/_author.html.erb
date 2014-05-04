@@ -1,8 +1,11 @@
 <div class="author">
   <td><%= author.id %></td>
   <td><%= author.name %></td>
+  <td><%= image_tag author.avatar.url(:square), width: '128', height: '128' %></td>
+  <td><%= author.videos.count %></td>
   <td>
     <ul class="actions">
+      <li><%= link_to 'Show', admin_author_path(author) %></li>
       <li><%= link_to "Edit", edit_admin_author_path(author) %></li>
     </ul>
   </td>

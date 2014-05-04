@@ -1,11 +1,14 @@
 <div class="row header">
   <div class="col-md-12">
     <h3><%= @author.name %></h3>
+    <%= image_tag @author.avatar.url(:square) %>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <p><%= @author.tagline %></p>
+    <p><%= @author.twitter %></p>
+    <p><%= @author.facebook%></p>
   </div>
 </div>
