@@ -36,7 +36,17 @@ class User < ActiveRecord::Base
   def mark_plan_selected
     update_attributes(selected_plan: true)
   end
-  
+
+  def has_valid_subscription?
+    if self.admin
+      return true
+    end
+
+    if !self.selected_plan
+      return false
+    end
+    true
+  end
 
   # Cache functions
 

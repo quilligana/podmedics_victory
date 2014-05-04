@@ -5,7 +5,7 @@ feature 'Sign up' do
   scenario 'Guest signs up with valid credentials' do
     create_products
     user_signs_up_with_email('test@example.com')
-    expect(current_path).to eq show_buy_path
+    expect(current_path).to eq show_buy_path(User.first)
   end
 
   scenario 'Guest signs up with no email' do

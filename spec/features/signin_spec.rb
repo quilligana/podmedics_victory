@@ -24,6 +24,13 @@ feature 'Login' do
       expect(page).to have_content 'Email or password is invalid'
     end
 
+    scenario 'User who has not selected plan signs in' do
+      generate_plans
+      no_plan_user = create(:no_plan_user)
+      sign_in(no_plan_user)
+      expect(current_path).to eq show_buy_path(no_plan_user)
+    end
+
 
     scenario 'Admin user signs in' do
       sign_in(admin_user)
@@ -54,5 +61,12 @@ feature 'Login' do
         end
         expect(current_path).to eq edit_user_path(user)
       end
+    end
+
+    # Helpers
+    
+    def generate_plans
+      create(:free_product)
+      create(:paid_product)
     end
 end
