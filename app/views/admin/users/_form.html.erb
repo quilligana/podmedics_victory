@@ -1,36 +1,14 @@
-<%= simple_form_for [:admin, @user] do |f| %>
-  <%= f.error_notification %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @user] do |f| %>
+      <%= f.error_notification %>
         <%= f.input :name %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
         <%= f.input :email %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
         <%= f.input :password %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
         <%= f.input :password_confirmation %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
         <%= f.input :admin %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <%= f.submit 'Submit', class: 'btn btn-primary' %>
-      </div>
-    </div>
+        <%= f.input :selected_plan %>
+        <%= f.button :submit %>
+    <% end %>
   </div>
-  
-<% end %>
+</div>

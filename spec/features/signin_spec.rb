@@ -12,6 +12,9 @@ feature 'Login' do
     scenario 'Registered user signs in' do
       sign_in(user)
       expect(current_path).to eq dashboard_path
+      user.reload
+      expect(user.login_count).to eq 1
+      expect(user.last_login_at).to_not be_nil
     end
 
     scenario 'Non-registered user tries to sign in' do

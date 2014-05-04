@@ -1,5 +1,55 @@
-<h1>User</h1>
+<div class="page-header">
+  <h1>
+    <%= @user.name %>
+    <small><%= link_to "Edit", edit_admin_user_path(@user) %></small>
+  </h1>
+</div>
 
-<div class="user">
-  <%= @user.email %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="well user">
+      <h4>Basic Info</h4>
+      <p>Admin: <%= @user.admin %></p>
+      <p>Name: <%= @user.name %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Password Digest: <%= @user.password_digest %></p>
+      
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well">
+      <h4>Subscription Info</h4>
+        <p>Selected plan: <%= @user.selected_plan %></p>
+    </div>
+  </div>
+</div>
+
+<div class="well">
+  <h4>Social</h4>
+  <p>Provider: <%= @user.provider %></p>
+  <p>UID: <%= @user.uid %></p>
+  <p>Twitter: <%= @user.twitter %></p>
+  <p>Facebook: <%= @user.facebook %></p>
+  <p>Website: <%= @user.website %></p>
+  
+</div>
+
+<div class="well">
+  <p>Created at: <%= @user.created_at.to_s(:long) %></p>
+  <p>Login Count: <%= @user.login_count %></p>
+  <p>Last Login: <%= @user.last_login_at %></p>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h4>Badges</h4>
+    <ul>
+      <% @user.badges.each do |badge| %>
+        <li>
+          <%= badge.specialty.name %>
+          <%= badge.level %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

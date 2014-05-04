@@ -27,6 +27,12 @@ class User < ActiveRecord::Base
 
   # Plans/Payments
 
+  def record_login
+    self.login_count += 1
+    self.last_login_at = Time.zone.now
+    save!
+  end
+
   def mark_plan_selected
     update_attributes(selected_plan: true)
   end

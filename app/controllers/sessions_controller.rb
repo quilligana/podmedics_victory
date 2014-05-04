@@ -38,6 +38,7 @@ class SessionsController < ApplicationController
   end
 
   def login_for_user(user)
+    user.record_login
     if user.admin
       redirect_back_or admin_dashboard_path
     else

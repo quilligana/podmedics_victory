@@ -68,7 +68,7 @@ feature 'Manage users' do
     if admin
       check 'Admin'
     end
-    click_button 'Submit'
+    click_button 'Create User'
   end
 
   def admin_sees_user_with_email(email)
@@ -83,7 +83,7 @@ feature 'Manage users' do
       click_link 'Edit'
     end
     fill_in 'Email', with: email
-    click_button 'Submit'
+    click_button 'Update User'
   end
 
 end
