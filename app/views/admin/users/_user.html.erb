@@ -1,12 +1,12 @@
 <tr class="user" id="<%= user.id %>">
   <td><%= user.id %></td>
+  <td><%= user.created_at.to_s(:long) %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
+  <td><%= user.selected_plan %></td>
   <td>
     <%= link_to "Show", admin_user_path(user) %>
     <%= link_to "Edit", edit_admin_user_path(user) %>
     <%= link_to "Remove", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?'} %>
   </td>
 </tr>
-
-
