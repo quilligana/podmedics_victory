@@ -24,10 +24,11 @@ PodmedicsVictory::Application.routes.draw do
   match 'auth/failure', to: 'sessions#new', via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
-  # Transactions
+  # Transactions/Stripe Events
   get ':user_id/buy', to: 'transactions#new', as: :show_buy
   post ':user_id/buy/:permalink', to: 'transactions#create', as: :buy
   get ':user_id/pickup/:guid', to: 'transactions#pickup', as: :pickup
+  resources :stripe_events, only: [:create]
 
   # Dashboards and admin
   resource :dashboard, only: :show

@@ -7,6 +7,7 @@ class Permission
     allow :courses, [:index]
     allow :users, [:new, :create]
     allow :transactions, [:new, :create, :pickup]
+    allow :stripe_events, [:create]
     if user
       allow :dashboards, [:show]
       allow :users, [:show]
