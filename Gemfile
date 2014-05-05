@@ -63,6 +63,7 @@ group :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'mocha'
   gem 'simplecov', require: false
+  gem 'stripe-ruby-mock', '~> 1.10.1.7'
 end
 
 group :production do
