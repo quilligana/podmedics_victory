@@ -21,7 +21,7 @@ RSpec.configure do |config|
 
   OmniAuth.config.test_mode = true
 
-  #Capybara.javascript_driver = :poltergeist
+  Capybara.javascript_driver = :poltergeist
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
