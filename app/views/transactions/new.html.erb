@@ -47,6 +47,7 @@
       <%= form_tag buy_path(permalink: @paid_product.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
+          data-label="Choose Plan"
           data-name="Podmedics"
           data-currency="GBP"
           data-image="<%= asset_url 'podmedics_home_icon.png' %>"

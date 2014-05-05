@@ -1,0 +1,8 @@
+<tr>
+  <td><%= sale.id %></td>
+  <td><%= sale.created_at.to_s(:long) %></td>
+  <td><%= sale.product.name %></td>
+  <td>
+    <%= link_to "Show", admin_sale_path(sale) %>
+  </td>
+</tr>

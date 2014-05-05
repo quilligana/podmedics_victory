@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (3.1.1)
     actionmailer (4.0.2)
       actionpack (= 4.0.2)
       mail (~> 2.5.4)
@@ -349,6 +350,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  aasm
   active_model_serializers
   acts_as_list
   aws-sdk

@@ -12,30 +12,22 @@ class TransactionsController < ApplicationController
     if product.free?
       @user.mark_plan_selected
       sign_in_user(@user)
-      redirect_to dashboard_path, notice: 'Thanks for signing up for our trial'
+      redirect_to dashboard_path, notice: 'Thank you  for signing up for our trial.'
     else
-      token = params[:stripeToken]
-
-      begin
-        charge = Stripe::Charge.create(
-          amount: product.price,
-          currency: "gbp",
-          card: token,
-          description: params[:stripeEmail]
-        )
-
-        @sale = product.sales.create!(
-          email: params[:stripeEmail]
-        )
-
+      sale = product.sales.create(
+        amount: product.price,
+        email: params[:stripeEmail],
+        stripe_token: params[:stripeToken]
+      )
+      sale.process!
+      if sale.finished?
         sign_in_user(@user)
-        redirect_to pickup_url(guid: @sale.guid)
-      rescue Stripe::CardError => e
-        @error = e
+        redirect_to pickup_url(guid: sale.guid)
+      else
+        flash.now[:alert] = sale.error
         render :new
       end
     end
-
   end
 
   def pickup

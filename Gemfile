@@ -30,6 +30,7 @@ gem 'aws-sdk'
 gem 'httparty'
 gem 'stripe'
 gem 'validate_url'
+gem 'aasm'
 
 group :development do
   gem 'thin'

@@ -48,6 +48,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :courses
     resources :questions
     resources :products
+    resources :sales
   end
 
   # Specialty/Video
