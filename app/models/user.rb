@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  }, bucket: ENV['S3_USER_AVATAR_BUCKET_NAME']
+  },  bucket: ENV['S3_USER_AVATAR_BUCKET_NAME'], 
+      default_url: ActionController::Base.helpers.asset_path('avatar-128.jpg')
 
   validates_attachment :avatar, size: { in: 0..500.kilobytes }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -25,6 +26,7 @@ class User < ActiveRecord::Base
   validates :website, url: { allow_blank: true }
 
   after_commit :flush_cache
+  before_save :set_avatar_file_name
 
   # Plans/Payments
 
@@ -122,8 +124,18 @@ class User < ActiveRecord::Base
   end
 
   # Used on dashboard for graph
+
   def daily_stat(days_ago)
     rand(days_ago)
+  end
+
+  # Avatar file name
+
+  def set_avatar_file_name
+    unless avatar_file_name.nil?
+      extension = File.extname(self.avatar_file_name)
+      self.avatar_file_name = self.id.to_s + extension
+    end
   end
 
 end

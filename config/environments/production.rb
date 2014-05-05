@@ -93,6 +93,9 @@ PodmedicsVictory::Application.configure do
     }
   }
 
+  Paperclip::Attachment.default_options[:path] =  ":rails_root/public/system/avatars/:style/:filename"
+  Paperclip::Attachment.default_options[:url] =   "/system/avatars/:style/:filename"
+
   # Mail config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

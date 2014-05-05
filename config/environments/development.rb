@@ -45,5 +45,8 @@ PodmedicsVictory::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS']
     }
   }
+  
+  Paperclip::Attachment.default_options[:path] =  ":rails_root/public/system/avatars/:style/:filename"
+  Paperclip::Attachment.default_options[:url] =   "/system/avatars/:style/:filename"
 
 end

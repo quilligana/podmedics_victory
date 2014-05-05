@@ -34,6 +34,10 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+
+    # Avatars in production and dev are stored on s3, so we can safely clean
+    # up the system/avatars directory between tests.
+    FileUtils.rm_rf("#{Rails.root}/system/avatars")
   end
 
   config.include LoginMacros
@@ -47,8 +51,10 @@ RSpec.configure do |config|
   config.order = "random"
 
   if ENV['PARALLEL_TEST_GROUPS']
-    Paperclip::Attachment.default_options[:path] = ":rails_root/public/system/:rails_env/#{ENV['TEST_ENV_NUMBER'].to_i}/:class/:attachment/:id_partition/:filename"
+    Paperclip::Attachment.default_options[:path] =  ":rails_root/public/system/:rails_env/#{ENV['TEST_ENV_NUMBER'].to_i}/:class/:attachment/:id_partition/:filename"
+    Paperclip::Attachment.default_options[:url] =   "/system/:rails_env/#{ENV['TEST_ENV_NUMBER'].to_i}/:class/:attachment/:id_partition/:filename"
   else
-    Paperclip::Attachment.default_options[:path] = ":rails_root/public/system/:rails_env/:class/:attachment/:id_partition/:filename"
+    Paperclip::Attachment.default_options[:path] =  ":rails_root/public/system/:rails_env/:class/:attachment/:id_partition/:filename"
+    Paperclip::Attachment.default_options[:url] =   "/system/:rails_env/:class/:attachment/:id_partition/:filename"
   end
 end

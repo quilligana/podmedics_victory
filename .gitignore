@@ -29,5 +29,5 @@
 # simplecov
 /coverage
 
-# Ignore mac files
+# Ignore osx files
 .DS_Store
