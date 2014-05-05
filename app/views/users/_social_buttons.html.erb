@@ -1,20 +1,20 @@
 <%= 
   if @user.twitter.blank?
     if @user == current_user
-      link_to "Link Twitter*", "/auth/twitter", class: "twitter_social_button"
+      link_to "Link Twitter*", "/auth/twitter", class: "link_twitter_button twitter_social_button"
     end
   else
-    sanitize link_to "Twitter", @user.twitter, class: "twitter_social_button"
+    sanitize link_to "Twitter", @user.twitter, class: "linked_twitter_button twitter_social_button"
   end 
 %>
 
 <%= 
   if @user.facebook.blank?
     if @user == current_user
-      link_to "Link Facebook*", "/auth/facebook", class: "fb_social_button"
+      link_to "Link Facebook*", "/auth/facebook", class: "link_facebook_button fb_social_button"
     end
   else
-    sanitize link_to "Facebook", @user.facebook, class: "fb_social_button" 
+    sanitize link_to "Facebook", @user.facebook, class: "linked_facebook_button fb_social_button" 
   end
 %>
   

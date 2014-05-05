@@ -8,7 +8,7 @@ module OmniauthMacros
 		  info: 
 		  {
 		    name: 'mockuser',
-		    urls: { Facebook: 'http://www.facebook.com' }
+		    urls: { Twitter: 'http://www.twitter.com' }
 		  },
 		  credentials:
 		  {
@@ -27,7 +27,7 @@ module OmniauthMacros
 		  {
 		    name: 'mockuser',
 		    email: 'mail@example.com',
-		    urls: { Facebook: 'http://www.twitter.com' }
+		    urls: { Facebook: 'http://www.facebook.com' }
 		  },
 		  credentials:
 		  {

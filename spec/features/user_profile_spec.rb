@@ -44,4 +44,59 @@ feature 'User Profile' do
     visit edit_user_path(another_user)
     expect(page).to have_content 'Not authorised'
   end
+
+  feature 'Social Media Buttons' do
+    before do
+      user = create(:user)
+      sign_in(user)
+      visit user_path(user)
+    end
+
+    scenario 'Before linking any accounts' do
+        expect(page).to     have_css '.link_facebook_button'
+        expect(page).to_not have_css '.linked_facebook_button'
+
+        expect(page).to     have_css '.link_twitter_button'
+        expect(page).to_not have_css '.linked_twitter_button'
+    end
+
+    scenario 'Linking Twitter' do
+      mock_twitter_auth_hash()
+      click_link 'Link Twitter*'
+
+      expect(page).to     have_css '.linked_twitter_button'
+      expect(page).to_not have_css '.link_twitter_button'
+    end
+
+    scenario 'Linking Facebook' do
+      mock_facebook_auth_hash()
+      click_link 'Link Facebook*'
+
+      expect(page).to     have_css '.linked_facebook_button'
+      expect(page).to_not have_css '.link_facebook_button'
+    end
+  end
+
+  feature 'Custom Domain Button' do
+    before do
+      user = create(:user)
+      sign_in(user)
+      visit edit_user_path(user)
+    end
+
+    scenario 'Filling in a valid domain' do
+      fill_in 'Website', with: 'http://www.example.com'
+      click_button 'Update Profile'
+
+      expect(page).to have_content 'Website'
+      expect(page).to have_css '.custom_social_button'
+    end
+
+    scenario 'Filling in an invalid domain' do
+      fill_in 'Website', with: 'thisisnotavalidurl'
+      click_button 'Update Profile'
+
+      expect(page).to have_content 'Website is not a valid URL'
+    end
+  end
 end
