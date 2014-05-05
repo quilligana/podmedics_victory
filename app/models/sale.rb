@@ -1,5 +1,6 @@
 class Sale < ActiveRecord::Base
   include AASM
+  has_paper_trail
 
   belongs_to :product
   before_create :populate_guid
