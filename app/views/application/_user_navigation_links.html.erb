@@ -4,7 +4,7 @@
     <div class="user_dropdown_wrapper">
       <a href="javascript:;" class="user_dropdown_link">
         <p class="user_icon_header">
-          <img src=" <%=asset_path "avatar-128.jpg" %>" width="128" height="128" />
+          <%= image_tag current_user.avatar.url(:thumb) %>
         </p>
       </a>
       <div class="user_dropdown">
