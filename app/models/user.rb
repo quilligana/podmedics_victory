@@ -2,14 +2,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_attached_file :avatar, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }, bucket: ENV['S3_USER_AVATAR_BUCKET_NAME']
-
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
   has_many :user_questions, dependent: :destroy
   has_many :vimeos, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -19,6 +11,15 @@ class User < ActiveRecord::Base
   has_many :notes, dependent: :destroy
   has_many :exams, dependent: :destroy
 
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }, bucket: ENV['S3_USER_AVATAR_BUCKET_NAME']
+
+  validates_attachment :avatar, size: { in: 0..500.kilobytes }
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  
   validates :email, presence: true, email: true
   validates :name, presence: true
   validates :website, url: { allow_blank: true }
