@@ -39,7 +39,12 @@
 
             <div class="profile_avatar_field">
               <a  href="javascript:;" id="change_profile_image_button" class="grey_button">Change Profile Image</a>
-              <div class="profile_avatar_upload_wrapper"><%= f.file_field :avatar %></div>
+              <div class="profile_avatar_upload_wrapper">
+              <% if Rails.env.test?  %>
+                <%= f.label :avatar %> 
+              <% end %>
+              <%= f.file_field :avatar %>
+              </div>
             </div>
             
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
