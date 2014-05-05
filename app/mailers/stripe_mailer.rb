@@ -11,7 +11,10 @@ class StripeMailer < ActionMailer::Base
 
   def admin_charge_succeeded(charge)
     @charge = charge
-    mail(to: 'ed@podmedics.com', subject: 'Woo! Charge Succeeded')
+    @sale = Sale.find_by(stripe_id: @charge.id)
+    if @sale
+      mail(to: 'ed@podmedics.com', subject: 'Woo! Charge Succeeded')
+    end
   end
 
 end
