@@ -37,9 +37,15 @@ $standard_border_radius: 6px;
 
   #tabs ul li .icon {
     background-size: 26px 130px;
-    background-image: url(/assets/tab_icons@2x.png);
+    background-image: image-url('tab_icons@2x.png');
   }
-
+  a.podmedcis_button.lectures_dropdown_button {
+     background-image: image-url('nav_icons@2x.png');
+    background-repeat: no-repeat;
+    background-position: 121px -559px;
+    background-size: 28px 800px;
+    margin-top: 0px;
+  }
 }
 
 
