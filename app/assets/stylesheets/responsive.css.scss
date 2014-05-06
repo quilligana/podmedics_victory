@@ -109,7 +109,18 @@ $standard_border_radius: 6px;
     background-size: 28px 800px;
   }
 
-
+  .right_column_search_field button.navigation_search_field_search_button {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+  a.lectures_inline_dropdown_category_link {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+  .lectures_inline_dropdown_back_button {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
 }
 
 
