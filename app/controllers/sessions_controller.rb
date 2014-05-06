@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      if user.has_valid_subscription?
+      if user.has_selected_plan?
         session[:user_id] = user.id
         login_for_user(user)
       else

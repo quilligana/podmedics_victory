@@ -72,6 +72,55 @@ describe User do
       user.mark_plan_selected
       expect(user.selected_plan).to be_true
     end
-
   end
+
+  describe User, '#start_subscription' do
+    it "sets the subscribed_on attribute" do
+      user = create(:user)
+      user.start_subscription
+      expect(user.subscribed_on).to_not be_nil
+    end
+  end
+
+  describe User, '#expires_on' do
+    it "return 1 year after the subscribed_on date" do
+      user = create(:user)
+      user.start_subscription
+      expect(user.expires_on).to eq (user.subscribed_on + 1.year)
+    end
+  end
+
+  describe User, '#has_selected_plan?' do
+    it "returns true if an admin" do
+      admin = create(:admin_user)
+      expect(admin.has_selected_plan?).to be_true
+    end
+
+    it "returns true if user subscribed and in date" do
+      user = create(:user, subscribed_on: Time.zone.now)
+      expect(user.has_selected_plan?).to be_true
+    end
+
+    it "returns false if user has not selected a plan" do
+      user = create(:user, selected_plan: false )
+      expect(user.has_selected_plan?).to be_false
+    end
+
+    it "returns true if user has selected a plan but not susbcribed" do
+      user = create(:user, subscribed_on: nil)
+      expect(user.has_selected_plan?).to be_true
+    end
+  end
+
+  describe User, '#has_subscription_and_in_date?' do
+    it "return false be default" do
+      user = create(:user, subscribed_on: nil)
+      expect(user.has_subscription_and_in_date?).to be_false
+    end
+    it "returns true if subscription in date" do
+      user = create(:user, subscribed_on: Time.zone.now)
+      expect(user.has_subscription_and_in_date?).to be_true
+    end
+  end
+
 end

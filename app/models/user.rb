@@ -40,14 +40,23 @@ class User < ActiveRecord::Base
     update_attributes(selected_plan: true)
   end
 
-  def has_valid_subscription?
-    if self.admin
-      return true
-    end
+  def start_subscription
+    self.mark_plan_selected
+    update_attributes(subscribed_on: Time.zone.now)
+  end
 
-    if !self.selected_plan
-      return false
-    end
+  def expires_on
+    subscribed_on + 1.year
+  end
+
+  def has_subscription_and_in_date?
+    return true if self.subscribed_on && (Time.now <= expires_on)
+    false
+  end
+
+  def has_selected_plan?
+    return true if self.admin
+    return false if !self.selected_plan
     true
   end
 

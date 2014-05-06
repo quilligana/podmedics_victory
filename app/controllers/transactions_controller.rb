@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :find_user
+  layout 'user_application', only: [:pickup]
 
   def new
     @free_product = Product.where(permalink: 'free').first
@@ -12,7 +13,7 @@ class TransactionsController < ApplicationController
     if product.free?
       @user.mark_plan_selected
       sign_in_user(@user)
-      redirect_to dashboard_path, notice: 'Thank you  for signing up for our trial.'
+      redirect_to dashboard_path, notice: 'Thank you for signing up for our trial.'
     else
       sale = product.sales.create(
         amount: product.price,
@@ -21,6 +22,7 @@ class TransactionsController < ApplicationController
       )
       sale.process!
       if sale.finished?
+        @user.start_subscription
         sign_in_user(@user)
         redirect_to pickup_url(guid: sale.guid)
       else

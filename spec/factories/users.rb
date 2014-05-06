@@ -7,6 +7,7 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     selected_plan true
+    #subscribed_on { Time.zone.now }
 
     factory :admin_user do
       admin true
