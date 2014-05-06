@@ -48,17 +48,67 @@ $standard_border_radius: 6px;
   }
 
   div.incorrect_question_icon {
-    background-image: image-url('/assets/questions_results_icon@2x.png');
+    background-image: image-url('questions_results_icon@2x.png');
     background-size: cover;
   }
   div.incorrect_question_icon {
-    background-image: image-url('/assets/questions_results_icon@2x.png');
+    background-image: image-url('questions_results_icon@2x.png');
     background-size: cover;
   }
   div.correct_question_icon {
-    background-image: image-url('/assets/questions_results_icon@2x.png');
+    background-image: image-url('questions_results_icon@2x.png');
     background-size: cover;
   }
+  .inner_menu_wrapper .nav-home {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-lectures {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-courses {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-profile {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-support {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-logout {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-about {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-faqs {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-login {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
+  .inner_menu_wrapper .nav-signup {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+
 
 }
 
