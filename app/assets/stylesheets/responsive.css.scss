@@ -122,7 +122,10 @@ $standard_border_radius: 6px;
     background-position: 79px 10px;
     background-size: 14px 48px;
   }
-
+  .no_questions_reply_wrapper {
+    background-image: image-url('no_answers_icon@2x.png');
+    background-size: 38px 34px;
+  }
 }
 
 
@@ -1839,4 +1842,15 @@ $standard_border_radius: 6px;
     margin-top: 15px;
   }
 
+  .load_more_questions_answers_wrapper a.podmedcis_button.grey {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    float: none;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .load_more_questions_answers_wrapper {
+    padding-bottom: 0px;
+  }
 }
