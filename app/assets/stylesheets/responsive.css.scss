@@ -156,7 +156,22 @@ $standard_border_radius: 6px;
     background-size: 22px 166px;
     background-position: 144px -123px;
   }
-
+  a.delete_comment_button {
+    background-image: image-url('comment_action_icons.png');
+    background-size: 17px 75px;
+  }
+  .comment_reply_link a {
+    background-image: image-url('comment_action_icons.png');
+    background-size: 17px 75px;
+  }
+  span.upvote_arrow .vote {
+    background-image: image-url('up_vote_icon@2x.png');
+    background-size: 11px 6px;
+  }
+  .notes_saved_button {
+    background-image: image-url('notes_right_arrow_button@2x.png');
+    background-size: 50px 262px;
+  }
 }
 
 
@@ -527,9 +542,10 @@ $standard_border_radius: 6px;
 
   .notes_saved_button {
     height: 68px;
-    background-position: bottom right;
+    background-position: top right;
+    background-position-y: -5px;
   }
-
+  
   .lecture_questions_right_column.notes_right_column {
     display: block;
     width: 100%;
@@ -1883,5 +1899,13 @@ $standard_border_radius: 6px;
   }
   .load_more_questions_answers_wrapper {
     padding-bottom: 0px;
+  }
+
+  #tabs_single_page ul.comment_count_tab_ul {
+    margin-left: 0px;
+  }
+  a.podmedcis_button.green.accept_answer_button {
+    margin-left: 0px;
+    margin-top: -3px;
   }
 }
