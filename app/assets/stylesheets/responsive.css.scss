@@ -172,6 +172,14 @@ $standard_border_radius: 6px;
     background-image: image-url('notes_right_arrow_button@2x.png');
     background-size: 50px 262px;
   }
+  .mail_icon_plans_lower_block {
+    background-image: image-url('plans_page_blocks_icons@2x.png');
+    background-size: 58px 45px;
+  }
+  .payment_system_icon_plans_lower_block {
+    background-image: image-url('plans_page_blocks_icons@2x.png');
+    background-size: 58px 45px;
+  }
 }
 
 
@@ -545,7 +553,7 @@ $standard_border_radius: 6px;
     background-position: top right;
     background-position-y: -5px;
   }
-  
+
   .lecture_questions_right_column.notes_right_column {
     display: block;
     width: 100%;
