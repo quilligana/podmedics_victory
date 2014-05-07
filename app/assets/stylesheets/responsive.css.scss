@@ -14,27 +14,22 @@ $standard_border_radius: 6px;
     background-image: image-url('podmedics_header_icon@2x.png');
     background-size: 65%;
   }
-
   .header_outer .header_navigation a.menu_link {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
     background-position: 90px 28px;
   }
-
   .footer_right a.twitter_footer_icon, .founder_social_icons a.twitter_footer_icon {
     background-image: image-url('footer_social_icons@2x.png');
     background-size: 68px;
   }
-
   .footer_right a.fb_footer_icon, .founder_social_icons a.fb_footer_icon {
     background-image: image-url('footer_social_icons@2x.png');
     background-size: 68px;
   }
-
-    .home_navigation a.nav-signup {
+  .home_navigation a.nav-signup {
     background-position: 81px -19px;
   }
-
   #tabs ul li .icon {
     background-size: 26px 130px;
     background-image: image-url('tab_icons@2x.png');
@@ -46,7 +41,6 @@ $standard_border_radius: 6px;
     background-size: 28px 800px;
     margin-top: 0px;
   }
-
   div.incorrect_question_icon {
     background-image: image-url('questions_results_icon@2x.png');
     background-size: cover;
@@ -63,32 +57,26 @@ $standard_border_radius: 6px;
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .inner_menu_wrapper .nav-lectures {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .inner_menu_wrapper .nav-courses {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .inner_menu_wrapper .nav-profile {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .inner_menu_wrapper .nav-support {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .inner_menu_wrapper .nav-logout {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .inner_menu_wrapper .nav-about {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
@@ -108,7 +96,6 @@ $standard_border_radius: 6px;
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
   }
-
   .right_column_search_field button.navigation_search_field_search_button {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
@@ -124,8 +111,18 @@ $standard_border_radius: 6px;
   .lecture_list_item .lecture_icons_wrapper .lecture_icon {
     background-image: image-url('lecture_icons@2x.png');
     background-size: 35px 215px;
-
+    border-radius: 4px;
   }
+  .home_page_header a.podmedics_home_icon {
+    background-image: image-url('podmedics_home_icon@2x.png');
+    background-size: 100%;
+  }
+  .home_navigation a.nav-login {
+    background-image: image-url('home_header_button_icons@2x.png');
+    background-position: 79px 10px;
+    background-size: 14px 48px;
+  }
+
 }
 
 
