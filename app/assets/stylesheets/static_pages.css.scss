@@ -892,6 +892,8 @@ p.faq_inner {
   -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   margin-top: 110px;
+  margin-top: 60px;
+  margin-bottom: 100px;
 }
 
 .plans_column:last-child {
@@ -911,7 +913,7 @@ p.faq_inner {
 }
 
 .plans_column div.plans_column_price {
-  width: 247px;
+  width: 108px;
   text-align: center;
   font-size: 30px;
   font-weight: 800;
@@ -940,9 +942,11 @@ p.faq_inner {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.plans_column a.red_button {
+.plans_column button.red_button {
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
@@ -963,6 +967,7 @@ p.faq_inner {
   background-color: #FFF;
   width: 100%;
   float: left;
+
 }
 
 .plans_lower_info_block_wrapper {
@@ -970,11 +975,12 @@ p.faq_inner {
   float: left;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-right: inset 1px #f6f6f6;
+  border-left: none;
+
 }
 
 .plans_lower_info_block_wrapper:last-child {
-  border-right: none;
+  border-left: inset 1px rgba(241, 241, 241, 0.34);
 }
 .plans_lower_info_block_wrapper p {
   padding-left: 15%;
