@@ -140,6 +140,23 @@ $standard_border_radius: 6px;
     background-size: 22px 166px;
     background-position: 145px 19px;
   }
+
+  a.video_download_dropdown_link.video_file_icon {
+    background-image: image-url('dowload_dropdown_icons@2x.png');
+    background-size: 22px 166px;
+    background-position: 144px -27px;
+  }
+  a.video_download_dropdown_link.audio_file_icon {
+    background-image: image-url('dowload_dropdown_icons@2x.png');
+    background-size: 22px 166px;
+    background-position: 144px -76px;
+  }
+  a.video_download_dropdown_link.slides_file_icon {
+    background-image: image-url('dowload_dropdown_icons@2x.png');
+    background-size: 22px 166px;
+    background-position: 144px -123px;
+  }
+
 }
 
 
