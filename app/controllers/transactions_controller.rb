@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :find_user
-  layout 'user_application', only: [:pickup]
+  #:layout 'user_application', only: [:pickup]
 
   def new
     @free_product = Product.where(permalink: 'free').first
