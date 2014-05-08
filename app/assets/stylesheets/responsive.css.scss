@@ -181,7 +181,10 @@ $standard_border_radius: 6px;
     background-image: image-url('plans_page_blocks_icons@2x.png');
     background-size: 58px 45px;
   }
-
+  .icheckbox_minimal-red, .iradio_minimal-red {
+    background-image: image-url('checkboxs@2x.png');
+    background-size: 200px 20px;
+  }
 }
 
 
