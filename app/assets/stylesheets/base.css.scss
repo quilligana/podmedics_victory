@@ -18,6 +18,10 @@ html, body, div, span, object, iframe, h2, h3, h4, h5, h6, p, blockquote, pre, a
   padding: 0;
   vertical-align: baseline; }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   line-height: 1; }
 
