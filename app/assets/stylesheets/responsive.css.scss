@@ -185,7 +185,14 @@ $standard_border_radius: 6px;
     background-image: image-url('checkboxs@2x.png');
     background-size: 200px 20px;
   }
-
+  .main_nav_wrapper.speciality a {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
+  .main_nav_inner_lectures_back_link, .speciality_nav_back_button {
+    background-image: image-url('nav_icons@2x.png');
+    background-size: 28px 800px;
+  }
 }
 
 
