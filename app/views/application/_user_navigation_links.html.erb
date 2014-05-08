@@ -42,6 +42,7 @@
         <div class="right_column_search_field">
           <%= form_tag videos_path, method: 'get' do %>
             <%= text_field_tag :search, params[:search], class: 'navigation_search_field', placeholder: 'Search' %>
+            <button type="submit" class="navigation_search_field_search_button"></button>
           <% end %>
         </div>
 
