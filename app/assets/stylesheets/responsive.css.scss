@@ -995,7 +995,7 @@ $standard_border_radius: 6px;
 
   .inner.login_page_inner .login_ignup_form_wrapper {
     float: none;
-    height: 300px;
+    height: 360px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -1363,7 +1363,9 @@ $standard_border_radius: 6px;
   .courses_right_column div.course_info {
     font-size: 14px;
   }
-
+  .left_column_forms h2 {
+    font-size: 14px;
+  }
   .main_question_user_avatar {
     margin-top: 40px;
   }
@@ -1389,7 +1391,14 @@ $standard_border_radius: 6px;
   .plans_header p {
     font-size: 13px;
   }
-
+  .password_reset_link {
+    float: right;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .sign_up_link {
+    padding-top: 15px;
+  }
 }
 
 @media screen and (max-width: 620px) {
