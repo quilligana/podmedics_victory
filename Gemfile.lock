@@ -402,6 +402,7 @@ DEPENDENCIES
   parallel_tests
   pg
   poltergeist
+  pry
   quiet_assets
   rack-mini-profiler
   rails (= 4.0.2)
