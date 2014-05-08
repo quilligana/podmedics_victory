@@ -137,6 +137,8 @@ a.fb_social_button:hover, a.fb_social_button:active {
 
 .login_ignup_form_wrapper button.red_button {
   margin-top: 30px;
+  float: left;
+  clear: both;
 }
 
 .sign_up_link {
@@ -288,7 +290,7 @@ div.alert.alert-danger {
   padding-top: 10px;
 }
 
-span.help-inline {
+span.help-inline, span.ValidationErrors {
   color: #fa3f52;
   font-size: 11px;
   text-transform: uppercase;

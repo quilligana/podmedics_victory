@@ -1,8 +1,32 @@
 //= require jquery
 //= require jquery_ujs
 //= require fresco
+//= require jquery.validate
 
 $(document).ready(function(){
+
+  // Signup & login form validation
+
+  jQuery("#email, #user_email").validate({
+    expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
+    message: "A valid Email is required"
+  });
+    
+  jQuery("#password").validate({
+    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
+    message: "Please enter a valid Password"
+  });
+
+  jQuery("#user_password").validate({
+    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
+    message: "Please enter a valid Password"
+  });
+
+  jQuery("#user_password_confirmation").validate({
+    expression: "if ((VAL == jQuery('#user_password').val()) && VAL) return true; else return false;",
+    message: "Confirm password field doesn't match the password field"
+  });
+
 
   // Basic menu functions
   $("#menu_action").click(function(){
