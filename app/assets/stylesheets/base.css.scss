@@ -21,6 +21,9 @@ html, body, div, span, object, iframe, h2, h3, h4, h5, h6, p, blockquote, pre, a
 html {
   -webkit-text-size-adjust: 100%;
 }
+input, textarea {
+  -webkit-appearance: none;
+}
 
 body {
   line-height: 1; }
