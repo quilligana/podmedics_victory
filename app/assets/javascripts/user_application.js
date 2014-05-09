@@ -12,3 +12,4 @@
 //= require site
 //= require autosave
 //= require vimeo
+//= require jquery.validate
