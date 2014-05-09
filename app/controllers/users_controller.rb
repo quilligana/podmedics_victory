@@ -38,6 +38,9 @@ class UsersController < ApplicationController
 
     def find_user
       @user = User.cached_find(params[:id])
+      if @user.nil?
+        redirect_to dashboard_path
+      end
     end
 
   protected
