@@ -1,5 +1,5 @@
 class SpecialtyQuestion < ActiveRecord::Base
-  
+
   belongs_to :user, touch: true
   belongs_to :specialty, touch: true
 

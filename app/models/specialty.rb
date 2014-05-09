@@ -3,6 +3,7 @@ class Specialty < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   after_commit :flush_cache
+  after_touch :flush_cache
 
   belongs_to :category
   
