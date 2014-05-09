@@ -30,7 +30,7 @@ $standard_border_radius: 6px;
   .home_navigation a.nav-signup {
     background-position: 81px -19px;
   }
-  #tabs ul li .icon {
+  #tabs ul li .icon, #tabs_single_page ul li .icon {
     background-size: 26px 130px;
     background-image: image-url('tab_icons@2x.png');
   }
