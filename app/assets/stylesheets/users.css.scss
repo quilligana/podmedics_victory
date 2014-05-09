@@ -3672,3 +3672,37 @@ a.press_kit_block_image_three {
   float: left;
   border-radius: 6px;
 }
+.inner_pickup_page {
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.welcome_pickup_icon {
+  width: 236px;
+  height: 96px;
+  background-image: image-url('welcome_pickup_icon.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 180px;
+  margin-bottom: 15px;
+}
+.inner_pickup_page h1 {
+  width: 100%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.inner_pickup_page p {
+  color: #A7A7A7;
+  width: 100%;
+  float: left;
+  font-size: 14px;
+}
+.inner_pickup_page a.red_button {
+  float: none;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 180px;
+}

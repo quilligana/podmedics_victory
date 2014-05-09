@@ -201,6 +201,10 @@ $standard_border_radius: 6px;
     background-image: image-url('lecture_questions_status_icon@2x.png');
     background-size: 30px 61px;
   }
+  .welcome_pickup_icon {
+    background-image: image-url('welcome_pickup_icon@2x.png');
+    background-size: 236px 96px;
+  }
 }
 
 
@@ -1946,5 +1950,11 @@ $standard_border_radius: 6px;
   a.podmedcis_button.green.accept_answer_button {
     margin-left: 0px;
     margin-top: -3px;
+  }
+  .welcome_pickup_icon {
+    margin-top: 100px;
+  }
+  .inner_pickup_page a.red_button {
+    margin-bottom: 80px;
   }
 }
