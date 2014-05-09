@@ -1,7 +1,7 @@
 <div class="row header">
   <div class="col-md-12">
     <h3><%= @author.name %></h3>
-    <%= image_tag @author.avatar.url(:square) %>
+    <%= image_tag @author.get_avatar(:square) %>
   </div>
 </div>
 
