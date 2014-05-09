@@ -25,7 +25,7 @@
   <div class="inner_page_padding">
     <div class="comment_avatar">
       <a href="#">
-        <img src="<%=asset_path "avatar-128.jpg" %>" width="128" height="128" />
+        <%= image_tag comment.cached_user.get_avatar(:thumb) %>
       </a>
     </div>
     <div class="comment_info">
