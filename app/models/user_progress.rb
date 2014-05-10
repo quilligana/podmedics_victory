@@ -70,7 +70,7 @@ class UserProgress
       unless specialty_points(current_professor) >= user_specialty_points
         current_professor.badges.find_by(specialty_id: @specialty.id, 
                                         level: "Professor").destroy
-        # TODO - Send Email to old professor
+        UserMailer.professor_loss(@user, @specialty).deliver
         award_professor_badge
       end
     else
