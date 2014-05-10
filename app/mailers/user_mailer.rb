@@ -5,4 +5,16 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail to: user.email, subject: 'Podmedics Password Reset'
   end
+
+  def badge_award(user, badge)
+    @user = user
+    @badge = badge
+    mail to: user.email, subject: 'Congratulations on Your New Podmedics Badge Award'
+  end
+
+  def professor_loss(user, specialty)
+    @user = user
+    @specialty = specialty
+    mail to: user.email, subject: 'Notification of Your Professor Status'
+  end
 end
