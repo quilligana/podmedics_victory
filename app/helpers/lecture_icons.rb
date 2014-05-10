@@ -95,7 +95,10 @@ private
   end
 
   def check_vimeo
-    Vimeo.cached_find(@current_user.id, @video.id)
+    # @Daniel: I removed the caching here as it was messing up the lecture icons.
+    # I didn't go too deep into the caching methodology so maybe there's a way to
+    # fix it.
+    Vimeo.where(user_id: @current_user.id, video_id: @video.id).first
   end
 
   def check_questions

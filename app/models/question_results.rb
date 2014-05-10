@@ -4,11 +4,11 @@ class QuestionResults
   def initialize(user_questions, total_questions)
    @total_count = total_questions
    @correct_count = user_questions.where(correct_answer: true).count
-   @ratio = @correct_count / total_questions
+   @ratio = @correct_count.to_f / @total_count.to_f
   end
 
   def bad_result?
-    if @ratio < PASS_GRADE / 100
+    if @ratio < (PASS_GRADE.to_f / 100)
       true
     else
       false
