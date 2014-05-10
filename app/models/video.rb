@@ -62,7 +62,7 @@ class Video < ActiveRecord::Base
 
   def self.flagged(user)
     if user.vimeos.any?
-      unfinished(user.vimeos) | poor_result(user.vimeos) | unwatched(user.vimeos) | self.watched(user.vimeos)
+      unfinished(user.vimeos) | unwatched(user.vimeos) | poor_result(user.vimeos) | self.watched(user.vimeos)
     else
       self.all.includes(:specialty)
     end
@@ -106,7 +106,7 @@ class Video < ActiveRecord::Base
       vimeos.each do |vimeo|
         if user.user_questions.where(question_id: vimeo.video.question_ids).any?
           questions = user.user_questions.where(question_id: vimeo.video.question_ids)
-          results = QuestionResults.new(questions)
+          results = QuestionResults.new(questions, vimeo.video.question_ids.count)
           if results.bad_result?
             id_array << vimeo.video_id
           end
