@@ -23,7 +23,7 @@ class UserProgress
   def next_badge
     if grade_level.nil?
       grades(0)
-    else
+    elsif grade_level <= 4
       grades(grade_level + 1)
     end
   end
@@ -36,24 +36,23 @@ class UserProgress
     end
   end
 
-  def award_badge
-    if current_badge.nil?
-      award_first_badge
+  def professor_points
+    if @specialty.professor && @specialty.professor != @user.id
+      current_professor = User.find(@specialty.professor)
+      specialty_points(current_professor) + 1
     else
-      award_higher_badges
+      max_specialty_points
     end
   end
 
-  def award_first_badge
-    @user.badges.create(specialty_id: @specialty.id, level:
-                        grades(grade_level)) if grade_level == 0
-  end
-
-  def award_higher_badges
-    if current_badge.level != grades(grade_level)
-      @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
-    elsif current_badge.level == grades(-2)
-        check_professor_badge
+  def award_badge
+    if current_badge.nil?
+        @user.badges.create(specialty_id: @specialty.id, 
+                            level: grades(grade_level)) if grade_level == 0
+    elsif current_badge.level != grades(grade_level)
+      @user.badges.create(specialty_id: @specialty.id,
+                          level: grades(grade_level)) if grade_level < 5
+      check_professor_badge if grade_level == 5
     end
   end
 
@@ -98,7 +97,9 @@ private
   end
 
   def grade_level
-    if user_specialty_points >= get_points_percentage(PERCENTAGE_CONSULTANT)
+    if user_specialty_points >= professor_points
+      5
+    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_CONSULTANT)
       4
     elsif user_specialty_points >= get_points_percentage(PERCENTAGE_REGISTRAR)
       3

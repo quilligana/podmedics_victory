@@ -26,7 +26,7 @@ private
 
   def return_results
     if check_questions.any?
-      question_results = QuestionResults.new(check_questions)
+      question_results = QuestionResults.new(check_questions, @video.question_ids.count)
       "and answered #{question_results.correct_count} of #{question_results.
         total_count} questions correct"
     end
@@ -58,7 +58,7 @@ private
   def user_performance
     if check_vimeo  && check_vimeo.completed == true
       if check_questions.any? 
-        question_results = QuestionResults.new(check_questions)
+        question_results = QuestionResults.new(check_questions, @video.question_ids.count)
         display_performance_icons(question_results)
       else
         ""

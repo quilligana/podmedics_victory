@@ -2130,9 +2130,14 @@ p.lecture_specialties_link {
   background-position: 0 -180px;
 }
 
-.lecture_icons_wrapper .lecture_icon.recommended_resit {
+.lecture_icons_wrapper .lecture_icon.recommend_resit {
   background-position: 0 -72px;
 }
+
+.lecture_icons_wrapper .lecture_icon.resit {
+  background-position: 0 0;
+}
+
 a.podmedcis_button.white_button.ask_question_sub_heading_button {
   margin-right: 15px;
 }

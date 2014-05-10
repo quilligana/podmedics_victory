@@ -10,7 +10,9 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         login_for_user(user)
       else
-        redirect_to show_buy_path(user.id), notice: 'Please select a plan before proceeding'
+        session[:user_id] = user.id
+        login_for_user(user)
+        # redirect_to show_buy_path(user.id), notice: 'Please select a plan before proceeding'
       end
     else
       flash.now.alert = 'Email or password is invalid'
