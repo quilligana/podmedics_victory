@@ -23,6 +23,13 @@ module ApplicationHelper
     string.downcase.tr(" ", "_")
   end
 
+  def show_specialty_badge
+    if current_user.badges.where(specialty_id: @specialty.id).any?
+      badge = current_user.badges.where(specialty_id: @specialty.id).last
+      show_badge(badge)
+    end
+  end
+
   def show_badge(badge)
     content_tag :a, class: "badge" do
       content_tag(:p, badge.level, class: "badge_title #{badge_class(badge.level)}") +

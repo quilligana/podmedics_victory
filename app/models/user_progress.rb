@@ -45,18 +45,31 @@ class UserProgress
     end
   end
 
+  def due_badge?
+    if current_badge.nil?
+        true if grade_level == 0
+    elsif current_badge.level != grades(grade_level)
+      true if grade_level <= 5
+    else
+      false
+    end
+  end
+
   def award_badge
     if current_badge.nil?
-        award_first_badge if grade_level == 0
+      award_first_badge if grade_level == 0
     elsif current_badge.level != grades(grade_level)
-      award_higher_badges if grade_level < 5
-      check_professor_badge if grade_level == 5
+      award_higher_badges if grade_level <= 5
     end
   end
 
   def award_first_badge
-    new_badge = @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
-    UserMailer.badge_award(@user, new_badge).deliver
+    if grade_level < 5
+      new_badge = @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
+      UserMailer.badge_award(@user, new_badge).deliver
+    elsif grade_level == 5
+      check_professor_badge
+    end
   end
 
   def award_higher_badges
