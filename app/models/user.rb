@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
     medium: '300x300>'
   }, bucket: ENV['S3_USER_AVATAR_BUCKET_NAME']
 
+  process_in_background :avatar
+
   validates_attachment :avatar, size: { in: 0..500.kilobytes }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
