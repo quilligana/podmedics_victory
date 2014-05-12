@@ -205,6 +205,11 @@ $standard_border_radius: 6px;
     background-image: image-url('welcome_pickup_icon@2x.png');
     background-size: 236px 96px;
   }
+
+  p.about_buttons .podmedcis_button.green.mail_button {
+    background-image: image-url('contact_mail_icon@2x.png');
+    background-size: 28px 18px;
+  }
 }
 
 
