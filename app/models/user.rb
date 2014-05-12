@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, size: { in: 0..500.kilobytes }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
-  validates :email, presence: true, email: true
+  validates :email, presence: true, email: true, uniqueness: true
   validates :name, presence: true
   validates :website, url: { allow_blank: true }
 
