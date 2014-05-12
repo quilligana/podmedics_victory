@@ -6,14 +6,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      if user.has_selected_plan?
         session[:user_id] = user.id
         login_for_user(user)
-      else
-        session[:user_id] = user.id
-        login_for_user(user)
-        # redirect_to show_buy_path(user.id), notice: 'Please select a plan before proceeding'
-      end
     else
       flash.now.alert = 'Email or password is invalid'
       render :new

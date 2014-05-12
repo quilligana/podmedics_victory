@@ -18,9 +18,17 @@ class ApplicationController < ActionController::Base
     end
 
     def authorise
-      if !current_permission.allow?(params[:controller], params[:action], current_resource)
+      unless current_permission.allow?(params[:controller], params[:action], current_resource)
+
+        
         store_location
         redirect_to login_path, alert: 'Not authorised'
+      else
+        # Redirect logged in users who haven't selected to the plan select page. 
+        # Unless they're already attempting to select a plan.
+        if current_user && !current_user.has_selected_plan? && params[:controller] != 'transactions'
+          redirect_to show_buy_path(current_user.id), notice: 'Please select a plan before proceeding'
+        end
       end
     end
 
