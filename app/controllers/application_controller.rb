@@ -19,8 +19,6 @@ class ApplicationController < ActionController::Base
 
     def authorise
       unless current_permission.allow?(params[:controller], params[:action], current_resource)
-
-        
         store_location
         redirect_to login_path, alert: 'Not authorised'
       else

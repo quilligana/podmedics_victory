@@ -1,5 +1,19 @@
 module SessionsHelper
 
+  def login_user(user)
+    session[:user_id] = user.id
+    user.record_login
+    redirect_for_user(user)
+  end
+
+  def redirect_for_user(user)
+    if user.admin
+      redirect_back_or admin_dashboard_path
+    else
+      redirect_back_or dashboard_path
+    end
+  end
+
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     clear_return_to 

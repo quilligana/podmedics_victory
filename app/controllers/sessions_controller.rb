@@ -6,8 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        login_for_user(user)
+      login_user(user)
     else
       flash.now.alert = 'Email or password is invalid'
       render :new
@@ -24,8 +23,7 @@ class SessionsController < ApplicationController
       redirect_to current_user
     else
       user = User.from_omniauth(auth)
-      session[:user_id] = user.id
-      login_for_user(user)
+      login_user(user)
     end
   end
 
@@ -36,14 +34,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path, notice: 'Successfully signed out'
   end
-
-  def login_for_user(user)
-    user.record_login
-    if user.admin
-      redirect_back_or admin_dashboard_path
-    else
-      redirect_back_or dashboard_path
-    end
-  end
-
+  
 end

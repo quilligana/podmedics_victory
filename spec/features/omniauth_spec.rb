@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "omniauth" do
 
+  before do
+    generate_plans
+  end
+
   subject { page } 
   
   let(:submit) { "Submit" }

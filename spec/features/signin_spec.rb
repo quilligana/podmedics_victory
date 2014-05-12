@@ -61,12 +61,6 @@ feature 'Login' do
         end
         expect(current_path).to eq edit_user_path(user)
       end
-    end
-
-    # Helpers
-    
-    def generate_plans
-      create(:free_product)
-      create(:paid_product)
-    end
+    end    
+  
 end

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to show_buy_path(@user)
+      login_user(@user)
     else
       render :new
     end

@@ -1,6 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :find_user
-  #:layout 'user_application', only: [:pickup]
+  layout 'user_application'
 
   def new
     @free_product = Product.where(permalink: 'free').first
@@ -11,8 +10,7 @@ class TransactionsController < ApplicationController
     product = Product.find_by_permalink(params[:permalink])
 
     if product.free?
-      @user.mark_plan_selected
-      sign_in_user(@user)
+      current_user.mark_plan_selected
       redirect_to dashboard_path, notice: 'Thank you for signing up for our trial.'
     else
       sale = product.sales.create(
@@ -22,8 +20,7 @@ class TransactionsController < ApplicationController
       )
       sale.process!
       if sale.finished?
-        @user.start_subscription
-        sign_in_user(@user)
+        current_user.start_subscription
         redirect_to pickup_url(guid: sale.guid)
       else
         flash.now[:alert] = sale.error
@@ -34,15 +31,5 @@ class TransactionsController < ApplicationController
 
   def pickup
   end
-
-  private
-
-    def find_user
-      @user = User.cached_find(params[:user_id])
-    end
-
-    def sign_in_user(user)
-      session[:user_id] = @user.id
-    end
 
 end
