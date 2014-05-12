@@ -29,7 +29,7 @@ feature 'User Profile' do
     expect(page).to have_content 'Your Details'
 
     fill_in 'Name', with: 'A random user name'
-    click_button 'Update Profile'
+    update_profile
 
     expect(page).to have_content 'Account details updated'
     within '.profile_header' do
@@ -86,7 +86,7 @@ feature 'User Profile' do
 
     scenario 'Filling in a valid domain' do
       fill_in 'Website', with: 'http://www.example.com'
-      click_button 'Update Profile'
+      update_profile
 
       expect(page).to have_content 'Website'
       expect(page).to have_css '.custom_social_button'
@@ -94,7 +94,7 @@ feature 'User Profile' do
 
     scenario 'Filling in an invalid domain' do
       fill_in 'Website', with: 'thisisnotavalidurl'
-      click_button 'Update Profile'
+      update_profile
 
       expect(page).to have_content 'Website is not a valid URL'
     end
@@ -112,7 +112,7 @@ feature 'User Profile' do
 
       click_link 'Change Profile Image'
       attach_file('Avatar', Rails.root.join('spec/fixtures/Avatars/avatar.png'))
-      click_button 'Update Profile'
+      update_profile
 
       expect(page).to_not have_image(src: default_path)
     end

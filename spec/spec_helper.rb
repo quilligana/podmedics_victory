@@ -16,6 +16,12 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Paperclip::Shoulda::Matchers
+  config.include LoginMacros
+  config.include OmniauthMacros
+  config.include MailerMacros
+  config.include SpecialtyQuestionMacros
+  config.include TransactionMacros
+  config.include ProfileMacros
 
   OmniAuth.config.test_mode = true
 
@@ -37,12 +43,6 @@ RSpec.configure do |config|
     # up the system/avatars directory between tests.
     FileUtils.rm_rf("#{Rails.root}/system/avatars")
   end
-
-  config.include LoginMacros
-  config.include OmniauthMacros
-  config.include MailerMacros
-  config.include SpecialtyQuestionMacros
-  config.include TransactionMacros
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
