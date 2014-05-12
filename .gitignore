@@ -31,3 +31,6 @@
 
 # Ignore osx files
 .DS_Store
+
+# Files
+public/system
