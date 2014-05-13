@@ -32,6 +32,7 @@ class StripeEventsController < ApplicationController
   end
 
   def stripe_charge_succeeded(charge)
+    StripeMailer.delay.user_receipt(charge)
     StripeMailer.delay.admin_charge_succeeded(charge)
   end
 

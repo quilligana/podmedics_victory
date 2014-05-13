@@ -1,0 +1,8 @@
+<html>
+  <body>
+    <h1>Podmedics Receipt</h1>
+    <p>You purchased a Podmedics subscription on <%= @sale.created_at.to_s(:long) %></p>
+    <p>You can access your new account <%= link_to 'here', login_url %></p>
+    <p>Thanks for being a customer of Podmedics</p>
+  </body>
+</html>
