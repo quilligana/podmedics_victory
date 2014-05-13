@@ -66,7 +66,7 @@ class UserProgress
   def award_first_badge
     if grade_level < 5
       new_badge = @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
-      UserMailer.badge_award(@user, new_badge).deliver
+      UserMailer.delay.badge_award(@user, new_badge)
     elsif grade_level == 5
       check_professor_badge
     end
@@ -74,7 +74,7 @@ class UserProgress
 
   def award_higher_badges
     new_badge = @user.badges.create(specialty_id: @specialty.id, level: grades(grade_level))
-    UserMailer.badge_award(@user, new_badge).deliver
+    UserMailer.delay.badge_award(@user, new_badge)
   end
 
   def check_professor_badge
@@ -83,7 +83,7 @@ class UserProgress
       unless specialty_points(current_professor) >= user_specialty_points
         current_professor.badges.find_by(specialty_id: @specialty.id, 
                                         level: "Professor").destroy
-        UserMailer.professor_loss(@user, @specialty).deliver
+        UserMailer.delay.professor_loss(@user, @specialty)
         award_professor_badge
       end
     else
@@ -93,7 +93,7 @@ class UserProgress
 
   def award_professor_badge
     new_badge = @user.badges.create(specialty_id: @specialty.id, level: grades(-1))
-    UserMailer.badge_award(@user, new_badge).deliver
+    UserMailer.delay.badge_award(@user, new_badge)
     @specialty.change_professor(@user.id)
   end
 
