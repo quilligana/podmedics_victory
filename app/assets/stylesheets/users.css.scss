@@ -2532,15 +2532,17 @@ a.video_download_dropdown_link.slides_file_icon {
 }
 
 .video_page_authour_right_column_avatar {
-  width: 25%;
+  width: 85px;
   height: 80px;
-  margin-left: 7%;
-  margin-right: 5%;
-  float: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 .video_page_authour_right_column_user_info_inner_wrapper {
-  width: 63%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   float: left;
+  text-align: center;
 }
 
 .video_page_authour_right_column_avatar img {
@@ -2557,19 +2559,26 @@ a.video_download_dropdown_link.slides_file_icon {
   font-weight: 800;
   color: #666;
   float: left;
-  width: 60%;
+  width: 100%;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 .video_page_right_column .video_page_authour_right_column_title {
   font-weight: 400;
   color: #8D8D8D;
   float: left;
   font-size: 13px;
-  width: 65%;
+  width: 100%;
   margin-bottom: 10px;
 
 }
-
+.video_page_authour_social_icons_wrapper {
+  width: 47px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  height: 20px;
+}
 
 a.video_page_authour_fb_icon {
   background-image: image-url('video_author_social_icons.png');
