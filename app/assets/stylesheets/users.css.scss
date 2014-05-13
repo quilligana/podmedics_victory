@@ -3350,11 +3350,11 @@ p.password_reset_subtitle {
 
 
 .reveal-modal.trial_user_modal_resize {
-  width: 700px;
-  margin-left: -350px;
+  width: 430px;
+  margin-left: -215px;
   padding-bottom: 25px;
   padding-top: 25px;
-  min-height: 400px;
+  min-height: 350px;
 }
 
 .trial_user_modal_podmedics_icon {
@@ -3420,6 +3420,8 @@ p.password_reset_subtitle {
   padding-top: 0px;
   padding-right: 20px;
   padding-left: 20px;
+  float: left;
+  padding-bottom: 20px;
 }
 .choose_specialities_list a.podmedcis_button.grey {
   margin-top: 0px;
@@ -3443,8 +3445,12 @@ p.password_reset_subtitle {
 .reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button {
   margin-left: 20px;
   margin-right: 20px;
+  clear: both;
+  margin-top: 0px;
+  float: left;
+  width: 390px;
 }
-.reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button a.podmedcis_button {
+.reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button button.podmedcis_button {
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
@@ -3460,6 +3466,49 @@ p.password_reset_subtitle {
   background-position: 344px 25px;
 }
 
+
+
+.trial_member_option_wrapper {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-indent: 0px;
+  text-align: left;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #616161;
+  background-color: #F0F0F0;
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  float: left;
+}
+
+.trial_member_option_wrapper:hover {
+  background-color: #E9E9E9;
+}
+.trial_member_option_wrapper label {
+  width: 330px;
+  padding-left: 22px;
+  padding-top: 28px;
+  padding-bottom: 22px;
+  float: left;
+  cursor: pointer;
+}
+
+
+.trial_member_option_wrapper .icheckbox_minimal-red {
+  margin-top: 24px;
+}
 .video_page_tags_wrapper {
   max-width: 50%;
   float: right;
