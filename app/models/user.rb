@@ -22,7 +22,12 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, size: { in: 0..500.kilobytes }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
-  validates :email, presence: true, email: true, uniqueness: true
+  validates :email, 
+    email_format: { 
+      message: 'Not a valid email address',
+      allow_nil: true
+    }, 
+    uniqueness: true
   validates :name, presence: true
   validates :website, url: { allow_blank: true }
 
@@ -34,7 +39,7 @@ class User < ActiveRecord::Base
   def record_login
     self.login_count += 1
     self.last_login_at = Time.zone.now
-    save!
+    save
   end
 
   def mark_plan_selected
@@ -81,9 +86,7 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.name = auth.info.name
 
-      if auth.provider == "twitter"
-        user.email = "mail@example.com"
-      else
+      unless auth.provider == "twitter"
         user.email = auth.info.email
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       end
