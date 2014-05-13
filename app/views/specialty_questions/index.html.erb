@@ -63,13 +63,15 @@
                   <!-- End nothing posted yet -->
                   <%= render partial: 'question', collection: @specialty.cached_specialty_questions(1) %>
                   <!-- End questions list -->
-                  <div class="load_more_questions_answers_wrapper">
-                    <%= link_to "Load More Questions",
-                                specialty_question_load_path(@specialty, 2),
-                                id: "load_more_link",
-                                class: "podmedcis_button grey",
-                                remote: true %>
-                  </div>
+                  <% unless @specialty.cached_specialty_questions(2).count == 0 %>
+                    <div class="load_more_questions_answers_wrapper">
+                      <%= link_to "Load More Questions",
+                                  specialty_question_load_path(@specialty, 2),
+                                  id: "load_more_link",
+                                  class: "podmedcis_button grey",
+                                  remote: true %>
+                    </div>
+                  <% end %>
                   <!-- End questions wrapper -->
                 <% end %>
 
