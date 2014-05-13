@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature 'Sign up' do
+feature 'Sign up', js: true do
 
   scenario 'Guest signs up with valid credentials' do
     create_products
@@ -10,12 +10,12 @@ feature 'Sign up' do
 
   scenario 'Guest signs up with no email' do
     user_signs_up_with_email('')
-    expect(page).to have_content "can't be blank"
+    expect(page).to have_content 'PLEASE MAKE SURE YOU ENTER A VALID EMAIL'
   end
 
   scenario 'Guest signs up with a bad email address' do
     user_signs_up_with_email('bademail')
-    expect(page).to have_content 'is invalid'
+    expect(page).to have_content 'PLEASE MAKE SURE YOU ENTER A VALID EMAIL'
   end
 
   # Helpers
