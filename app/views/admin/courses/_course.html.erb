@@ -7,6 +7,7 @@
   <td>
     <ul class="actions">
       <li><%= link_to "Edit", edit_admin_course_path(course) %></li>
+      <li><%= link_to "Remove", admin_course_path(course), method: :delete, data: { confirm: 'Are you sure?'} %></li>
     </ul>
   </td>
 </tr>
