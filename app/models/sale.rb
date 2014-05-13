@@ -4,6 +4,7 @@ class Sale < ActiveRecord::Base
 
   belongs_to :product
   before_create :populate_guid
+  belongs_to :user
 
   aasm column: 'state' do
     state :pending, initial: true

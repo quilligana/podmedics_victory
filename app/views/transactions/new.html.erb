@@ -1,3 +1,21 @@
+<style type="text/css" media="all">
+  .stripe-button-el {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 200;
+    margin-bottom: 28px;
+    background-color: #9B2530;
+  }
+
+  .stripe-button-el span {
+    padding: 10px 0;
+  }
+  
+</style>
 <% if @error %>
   <%= @error %>
 <% end %>
@@ -44,7 +62,17 @@
     </ul>
 
     <div class="plans_button_wrapper">
-      <button id="customButton" class="red_button">Choose Plan</button>
+      <%= form_tag buy_path(permalink: @paid_product.permalink) do %>
+        <script src="https://checkout.stripe.com/v2/checkout.js"
+          class="stripe-button"
+          data-label="Choose Plan"
+          data-name="Podmedics"
+          data-currency="GBP"
+          data-image="<%= asset_url 'podmedics_icon_x74.png' %>"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @paid_product.name %>"
+          data-amount="<%= @paid_product.price %>"></script>
+      <% end %>
     </div>
   </div>
 
@@ -66,24 +94,3 @@
 </div>
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
-
-<script>
-  var handler = StripeCheckout.configure({
-    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-    image: '<%= asset_url 'podmedics_icon_x74.png' %>',
-    token: function(token, args) {
-      // Use the token to create the charge with a server-side script.
-      // You can access the token ID with `token.id`
-    }
-  });
-
-  document.getElementById('customButton').addEventListener('click', function(e) {
-    // Open Checkout with further options
-    handler.open({
-      name: 'Podmedics',
-      description: '<%= @paid_product.name %>',
-      amount: <%= @paid_product.price %>
-    });
-    e.preventDefault();
-  });
-</script>

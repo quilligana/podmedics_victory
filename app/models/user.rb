@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   has_many :notes, dependent: :destroy
   has_many :exams, dependent: :destroy
+  has_many :sales
 
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
@@ -30,6 +31,10 @@ class User < ActiveRecord::Base
     uniqueness: true
   validates :name, presence: true
   validates :website, url: { allow_blank: true }
+  validates :password, presence: true,
+    confirmation: true,
+    length: {within: 5..30},
+    on: :create
 
   after_commit :flush_cache
   before_save :set_avatar_file_name
@@ -93,7 +98,7 @@ class User < ActiveRecord::Base
 
       user.link_social_url(auth)
 
-      password = SecureRandom.hex(64)
+      password = SecureRandom.hex(20)
       user.password = password
       user.password_confirmation = password
 

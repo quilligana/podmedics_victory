@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Sale do
 
   it { should belong_to :product }
+  it { should belong_to :user }
 
   it "has valid factory" do
     expect(build(:sale)).to be_valid

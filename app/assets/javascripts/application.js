@@ -6,20 +6,14 @@
 $(document).ready(function(){
 
   // Signup & login form validation
-
-  jQuery("#email, #user_email, #password_reset_field").validate({
+  jQuery("#user_email").validate({
     expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
-    message: "A valid Email is required"
-  });
-
-  jQuery("#password").validate({
-    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
-    message: "Please enter a valid Password"
+    message: "Please make sure you enter a valid email"
   });
 
   jQuery("#user_password").validate({
-    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
-    message: "Please enter a valid Password"
+    expression: "if (VAL.length > 4 && VAL) return true; else return false;",
+    message: "Password must be entered and greater than 4 letters in length"
   });
 
   jQuery("#user_password_confirmation").validate({
