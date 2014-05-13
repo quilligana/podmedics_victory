@@ -10,12 +10,10 @@
       <div class="user_dropdown">
         <div class="user_points_count">
           <p class="points_number"><%= @current_user.points %></p>
-          <p>Points earned so far</p>
+          <p>points earned so far</p>
         </div>
         <div class="dropdown_inner_wrapper">
-          <p>You currently have an unfinished exam. Do you want to continue with this exam?</p>
-          <a href="#">Basic Principles Exam</a>
-          <a href="#" class="red_block_button">Continue to Questions</a>
+          <%= link_to "Visit your profile", user_path(current_user) %>
         </div>
       </div>
     </div>
