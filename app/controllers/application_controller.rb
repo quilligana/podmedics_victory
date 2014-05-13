@@ -22,11 +22,27 @@ class ApplicationController < ActionController::Base
         store_location
         redirect_to login_path, alert: 'Not authorised'
       else
-        # Redirect logged in users who haven't selected to the plan select page. 
-        # Unless they're already attempting to select a plan.
-        if current_user && !current_user.has_selected_plan? && params[:controller] != 'transactions'
-          redirect_to show_buy_path(current_user.id), notice: 'Please select a plan before proceeding'
+        # Make sure the user is logged in
+        if current_user
+          # Check whether the user has a set email. If not, redirect them to the edit user page and
+          # request an email address.
+          # The only situation this comes up in is if the user has signed up with twitter.
+          if current_user.email.blank?
+            # Only redirect if they aren't already on the page to enter an email address.
+            unless params[:controller] == 'users'
+              redirect_to edit_user_path(current_user.id), notice: 'Please enter a valid email address'
+            end
+          else
+            # Check whether the user has chosen a plan. If not, redirect them to the plan page.
+            unless current_user.has_selected_plan?
+              # Only redirect if they aren't already selecting a plan.
+              unless params[:controller] == 'transactions'
+                redirect_to show_buy_path(current_user.id), notice: 'Please select a plan before proceeding'
+              end
+            end
+          end
         end
+
       end
     end
 
