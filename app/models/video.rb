@@ -43,7 +43,6 @@ class Video < ActiveRecord::Base
     Rails.cache.fetch([self, "questions_count"]) { questions.count }
   end
 
-
   # Comment functions
 
   def comments_count(include_hidden = false)
@@ -78,6 +77,10 @@ class Video < ActiveRecord::Base
 
   def increment_views
     Video.increment_counter(:views, self.id)
+  end
+
+  def question_status
+    return "red" if self.questions.count < 7
   end
 
   # Tags

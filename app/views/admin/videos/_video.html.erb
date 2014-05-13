@@ -1,4 +1,4 @@
-<tr class='video'>
+<tr class="video <%= video.question_status %>">
   <td><%= video.id %></td>
   <td><%= link_to video.title, admin_video_path(video) %></td>
   <td><%= link_to video.specialty_name, admin_specialty_path(video.specialty) %></td>
