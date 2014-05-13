@@ -7,6 +7,13 @@ ready = function() {
     mainDiv: '#tabs_container'
   });
 
+  // First to answer question link
+
+  $("#first_to_answer_question_link").click(function(){
+    $('.comments_textarea').focus();
+  });
+
+
   // Fitvid.js
   $(".video_column").fitVids();
 
