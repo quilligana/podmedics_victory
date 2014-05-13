@@ -1,4 +1,4 @@
-<tr class='video'>
+<tr class="video <%= video.question_status %>">
   <td><%= video.id %></td>
   <td><%= link_to video.title, admin_video_path(video) %></td>
   <td><%= link_to video.specialty_name, admin_specialty_path(video.specialty) %></td>
@@ -6,6 +6,7 @@
   <td><%= video.cached_comments_count(true) %></td>
   <td><%= video.speaker_name %></td>
   <td><%= video.author ? video.author_name : "Not set" %></td>
+  <td><%= video.tag_list %></td>
   <td>
     <ul class="actions">
       <li><%= link_to "Edit", edit_admin_video_path(video) %></li>

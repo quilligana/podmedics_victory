@@ -35,6 +35,9 @@
       <div class="video_page_author_duration_header">
         <p class="video_author_duration_subtitle"><%= @video.duration %> minutes with <%= @video.speaker_name %></p>
         <p><%= @video.description %></p>
+        <% if allow? "admins", "dashboard" %>
+          <p><%= link_to "Edit in admin", admin_video_path(@video) %></p>
+        <% end %>
       </div>
 
       <div class="video_page_tags_wrapper">

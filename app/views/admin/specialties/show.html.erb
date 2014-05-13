@@ -15,16 +15,18 @@
             <th>Title</th>
             <th>Position</th>
             <th>Questions</th>
+            <th>Tags</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @specialty.videos.each do |video| %>
-            <tr id="<%= video.id %>">
+            <tr id="<%= video.id %>" class="<%= video.question_status %>">
               <td><%= video.id %></td>
               <td><%= link_to video.title, admin_video_path(video) %></td>
               <td><%= video.position %></td>
               <td><%= video.questions.count %></td>
+              <td><%= video.tag_list %></td>
               <td>
                 <%= link_to "Show", admin_video_path(video) %>
                 <%= link_to "Edit", edit_admin_video_path(video) %>

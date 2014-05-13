@@ -2532,15 +2532,17 @@ a.video_download_dropdown_link.slides_file_icon {
 }
 
 .video_page_authour_right_column_avatar {
-  width: 25%;
+  width: 85px;
   height: 80px;
-  margin-left: 7%;
-  margin-right: 5%;
-  float: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 .video_page_authour_right_column_user_info_inner_wrapper {
-  width: 63%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   float: left;
+  text-align: center;
 }
 
 .video_page_authour_right_column_avatar img {
@@ -2557,19 +2559,26 @@ a.video_download_dropdown_link.slides_file_icon {
   font-weight: 800;
   color: #666;
   float: left;
-  width: 60%;
+  width: 100%;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 .video_page_right_column .video_page_authour_right_column_title {
   font-weight: 400;
   color: #8D8D8D;
   float: left;
   font-size: 13px;
-  width: 65%;
+  width: 100%;
   margin-bottom: 10px;
 
 }
-
+.video_page_authour_social_icons_wrapper {
+  width: 47px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  height: 20px;
+}
 
 a.video_page_authour_fb_icon {
   background-image: image-url('video_author_social_icons.png');
@@ -3341,11 +3350,11 @@ p.password_reset_subtitle {
 
 
 .reveal-modal.trial_user_modal_resize {
-  width: 700px;
-  margin-left: -350px;
+  width: 430px;
+  margin-left: -215px;
   padding-bottom: 25px;
   padding-top: 25px;
-  min-height: 400px;
+  min-height: 350px;
 }
 
 .trial_user_modal_podmedics_icon {
@@ -3411,6 +3420,8 @@ p.password_reset_subtitle {
   padding-top: 0px;
   padding-right: 20px;
   padding-left: 20px;
+  float: left;
+  padding-bottom: 20px;
 }
 .choose_specialities_list a.podmedcis_button.grey {
   margin-top: 0px;
@@ -3434,8 +3445,12 @@ p.password_reset_subtitle {
 .reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button {
   margin-left: 20px;
   margin-right: 20px;
+  clear: both;
+  margin-top: 0px;
+  float: left;
+  width: 390px;
 }
-.reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button a.podmedcis_button {
+.reveal-modal.trial_user_modal_resize .choose_specialities_list_continue_button button.podmedcis_button {
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
@@ -3451,6 +3466,49 @@ p.password_reset_subtitle {
   background-position: 344px 25px;
 }
 
+
+
+.trial_member_option_wrapper {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-indent: 0px;
+  text-align: left;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #616161;
+  background-color: #F0F0F0;
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  float: left;
+}
+
+.trial_member_option_wrapper:hover {
+  background-color: #E9E9E9;
+}
+.trial_member_option_wrapper label {
+  width: 330px;
+  padding-left: 22px;
+  padding-top: 28px;
+  padding-bottom: 22px;
+  float: left;
+  cursor: pointer;
+}
+
+
+.trial_member_option_wrapper .icheckbox_minimal-red {
+  margin-top: 24px;
+}
 .video_page_tags_wrapper {
   max-width: 50%;
   float: right;

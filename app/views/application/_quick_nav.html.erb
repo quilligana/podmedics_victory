@@ -1,0 +1,30 @@
+<div class="sub_heading_button_set">
+  <div class="lectures_inline_dropdown_wrapper">
+    <a href="javascript:;" class="podmedcis_button lectures_dropdown_button">Lectures</a>
+    <div class="lectures_inline_dropdown">
+      <div class="right_column_search_field">
+        <%= form_tag videos_path, method: 'get' do %>
+          <%= text_field_tag :search, params[:search], class: 'navigation_search_field', placeholder: 'Search' %>
+          <button type="submit" class="navigation_search_field_search_button"></button>
+        <% end %>
+      </div>
+
+      <div class="lectures_inline_dropdown_categories">
+        <% @categories.each do |category| %>
+          <a href="javascript:;" class="lectures_inline_dropdown_category_link <%= to_underscored(category.name) %>" data-category="<%= to_underscored(category.name) %>"><%= category.name %></a>
+        <% end %>
+      </div>
+
+      <% @categories.each do |category| %>
+        <div class="lectures_inline_dropdown_specialty_<%= to_underscored(category.name) %>">
+          <div class="main_nav_inner_lectures_title_wrapper">
+            <div class="main_nav_inner_lectures_title"><%= category.name %></div>
+            <div class="lectures_inline_dropdown_back_button">Back</div>
+          </div>
+          <% category.specialties.each do |specialty| %>
+            <%= link_to specialty.name, specialty_path(specialty) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>

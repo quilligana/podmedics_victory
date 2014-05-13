@@ -4,7 +4,7 @@ feature 'Courses spec' do
 
   scenario 'Viewing the courses page' do
     user_visits_courses_page
-    expect(page).to have_content 'Our Courses'
+    expect(page).to have_content 'Podmedics Courses'
   end
 
   scenario 'Viewing dynamic content on the course page' do
