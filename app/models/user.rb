@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
 
       user.link_social_url(auth)
 
-      password = SecureRandom.hex(14)
+      password = SecureRandom.hex(10)
       user.password = password
       user.password_confirmation = password
 

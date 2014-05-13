@@ -31,7 +31,8 @@ feature 'User Badges' do
 
     expect(page).to have_content 'Congratulations! You have just been awarded a new badge'
     expect(page).to have_content 'Medical Student'
-    last_email.to.should include(@user.email)
+    Delayed::Job.last.handler.should have_content @user.email
+    #last_email.to.should include(@user.email)
   end
 
   scenario 'achieving a second badge' do
@@ -46,7 +47,8 @@ feature 'User Badges' do
 
     expect(page).to have_content 'Congratulations! You have just been awarded a new badge'
     expect(page).to have_content 'House Officer'
-    last_email.to.should include(@user.email)
+    Delayed::Job.last.handler.should have_content @user.email
+    #last_email.to.should include(@user.email)
   end
 
   scenario 'achieving a professor badge without an existing professor' do
@@ -62,7 +64,8 @@ feature 'User Badges' do
 
     expect(page).to have_content 'Congratulations! You have just been awarded a new badge'
     expect(page).to have_content 'Professor'
-    last_email.to.should include(@user.email)
+    Delayed::Job.last.handler.should have_content @user.email
+    #last_email.to.should include(@user.email)
   end
 
   # scenario 'achieving a professor badge with an existing professor' do

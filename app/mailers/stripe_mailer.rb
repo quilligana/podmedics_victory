@@ -17,4 +17,21 @@ class StripeMailer < ActionMailer::Base
     end
   end
 
+  def user_receipt(charge)
+    @charge = charge
+    @sale = Sale.find_by(stripe_id: @charge.id)
+    if @sale
+      html = render_to_string('stripe_mailer/user_receipt.html')
+
+      pdf = Docverter::Conversion.run do |c|
+        c.from = 'html'
+        c.to = 'pdf'
+        c.content = 'html'
+      end
+
+      attachment['receipt.pdf'] = pdf
+      mail(to: sale.email, subject: 'Your Podmedics Receipt')
+    end
+  end
+
 end

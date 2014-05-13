@@ -15,15 +15,14 @@ describe UserMailer do
 
   describe "badge_award" do
     let(:user) { create(:user) }
-    let(:badge) { create(:badge) }
+    let(:specialty) { create(:specialty)}
+    let(:badge) { create(:badge, specialty: specialty, level: 'Student') }
     let(:mail) { UserMailer.badge_award(user, badge) }
 
     it "notifies the user of their new badge" do
       mail.subject.should eq("Congratulations on Your New Podmedics Badge Award")
       mail.to.should eq([user.email])
       mail.from.should eq(["admin@podmedics.com"])
-      mail.body.should have_content(badge.level)
-      mail.body.should have_content(badge.specialty.name)
     end
   end
 
@@ -36,7 +35,6 @@ describe UserMailer do
       mail.subject.should eq("Notification of Your Professor Status")
       mail.to.should eq([user.email])
       mail.from.should eq(["admin@podmedics.com"])
-      mail.body.should have_content(specialty.name)
     end
   end
 end

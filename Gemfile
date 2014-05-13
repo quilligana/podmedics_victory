@@ -34,6 +34,7 @@ gem 'pry'
 gem 'validate_url'
 gem 'aasm'
 gem 'paper_trail', '~> 3.0'
+gem 'docverter'
 
 group :development do
   gem 'thin'
