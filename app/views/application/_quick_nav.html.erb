@@ -3,10 +3,10 @@
     <a href="javascript:;" class="podmedcis_button lectures_dropdown_button">Lectures</a>
     <div class="lectures_inline_dropdown">
       <div class="right_column_search_field">
-        <form action="#">
-          <input name="search" type="text" class="navigation_search_field" placeholder="Search">
+        <%= form_tag videos_path, method: 'get' do %>
+          <%= text_field_tag :search, params[:search], class: 'navigation_search_field', placeholder: 'Search' %>
           <button type="submit" class="navigation_search_field_search_button"></button>
-        </form>
+        <% end %>
       </div>
 
       <div class="lectures_inline_dropdown_categories">
