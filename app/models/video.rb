@@ -68,8 +68,10 @@ class Video < ActiveRecord::Base
     end
   end
 
+  # searches by case insensitive title and tags
   def self.search(param)
-    Video.where('title LIKE ?', "%#{param}%")
+    videos = Video.where('title ILIKE ?', "%#{param}%") + Video.pessimistic_tagged_with(param)
+    videos.uniq
   end
 
   # Stat functions
@@ -82,6 +84,11 @@ class Video < ActiveRecord::Base
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).videos
+  end
+
+  def self.pessimistic_tagged_with(name)
+    tag = Tag.where(name: name).first
+    tag ? tag.videos : []
   end
 
   def tag_list
