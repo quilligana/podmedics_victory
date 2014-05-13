@@ -27,8 +27,7 @@
     </div>
 
     <div class="questions_info_right_column_section">
-      <p class="questions_info_right_column_number"> <%= @user_progress.user_specialty_points %> </p>
-      <p>Points earned within <%= @specialty.name.upcase %> so far</p>
+      <%= user_specialty_points(@user_progress, @specialty) %>
     </div>
 
     <div class="questions_info_right_column_section speciality_inline_count_blocks">

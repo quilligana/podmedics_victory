@@ -10,8 +10,11 @@ module ApplicationHelper
   end
 
   def user_points
-    content_tag(:p, "#{@current_user.points} <span>Total Points</span>".html_safe, class: "questions_info_right_column_number") +
-    content_tag(:p, "For every video watched or correct answer you will receive #{POINTS_PER_CORRECT_ANSWER} points to your overall score.")
+    content_tag(:p, "#{@current_user.points} <span>Total Points</span>".html_safe, class: "questions_info_right_column_number")
+  end
+
+  def user_specialty_points(user_progress, specialty)
+    content_tag(:p, "#{user_progress.user_specialty_points} <span>#{specialty.name} Points</span>".html_safe, class: 'questions_info_right_column_number')
   end
 
   def exams_passed
