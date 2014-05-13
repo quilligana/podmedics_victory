@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true, email: true, uniqueness: true
   validates :name, presence: true
   validates :website, url: { allow_blank: true }
+  validates :password, presence: true,
+    confirmation: true,
+    length: {within: 5..30},
+    on: :create
 
   after_commit :flush_cache
   before_save :set_avatar_file_name

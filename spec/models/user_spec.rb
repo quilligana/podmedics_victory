@@ -5,6 +5,7 @@ describe User do
   it { should have_secure_password }
   it { should validate_presence_of :email }
   it { should validate_presence_of :name }
+  it { should validate_presence_of :password}
   it { should respond_to :points }
   it { should respond_to :user_questions }
   it { should respond_to :badges }
@@ -34,6 +35,20 @@ describe User do
 
   it "validates format of email" do
    expect(build(:user, email: 'bad')).to_not be_valid
+  end
+
+  describe User, 'password validation' do
+    it "not accept a 4 character password" do
+      user = build(:user, password: 'aaaa', password_confirmation: 'aaaa')
+      expect(user).to_not be_valid
+    end
+
+    it "does not accept a 35 character password" do
+      long_password = SecureRandom.hex(35)
+      user = build(:user, password: long_password, password_confirmation: long_password)
+      expect(user).to_not be_valid
+    end
+
   end
 
   describe User, '#add_points_for_answer' do

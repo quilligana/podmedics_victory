@@ -12,6 +12,8 @@ describe Video do
 
   it { should belong_to :specialty }
   it { should belong_to :author }
+  it { should have_db_index(:specialty_id)}
+  it { should have_db_index(:author_id)}
 
   it { should have_many :questions }
   it { should have_many :comments }
@@ -26,6 +28,7 @@ describe Video do
   it { should validate_presence_of :duration }
   it { should validate_presence_of :vimeo_identifier }
   it { should validate_presence_of :file_name }
+
 
   describe Video, '#specialty_name' do
     it "delegates to specialty" do
