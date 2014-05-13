@@ -27,6 +27,12 @@ describe "omniauth" do
     end
   end
 
+  shared_examples_for 'when the email redirect request is not occurring' do
+    it "it will ask for the user's email address" do
+      expect(page).to_not have_content "Please enter a valid email address"
+    end
+  end
+
   describe "twitter" do
     describe "login" do
       before do
@@ -105,6 +111,8 @@ describe "omniauth" do
         before { click_link "Log In via Facebook" }
 
         it { should have_link("Logout") }
+
+        it_should_behave_like 'when the email redirect request is not occurring'
       end
 
       describe "can handle authentication error" do

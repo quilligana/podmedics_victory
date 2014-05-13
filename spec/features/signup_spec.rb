@@ -6,6 +6,9 @@ feature 'Sign up', js: true do
     create_products
     user_signs_up_with_email('test@example.com')
     expect(current_path).to eq show_buy_path(User.first)
+
+    # Check that the email redirect isn't in effect on regular signups.
+    expect(page).to_not have_content 'Please enter a valid email address'
   end
 
   scenario 'Guest signs up with no email' do
