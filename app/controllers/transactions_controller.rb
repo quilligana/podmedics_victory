@@ -16,7 +16,8 @@ class TransactionsController < ApplicationController
       sale = product.sales.create(
         amount: product.price,
         email: params[:stripeEmail],
-        stripe_token: params[:stripeToken]
+        stripe_token: params[:stripeToken],
+        user_id: current_user.id
       )
       sale.process!
       if sale.finished?

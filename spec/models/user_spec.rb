@@ -17,6 +17,7 @@ describe User do
   it { should have_many(:badges).dependent(:destroy) }
   it { should have_many(:votes).dependent(:destroy) }
   it { should have_many(:notes).dependent(:destroy) }
+  it { should have_many :sales }
 
   it { should have_attached_file(:avatar) }
   it { should validate_attachment_content_type(:avatar).
