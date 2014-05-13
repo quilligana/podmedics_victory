@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
           if current_user.email.blank?
             # Only redirect if they aren't already on the page to enter an email address.
             unless params[:controller] == 'users'
-              redirect_to edit_user_path(current_user.id), notice: 'Please enter a valid email address'
+              redirect_to email_user_path(current_user.id), notice: 'Please enter a valid email address'
             end
           else
             # Check whether the user has chosen a plan. If not, redirect them to the plan page.

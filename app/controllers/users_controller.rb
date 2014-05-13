@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  layout 'user_application', only: [:show, :edit, :update]
-  before_action :find_user, only: [:show, :edit, :update]
+  layout 'user_application', only: [:show, :edit, :update, :email]
+  before_action :find_user, only: [:show, :edit, :update, :email]
 
   def new
     @user = User.new
@@ -32,6 +32,12 @@ class UsersController < ApplicationController
 
   def current_resource
     @current_resource || User.cached_find(params[:id]) if params[:id]
+  end
+
+  def email
+    unless @user.email.blank?
+      redirect_to dashboard_path
+    end
   end
 
   private

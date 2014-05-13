@@ -11,7 +11,7 @@ class Permission
     if user
       allow :dashboards, [:show]
       allow :users, [:show]
-      allow :users, [:edit, :update] do |resource|
+      allow :users, [:edit, :update, :email] do |resource|
         resource.id == user.id
       end
       allow :videos, [:show, :index]
