@@ -9,7 +9,7 @@
         <% @faqs.each do |faq| %>
           <div class="faq_inner_wrapper">
             <h2><%= faq.title %></h2>
-            <p class="faq_inner"><%= faq.content.html_safe %></p>
+            <div class="faq_inner"><%= faq.content.html_safe %></div>
           </div>
         <% end %>
       </div>

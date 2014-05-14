@@ -780,7 +780,7 @@ a.library_button h2 {
   width: 100%;
 }
 
-.library_tab p.faq_inner {
+.library_tab .faq_inner {
   font-size: 15px;
   line-height: 23px;
   text-transform: none;
@@ -793,11 +793,11 @@ a.library_button h2 {
   width: 98%;
   color: #7F7F7F;
 }
-.library_tab p.faq_inner a {
+.library_tab .faq_inner a {
   font-weight: 800;
   color: #333;
  }
-.library_tab p.faq_inner a:hover {
+.library_tab .faq_inner a:hover {
   color: #555;
 }
 
@@ -836,7 +836,7 @@ div.faq_inner_wrapper {
 div.faq_inner_wrapper:last-child {
   padding-bottom: 0px;
 }
-p.faq_inner {
+.faq_inner {
   font-size: 15px;
   line-height: 20px;
   color: #858585;
@@ -846,6 +846,10 @@ p.faq_inner {
   font-size: 20px;
 }
 
+.faq_inner ol {
+  margin-left: 25px;
+  margin-top: 20px;
+}
 
 /* Plans */
 .plans_header {
