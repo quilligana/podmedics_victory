@@ -1561,7 +1561,7 @@ p.questions_info_right_column_number span {
 
 .lecture_questions_right_column .questions_info_right_column_section {
   padding-top: 34px;
-  padding-bottom: 15px;
+  padding-bottom: 22px;
   float: left;
   width: 100%;
   border-bottom-width: 1px;
@@ -1816,13 +1816,27 @@ a.red_button.medium.next_question_button {
   width: 70px;
 }
 .speciality_count_block:last-child {
-  margin-right: 0px;
+  margin-right: 10px;
   width: 130px;
 }
 
 .questions_info_right_column_section.speciality_inline_count_blocks {
-  border-bottom: none; }
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #EFEFEF;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
 
+.questions_info_right_column_section.speciality_inline_count_blocks h3 {
+  font-size: 11px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #999;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 200;
+}
 a.notes_saved_button p {
   font-size: 11px;
   line-height: 22px;
@@ -2753,20 +2767,21 @@ a.video_page_authour_twitter_icon {
 .exam_button_tooltip_wrapper .exam_button_tooltip {
   background-image: image-url('lectures_tooltips.png');
   background-repeat: no-repeat;
-  width: 314px;
-  height: 18px;
-  background-position: -9px 2px;
+  width: 346px;
+  height: 28px;
+  background-position: 10px -118px;
   font-size: 13px;
   color: #A9A9A9;
   text-align: center;
   line-height: 20px;
   margin-right: 0px;
-  margin-left: -139px;
-  padding: 30px 15px 20px;
+  margin-left: 0px;
+  padding: 41px 15px 20px;
   position: absolute;
   margin-top: 48px;
   display: none;
   z-index: 1;
+  right: 31px;
 }
 .exam_button_tooltip_wrapper:hover .exam_button_tooltip {
   display: block;

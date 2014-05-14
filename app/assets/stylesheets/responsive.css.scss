@@ -293,6 +293,9 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1020px) {
+  .questions_info_right_column_section.speciality_inline_count_blocks {
+    border-bottom: none;
+  }
   .press_kit_lower_colour_blocks_inner {
     width: 100%;
   }
