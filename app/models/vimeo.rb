@@ -11,9 +11,11 @@ class Vimeo < ActiveRecord::Base
   end
 
   def self.register_ids(video_id, user)
-    unless self.find_by(user_id: user.id, video_id: video_id)
-      user.vimeos.create(video_id: video_id)
+    watched = self.find_by(user_id: user.id, video_id: video_id)
+    unless watched
+      watched = user.vimeos.create(video_id: video_id)
     end
+    watched.progress
   end
 
   def self.pause_video(user_id, params)

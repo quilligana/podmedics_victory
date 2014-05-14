@@ -30,6 +30,18 @@ $(document).ready(function(){
 
         var froogaloop = $f(player_id);
 
+        function seekToPreviousViewing() {
+            
+            var progJSON = $("#progress_json").html(), 
+                viewProgress = $.parseJSON(progJSON);
+
+            if(viewProgress!=0) {
+                froogaloop.api('play');
+                froogaloop.api('seekTo', viewProgress);
+                viewProgress = 0;
+            };
+        };
+
         function setupEventListeners() {
 
             function onPlayProgress() {
@@ -66,5 +78,6 @@ $(document).ready(function(){
         };
 
         setupEventListeners();
+        seekToPreviousViewing();
     };
 });

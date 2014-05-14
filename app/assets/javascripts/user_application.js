@@ -8,9 +8,9 @@
 //= require kendo.dataviz.min
 //= require redactor
 //= require jquery.fitvids
+//= require jquery.validate
+//= require jquery.joyride-2.1
 //= require froogaloop
 //= require site
 //= require autosave
 //= require vimeo
-//= require jquery.validate
-//= require jquery.joyride-2.1
