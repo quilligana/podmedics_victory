@@ -8,19 +8,19 @@ module QuestionsHelper
     GeneralUserPerformance.new(@quiz.get_current_id, self).get_number_correct
   end
 
-  def get_next_badge
-    if @user_progress.next_badge
-      ProgressBar.new(@user_progress.user_specialty_points,
-                      @user_progress.next_badge_points, self).
+  def get_next_badge(user_progress, specialty)
+    if user_progress.next_badge
+      ProgressBar.new(user_progress.user_specialty_points,
+                      user_progress.next_badge_points, self).
                       next_badge(Badge.new(user_id: current_user,
-                      specialty_id: @quiz.video.specialty.id,
-                      level: @user_progress.next_badge))
+                      specialty_id: specialty.id,
+                      level: user_progress.next_badge))
     else
       content_tag(:p, "You are currently the professor of 
-                      #{@quiz.video.specialty.name}") +
+                      #{specialty.name}") +
       show_badge(Badge.new(user_id: current_user,
-                      specialty_id: @quiz.video.specialty.id,
-                      level: @user_progress.current_badge.level))
+                      specialty_id: specialty.id,
+                      level: user_progress.current_badge.level))
     end
   end
 

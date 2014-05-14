@@ -38,7 +38,7 @@ describe "specialty user questions and answers" do
     end
 
     it "should say there are no questions" do
-      expect(page).to     have_selector ".no_questions_reply_wrapper"
+      expect(page).to have_selector ".no_questions_reply_wrapper"
     end
   end
 

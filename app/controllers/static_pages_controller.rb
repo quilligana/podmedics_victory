@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def faqs
-    @faqs = Faq.all_cached
+    @faqs = Faq.public
   end
 
   def library
@@ -23,7 +23,8 @@ class StaticPagesController < ApplicationController
   end
 
   def support
-    @faqs = Faq.for_members
+    @faqs = Faq.all
+    render :faqs
   end
 
   def press
