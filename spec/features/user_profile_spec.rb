@@ -89,7 +89,7 @@ feature 'User Profile' do
       update_profile
 
       expect(page).to have_content 'Website'
-      expect(page).to have_css '.custom_social_button'
+      expect(page).to have_css '.website_profile_button'
     end
 
     scenario 'Filling in an invalid domain' do
