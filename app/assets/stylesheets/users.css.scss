@@ -3820,3 +3820,21 @@ p.no_search_results_found_title {
   padding-left: 35px;
   padding-right: 35px;
 }
+a.website_profile_button {
+  background-color: #cccccc;
+  color: #FFF;
+  width: auto;
+  float: left;
+  font-weight: 400;
+  background-image: image-url('website_icon.png');
+  background-repeat: no-repeat;
+  background-position: 18px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  padding: 24px 30px 21px 60px;
+  margin-left: 20px;
+}
+a.website_profile_button:hover {
+  background-color: #9E9E9E;
+  color: #FFF;
+}

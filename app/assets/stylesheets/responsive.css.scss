@@ -210,6 +210,10 @@ $standard_border_radius: 6px;
     background-image: image-url('contact_mail_icon@2x.png');
     background-size: 28px 18px;
   }
+  a.website_profile_button {
+    background-image: image-url('website_icon@2x.png');
+    background-size: 27px 25px;
+  }
 }
 
 
@@ -1076,6 +1080,10 @@ $standard_border_radius: 6px;
   }
   a.press_kit_block_image_two, a.press_kit_block_image_three {
     height: 150px;
+  }
+  a.website_profile_button {
+    margin-left: 0px;
+    clear: both;
   }
 }
 
