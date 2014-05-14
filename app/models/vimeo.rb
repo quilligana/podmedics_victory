@@ -25,11 +25,13 @@ class Vimeo < ActiveRecord::Base
   end
 
   def self.video_completed(user_id, params)
-    video_id = get_video(params[:path])
-    vimeo = self.where(user_id: user_id).where(video_id: video_id).first
+    user = User.find_by(id: user_id)
+    video = get_video(params[:path])
+    vimeo = self.where(user_id: user_id).where(video_id: video.id).first
     unless vimeo.completed
       vimeo.update_attributes(completed: true)
-      User.find_by(id: user_id).add_points_for_video
+      user.add_points_for_video
+      UserProgress.new(video.specialty, user).award_badge
     end
   end
 
@@ -41,7 +43,7 @@ private
 
   def self.get_video(path)
     video_name = path.gsub(/\/videos\//, "")
-    Video.friendly.find(video_name).id
+    Video.friendly.find(video_name)
   end
 
 end

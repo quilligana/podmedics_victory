@@ -7,6 +7,9 @@ class CommentsController < ApplicationController
 
     if params[:comment][:commentable_type] == "SpecialtyQuestion"
       @comment = @commentable.answers.new(comment_params)
+      current_user.add_points_for_specialty_answer
+      question_specialty = SpecialtyQuestion.find_by(id: params[:comment][:commentable_id]).specialty
+      UserProgress.new(question_specialty, current_user).award_badge
     else
       @comment = @commentable.comments.new(comment_params)
     end

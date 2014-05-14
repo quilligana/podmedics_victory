@@ -141,6 +141,14 @@ class User < ActiveRecord::Base
     self.update_attributes(points: self.points + POINTS_PER_WATCHED_VIDEO)
   end
 
+  def add_points_for_specialty_answer
+    self.update_attributes(points: self.points + POINTS_PER_USER_QUESTION_ANSWERED)
+  end
+
+  def add_points_for_accepted_answer
+    self.update_attributes(points: self.points + POINTS_PER_ACCEPTED_ANSWER)
+  end
+
   # Used on dashboard for graph
 
   def daily_stat(days_ago)

@@ -40,6 +40,8 @@ class SpecialtyQuestion < ActiveRecord::Base
   def accept_answer(answer, user)
     if !already_accepted_answer? && self.cached_user == user && answer.acceptable?
       answer.accept
+      user.add_points_for_accepted_answer
+      UserProgress.new(self.specialty, user).award_badge
     end
   end
 

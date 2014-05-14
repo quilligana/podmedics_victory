@@ -6,9 +6,9 @@ class UserProgress
   end
 
   def max_specialty_points
+    # Points for answering specialty_questions are not included
     video_points = @specialty.cached_videos_count * POINTS_PER_WATCHED_VIDEO
     question_points = @specialty.cached_questions_count * POINTS_PER_CORRECT_ANSWER
-    # TODO: Add count of questions asked by users in specialty (POINTS_PER_USER_QUESTION_ANSWERED)
     video_points + question_points
   end
 
@@ -100,7 +100,12 @@ class UserProgress
 private
 
   def specialty_points(user)
-    # TODO: Count of user questions answered
+    spec_q_ids = @specialty.specialty_question_ids
+    # raise spec_q_ids
+    answers = Comment.where(user_id: user.id).where(commentable_type: "SpecialtyQuestion").
+                                 where("commentable_id IN (?)", spec_q_ids)
+    answer_points = answers.count * POINTS_PER_USER_QUESTION_ANSWERED
+    accepted_answer_points =  answers.where(accepted: true).count * POINTS_PER_ACCEPTED_ANSWER
     video_ids = @specialty.video_ids
     videos_watched = user.vimeos.where("video_id IN (?)", video_ids).
                       where(completed: true).count
@@ -108,7 +113,7 @@ private
     q_ids = Question.where("video_id IN (?)", video_ids).pluck(:id)
     question_points = UserQuestion.number_correct(user.id, q_ids) *
                       POINTS_PER_CORRECT_ANSWER
-    video_points + question_points
+    video_points + question_points + answer_points + accepted_answer_points
   end
 
   def grades(level)

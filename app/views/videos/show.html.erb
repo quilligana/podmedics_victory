@@ -50,6 +50,7 @@
             <iframe src="//player.vimeo.com/video/<%= @video.vimeo_identifier %>?api=1&portrait=0&color=fa3f52&player_id=vimeoplayer" width="400" height="225" frameborder="0" id="vimeoplayer"></iframe>
           </div>
         </div>
+        
         <div class="video_page_notes_column">
           <div class="video_page_notes_column_title">
             <strong>Notes</strong>
@@ -130,22 +131,3 @@
 <script id="progress_json" type="text/json">
     <%=raw @progress.to_json %>
 </script>
-
-<ol id="joyRideTipContent">
-
-  <li data-class="video_download_dropdown" data-text="Next" data-options="tipLocation:bottom;tipAnimation:fade">
-    <h2>Download for later</h2>
-    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
-  </li>
-
-  <li data-id="tour_exam_button" data-text="Next" data-options="tipLocation:bottom;tipAnimation:fade">
-    <h2>Answer questions</h2>
-    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
-  </li>
-
-  <li data-class="video_column" data-text="Close" data-options="tipLocation:bottom;tipAnimation:fade">
-    <h2>Video</h2>
-    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
-  </li>
-
-</ol>

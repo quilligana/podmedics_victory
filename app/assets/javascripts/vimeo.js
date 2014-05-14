@@ -36,10 +36,10 @@ $(document).ready(function(){
                 viewProgress = $.parseJSON(progJSON);
 
             if(viewProgress!=0) {
-                froogaloop.api('play');
                 froogaloop.api('seekTo', viewProgress);
                 viewProgress = 0;
             };
+            return false;
         };
 
         function setupEventListeners() {
