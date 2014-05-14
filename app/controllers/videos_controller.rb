@@ -15,7 +15,7 @@ class VideosController < ApplicationController
     @video = Video.friendly.find(params[:id])
     @specialty = Specialty.cached_find(@video.specialty_id)
     @video.increment_views
-    Vimeo.register_ids(@video.id, current_user)
+    @progress = Vimeo.register_ids(@video.id, current_user)
     @comment = Comment.new(user: current_user)
     @notes = @video.notes.find_by(user: current_user) || Note.new(noteable: @video)
   end
