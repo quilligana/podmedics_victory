@@ -22,7 +22,7 @@
 
       <div id="tabs_container">
         <div id="tabs-1" class="tab_box">
-          <div class="stats_chart_wrapper">
+          <div class="stats_chart_wrapper" id="tour_step_one">
             <div class="stats_chart">
                 <div class="chart-wrapper">
                   <div id="chart"></div>
@@ -56,3 +56,20 @@
 </div>
 
 <%= render "chart.js.erb" %>
+
+
+
+<ol id="joyRideTipContent">
+
+  <li data-id="tour_step_one" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+    <h2>This is your dashboard</h2>
+    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+  </li>
+
+  <li data-class="dashboard_count_blocks" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+    <h2>These are your user counts</h2>
+    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+  </li>
+
+</ol>
+

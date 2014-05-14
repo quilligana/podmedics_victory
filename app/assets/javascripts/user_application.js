@@ -13,3 +13,4 @@
 //= require autosave
 //= require vimeo
 //= require jquery.validate
+//= require jquery.joyride-2.1
