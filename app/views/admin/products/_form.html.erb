@@ -1,7 +1,11 @@
-<%= simple_form_for [:admin, @product] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :permalink %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @product] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :permalink %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

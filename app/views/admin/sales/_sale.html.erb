@@ -2,6 +2,8 @@
   <td><%= sale.id %></td>
   <td><%= sale.created_at.to_s(:long) %></td>
   <td><%= sale.product.name %></td>
+  <td><%= sale.state %></td>
+  <td><%= (link_to sale.user.email, admin_user_path(sale.user)) if sale.user %></td>
   <td>
     <%= link_to "Show", admin_sale_path(sale) %>
   </td>

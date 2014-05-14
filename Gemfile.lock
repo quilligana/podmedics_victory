@@ -115,6 +115,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    font-awesome-rails (4.0.3.2)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     friendly_id (5.0.3)
       activerecord (>= 4.0.0)
@@ -386,6 +388,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   figaro
+  font-awesome-rails
   friendly_id (~> 5.0.0)
   guard-rspec
   httparty
