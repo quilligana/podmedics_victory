@@ -15,7 +15,7 @@ module QuestionsHelper
                       next_badge(Badge.new(user_id: current_user,
                       specialty_id: specialty.id,
                       level: user_progress.next_badge))
-    else
+    elsif user_progress.current_badge
       content_tag(:p, "You are currently the professor of 
                       #{specialty.name}") +
       show_badge(Badge.new(user_id: current_user,
