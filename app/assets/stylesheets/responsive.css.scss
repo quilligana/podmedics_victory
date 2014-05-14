@@ -847,7 +847,11 @@ $standard_border_radius: 6px;
   }
 }
 @media screen and (max-width: 760px) {
-
+  .speciality_search_page_wrapper {
+    margin-left: 35px;
+    margin-right: 35px;
+    width: auto;
+  }
   .plans_column {
     margin-bottom: 40px;
     margin-right: 20px;
