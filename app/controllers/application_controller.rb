@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
             unless current_user.has_selected_plan?
               # Only redirect if they aren't already selecting a plan.
               unless params[:controller] == 'transactions'
-                redirect_to show_buy_path(current_user.id), notice: 'Please select a plan before proceeding'
+                # redirect_to show_buy_path(current_user.id), notice: 'Please select a plan before proceeding'
               end
             end
           end

@@ -1,11 +1,9 @@
 $(document).ready(function(){
-    // Listen for the ready event for any vimeo video players on the page
-    var vimeoPlayers = document.querySelectorAll('iframe'), player;
 
-    for (var i = 0, length = vimeoPlayers.length; i < length; i++) {
-        player = vimeoPlayers[i];
-        $f(player).addEvent('ready', vid_ready);
-    }
+    var iframe = $('#vimeoplayer')[0], 
+        player = $f(iframe),
+        progJSON = $("#progress_json").html(), 
+        viewProgress = $.parseJSON(progJSON);
 
     /**
      * Utility function for adding an event. Handles the inconsistencies
@@ -21,63 +19,37 @@ $(document).ready(function(){
         }
     };
 
-    /**
-     * Called once a vimeo player is loaded and ready to receive
-     * commands. You can add events and make api calls only after this
-     * function has been called.
-     */
-    function vid_ready(player_id) {
-
-        var froogaloop = $f(player_id);
-
-        function seekToPreviousViewing() {
-            
-            var progJSON = $("#progress_json").html(), 
-                viewProgress = $.parseJSON(progJSON);
-
-            if(viewProgress!=0) {
-                froogaloop.api('seekTo', viewProgress);
-                viewProgress = 0;
-            };
-            return false;
+    // When the player is ready, add listeners for pause, finish, and playProgress
+    player.addEvent('ready', function() {
+        player.addEvent('pause', onPause);
+        player.addEvent('playProgress', onPlayProgress);
+        if(viewProgress!=0) {
+            player.api('seekTo', viewProgress);
         };
+    });
 
-        function setupEventListeners() {
+    function onPause(id) {
+        var elapsed;
+        player.api('getCurrentTime', function(value, player_id) {
+            elapsed = value;
+            var video_url = $(location).attr('pathname');
+            $.ajax({
+                type: 'GET',
+                url: '/vimeos/paused',
+                data: {'path': video_url, 'progress': elapsed},
+            }); 
+        });
+    }
 
-            function onPlayProgress() {
-                froogaloop.addEvent('playProgress', function(data) {
-                    if (data.percent > 0.75) {
-                        var video_url = $(location).attr('pathname');
-                        $.ajax({
-                            type: 'GET',
-                            url: '/vimeos/completed',
-                            data: {'path': video_url},
-                        });
-                        froogaloop.removeEvent('playProgress');
-                    };
-                });
-            };
-
-            function onPause() {
-                var elapsed;
-                froogaloop.addEvent('pause', function(data) {
-                    froogaloop.api('getCurrentTime', function(value, player_id) {
-                        elapsed = value;
-                        var video_url = $(location).attr('pathname');
-                        $.ajax({
-                            type: 'GET',
-                            url: '/vimeos/paused',
-                            data: {'path': video_url, 'progress': elapsed},
-                        }); 
-                    });                   
-                });
-            };
-
-            onPlayProgress();
-            onPause();
+    function onPlayProgress(data, id) {
+        if (data.percent > 0.75) {
+            var video_url = $(location).attr('pathname');
+            $.ajax({
+                type: 'GET',
+                url: '/vimeos/completed',
+                data: {'path': video_url},
+            });
+            player.removeEvent('playProgress');
         };
-
-        setupEventListeners();
-        seekToPreviousViewing();
     };
 });
