@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     jQuery("#email, #user_email, #password_reset_field").validate({
         expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
-        message: "A valid Email is required",
+        message: "A valid Email is required"
 
     });
 
