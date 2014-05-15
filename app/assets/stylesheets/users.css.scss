@@ -3432,7 +3432,8 @@ p.password_reset_subtitle {
   padding-right: 20px;
   padding-left: 20px;
   float: left;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
 }
 .choose_specialities_list a.podmedcis_button.grey {
   margin-top: 0px;
@@ -3469,7 +3470,7 @@ p.password_reset_subtitle {
   padding-bottom: 23px;
 }
 
-.reveal-modal.trial_user_modal_resize .trial_user_select_specialities a.podmedcis_button.grey.trial_user_selected {
+.reveal-modal.trial_user_modal_resize .trial_user_select_specialities label.trial_user_selected {
   background-color: #8BDD7F;
   color: #FFFFFF;
   background-image: image-url('trial_user_choose_spec_tick.png');
@@ -3480,7 +3481,7 @@ p.password_reset_subtitle {
 
 
 .trial_member_option_wrapper {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 0px;
   width: 100%;
   padding-left: 0px;
@@ -4062,4 +4063,29 @@ a.website_profile_button:hover {
   z-index: 10000;
   top: 0px;
   left: 0px;
+}
+
+
+#choose_specialities_list_error {
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 13px;
+  padding-top: 14px;
+  height: 40px;
+  font-size: 13px;
+  line-height: 21px;
+  color: #CA4141;
+  float: left;
+  display: none;
+  text-align: center;
+  border-top: solid 1px #f4f4f4;
+}
+
+.trial_member_option_wrapper input {
+  margin-top: 25px;
+}
+
+.sub_heading_wrapper.search_page_header .lectures_inline_dropdown_wrapper {
+  margin-right: 0px;
 }

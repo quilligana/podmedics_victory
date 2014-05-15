@@ -24,32 +24,35 @@
 
     <div class="trial_user_select_specialities">
       <div class="choose_specialities_modal_title">Please choose your two selected specialities</div>
-      <form action="#">
+      <form action="#" id="trial_member_option_form">
+        <div id="choose_specialities_list_error"></div>
         <div class="choose_specialities_list">
+
           <p class="trial_member_option_wrapper">
             <label class="podmedcis_button grey" for="medicine_trial_member_choice">Medicine</label>
-            <input type="checkbox" name="medicine_trial_member_choice" id="medicine_trial_member_choice" value="1">
+            <input type="checkbox" name="trial_user_select_specialities_checkbox" id="medicine_trial_member_choice" value="1" >
           </p>
 
           <p class="trial_member_option_wrapper">
             <label class="podmedcis_button grey" for="surgery_trial_member_choice">Surgery</label>
-            <input type="checkbox" name="surgery_trial_member_choice" id="surgery_trial_member_choice" value="1">
+            <input type="checkbox" name="trial_user_select_specialities_checkbox" id="surgery_trial_member_choice" value="1">
           </p>
 
           <p class="trial_member_option_wrapper">
             <label class="podmedcis_button grey" for="clinical_specialties_trial_member_choice">Clinical Specialties</label>
-            <input type="checkbox" name="clinical_specialties_trial_member_choice" id="clinical_specialties_trial_member_choice" value="1">
+            <input type="checkbox" name="trial_user_select_specialities_checkbox" id="clinical_specialties_trial_member_choice" value="1">
           </p>
 
           <p class="trial_member_option_wrapper">
             <label class="podmedcis_button grey" for="clinical_sciences_trial_member_choice">Clinical Sciences</label>
-            <input type="checkbox" name="clinical_sciences_trial_member_choice" id="clinical_sciences_trial_member_choice" value="1">
+            <input type="checkbox" name="trial_user_select_specialities_checkbox" id="clinical_sciences_trial_member_choice" value="1">
           </p>
         </div>
 
         <div class="choose_specialities_list_continue_button">
           <button type="submit" class="podmedcis_button choose_specialities_continue_button">Continue</button>
         </div>
+
       </form>
 
     </div>

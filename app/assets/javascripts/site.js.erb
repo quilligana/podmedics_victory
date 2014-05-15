@@ -198,7 +198,7 @@ ready = function() {
   });
 
   // iCheck 
-  $('input').iCheck({
+  $('.right_column_forms.notifications_inner_wrapper input').iCheck({
     checkboxClass: 'icheckbox_minimal-red',
     radioClass: 'iradio_minimal-red',
     increaseArea: '20%' // optional
@@ -233,6 +233,18 @@ ready = function() {
   // A new badge achievement during questions - fire modal
   $( "#questions_complete_modal_click" ).click();
 
+
+
+  $("input[name='trial_user_select_specialities_checkbox']").change(function () {
+    var maxAllowed = 2;
+    var cnt = $("input[name='trial_user_select_specialities_checkbox']:checked").length;
+    if (cnt > maxAllowed)
+    {
+      $(this).prop("checked", "");
+      $("#choose_specialities_list_error").slideDown(400).html("Only 2 can be checked. Please uncheck some if you want to check others").delay(10000).slideUp(400);
+    }
+  });
+
 };
 	
 $(document).ready(ready);
@@ -252,3 +264,6 @@ $(document).on('page:load', ready);
     });
   });
 <% end %>
+
+
+
