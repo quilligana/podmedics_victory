@@ -11,6 +11,12 @@ $(document).ready(function(){
 
     });
 
+
+    jQuery("#user_name").validate({
+        expression: "if (VAL.length > 3 && VAL) return true; else return false;",
+        message: "Please enter your full name"
+    });
+
     jQuery("#password").validate({
         expression: "if (VAL.length > 5 && VAL) return true; else return false;",
         message: "Please enter a valid Password"
