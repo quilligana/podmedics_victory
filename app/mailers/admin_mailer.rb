@@ -8,6 +8,7 @@ class AdminMailer < ActionMailer::Base
   end
 
   # when a new comment is posted
+  # TODO: add track back link to mail
   def new_comment(comment)
     @comment = comment
     mail to: 'ed@podmedics.com', subject: 'New Comment'
