@@ -26,6 +26,12 @@ class Admin::VideosController < InheritedResources::Base
     redirect_to admin_specialty_path(@video.specialty)
   end
 
+  def send_notifications
+    @video = Video.friendly.find(params[:id])
+    @video.delay.send_video_notification
+    redirect_to :back
+  end
+
   protected
 
     def collection

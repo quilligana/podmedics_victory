@@ -104,6 +104,15 @@ class Video < ActiveRecord::Base
     end
   end
 
+  # Notifications
+
+  def send_video_notification
+    User.episode_notifications_allowed.each do |user|
+      UserMailer.delay.new_episode(user, self)
+    end
+  end
+  handle_asynchronously :send_video_notification
+
   private
 
     def self.unfinished(vimeos)

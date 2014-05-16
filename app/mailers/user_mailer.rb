@@ -18,4 +18,10 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'Notification of Your Professor Status'
   end
 
+  def new_episode(user, video)
+    @user = user
+    @video = video
+    mail to: user.email, subject: 'A New Video Has Been Posted'
+  end
+
 end

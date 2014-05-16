@@ -177,4 +177,44 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Retrieve users who are opted in
+
+  def self.episode_notifications_allowed
+    where(receive_new_episode_notifications: true)
+  end
+
+  def self.newsletters_allowed
+    where(receive_new_episode_notifications: true)
+  end
+
+  # Notification toggle
+
+  def unsubscribe
+    receive_newsletters(false)
+    receive_new_episode_notifications(false)
+    receive_reply_notifications(false)
+    receive_social_notifications(false)
+  end
+
+  def receive_newsletters(allowed)
+    receive_newsletters = allowed
+    save
+  end
+
+  def receive_new_episode_notifications(allowed)
+    receive_new_episode_notifications = allowed
+    save
+  end
+
+  def receive_reply_notifications(allowed)
+    receive_reply_notifications = allowed
+    save
+  end
+
+  def receive_social_notifications(allowed)
+    receive_social_notifications = allowed
+    save
+  end
+
+
 end

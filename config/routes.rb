@@ -42,6 +42,7 @@ PodmedicsVictory::Application.routes.draw do
       member do
         get 'move_up'
         get 'move_down'
+        get 'send_notifications'
       end
       resources :questions
     end
