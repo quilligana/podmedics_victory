@@ -1,0 +1,3 @@
+<% if !current_user.has_subscription_and_in_date? %>
+  <%= link_to "Upgrade your subscription", show_buy_path(current_user) %>
+<% end %>
