@@ -1395,7 +1395,7 @@ a#back_to_notes_button {
   text-align: center;
   clear: both;
   float: left;
-  width: 100%;
+  width: 205px;
   font-size: 12px;
   margin-right: 0px;
   margin-left: 0px;
@@ -1403,7 +1403,9 @@ a#back_to_notes_button {
   line-height: 52px;
   height: 50px;
   padding-bottom: 0px;
-  border-radius: $standard_border_radius;  }
+  border-radius: $standard_border_radius;
+  text-transform: capitalize;
+}
 
 .user_dropdown_wrapper .user_dropdown a.red_block_button:hover {
   background-color: #8C1C29; }

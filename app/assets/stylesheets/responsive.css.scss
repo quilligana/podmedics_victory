@@ -1662,6 +1662,31 @@ $standard_border_radius: 6px;
     left: 0px;
   }
 
+  .user_dropdown .dropdown_inner_wrapper {
+    padding: 5%;
+    width: 90%;
+    float: left;
+  }
+
+  .user_dropdown_wrapper .user_dropdown a.red_block_button {
+    color: #FFF;
+    background-color: #C02A3A;
+    text-align: center;
+    clear: both;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-top: 0px;
+    line-height: 52px;
+    height: 50px;
+    padding-bottom: 0px;
+    border-radius: 6px;
+    text-transform: capitalize;
+  }
+
+
   .reveal-modal {
     width: 310px;
     margin-left: -155px;
