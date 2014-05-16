@@ -1468,6 +1468,11 @@ a.default_lecture_question, .lecture_question_blocks input, .default_lecture_que
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
 
 a.default_lecture_question:hover, .lecture_question_blocks input:hover, .default_lecture_question:hover {
