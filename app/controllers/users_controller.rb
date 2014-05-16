@@ -52,7 +52,8 @@ class UsersController < ApplicationController
   protected
 
     def user_params
-      params.require(:user).permit(:name, :email, :website, :avatar, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :website, :avatar, :password, :password_confirmation,
+                                  :receive_newsletters, :receive_reply_notifications, :receive_new_episode_notifications)
     end
 
 end

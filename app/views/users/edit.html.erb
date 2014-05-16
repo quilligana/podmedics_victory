@@ -48,6 +48,21 @@
               <%= f.file_field :avatar %>
               </div>
             </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_newsletters %>
+              <%= f.label :receive_newsletters, 'Receive newsletters' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_reply_notifications %>
+              <%= f.label :receive_reply_notifications, 'Receive question reply notifications' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_new_episode_notifications %>
+              <%= f.label :receive_new_episode_notifications, 'Receive new episode notifications' %>
+            </div>
             
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
           <% end %>
@@ -55,58 +70,24 @@
       </div>
     </div>
 
-    <div class="right_column_forms">
-      <h3>Membership</h3>
-      <p>Membership info to go here</p>
-      <p>e.g. last payment, subscription valid, link to generate receipt etc.</p>
-      <p>Last Payment: <strong>12/09/06</strong></p>
-    </div>
-
     <div class="profile_notifications_block">
       <h3>Membership Status</h3>
 
-      <!-- Shown if user has a valid subscription -->
-      <!--
+      <% if current_user.has_subscription_and_in_date? %>
+        <p class="active_subscription_text">You have an active subscription</p>
+        <p>You subscribed on <%= current_user.subscribed_on.to_s(:long) %></p>
+        <p>You subscription will expire on <%= current_user.expires_on.to_s(:long) %></p>
+      <% else %>
+        <% if current_user.subscribed_on %>
+          <p class="expired_subscription_text">Your subscription has expired</p>
+        <% end %>
 
-      <p class="active_subscription_text">You have an active subscription</p>
+        <p>You are currently on a free plan.</p>
+        <p>
+          <%= link_to "Upgrade your subscription", show_buy_path(current_user), class: 'podmedcis_button grey' %>
+        </p>
 
-      -->
-
-      <!-- Shown if user has an expired subscription -->
-
-      <p class="expired_subscription_text">Your subscription has expired</p>
-      <p><a href="#" class="podmedcis_button grey">Renew Your Subscription</a></p>
-      <!-- End expired subscription -->
-
-    </div>
-
-    <div class="right_column_forms notifications_inner_wrapper">
-      <h3>Notification Settings</h3>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="newsletter" id="newsletter" value="1">
-        <label for="newsletter">Receive Newsletter</label>
-      </div>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="question_replies" id="question_replies" value="1">
-        <label for="question_replies">Question Replies</label>
-      </div>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="new_lectures" id="new_lectures" value="1">
-        <label for="new_lectures">New lectures are added</label>
-      </div>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="activity" id="activity" value="1">
-        <label for="activity">Weekly Activity</label>
-      </div>
-
-    </div>
-
-    <div class="right_column_forms receipt_user_settings_block">
-      <p><a href="#" class="podmedcis_button grey">Print Receipt</a></p>
+      <% end %>
     </div>
 
     </div>
