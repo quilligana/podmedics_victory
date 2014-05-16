@@ -375,10 +375,11 @@ $standard_border_radius: 6px;
   }
 
   .profile_notifications_block {
-    width: 90%;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 86%;
+    padding-left: 7%;
+    padding-right: 7%;
     border-bottom: none;
+    border-top: solid 1px #e5e5e5;
   }
 
   .profile_notifications_block a.podmedcis_button.grey {
