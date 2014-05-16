@@ -11,6 +11,9 @@
     <ul class="actions">
       <li><%= link_to "Edit", edit_admin_video_path(video) %></li>
       <li><%= link_to "Show", admin_video_path(video) %></li>
+      <li><%= link_to "Send Notifications",  
+                      send_notifications_admin_video_path(video), 
+                      data: { confirm: "Send Emails for #{video.title}" }%></li>
     </ul>
   </td>
 </tr>
