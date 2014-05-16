@@ -23,5 +23,6 @@ class UserMailer < ActionMailer::Base
     @video = video
     mail to: user.email, subject: 'A New Video Has Been Posted'
   end
+  handle_asynchronously :new_episode
 
 end
