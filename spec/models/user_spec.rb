@@ -138,4 +138,16 @@ describe User do
     end
   end
 
+  describe User, '#for_walkthrough?' do
+    it "returns false if user has a login count > 1" do
+      user = create(:user, login_count: 10)
+      expect(user.for_walkthrough?).to be_false
+    end
+
+    it "returns true on first login" do
+      user = create(:user, login_count: 1)
+      expect(user.for_walkthrough?).to be_true
+    end
+  end
+
 end
