@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require tabulous
 //= require jquery.reveal
-//= require froogaloop
 //= require icheck
 //= require custom.modernizr
 //= require snap.svg.js
@@ -13,4 +12,5 @@
 //= require jquery.joyride-2.1
 //= require site
 //= require autosave
+//= require froogaloop
 //= require vimeo

@@ -110,7 +110,7 @@ feature 'Static Pages' do
       click_link 'Support'
     end
     within 'h1' do
-      expect(page).to have_content 'Support'
+      expect(page).to have_content 'Frequently Asked Questions'
     end
     expect(page).to have_content member_faq.title
 

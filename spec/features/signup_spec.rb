@@ -11,14 +11,16 @@ feature 'Sign up', js: true do
     expect(page).to_not have_content 'Please enter a valid email address'
   end
 
+  # intercepted by client side validations
   scenario 'Guest signs up with no email' do
     user_signs_up_with_email('')
-    expect(page).to have_content 'PLEASE MAKE SURE YOU ENTER A VALID EMAIL'
+    expect(page).to have_content 'A VALID EMAIL IS REQUIRED'
   end
 
+  # intercepted by client side validations
   scenario 'Guest signs up with a bad email address' do
     user_signs_up_with_email('bademail')
-    expect(page).to have_content 'PLEASE MAKE SURE YOU ENTER A VALID EMAIL'
+    expect(page).to have_content 'A VALID EMAIL IS REQUIRED'
   end
 
   # Helpers
