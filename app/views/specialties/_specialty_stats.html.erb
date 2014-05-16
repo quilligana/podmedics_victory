@@ -17,7 +17,7 @@
   <% if @specialty.cached_notes_count > 0 %>
     <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
       <p class="questions_info_right_column_number"><%= @specialty.cached_notes_count %></p>
-      <p><%= pluralize(@specialty.cached_notes_count, 'Note').split[1] %> saved within Cardiology</p>
+      <p><%= pluralize(@specialty.cached_notes_count, 'Note').split[1] %> saved within <%= @specialty.name.upcase %></p>
     </a>
   <% end %>
 
