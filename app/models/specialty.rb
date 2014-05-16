@@ -21,6 +21,10 @@ class Specialty < ActiveRecord::Base
 
   delegate :name, to: :category, prefix: true
 
+  def question_status
+    return 'red' if self.questions.count < 30
+  end
+
   # Cache functions
 
   def self.cached_find(id)
@@ -70,8 +74,8 @@ class Specialty < ActiveRecord::Base
     update_attributes(professor: user_id)
   end
 
-
   def title
     name
   end
+
 end

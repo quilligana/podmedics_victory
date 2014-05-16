@@ -1,4 +1,4 @@
-<tr class="specialty">
+<tr class="specialty <%= specialty.question_status %>">
   <td><%= specialty.id %></td>
   <td><%= link_to specialty.name, admin_specialty_path(specialty) %></td>
   <td><%= specialty.category_name %></td>

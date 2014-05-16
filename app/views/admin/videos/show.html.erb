@@ -4,6 +4,7 @@
     <small><%= link_to "Edit", edit_admin_video_path(@video) %></small>
     <small><%= link_to 'View on frontend', video_path(@video) %></small>
   </h1>
+  <p><%= link_to 'Back to specialty', admin_specialty_path(@video.specialty) %></p>
 </div>
 
 <div class="well">
@@ -20,6 +21,9 @@
       <p>Preview: <%= @video.preview %></p>
       <p>Views: <%= @video.views %></p>
       <p>Speaker: <%= @video.speaker_name %></p>
+      <% if @video.author %>
+        <p>Author: <%= link_to @video.author.name, admin_author_path(@video.author) %></p>
+      <% end %>
       <p>File: <%= @video.file_name %></p>
     </div>
 
