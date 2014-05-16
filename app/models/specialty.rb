@@ -21,6 +21,15 @@ class Specialty < ActiveRecord::Base
 
   delegate :name, to: :category, prefix: true
 
+  def question_status
+    ideal_count = self.videos.count * 7
+    return 'red' if self.questions.count < ideal_count
+  end
+
+  def question_target
+    self.videos.count * 7
+  end
+
   # Cache functions
 
   def self.cached_find(id)
@@ -70,8 +79,8 @@ class Specialty < ActiveRecord::Base
     update_attributes(professor: user_id)
   end
 
-
   def title
     name
   end
+
 end
