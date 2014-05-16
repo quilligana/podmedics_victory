@@ -64,6 +64,11 @@
               <%= f.label :receive_new_episode_notifications, 'Receive new episode notifications' %>
             </div>
             
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_social_notifications %>
+              <%= f.label :receive_social_notifications, 'Receive social notifications' %>
+            </div>
+            
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
           <% end %>
         </div>
