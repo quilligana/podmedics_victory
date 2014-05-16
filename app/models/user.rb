@@ -71,6 +71,11 @@ class User < ActiveRecord::Base
     true
   end
 
+  def for_walkthrough?
+    return true if self.login_count == 1
+    false
+  end
+
   # Cache functions
 
   def self.cached_find(id)

@@ -1,0 +1,40 @@
+<ol id="joyRideTipContent">
+
+  <li data-id="tour_step_one" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
+    <h2>Welcome to your dashboard.</h2>
+    <p>This page shows you progress and gives you quick access to specialties</p>
+  </li>
+
+  <li data-class="dashboard_count_blocks" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+    <h2>Your performance</h2>
+    <p>This section gives you a quick overview of your performance and progress.</p>
+  </li>
+
+  <li data-class="header_navigation" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+    <h2>Update your profile and avatar</h2>
+    <p>Customise your experience</p>
+  </li>
+
+  <li data-class="menu_link" data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+    <h2>Quick access</h2>
+    <p>Get access to all the different specialties here</p>
+  </li>
+
+</ol>
+
+<script type="text/javascript" charset="utf-8">
+  <% unless ENV["RAILS_ENV"] == 'test' %>
+    $(window).load(function() {
+      $('#joyRideTipContent').joyride({
+        autoStart : true,
+        postStepCallback : function (index, tip) {
+          if (index == 2) {
+            $(this).joyride('set_li', false, 1);
+          }
+        },
+        modal:true,
+        expose: true
+      });
+    });
+  <% end %>
+</script>
