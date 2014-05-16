@@ -11,6 +11,7 @@ class SpecialtyQuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
+      AdminMailer.delay.new_specialty_question(@specialty)
       redirect_to specialty_question_path(id: @question.id)
     else
       redirect_to :back

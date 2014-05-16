@@ -17,4 +17,5 @@ class UserMailer < ActionMailer::Base
     @specialty = specialty
     mail to: user.email, subject: 'Notification of Your Professor Status'
   end
+
 end
