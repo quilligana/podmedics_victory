@@ -50,7 +50,7 @@ private
       ""
     else
       link_to video_path(@video), class:"lecture_icon not_watched", id: 'not_watched' do
-        content_tag(:p, "You have not yet watched this video", class:"tooltip")
+        content_tag(:p, "You've not watched this one yet!", class:"tooltip")
       end
     end
   end
@@ -71,15 +71,15 @@ private
   def display_performance_icons(question_results)
     if question_results.bad_result?
       link_to video_path(@video), class: 'lecture_icon recommend_resit', id: 'recommend_resit' do
-        content_tag(:p, "You only answered #{question_results.correct_count} of 
+        content_tag(:p, "You answered #{question_results.correct_count} of 
                         #{question_results.total_count} questions correct - You may 
                         benefit from retaking this lecture", class:"tooltip")
       end
     elsif question_results.top_result?
       link_to video_path(@video), class: 'lecture_icon top_marks', id: 'top_marks' do
-        content_tag(:p, ("<span>Good Job</span>You anserwed all 
-                      #{question_results.total_count} questions correctly and earned the
-                      maximum points avaliable.").html_safe, class:"tooltip")
+        content_tag(:p, ("<span>Good Job</span>You answered all 
+                      #{question_results.total_count} questions correctly and have earned the
+                      maximum points avaliable. Awesome!").html_safe, class:"tooltip")
       end
     end
   end
