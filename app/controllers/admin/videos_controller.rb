@@ -2,7 +2,7 @@ class Admin::VideosController < InheritedResources::Base
   layout 'admin_application'
   respond_to :html, :json
 
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :move_up, :move_down]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :move_up, :move_down, :send_notifications]
 
   def create
     create!(notice: 'New video added') { admin_videos_path }
@@ -27,7 +27,6 @@ class Admin::VideosController < InheritedResources::Base
   end
 
   def send_notifications
-    @video = Video.friendly.find(params[:id])
     @video.delay.send_video_notification
     redirect_to :back
   end
