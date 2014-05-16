@@ -1108,3 +1108,11 @@ div.faq_inner_wrapper:last-child {
   border-radius: 6px;
   padding: 14px;
 }
+
+.plans_lower_info_block_wrapper.payment_system_block_icon p {
+  padding-bottom: 0px;
+}
+
+.plans_lower_info_block_wrapper.payment_system_block_icon p:last-child {
+  padding-bottom: 25px;
+}
