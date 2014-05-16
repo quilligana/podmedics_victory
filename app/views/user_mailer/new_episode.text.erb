@@ -1,7 +1,7 @@
 Hi <%= @user.name %>,
 
-There is a new <%= @video.specialty %> video.
+There is a new <%= @video.specialty.name %> video.
 
-You can view it <%= link_to 'here', video_url(@video) %>.
+You can view <%= "'#{@video.title}'" %> <%= link_to 'here', video_url(@video) %>.
 
 The Team at Podmedics

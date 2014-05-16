@@ -1,7 +1,7 @@
 <h1>Hi <%= @user.name %>,</h1>
 
-<p class="lead">There is a new <%= @video.specialty %> video.</p>
+<p class="lead">There is a new <%= @video.specialty.name %> video.</p>
 
-<p>You can view it <%= link_to 'here', video_url(@video) %>.</p>
+<p>You can view <%= "'#{@video.title}'" %> <%= link_to 'here', video_url(@video) %>.</p>
 
 <p>The Team at Podmedics</p>
