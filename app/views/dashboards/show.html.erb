@@ -4,9 +4,7 @@
     <div class="sub_heading_dashboard_info">
       <p><strong>Welcome back <%= current_user.name %></strong></p>
       <% if allow? "admins", "dashboard" %>
-        <p>
-        <%= link_to 'Return to admin', admin_dashboard_path(current_user) %>
-        </p>
+        <p><%= link_to 'Return to admin', admin_dashboard_path(current_user) %></p>
       <% end %>
     </div>
   </div>
@@ -34,7 +32,7 @@
 
         <div id="tabs-2" class="tab_box">
           <div class="inner_page_padding">
-            <p class="recommended_tab_sub_title">We’ve recommended the tutorials below because you’ve either not completed them or you didn’t reach a pass grade of at least 78%.</p>
+            <p class="recommended_tab_sub_title">We've recommened these tutorials based upon your performance so far.</p>
             <%= render partial: 'video_list', locals: {videos: @flagged_videos} %>
           </div>
         </div>
