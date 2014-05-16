@@ -22,7 +22,8 @@ class Specialty < ActiveRecord::Base
   delegate :name, to: :category, prefix: true
 
   def question_status
-    return 'red' if self.questions.count < 30
+    ideal_count = self.videos.count * 7
+    return 'red' if self.questions.count < ideal_count
   end
 
   # Cache functions
