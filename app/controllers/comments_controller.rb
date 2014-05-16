@@ -18,6 +18,8 @@ class CommentsController < ApplicationController
 
     unless @comment.save
       @comment = nil
+    else
+      AdminMailer.delay.new_comment(@comment)
     end
   end
 
