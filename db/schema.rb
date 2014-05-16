@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513143607) do
+ActiveRecord::Schema.define(version: 20140516104934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,13 @@ ActiveRecord::Schema.define(version: 20140513143607) do
   add_index "sales", ["product_id"], name: "index_sales_on_product_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
+  create_table "speciality_questions", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialties", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -229,26 +236,29 @@ ActiveRecord::Schema.define(version: 20140513143607) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                             default: false
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.integer  "points",                 default: 0
+    t.integer  "points",                            default: 0
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "facebook"
     t.string   "twitter"
     t.string   "website"
-    t.boolean  "selected_plan",          default: false
+    t.boolean  "selected_plan",                     default: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "login_count",            default: 0
+    t.integer  "login_count",                       default: 0
     t.datetime "last_login_at"
     t.datetime "subscribed_on"
+    t.boolean  "receive_newsletters",               default: true
+    t.boolean  "receive_reply_notifications",       default: true
+    t.boolean  "receive_new_episode_notifications", default: true
   end
 
   create_table "versions", force: true do |t|

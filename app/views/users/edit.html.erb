@@ -48,6 +48,21 @@
               <%= f.file_field :avatar %>
               </div>
             </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_newsletters %>
+              <%= f.label :receive_newsletters, 'Receive newsletters' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_reply_notifications %>
+              <%= f.label :receive_reply_notifications, 'Receive question reply notifications' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_new_episode_notifications %>
+              <%= f.label :receive_new_episode_notifications, 'Receive new episode notifications' %>
+            </div>
             
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
           <% end %>
@@ -78,35 +93,6 @@
       <p><a href="#" class="podmedcis_button grey">Renew Your Subscription</a></p>
       <!-- End expired subscription -->
 
-    </div>
-
-    <div class="right_column_forms notifications_inner_wrapper">
-      <h3>Notification Settings</h3>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="newsletter" id="newsletter" value="1">
-        <label for="newsletter">Receive Newsletter</label>
-      </div>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="question_replies" id="question_replies" value="1">
-        <label for="question_replies">Question Replies</label>
-      </div>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="new_lectures" id="new_lectures" value="1">
-        <label for="new_lectures">New lectures are added</label>
-      </div>
-
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="activity" id="activity" value="1">
-        <label for="activity">Weekly Activity</label>
-      </div>
-
-    </div>
-
-    <div class="right_column_forms receipt_user_settings_block">
-      <p><a href="#" class="podmedcis_button grey">Print Receipt</a></p>
     </div>
 
     </div>
