@@ -26,6 +26,10 @@ class Specialty < ActiveRecord::Base
     return 'red' if self.questions.count < ideal_count
   end
 
+  def question_target
+    self.videos.count * 7
+  end
+
   # Cache functions
 
   def self.cached_find(id)

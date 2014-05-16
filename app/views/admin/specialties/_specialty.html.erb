@@ -3,7 +3,7 @@
   <td><%= link_to specialty.name, admin_specialty_path(specialty) %></td>
   <td><%= specialty.category_name %></td>
   <td><%= specialty.videos.count  %></td>
-  <td><%= specialty.questions.count %></td>
+  <td><%= specialty.questions.count %> (<%= specialty.question_target %>)</td>
   <td><%= specialty.user_questions.count %></td>
   <td>
     <ul class="actions">
