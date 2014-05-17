@@ -48,7 +48,7 @@ ready = function() {
 
   $(function() {
     var anchor = window.location.hash.substr(1);
-    $('#' + anchor).addClass('new_comment_active_state');
+    $('#' + anchor + '.comment').addClass('new_comment_active_state');
   })
 
   $(document).on("click", ".comment_reply_link a", function(){
