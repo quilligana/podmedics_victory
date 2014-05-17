@@ -30,6 +30,7 @@ class CommentsController < ApplicationController
 
   def accept
     @comment.root.accept_answer(@comment, current_user)
+    UserMailer.answer_accepted(@comment).deliver
   end
 
   def vote

@@ -31,4 +31,11 @@ class UserMailer < ActionMailer::Base
     mail to: @user.email, subject: 'You have a new reply'
   end
 
+  def answer_accepted(answer)
+    @user = answer.user
+    @question = answer.root
+    @answer = answer
+    mail to: @user.email, subject: 'One of your answers has been accepted'
+  end
+
 end

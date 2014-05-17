@@ -1,0 +1,14 @@
+Hi <%= @user.name %>,
+
+One of your answers has been accepted.
+
+Your answer to
+<%= @question.content %>
+has been accepted.
+
+You can view your answer at
+<%= specialty_question_url( specialty_id: @question.specialty.id, 
+                            id: @question.id, 
+                            anchor: @answer.id) %>.
+
+The Team at Podmedics

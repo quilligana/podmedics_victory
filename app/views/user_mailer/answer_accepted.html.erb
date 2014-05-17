@@ -1,0 +1,14 @@
+<h1>Hi <%= @user.name %>,</h1>
+
+<p class="lead">One of your answers has been accepted.</p>
+
+<p>Your answer to</p>
+<p class="lead"><%= @question.content %></p>
+<p>has been accepted.</p>
+
+<p>You can view your answer  
+<%= link_to 'here', specialty_question_url( specialty_id: @question.specialty.id, 
+                                            id: @question.id, 
+                                            anchor: @answer.id) %>.</p>
+
+<p>The Team at Podmedics</p>
