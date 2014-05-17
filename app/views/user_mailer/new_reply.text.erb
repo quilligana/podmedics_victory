@@ -11,6 +11,6 @@ Reply
 <%= @reply.content %>
 - <%= @reply.user.name %>
 
-You can view the reply <%= link_to 'here', @your_comment.root %>.
+You can view the reply <%= video_url(@your_comment.root, anchor: @reply.id) %>.
 
 The Team at Podmedics
