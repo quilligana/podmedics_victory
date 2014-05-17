@@ -54,6 +54,7 @@ ready = function() {
   $(document).on("click", ".comment_reply_link a", function(){
     var comment_info = $(this).parents('.comment_lower_action_buttons_right').siblings(".comment_info")[0]
     var comment_username = $(comment_info).find("h3.comment_username a")[0].innerHTML;
+    var comment_user_link = $(comment_info).find("h3.comment_username a")[0].href;
     $(".comments_textarea").val('@' + comment_username + ' ').focus().setCursorToTextEnd();
     $(window).scrollTop($("#comment_reply_textarea").offset().top - 50);
 
@@ -67,6 +68,7 @@ ready = function() {
     $("#comment_commentable_id").val(this.id);
     $("#reply_cancel_box").show(100);
     $("#reply_user_name").html(comment_username);
+    $("a#reply_user_name")[0].href = comment_user_link;
   });
 
   $(document).on("click", ".no_questions_reply_wrapper a", function(){
