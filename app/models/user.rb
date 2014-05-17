@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   def has_subscription_and_in_date?
-    return true if self.subscribed_on && (Time.now <= expires_on)
+    return true if self.subscribed_on && (Time.zone.now <= expires_on)
     false
   end
 
@@ -190,30 +190,30 @@ class User < ActiveRecord::Base
   # Notification toggle
 
   def unsubscribe
-    receive_newsletters(false)
-    receive_new_episode_notifications(false)
-    receive_reply_notifications(false)
-    receive_social_notifications(false)
+    set_receive_newsletters(false)
+    set_receive_new_episode_notifications(false)
+    set_receive_reply_notifications(false)
+    set_receive_social_notifications(false)
   end
 
-  def receive_newsletters(allowed)
-    receive_newsletters = allowed
-    save
+  def set_receive_newsletters(allowed)
+    self.receive_newsletters = allowed
+    self.save
   end
 
-  def receive_new_episode_notifications(allowed)
-    receive_new_episode_notifications = allowed
-    save
+  def set_receive_new_episode_notifications(allowed)
+    self.receive_new_episode_notifications = allowed
+    self.save
   end
 
-  def receive_reply_notifications(allowed)
-    receive_reply_notifications = allowed
-    save
+  def set_receive_reply_notifications(allowed)
+    self.receive_reply_notifications = allowed
+    self.save
   end
 
-  def receive_social_notifications(allowed)
-    receive_social_notifications = allowed
-    save
+  def set_receive_social_notifications(allowed)
+    self.receive_social_notifications = allowed
+    self.save
   end
 
 

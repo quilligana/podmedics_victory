@@ -1,9 +1,7 @@
 <% if !current_user.has_subscription_and_in_date? %>
   <div class="top_nav_upgrade_link_wrapper">
-
     <%= link_to show_buy_path(current_user) do %>
       Upgrade <span>your subscription</span>
     <% end %>
-
   </div>
 <% end %>

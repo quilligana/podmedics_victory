@@ -150,4 +150,16 @@ describe User do
     end
   end
 
+  describe User, '#unsubscribe' do
+    it "unsubscribes from all emails" do
+      user = create(:user)
+      user.unsubscribe
+      user.reload
+      expect(user.receive_newsletters).to be_false
+      expect(user.receive_new_episode_notifications).to be_false
+      expect(user.receive_reply_notifications).to be_false
+      expect(user.receive_social_notifications).to be_false
+    end
+  end
+
 end
