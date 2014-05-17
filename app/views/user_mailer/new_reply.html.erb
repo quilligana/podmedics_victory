@@ -1,0 +1,10 @@
+<h1>Hi <%= @user.name %>,</h1>
+
+<p class="lead">Someone has replied to one of your comments.</p>
+
+<p><%= @reply.content %></p>
+<p>- <%= @reply.user.name %></p>
+
+<p>You can reply <%= link_to 'here', video_url(@your_comment.root, anchor: @reply.id) %>.</p>
+
+<p>The Team at Podmedics</p>

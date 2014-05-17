@@ -24,4 +24,11 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'A New Video Has Been Posted'
   end
 
+  def new_reply(your_comment, reply)
+    @user = your_comment.user
+    @your_comment = your_comment
+    @reply = reply
+    mail to: @user.email, subject: 'You have a new reply'
+  end
+
 end

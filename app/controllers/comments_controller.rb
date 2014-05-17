@@ -20,6 +20,11 @@ class CommentsController < ApplicationController
       @comment = nil
     else
       AdminMailer.delay.new_comment(@comment)
+
+      # If the comment is a reply, send an email to the user
+      if params[:comment][:commentable_type] == "Comment"
+        UserMailer.new_reply(@commentable, @comment).deliver
+      end
     end
   end
 

@@ -1,0 +1,16 @@
+Hi <%= @user.name %>,
+
+Someone has replied to one of your comments.
+
+Your comment
+
+<%= @your_comment.content %>
+
+Reply
+
+<%= @reply.content %>
+- <%= @reply.user.name %>
+
+You can view the reply <%= link_to 'here', @your_comment.root %>.
+
+The Team at Podmedics
