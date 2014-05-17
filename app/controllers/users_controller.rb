@@ -40,6 +40,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def unsubscribe
+    @user = User.find_by(unsubscribe_token: params[:unsubscribe_token])
+    if @user
+      @user.unsubscribe
+      flash.now[:notice] = "#{@user.email} has been unsubscribed"
+    end
+  end
+
   private
 
     def find_user

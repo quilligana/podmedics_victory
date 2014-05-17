@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 
   after_commit :flush_cache
   before_save :set_avatar_file_name
+  before_create :generate_unsubscribe_token
 
   # Plans/Payments
 
@@ -183,33 +184,39 @@ class User < ActiveRecord::Base
     where(receive_new_episode_notifications: true)
   end
 
-  # Notification toggle
+  # Email settings
+
+  def generate_unsubscribe_token
+    generate_token(:unsubscribe_token)
+  end
 
   def unsubscribe
     set_receive_newsletters(false)
     set_receive_new_episode_notifications(false)
     set_receive_reply_notifications(false)
     set_receive_social_notifications(false)
+    unsubscribed = true
+    save
   end
 
   def set_receive_newsletters(allowed)
-    self.receive_newsletters = allowed
-    self.save
+    receive_newsletters = allowed
+    save
   end
 
   def set_receive_new_episode_notifications(allowed)
-    self.receive_new_episode_notifications = allowed
-    self.save
+    receive_new_episode_notifications = allowed
+    save
   end
 
   def set_receive_reply_notifications(allowed)
-    self.receive_reply_notifications = allowed
-    self.save
+    receive_reply_notifications = allowed
+    save
   end
 
   def set_receive_social_notifications(allowed)
-    self.receive_social_notifications = allowed
-    self.save
+    receive_social_notifications = allowed
+    save
   end
 
 

@@ -159,6 +159,7 @@ describe User do
       expect(user.receive_new_episode_notifications).to be_false
       expect(user.receive_reply_notifications).to be_false
       expect(user.receive_social_notifications).to be_false
+      expect(user.unsubscribed).to be_true
     end
   end
 

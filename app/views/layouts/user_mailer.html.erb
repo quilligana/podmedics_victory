@@ -881,7 +881,16 @@ table a.red_button:visited {
                         <tr>
                           <td align="center">
                             <center>
-                                 <p style="text-align:left; margin-top:10px;"><a href="#" style="margin-right:10px; font-size: 12px;">Contact</a> <a href="http://podmedics-victory.herokuapp.com/terms" style="margin-right:10px; font-size: 12px;">Terms and Conditions</a> <a href="http://podmedics-victory.herokuapp.com/login" style="margin-right:10px; font-size: 12px;">Login to Unsubscribe</a></p>
+                              <p style="text-align:left; margin-top:10px;">
+                                <a  href="#" 
+                                    style="margin-right:10px; font-size: 12px;">Contact</a>
+
+                                <a  href="http://podmedics-victory.herokuapp.com/terms" 
+                                    style="margin-right:10px; font-size: 12px;">Terms and Conditions</a> 
+                                    
+                                <a  href="<%= unsubscribe_url(@user.unsubscribe_token) %>" 
+                                    style="margin-right:10px; font-size: 12px;">Unsubscribe</a>
+                              </p>
                               <p style="text-align:left; color:#BBB; font-size: 12px;">© 2014 Podmedics All rights reserved</p>
                             </center>
                           </td>
