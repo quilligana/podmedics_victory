@@ -21,7 +21,7 @@ class UserMailer < ActionMailer::Base
   def new_episode(user, video)
     @user = user
     @video = video
-    mail to: user.email, subject: 'A New Video Has Been Posted'
+    mail to: user.email, subject: "There is a new video: #{@video.title}"
   end
 
   def new_reply(your_comment, reply)
