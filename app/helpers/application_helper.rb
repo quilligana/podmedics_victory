@@ -26,9 +26,9 @@ module ApplicationHelper
     string.downcase.tr(" ", "_")
   end
 
-  def show_specialty_badge(specialty)
-    if current_user.badges.where(specialty_id: specialty.id).any?
-      badge = current_user.badges.where(specialty_id: specialty.id).last
+  def show_specialty_badge(user, specialty)
+    if user.badges.where(specialty_id: specialty.id).any?
+      badge = user.badges.where(specialty_id: specialty.id).last
       show_badge(badge)
     end
   end
