@@ -61,19 +61,15 @@ class User < ActiveRecord::Base
   end
 
   def has_subscription_and_in_date?
-    return true if self.subscribed_on && (Time.zone.now <= expires_on)
-    false
+    (self.subscribed_on && (Time.zone.now <= expires_on)) ? true : false
   end
 
   def has_selected_plan?
-    return true if self.admin
-    return false if !self.selected_plan
-    true
+    self.selected_plan || self.admin ? true : false
   end
 
   def for_walkthrough?
-    return true if self.login_count == 1
-    false
+    self.login_count == 1 ? true : false
   end
 
   # Cache functions
