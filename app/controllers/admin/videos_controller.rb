@@ -27,7 +27,7 @@ class Admin::VideosController < InheritedResources::Base
   end
 
   def send_notifications
-    @video.delay.send_video_notification
+    @video.send_video_notification
     redirect_to :back
   end
 
