@@ -6,7 +6,7 @@
           <div class="questions_final_results">
             <strong>Congratulations! You have completed all the questions.</strong>
             <p>You answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>.</p>
-            <% if @quiz.total_questions < 30 %>
+            <% if @quiz.total_questions < NUMBER_OF_SPECIALTY_QUESTIONS %>
               <%= link_to "Back to Video", video_path(@quiz.video), :class => "red_button" %>
             <% else %>
               <%= link_to "Back to Specialty", specialty_path(@quiz.video.specialty), :class => "red_button" %>
