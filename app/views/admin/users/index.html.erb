@@ -30,9 +30,3 @@
 </div>
 
 <%= will_paginate @users %>
-
-<h2>Import Users</h2>
-<%= form_tag import_admin_users_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
