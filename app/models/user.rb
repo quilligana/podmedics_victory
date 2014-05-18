@@ -25,12 +25,12 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, size: { in: 0..500.kilobytes }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
-  #validates :email, 
-    #email_format: { 
-      #message: 'Not a valid email address',
-      #allow_nil: true
-    #}, 
-    #uniqueness: true
+  validates :email, 
+    email_format: { 
+      message: 'Not a valid email address',
+      allow_nil: true
+    }, 
+    uniqueness: true
   validates :name, presence: true
   validates :website, url: { allow_blank: true }
   validates :password, presence: true,

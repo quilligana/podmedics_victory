@@ -57,3 +57,55 @@ task :import_users => :environment do
   puts "Completed importing users"
   puts "We found errors with the following ids: #{error_ids}"
 end
+
+task :import_notes => :environment do
+  puts "Importing notes"
+  error_ids = []
+  count = 1
+  CSV.foreach(File.join(Rails.root, 'lib', 'assets', 'notes.csv'), :headers => true, :encoding => 'ISO-8859-1:UTF-8') do |row|
+    puts "Note count is #{count}"
+
+    note = Note.new
+
+    note.created_at = row["created_at"]
+    note.updated_at = row["updated_at"]
+
+    # set the user_id
+    note.user_id = row["user_id"]
+
+    # set the specialty of the note
+    note.specialty_id = row["specialty_id"]
+
+    # set the podcast and type of the note
+    if row["video_id"] != nil
+      note.noteable_id = row["video_id"]
+      note.noteable_type = "Video"
+    else
+      note.noteable_id = row["specialty_id"]
+      note.noteable_type = "Specialty"
+    end
+
+    # set the title
+    if row["title"].blank?
+      note.title = "Untitled"
+    else
+      note.title = row["title"]
+    end
+
+    # set the content
+    if row["content"].blank?
+      note.content = "No content"
+    else
+      note.content = row["content"]
+    end
+
+    unless note.save
+      error_ids << note.errors
+    end
+
+    count += 1
+  end
+  puts "Completed importing notes"
+  puts "We found errors with the following ids: #{error_ids}"
+
+end
