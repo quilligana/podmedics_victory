@@ -170,6 +170,13 @@ ActiveRecord::Schema.define(version: 20140518122950) do
   add_index "sales", ["product_id"], name: "index_sales_on_product_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
+  create_table "speciality_questions", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialties", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -212,6 +219,16 @@ ActiveRecord::Schema.define(version: 20140518122950) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "unlocked_specialties", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "specialty_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "unlocked_specialties", ["specialty_id"], name: "index_unlocked_specialties_on_specialty_id", using: :btree
+  add_index "unlocked_specialties", ["user_id"], name: "index_unlocked_specialties_on_user_id", using: :btree
 
   create_table "user_questions", force: true do |t|
     t.integer  "user_id"

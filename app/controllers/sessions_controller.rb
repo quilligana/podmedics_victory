@@ -16,8 +16,6 @@ class SessionsController < ApplicationController
   def omniauthcreate
     auth = env["omniauth.auth"]
 
-    # If the user is already logged in
-    # link the omniauth account
     if current_user
       current_user.link_social_url(auth)
       redirect_to current_user

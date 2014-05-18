@@ -17,6 +17,8 @@ describe User do
   it { should have_many(:votes).dependent(:destroy) }
   it { should have_many(:notes).dependent(:destroy) }
   it { should have_many :sales }
+  it { should have_many :unlocked_specialties }
+  it { should have_many(:specialties).through(:unlocked_specialties)}
 
   it { should have_attached_file(:avatar) }
   it { should validate_attachment_content_type(:avatar).
@@ -138,6 +140,18 @@ describe User do
     end
   end
 
+  describe User, '#is_trial_member?' do
+    it "returns true if the user does not a subscription" do
+      user = create(:user, subscribed_on: nil)
+      expect(user.is_trial_member?).to be_true
+    end
+    
+    it "returns true if user has an expired subscription" do
+      user = create(:user, subscribed_on: (Time.now - 2.years))
+      expect(user.is_trial_member?).to be_true
+    end
+  end
+
   describe User, '#for_walkthrough?' do
     it "returns false if user has a login count > 1" do
       user = create(:user, login_count: 10)
@@ -159,6 +173,42 @@ describe User do
       expect(user.receive_new_episode_notifications).to be_false
       expect(user.receive_status_updates).to be_false
       expect(user.receive_social_notifications).to be_false
+    end
+  end
+
+  describe User, '#has_access_to?' do
+    it "should return true if a user has locked the specialty" do
+      user = create(:user)
+      specialty = create(:specialty)
+      unlock = create(:unlocked_specialty, user: user, specialty: specialty)
+      expect(user.has_access_to?(specialty)).to be_true
+      expect(user.specialties).to include specialty
+    end
+  end
+
+  describe User, '#has_reached_unlock_limit?' do
+    it "should be true if user has unlocked 2 or more specialties" do
+      user = create(:user)
+      first_specialty = create(:specialty)
+      second_specialty = create(:specialty)
+      unlock_one = create(:unlocked_specialty, user: user, specialty: first_specialty)
+      unlock_two = create(:unlocked_specialty, user: user, specialty: second_specialty)
+      expect(user.has_reached_unlock_limit?).to be_true
+    end
+
+    it "should return false if user has not unlocked any specialties" do
+      user = create(:user)
+      expect(user.has_reached_unlock_limit?).to be_false
+    end
+  end
+
+  describe User, '#unlock_specialty' do
+    it "creates a new unlocked specialty" do
+      user = create(:user)
+      desired_specialty = create(:specialty)
+      expect {
+        user.unlock_specialty(desired_specialty)
+      }.to change(UnlockedSpecialty, :count).by(1)
     end
   end
 
