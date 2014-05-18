@@ -19,7 +19,10 @@ PodmedicsVictory::Application.routes.draw do
   resources :users, except: :destroy do
     get 'email', on: :member
   end
-  get 'unsubscribe/:unsubscribe_token', to: 'users#unsubscribe', as: 'unsubscribe'
+
+  post 'unsubscribe', to: 'users#unsub'
+  get 'unsubscribe', to: 'users#unsubscribe'
+  get 'unsubscribe/:unsubscribe_token', to: 'users#unsub', as: :unsubscribe_token
   resources :password_resets
 
   # Omniauth

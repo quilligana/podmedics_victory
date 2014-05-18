@@ -1,0 +1,30 @@
+<div class="inner signup_page_inner">
+
+  <div class="page edit_profile">
+    <div class="left_column_forms">
+      <div class="login_ignup_form_wrapper">
+        <div class="edit_profile_form">
+          <h2>Please enter email</h2>
+          <%= form_for 'unsubscribe' do |f| %>
+            
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'podmedics_textfield' %>
+            
+            <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="right_column_forms receipt_user_settings_block">
+      <p>Unsubscribe Message.</p>
+    </div>
+
+  </div>
+</div>
+
+<%= content_for :footer do %>
+  <div class="inline_footer_wrapper signup_page_footer">
+    <%= render 'footer' %>
+  </div>
+<% end %>

@@ -195,28 +195,28 @@ class User < ActiveRecord::Base
     set_receive_new_episode_notifications(false)
     set_receive_reply_notifications(false)
     set_receive_social_notifications(false)
-    unsubscribed = true
-    save
+    self.unsubscribed = true
+    self.save!
   end
 
   def set_receive_newsletters(allowed)
-    receive_newsletters = allowed
-    save
+    self.receive_newsletters = allowed
+    self.save!
   end
 
   def set_receive_new_episode_notifications(allowed)
-    receive_new_episode_notifications = allowed
-    save
+    self.receive_new_episode_notifications = allowed
+    self.save!
   end
 
   def set_receive_reply_notifications(allowed)
-    receive_reply_notifications = allowed
-    save
+    self.receive_reply_notifications = allowed
+    self.save!
   end
 
   def set_receive_social_notifications(allowed)
-    receive_social_notifications = allowed
-    save
+    self.receive_social_notifications = allowed
+    self.save!
   end
 
 
