@@ -225,4 +225,5 @@ class User < ActiveRecord::Base
     self.receive_social_notifications = false
     self.save!
   end
+
 end

@@ -17,7 +17,7 @@ feature 'User Specialties Exam' do
   scenario 'Taking the exam' do
     visit specialty_path(@specialty_1)
 
-    click_link "Take a #{@specialty_1.name.capitalize} Quiz"
+    click_link "Take the #{@specialty_1.name.capitalize} Quiz"
 
     expect(page).to have_content "This is stem number"
     expect(page).to have_button "First Answer"
@@ -31,13 +31,13 @@ feature 'User Specialties Exam' do
     visit specialty_path(@specialty_1)
 
     expect do
-      click_link "Take a #{@specialty_1.name.capitalize} Quiz"
+      click_link "Take the #{@specialty_1.name.capitalize} Quiz"
     end.to change(UserQuestion, :count).by(30)
   end
 
   scenario 'Return to Specialties page on completion of the exam' do
     visit specialty_path(@specialty_1)
-    click_link "Take a #{@specialty_1.name.capitalize} Quiz"
+    click_link "Take the #{@specialty_1.name.capitalize} Quiz"
 
     29.times do
       click_button "Second Answer"
@@ -52,7 +52,7 @@ feature 'User Specialties Exam' do
 
   scenario 'Show failure notification if user fails an exam' do
     visit specialty_path(@specialty_1)
-    click_link "Take a #{@specialty_1.name.capitalize} Quiz"
+    click_link "Take the #{@specialty_1.name.capitalize} Quiz"
 
     29.times do
       click_button "First Answer"
@@ -74,7 +74,7 @@ feature 'User Specialties Exam' do
     non_test_question = create(:question, video: video_5)
 
     visit specialty_path(specialty_2)
-    click_link "Take a #{specialty_2.name.capitalize} Quiz"
+    click_link "Take the #{specialty_2.name.capitalize} Quiz"
 
     expect(page).not_to have_content non_test_question.stem
     click_button "Second Answer"
