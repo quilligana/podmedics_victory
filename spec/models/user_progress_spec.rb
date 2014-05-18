@@ -18,7 +18,7 @@ describe UserProgress do
 
   describe '#max_specialty_points' do
     it 'should return the maximum number of points available' do
-      @progress_instance.max_specialty_points.should eq 15
+      @progress_instance.max_specialty_points.should eq 60
     end
   end
 
@@ -30,7 +30,7 @@ describe UserProgress do
     it 'should return the users updated points in that specialty' do
       create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
-      @progress_instance.user_specialty_points.should eq 10
+      @progress_instance.user_specialty_points.should eq 40
     end
   end
 
@@ -45,24 +45,25 @@ describe UserProgress do
   describe '#next_badge' do
     it 'should return the users next badge in the specialty' do
       @progress_instance.next_badge.should eq "Medical Student"
-      UserQuestion.create(user_id: @user.id, question_id: @question.id, correct_answer: true)
-      UserQuestion.create(user_id: @user.id, question_id: @question_2.id, correct_answer: true)
-      @progress_instance.next_badge.should eq "Consultant"
+      create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
+      create(:user_question, user_id: @user.id, question_id: @question_2.id, correct_answer: true)
+      @progress_instance.next_badge.should eq "Registrar"
     end
   end
 
   describe '#next_badge_points' do
     it 'should return the users next badge in the specialty' do
-      @progress_instance.next_badge_points.should eq 5
-      UserQuestion.create(user_id: @user.id, question_id: @question.id, correct_answer: true)
-      @progress_instance.next_badge_points.should eq 7
+      @progress_instance.next_badge_points.should eq 21
+      create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
+      @progress_instance.next_badge_points.should eq 36
     end
   end
 
   describe '#award_badge' do
     it 'should award a badge when a user reaches the grade level' do
+      create(:question, video: @video)
       @progress_instance.award_badge.should eq nil
-      UserQuestion.create(user_id: @user.id, question_id: @question.id, correct_answer: true)
+      create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
       expect do
         @progress_instance.award_badge
       end.to change { Badge.count }
