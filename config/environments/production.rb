@@ -108,7 +108,7 @@ PodmedicsVictory::Application.configure do
   }
 
   config.action_mailer.default_url_options = {
-    :host => 'podmedics-victory.herokuapp.com'
+    :host => 'podmedics.com'
   }
 
 end
