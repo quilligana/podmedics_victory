@@ -5,7 +5,7 @@
     <%= render 'quick_nav' %>
     <a href="#" class="podmedcis_button white_button ask_question_sub_heading_button"  data-reveal-id="ask_question_modal">Ask a Question</a>
     <div class="exam_button_tooltip_wrapper">
-      <%= link_to "Take a #{@specialty.name.capitalize} Quiz", specialty_exam_url(@specialty.id), class: "podmedcis_button green" %>
+      <%= link_to "Take the #{@specialty.name.capitalize} Quiz", specialty_exam_url(@specialty.id), class: "podmedcis_button green" %>
       <div class="exam_button_tooltip">30 random questions from <%= @specialty.name %></div>
     </div>
     </div>
