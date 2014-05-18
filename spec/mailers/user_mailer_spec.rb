@@ -80,7 +80,7 @@ describe UserMailer do
     let(:mail) { UserMailer.new_episode(user, video) }
 
     it "notifies the user of their loss of professor badge" do
-      mail.subject.should eq("There is a new video: #{video.title}")
+      mail.subject.should eq("New Podmedics Video: #{video.title}")
       mail.to.should eq([user.email])
       mail.from.should eq(["admin@podmedics.com"])
     end
@@ -145,17 +145,4 @@ describe UserMailer do
       end
     end
   end
-
-  describe 'new_episode' do
-    let(:user) { create(:user)}
-    let(:video) { create(:video)}
-    let(:mail) { UserMailer.new_episode(user, video) }
-
-    it "notifies the user of the new episode" do
-      mail.subject.should eq "New Podmedics Video: #{video.title}"
-      mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
-    end
-  end
-
 end
