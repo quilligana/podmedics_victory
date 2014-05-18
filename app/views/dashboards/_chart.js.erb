@@ -15,17 +15,8 @@ function createChart() {
         chartArea: {
             background:"#F0F0F0",
         },
-
         dataSource: {
             data: getUserProgress()
-        },
-        seriesDefaults: {
-            type: "area",
-            area: {
-                line: {
-                    style: "smooth"
-                }
-            }
         },
         series: [{
             type: "area",
@@ -60,8 +51,8 @@ function create_questionsChart() {
             }
         },
         series: [{
-            name: "Haiti",
-            data: [0, 11, 6, 3, 1.8, 1.2, 0.8, 0.3, 0.1, 0.0, 0]
+            name: "Users",
+            data: [0, 1100, 600, 300, 180, 120, 80, 30, 10, 0, 0]
         }],
         valueAxis: {
             majorGridLines: {
@@ -83,7 +74,7 @@ function create_questionsChart() {
 
 
 
-// $(document).ready(createChart);
-$(document).ready(create_questionsChart);
+$(document).ready(createChart);
+// $(document).ready(create_questionsChart);
 
 </script>
