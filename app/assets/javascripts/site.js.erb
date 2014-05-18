@@ -46,10 +46,10 @@ ready = function() {
     <% end %>
   });
 
-  $(function() {
-    var anchor = window.location.hash.substr(1);
-    $('#' + anchor + '.comment').addClass('new_comment_active_state');
-  })
+  // $(function() {
+  //   var anchor = window.location.hash.substr(1);
+  //   $('#' + anchor + '.comment').addClass('new_comment_active_state');
+  // })
 
   $(document).on("click", ".comment_reply_link a", function(){
     var comment_info = $(this).parents('.comment_lower_action_buttons_right').siblings(".comment_info")[0]
