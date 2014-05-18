@@ -7,35 +7,45 @@ class UserMailer < ActionMailer::Base
   end
 
   def badge_award(user, badge)
-    @user = user
-    @badge = badge
-    mail to: user.email, subject: 'Congratulations on Your New Podmedics Badge Award'
+    if user.receive_status_updates?
+      @user = user
+      @badge = badge
+      mail to: user.email, subject: 'Congratulations on Your New Podmedics Badge Award'
+    end
   end
 
   def professor_loss(user, specialty)
-    @user = user
-    @specialty = specialty
-    mail to: user.email, subject: 'Notification of Your Professor Status'
+    if user.receive_status_updates?
+      @user = user
+      @specialty = specialty
+      mail to: user.email, subject: 'Notification of Your Professor Status'
+    end
   end
 
   def new_episode(user, video)
-    @user = user
-    @video = video
-    mail to: user.email, subject: "New Podmedics Video: #{@video.title}"
+    if user.receive_new_episode_notifications?
+      @user = user
+      @video = video
+      mail to: user.email, subject: "There is a new video: #{@video.title}"
+    end
   end
 
-  def new_reply(your_comment, reply)
-    @user = your_comment.user
-    @your_comment = your_comment
-    @reply = reply
-    mail to: @user.email, subject: 'You have a new reply'
+  def new_reply(user, your_comment, reply)
+    if user.receive_social_notifications?
+      @user = user
+      @your_comment = your_comment
+      @reply = reply
+      mail to: user.email, subject: 'You have a new reply'
+    end
   end
 
-  def answer_accepted(answer)
-    @user = answer.user
-    @question = answer.root
-    @answer = answer
-    mail to: @user.email, subject: 'One of your answers has been accepted'
+  def answer_accepted(user, answer)
+    if user.receive_social_notifications?
+      @user = user
+      @question = answer.root
+      @answer = answer
+      mail to: user.email, subject: 'One of your answers has been accepted'
+    end
   end
 
 end

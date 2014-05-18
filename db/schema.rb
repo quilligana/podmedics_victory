@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140518102501) do
+=======
+ActiveRecord::Schema.define(version: 20140518122950) do
+>>>>>>> 70485414f806fd458ccb6750214ac3d656087f13
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,11 +271,10 @@ ActiveRecord::Schema.define(version: 20140518102501) do
     t.datetime "last_login_at"
     t.datetime "subscribed_on"
     t.boolean  "receive_newsletters",               default: true
-    t.boolean  "receive_reply_notifications",       default: true
     t.boolean  "receive_new_episode_notifications", default: true
     t.boolean  "receive_social_notifications",      default: true
-    t.boolean  "unsubscribed",                      default: false
     t.string   "unsubscribe_token"
+    t.boolean  "receive_status_updates",            default: true
   end
 
   create_table "versions", force: true do |t|

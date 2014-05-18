@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
-    var iframe = $('#vimeoplayer')[0], 
-        player = $f(iframe),
-        progJSON = $("#progress_json").html(), 
-        viewProgress = $.parseJSON(progJSON);
+    var vimeoPlayers = document.querySelectorAll('iframe'), player;
 
     /**
      * Utility function for adding an event. Handles the inconsistencies
@@ -19,14 +16,22 @@ $(document).ready(function(){
         }
     };
 
-    // When the player is ready, add listeners for pause, finish, and playProgress
-    player.addEvent('ready', function() {
-        player.addEvent('pause', onPause);
-        player.addEvent('playProgress', onPlayProgress);
-        if(viewProgress!=0) {
-            player.api('seekTo', viewProgress);
-        };
-    });
+    for (var i = 0, length = vimeoPlayers.length; i < length; i++) {
+
+        iframe = vimeoPlayers[i],
+        player = $f(iframe),
+        progJSON = $("#progress_json").html(), 
+        viewProgress = $.parseJSON(progJSON);
+
+        // When the player is ready, add listeners for pause, finish, and playProgress
+        player.addEvent('ready', function() {
+            player.addEvent('pause', onPause);
+            player.addEvent('playProgress', onPlayProgress);
+            if(viewProgress!=0) {
+                player.api('seekTo', viewProgress);
+            };
+        });
+    }
 
     function onPause(id) {
         var elapsed;

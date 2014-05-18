@@ -23,14 +23,14 @@ class CommentsController < ApplicationController
 
       # If the comment is a reply, send an email to the user
       if params[:comment][:commentable_type] == "Comment"
-        UserMailer.delay.new_reply(@commentable, @comment)
+        UserMailer.delay.new_reply(@commentable.user, @commentable, @comment)
       end
     end
   end
 
   def accept
     @comment.root.accept_answer(@comment, current_user)
-    UserMailer.delay.answer_accepted(@comment)
+    UserMailer.delay.answer_accepted(@comment.user, @comment)
   end
 
   def vote

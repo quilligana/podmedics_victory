@@ -41,18 +41,19 @@ class UsersController < ApplicationController
   end
 
   def unsub
-    puts params
     if params[:unsubscribe_token]
-      @user = User.find_by(unsubscribe_token: params[:unsubscribe_token])
+      user = User.find_by(unsubscribe_token: params[:unsubscribe_token])
+      email = user.email
     else
-      @user = User.find_by(email: params[:unsubscribe][:email])
+      email = params[:unsubscribe][:email]
+      user = User.find_by(email: params[:unsubscribe][:email])
     end
 
-    if @user
-      @user.unsubscribe
+    if user
+      user.unsubscribe
     end
     
-    redirect_to unsubscribe_path, notice: "#{params[:unsubscribe][:email]} has been unsubscribed"
+    redirect_to unsubscribe_path, notice: "#{email} has been unsubscribed"
   end
 
   def unsubscribe
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :website, :avatar, :password, :password_confirmation,
-                                  :receive_newsletters, :receive_reply_notifications, 
+                                  :receive_newsletters, :receive_reply_notifications, :receive_status_updates, 
                                   :receive_new_episode_notifications, :receive_social_notifications)
     end
 

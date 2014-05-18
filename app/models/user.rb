@@ -173,8 +173,16 @@ class User < ActiveRecord::Base
 
   # Used on dashboard for graph
 
-  def daily_stat(days_ago)
-    rand(days_ago)
+  def self.percentile_stat
+    distribution = []
+    max_points = User.maximum(:points)
+    (1..20).each_with_index do |percentile, index|
+      distribution[index] = self.where("points <= (?)", percentile *
+                                        0.05 * max_points).count -
+                            self.where("points <= (?)", (percentile - 1) *
+                                        0.05 * max_points).count
+    end
+    distribution
   end
 
   # Avatar
@@ -211,33 +219,10 @@ class User < ActiveRecord::Base
   end
 
   def unsubscribe
-    set_receive_newsletters(false)
-    set_receive_new_episode_notifications(false)
-    set_receive_reply_notifications(false)
-    set_receive_social_notifications(false)
-    self.unsubscribed = true
+    self.receive_newsletters = false
+    self.receive_status_updates = false
+    self.receive_new_episode_notifications = false
+    self.receive_social_notifications = false
     self.save!
   end
-
-  def set_receive_newsletters(allowed)
-    self.receive_newsletters = allowed
-    self.save!
-  end
-
-  def set_receive_new_episode_notifications(allowed)
-    self.receive_new_episode_notifications = allowed
-    self.save!
-  end
-
-  def set_receive_reply_notifications(allowed)
-    self.receive_reply_notifications = allowed
-    self.save!
-  end
-
-  def set_receive_social_notifications(allowed)
-    self.receive_social_notifications = allowed
-    self.save!
-  end
-
-
 end
