@@ -60,4 +60,12 @@ class Quiz
     end
   end
 
+  def pass_result?
+    if @number_correct >= (total_questions * PASS_GRADE)/100
+      true
+    else
+      false
+    end
+  end
+
 end

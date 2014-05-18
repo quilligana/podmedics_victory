@@ -46,7 +46,23 @@ feature 'User Specialties Exam' do
     click_button "Second Answer"
     click_link "Result"
 
-    expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1)) 
+    expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1))
+    expect(page).to have_content("Congratulations! You have passed the #{@specialty_1.name.capitalize} exam.")
+  end
+
+  scenario 'Show failure notification if user fails an exam' do
+    visit specialty_path(@specialty_1)
+    click_link "Take a #{@specialty_1.name.capitalize} Quiz"
+
+    29.times do
+      click_button "First Answer"
+      click_link "Next Question"
+    end
+    click_button "Second Answer"
+    click_link "Result"
+
+    expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1))
+    expect(page).to have_content("We are sorry but you have not passed the #{@specialty_1.name.capitalize} exam.")
   end
 
   scenario 'No questions from the wrong specialty should be served' do
