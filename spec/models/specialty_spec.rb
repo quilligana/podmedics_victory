@@ -39,6 +39,20 @@ describe Specialty do
       expect(specialty.question_status).to eq 'red'
       expect(specialty.question_target).to eq 35
     end
-    
+  end
+
+  describe Specialty, '#is_unlocked_for_user' do
+    it "returns true if the specialty is unlocked" do
+      user = create(:user)
+      specialty = create(:specialty)
+      unlocked_specialty = create(:unlocked_specialty, user: user, specialty: specialty)
+      expect(specialty.is_unlocked_for_user?(user)).to be_true
+    end
+
+    it "returns false if the specialty is not unlocked" do
+      user = create(:user)
+      specialty = create(:specialty)
+      expect(specialty.is_unlocked_for_user?(user)).to be_false
+    end
   end
 end

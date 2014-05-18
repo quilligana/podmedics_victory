@@ -32,6 +32,10 @@ class Specialty < ActiveRecord::Base
     self.videos.count * 7
   end
 
+  def is_unlocked_for_user?(user)
+    user.specialties.include?(self) ? true : false 
+  end
+
   # Cache functions
 
   def self.cached_find(id)
