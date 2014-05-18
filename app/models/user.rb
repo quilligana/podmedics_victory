@@ -153,8 +153,16 @@ class User < ActiveRecord::Base
 
   # Used on dashboard for graph
 
-  def daily_stat(days_ago)
-    rand(days_ago)
+  def self.percentile_stat
+    distribution = []
+    max_points = User.maximum(:points)
+    (1..20).each_with_index do |percentile, index|
+      distribution[index] = self.where("points <= (?)", percentile *
+                                        0.05 * max_points).count -
+                            self.where("points <= (?)", (percentile - 1) *
+                                        0.05 * max_points).count
+    end
+    distribution
   end
 
   # Avatar

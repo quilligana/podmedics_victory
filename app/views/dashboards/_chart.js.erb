@@ -3,18 +3,11 @@ function getUserProgress()
 {
   var stats = [];
 
-  <% (0..DASHBOARD_CHART_DAYS).each do |daysAgo| %>
-  stats[<%= daysAgo %>] = { value: <%= current_user.daily_stat(daysAgo) %>, date: getDate(<%= daysAgo %>) }
+  <% @percentiles.each_with_index do |percentile, index| %>
+  stats[<%= index %>] = { value: <%= percentile %>, percentage: <%= index * 5 %> }
   <% end %>
 
   return stats;
-}
-
-function getDate(daysAgo)
-{
-    var date = new Date();
-    date.setDate(date.getDate() - daysAgo);
-    return date
 }
 
 function createChart() {
@@ -26,15 +19,26 @@ function createChart() {
         dataSource: {
             data: getUserProgress()
         },
+        seriesDefaults: {
+            type: "area",
+            area: {
+                line: {
+                    style: "smooth"
+                }
+            }
+        },
         series: [{
-            type: "line",
-            aggregate: "avg",
+            type: "area",
+            area: {
+                line: {
+                    style: "smooth"
+                }
+            },
             field: "value",
-            categoryField: "date"
+            categoryField: "percentage"
         }],
         categoryAxis: {
-
-            baseUnit: "days"
+            baseUnit: "percentage"
         }
     });
 }
@@ -48,32 +52,32 @@ function create_questionsChart() {
             visible: false
         },
         seriesDefaults: {
-                    type: "area",
-                    area: {
-                        line: {
-                            style: "smooth"
-                        }
-                    }
-                },
-                series: [{
-                    name: "Haiti",
-                    data: [0, 11, 6, 3, 1.8, 1.2, 0.8, 0.3, 0.1, 0.0, 0]
-                }],
-                valueAxis: {
-                    majorGridLines: {
-                        visible: false
-                    },
-                    line: {
-                        visible: true
-                    },
-                    axisCrossingValue: -10
-                },
-                categoryAxis: {
-                    categories: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-                    majorGridLines: {
-                        visible: false
-                    }
+            type: "area",
+            area: {
+                line: {
+                    style: "smooth"
                 }
+            }
+        },
+        series: [{
+            name: "Haiti",
+            data: [0, 11, 6, 3, 1.8, 1.2, 0.8, 0.3, 0.1, 0.0, 0]
+        }],
+        valueAxis: {
+            majorGridLines: {
+                visible: false
+            },
+            line: {
+                visible: true
+            },
+            axisCrossingValue: -10
+        },
+        categoryAxis: {
+            categories: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+            majorGridLines: {
+                visible: false
+            }
+        }
     });
 }
 
