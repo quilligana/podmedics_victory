@@ -74,6 +74,7 @@ PodmedicsVictory::Application.routes.draw do
   resources :specialties, only: [:show] do
     resources :questions, controller: :specialty_questions, as: :questions
     get 'questions/load/:page', to: 'specialty_questions#load', as: :question_load
+    resources :specialty_unlocks, only: [:create]
   end
 
   get 'specialties/:id/exam', to: 'questions#specialty_index', as: :specialty_exam
