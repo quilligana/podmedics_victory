@@ -51,9 +51,6 @@ class Specialty < ActiveRecord::Base
     Rails.cache.delete([self.class.name, slug])
   end
 
-  def cached_notes_count
-    Rails.cache.fetch([self, "notes_count"]) { notes.size }
-  end
 
   def cached_videos_count
     Rails.cache.fetch([self, "videos_count"]) { videos.size }
@@ -67,8 +64,8 @@ class Specialty < ActiveRecord::Base
     Rails.cache.fetch([self, "specialty_questions_count"]) { user_questions.size }
   end
 
-  def cached_specialty_questions(page)
-    Rails.cache.fetch([self, page, "specialty_questions"]) { user_questions.page(page).order('created_at DESC').to_a }
+  def cached_notes_count(user)
+    Rails.cache.fetch([self, user, "notes_count"]) { notes.where(user: user).size }
   end
 
   # These are notes made directly on a specialty
@@ -77,9 +74,14 @@ class Specialty < ActiveRecord::Base
   end
 
   # These are all the notes on a specialty, i.e. those on videos for a specialty
-  def cached_notes
-    Rails.cache.fetch([self, "notes"]) { notes.to_a }
+  def cached_notes(user)
+    Rails.cache.fetch([self, user, "notes"]) { notes.where(user: user).to_a }
   end
+
+  def cached_specialty_questions(page)
+    Rails.cache.fetch([self, page, "specialty_questions"]) { user_questions.page(page).order('created_at DESC').to_a }
+  end
+
 
   def change_professor(user_id)
     update_attributes(professor: user_id)
