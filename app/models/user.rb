@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   before_save :set_avatar_file_name
   before_create :generate_unsubscribe_token
 
-  # Plans/Payments
+  # Plans/Subs
 
   def record_login
     self.login_count += 1
@@ -73,6 +73,24 @@ class User < ActiveRecord::Base
 
   def for_walkthrough?
     self.login_count == 1 ? true : false
+  end
+
+  def is_trial_member?
+    !self.has_subscription_and_in_date?
+  end
+
+  # Trial member specialty access
+
+  def has_access_to?(specialty)
+    specialties.include?(specialty) ? true : false
+  end
+
+  def has_reached_unlock_limit?
+    specialties.count >= 2 ? true: false
+  end
+
+  def unlock_specialty(specialty)
+    self.unlocked_specialties.create(specialty: specialty)
   end
 
   # Cache functions
