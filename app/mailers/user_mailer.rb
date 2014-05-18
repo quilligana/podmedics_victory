@@ -26,7 +26,7 @@ class UserMailer < ActionMailer::Base
     if user.receive_new_episode_notifications?
       @user = user
       @video = video
-      mail to: user.email, subject: "There is a new video: #{@video.title}"
+      mail to: user.email, subject: "New Podmedics Video: #{@video.title}"
     end
   end
 

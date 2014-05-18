@@ -23,7 +23,7 @@ feature 'User Badges' do
     visit video_path(@video)
     click_link 'Answer Questions'
 
-    3.times do
+    5.times do
       click_button 'Second Answer'
       click_link "Next Question"
     end

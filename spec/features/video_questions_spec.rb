@@ -71,51 +71,51 @@ feature 'Video Questions' do
     expect(page).to have_content 'Question 1 of 5'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')  
     expect(page).to have_css('div.active_placement_bar.zero_percent')
-    expect(page).to have_content 'You are just 24 points away from becoming a:Medical Student'
+    expect(page).to have_content 'You are just 84 points away from becoming a:Medical Student'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    expect(page).to have_content 'You are just 19 points away from becoming a:Medical Student'
+    expect(page).to have_content 'You are just 74 points away from becoming a:Medical Student'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 2 of 5'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    expect(page).to have_content 'You are just 19 points away from becoming a:Medical Student'
+    expect(page).to have_css('div.active_placement_bar.ten_percent')
+    expect(page).to have_content 'You are just 74 points away from becoming a:Medical Student'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_content 'You are just 14 points away from becoming a:Medical Student'
+    expect(page).to have_content 'You are just 64 points away from becoming a:Medical Student'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 3 of 5'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_content 'You are just 14 points away from becoming a:Medical Student'
+    expect(page).to have_css('div.active_placement_bar.twenty_percent')
+    expect(page).to have_content 'You are just 64 points away from becoming a:Medical Student'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    expect(page).to have_content 'You are just 9 points away from becoming a:Medical Student'
+    expect(page).to have_content 'You are just 54 points away from becoming a:Medical Student'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 4 of 5'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    expect(page).to have_content 'You are just 9 points away from becoming a:Medical Student'
+    expect(page).to have_css('div.active_placement_bar.thirty_percent')
+    expect(page).to have_content 'You are just 54 points away from becoming a:Medical Student'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    expect(page).to have_content 'You are just 4 points away from becoming a:Medical Student'
+    expect(page).to have_content 'You are just 44 points away from becoming a:Medical Student'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 5 of 5'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
-    expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    expect(page).to have_content 'You are just 4 points away from becoming a:Medical Student'
+    expect(page).to have_css('div.active_placement_bar.forty_percent')
+    expect(page).to have_content 'You are just 44 points away from becoming a:Medical Student'
     
     click_button 'Second Answer'
-    expect(page).to have_content 'Congratulations! You have just been awarded a new badge'
-    expect(page).to have_content 'You are just 10 points away from becoming a:House Officer'
+    expect(page).to have_css('div.active_placement_bar.hundred_percent')
+    expect(page).to have_content 'You are just 34 points away from becoming a:Medical Student'
 
     click_link 'Result'
     click_link 'Back to Video'
@@ -152,7 +152,7 @@ feature 'Video Questions' do
     expect(@user.points).to eq(0)
     click_button 'Second Answer'
     @user.reload
-    expect(@user.points).to eq(5)
+    expect(@user.points).to eq(10)
   end
 
   scenario 'Dont update the users points for previously answered questions' do
@@ -161,13 +161,13 @@ feature 'Video Questions' do
 
     click_button 'Second Answer'
     @user.reload
-    expect(@user.points).to eq(5)
+    expect(@user.points).to eq(10)
 
     visit video_questions_url(video_id: @video_3.id)
     click_button 'Second Answer'
     @user.reload
     
-    expect(@user.points).to eq(5)
+    expect(@user.points).to eq(10)
   end
 
   scenario 'Showing correct stats' do

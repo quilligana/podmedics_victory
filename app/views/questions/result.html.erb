@@ -4,16 +4,26 @@
       <div class="inner_page_padding">
         <div class="questions_result_title">
           <div class="questions_final_results">
-            <strong>Congratulations! You have completed all the questions.</strong>
-            <p>You answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>.</p>
             <% if @quiz.total_questions < NUMBER_OF_SPECIALTY_QUESTIONS %>
+              <strong>You have completed all of the questions.</strong>
+              <% if @quiz.pass_result? %>
+                <p>You answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>.</p>
+              <% else %>
+                <p>You only answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>. We would encourage you to retake this lecture in order to improve your score.</p>
+              <% end %>
               <%= link_to "Back to Video", video_path(@quiz.video), :class => "red_button" %>
             <% else %>
+              <% if @quiz.pass_result? %>
+                <strong>Congratulations! You have passed the <%= @quiz.video.specialty.name %> exam.</strong>
+                  <p>You answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>.</p>
+              <% else %>
+                  <strong>We are sorry but you have not passed the <%= @quiz.video.specialty.name %> exam.</strong>
+                  <p>You only answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>. We would encourage you to retake this exam at a future date in order to improve your score.</p>
+              <% end %>
               <%= link_to "Back to Specialty", specialty_path(@quiz.video.specialty), :class => "red_button" %>
             <% end %>
           </div>
         </div>
-
         <div class="questions_resutls_chart">
           <div id="questions_chart"></div>
         </div>

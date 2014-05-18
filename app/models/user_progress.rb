@@ -9,7 +9,7 @@ class UserProgress
     # Points for answering specialty_questions are not included
     video_points = @specialty.cached_videos_count * POINTS_PER_WATCHED_VIDEO
     question_points = @specialty.cached_questions_count * POINTS_PER_CORRECT_ANSWER
-    video_points + question_points
+    (video_points + question_points) * 1.2
   end
 
   def user_specialty_points
