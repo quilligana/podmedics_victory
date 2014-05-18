@@ -16,6 +16,8 @@ class Specialty < ActiveRecord::Base
   # These are notes made directly on a specialty
   has_many :direct_notes, as: :noteable, dependent: :destroy, class_name: "Note"
   has_many :exams, dependent: :destroy
+  has_many :unlocked_specialties
+  has_many :users, through: :unlocked_specialties
 
   validates :name, presence: true
 

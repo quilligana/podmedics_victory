@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :notes, dependent: :destroy
   has_many :exams, dependent: :destroy
   has_many :sales
+  has_many :unlocked_specialties
+  has_many :specialties, through: :unlocked_specialties
 
   has_attached_file :avatar, styles: {
     thumb: '100x100>',

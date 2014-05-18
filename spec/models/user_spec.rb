@@ -17,6 +17,8 @@ describe User do
   it { should have_many(:votes).dependent(:destroy) }
   it { should have_many(:notes).dependent(:destroy) }
   it { should have_many :sales }
+  it { should have_many :unlocked_specialties }
+  it { should have_many(:specialties).through(:unlocked_specialties)}
 
   it { should have_attached_file(:avatar) }
   it { should validate_attachment_content_type(:avatar).
