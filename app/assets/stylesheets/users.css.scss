@@ -4122,3 +4122,53 @@ a.website_profile_button:hover {
   float: left;
   width: 100%;
 }
+.unlock_specialty_outer_wrapper {
+  border-bottom: solid 1px $podmedics_grey;
+  float: left;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.unlock_specialty_wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.unlock_specialty_wrapper a.podmedcis_button.green {
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+  text-indent: 30px;
+  padding-top: 29px;
+  padding-bottom: 24px;
+  font-size: 15px;
+  background-image: image-url('unlock_icon.png');
+  background-repeat: no-repeat;
+  background-position: 276px 17px;
+}
+
+
+.unlock_specialty_tooltip {
+  background-image: image-url('lectures_tooltips.png');
+  background-repeat: no-repeat;
+  margin-top: 69px;
+  position: absolute;
+  width: 290px;
+  height: 50px;
+  background-position: -29px -217px;
+  z-index: 500;
+  float: right;
+  font-size: 13px;
+  color: #A9A9A9;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 0px;
+  padding: 27px 20px 20px;
+  display: none;
+}
+
+.unlock_specialty_wrapper:hover .unlock_specialty_tooltip {
+  display: block;
+
+}
