@@ -1694,6 +1694,7 @@ p.questions_info_right_column_number span {
   line-height: 30px;
   font-size: 14px;
   padding-right: 40px;
+  margin-top: -18px;
 }
 
 .default_lecture_question.correct_lecture_answer {
@@ -1776,8 +1777,18 @@ div.correct_question_icon {
 .correct_lecture_answer_info {
   display: none;
   float: left;
+  font-size: 15px;
+  color: #888;
   width: 100%;
   padding-bottom: 15px;
+
+  ol {
+    padding-left: 19px;
+  }
+
+  ul {
+    padding-left: 19px;
+  }
 }
 
 a.red_button.medium.next_question_button {
