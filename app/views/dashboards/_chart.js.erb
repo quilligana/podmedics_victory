@@ -4,7 +4,7 @@ function getUserProgress()
   var stats = [];
 
   <% @percentiles.each_with_index do |percentile, index| %>
-  stats[<%= index %>] = { value: <%= percentile %>, percentage: <%= index * 10 %> }
+  stats[<%= index %>] = { value: <%= percentile %>, percentage: <%= index * 10 %>, user: 1 }
   <% end %>
 
   return stats;
@@ -45,6 +45,11 @@ function createChart() {
             },
             field: "value",
             categoryField: "percentage"
+        }, {
+            type: "bar",
+            field: "user",
+            categoryField: "percentage"
+            stack: true,
         }],
         valueAxes: {
             title: { text: "Number of Users" },
