@@ -20,7 +20,12 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to @user, notice: 'Account details updated'
+      if user_params[:avatar]
+        notice = 'Your avatar is being processed'
+      else
+        notice = 'Account details updated'
+      end
+      redirect_to @user, notice: notice
     else
       render :edit
     end

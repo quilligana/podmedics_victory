@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518122950) do
+ActiveRecord::Schema.define(version: 20140519184620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -264,6 +264,7 @@ ActiveRecord::Schema.define(version: 20140518122950) do
     t.boolean  "receive_social_notifications",      default: true
     t.string   "unsubscribe_token"
     t.boolean  "receive_status_updates",            default: true
+    t.boolean  "avatar_processing"
   end
 
   create_table "versions", force: true do |t|
