@@ -1694,6 +1694,7 @@ p.questions_info_right_column_number span {
   line-height: 30px;
   font-size: 14px;
   padding-right: 40px;
+  margin-top: -18px;
 }
 
 .default_lecture_question.correct_lecture_answer {
@@ -1776,8 +1777,18 @@ div.correct_question_icon {
 .correct_lecture_answer_info {
   display: none;
   float: left;
+  font-size: 15px;
+  color: #888;
   width: 100%;
   padding-bottom: 15px;
+
+  ol {
+    padding-left: 19px;
+  }
+
+  ul {
+    padding-left: 19px;
+  }
 }
 
 a.red_button.medium.next_question_button {
@@ -1794,7 +1805,7 @@ a.red_button.medium.next_question_button {
   border-right-color: #EFEFEF;
   float: left;
   width: 100%;
-  min-height: 810px;
+  min-height: 910px;
 }
 
 .speciality_left_column {
@@ -1905,15 +1916,30 @@ a.notes_saved_button p {
   padding-bottom: 10px;
 }
 
+.note_right_column_full_note ol {
+  float: left;
+  margin: 0px;
+  width: 100%;
+  clear: both;
+}
+.note_right_column_full_note ol li {
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: #A3A3A3;
+  margin-left: 24px;
+}
+
 .note_right_column_full_note ul {
   float: left;
   margin: 0px;
+  width: 100%;
+  clear: both;
 }
 .note_right_column_full_note ul li {
   margin-bottom: 15px;
   font-weight: 800;
   color: #A3A3A3;
-  list-style: none;
+  margin-left: 20px;
 }
 
 .note_right_column_full_note {
@@ -3129,7 +3155,7 @@ div.comment_lower_action_buttons_right {
   margin-bottom: 5px;
 }
 
-p.expired_subscription_text {
+.profile_notifications_block p.expired_subscription_text {
   background-color: #FF3F3F;
   display: block;
   float: left;
@@ -4121,4 +4147,54 @@ a.website_profile_button:hover {
   font-size: 14px;
   float: left;
   width: 100%;
+}
+.unlock_specialty_outer_wrapper {
+  border-bottom: solid 1px $podmedics_grey;
+  float: left;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.unlock_specialty_wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.unlock_specialty_wrapper a.podmedcis_button.green {
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+  text-indent: 30px;
+  padding-top: 29px;
+  padding-bottom: 24px;
+  font-size: 15px;
+  background-image: image-url('unlock_icon.png');
+  background-repeat: no-repeat;
+  background-position: right 17px;
+}
+
+
+.unlock_specialty_tooltip {
+  background-image: image-url('lectures_tooltips.png');
+  background-repeat: no-repeat;
+  margin-top: 69px;
+  position: absolute;
+  width: 290px;
+  height: 50px;
+  background-position: -29px -217px;
+  z-index: 500;
+  float: right;
+  font-size: 13px;
+  color: #A9A9A9;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 0px;
+  padding: 27px 20px 20px;
+  display: none;
+}
+
+.unlock_specialty_wrapper:hover .unlock_specialty_tooltip {
+  display: block;
+
 }

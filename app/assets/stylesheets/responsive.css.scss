@@ -214,6 +214,10 @@ $standard_border_radius: 6px;
     background-image: image-url('website_icon@2x.png');
     background-size: 27px 25px;
   }
+  .unlock_specialty_wrapper a.podmedcis_button.green {
+    background-image: image-url('unlock_icon@2x.png');
+    background-size: 33px 34px;
+  }
 }
 
 
@@ -297,6 +301,10 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1020px) {
+  .unlock_specialty_wrapper a.podmedcis_button.green {
+    background-image: none;
+    text-align: center;
+  }
   .questions_info_right_column_section.speciality_inline_count_blocks {
     border-bottom: none;
   }

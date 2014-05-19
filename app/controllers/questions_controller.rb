@@ -11,7 +11,11 @@ class QuestionsController < ApplicationController
     specialty = Specialty.cached_friendly_find(params[:id])
     video_ids = specialty.video_ids
     @question_ids = Question.where("video_id IN (?)", video_ids).limit(30).order("RANDOM()").pluck(:id)
-    initiate_questions
+    if current_user.is_trial_member? && !current_user.has_access_to?(specialty)
+      redirect_to specialty_path(specialty), alert: 'You have not yet unlocked this specialty'
+    else
+      initiate_questions
+    end
   end
 
   def show

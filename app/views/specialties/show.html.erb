@@ -2,9 +2,6 @@
 
   <div class="sub_heading_wrapper">
     <h1><%= @specialty.name %></h1>
-    <% if current_user.is_trial_member? && !current_user.has_access_to?(@specialty) %>
-      <%= link_to "Unlock this specialty", specialty_specialty_unlocks_path(@specialty), method: :post, class: "podmedcis_button green", style: 'margin-left: 30px;' %>
-    <% end %>
     <%= render 'quick_nav' %>
     <a href="#" class="podmedcis_button white_button ask_question_sub_heading_button"  data-reveal-id="ask_question_modal">Ask a Question</a>
     <div class="exam_button_tooltip_wrapper">
