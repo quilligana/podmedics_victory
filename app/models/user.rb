@@ -190,7 +190,19 @@ class User < ActiveRecord::Base
   end
 
   def percentile
-    
+    max_points = User.maximum(:points)
+    user_points = self.points
+    stat = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    (1..10).each_with_index do |percentile, index|
+      if user_points > ((percentile - 1) * 0.1 * max_points) && user_points <= (percentile * 0.1 * max_points)
+        number_users = User.where("points <= (?)", percentile *
+                                          0.1 * max_points).count -
+                       User.where("points <= (?)", (percentile - 1) *
+                                          0.1 * max_points).count
+        stat[index + 1] = number_users
+      end
+    end
+    stat
   end
 
   # Avatar
