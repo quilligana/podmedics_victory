@@ -15,6 +15,7 @@ class Permission
         resource.id == user.id
       end
       allow :videos, [:show, :index]
+      allow :specialty_unlocks, [:create]
       allow :hosted_files, [:video, :audio, :slides]
       allow :specialties, [:show]
       allow :questions, [:index, :specialty_index, :show, :answer, :result]

@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
   end
 
   def is_trial_member?
-    !self.has_subscription_and_in_date?
+    !self.has_subscription_and_in_date? 
   end
 
   # Trial member specialty access
