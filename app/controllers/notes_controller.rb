@@ -6,7 +6,7 @@ class NotesController < ApplicationController
     @noteable = find_noteable params
   	@notes = @noteable.notes.find_by(user: current_user) || Note.new( noteable: @noteable, 
                                                                       user: current_user)
-    @notes.update(params[:note][:title], params[:note][:content])
+    @notes.update(title: params[:note][:title], content: params[:note][:content])
   	if @notes.save
   		@saved = true
   	end
@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   def update
     @noteable = find_noteable params
   	@notes = @noteable.notes.find_by(user: current_user)
-  	@notes.update(params[:note][:title], params[:note][:content])
+  	@notes.update(title: params[:note][:title], content: params[:note][:content])
   	if @notes.save
   		@saved = true
   	end
