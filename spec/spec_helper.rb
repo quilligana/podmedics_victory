@@ -38,10 +38,10 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
     reset_email
+    Rails.cache.clear
   end
 
   config.after(:each) do
-    Rails.cache.clear
     DatabaseCleaner.clean
 
     # Avatars in production and dev are stored on s3, so we can safely clean

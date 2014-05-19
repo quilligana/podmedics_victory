@@ -35,7 +35,9 @@ PodmedicsVictory::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Turn off caching during tests
-  config.cache_store = :dalli_store, { namespace: "test_#{ENV['TEST_ENV_NUMBER']}" }
+  # Swap the two commenting here and run rspec spec/features/caching_spec.rb to test caching
+  #config.cache_store = :dalli_store, { namespace: "test_#{ENV['TEST_ENV_NUMBER']}" }
+  config.cache_store = :null_store
 
   # for testing
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
