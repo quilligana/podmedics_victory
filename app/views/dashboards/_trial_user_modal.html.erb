@@ -1,0 +1,26 @@
+<div id="welcome_trial_user_modal" class="reveal-modal trial_user_modal_resize animated fadeInUp">
+  <div class="trial_user_modal_wrapper">
+
+    <div class="trial_user_modal_podmedics_icon"></div>
+
+    <div class="trial_user_info_wrapper_modal">
+      <p>Welcome to your unlimited trial of the new Podmedics!</p>
+      <p>You can choose any two specialties and have access to videos, questions and downloads for ever.</p>
+      <p>Feel free to have a look around the different specialties, then choose your poison!</p>
+    </div>
+
+    <a href="javascript:;" class="podmedcis_button" id="choose_trial_lectures_button">Get Started</a>
+  </div>
+</div>
+
+<% if current_user.is_trial_member? && current_user.login_count == 1 %>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('#welcome_trial_user_modal').reveal({
+          animation: 'fadeAndPop',
+          closeonbackgroundclick: true,
+          dismissmodalclass: 'podmedcis_button'
+        });
+    });
+  </script>
+<% end %>
