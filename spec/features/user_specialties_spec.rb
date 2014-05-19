@@ -21,7 +21,7 @@ feature 'User Specialties' do
     expect(page).to have_content @specialty.name
 
     within '.sub_heading_button_set' do
-      expect(page).to have_link("Take a #{@specialty.name.capitalize} Quiz", href: specialty_exam_url(@specialty.id))
+      expect(page).to have_link("Take the #{@specialty.name.capitalize} Quiz", href: specialty_exam_url(@specialty.id))
     end
   end
 

@@ -15,6 +15,7 @@
       </div>
       <div class="login_ignup_form_wrapper" id="members_login_form">
         <h2>Members Log in</h2>
+        <p class="reset_password_notice">PLEASE NOTE: If you have an account from our old site you will need to <%= link_to 'reset your password', '#', id: 'forgot_password_link_notice' %> to complete migration of your account.</p>
         <%= form_tag sessions_url, id: "login_form" do %>
           <%= email_field_tag :email, nil, class: "podmedics_textfield", placeholder: 'Email', autofocus: true %>
           <%= password_field_tag :password, nil, class: "podmedics_textfield", placeholder: 'Password' %>
@@ -37,8 +38,6 @@
   </div>
 
 </div>
-
-
 
 <%= content_for :footer do %>
   <div class="inline_footer_wrapper login_page_footer">

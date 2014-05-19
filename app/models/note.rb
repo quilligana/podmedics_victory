@@ -36,11 +36,6 @@ class Note < ActiveRecord::Base
   	title.blank? ? noteable.title : title
   end
 
-  def update(title, content)
-  	self.title = title
-  	self.content = content
-  end
-
   private
   
     def set_specialty

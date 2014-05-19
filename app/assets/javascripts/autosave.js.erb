@@ -72,6 +72,9 @@ function auto_save()
 $(document).on("click", "#save_notes_button", function(){
   // Stop the autosaving.
   clearInterval(window.autosaveIntervalID);
+  
+  // Stop the checking.
+  clearInterval(window.checkIntervalID);
 
   // Start the checking
   window.checkIntervalID = setInterval( function () 
