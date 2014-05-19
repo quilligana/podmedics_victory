@@ -1794,7 +1794,7 @@ a.red_button.medium.next_question_button {
   border-right-color: #EFEFEF;
   float: left;
   width: 100%;
-  min-height: 810px;
+  min-height: 910px;
 }
 
 .speciality_left_column {
@@ -1905,15 +1905,30 @@ a.notes_saved_button p {
   padding-bottom: 10px;
 }
 
+.note_right_column_full_note ol {
+  float: left;
+  margin: 0px;
+  width: 100%;
+  clear: both;
+}
+.note_right_column_full_note ol li {
+  margin-bottom: 15px;
+  font-weight: 800;
+  color: #A3A3A3;
+  margin-left: 24px;
+}
+
 .note_right_column_full_note ul {
   float: left;
   margin: 0px;
+  width: 100%;
+  clear: both;
 }
 .note_right_column_full_note ul li {
   margin-bottom: 15px;
   font-weight: 800;
   color: #A3A3A3;
-  list-style: none;
+  margin-left: 20px;
 }
 
 .note_right_column_full_note {
