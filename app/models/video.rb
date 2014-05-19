@@ -29,7 +29,13 @@ class Video < ActiveRecord::Base
   delegate :twitter, to: :author, prefix: true
   delegate :facebook, to: :author, prefix: true
 
+  after_save :touch_assets
+
   # Caching functions
+
+  def touch_assets
+    notes.each { |note| note.touch }
+  end
 
   def cached_comments(include_hidden = false)
     Rails.cache.fetch([self, include_hidden, "comments"]) { get_comments.to_a }
