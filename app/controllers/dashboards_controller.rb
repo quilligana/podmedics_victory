@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
     @recent_videos = Video.recent.limit(10).includes(:specialty)
     @flagged_videos = Video.flagged(current_user).first(10)
     @badges = current_user.badges
-    @percentiles = User.percentile_stat 
+    @percentiles = User.percentile_stat
   end
 
 end
