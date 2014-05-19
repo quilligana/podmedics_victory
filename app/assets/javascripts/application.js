@@ -51,6 +51,11 @@ $(document).ready(function(){
     $("#members_reset_password_form").delay(200).fadeIn(200);
   });
 
+  $("#forgot_password_link_notice").click(function(){
+    $("#members_login_form").fadeOut(200);
+    $("#members_reset_password_form").delay(200).fadeIn(200);
+  });
+
   // Forgot password back link
   $("#forgot_password_back_link").click(function(){
     $("#members_reset_password_form").fadeOut(200);
