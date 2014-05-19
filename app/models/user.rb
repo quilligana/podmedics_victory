@@ -176,11 +176,15 @@ class User < ActiveRecord::Base
   def self.percentile_stat
     distribution = []
     max_points = User.maximum(:points)
-    (1..20).each_with_index do |percentile, index|
-      distribution[index] = self.where("points <= (?)", percentile *
-                                        0.05 * max_points).count -
-                            self.where("points <= (?)", (percentile - 1) *
-                                        0.05 * max_points).count
+    (0..10).each_with_index do |percentile, index|
+      if percentile == 0
+        distribution[index] = 0
+      else
+        distribution[index] = self.where("points <= (?)", percentile *
+                                          0.1 * max_points).count -
+                              self.where("points <= (?)", (percentile - 1) *
+                                          0.1 * max_points).count
+      end
     end
     distribution
   end

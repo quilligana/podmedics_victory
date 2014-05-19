@@ -4,7 +4,7 @@ function getUserProgress()
   var stats = [];
 
   <% @percentiles.each_with_index do |percentile, index| %>
-  stats[<%= index %>] = { value: <%= percentile %>, percentage: <%= index * 5 %> }
+  stats[<%= index %>] = { value: <%= percentile %>, percentage: <%= index * 10 %> }
   <% end %>
 
   return stats;
@@ -24,6 +24,16 @@ function createChart() {
         dataSource: {
             data: getUserProgress()
         },
+        seriesDefaults: {
+            type: "area",
+            area: {
+                line: {
+                    style: "smooth",
+                    color: 'grey',
+                    width: 3
+                }
+            }
+        },
         series: [{
             type: "area",
             area: {
@@ -36,8 +46,12 @@ function createChart() {
             field: "value",
             categoryField: "percentage"
         }],
+        valueAxes: {
+            title: { text: "Number of Users" },
+            visible: false
+        },
         categoryAxis: {
-            baseUnit: "percentage"
+            title: { text: "User Percentiles" }
         }
     });
 }
@@ -151,7 +165,7 @@ function create_questionsChart() {
 
 
 
-// $(document).ready(createChart);
-$(document).ready(create_questionsChart);
+$(document).ready(createChart);
+// $(document).ready(create_questionsChart);
 
 </script>
