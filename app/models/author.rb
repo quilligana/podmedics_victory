@@ -27,11 +27,11 @@ class Author < ActiveRecord::Base
   end
 
   def get_avatar(style)
-    if avatar.exists?
-      avatar.url(style)
-    else
-      ActionController::Base.helpers.asset_path('avatar-128.jpg')
-    end
+    # if avatar.exists?
+    #   avatar.url(style)
+    # else
+    #   ActionController::Base.helpers.asset_path('avatar-128.jpg')
+    # end
   end
   
 end
