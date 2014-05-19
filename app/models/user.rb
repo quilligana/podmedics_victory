@@ -189,6 +189,10 @@ class User < ActiveRecord::Base
     distribution
   end
 
+  def percentile
+    
+  end
+
   # Avatar
 
   def set_avatar_file_name
