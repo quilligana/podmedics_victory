@@ -1115,13 +1115,21 @@ div.faq_inner_wrapper:last-child {
 .plans_lower_info_block_wrapper.payment_system_block_icon p:last-child {
   padding-bottom: 25px;
 }
-
 .reset_password_notice {
   padding-top: 20px;
   color: $podmedics_red;
-
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 22px;
   a {
-    color: rgb(97, 194, 224);
+    color: #AC0909;
+    text-decoration: none;
+    font-weight: 800;
+    float: left;
+    margin-right: 4px;
+  }
+  a:hover {
+    color: #D14545;
     text-decoration: underline;
   }
 }
