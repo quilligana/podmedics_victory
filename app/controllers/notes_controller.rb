@@ -26,7 +26,16 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.where(user: current_user)
+    if params[:specialty_id]
+      @id = Specialty.friendly.find(params[:specialty_id]).id
+      notes = Note.specialty_notes(@id)
+    elsif params[:category_id]
+      notes = Note.category_notes(params[:category_id])
+    else
+      notes = Note.all
+    end
+
+    @notes = notes.where(user: current_user)
   end
 
   def show

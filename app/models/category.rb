@@ -2,6 +2,7 @@ class Category < ActiveRecord::Base
 
   has_many :specialties
   has_many :videos, through: :specialties
+  has_many :notes, through: :specialties
 
   validates :name, presence: true
 

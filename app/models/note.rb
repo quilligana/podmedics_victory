@@ -4,6 +4,8 @@ class Note < ActiveRecord::Base
   belongs_to :user, touch: true
   belongs_to :specialty, touch: true
 
+  has_one :category, through: :specialty
+
   validates :content, presence: true
 
   before_create :set_specialty
@@ -34,6 +36,15 @@ class Note < ActiveRecord::Base
   
   def get_title
   	title.blank? ? noteable.title : title
+  end
+
+  def self.specialty_notes(specialty_id)
+    where(specialty_id: specialty_id)
+  end
+
+  def self.category_notes(category_id)
+    specialties = Category.find(category_id).specialties
+    where(specialty_id: specialties)
   end
 
   private

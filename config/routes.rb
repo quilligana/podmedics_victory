@@ -89,6 +89,8 @@ PodmedicsVictory::Application.routes.draw do
   resources :notes, only: [:create, :update, :show, :index] do
     get 'load', on: :member
   end
+  get 'notes/specialty/:specialty_id', to: 'notes#index', as: :specialty_notes
+  get 'notes/category/:category_id', to: 'notes#index', as: :category_notes
 
   # VimeosController
   get 'vimeos/completed', to: 'vimeos#completed', as: :vimeos_completed
