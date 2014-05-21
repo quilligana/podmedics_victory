@@ -5,11 +5,16 @@
   </div>
 </div>
 
-<%= search_form_for @q, url: admin_users_path do |f| %>
-  <%= f.text_field :email_cont, placeholder: 'Search by email...' %>
-  <%= f.submit 'Search', class: 'btn-flat' %>
-  <%= link_to "View all", admin_users_path %>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-5">
+    <%= search_form_for @q, url: admin_users_path do |f| %>
+      <%= f.text_field :email_cont, placeholder: 'Search by email...', class: 'search' %>
+      <%= f.submit 'Search', class: 'btn-flat' %>
+      <br />
+      <%= link_to "View all", admin_users_path %>
+    <% end %>
+  </div>
+</div>
 
 <%= will_paginate @users %>
 
