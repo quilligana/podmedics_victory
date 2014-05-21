@@ -3,7 +3,8 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @q = User.search(params[:q])
+    @users = @q.result.order('created_at DESC').paginate(page: params[:page])
   end
 
   def new

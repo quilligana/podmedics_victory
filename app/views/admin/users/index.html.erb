@@ -5,6 +5,12 @@
   </div>
 </div>
 
+<%= search_form_for @q, url: admin_users_path do |f| %>
+  <%= f.text_field :email_cont, placeholder: 'Search by email...' %>
+  <%= f.submit 'Search', class: 'btn-flat' %>
+  <%= link_to "View all", admin_users_path %>
+<% end %>
+
 <%= will_paginate @users %>
 
 <div class="row">
@@ -17,6 +23,7 @@
             <th>Created at</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Subscribed on</th>
             <th>Selected Plan</th>
             <th></th>
           </tr>

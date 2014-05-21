@@ -37,6 +37,7 @@ gem 'paper_trail', '~> 3.0'
 gem 'docverter'
 gem "font-awesome-rails"
 gem 'airbrake'
+gem 'ransack'
 
 group :development do
   gem 'thin'

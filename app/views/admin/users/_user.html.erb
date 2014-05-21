@@ -3,6 +3,9 @@
   <td><%= user.created_at.to_s(:long) %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
+  <td>
+    <span class="label label-success"><%= user.subscribed_on.to_s(:short) if user.subscribed_on %></span>
+  </td>
   <td><%= user.selected_plan %></td>
   <td>
     <%= link_to "Show", admin_user_path(user) %>

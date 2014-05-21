@@ -43,6 +43,19 @@
 
 <div class="row">
   <div class="col-md-12">
+    <div class="well">
+      <h4>Notifications</h4>
+      <ul>
+        <li>Receiver newsletters: <%= @user.receive_newsletters %></li>
+        <li>Receive status updates: <%= @user.receive_status_updates %></li>
+        <li>Receive social: <%= @user.receive_social_notifications %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <h4>Badges</h4>
     <ul>
       <% @user.badges.each do |badge| %>
