@@ -32,7 +32,7 @@ PodmedicsVictory::Application.configure do
 
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
-  WillPaginate.per_page = 15
+  WillPaginate.per_page = 50
 
   config.autosave_save_timer = 60000
   config.autosave_check_timer = 5000

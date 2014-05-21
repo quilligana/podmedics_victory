@@ -79,7 +79,7 @@ PodmedicsVictory::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  WillPaginate.per_page = 15
+  WillPaginate.per_page = 50
   
   config.autosave_save_timer = 60000
   config.autosave_check_timer = 5000
