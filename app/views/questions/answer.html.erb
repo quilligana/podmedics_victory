@@ -29,7 +29,7 @@
                 <p><%= link_to "Next Question", question_path(@quiz.next_question), 
                 :class => "red_button medium next_question_button" %></p>
               <% else %>
-                <p><%= link_to "Result", questions_result_url, :class => "red_button medium" %></p>
+                <p><%= link_to "Result", questions_result_url, :class => "red_button medium question_result_button" %></p>
               <% end %>
             </div>
             <div class="report_answer_link">
