@@ -1,10 +1,14 @@
-<h1>Hi <%= @user.name %>,</h1>
+<td style="padding-top:20px; padding-bottom:50px;">
 
-<p class="lead">Someone has replied to one of your comments.</p>
+  <h1>Hi <%= @user.name %>,</h1>
 
-<p><%= @reply.content %></p>
-<p>- <%= @reply.user.name %></p>
+  <p class="inner_sub_title">Someone has replied to one of your comments.</p>
 
-<p>You can reply <%= link_to 'here', video_url(@your_comment.root, anchor: @reply.id) %>.</p>
+  <p><%= @reply.content %></p>
+  <p>- <%= @reply.user.name %></p>
 
-<p>The Team at Podmedics</p>
+  <p class="action_button_wrapper">
+    <%= link_to 'Reply here', video_url(@your_comment.root, anchor: @reply.id), class: 'red_button' %>
+  </p>
+
+</td>

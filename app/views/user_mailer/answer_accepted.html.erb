@@ -1,14 +1,19 @@
-<h1>Hi <%= @user.name %>,</h1>
+<td style="padding-top:20px; padding-bottom:50px;">
 
-<p class="lead">One of your answers has been accepted.</p>
+  <h1>Hi <%= @user.name %></h1>
 
-<p>Your answer to</p>
-<p class="lead"><%= @question.content %></p>
-<p>has been accepted.</p>
+  <p class="inner_sub_title">One of your answers has been accepted.</p>
 
-<p>You can view your answer  
-<%= link_to 'here', specialty_question_url( specialty_id: @question.specialty.id, 
-                                            id: @question.id, 
-                                            anchor: @answer.id) %>.</p>
+  <p>Your answer to</p>
+  <p class="lead">
+    <strong><%= @question.content %></strong>
+  </p>
+  <p>has been accepted.</p>
 
-<p>The Team at Podmedics</p>
+  <p class="action_button_wrapper">
+    <%= link_to 'view your answer here', specialty_question_url( specialty_id: @question.specialty.id,
+                                              id: @question.id,
+                                              anchor: @answer.id), class: 'red_button' %>
+  </p>
+
+</td>
