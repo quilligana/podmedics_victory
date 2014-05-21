@@ -1,7 +1,13 @@
-<h1>Hi <%= @user.name %>,</h1>
+<td style="padding-top:20px; padding-bottom:50px;">
 
-<p class="lead">There is a new <%= @video.specialty.name %> video.</p>
+  <h1>Hi <%= @user.name %>,</h1>
 
-<p>You can view <%= "'#{@video.title}'" %> <%= link_to 'here', video_url(@video) %>.</p>
+  <p class="inner_sub_title">There is a new <%= @video.specialty.name %> video.</p>
 
-<p>The Team at Podmedics</p>
+  <p>You can view <%= "'#{@video.title}'" %></p>
+
+  <p class="action_button_wrapper">
+    <%= link_to 'Watch Now', video_url(@video), class: 'red_button' %>
+  </p>
+
+</td>

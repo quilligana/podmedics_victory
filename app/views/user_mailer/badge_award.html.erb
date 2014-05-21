@@ -1,11 +1,15 @@
-<h1>
-  Hi <%= @user.name %>,
-</h1>
+<td style="padding-top:20px; padding-bottom:50px;">
 
-<p class="lead">You have just been awarded a new badge.</p>
+  <div class="new_badge_icon"></div>
 
-<p>You are now officially a Podmedics <%= @badge.level %> in <%= @badge.specialty.name %>.</p>
+  <h1>Hi <%= @user.name %></h1>
 
-<p>Congratulations and keep up the good work.</p>
+  <p class="inner_sub_title">You have just been awarded a new badge.</p>
 
-<p>The Team at Podmedics</p>
+  <p>You are now officially a Podmedics <strong><%= @badge.level %></strong> in <strong><%= @badge.specialty.name %></strong></p>
+
+  <p>Congratulations and keep up the good work.</p>
+
+  <p>The Team at Podmedics</p>
+
+</td>
