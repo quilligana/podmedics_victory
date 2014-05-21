@@ -1790,14 +1790,14 @@ div.correct_question_icon {
   font-size: 15px;
   color: #888;
   width: 100%;
-  padding-bottom: 15px;
+  padding-bottom: 0px;
 
   ol {
-    padding-left: 19px;
+    padding-left: 30px;
   }
 
   ul {
-    padding-left: 19px;
+    padding-left: 30px;
   }
 }
 
@@ -4211,7 +4211,7 @@ a.website_profile_button:hover {
 .report_answer_link {
   float: left;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #888;
   font-size: 13px;
 }
