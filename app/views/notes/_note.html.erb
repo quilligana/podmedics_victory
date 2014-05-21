@@ -1,5 +1,7 @@
-<div class="note_right_column_preview" id="<%= note.id %>">
-  <p class="note_preview_title"><%= link_to note.cached_title, note.cached_noteable %></p>
-  <p><%= truncate(sanitize(note.content), :length => 100, :separator => ' ') %></p>
-  <%= link_to "Read", load_note_path(note.id), remote: true %>
+<div class="note_right_column_full_note" id="full_note_one">
+  <p class="note_title"><%= link_to note.cached_title, note_path(note) %></p>
+  <p><%= sanitize(note.content) %>
+  </p>
 </div>
+
+<div class="video_page_notes_column_divide"></div>

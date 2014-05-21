@@ -25,6 +25,17 @@ class NotesController < ApplicationController
     @notes = Note.cached_find(params[:id])
   end
 
+  def index
+    @notes = Note.where(user: current_user)
+  end
+
+  def show
+    @notes = Note.find_by(user: current_user, id: params[:id])
+    unless @notes
+      redirect_to notes_path
+    end
+  end
+
   def destroy
     @notes = Note.cached_find(params[:id])
     if @notes.cached_user == current_user || current_user.admin?

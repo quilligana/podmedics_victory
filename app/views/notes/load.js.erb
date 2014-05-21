@@ -5,7 +5,7 @@ function create_dom_element(element_string)
 	return div
 }
 
-var notes = create_dom_element("<%= escape_javascript render partial: 'full_note', object: @notes %>");
+var notes = create_dom_element("<%= escape_javascript render partial: 'sidebar_full_note', object: @notes %>");
 notes = notes.getElementsByClassName("note_right_column_full_note")[0];
 
 var notes_container = document.getElementsByClassName("full_note_outer_wrapper")[0];

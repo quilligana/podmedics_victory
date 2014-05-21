@@ -86,7 +86,7 @@ PodmedicsVictory::Application.routes.draw do
     end
   end
 
-  resources :notes, only: [:create, :update] do
+  resources :notes, only: [:create, :update, :show, :index] do
     get 'load', on: :member
   end
 
