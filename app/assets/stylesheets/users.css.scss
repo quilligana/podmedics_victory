@@ -4246,7 +4246,16 @@ a.website_profile_button:hover {
   color: #A3A3A3;
   font-size: 14px;
   line-height: 26px;
-  padding-top: 5px;
+  padding-top: 10px;
+}
+
+.earn_points_modal_resize_inner_spacing {
+  ul {
+    padding-left: 30px;
+    color: #A3A3A3;
+    font-size: 14px;
+    line-height: 26px;
+  }
 }
 
 .questions_info_right_column_section.return_to_video_page_button_wrapper {

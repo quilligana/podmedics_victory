@@ -50,12 +50,17 @@
     <div id="earn_points_modal" class="reveal-modal earn_points_modal_resize">
       <div class="earn_points_modal_resize_inner_spacing">
         <div class="ask_question_modal_title">How do I earn points?</div>
-        <p>There are lots of ways to earn points!<br>
-        Watch videos (you need to complete them though)<br>
-        Answers questions/specialty quizzes<br>
-        Ask questions of the community<br>
-        Answer questions asked by others<br>
-        Get your answer rated and accepted by others</p>
+        <p>
+        By earning points you earn badges! How exciting!<br>
+        Here are just a few of the thing you earn points for:
+        <ul class="points_list">
+          <li>Answering a question: <%= POINTS_PER_CORRECT_ANSWER %></li>
+          <li>Watching a video: <%= POINTS_PER_WATCHED_VIDEO %></li>
+          <li>Answer a user specialty question: <%= POINTS_PER_USER_QUESTION_ANSWERED %></li>
+          <li>Get your answer accepted: <%= POINTS_PER_ACCEPTED_ANSWER %></li>
+          <li>Get your answer upvoted: <%= POINTS_PER_UPVOTE %></li>
+        </ul>
+        </p>
       </div>
     </div>
 
