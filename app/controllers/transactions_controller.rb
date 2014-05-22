@@ -3,7 +3,8 @@ class TransactionsController < ApplicationController
 
   def new
     @free_product = Product.where(permalink: 'free').first
-    @paid_product = Product.where(permalink: 'paid').first
+    @paid_6 = Product.where(permalink: 'paid6').first
+    @paid_12 = Product.where(permalink: 'paid12').first
   end
 
   def create
@@ -21,7 +22,7 @@ class TransactionsController < ApplicationController
       )
       sale.process!
       if sale.finished?
-        current_user.start_subscription
+        current_user.start_subscription_for_product(product)
         redirect_to pickup_url(guid: sale.guid)
       else
         flash.now[:alert] = sale.error

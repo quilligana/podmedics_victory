@@ -4,7 +4,8 @@
       <%= f.input :name %>
       <%= f.input :permalink %>
       <%= f.input :description %>
-      <%= f.input :price %>
+      <%= f.input :price, hint: 'Price in pence'%>
+      <%= f.input :duration, hint: 'Duration of product sub in months' %>
       <%= f.button :submit %>
     <% end %>
   </div>

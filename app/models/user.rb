@@ -54,17 +54,15 @@ class User < ActiveRecord::Base
     update_attributes(selected_plan: true)
   end
 
-  def start_subscription
+  def start_subscription_for_product(product)
     self.mark_plan_selected
-    update_attributes(subscribed_on: Time.zone.now)
-  end
-
-  def expires_on
-    subscribed_on + 1.year
+    self.subscribed_on = Time.zone.now
+    self.expires_on = self.subscribed_on.advance(months: product.duration)
+    self.save!
   end
 
   def has_subscription_and_in_date?
-    (self.subscribed_on && (Time.zone.now <= expires_on)) ? true : false
+    (self.subscribed_on && (Time.zone.now <= self.expires_on)) ? true : false
   end
 
   def has_selected_plan?
