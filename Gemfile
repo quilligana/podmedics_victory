@@ -38,6 +38,7 @@ gem 'docverter'
 gem "font-awesome-rails"
 gem 'airbrake'
 gem 'ransack'
+gem 'doc_raptor'
 
 group :development do
   gem 'thin'

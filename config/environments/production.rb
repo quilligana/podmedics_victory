@@ -111,4 +111,5 @@ PodmedicsVictory::Application.configure do
     :host => 'podmedics.com'
   }
 
+  DocRaptor.api_key ENV["DOCRAPTOR_API_KEY"]
 end

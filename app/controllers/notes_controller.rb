@@ -36,12 +36,41 @@ class NotesController < ApplicationController
     end
 
     @notes = notes.where(user: current_user)
+
+    respond_to do |format|
+      format.html
+      format.pdf { doc_raptor_send }
+    end
   end
 
   def show
     @notes = Note.find_by(user: current_user, id: params[:id])
     unless @notes
       redirect_to notes_path
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf { doc_raptor_send }
+    end
+  end
+
+  def doc_raptor_send(options = { })
+    puts "making document"
+    default_options = { 
+      name:           controller_name,
+      document_type:  request.format.to_sym,
+      test:           !Rails.env.production?
+    }
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string
+    ext = options[:document_type].to_sym
+    
+    response = DocRaptor.create(options)
+    if response.code == 200
+      send_data response, filename: "#{options[:name]}.#{ext}", type: ext
+    else
+      redirect_to :back, notice: "#{response.code}: #{response.body}"
     end
   end
 

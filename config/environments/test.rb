@@ -46,4 +46,6 @@ PodmedicsVictory::Application.configure do
 
   config.autosave_save_timer = 1000
   config.autosave_check_timer = 100
+  
+  DocRaptor.api_key ENV["DOCRAPTOR_API_KEY"]
 end
