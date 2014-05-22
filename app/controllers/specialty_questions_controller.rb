@@ -12,6 +12,12 @@ class SpecialtyQuestionsController < ApplicationController
 
     if @question.save
       AdminMailer.delay.new_specialty_question(@specialty)
+
+      professor = User.find(@specialty.professor)
+      if professor
+        UserMailer.new_specialty_question(professor, @question).deliver
+      end
+      
       redirect_to specialty_question_path(id: @question.id)
     else
       redirect_to :back
