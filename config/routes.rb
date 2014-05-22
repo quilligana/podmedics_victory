@@ -10,6 +10,7 @@ PodmedicsVictory::Application.routes.draw do
   get '/support', to: 'static_pages#support', as: 'support'
   get '/press', to: 'static_pages#press', as: 'press'
   resources :courses, only: [:index]
+  resources :posts, only: [:index, :show]
 
   # Authentication
   get 'login', to: 'sessions#new', as: 'login'
