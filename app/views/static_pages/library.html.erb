@@ -12,7 +12,7 @@
         </a>
 
         <div class="library_tab" id="<%= category.name %>_tab">
-          <% category.specialties.each do |specialty| %>
+          <% category.specialties.order(:name).each do |specialty| %>
             <div class="library_column">
               <p><%= specialty.name.upcase %></p>
               <% specialty.videos.each do |video| %>
