@@ -1106,6 +1106,13 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 650px) {
 
+  .reveal-modal.earn_points_modal_resize {
+    width: 500px;
+    margin-left: -250px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
+
   .ask_question_modal_wrapper {
     width: 90%;
     margin-right: 5%;
@@ -1478,6 +1485,11 @@ $standard_border_radius: 6px;
     width: 400px;
     margin-left: -200px;
   }
+
+  .reveal-modal.earn_points_modal_resize {
+    width: 400px;
+    margin-left: -200px;
+  }
   a.press_kit_block_image_two, a.press_kit_block_image_three {
     height: 150px;
   }
@@ -1496,6 +1508,13 @@ $standard_border_radius: 6px;
     width: 310px;
     margin-left: -155px;
   }
+
+  .reveal-modal.earn_points_modal_resize {
+    width: 310px;
+    margin-left: -155px;
+  }
+
+
   a.press_kit_block_image_one {
     min-height: 110px;
   }
