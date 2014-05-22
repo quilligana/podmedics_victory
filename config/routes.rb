@@ -12,6 +12,10 @@ PodmedicsVictory::Application.routes.draw do
   resources :courses, only: [:index]
   resources :posts, only: [:index, :show]
 
+  # RSS feed redirects
+  match '/Podmedics/Podmedics/rss.xml' => redirect('http://feeds.feedburner.com/podmedics'), via: :get
+  match '/feeds/podcasts' => redirect('http://feeds.feedburner.com/podmedics'), :as => :feed, via: :get
+    
   # Authentication
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
