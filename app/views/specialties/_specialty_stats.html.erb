@@ -41,7 +41,24 @@
       <div class="points_until_next_badge_wrapper">
         <%= get_next_badge(@user_progress, @specialty) %>
       </div>
+      <div class="how_to_earn_points_modal_link">
+        <a href="#"  data-reveal-id="earn_points_modal">How do I earn points?</a>
+      </div>
+
     </div>
+
+    <div id="earn_points_modal" class="reveal-modal earn_points_modal_resize">
+      <div class="earn_points_modal_resize_inner_spacing">
+        <div class="ask_question_modal_title">How do I earn points?</div>
+        <p>There are lots of ways to earn points!<br>
+        Watch videos (you need to complete them though)<br>
+        Answers questions/specialty quizzes<br>
+        Ask questions of the community<br>
+        Answer questions asked by others<br>
+        Get your answer rated and accepted by others</p>
+      </div>
+    </div>
+
 
     <div class="questions_info_right_column_section speciality_inline_count_blocks">
       <h3>Specialty Stats</h3>
@@ -59,6 +76,7 @@
         <p class="questions_info_right_column_number"> <%= @user_progress.max_specialty_points.to_i %> </p>
         <p>Points Avaliable</p>
       </div>
+
     </div>
   </div>
   <!-- End speciality right column count -->
