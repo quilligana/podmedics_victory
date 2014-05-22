@@ -3439,10 +3439,14 @@ p.password_reset_subtitle {
   text-align: center;
   border-bottom: solid 1px $podmedics_grey;
   border-top: solid 1px $podmedics_grey;
+  padding-bottom: 30px;
 }
 
 .trial_user_info_wrapper_modal p {
-  padding: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 0px;
   line-height: 21px;
   font-size: 12px;
   color: #838383;
