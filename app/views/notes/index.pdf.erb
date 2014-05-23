@@ -1,0 +1,39 @@
+<h1><%= @user.name %>'s Revision Notes</h1>
+Downloaded from Podmedics at www.podmedics.com
+<div class="break"></div>
+
+<% unless @notes.empty? %>
+  <h1>Table of Contents</h1>
+  <div class="table_of_contents">
+    <% @notes.each do |category| %>
+      <h2><%= category.first.first.category.name %></h2>
+
+      <% category.each do |specialty| %>
+        <h3><%= specialty.first.specialty.name %></h3>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="break"></div>
+
+<div class="notes">
+  <% unless @notes.empty? %>
+    <% @notes.each do |category| %>
+      <% puts category.inspect %>
+      <h2><%= category.first.first.category.name %></h2>
+
+
+      <% category.each do |specialty| %>
+        <h3><%= specialty.first.specialty.name %></h3>
+
+        <%= render partial: 'note', collection: specialty %>
+
+        <div class="break"></div>
+      <% end %>
+
+    <% end %>
+  <% else %>
+    No notes found
+  <% end %>
+</div>

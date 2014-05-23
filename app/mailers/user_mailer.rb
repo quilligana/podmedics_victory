@@ -48,4 +48,12 @@ class UserMailer < ActionMailer::Base
     end
   end
 
+  def new_specialty_question(user, question)
+    if user.receive_help_request_notifications?
+      @user = user
+      @question = question
+      mail to: user.email, subject: 'Another Podmedics user needs your help!'
+    end
+  end
+
 end

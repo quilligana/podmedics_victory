@@ -27,21 +27,58 @@ class NotesController < ApplicationController
 
   def index
     if params[:specialty_id]
-      @id = Specialty.friendly.find(params[:specialty_id]).id
-      notes = Note.specialty_notes(@id)
+      specialty = Specialty.friendly.find(params[:specialty_id])
+      notes = Note.specialty_notes(specialty.id)
+      @title = specialty.name
     elsif params[:category_id]
       notes = Note.category_notes(params[:category_id])
+      @title = Category.find(params[:category_id]).name
     else
       notes = Note.all
+      @title = "All"
     end
 
-    @notes = notes.where(user: current_user)
+    users_notes = notes.where(user: current_user)
+
+    @notes = Note.sort_notes(users_notes)
+    @user = current_user
+
+    respond_to do |format|
+      format.html
+      format.pdf { doc_raptor_send }
+    end
   end
 
   def show
     @notes = Note.find_by(user: current_user, id: params[:id])
+
+    @user = current_user
+
     unless @notes
       redirect_to notes_path
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf { doc_raptor_send }
+    end
+  end
+
+  def doc_raptor_send(options = { })
+    default_options = { 
+      name:           controller_name,
+      document_type:  request.format.to_sym,
+      test:           !Rails.env.production?
+    }
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string
+    ext = options[:document_type].to_sym
+
+    response = DocRaptor.create(options)
+    if response.code == 200
+      send_data response, filename: "#{options[:name]}.#{ext}", type: ext
+    else
+      redirect_to :back, notice: "#{response.code}: #{response.body}"
     end
   end
 

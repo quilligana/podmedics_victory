@@ -49,4 +49,6 @@ PodmedicsVictory::Application.configure do
   Paperclip::Attachment.default_options[:path] =  ":rails_root/public/system/avatars/:style/:filename"
   Paperclip::Attachment.default_options[:url] =   "/system/avatars/:style/:filename"
 
+
+  DocRaptor.api_key ENV["DOCRAPTOR_API_KEY"]
 end

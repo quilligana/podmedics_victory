@@ -68,6 +68,11 @@
               <%= f.check_box :receive_social_notifications %>
               <%= f.label :receive_social_notifications, 'Receive social notifications' %>
             </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_help_request_notifications %>
+              <%= f.label :receive_help_request_notifications, 'Receive notifications when Question posted in Specialty you are Professor for' %>
+            </div>
             
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
           <% end %>

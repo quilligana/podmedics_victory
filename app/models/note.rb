@@ -3,12 +3,12 @@ class Note < ActiveRecord::Base
   belongs_to :noteable, polymorphic: true
   belongs_to :user, touch: true
   belongs_to :specialty, touch: true
-
-  has_one :category, through: :specialty
+  belongs_to :category
 
   validates :content, presence: true
 
   before_create :set_specialty
+  before_create :set_category
 
   after_commit :flush_cache
 
@@ -43,8 +43,25 @@ class Note < ActiveRecord::Base
   end
 
   def self.category_notes(category_id)
-    specialties = Category.find(category_id).specialties
-    where(specialty_id: specialties)
+    where(category_id: category_id)
+  end
+
+  def self.sort_notes(notes)
+    result = Array.new()
+
+    notes.group_by(&:category_id).each do |category|
+      category = category[1]
+      category_array = Array.new()
+
+      category.group_by(&:specialty_id).each do |specialty|
+        specialty_array = specialty[1]
+        
+        category_array.push(specialty_array)
+      end
+      result.push(category_array)
+    end
+
+    result
   end
 
   private
@@ -56,5 +73,9 @@ class Note < ActiveRecord::Base
         else
           noteable.specialty
         end
+    end
+
+    def set_category
+      self.category = self.specialty.category
     end
 end

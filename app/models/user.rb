@@ -241,6 +241,7 @@ class User < ActiveRecord::Base
     self.receive_status_updates = false
     self.receive_new_episode_notifications = false
     self.receive_social_notifications = false
+    self.receive_help_request_notifications = false
     self.save!
   end
 

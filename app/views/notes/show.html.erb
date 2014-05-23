@@ -2,6 +2,8 @@
 
   <div class="sub_heading_wrapper">
     <h1><%= link_to @notes.cached_title, @notes.cached_noteable %></h1>
+    <%= link_to 'Print Notes', url_for(:format => "pdf") %>
+    <%= render 'notes_nav' %>
   </div>
 
   <div class="page">
