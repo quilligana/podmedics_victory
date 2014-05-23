@@ -4292,3 +4292,58 @@ a.website_profile_button:hover {
   display: inline-block;
   margin-top: 15px;
 }
+
+.no_notes_found_notice {
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  font-size: 21px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 110px;
+  margin-bottom: 100px;
+  float: none;
+}
+
+p.note_title.note_page_title a {
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+p.note_title.note_page_title {
+  padding-bottom: 0px;
+  padding-top: 10px;
+}
+
+.note_page_inner_action_buttons {
+  margin-bottom: 30px;
+  float: left;
+  width: 100%;
+}
+
+.note_page_inner_action_buttons a.podmedcis_button.red {
+  margin-right: 20px;
+}
+
+.sub_heading_button_set.notes_dropdown_wrapper .lectures_inline_dropdown .main_nav_inner_lectures_title_wrapper {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+}
+
+a.lectures_inline_dropdown_category_link.all_notes_link_no_icon {
+  background-image: none;
+}
+
+a.lectures_inline_dropdown_category_link.all_notes_link_no_icon:hover {
+   background-image: none;
+   -moz-border-radius-topleft: 6px 6px;
+   border-top-left-radius: 6px 6px;
+ }
+
+.note_right_column_full_note.show_note_page_inner {
+  padding-bottom: 0px;
+}
+.right_column_save_note_button.show_note_page_save_button_wrapper {
+  padding-top: 0px;
+}
