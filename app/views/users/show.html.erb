@@ -1,18 +1,15 @@
 <div class="inner profile_page_inner">
 
-  <% if allow? "users", "edit", @user %>
-    <div class="sub_heading_wrapper">
-      <div class="sub_heading_button_set">
-        <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>
-      </div>
-    </div>
-  <% end %>
-
   <div class="page">
 
     <div class="profile_header">
       <div class="profile_avatar"><%= image_tag @user.get_avatar(:square) %></div>
       <h1><%= @user.name %></h1>
+      <% if allow? "users", "edit", @user %>
+        <div class="edit_profile_link">
+          <%= link_to "Edit your profile", edit_user_path(@user) %>
+        </div>
+      <% end %>
     </div>
 
     <div class="profile_body">
