@@ -6,7 +6,6 @@
       <%= link_to 'Print Notes', url_for(:format => "pdf") %>
       <%= render 'notes_nav' %>
     </div>
-  </div>
 
 
   <div class="page">
@@ -24,7 +23,7 @@
         <div class="break"></div>
       <% end %>
     <% else %>
-      No notes found
+      <div class="no_notes_found_notice">No notes found for this specialty</div>
     <% end %>
   </div>
 

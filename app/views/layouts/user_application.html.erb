@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Podmedics" %>">
     <%= stylesheet_link_tag "user_application", media: "all" %>
     <%= javascript_include_tag "user_application" %>
+    <%= render 'analytics' %>
     <%= csrf_meta_tags %>
     <%= render 'icons' %>
   </head>
