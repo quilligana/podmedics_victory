@@ -3,14 +3,24 @@ Downloaded from Podmedics at www.podmedics.com
 <div class="break"></div>
 
 <% unless @notes.empty? %>
-  <h1>Table of Contents</h1>
-  <div class="table_of_contents">
+  <div class="toc_title">Table of Contents</div>
+  <div class="toc">
     <% @notes.each do |category| %>
-      <h2><%= category.first.first.category.name %></h2>
+      <div class="toc_category">
+        <%= category.first.first.category.name %>
 
-      <% category.each do |specialty| %>
-        <h3><%= specialty.first.specialty.name %></h3>
-      <% end %>
+        <% category.each do |specialty| %>
+          <div class="toc_specialty toc_indent">
+            <%= specialty.first.specialty.name %>
+
+            <% specialty.each do |note| %>
+              <div class="toc_note toc_indent">
+                <%= note.get_title %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>
