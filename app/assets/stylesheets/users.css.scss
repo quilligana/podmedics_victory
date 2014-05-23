@@ -4280,3 +4280,15 @@ a.website_profile_button:hover {
   background-repeat: no-repeat;
   background-position: center right;
 }
+
+.edit_profile_link {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+.edit_profile_link a.podmedcis_button.red {
+  float: none;
+  display: inline-block;
+  margin-top: 15px;
+}

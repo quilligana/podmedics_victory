@@ -7,7 +7,7 @@
       <h1><%= @user.name %></h1>
       <% if allow? "users", "edit", @user %>
         <div class="edit_profile_link">
-          <%= link_to "Edit your profile", edit_user_path(@user) %>
+          <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>
         </div>
       <% end %>
     </div>
