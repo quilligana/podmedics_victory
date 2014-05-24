@@ -30,8 +30,8 @@ class SpecialtyQuestionsController < ApplicationController
 
   def show
     @question = SpecialtyQuestion.find(params[:id])
-    @comment = @question.answers.new()
-    @answers = @question.cached_answers
+    @comment = @question.comments.new()
+    @comments = @question.cached_comments
     @owner = @question.cached_user
   end
 

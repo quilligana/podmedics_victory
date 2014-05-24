@@ -5,26 +5,19 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable params
 
-    if params[:comment][:commentable_type] == "SpecialtyQuestion"
-      @comment = @commentable.answers.new(comment_params)
-      current_user.add_points_for_specialty_answer
-      question_specialty = SpecialtyQuestion.find_by(id: params[:comment][:commentable_id]).specialty
-      UserProgress.new(question_specialty, current_user).award_badge
-    else
-      @comment = @commentable.comments.new(comment_params)
-    end
+    @comment = @commentable.comments.new(comment_params, user: current_user)
 
-    @comment.user = current_user
+    update_user_score(params)
 
-    unless @comment.save
-      @comment = nil
-    else
+    if @comment.save
       AdminMailer.delay.new_comment(@comment)
 
       # If the comment is a reply, send an email to the user
       if params[:comment][:commentable_type] == "Comment"
         UserMailer.delay.new_reply(@commentable.user, @commentable, @comment)
       end
+    else
+      @comment = nil
     end
   end
 
@@ -62,5 +55,13 @@ class CommentsController < ApplicationController
 
     def comment_params
       params.require(:comment).permit(:content, :commentable_id, :commentable_type)
+    end
+
+    def update_user_score(params)
+      if params[:comment][:commentable_type] == "SpecialtyQuestion"
+        current_user.add_points_for_specialty_answer
+        question_specialty = SpecialtyQuestion.find_by(id: params[:comment][:commentable_id]).specialty
+        UserProgress.new(question_specialty, current_user).award_badge
+      end
     end
 end

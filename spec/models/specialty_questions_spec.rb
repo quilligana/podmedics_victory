@@ -18,13 +18,13 @@ describe SpecialtyQuestion do
   it { should respond_to :content }
   it { should respond_to :specialty }
   it { should respond_to :comments_count }
-  it { should respond_to :get_answers }
+  it { should respond_to :get_comments }
   it { should respond_to :accept_answer }
   it { should respond_to :accepted_answer }
   it { should respond_to :already_accepted_answer? }
 
-  it { should have_many(:answers).class_name("Comment").dependent(:destroy) }
-  it { should have_many(:nested_answers).class_name("Comment") }
+  it { should have_many(:comments).dependent(:destroy) }
+  it { should have_many(:nested_comments).class_name("Comment") }
 
   it { should validate_presence_of :content }
   it { should validate_presence_of :specialty }
@@ -32,7 +32,7 @@ describe SpecialtyQuestion do
 
   it { should be_valid }
 
-  describe ".get_answers" do
+  describe ".get_comments" do
     before do
       comment = create(:comment, user: @user, commentable: @specialty_question)
       hidden_comment = create(:hidden_comment, user: @user, commentable: @specialty_question)
@@ -40,18 +40,18 @@ describe SpecialtyQuestion do
 
     context "with include_hidden as false" do
       it "does not include hidden comments" do
-        expect(@specialty_question.get_answers(false).count).to eq 1
+        expect(@specialty_question.get_comments(false).count).to eq 1
       end
     end
 
     context "with include_hidden as true" do
       it "does include hidden comments" do
-        expect(@specialty_question.get_answers(true).count).to eq 2
+        expect(@specialty_question.get_comments(true).count).to eq 2
       end
     end
   end
 
-  describe ".answers_count" do
+  describe ".comments_count" do
     before do
       comment = create(:comment, user: @user, commentable: @specialty_question)
       hidden_comment = create(:hidden_comment, user: @user, commentable: @specialty_question)
