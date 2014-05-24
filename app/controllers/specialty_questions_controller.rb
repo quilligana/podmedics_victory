@@ -13,7 +13,7 @@ class SpecialtyQuestionsController < ApplicationController
     if @question.save
       AdminMailer.delay.new_specialty_question(@specialty)
 
-      professor = User.find(@specialty.professor)
+      professor = User.find_by(id: @specialty.professor)
       if professor
         UserMailer.new_specialty_question(professor, @question).deliver
       end
