@@ -78,10 +78,6 @@ class NotesController < ApplicationController
   private
 
     def find_noteable(params)
-      if params[:note][:noteable_type] == "Video"
-        params[:note][:noteable_type].classify.constantize.friendly.find(params[:note][:noteable_id])
-      else
-        params[:note][:noteable_type].classify.constantize.find(params[:note][:noteable_id])
-      end
+      params[:note][:noteable_type].classify.constantize.find(params[:note][:noteable_id])
     end
 end

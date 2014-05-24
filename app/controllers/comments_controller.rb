@@ -48,11 +48,7 @@ class CommentsController < ApplicationController
     end
 
     def find_commentable(params)
-      if params[:comment][:commentable_type] == "Video"
-        params[:comment][:commentable_type].classify.constantize.friendly.find(params[:comment][:commentable_id])
-      else
-        params[:comment][:commentable_type].classify.constantize.find(params[:comment][:commentable_id])
-      end
+      params[:comment][:commentable_type].classify.constantize.find(params[:comment][:commentable_id])
     end
 
     def comment_params
