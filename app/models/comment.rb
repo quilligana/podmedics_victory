@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  include Commentable
   
   default_scope { includes(:votes, :comments, :user).order(created_at: :desc) }
 
@@ -22,17 +23,8 @@ class Comment < ActiveRecord::Base
     User.cached_find(user_id)
   end
 
-  def cached_comments(include_hidden = false)
-    Rails.cache.fetch([self, include_hidden, "comments"]) { get_comments(include_hidden).to_a }
-  end
-  
-
   def self.available
     where(hidden: false)
-  end
-
-  def get_comments(include_hidden = false)
-    include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
   end
 
   def hide
@@ -70,6 +62,12 @@ class Comment < ActiveRecord::Base
 
   def score
     (accepted ? 5 : 0) + votes.size
+  end
+
+  # Override commentable methods related to nested_comments
+
+  def comments_count(include_hidden = false)
+    only_available(include_hidden, comments).size
   end
 
   private

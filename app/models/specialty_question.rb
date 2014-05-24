@@ -1,4 +1,5 @@
 class SpecialtyQuestion < ActiveRecord::Base
+  include Commentable
 
   belongs_to :user, touch: true
   belongs_to :specialty, touch: true
@@ -15,25 +16,6 @@ class SpecialtyQuestion < ActiveRecord::Base
   def cached_user
     User.cached_find(user_id)
   end
-  
-  def cached_comments(include_hidden = false)
-    Rails.cache.fetch([self, include_hidden, "comments"]) { get_comments(include_hidden).to_a }
-  end
-
-  def cached_comments_count(include_hidden = false)
-    Rails.cache.fetch([self, include_hidden, "comments_count"]) { comments_count(include_hidden) }
-  end  
-
-  # Answer functions
-
-  def get_comments(include_hidden = false)
-    include_hidden ? self.comments.sort_by(&:score).reverse : self.comments.available.sort_by(&:score).reverse
-  end
-
-  def comments_count(include_hidden = false)
-    include_hidden ? self.nested_comments.size : self.nested_comments.available.size
-  end  
-
 
   # Accepted Answer functions
 
