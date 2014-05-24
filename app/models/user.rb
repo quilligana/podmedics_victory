@@ -104,25 +104,29 @@ class User < ActiveRecord::Base
 
   # Authentication System
 
+  # Omni auth methods
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.oauth_token = auth.credentials.token
-      user.name = auth.info.name
-
-      unless auth.provider == "twitter"
-        user.email = auth.info.email
-        user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      end
+      user.extract_auth_data(auth)
 
       user.link_social_url(auth)
 
-      password = SecureRandom.hex(10)
-      user.password = password
-      user.password_confirmation = password
+      user.generate_password
 
       user.save!
+    end
+  end
+
+  def extract_auth_data(auth)
+    self.provider = auth.provider
+    self.uid = auth.uid
+    self.oauth_token = auth.credentials.token
+    self.name = auth.info.name
+
+    unless auth.provider == "twitter"
+      self.email = auth.info.email
+      self.oauth_expires_at = Time.at(auth.credentials.expires_at)
     end
   end
 
@@ -138,6 +142,14 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def generate_password
+    password = SecureRandom.hex(10)
+    self.password = password
+    self.password_confirmation = password
+  end
+
+  # Password reset methods
+
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
@@ -150,6 +162,7 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
   end
+
 
   # Points
 
