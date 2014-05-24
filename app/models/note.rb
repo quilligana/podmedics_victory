@@ -38,6 +38,25 @@ class Note < ActiveRecord::Base
   	title.blank? ? noteable.title : title
   end
 
+  def self.get_notes(user, specialty_id = false, category_id = false)
+    if specialty_id
+      specialty = Specialty.friendly.find(specialty_id)
+      notes = Note.specialty_notes(specialty.id)
+      title = specialty.name
+    elsif category_id
+      notes = Note.category_notes(category_id)
+      title = Category.find(category_id).name
+    else
+      notes = all
+      title = "all"
+    end
+
+    user_notes = notes.where(user: user)
+    sorted_notes = Note.sort_notes(user_notes)
+
+    return title, sorted_notes
+  end
+
   def self.specialty_notes(specialty_id)
     where(specialty_id: specialty_id)
   end

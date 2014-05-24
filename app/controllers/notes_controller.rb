@@ -26,22 +26,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    if params[:specialty_id]
-      specialty = Specialty.friendly.find(params[:specialty_id])
-      notes = Note.specialty_notes(specialty.id)
-      @title = specialty.name
-    elsif params[:category_id]
-      notes = Note.category_notes(params[:category_id])
-      @title = Category.find(params[:category_id]).name
-    else
-      notes = Note.all
-      @title = "All"
-    end
-
-    users_notes = notes.where(user: current_user)
-
-    @notes = Note.sort_notes(users_notes)
-    @user = current_user
+    @title, @notes = Note.get_notes(current_user, params[:specialty_id], params[:category_id])
 
     respond_to do |format|
       format.html
