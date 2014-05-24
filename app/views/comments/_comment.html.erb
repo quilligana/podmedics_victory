@@ -29,7 +29,7 @@
       </a>
     </div>
     <div class="comment_info">
-      <h3 class="comment_username"><%= link_to comment.cached_user.name, comment.cached_user %></h3>
+      <h3 class="comment_username"><%= link_to comment.cached_user, comment.cached_user %></h3>
       <p><%= comment.content %></p>
       <p class="comment_date"><%= time_ago_in_words(comment.updated_at) + " ago" %></p>
 

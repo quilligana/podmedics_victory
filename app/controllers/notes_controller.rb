@@ -37,8 +37,6 @@ class NotesController < ApplicationController
   def show
     @notes = Note.find_by(user: current_user, id: params[:id])
 
-    @user = current_user
-
     unless @notes
       redirect_to notes_path
     end

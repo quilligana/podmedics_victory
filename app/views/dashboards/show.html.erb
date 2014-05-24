@@ -2,7 +2,7 @@
   <div class="sub_heading_wrapper">
     <h1>Dashboard</h1>
     <div class="sub_heading_dashboard_info">
-      <p><strong>Welcome back <%= current_user.name %></strong></p>
+      <p><strong>Welcome back <%= current_user %></strong></p>
       <% if allow? "admins", "dashboard" %>
         <p><%= link_to 'Return to admin', admin_dashboard_path(current_user) %></p>
       <% end %>

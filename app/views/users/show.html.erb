@@ -4,7 +4,7 @@
 
     <div class="profile_header">
       <div class="profile_avatar"><%= image_tag @user.get_avatar(:square) %></div>
-      <h1><%= @user.name %></h1>
+      <h1><%= @user %></h1>
       <% if allow? "users", "edit", @user %>
         <div class="edit_profile_link">
           <%= link_to "Edit your profile", edit_user_path(@user), class: "podmedcis_button red" %>

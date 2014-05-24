@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    <%= @user.name %>
+    <%= @user %>
     <small><%= link_to "Edit", edit_admin_user_path(@user) %></small>
   </h1>
 </div>
@@ -10,7 +10,7 @@
     <div class="well user">
       <h4>Basic Info</h4>
       <p>Admin: <%= @user.admin %></p>
-      <p>Name: <%= @user.name %></p>
+      <p>Name: <%= @user %></p>
       <p>Email: <%= @user.email %></p>
       <p>Password Digest: <%= @user.password_digest %></p>
       

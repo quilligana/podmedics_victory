@@ -1,13 +1,13 @@
 <td style="padding-top:20px; padding-bottom:50px;">
 
-  <h1>Hi <%= @user.name %></h1>
+  <h1>Hi <%= @user %></h1>
 
   <p class="inner_sub_title">As one of the top rated users for Cardiology we thought you might like to answer this question</p>
 
   <p class="lead">
     <strong><%= @question.content %></strong>
   </p>
-  <p>- <%= @question.user.name %></p>
+  <p>- <%= @question.user %></p>
 
   <p class="action_button_wrapper">
     <%= link_to 'answer question here', specialty_question_url( specialty_id: @question.specialty.id, 

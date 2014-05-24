@@ -38,7 +38,7 @@
                     <%= time_ago_in_words(@question.created_at) %> 
                     ago 
                     by 
-                    <%= link_to @question.cached_user.name, 
+                    <%= link_to @question.cached_user, 
                                 @question.cached_user %>
               </div>
               <!-- End question header -->

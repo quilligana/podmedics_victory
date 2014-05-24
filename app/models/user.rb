@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
   before_save :set_avatar_file_name
   before_create :generate_unsubscribe_token
 
+  def to_s
+    name
+  end
+
   # Plans/Subs
 
   def record_login

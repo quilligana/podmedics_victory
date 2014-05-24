@@ -1,4 +1,4 @@
-Hi <%= @user.name %>,
+Hi <%= @user %>,
 
 Someone has replied to one of your comments.
 
@@ -9,7 +9,7 @@ Your comment
 Reply
 
 <%= @reply.content %>
-- <%= @reply.user.name %>
+- <%= @reply %>
 
 You can view the reply <%= video_url(@your_comment.root, anchor: @reply.id) %>.
 

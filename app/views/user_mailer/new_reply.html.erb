@@ -1,11 +1,11 @@
 <td style="padding-top:20px; padding-bottom:50px;">
 
-  <h1>Hi <%= @user.name %>,</h1>
+  <h1>Hi <%= @user %>,</h1>
 
   <p class="inner_sub_title">Someone has replied to one of your comments.</p>
 
   <p><%= @reply.content %></p>
-  <p>- <%= @reply.user.name %></p>
+  <p>- <%= @reply.user %></p>
 
   <p class="action_button_wrapper">
     <%= link_to 'Reply here', video_url(@your_comment.root, anchor: @reply.id), class: 'red_button' %>

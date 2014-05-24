@@ -1,7 +1,7 @@
 <tr class="user" id="<%= user.id %>">
   <td><%= user.id %></td>
   <td><%= user.created_at.to_s(:long) %></td>
-  <td><%= user.name %></td>
+  <td><%= user %></td>
   <td><%= user.email %></td>
   <td>
     <span class="label label-success"><%= user.subscribed_on.to_s(:short) if user.subscribed_on %></span>
