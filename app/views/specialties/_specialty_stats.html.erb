@@ -54,11 +54,11 @@
         By earning points you earn badges! How exciting!<br>
         Here are just a few of the thing you earn points for:
         <ul class="points_list">
-          <li>Answering a question: <%= POINTS_PER_CORRECT_ANSWER %></li>
-          <li>Watching a video: <%= POINTS_PER_WATCHED_VIDEO %></li>
-          <li>Answer a user specialty question: <%= POINTS_PER_USER_QUESTION_ANSWERED %></li>
-          <li>Get your answer accepted: <%= POINTS_PER_ACCEPTED_ANSWER %></li>
-          <li>Get your answer upvoted: <%= POINTS_PER_UPVOTE %></li>
+          <li>Answering a question: <%= POINTS[:correct_answer] %></li>
+          <li>Watching a video: <%= POINTS[:watched_video] %></li>
+          <li>Answer a user specialty question: <%= POINTS[:answered_user_question] %></li>
+          <li>Get your answer accepted: <%= POINTS[:accepted_answer] %></li>
+          <li>Get your answer upvoted: <%= POINTS[:upvote] %></li>
         </ul>
         </p>
       </div>

@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
 
     def update_user_score(params)
       if params[:comment][:commentable_type] == "SpecialtyQuestion"
-        current_user.add_points_for_specialty_answer
+        current_user.add_points(:answered_user_question)
         question_specialty = SpecialtyQuestion.find_by(id: params[:comment][:commentable_id]).specialty
         UserProgress.new(question_specialty, current_user).award_badge
       end

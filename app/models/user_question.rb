@@ -17,7 +17,7 @@ class UserQuestion < ActiveRecord::Base
     record = self.where(question_id: q_id).where(user_id: user.id).first
     if record.correct_answer == false
       record.update_attributes(correct_answer: true)
-      user.add_points_for_answer
+      user.add_points(:correct_answer)
     end
   end
 

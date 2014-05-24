@@ -57,8 +57,8 @@ describe User do
     it "adds the points per correct answer to the points total" do
       user = create(:user)
       expect(user.points).to eq(0)
-      user.add_points_for_answer
-      expect(user.points).to eq(POINTS_PER_CORRECT_ANSWER)
+      user.add_points(:correct_answer)
+      expect(user.points).to eq(POINTS[:correct_answer])
     end
   end
 

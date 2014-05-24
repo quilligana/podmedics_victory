@@ -30,7 +30,7 @@ class Vimeo < ActiveRecord::Base
     vimeo = self.where(user_id: user_id).where(video_id: video.id).first
     unless vimeo.completed
       vimeo.update_attributes(completed: true)
-      user.add_points_for_video
+      user.add_points(:watched_video)
       UserProgress.new(video.specialty, user).award_badge
     end
   end

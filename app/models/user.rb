@@ -171,20 +171,8 @@ class User < ActiveRecord::Base
 
   # Points
 
-  def add_points_for_answer
-    self.update_attributes(points: self.points + POINTS_PER_CORRECT_ANSWER)
-  end
-
-  def add_points_for_video
-    self.update_attributes(points: self.points + POINTS_PER_WATCHED_VIDEO)
-  end
-
-  def add_points_for_specialty_answer
-    self.update_attributes(points: self.points + POINTS_PER_USER_QUESTION_ANSWERED)
-  end
-
-  def add_points_for_accepted_answer
-    self.update_attributes(points: self.points + POINTS_PER_ACCEPTED_ANSWER)
+  def add_points(reason)
+    self.update_attributes(points: self.points + POINTS[reason])
   end
 
   # Used on dashboard for graph

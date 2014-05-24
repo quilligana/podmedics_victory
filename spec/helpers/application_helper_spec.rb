@@ -30,7 +30,7 @@ describe ApplicationHelper do
 
     it 'should return the current users points' do
       expect(the_user.points).to eq(0)
-      the_user.add_points_for_answer
+      the_user.add_points(:correct_answer)
       expect(the_user.points).to eq(10)
     end
   end
