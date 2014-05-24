@@ -5,7 +5,9 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable params
 
-    @comment = @commentable.comments.new(comment_params, user: current_user)
+    @comment = @commentable.comments.new(comment_params)
+
+    @comment.user = current_user
 
     update_user_score(params)
 
