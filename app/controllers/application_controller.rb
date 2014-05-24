@@ -48,7 +48,6 @@ class ApplicationController < ActionController::Base
 
     def current_user
       @current_user ||= User.cached_find(session[:user_id]) if session[:user_id]
-      
       # If no user was found then log the user out since the account they were logged into
       # has been deleted.
       session[:user_id] = nil if @current_user == nil

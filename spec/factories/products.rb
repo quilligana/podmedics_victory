@@ -9,12 +9,18 @@ FactoryGirl.define do
       price 0
     end
 
-    trait :paid do
-      permalink 'paid'
+    trait :paid6 do
+      permalink 'paid6'
+      price 1500
+    end
+
+    trait :paid12 do
+      permalink 'paid12'
       price 3000
     end
 
     factory :free_product, traits: [:free]
-    factory :paid_product, traits: [:paid]
+    factory :paid6_product, traits: [:paid6]
+    factory :paid12_product, traits: [:paid12]
   end
 end

@@ -3,7 +3,7 @@ require "spec_helper"
 feature 'Sign up', js: true do
 
   scenario 'Guest signs up with valid credentials' do
-    create_products
+    generate_plans
     user_signs_up_with_email('test@example.com')
     expect(current_path).to eq show_buy_path(User.first)
 
@@ -24,10 +24,6 @@ feature 'Sign up', js: true do
   end
 
   # Helpers
-  def create_products
-    create(:free_product)
-    create(:paid_product)
-  end
 
   def user_signs_up_with_email(email)
     visit root_path
