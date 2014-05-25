@@ -1,0 +1,9 @@
+<tr>
+  <td><%= newsletter.created_at %></td>
+  <td><%= newsletter.subject %></td>
+  <td><%= newsletter.sent_at %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_newsletter_path(newsletter) %>
+    <%= link_to "Show", admin_newsletter_path(newsletter) %>
+  </td>
+</tr>

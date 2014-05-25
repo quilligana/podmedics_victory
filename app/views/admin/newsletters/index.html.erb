@@ -1,0 +1,25 @@
+<div class="row header">
+  <h3>Newsletters</h3>
+  <div class="col-md-10 pull-right">
+    <%= link_to "New Newsletter", new_admin_newsletter_path, class: 'btn-flat success pull-right' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="newsletters table-wrapper">
+      <table border="0" class="table table-hover">
+        <thead>
+          <th>Created at</th>
+          <th>Subject</th>
+          <th>Sent at</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <%= render @newsletters %>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div>
+

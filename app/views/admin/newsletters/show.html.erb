@@ -1,0 +1,10 @@
+<h1><%= @newsletter.subject %></h1>
+
+<hr />
+
+<div class="well">
+  <p>HTML Content:</p>
+  <%= @newsletter.body_content.html_safe %>
+  <p>Text Content</p>
+  <%= @newsletter.body_text %>
+</div>

@@ -9,7 +9,7 @@ describe AdminMailer do
     it "notifies ed@podmedics.com" do
       mail.subject.should eq "New Specialty Question"
       mail.to.should eq ["ed@podmedics.com"]
-      mail.from.should eq ["admin@podmedics.com"]
+      mail.from.should eq ["donotreply@podmedics.com"]
     end
   end
 
@@ -20,7 +20,7 @@ describe AdminMailer do
     it "notifies ed@podmedics.com" do
       mail.subject.should eq "New Comment"
       mail.to.should eq ["ed@podmedics.com"]
-      mail.from.should eq ["admin@podmedics.com"]
+      mail.from.should eq ["donotreply@podmedics.com"]
     end
   end
 

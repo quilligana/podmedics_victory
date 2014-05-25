@@ -1,0 +1,10 @@
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @newsletter] do |f| %>
+      <%= f.input :subject %>
+      <%= f.input :body_content, label: 'Body Content' %>
+      <%= f.input :body_text, label: 'Body Text' %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

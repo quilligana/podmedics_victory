@@ -62,6 +62,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :questions
     resources :products
     resources :sales, only: [:index, :show]
+    resources :newsletters
   end
 
   # Specialty/Video
