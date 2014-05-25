@@ -12,6 +12,7 @@ class TransactionsController < ApplicationController
 
     if product.free?
       current_user.mark_plan_selected
+      UserMailer.delay.welcome_free_plan(current_user)
       redirect_to dashboard_path, notice: 'Thank you for signing up for our trial.'
     else
       sale = product.sales.create(

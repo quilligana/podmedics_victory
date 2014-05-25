@@ -1,5 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default from: "admin@podmedics.com"
+  default from: "donotreply@podmedics.com"
+
+  def welcome_free_plan(user)
+    @user = user
+    mail to: user.email, subject: 'Welcome to Podmedics', from: 'ed@podmedics.com'
+  end
 
   def password_reset(user)
     @user = user
