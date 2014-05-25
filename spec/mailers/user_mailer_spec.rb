@@ -8,7 +8,7 @@ describe UserMailer do
     it "send user password reset url" do
       mail.subject.should eq("Podmedics Password Reset")
       mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
+      mail.from.should eq(["donotreply@podmedics.com"])
       mail.body.encoded.should match(edit_password_reset_path(user.password_reset_token))
     end
 
@@ -21,7 +21,7 @@ describe UserMailer do
       it "will still send the email" do
         @mail.subject.should eq("Podmedics Password Reset")
         @mail.to.should eq([user.email])
-        @mail.from.should eq(["admin@podmedics.com"])
+        @mail.from.should eq(["donotreply@podmedics.com"])
         @mail.body.encoded.should match(edit_password_reset_path(user.password_reset_token))
       end
     end
@@ -36,7 +36,7 @@ describe UserMailer do
     it "notifies the user of their new badge" do
       mail.subject.should eq("Congratulations on Your New Podmedics Badge Award")
       mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
+      mail.from.should eq(["donotreply@podmedics.com"])
     end
 
     describe "when the user has unsubscribed" do
@@ -59,7 +59,7 @@ describe UserMailer do
     it "notifies the user of their loss of professor badge" do
       mail.subject.should eq("Notification of Your Professor Status")
       mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
+      mail.from.should eq(["donotreply@podmedics.com"])
     end
 
     describe "when the user has unsubscribed" do
@@ -82,7 +82,7 @@ describe UserMailer do
     it "notifies the user of their loss of professor badge" do
       mail.subject.should eq("New Podmedics Video: #{video.title}")
       mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
+      mail.from.should eq(["donotreply@podmedics.com"])
     end
 
     describe "when the user has unsubscribed" do
@@ -107,7 +107,7 @@ describe UserMailer do
     it "notifies the user of their loss of professor badge" do
       mail.subject.should eq("You have a new reply")
       mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
+      mail.from.should eq(["donotreply@podmedics.com"])
     end
 
     describe "when the user has unsubscribed" do
@@ -131,7 +131,7 @@ describe UserMailer do
     it "notifies the user of their loss of professor badge" do
       mail.subject.should eq('One of your answers has been accepted')
       mail.to.should eq([user.email])
-      mail.from.should eq(["admin@podmedics.com"])
+      mail.from.should eq(["donotreply@podmedics.com"])
     end
 
     describe "when the user has unsubscribed" do
