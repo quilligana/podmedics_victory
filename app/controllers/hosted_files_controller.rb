@@ -1,5 +1,6 @@
 class HostedFilesController < ApplicationController
-  before_action :find_video
+  prepend_before_action :find_video
+  before_action :check_subscription
 
   def video
     Video.increment_counter(:video_download_count, @video.id)
@@ -20,6 +21,13 @@ class HostedFilesController < ApplicationController
   end
 
   private
+
+    def check_subscription
+      if current_user && current_user.is_trial_member?
+        redirect_to @video, alert: 'Sorry! Downloads are only available to full members'
+      end
+      
+    end
 
     def download_url(url)
       resp = HTTParty.get(url)
