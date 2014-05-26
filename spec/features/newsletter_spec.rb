@@ -29,4 +29,12 @@ feature 'Newsletter' do
     expect(page).to have_content 'Blah'
   end
 
+  scenario 'Removing a newsletter' do
+    newsletter = create(:newsletter, subject: 'Blah')
+    sign_in(create(:admin_user))
+    visit admin_newsletters_path
+    click_link 'Remove'
+    expect(page).to_not have_content 'Blah'
+  end
+
 end

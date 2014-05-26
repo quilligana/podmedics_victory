@@ -1,5 +1,6 @@
 class Admin::NewslettersController < ApplicationController
   layout 'admin_application'
+  before_action :find_newsletter, only: [:show, :edit, :update, :destroy]
 
   def index
     @newsletters = Newsletter.all
@@ -19,15 +20,12 @@ class Admin::NewslettersController < ApplicationController
   end
 
   def show
-    @newsletter = Newsletter.find(params[:id])
   end
 
   def edit
-    @newsletter = Newsletter.find(params[:id])
   end
 
   def update
-    @newsletter = Newsletter.find(params[:id])
     if @newsletter.update_attributes(newsletter_params)
       redirect_to admin_newsletters_path, notice: 'Newsletter updated'
     else
@@ -35,7 +33,16 @@ class Admin::NewslettersController < ApplicationController
     end
   end
 
+  def destroy
+    @newsletter.destroy
+    redirect_to admin_newsletters_path, notice: 'Newsletter removed'
+  end
+
   private
+
+    def find_newsletter
+      @newsletter = Newsletter.find(params[:id])
+    end
 
     def newsletter_params
       params.require(:newsletter).permit(:subject, :body_content, :body_text)
