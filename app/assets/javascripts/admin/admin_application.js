@@ -9,4 +9,5 @@ $(function(){
   $('#question_stem').redactor();
   $('#question_explanation').redactor();
   $('#faq_content').redactor();
+  $('#newsletter_body_content').redactor();
 });

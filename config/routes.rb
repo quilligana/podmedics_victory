@@ -62,7 +62,11 @@ PodmedicsVictory::Application.routes.draw do
     resources :questions
     resources :products
     resources :sales, only: [:index, :show]
-    resources :newsletters
+    resources :newsletters do
+      member do
+        get 'send_test'
+      end
+    end
   end
 
   # Specialty/Video

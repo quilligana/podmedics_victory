@@ -1,6 +1,6 @@
 class Admin::NewslettersController < ApplicationController
   layout 'admin_application'
-  before_action :find_newsletter, only: [:show, :edit, :update, :destroy]
+  before_action :find_newsletter, only: [:show, :edit, :update, :destroy, :send_test]
 
   def index
     @newsletters = Newsletter.all
@@ -13,7 +13,7 @@ class Admin::NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
     if @newsletter.save
-      redirect_to admin_newsletters_path, notice: 'Newsletter created'
+      redirect_to [:admin, @newsletter], notice: 'Newsletter created'
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class Admin::NewslettersController < ApplicationController
 
   def update
     if @newsletter.update_attributes(newsletter_params)
-      redirect_to admin_newsletters_path, notice: 'Newsletter updated'
+      redirect_to [:admin, @newsletter], notice: 'Newsletter updated'
     else
       render 'edit'
     end
@@ -36,6 +36,11 @@ class Admin::NewslettersController < ApplicationController
   def destroy
     @newsletter.destroy
     redirect_to admin_newsletters_path, notice: 'Newsletter removed'
+  end
+
+  def send_test
+    AdminMailer.test_newsletter(@newsletter).deliver
+    redirect_to [:admin, @newsletter], notice: "Test sent"
   end
 
   private

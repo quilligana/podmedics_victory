@@ -1,10 +1,27 @@
 <h1><%= @newsletter.subject %></h1>
 
-<hr />
+<div class="row">
+  <div class="col-md-6">
+    <div class="row ctrls">
+      <div class="btn-group large">
+        <%= link_to "Edit", edit_admin_newsletter_path(@newsletter), class: 'btn btn-flat white left' %>
+        <%= link_to 'Send test', send_test_admin_newsletter_path(@newsletter), class: 'btn btn-flat gray right' %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="well">
-  <p>HTML Content:</p>
-  <%= @newsletter.body_content.html_safe %>
-  <p>Text Content</p>
-  <%= @newsletter.body_text %>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>HTML Content:</p>
+    <div class="well">
+      <%= @newsletter.body_content.html_safe %>
+    </div>
+
+    <p>Text Content:</p>
+    <div class="well">
+      <%= @newsletter.body_text %>
+    </div>
+  </div>
 </div>
