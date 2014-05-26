@@ -1,5 +1,5 @@
 <div class="note_right_column_preview" id="<%= sidebar_note.id %>">
   <p class="note_preview_title"><%= link_to sidebar_note.cached_title, sidebar_note.cached_noteable %></p>
-  <p><%= truncate(sanitize(sidebar_note.content), :length => 100, :separator => ' ') %></p>
+  <p><%= truncate(sidebar_note.content.html_safe, :length => 100, :separator => ' ') %></p>
   <%= link_to "Read", load_note_path(sidebar_note.id), remote: true %>
 </div>
