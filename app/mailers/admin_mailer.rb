@@ -14,7 +14,8 @@ class AdminMailer < ActionMailer::Base
 
   def test_newsletter(newsletter)
     @newsletter = newsletter
-    # a basic user needs to be include for the template to work
+    # a basic user needs to be included for user mailer template
+    # to generate a unsub token
     @user = User.first
     mail to: 'ed@podmedics.com', subject: @newsletter.subject
   end

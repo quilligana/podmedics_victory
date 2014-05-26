@@ -11,6 +11,12 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'Welcome to Podmedics', from: 'ed@podmedics.com'
   end
 
+  def new_newsletter(user, newsletter)
+    @user = user
+    @newsletter = newsletter
+    mail to: user.email, subject: newsletter.subject
+  end
+
   def password_reset(user)
     @user = user
     mail to: user.email, subject: 'Podmedics Password Reset'

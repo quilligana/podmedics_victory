@@ -1,6 +1,6 @@
 class Admin::NewslettersController < ApplicationController
   layout 'admin_application'
-  before_action :find_newsletter, only: [:show, :edit, :update, :destroy, :send_test]
+  before_action :find_newsletter, only: [:show, :edit, :update, :destroy, :send_test, :send_newsletter]
 
   def index
     @newsletters = Newsletter.all
@@ -41,6 +41,12 @@ class Admin::NewslettersController < ApplicationController
   def send_test
     AdminMailer.test_newsletter(@newsletter).deliver
     redirect_to [:admin, @newsletter], notice: "Test sent"
+  end
+
+  def send_newsletter
+    @newsletter.send_to_all
+    @newsletter.update_attributes(sent_at: Time.zone.now)
+    redirect_to [:admin, @newsletter], notice: 'Newsletter queued'
   end
 
   private

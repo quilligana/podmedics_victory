@@ -24,4 +24,19 @@ describe AdminMailer do
     end
   end
 
+  describe '#test_newsletter' do
+    before do
+      create(:user)
+    end
+
+    let(:newsletter) { create(:newsletter) }
+    let(:mail) { AdminMailer.test_newsletter(newsletter)}
+
+    it "send a sample newsletter to ed" do
+      mail.subject.should eq newsletter.subject
+      mail.to.should eq ['ed@podmedics.com']
+      mail.from.should eq ["donotreply@podmedics.com"]
+    end
+  end
+
 end

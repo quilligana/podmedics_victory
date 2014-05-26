@@ -216,7 +216,7 @@ class User < ActiveRecord::Base
   end
 
   def self.newsletters_allowed
-    where(receive_new_episode_notifications: true)
+    where(receive_newsletters: true)
   end
 
   # Email settings

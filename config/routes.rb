@@ -65,6 +65,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :newsletters do
       member do
         get 'send_test'
+        get 'send_newsletter'
       end
     end
   end

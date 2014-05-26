@@ -5,7 +5,8 @@
     <div class="row ctrls">
       <div class="btn-group large">
         <%= link_to "Edit", edit_admin_newsletter_path(@newsletter), class: 'btn btn-flat white left' %>
-        <%= link_to 'Send test', send_test_admin_newsletter_path(@newsletter), class: 'btn btn-flat gray right' %>
+        <%= link_to 'Send test', send_test_admin_newsletter_path(@newsletter), class: 'btn btn-flat gray middle' %>
+        <%= link_to "Send to subscribers", send_newsletter_admin_newsletter_path(@newsletter), class: 'btn btn-flat red right', data: { confirm: 'Are you sure?'} %>
       </div>
     </div>
   </div>
