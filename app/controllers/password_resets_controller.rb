@@ -4,7 +4,7 @@ class PasswordResetsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user
       user.send_password_reset
-      redirect_to root_url, notice: 'Email sent with password reset instructions.'
+      redirect_to root_url, notice: 'Email sent with password reset instructions. Due to current traffic on the site it may take an hour or two to come through.'
     else
       redirect_to login_path, alert: 'Sorry we could not find that email address. Did you register with a different one?'
     end
