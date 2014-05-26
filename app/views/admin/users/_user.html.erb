@@ -10,6 +10,7 @@
     <span class="label label-success"><%= user.expires_on.to_s(:short) if user.expires_on %></span>
   </td>
   <td><%= user.selected_plan %></td>
+  <td><%= user.specialties.count %></td>
   <td>
     <%= link_to "Show", admin_user_path(user) %>
     <%= link_to "Edit", edit_admin_user_path(user) %>
