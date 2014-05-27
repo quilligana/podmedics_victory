@@ -1,0 +1,11 @@
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @post] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.association :author %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

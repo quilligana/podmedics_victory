@@ -68,6 +68,7 @@ PodmedicsVictory::Application.routes.draw do
         get 'send_newsletter'
       end
     end
+    resources :posts
   end
 
   # Specialty/Video
