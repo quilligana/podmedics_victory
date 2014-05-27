@@ -5,32 +5,40 @@
 
   <div class="page">
 
-    <!--
+
     <div class="blog_page_left_column">
       <div class="blog_home_title">
         <h1>Podmedics Blog</h1>
       </div>
 
       <a class="blog_home_post_wrapper">
-        <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        <div class="blog_post_image_wrapper">
+          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        </div>
         <h2>GP extended hours - great in theory, but what about in practice?</h2>
         <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
       </a>
 
       <a class="blog_home_post_wrapper">
-        <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        <div class="blog_post_image_wrapper">
+          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        </div>
         <h2>GP extended hours - great in theory, but what about in practice?</h2>
         <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
       </a>
 
       <a class="blog_home_post_wrapper">
-        <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        <div class="blog_post_image_wrapper">
+          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        </div>
         <h2>GP extended hours - great in theory, but what about in practice?</h2>
         <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
       </a>
 
       <a class="blog_home_post_wrapper">
-        <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        <div class="blog_post_image_wrapper">
+          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        </div>
         <h2>GP extended hours - great in theory, but what about in practice?</h2>
         <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
       </a>
@@ -47,8 +55,12 @@
       </div>
 
     </div>
-    -->
 
+
+
+
+
+    <!--
 
     <div class="blog_page_left_column">
 
@@ -58,9 +70,9 @@
       </div>
 
       <div class="blog_post_wrapper">
-
-        <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-
+        <div class="blog_post_image_wrapper">
+          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        </div>
         <div class="blog_post_inner">
           <p>Integer dignissim fringilla purus a imperdiet. Fusce blandit, felis non bibendum mattis, lectus odio fringilla sem, ac rutrum metus enim a nibh. Duis consequat a sem in commodo. In volutpat ligula eget orci volutpat ullamcorper. Donec vitae sollicitudin dolor. Etiam facilisis ante vitae purus ultrices, eu varius dolor imperdiet. Maecenas tincidunt turpis eu tortor commodo, ac adipiscing sem lacinia.</p>
 
@@ -103,6 +115,7 @@
 
     </div>
 
+    -->
 
 
 
@@ -115,7 +128,7 @@
 
 
 <%= content_for :footer do %>
-  <div class="inline_footer_wrapper about_page_footer">
+  <div class="inline_footer_wrapper blog_page_footer">
     <%= render 'footer' %>
   </div>
 <% end %>

@@ -312,7 +312,9 @@ body {
   padding-left: 0px;
   padding-right: 0px;
 }
-
+.inline_footer_wrapper.blog_page_footer {
+  width: 1150px;
+}
 .inline_footer_wrapper.about_page_footer, .inline_footer_wrapper.signup_page_footer {
   width: 1060px;
 }
