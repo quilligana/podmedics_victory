@@ -3,9 +3,7 @@ require 'spec_helper'
 describe "video comments", js: true do
 
   before do
-    @user = create(:user)
-    @user.admin = true
-    @user.save
+    @user = create(:admin_user)
     @video = create(:video)
     sign_in(@user)
     visit video_path(@video)

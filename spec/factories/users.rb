@@ -8,7 +8,7 @@ FactoryGirl.define do
     password_confirmation 'password'
     selected_plan true
     subscribed_on { Time.zone.now }
-    expires_on { Time.zone.now+ 6.months }
+    expires_on { Time.zone.now + 6.months }
 
     factory :free_user do
       subscribed_on nil

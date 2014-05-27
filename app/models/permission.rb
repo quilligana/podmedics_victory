@@ -6,9 +6,9 @@ class Permission
     allow :password_resets, [:create, :edit, :update]
     allow :posts, [:index, :show]
     allow :users, [:new, :create, :unsubscribe, :unsub]
-    allow :transactions, [:new, :create, :pickup]
     allow :stripe_events, [:create]
     if user
+      allow :transactions, [:new, :create, :pickup]
       allow :courses, [:index]
       allow :dashboards, [:show]
       allow :users, [:show]

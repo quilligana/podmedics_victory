@@ -24,19 +24,22 @@ describe Permission do
     it "allows access to registration and payment" do
       expect(subject.allow?('users', 'new')).to be_true
       expect(subject.allow?('users', 'create')).to be_true
-      expect(subject.allow?('transactions', 'new')).to be_true
-      expect(subject.allow?('transactions', 'create')).to be_true
-      expect(subject.allow?('transactions', 'pickup')).to be_true
     end
 
-    it "allows access to courses" do
-      expect(subject.allow?('courses', 'index')).to be_true
+    it "allows does not allow access to courses" do
+      expect(subject.allow?('courses', 'index')).to be_false
     end
 
     it "allows password recovery" do
       expect(subject.allow?('password_resets', 'create')).to be_true
       expect(subject.allow?('password_resets', 'edit')).to be_true
       expect(subject.allow?('password_resets', 'update')).to be_true
+    end
+
+    it "does not allow access to transactions" do
+      expect(subject.allow?('transactions', 'new')).to be_false
+      expect(subject.allow?('transactions', 'create')).to be_false
+      expect(subject.allow?('transactions', 'pickup')).to be_false
     end
 
   end
