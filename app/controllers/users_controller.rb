@@ -48,7 +48,11 @@ class UsersController < ApplicationController
   def unsub
     if params[:unsubscribe_token]
       user = User.find_by(unsubscribe_token: params[:unsubscribe_token])
-      email = user.email
+      if user
+        email = user.email
+      else
+        redirect_to root_path, notice: 'Sorry. Your email token is not valid.'
+      end
     else
       email = params[:unsubscribe][:email]
       user = User.find_by(email: params[:unsubscribe][:email])
