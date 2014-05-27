@@ -686,7 +686,18 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 800px) {
+  .sub_heading_dashboard_info {
+    float: left;
+    clear: both;
+    text-align: left;
+    padding-top: 10px;
+    width: 100%;
+  }
 
+  .sub_heading_dashboard_info p {
+    float: left;
+    text-align: left;
+  }
   .video_page_author_duration_header {
     padding-bottom: 10px;
     width: 100%;
@@ -934,12 +945,7 @@ $standard_border_radius: 6px;
     margin-top: 15px;
   }
 
-  .sub_heading_dashboard_info {
-    float: left;
-    clear: both;
-    text-align: left;
-    padding-top: 10px;
-  }
+
 
   .sub_heading_dashboard_info p {
     float: left;

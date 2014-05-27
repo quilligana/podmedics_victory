@@ -268,6 +268,8 @@ ul[data-pie-id] {
 .sub_heading_dashboard_info {
   float: right;
   text-align: right;
+  margin-right: 20px;
+  padding-top: 6px;
 }
 .sub_heading_dashboard_info p {
   float: right;
@@ -4374,3 +4376,17 @@ a.lectures_inline_dropdown_category_link.all_notes_link_no_icon:hover {
 a.podmedcis_button.green.print_notes_button {
   margin-right: 15px;
 }
+
+.inner.dashboard_page {
+  padding-top: 20px;
+}
+
+.inner.dashboard_page h1 {
+  padding-top: 20px;
+}
+
+.inner.dashboard_page .sub_heading_button_set .lectures_inline_dropdown_wrapper{
+  margin-right: 0px;
+}
+
+
