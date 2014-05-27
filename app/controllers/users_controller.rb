@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       if user
         email = user.email
       else
-        redirect_to root_path, notice: 'Sorry. Your email token is not valid.'
+        return redirect_to root_path, notice: 'Sorry. Your email token is not valid.'
       end
     else
       email = params[:unsubscribe][:email]
