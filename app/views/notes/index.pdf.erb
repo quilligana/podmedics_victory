@@ -1,9 +1,14 @@
-<h1><%= "#{current_user}'s Revision Notes" %></h1>
-Downloaded from Podmedics at www.podmedics.com
+<div class="cover_page_title">
+  <h1><%= "#{current_user}'s Revision Notes" %></h1>
+</div>
+<div class="cover_page_subtitle">Notes downloaded from Podmedics</div>
+<div class="cover_page_podmedics_url">www.podmedics.com</div>
+<div class="cover_page_podmedics_icon"></div>
+
 <div class="break"></div>
 
 <% unless @notes.empty? %>
-  <div class="toc_title">Table of Contents</div>
+  <div class="table_of_contents_title">Table of Contents</div>
   <div class="toc">
     <% @notes.each do |category| %>
       <div class="toc_category">
