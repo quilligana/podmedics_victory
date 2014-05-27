@@ -8,6 +8,11 @@ describe User do
   it { should respond_to :points }
   it { should respond_to :user_questions }
   it { should respond_to :badges }
+  it { should respond_to :receive_newsletters }
+  it { should respond_to :receive_status_updates }
+  it { should respond_to :receive_new_episode_notifications }
+  it { should respond_to :receive_social_notifications }
+  it { should respond_to :receive_help_request_notifications }
 
   it { should have_many(:user_questions).dependent(:destroy) }
   it { should have_many(:vimeos).dependent(:destroy) }
@@ -51,6 +56,13 @@ describe User do
       expect(user).to_not be_valid
     end
 
+  end
+
+  describe ".to_s" do
+    it "returns the user's name" do
+      user = create(:user)
+      expect("#{user}").to eq user.name
+    end
   end
 
   describe User, '#add_points_for_answer' do
@@ -183,6 +195,7 @@ describe User do
       expect(user.receive_new_episode_notifications).to be_false
       expect(user.receive_status_updates).to be_false
       expect(user.receive_social_notifications).to be_false
+      expect(user.receive_help_request_notifications).to be_false
     end
   end
 

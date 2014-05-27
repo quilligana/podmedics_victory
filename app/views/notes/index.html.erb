@@ -12,7 +12,6 @@
   <div class="page">
     <% unless @notes.empty? %>
       <% @notes.each do |category| %>
-        <% puts category.inspect %>
         <div class="notes_category_heading_wrapper">
           <h2><%= category.first.first.category.name %></h2>
         </div>
