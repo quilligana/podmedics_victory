@@ -10,4 +10,5 @@ $(function(){
   $('#question_explanation').redactor();
   $('#faq_content').redactor();
   $('#newsletter_body_content').redactor();
+  $('#post_content').redactor();
 });

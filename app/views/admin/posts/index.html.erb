@@ -1,0 +1,29 @@
+<div class="row header">
+  <h3>Posts</h3>
+  <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
+    <%= link_to "New post", new_admin_post_path, class: 'btn-flat success pull-right' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-wrapper">
+      <table class='table table-hover' border="0">
+        <thead>
+          <tr>
+            <th>#ID</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @posts %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
