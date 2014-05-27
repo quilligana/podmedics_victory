@@ -1776,10 +1776,11 @@ div.correct_question_icon {
 
 .correct_lecture_answer_info p {
   font-size: 15px;
-  line-height: 30px;
+  line-height: 20px;
   color: #888;
   text-align: left;
-  margin-bottom: 25px; }
+  margin-bottom: 15px;
+}
 
 .correct_lecture_answer_info p .red_button_medium {
   display: inline-block;
@@ -1806,15 +1807,24 @@ div.correct_question_icon {
 a.red_button.medium.question_result_button {
   float: none;
   display: inline-block;
+  line-height: 30px;
+  margin-top: 17px;
+  margin-bottom: 10px;
 }
-
+.correct_lecture_answer_info ul li {
+  margin-bottom: 15px;
+}
 a.red_button.medium.next_question_button {
   background-image: image-url('button_icons.png');
   background-repeat: no-repeat;
   background-position: 137px 19px;
   padding-right: 55px;
+  line-height: 30px;
   float: none;
-  display: inline-block; }
+  display: inline-block;
+  margin-top: 17px;
+  margin-bottom: 10px;
+}
 
 .lectures_speciality_outer_wrapper {
   border-right-width: 1px;
