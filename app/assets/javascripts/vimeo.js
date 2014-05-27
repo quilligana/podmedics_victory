@@ -27,9 +27,9 @@ $(document).ready(function(){
         player.addEvent('ready', function() {
             player.addEvent('pause', onPause);
             player.addEvent('playProgress', onPlayProgress);
-            if(viewProgress!=0) {
-                player.api('seekTo', viewProgress);
-            };
+            // if(viewProgress!=0) {
+            //     player.api('seekTo', viewProgress);
+            // };
         });
     }
 
