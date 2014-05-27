@@ -2567,7 +2567,7 @@ a.video_download_dropdown_link.slides_file_icon {
 }
 .video_page_notes_column_divide {
   width: 100%;
-  border-bottom: solid 1px #DFDFDF;
+  border-bottom: solid 1px $grey_border;
 }
 
 .video_page_right_column {
@@ -4346,4 +4346,31 @@ a.lectures_inline_dropdown_category_link.all_notes_link_no_icon:hover {
 }
 .right_column_save_note_button.show_note_page_save_button_wrapper {
   padding-top: 0px;
+}
+
+.notes_category_heading_wrapper {
+  width: 100%;
+  float: left;
+  border-bottom: solid 1px $grey_border;
+}
+.notes_specialty_heading_wrapper {
+  width: 100%;
+  float: left;
+  border-bottom: solid 1px $grey_border;
+  background-color: #FAFAFA;
+}
+.notes_category_heading_wrapper h2 {
+  padding-left: 30px;
+  padding-top: 25px;
+  padding-bottom: 22px;
+  font-size: 26px;
+}
+.notes_specialty_heading_wrapper h3 {
+  padding-left: 30px;
+  padding-top: 25px;
+  padding-bottom: 22px;
+}
+
+a.podmedcis_button.green.print_notes_button {
+  margin-right: 15px;
 }
