@@ -20,4 +20,9 @@ class AdminMailer < ActionMailer::Base
     mail to: 'ed@podmedics.com', subject: @newsletter.subject
   end
 
+  def new_payment(sale)
+    @sale = sale
+    mail to: 'ed@podmedics.com', subject: 'New Podmedics Sale'
+  end
+
 end
