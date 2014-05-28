@@ -235,6 +235,29 @@ $standard_border_radius: 6px;
     background-size: 68px;
   }
 
+  .home_section_one_block .icon.questions_block {
+    background-image: image-url('home_block_icons@2x.png');
+    background-size: 150px 350px;
+  }
+  .home_section_one_block .icon.lecture_block {
+    background-image: image-url('video_complete_icon@2x.png');
+    background-size: 150px  80px;
+  }
+  .home_section_one_block .icon {
+    background-image: image-url('podmedics_icon_x74@2x.png');
+    background-size: 80px  80px;
+  }
+  .home_section_one_block .icon.badges_block {
+    background-image: image-url('home_block_icons@2x.png');
+    background-size: 150px  350px;
+  }
+
+  .oxford_uni_logo {
+    background-image: image-url('oxford_logo@2x.png');
+
+    background-size: 147px  47px;
+
+  }
 }
 
 
