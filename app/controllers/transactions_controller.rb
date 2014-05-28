@@ -25,8 +25,10 @@ class TransactionsController < ApplicationController
       if sale.finished?
         current_user.start_subscription_for_product(product)
         UserMailer.delay.welcome_paid_plan(current_user)
+        AdminMailer.delay.new_payment(current_user)
         redirect_to pickup_url(guid: sale.guid)
       else
+        AdminMailer.delay.payment_failed(current_user)
         flash.now[:alert] = sale.error
         render :new
       end
