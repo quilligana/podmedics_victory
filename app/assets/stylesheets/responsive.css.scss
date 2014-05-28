@@ -251,12 +251,13 @@ $standard_border_radius: 6px;
     background-image: image-url('home_block_icons@2x.png');
     background-size: 150px  350px;
   }
-
   .oxford_uni_logo {
     background-image: image-url('oxford_logo@2x.png');
-
     background-size: 147px  47px;
-
+  }
+  .questions_answers_main_question .question_comments_outer .comment_reply {
+    background-size: 35px 130px;
+    background-image: image-url('comment_reply@2x.png');
   }
 }
 
@@ -351,6 +352,9 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1020px) {
+  .questions_answers_main_question .question_comments_outer .comment_reply {
+    background-position: 9% 10%;
+  }
   .lectures_inline_dropdown_wrapper {
     display: none;
   }
@@ -1547,7 +1551,11 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 620px) {
-
+  .comment_reply_link a {
+    float: left;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   div.comment_lower_action_buttons_right {
     float: left;
     clear: both;
@@ -1758,7 +1766,7 @@ $standard_border_radius: 6px;
   }
 
   .questions_answers_main_question .question_comments_outer .comment_reply {
-    background-position: 50px -5px;
+    background-position: 50px 4px;
     margin-left: 0px;
     padding-left: 0px;
     background-repeat: no-repeat;
