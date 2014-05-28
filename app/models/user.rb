@@ -60,10 +60,20 @@ class User < ActiveRecord::Base
   end
 
   def start_subscription_for_product(product)
+    activate_subscription(product)
+    send_user_and_admin_notifications
+  end
+
+  def activate_subscription(product)
     self.mark_plan_selected
     self.subscribed_on = Time.zone.now
     self.expires_on = self.subscribed_on.advance(months: product.duration)
     self.save!
+  end
+
+  def send_user_and_admin_notifications
+    UserMailer.delay.welcome_paid_plan(self)
+    AdminMailer.delay.new_payment(self)
   end
 
   def has_subscription_and_in_date?
