@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   layout 'user_application'
+  before_filter :check_session, only: [:show, :answer, :result]
 
   def index
     video = Video.friendly.find(params[:video_id])
@@ -36,6 +37,12 @@ class QuestionsController < ApplicationController
   end
 
 private
+
+  def check_session
+    if session[:current_question].blank? || session[:q_ids].blank? || session[:correct_answers].blank?
+      redirect_to dashboard_path, notice: 'Session expired on your previous quiz'
+    end
+  end
 
   def initiate_questions
     set_session(@question_ids)
