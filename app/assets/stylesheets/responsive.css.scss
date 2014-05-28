@@ -354,6 +354,9 @@ $standard_border_radius: 6px;
   .lectures_inline_dropdown_wrapper {
     display: none;
   }
+  a.podmedcis_button.green.print_notes_button {
+    margin-right: 0px;
+  }
   .unlock_specialty_wrapper a.podmedcis_button.green {
     background-image: none;
     text-align: center;
@@ -734,6 +737,9 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 800px) {
+  .sub_heading_wrapper.search_page_header {
+    padding-bottom: 0px;
+  }
   .blog_page_right_column {
     width: 100%;
     float: left;
