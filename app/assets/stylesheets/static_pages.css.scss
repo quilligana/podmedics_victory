@@ -1254,11 +1254,17 @@ a.blog_home_post_wrapper:hover {
 .blog_post_title h1 {
   font-size: 26px;
   line-height: 40px;
-  padding-left: 50px;
+  padding-left: 0px;
   text-align: center;
-  padding-right: 50px;
+  padding-right: 0px;
   padding-top: 50px;
+  float: left;
   padding-bottom: 20px;
+  width: 100%;
+}
+.blog_post_inner_title_wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .blog_post_wrapper img {
   width: 100%;
@@ -1300,6 +1306,7 @@ a.blog_home_post_wrapper:hover {
   text-align: center;
   color: #B8B8B8;
   margin-bottom: 30px;
+  clear: both;
 }
 
 .blog_post_title p span{
