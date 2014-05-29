@@ -1115,7 +1115,6 @@ $standard_border_radius: 6px;
 
   .inner.login_page_inner .login_ignup_form_wrapper {
     float: none;
-    height: 360px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -1123,7 +1122,10 @@ $standard_border_radius: 6px;
     padding-bottom: 30px;
     clear: both;
   }
-
+  .password_reset_link.pw_reset_back_link a {
+    float: left;
+    padding-bottom: 20px;
+  }
   .left_column_forms h2 {
     margin-left: 0px;
   }
