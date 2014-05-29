@@ -641,31 +641,20 @@ $standard_border_radius: 6px;
     border-bottom: solid 1px #EFEFEF;
   }
 
-  .video_page_authour_right_column_avatar {
-    width: 90px;
-    float: left;
-  }
 
-  .video_page_right_column .video_page_authour_right_column_title {
-    width: 60%;
-  }
-
-  .video_page_right_column p.video_page_authour_right_column_name {
-    width: 60%;
-  }
 
   .video_page_right_column_lower_info {
     padding-bottom: 20px;
+    text-align: center;
   }
 
-  a.video_page_authour_twitter_icon, a.video_page_authour_fb_icon {
-    display: none;
-  }
 
   .lecture_questions_right_column {
     display: none;
   }
-
+  .video_page_authour_right_column_user_info {
+    padding-top: 40px;
+  }
   .notes_saved_button {
     height: 68px;
     background-position: top right;
