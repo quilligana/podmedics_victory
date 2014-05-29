@@ -4,6 +4,7 @@
       <%= link_to video.title, video_path(video) %>
       <p class="lecture_specialties_link"><%= link_to video.specialty_name, specialty_path(video.specialty) %></p>
       <p class="lecture_date_author"><%= video.duration %> minutes with <%= video.speaker_name %></p>
+      <p class="lecture_recent_date_wrapper">Posted 8 days ago</p>
     </div>
     <div class="lecture_icons_wrapper">
       <%= show_lecture_icons(video) %>

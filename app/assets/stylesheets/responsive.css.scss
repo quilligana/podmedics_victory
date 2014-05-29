@@ -1226,6 +1226,7 @@ $standard_border_radius: 6px;
     margin-right: 0px;
     margin-left: 15px;
     margin-top: 15px;
+    clear: both;
   }
 
   .lecture_icons_wrapper .lecture_icon .tooltip {
@@ -1240,7 +1241,7 @@ $standard_border_radius: 6px;
   }
 
   .lecture_icons_wrapper .lecture_icon.watched {
-    margin-left: 24px;
+    margin-left: 10px;
   }
 
   .profile_badge_column {
