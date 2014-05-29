@@ -262,7 +262,14 @@ $standard_border_radius: 6px;
   .courses_left_column {
     background-image: image-url('courses_icon@2x.png');
     background-size: 90px 72px;
-
+  }
+  a.video_page_authour_twitter_icon {
+    background-image: image-url('video_author_social_icons@2x.png');
+    background-size: 46px 18px;
+  }
+  a.video_page_authour_fb_icon {
+    background-image: image-url('video_author_social_icons@2x.png');
+    background-size: 46px 18px;
   }
 }
 
