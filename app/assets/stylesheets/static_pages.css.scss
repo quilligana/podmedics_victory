@@ -1446,3 +1446,26 @@ a.join_podmedics_button:hover {
   float: left;
   margin-right: 30px;
 }
+
+.blog_post_inner a {
+  font-weight: 700;
+  color: #555;
+}
+
+.blog_post_inner a:hover {
+  color: #222;
+}
+.blog_post_inner ul,.blog_post_inner ol {
+  font-size: 15px;
+  line-height: 20px;
+  color: #838383;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+.blog_post_inner ul li, .blog_post_inner ol li {
+padding-top: 5px;
+}
+.blog_post_inner ul li:first-child, .blog_post_inner ol li:first-child {
+  padding-top: 0px;
+}
