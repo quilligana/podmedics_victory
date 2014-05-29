@@ -4410,3 +4410,20 @@ a.podmedcis_button.green.print_notes_button {
   margin-left: 20px;
   line-height: 24px;
 }
+
+.courses_right_column.no_courses_found {
+  min-height: 160px;
+}
+
+.courses_right_column.no_courses_found p {
+  font-size: 15px;
+  color: #797979;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.courses_right_column.no_courses_found p:last-child {
+  padding-top: 20px;
+}
