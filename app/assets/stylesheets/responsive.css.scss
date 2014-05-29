@@ -1730,6 +1730,13 @@ $standard_border_radius: 6px;
     padding-left: 5%;
   }
 
+  .footer {
+    height: 12px;
+  }
+  .footer_left, .footer_right {
+    display: none;
+  }
+
 }
 
 
@@ -1919,13 +1926,6 @@ $standard_border_radius: 6px;
 
   .right_column_search_field .navigation_search_field {
     width: 175px;
-  }
-
-  .footer {
-    height: 12px;
-  }
-  .footer_left, .footer_right {
-    display: none;
   }
 
   .lectures_inline_dropdown {
