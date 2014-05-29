@@ -326,7 +326,7 @@ ul[data-pie-id] {
   margin-left: -340px;
 }
 
-.reveal-modal.ask_question_modal_resize, .reveal-modal.earn_points_modal_resize {
+.reveal-modal.ask_question_modal_resize {
   width: 640px;
   margin-left: -320px;
   padding-bottom: 25px;
@@ -4426,4 +4426,10 @@ a.podmedcis_button.green.print_notes_button {
 
 .courses_right_column.no_courses_found p:last-child {
   padding-top: 20px;
+}
+.reveal-modal.earn_points_modal_resize {
+  width: 450px;
+  margin-left: -230px;
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
