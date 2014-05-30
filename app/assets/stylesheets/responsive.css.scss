@@ -330,7 +330,11 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1195px) {
-
+  .return_to_video_page_button_wrapper a.red_button.return_to_video_page_button {
+    text-indent: 0px;
+    background-image: none;
+    text-align: center;
+  }
   .dashboard_pie_chart_wrapper {
     float: left;
     width: 370px;
@@ -2112,7 +2116,7 @@ $standard_border_radius: 6px;
   }
 
   a.default_lecture_question, .lecture_question_blocks input, .default_lecture_question, .default_lecture_question.correct_lecture_answer, .default_lecture_question.incorrect_lecture_answer {
-    padding-top: 28px;
+    padding-top: 32px;
   }
 
   a.red_button.medium.next_question_button {
@@ -2182,5 +2186,15 @@ $standard_border_radius: 6px;
   .top_ranked_users_section_username a {
     font-size: 16px;
     margin-top: 11px;
+  }
+  .lecture_question_status_icon {
+    display: none;
+  }
+  .lecture_questions_list_left_column {
+    margin-right: 25px;
+  }
+  .report_answer_link {
+    margin-bottom: 0px;
+    line-height: 20px;
   }
 }
