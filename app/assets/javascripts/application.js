@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require fresco
 //= require jquery.validate
+//= require addtohomescreen.min
 
 $(document).ready(function(){
 
