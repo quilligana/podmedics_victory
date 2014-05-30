@@ -6,6 +6,9 @@
 
 $(document).ready(function(){
 
+  // Add to homescreen function
+  addToHomescreen();
+
   // form client side validations
   $("#user_email").validate({
       expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
