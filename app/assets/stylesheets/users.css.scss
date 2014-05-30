@@ -604,6 +604,9 @@ div.k-chart {
 #tabs-2 .questions_answers_list {
   float: left;
   width: 100%;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #EFEFEF;
 }
 
 .load_more_questions_answers_wrapper {
