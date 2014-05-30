@@ -361,9 +361,23 @@ $standard_border_radius: 6px;
   .blog_page_right_column {
     width: 29.6%;
   }
+  .top_ranked_users_info_section_wrapper {
+    float: left;
+    margin-left: 55px;
+  }
 }
+@media screen and (max-width: 1035px) {
 
+}
 @media screen and (max-width: 1020px) {
+  .top_ranked_users_section {
+    border-bottom: none;
+    border-top: solid 1px #EFEFEF;
+  }
+  .top_ranked_users_info_section_wrapper {
+    float: left;
+    margin-left: 15px;
+  }
   .questions_answers_main_question .question_comments_outer .comment_reply {
     background-position: 9% 10%;
   }
@@ -2158,5 +2172,22 @@ $standard_border_radius: 6px;
   .blog_post_share_button_wrapper {
     float: left;
     margin-right: 20px;
+  }
+
+  .top_ranked_users_section_avatar img {
+    height: 40px;
+    width: 40px;
+  }
+  .top_ranked_users_section_avatar {
+    width: 55px;
+    height: 55px;
+    margin-top: 10px;
+  }
+  .top_ranked_users_rank_number {
+    width: 50px;
+  }
+  .top_ranked_users_section_username a {
+    font-size: 16px;
+    margin-top: 11px;
   }
 }

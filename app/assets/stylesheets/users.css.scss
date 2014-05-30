@@ -4478,13 +4478,13 @@ a.podmedcis_button.green.print_notes_button {
   float: left;
   list-style: none;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 22px;
+  padding-bottom: 20px;
   border-top: solid 1px #EFEFEF;
 }
 .top_ranked_users_section_avatar {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   float: left;
 }
 .top_ranked_users_section_avatar img {
@@ -4499,28 +4499,30 @@ a.podmedcis_button.green.print_notes_button {
 }
 .top_ranked_users_section_username {
   float: left;
-  margin-right: 20px;
 }
 
 .top_ranked_users_section_username a {
   font-size: 18px;
   font-weight: 700;
   color: #666;
-  margin-top: 12px;
-  margin-left: 10px;
+  margin-top: 10px;
+  margin-left: 0px;
   float: left;
 }
 .top_ranked_users_info_section_wrapper {
   float: left;
+  margin-left: 15px;
 }
 
 .top_ranked_users_section_badge_wrapper {
   margin-top: 7px;
-  margin-left: 10px;
+  margin-left: 0px;
   float: left;
   clear: both;
 }
-
+.top_ranked_users_section_badge_wrapper .badge {
+  margin-bottom: 0px;
+}
 .top_ranked_users_section_badge_wrapper .badge .badge_title {
   -moz-border-radius-topright: 5px 5px;
   border-top-right-radius: 5px 5px;
@@ -4529,7 +4531,7 @@ a.podmedcis_button.green.print_notes_button {
   border-bottom-right-radius: 5px 5px;
 }
 .top_ranked_users_rank_number {
-  width: 70px;
+  width: 55px;
   float: left;
   height: 70px;
   line-height: 74px;
