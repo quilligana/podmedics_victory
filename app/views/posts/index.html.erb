@@ -1,47 +1,21 @@
-
-
-
 <div class="inner blog_page_inner">
 
   <div class="page">
 
-    <!--
     <div class="blog_page_left_column">
       <div class="blog_home_title">
         <h1>Podmedics Blog</h1>
       </div>
 
-      <a class="blog_home_post_wrapper">
-        <div class="blog_post_image_wrapper">
-          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-        </div>
-        <h2>GP extended hours - great in theory, but what about in practice?</h2>
-        <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
-      </a>
-
-      <a class="blog_home_post_wrapper">
-        <div class="blog_post_image_wrapper">
-          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-        </div>
-        <h2>GP extended hours - great in theory, but what about in practice?</h2>
-        <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
-      </a>
-
-      <a class="blog_home_post_wrapper">
-        <div class="blog_post_image_wrapper">
-          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-        </div>
-        <h2>GP extended hours - great in theory, but what about in practice?</h2>
-        <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
-      </a>
-
-      <a class="blog_home_post_wrapper">
-        <div class="blog_post_image_wrapper">
-          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-        </div>
-        <h2>GP extended hours - great in theory, but what about in practice?</h2>
-        <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
-      </a>
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post), class: 'blog_home_post_wrapper' do %>
+          <div class="blog_post_image_wrapper">
+            <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+          </div>
+          <h2><%= post.title %></h2>
+          <p><span class="blog_post_date_icon"></span>Posted <%= post.created_at.to_s(:short) %></p>
+        <% end %>
+      <% end %>
 
       <div class="blog_home_load_more_wrapper">
         <a href="#" class="podmedcis_button grey">Load More</a>
@@ -55,75 +29,8 @@
       </div>
 
     </div>
-    -->
-
-
-
-
-
-    <div class="blog_page_left_column">
-
-      <div class="blog_post_title">
-        <h1>GP extended hours - great in theory, but what about in practice?</h1>
-        <p><span class="blog_post_date_icon"></span>Posted 19th May 2014</p>
-      </div>
-
-      <div class="blog_post_wrapper">
-        <div class="blog_post_image_wrapper">
-          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-        </div>
-        <div class="blog_post_inner">
-          <p>Integer dignissim fringilla purus a imperdiet. Fusce blandit, felis non bibendum mattis, lectus odio fringilla sem, ac rutrum metus enim a nibh. Duis consequat a sem in commodo. In volutpat ligula eget orci volutpat ullamcorper. Donec vitae sollicitudin dolor. Etiam facilisis ante vitae purus ultrices, eu varius dolor imperdiet. Maecenas tincidunt turpis eu tortor commodo, ac adipiscing sem lacinia.</p>
-
-          <p>In ac semper ligula, id suscipit lorem. Nam rutrum, lectus vel ullamcorper dignissim, nisi nulla facilisis massa, vitae dapibus lacus massa et massa. Etiam nec dolor ac elit pretium hendrerit at ac diam. Sed lobortis dictum tellus ut tristique. Aliquam eget dolor eget velit volutpat ullamcorper nec nec justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean rhoncus ut velit vitae vulputate. Pellentesque sodales tortor leo, nec interdum arcu rutrum non. Nam in euismod tellus. Mauris elit erat, imperdiet et facilisis nec, tempor nec magna. Morbi posuere vulputate quam in adipiscing. Vivamus id lacus sit amet velit venenatis mollis. Nulla tempor dapibus urna, quis gravida ipsum. Curabitur imperdiet justo quis tellus semper, vel tempus lectus luctus. Vivamus faucibus lacus eget risus laoreet, vel luctus arcu semper. Aliquam erat volutpat.</p>
-
-          <p>Cras non elementum risus. Duis at felis nec justo rutrum accumsan et vel augue. Etiam et dapibus libero, eget suscipit velit. Maecenas nec nibh vitae tortor rhoncus varius. Ut non neque justo. Donec aliquam auctor neque quis iaculis. Nulla facilisi. Donec consequat lectus nibh, non euismod neque lacinia non. Curabitur mi libero, iaculis quis scelerisque a, cursus quis ligula. Integer vitae mi rhoncus orci viverra iaculis. Donec nec massa at tellus commodo consequat. Sed molestie risus sagittis ipsum tristique hendrerit. Nulla facilisi.</p>
-
-        </div>
-
-        <div class="blog_post_share_buttons">
-          <div class="blog_post_inner_share_padding">Share buttons</div>
-        </div>
-
-        <div class="blog_post_comments_wrapper">
-          <div class="blog_post_inner_comments_padding">Comments</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="blog_page_right_column">
-      <div class="blog_post_author_section">
-        <p class="post_written_by_title">Post Written By</p>
-        <div class="blog_post_author_avatar">
-          <img src="<%=asset_path "avatar-128.jpg"%>" width="128" height="128" alt=""/>
-        </div>
-        <div class="blog_post_author_info_wrapper">
-          <p class="blog_post_author_name">Dr Ed Wallitt</p>
-          <p class="blog_post_author_position">Founder</p>
-        </div>
-        <div class="blog_post_author_social_icons">
-          <a href="#" class="blog_post_author_twitter_icon"></a>
-          <a href="#" class="blog_post_author_fb_icon"></a>
-        </div>
-      </div>
-
-      <div class="join_podmedics_button_wrapper">
-        <a href="#" class="join_podmedics_button">Join Podmedics</a>
-      </div>
-
-    </div>
-
-
-
-
-
-
-
-    </div>
-
+  </div>
 </div>
-
 
 
 <%= content_for :footer do %>

@@ -1,0 +1,113 @@
+<div class="inner blog_page_inner">
+  <div class="page">
+    <div class="blog_page_left_column">
+
+      <div class="blog_post_title">
+        <div class="blog_post_inner_title_wrapper">
+          <h1><%= @post.title %></h1>
+        </div>
+        <p><span class="blog_post_date_icon"></span>Posted <%= @post.created_at.to_s(:short) %></p>
+      </div>
+
+      <div class="blog_post_wrapper">
+        <div class="blog_post_image_wrapper">
+          <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+        </div>
+        <div class="blog_post_inner">
+          <%= @post.content.html_safe %>
+        </div>
+
+        <div class="blog_post_share_buttons">
+          <div class="blog_post_inner_share_padding">
+
+            <div class="blog_post_share_button_wrapper">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-via="Podmedics" data-related="PodmedicsEd" data-count="none">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+
+            <div class="blog_post_share_button_wrapper">
+              <div class="fb-like" data-href="https://www.podmedics.com/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+
+              <div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+            </div>
+
+            <div class="blog_post_share_button_wrapper">
+              <a href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.podmedics.com%2F&media=https%3A%2F%2Fwww.podmedics.com%2Fblog_post_image.png&description=Blog%20Post%20Title" data-pin-do="buttonPin" data-pin-config="none" data-pin-color="grey"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_20.png" /></a>
+              <!-- Please call pinit.js only once per page -->
+              <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+            </div>
+
+            <div class="blog_post_share_button_wrapper">
+              <!-- Place this tag where you want the +1 button to render. -->
+              <div class="g-plusone" data-size="medium" data-annotation="none" data-href="https://www.podmedics.com/"></div>
+
+              <!-- Place this tag after the last +1 button tag. -->
+              <script type="text/javascript">
+                (function() {
+                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                  po.src = 'https://apis.google.com/js/platform.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
+              </script>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="blog_post_comments_wrapper">
+          <div class="blog_post_inner_comments_padding">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'podmedics'; // required: replace example with your forum shortname
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="blog_page_right_column">
+      <div class="blog_post_author_section">
+        <p class="post_written_by_title">Post Written By</p>
+        <div class="blog_post_author_avatar">
+          <%= image_tag @post.author.get_avatar(:square), width: '128', height: '128' %>
+        </div>
+        <div class="blog_post_author_info_wrapper">
+          <p class="blog_post_author_name"><%= @post.author.name %></p>
+          <p class="blog_post_author_position"><%= @post.author.tagline %></p>
+        </div>
+        <div class="blog_post_author_social_icons">
+          <% unless @post.author_twitter.blank? %>
+            <%= link_to '', @post.author_twitter,  class: 'blog_post_author_twitter_icon', target: '_blank' %>
+          <% end %>
+          <% unless @post.author_facebook.blank? %>
+            <%= link_to '', @post.author_facebook, class: 'blog_post_author_fb_icon', target: '_blank' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="join_podmedics_button_wrapper">
+        <%= link_to "Join Podmedics", signup_path, class: 'join_podmedics_button' %>
+      </div>
+
+    </div>
+    
+  </div>
+  
+</div>

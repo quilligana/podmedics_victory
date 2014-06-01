@@ -235,6 +235,42 @@ $standard_border_radius: 6px;
     background-size: 68px;
   }
 
+  .home_section_one_block .icon.questions_block {
+    background-image: image-url('home_block_icons@2x.png');
+    background-size: 150px 350px;
+  }
+  .home_section_one_block .icon.lecture_block {
+    background-image: image-url('video_complete_icon@2x.png');
+    background-size: 150px  80px;
+  }
+  .home_section_one_block .icon {
+    background-image: image-url('podmedics_icon_x74@2x.png');
+    background-size: 80px  80px;
+  }
+  .home_section_one_block .icon.badges_block {
+    background-image: image-url('home_block_icons@2x.png');
+    background-size: 150px  350px;
+  }
+  .oxford_uni_logo {
+    background-image: image-url('oxford_logo@2x.png');
+    background-size: 147px  47px;
+  }
+  .questions_answers_main_question .question_comments_outer .comment_reply {
+    background-size: 35px 130px;
+    background-image: image-url('comment_reply@2x.png');
+  }
+  .courses_left_column {
+    background-image: image-url('courses_icon@2x.png');
+    background-size: 90px 72px;
+  }
+  a.video_page_authour_twitter_icon {
+    background-image: image-url('video_author_social_icons@2x.png');
+    background-size: 46px 18px;
+  }
+  a.video_page_authour_fb_icon {
+    background-image: image-url('video_author_social_icons@2x.png');
+    background-size: 46px 18px;
+  }
 }
 
 
@@ -291,10 +327,23 @@ $standard_border_radius: 6px;
     right: 55px;
   }
 
+  .points_until_next_badge_wrapper .badge .badge_speciality:last-child{
+    display: none;
+  }
+  .points_until_next_badge_wrapper .badge .badge_title{
+    -moz-border-radius-topright: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    -moz-border-radius-bottomright: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+  }
 }
 
 @media screen and (max-width: 1195px) {
-
+  .return_to_video_page_button_wrapper a.red_button.return_to_video_page_button {
+    text-indent: 0px;
+    background-image: none;
+    text-align: center;
+  }
   .dashboard_pie_chart_wrapper {
     float: left;
     width: 370px;
@@ -306,16 +355,7 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 1110px) {
 
-  .points_until_next_badge_wrapper .badge .badge_speciality:last-child{
-    display: none;
-  }
 
-  .points_until_next_badge_wrapper .badge .badge_title{
-    -moz-border-radius-topright: 5px 5px;
-    border-top-right-radius: 5px 5px;
-    -moz-border-radius-bottomright: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
-  }
   .inner.blog_page_inner {
     width: 96%;
   }
@@ -325,9 +365,32 @@ $standard_border_radius: 6px;
   .blog_page_right_column {
     width: 29.6%;
   }
+  .top_ranked_users_info_section_wrapper {
+    float: left;
+    margin-left: 55px;
+  }
 }
+@media screen and (max-width: 1035px) {
 
+}
 @media screen and (max-width: 1020px) {
+  .top_ranked_users_section {
+    border-bottom: none;
+    border-top: solid 1px #EFEFEF;
+  }
+  .top_ranked_users_info_section_wrapper {
+    float: left;
+    margin-left: 15px;
+  }
+  .questions_answers_main_question .question_comments_outer .comment_reply {
+    background-position: 9% 10%;
+  }
+  .lectures_inline_dropdown_wrapper {
+    display: none;
+  }
+  a.podmedcis_button.green.print_notes_button {
+    margin-right: 0px;
+  }
   .unlock_specialty_wrapper a.podmedcis_button.green {
     background-image: none;
     text-align: center;
@@ -596,31 +659,20 @@ $standard_border_radius: 6px;
     border-bottom: solid 1px #EFEFEF;
   }
 
-  .video_page_authour_right_column_avatar {
-    width: 90px;
-    float: left;
-  }
 
-  .video_page_right_column .video_page_authour_right_column_title {
-    width: 60%;
-  }
-
-  .video_page_right_column p.video_page_authour_right_column_name {
-    width: 60%;
-  }
 
   .video_page_right_column_lower_info {
     padding-bottom: 20px;
+    text-align: center;
   }
 
-  a.video_page_authour_twitter_icon, a.video_page_authour_fb_icon {
-    display: none;
-  }
 
   .lecture_questions_right_column {
     display: none;
   }
-
+  .video_page_authour_right_column_user_info {
+    padding-top: 40px;
+  }
   .notes_saved_button {
     height: 68px;
     background-position: top right;
@@ -708,6 +760,9 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 800px) {
+  .sub_heading_wrapper.search_page_header {
+    padding-bottom: 0px;
+  }
   .blog_page_right_column {
     width: 100%;
     float: left;
@@ -1078,7 +1133,6 @@ $standard_border_radius: 6px;
 
   .inner.login_page_inner .login_ignup_form_wrapper {
     float: none;
-    height: 360px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -1086,7 +1140,10 @@ $standard_border_radius: 6px;
     padding-bottom: 30px;
     clear: both;
   }
-
+  .password_reset_link.pw_reset_back_link a {
+    float: left;
+    padding-bottom: 20px;
+  }
   .left_column_forms h2 {
     margin-left: 0px;
   }
@@ -1156,12 +1213,7 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 650px) {
 
-  .reveal-modal.earn_points_modal_resize {
-    width: 500px;
-    margin-left: -250px;
-    padding-bottom: 25px;
-    padding-top: 25px;
-  }
+
 
   .ask_question_modal_wrapper {
     width: 90%;
@@ -1192,6 +1244,7 @@ $standard_border_radius: 6px;
     margin-right: 0px;
     margin-left: 15px;
     margin-top: 15px;
+    clear: both;
   }
 
   .lecture_icons_wrapper .lecture_icon .tooltip {
@@ -1206,7 +1259,7 @@ $standard_border_radius: 6px;
   }
 
   .lecture_icons_wrapper .lecture_icon.watched {
-    margin-left: 24px;
+    margin-left: 10px;
   }
 
   .profile_badge_column {
@@ -1348,10 +1401,6 @@ $standard_border_radius: 6px;
 
   p.badge_speciality.small_screen_count {
     display: inline;
-  }
-
-  .dashboard_badges_left_column a .badge_speciality {
-    display: block;
   }
 
   .notification p {
@@ -1515,7 +1564,11 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 620px) {
-
+  .comment_reply_link a {
+    float: left;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   div.comment_lower_action_buttons_right {
     float: left;
     clear: both;
@@ -1690,6 +1743,13 @@ $standard_border_radius: 6px;
     padding-left: 5%;
   }
 
+  .footer {
+    height: 12px;
+  }
+  .footer_left, .footer_right {
+    display: none;
+  }
+
 }
 
 
@@ -1726,7 +1786,7 @@ $standard_border_radius: 6px;
   }
 
   .questions_answers_main_question .question_comments_outer .comment_reply {
-    background-position: 50px -5px;
+    background-position: 50px 4px;
     margin-left: 0px;
     padding-left: 0px;
     background-repeat: no-repeat;
@@ -1881,13 +1941,6 @@ $standard_border_radius: 6px;
     width: 175px;
   }
 
-  .footer {
-    height: 12px;
-  }
-  .footer_left, .footer_right {
-    display: none;
-  }
-
   .lectures_inline_dropdown {
     width: 301px;
   }
@@ -2010,9 +2063,6 @@ $standard_border_radius: 6px;
     padding-left: 5%;
   }
 
-  .video_page_authour_right_column_user_info_inner_wrapper {
-    width: 50%;
-  }
 
   .inner.profile_page_inner {
     padding-top: 20px;
@@ -2066,7 +2116,7 @@ $standard_border_radius: 6px;
   }
 
   a.default_lecture_question, .lecture_question_blocks input, .default_lecture_question, .default_lecture_question.correct_lecture_answer, .default_lecture_question.incorrect_lecture_answer {
-    padding-top: 28px;
+    padding-top: 32px;
   }
 
   a.red_button.medium.next_question_button {
@@ -2115,5 +2165,36 @@ $standard_border_radius: 6px;
   }
   .inner_pickup_page a.red_button {
     margin-bottom: 80px;
+  }
+  .blog_post_share_button_wrapper {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .top_ranked_users_section_avatar img {
+    height: 40px;
+    width: 40px;
+  }
+  .top_ranked_users_section_avatar {
+    width: 55px;
+    height: 55px;
+    margin-top: 10px;
+  }
+  .top_ranked_users_rank_number {
+    width: 50px;
+  }
+  .top_ranked_users_section_username a {
+    font-size: 16px;
+    margin-top: 11px;
+  }
+  .lecture_question_status_icon {
+    display: none;
+  }
+  .lecture_questions_list_left_column {
+    margin-right: 25px;
+  }
+  .report_answer_link {
+    margin-bottom: 0px;
+    line-height: 20px;
   }
 }

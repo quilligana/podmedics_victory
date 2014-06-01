@@ -164,7 +164,7 @@ a.red_button.home_action_button.dark_grey:hover {
 
 }
 .inner_home_header_action_buttons {
-  width: 470px;
+  width: 475px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1254,11 +1254,17 @@ a.blog_home_post_wrapper:hover {
 .blog_post_title h1 {
   font-size: 26px;
   line-height: 40px;
-  padding-left: 50px;
+  padding-left: 0px;
   text-align: center;
-  padding-right: 50px;
+  padding-right: 0px;
   padding-top: 50px;
+  float: left;
   padding-bottom: 20px;
+  width: 100%;
+}
+.blog_post_inner_title_wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .blog_post_wrapper img {
   width: 100%;
@@ -1300,6 +1306,7 @@ a.blog_home_post_wrapper:hover {
   text-align: center;
   color: #B8B8B8;
   margin-bottom: 30px;
+  clear: both;
 }
 
 .blog_post_title p span{
@@ -1433,4 +1440,32 @@ a.join_podmedics_button:hover {
   margin-left: 20px;
   margin-right: 20px;
   clear: both;
+}
+
+.blog_post_share_button_wrapper {
+  float: left;
+  margin-right: 30px;
+}
+
+.blog_post_inner a {
+  font-weight: 700;
+  color: #555;
+}
+
+.blog_post_inner a:hover {
+  color: #222;
+}
+.blog_post_inner ul,.blog_post_inner ol {
+  font-size: 15px;
+  line-height: 20px;
+  color: #838383;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+.blog_post_inner ul li, .blog_post_inner ol li {
+padding-top: 5px;
+}
+.blog_post_inner ul li:first-child, .blog_post_inner ol li:first-child {
+  padding-top: 0px;
 }

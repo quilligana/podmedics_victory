@@ -21,6 +21,7 @@
       <h4>Subscription Info</h4>
       <p>Selected plan: <%= @user.selected_plan %></p>
       <p>Subscribed on: <%= @user.subscribed_on %></p>
+      <p>Expires on: <%= @user.expires_on %></p>
       <h4>Unlocks</h4>
       <ul>
         <% @user.specialties.each do |specialty| %>

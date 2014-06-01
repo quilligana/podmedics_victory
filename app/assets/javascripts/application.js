@@ -2,8 +2,12 @@
 //= require jquery_ujs
 //= require fresco
 //= require jquery.validate
+//= require addtohomescreen.min
 
 $(document).ready(function(){
+
+  // Add to homescreen function
+  addToHomescreen();
 
   // form client side validations
   $("#user_email").validate({

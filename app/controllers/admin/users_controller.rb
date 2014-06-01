@@ -51,7 +51,7 @@ class Admin::UsersController < ApplicationController
 
   def permitted_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin,
-                                :selected_plan, :subscribed_on)
+                                :selected_plan, :subscribed_on, :expires_on)
   end
 end
 

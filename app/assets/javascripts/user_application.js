@@ -14,3 +14,4 @@
 //= require autosave
 //= require froogaloop
 //= require vimeo
+//= require addtohomescreen.min
