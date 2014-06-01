@@ -5,10 +5,11 @@
         <div class="questions_result_title">
           <div class="questions_final_results">
             <% if @quiz.total_questions < NUMBER_OF_SPECIALTY_QUESTIONS %>
-              <strong>You have completed all of the questions.</strong>
               <% if @quiz.pass_result? %>
+                <strong>Congratulations! You have achieved the pass grade.</strong>
                 <p>You answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>.</p>
               <% else %>
+                <strong>You have completed all the questions.</strong>
                 <p>You only answered <%= pluralize(@quiz.number_correct, 'question') %>  correctly out of a total of <%= pluralize(@quiz.total_questions, 'question') %>. We would encourage you to retake this lecture in order to improve your score.</p>
               <% end %>
               <%= link_to "Back to Video", video_path(@quiz.video), :class => "red_button" %>
