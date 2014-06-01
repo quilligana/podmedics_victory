@@ -47,9 +47,11 @@ class UserProgress
 
   def due_badge?
     if current_badge.nil?
-        true if grade_level == 0
+      return true if grade_level == 0
+      false
     elsif current_badge.level != grades(grade_level)
-      true if grade_level <= 5
+      return true if grade_level <= 5
+      false
     else
       false
     end
@@ -100,40 +102,40 @@ class UserProgress
 private
 
   def specialty_points(user)
-    video_points(video_ids) + question_points(video_ids) +
-    answer_points(answers) + upvote_points(answers) +
-    accepted_answer_points(answers)
+    video_points(user, video_ids) + question_points(user, video_ids) +
+    answer_points(answers(user)) + upvote_points(user, answers(user)) +
+    accepted_answer_points(answers(user))
   end
 
   def video_ids
-    video_ids |= @specialty.video_ids
+    video_ids ||= @specialty.video_ids
   end
 
-  def answers
-    answers |= Comment.where(user_id: user.id).
-               where(commentable_type: "SpecialtyQuestion").
-               where("commentable_id IN (?)", @specialty.specialty_question_ids)
+  def answers(user)
+    answers ||= Comment.where(user_id: user.id).
+                        where(commentable_type: "SpecialtyQuestion").
+                        where("commentable_id IN (?)", @specialty.specialty_question_ids)
   end
 
-  def video_points(video_ids)
+  def video_points(user, video_ids)
     videos_watched = user.vimeos.where("video_id IN (?)", video_ids).
                       where(completed: true).count
     videos_watched * POINTS[:watched_video]
   end
 
-  def question_points(video_ids)
+  def question_points(user, video_ids)
     q_ids = Question.where("video_id IN (?)", video_ids).pluck(:id)
     question_points = UserQuestion.number_correct(user.id, q_ids) *
                       POINTS[:correct_answer]
   end
 
-  def answer_points
+  def answer_points(answers)
     answers.count * POINTS[:answered_user_question]
   end
 
-  def upvote_points(answers)
-    votes = user.votes.where("comment_id IN (?)", answers.pluck(:id))
-    votes.count * POINTS[:upvote]
+  def upvote_points(user, answers)
+    votes = user.votes.where("comment_id IN (?)", answers.pluck(:id)).count
+    votes * POINTS[:upvote]
   end
 
   def accepted_answer_points(answers)

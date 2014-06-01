@@ -8,6 +8,7 @@ describe UserProgress do
     @video = create(:video, specialty: @specialty)
     @question = create(:question, video: @video)
     @question_2 = create(:question, video: @video)
+    @specialty_question = create(:specialty_question, specialty_id: @specialty.id)
     @progress_instance = UserProgress.new(@specialty, @user)
   end
 
@@ -30,7 +31,10 @@ describe UserProgress do
     it 'should return the users updated points in that specialty' do
       create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
-      @progress_instance.user_specialty_points.should eq 40
+      comment = create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id, accepted: true)
+      create(:vote, comment_id: comment.id)
+      create(:vote, user_id: 3, comment_id: comment.id)
+      @progress_instance.user_specialty_points.should eq 66
     end
   end
 
@@ -79,33 +83,71 @@ describe UserProgress do
 
   describe "#due_badge?" do
     context 'if the current user does not yet have a badge' do
-      it 'should return true if the user has made grade_level 0' do
-        @progress_instance.professor_points.should eq 60
-      end
+
       it 'should return false if the user has not made grade_level 0' do
-        @progress_instance.professor_points.should eq 60
+        @progress_instance.due_badge?.should eq false
+      end
+
+      it 'should return true if the user has made grade_level 0' do
+        create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
+        create(:user_question, user_id: @user.id, question_id: @question_2.id, correct_answer: true)
+        create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id)
+        @progress_instance.due_badge?.should eq true
       end
     end
-    context "if a professor exists" do
+
+    context "if the current user already has badges" do
+
       before do
-        @user_2 = create(:user)
-        create(:user_question, user_id: @user_2.id, question_id: @question.id, correct_answer: true)
-        @specialty.professor = @user_2.id
+        create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
+        create(:user_question, user_id: @user.id, question_id: @question_2.id, correct_answer: true)
+        create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id)
+        create(:badge, user_id: @user.id, specialty_id: @specialty.id)
       end
-      it "should return the current professor's specialty points +1" do
-        @progress_instance.professor_points.should eq 11
+
+      it 'should return false if the user has not changed grade_level' do
+        @progress_instance.due_badge?.should eq false
       end
+
+      it "should return true if the user has changed grade_level" do
+        create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
+        @progress_instance.due_badge?.should eq true
+      end
+
     end
   end
 
   describe '#award_badge' do
-    it 'should award a badge when a user reaches the grade level' do
-      create(:question, video: @video)
-      @progress_instance.award_badge.should eq nil
-      create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
-      expect do
-        @progress_instance.award_badge
-      end.to change { Badge.count }
+
+    it "should not award a badge if its not deserved" do
+        expect do
+          @progress_instance.award_badge
+        end.not_to change { Badge.count }
+    end
+
+    before do
+      create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
+      create(:user_question, user_id: @user.id, question_id: @question_2.id, correct_answer: true)
+    end
+
+    context 'no previous badges in specialty' do
+      it 'should award a badge when a user reaches grade level zero' do
+        create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id)
+        expect do
+          @progress_instance.award_badge
+        end.to change { Badge.count }
+      end
+    end
+
+    context 'with previous badges in specialty' do
+      it 'should award a badge when a user reaches the grade level' do
+        create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id)
+        create(:badge, user_id: @user.id, specialty_id: @specialty.id)
+        create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
+        expect do
+          @progress_instance.award_badge
+        end.to change { Badge.count }
+      end
     end
   end
 

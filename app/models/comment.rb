@@ -56,7 +56,12 @@ class Comment < ActiveRecord::Base
   def vote(user)
     if votable?
       @vote = self.votes.find_by(user: user) || self.votes.new(user: user)
-      @vote.save
+      if @vote.save
+        voted_user = User.find(self.user_id)
+        voted_user.add_points(:upvote)
+        specialty = SpecialtyQuestion.find_by(id: self.commentable_id).specialty
+        UserProgress.new(specialty, voted_user).award_badge
+      end
     end
   end
 

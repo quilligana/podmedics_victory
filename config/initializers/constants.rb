@@ -3,7 +3,7 @@ NUMBER_OF_SPECIALTY_QUESTIONS = 30
 POINTS = { 
   correct_answer: 10,
   watched_video: 30,
-  answered_user_question: 5,
+  answered_user_question: 4,
   accepted_answer: 20,
   upvote: 1
 }
