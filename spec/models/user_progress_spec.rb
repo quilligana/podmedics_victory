@@ -59,6 +59,45 @@ describe UserProgress do
     end
   end
 
+  describe "#professor_points" do
+    context 'if no professor exists in the specialty' do
+      it 'should return the max specialty points' do
+        @progress_instance.professor_points.should eq 60
+      end
+    end
+    context "if a professor exists" do
+      before do
+        @user_2 = create(:user)
+        create(:user_question, user_id: @user_2.id, question_id: @question.id, correct_answer: true)
+        @specialty.professor = @user_2.id
+      end
+      it "should return the current professor's specialty points +1" do
+        @progress_instance.professor_points.should eq 11
+      end
+    end
+  end
+
+  describe "#due_badge?" do
+    context 'if the current user does not yet have a badge' do
+      it 'should return true if the user has made grade_level 0' do
+        @progress_instance.professor_points.should eq 60
+      end
+      it 'should return false if the user has not made grade_level 0' do
+        @progress_instance.professor_points.should eq 60
+      end
+    end
+    context "if a professor exists" do
+      before do
+        @user_2 = create(:user)
+        create(:user_question, user_id: @user_2.id, question_id: @question.id, correct_answer: true)
+        @specialty.professor = @user_2.id
+      end
+      it "should return the current professor's specialty points +1" do
+        @progress_instance.professor_points.should eq 11
+      end
+    end
+  end
+
   describe '#award_badge' do
     it 'should award a badge when a user reaches the grade level' do
       create(:question, video: @video)
