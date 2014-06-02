@@ -1,5 +1,8 @@
 class Post < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :author
   validates :title, :content, :author_id, presence: true
   delegate :twitter, to: :author, prefix: true
