@@ -3721,6 +3721,14 @@ a.press_kit_block_image_three {
   background-position: 0px 0px;
 }
 
+
+a.press_kit_block_image_one:hover, a.press_kit_block_image_two:hover, a.press_kit_block_image_three:hover {
+  -webkit-filter: grayscale(40%);
+}
+
+
+
+
 .press_kit_block_inner p {
   float: left;
   width: 100%;
