@@ -3,6 +3,7 @@
     <h1><%= @post.title %></h1>
     <p><%= link_to "Edit", edit_admin_post_path(@post) %></p>
     <h3>Author: <%= @post.author.name %></h3>
+    <%= image_tag @post.title_image.url(:medium) %>
     <div class="well">
       <%= @post.content.html_safe %>
     </div>

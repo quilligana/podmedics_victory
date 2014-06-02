@@ -1,7 +1,5 @@
 module Avatars
 
-  # Avatar file name
-
   def set_avatar_file_name
     unless avatar_file_name.nil?
       extension = File.extname(self.avatar_file_name)
@@ -22,4 +20,5 @@ module Avatars
       end
     end
   end  
+
 end

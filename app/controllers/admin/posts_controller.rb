@@ -3,8 +3,7 @@ class Admin::PostsController < InheritedResources::Base
   respond_to :html, :json
 
   def permitted_params
-    params.permit(:post => [:title, :content, :author_id])
+    params.permit(:post => [:title, :content, :author_id, :title_image])
   end
-
 
 end
