@@ -1,0 +1,27 @@
+<div class="row header">
+  <h3>Badges</h3>
+</div>
+
+<%= will_paginate @badges %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-wrapper">
+      <table class="table table-hover" border="0">
+        <thead>
+          <tr>
+            <td>#ID</td>
+            <td>Created at</td>
+            <td>User</td>
+            <td>Rank</td>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @badges %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= will_paginate @badges %>
