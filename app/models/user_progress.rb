@@ -132,7 +132,7 @@ private
   end
 
   def upvote_points(user, answers)
-    votes = user.votes.where("comment_id IN (?)", answers.pluck(:id)).count
+    votes = Vote.where("comment_id IN (?)", answers.pluck(:id)).count
     votes * POINTS[:upvote]
   end
 
