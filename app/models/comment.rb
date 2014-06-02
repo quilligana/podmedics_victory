@@ -14,6 +14,8 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
   validates :commentable, presence: true
 
+  delegate :name, to: :user, prefix: true
+
   before_create :set_root
   before_create :owner_vote
 

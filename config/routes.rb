@@ -69,6 +69,7 @@ PodmedicsVictory::Application.routes.draw do
       end
     end
     resources :posts
+    resources :comments
   end
 
   # Specialty/Video

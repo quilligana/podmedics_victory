@@ -1,0 +1,19 @@
+<tr>
+  <td><%= comment.id %></td>
+  <td><%= comment.created_at.to_s(:short) %></td>
+  <td><%= link_to comment.user_name, admin_user_path(comment.user) %></td>
+  <td><%= comment.content %></td>
+  <td>
+    <% if comment.commentable_type == "Video" %>
+      <%= link_to comment.commentable.title, admin_video_path(comment.commentable) %>
+    <% elsif comment.commentable_type == "SpecialtyQuestion" %>
+      Specialty Question
+    <% else  %>
+      Comment
+    <% end %>
+  </td>
+  <td><%= comment.hidden %></td>
+  <td>
+    <%= link_to "Show", admin_comment_path(comment) %>
+  </td>
+</tr>
