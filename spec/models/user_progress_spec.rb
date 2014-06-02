@@ -33,7 +33,6 @@ describe UserProgress do
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
       comment = create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id, accepted: true)
       create(:vote, comment_id: comment.id)
-      create(:vote, user_id: 3, comment_id: comment.id)
       @progress_instance.user_specialty_points.should eq 66
     end
   end

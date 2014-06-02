@@ -180,6 +180,17 @@ describe Comment do
       it "increases the score by one" do
         expect{ @comment.vote(@user) }.to change{ @comment.score }.by(1)
       end
+
+      it "voting should change the commenters points" do
+        expect(@user.points).to eq(0)
+
+        @comment.vote(create(:user))
+        @comment.vote(create(:user))
+        @comment.vote(create(:user))
+        @user.reload
+
+        expect(@user.points).to eq(3)
+      end
     end
   end
 
