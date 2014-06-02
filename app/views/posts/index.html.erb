@@ -4,34 +4,23 @@
 
     <div class="blog_page_left_column">
       <div class="blog_home_title">
-        <h1>Podmedics Blog</h1>
+        <h1>Podmedics News</h1>
       </div>
-
-      <% @posts.each do |post| %>
-        <%= link_to post_path(post), class: 'blog_home_post_wrapper' do %>
-          <div class="blog_post_image_wrapper">
-            <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
-          </div>
-          <h2><%= post.title %></h2>
-          <p><span class="blog_post_date_icon"></span>Posted <%= post.created_at.to_s(:short) %></p>
-        <% end %>
-      <% end %>
-
+      <%= render @posts %>
       <div class="blog_home_load_more_wrapper">
         <a href="#" class="podmedcis_button grey">Load More</a>
       </div>
-
     </div>
+
     <div class="blog_page_right_column">
       <div class="blog_home_right_column_info">
-        <p>Welcome to the Podmedics blog we have 41 great blog posts for you to read through an openly discuss medicine and all other related health care topics.</p>
-        <p>Morbi a facilisis sapien. In vestibulum, ipsum vitae mattis consectetur, orci turpis fermentum enim, eu gravida ante odio vel nisi. Curabitur et nibh vel risus elementum egestas eu et sapien.</p>
+        <p>Welcome to our blog! </p>
+        <p>Our goal here is to keep you up-to-date with all the developments on our the site, as well as offer occasional interesting articles.</p>
       </div>
-
     </div>
+
   </div>
 </div>
-
 
 <%= content_for :footer do %>
   <div class="inline_footer_wrapper blog_page_footer">

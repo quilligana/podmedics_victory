@@ -1,0 +1,8 @@
+<%= link_to post_path(post), class: 'blog_home_post_wrapper' do %>
+  <div class="blog_post_image_wrapper">
+    <img src="<%=asset_path "blog_post_image_placeholder.png"%>" alt=""/>
+  </div>
+  <h2><%= post.title %></h2>
+  <p><span class="blog_post_date_icon"></span>Posted <%= post.created_at.to_s(:short) %></p>
+<% end %>
+
