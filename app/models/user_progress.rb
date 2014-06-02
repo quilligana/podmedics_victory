@@ -1,5 +1,7 @@
 class UserProgress
 
+  attr_reader :specialty
+
   def initialize(specialty, user)
     @specialty = specialty
     @user = user

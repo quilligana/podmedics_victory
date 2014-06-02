@@ -13,10 +13,11 @@
       <div class="share_buttons_modal_wrapper">
 
         <div class="share_block_wrapper">
-          <a href="https://twitter.com/share" class="twitter-share-button" 
-             data-url="https://podmedics.com/" data-count="none"
-             data-text="I just passed the Cardiology Exam at Podmedics"
-             data-lang="en">Tweet</a>
+          <%= link_to "Tweet", "https://twitter.com/share", 
+              class: "twitter-share-button",
+                :'data-url' => "https://podmedics.com/", :'data-count' => "none", 
+                :'data-text' => "I just got the #{user_progress.current_badge.level} Badge for #{user_progress.specialty.name} at Podmedics",
+                :'data-lang' => "en"  %>
         </div>
 
 
