@@ -39,6 +39,7 @@ gem "font-awesome-rails"
 gem 'airbrake'
 gem 'ransack'
 gem 'doc_raptor'
+gem 'gattica', :git => 'git://github.com/chrisle/gattica.git'
 
 group :development do
   gem 'thin'
