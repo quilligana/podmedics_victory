@@ -17,6 +17,11 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: newsletter.subject
   end
 
+  def one_week_hello(user)
+    @user = user
+    mail to: user.email, subject: 'We hope you are enjoying Podmedics'
+  end
+
   def password_reset(user)
     @user = user
     mail to: user.email, subject: 'Podmedics Password Reset'

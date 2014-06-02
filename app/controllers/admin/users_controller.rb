@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   layout 'admin_application'
-  before_action :set_user, only: [:edit, :update, :show, :destroy]
+  before_action :set_user, only: [:edit, :update, :show, :destroy, :send_1w_reminder]
 
   def index
     @q = User.search(params[:q])
@@ -39,6 +39,11 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to admin_users_path, notice: 'User removed'
+  end
+
+  def send_1w_reminder
+    UserMailer.delay.one_week_hello(@user)
+    redirect_to admin_users_path, notice: 'Reminder sent'
   end
 
   private

@@ -92,6 +92,10 @@ class User < ActiveRecord::Base
     !self.has_subscription_and_in_date? 
   end
 
+  def suitable_for_reminder?
+    self.is_trial_member? && self.has_selected_plan? ? true : false
+  end
+
   # Trial member specialty access
 
   def has_access_to?(specialty)

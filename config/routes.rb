@@ -55,7 +55,9 @@ PodmedicsVictory::Application.routes.draw do
       end
       resources :questions
     end
-    resources :users
+    resources :users do
+      member { get 'send_1w_reminder'}
+    end
     resources :authors
     resources :faqs
     resources :courses
