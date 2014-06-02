@@ -1207,6 +1207,14 @@ a#back_to_notes_button {
   background-color: rgba(122, 18, 33, 0.26);
 }
 
+
+.inner_menu_wrapper .nav-blog {
+  background-image: image-url('blog_nav_icon.png');
+  background-repeat: no-repeat;
+  background-position: 244px 19px;
+}
+
+
 .main_nav_wrapper.speciality a {
   background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
