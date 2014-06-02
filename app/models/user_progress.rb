@@ -47,11 +47,9 @@ class UserProgress
 
   def due_badge?
     if current_badge.nil?
-      return true if grade_level == 0
-      false
+      grade_level == 0 ? true : false
     elsif current_badge.level != grades(grade_level)
-      return true if grade_level <= 5
-      false
+      grade_level <= 5 ? true : false
     else
       false
     end
@@ -139,8 +137,7 @@ private
   end
 
   def accepted_answer_points(answers)
-    accepted_answer_points =  answers.where(accepted: true).count * 
-    POINTS[:accepted_answer]
+    answers.where(accepted: true).count * POINTS[:accepted_answer]
   end
 
   def grades(level)

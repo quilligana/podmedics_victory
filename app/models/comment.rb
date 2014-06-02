@@ -57,9 +57,8 @@ class Comment < ActiveRecord::Base
 
   def vote(user)
     if votable?
-      unless self.votes.find_by(user: user)
-        vote = self.votes.new(user: user)
-        vote.save
+      @vote = self.votes.find_by(user: user) || self.votes.new(user: user)
+      if @vote.save
         add_vote_points
       end
     end
