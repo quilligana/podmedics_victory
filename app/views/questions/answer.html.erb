@@ -47,4 +47,8 @@
   </div>
 </div>
 
+<% if @user_progress.award_badge %>
+  <%= render partial: 'shared/award_badge', locals: {user_progress: @user_progress} %>
+<% end %>
+
 <%= render partial: 'shared/award_badge', locals: {user_progress: @user_progress} %>

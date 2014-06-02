@@ -1,39 +1,40 @@
-<% if @user_progress.award_badge %>
-  <a href="javascript:;" data-reveal-id="questions_complete_modal" id="questions_complete_modal_click" style=" display: none">New Badge Modal</a>
-  <div id="questions_complete_modal" class="reveal-modal questions_complete_modal_spacing">
-    <div class="video_complete_modal">
-      <div class="badge_earned_icon">Congratulations!</div>
-      <p>You have just been awarded a new badge</p>
+<a href="javascript:;" data-reveal-id="questions_complete_modal" id="questions_complete_modal_click" style=" display: none">New Badge Modal</a>
+<div id="questions_complete_modal" class="reveal-modal questions_complete_modal_spacing">
+  <div class="video_complete_modal">
+    <div class="badge_earned_icon">Congratulations!</div>
+    <p>You have just been awarded a new badge</p>
 
-      <div class="badge_awarded_wrapper">
-        <%= show_badge(@user_progress.current_badge) %>
-      </div>
-
-      <div class="modal_share_badge">
-        Share your achievement
-        <div class="share_buttons_modal_wrapper">
-
-          <div class="share_block_wrapper">
-            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1397165098.html#_=1398759281660&amp;count=none&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fjamiepeak.co.uk%2Fpodmedics%2Fdevelopment%2Fpodmedics%2Fquestions&amp;size=m&amp;url=http%3A%2F%2Fjamiepeak.co.uk%2Fpodmedics%2Fdevelopment%2Fpodmedics%2Fquestions" class="twitter-share-button twitter-tweet-button twitter-count-none" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 56px; height: 20px;"></iframe>
-          </div>
-
-
-          <div class="share_block_wrapper">
-            <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&amp;media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&amp;guid=zHDLoi8q99Xi-0&amp;description=Next%20stop%3A%20Pinterest" class="PIN_1398759281594_pin_it_button_20 PIN_1398759281594_pin_it_button_en_20_gray PIN_1398759281594_pin_it_button_inline_20 PIN_1398759281594_pin_it_none_20" target="_blank" data-pin-log="button_pinit" data-pin-config="none"><span class="PIN_1398759281594_hidden" id="PIN_1398759281594_pin_count_0"><i></i></span></a>
-          </div>
-
-          <div class="share_block_wrapper fb" style="display: block;">
-            <div class="fb-send fb_iframe_widget" data-href="http://developers.facebook.com/docs/plugins/" data-colorscheme="light" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;color_scheme=light&amp;href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;locale=en_US&amp;sdk=joey"><span style="vertical-align: bottom; width: 52px; height: 20px;"><iframe name="f198251a34" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:send Facebook Social Plugin" src="http://www.facebook.com/plugins/send.php?app_id=&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FdgdTycPTSRj.js%3Fversion%3D40%23cb%3Df103b4d274%26domain%3Djamiepeak.co.uk%26origin%3Dhttp%253A%252F%252Fjamiepeak.co.uk%252Ff32559352%26relation%3Dparent.parent&amp;color_scheme=light&amp;href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;locale=en_US&amp;sdk=joey" class="" style="border: none; visibility: visible; width: 52px; height: 20px;"></iframe></span></div>
-          </div>
-
-          <script type="text/javascript" async="" src="//assets.pinterest.com/js/pinit_main.js"></script>
-          <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
-          <script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-        </div>
-      </div>
-      <a href="javascript:;" class="red_button close-reveal-modal">Continue</a>
-
+    <div class="badge_awarded_wrapper">
+      <%= show_badge(user_progress.current_badge) %>
     </div>
+
+    <div class="modal_share_badge">
+      Share your achievement
+      <div class="share_buttons_modal_wrapper">
+
+        <div class="share_block_wrapper">
+          <a href="https://twitter.com/share" class="twitter-share-button" 
+             data-url="https://podmedics.com/" data-count="none"
+             data-text="I just passed the Cardiology Exam at Podmedics"
+             data-lang="en">Tweet</a>
+        </div>
+
+
+        <div class="share_block_wrapper">
+          <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&amp;media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&amp;guid=zHDLoi8q99Xi-0&amp;description=Next%20stop%3A%20Pinterest" class="PIN_1398759281594_pin_it_button_20 PIN_1398759281594_pin_it_button_en_20_gray PIN_1398759281594_pin_it_button_inline_20 PIN_1398759281594_pin_it_none_20" target="_blank" data-pin-log="button_pinit" data-pin-config="none"><span class="PIN_1398759281594_hidden" id="PIN_1398759281594_pin_count_0"><i></i></span></a>
+        </div>
+
+        <div class="share_block_wrapper fb" style="display: block;">
+          <div class="fb-send fb_iframe_widget" data-href="http://developers.facebook.com/docs/plugins/" data-colorscheme="light" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;color_scheme=light&amp;href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;locale=en_US&amp;sdk=joey"><span style="vertical-align: bottom; width: 52px; height: 20px;"><iframe name="f198251a34" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:send Facebook Social Plugin" src="http://www.facebook.com/plugins/send.php?app_id=&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FdgdTycPTSRj.js%3Fversion%3D40%23cb%3Df103b4d274%26domain%3Djamiepeak.co.uk%26origin%3Dhttp%253A%252F%252Fjamiepeak.co.uk%252Ff32559352%26relation%3Dparent.parent&amp;color_scheme=light&amp;href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;locale=en_US&amp;sdk=joey" class="" style="border: none; visibility: visible; width: 52px; height: 20px;"></iframe></span></div>
+        </div>
+
+        <script type="text/javascript" async="" src="//assets.pinterest.com/js/pinit_main.js"></script>
+        <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
+      </div>
+    </div>
+    <a href="javascript:;" class="red_button close-reveal-modal">Continue</a>
   </div>
-<% end %>
+</div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
