@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require redactor
+//= require admin_theme
 
 $(function(){
   // enable rich text editing on the course description field

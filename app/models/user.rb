@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
   end
 
   def suitable_for_reminder?
-    self.is_trial_member? && self.has_selected_plan? ? true : false
+    self.is_trial_member? && self.has_selected_plan? && !self.reminder_email_received ? true : false
   end
 
   # Trial member specialty access

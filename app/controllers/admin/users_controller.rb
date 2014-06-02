@@ -43,6 +43,7 @@ class Admin::UsersController < ApplicationController
 
   def send_1w_reminder
     UserMailer.delay.one_week_hello(@user)
+    @user.update_attributes(reminder_email_received: true)
     redirect_to admin_users_path, notice: 'Reminder sent'
   end
 

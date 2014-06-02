@@ -2,6 +2,8 @@
   <h1>
     <%= @user %>
     <small><%= link_to "Edit", edit_admin_user_path(@user) %></small>
+    <small><%= link_to "Remove", admin_user_path(@user), method: :delete, data: {confirm: 'Are you sure?'} %></small>
+    <small><%= link_to "Send 1w reminder", send_1w_reminder_admin_user_path(@user) %></small>
   </h1>
 </div>
 
@@ -12,8 +14,7 @@
       <p>Admin: <%= @user.admin %></p>
       <p>Name: <%= @user %></p>
       <p>Email: <%= @user.email %></p>
-      <p>Password Digest: <%= @user.password_digest %></p>
-      
+      <p><%= image_tag @user.get_avatar(:thumb) %></p>
     </div>
   </div>
   <div class="col-md-6">
@@ -62,14 +63,16 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h4>Badges</h4>
-    <ul>
-      <% @user.badges.each do |badge| %>
-        <li>
-          <%= badge.specialty.name %>
-          <%= badge.level %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="well">
+      <h4>Badges</h4>
+      <ul>
+        <% @user.badges.each do |badge| %>
+          <li>
+            <%= badge.specialty.name %>
+            <%= badge.level %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
