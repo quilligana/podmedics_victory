@@ -9,21 +9,6 @@
     </div>
   <% end %>
 
-  <div class="right_column_save_note_button">
-    <div class="right_column_save_note_button_wrapper">
-      <a href="javascript:;" class="podmedcis_button grey" id="save_new_note_button">Save A New Note</a>
-    </div>
-  </div>
-
-  <div class="video_page_notes_column">
-    <div class="video_page_notes_column_title">
-      <strong>Notes</strong>
-      <p>Save personal notes for reference later</p>
-    </div>
-    <div class="video_page_notes_column_divide"></div>
-    <%= render partial: 'notes/form' %>
-  </div>
-
   <% if @specialty.cached_notes_count(current_user) > 0 %>
     <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
       <p class="questions_info_right_column_number"><%= @specialty.cached_notes_count(current_user) %></p>
