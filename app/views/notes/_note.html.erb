@@ -1,7 +1,11 @@
 <div class="note_right_column_full_note">
-  <p class="note_title note_page_title"><%= link_to note.cached_title, note_path(note) %></p>
+  <p class="note_title note_page_title">
+    <%= link_to note.cached_title, note_path(note) %>
+  </p>
   <p><%= sanitize(note.content) %></p>
-  <div class="note_page_inner_action_buttons"><%= link_to note.specialty.name, specialty_notes_path(note.specialty), class: "podmedcis_button red" %> <%= link_to note.specialty.category.name, category_notes_path(note.specialty.category), class: "podmedcis_button grey" %></div>
+  <div class="note_page_inner_action_buttons">
+    <%= link_to "#{note.noteable_type} Page", note.noteable, class: "podmedcis_button red" %>
+  </div>
 </div>
 
 <div class="video_page_notes_column_divide clear"></div>

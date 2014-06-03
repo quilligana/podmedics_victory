@@ -8,17 +8,18 @@
     </div>
   </div>
 
-
   <div class="page">
     <% unless @notes.empty? %>
       <% @notes.each do |category| %>
         <div class="notes_category_heading_wrapper">
-          <h2><%= category.first.first.category.name %></h2>
+          <h2><%= link_to category.first.first.category.name, category_notes_path(category.first.first.category) %></h2>
         </div>
 
         <% category.each do |specialty| %>
           <div class="notes_specialty_heading_wrapper">
-            <h3><%= specialty.first.specialty.name %></h3>
+            <h3>
+              <%= link_to specialty.first.specialty.name, specialty_notes_path(specialty.first.specialty) %>
+            </h3>
           </div>
           <%= render partial: 'note', collection: specialty %>
         <% end %>
