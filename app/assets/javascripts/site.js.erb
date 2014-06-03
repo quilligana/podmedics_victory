@@ -128,6 +128,7 @@ ready = function() {
   $("#save_new_note_button").click(function(){
     $(".right_column_save_note_button").toggleClass('animated fadeOutRight').fadeToggle(1);
     $(".video_page_notes_column").addClass('animated fadeInRight').fadeToggle(1);
+    $( this ).text( "Hide Notes" );
   });
 
 

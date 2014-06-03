@@ -309,28 +309,7 @@ $standard_border_radius: 6px;
     height: auto;
   }
 
-  .video_page_notes_column_title {
-    width: 93%;
-  }
 
-  .video_page_notes_column form {
-    width: 93%;
-  }
-
-  .notes_column_text_field {
-    padding-left: 2%;
-    width: 93%;
-  }
-
-  .notes_column_text_area {
-    width: 93%;
-    padding-left: 2%;
-  }
-
-  #notes_saved_message {
-    margin-top: -136px;
-    right: 55px;
-  }
 
   .points_until_next_badge_wrapper .badge .badge_speciality:last-child{
     display: none;
@@ -360,7 +339,11 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 1110px) {
 
-
+  .video_page_notes_column form {
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .inner.blog_page_inner {
     width: 96%;
   }
@@ -1213,6 +1196,11 @@ $standard_border_radius: 6px;
   a.website_profile_button {
     margin-left: 0px;
     clear: both;
+  }
+  .video_page_notes_column form {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

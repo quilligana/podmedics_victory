@@ -870,11 +870,10 @@ div.k-chart {
   padding: 14px;
   border-radius: 5px;
   padding-bottom: 13px;
-  margin-top: -48px;
-  position: absolute;
-  width: 100px;
+  margin-top: 3px;
+  float: right;
   margin-right: 0px;
-  margin-left: 202px;
+  margin-left: 10px;
   font-size: 13px;
   text-transform: uppercase;
   background-color: #8BDD7F;
@@ -2530,20 +2529,22 @@ a.video_download_dropdown_link.slides_file_icon {
 
 
 .notes_column_text_field {
-  width: 91%;
-  margin-left: 0px;
+  width: 99.6%;
+  margin-left: 0%;
+  margin-right: 0%;
   margin-top: 20px;
   outline: none;
   border: solid 1px #DDD;
   border-radius: 5px;
   padding-top: 18px;
-  padding-left: 4%;
-  padding-right: 4%;
+  padding-left: 0%;
+  padding-right: 0%;
   padding-bottom: 14px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #8D8D8D;
+  text-indent: 20px;
 }
 .notes_column_text_area {
   width: 91%;
@@ -2585,9 +2586,7 @@ a.video_download_dropdown_link.slides_file_icon {
   margin-top: 4px;
 }
 .video_page_notes_column_title {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 33px;
   margin-top: 25px;
   margin-bottom: 20px;
 }
@@ -2699,7 +2698,7 @@ a.video_page_authour_twitter_icon {
 }
 
 .video_page_notes_column form {
-  width: 86%;
+  width: 96%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -4562,4 +4561,29 @@ a.podmedcis_button.green.print_notes_button {
 }
 .points_until_next_badge_section p.badge_speciality.small_screen_count {
   display: none;
+}
+
+
+.write_notes_button_outer_wrapper {
+  border-bottom: solid 1px #f4f4f4;
+  float: left;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.write_notes_button_wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.write_notes_button_wrapper a#save_new_note_button {
+  width: 100%;
+  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 16px;
+  padding-top: 24px;
+  padding-bottom: 21px;
 }
