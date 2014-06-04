@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include Avatars
 
   has_secure_password
 
@@ -14,17 +13,6 @@ class User < ActiveRecord::Base
   has_many :sales
   has_many :unlocked_specialties
   has_many :specialties, through: :unlocked_specialties
-
-  has_attached_file :avatar, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }, bucket: ENV['S3_USER_AVATAR_BUCKET_NAME']
-
-  process_in_background :avatar, :processing_image_url => ActionController::Base.helpers.asset_path('avatar-128-pending.jpg')
-
-  validates_attachment :avatar, size: { in: 0..500.kilobytes }
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   validates :email, 
     email_format: { 
@@ -40,8 +28,9 @@ class User < ActiveRecord::Base
     on: :create
 
   after_commit :flush_cache
-  before_save :set_avatar_file_name
-  before_create :generate_unsubscribe_token
+
+  include Avatars
+  include Email
 
   def to_s
     name
@@ -222,30 +211,4 @@ class User < ActiveRecord::Base
     end
     stat
   end
-
-  # Retrieve users who are opted in
-
-  def self.episode_notifications_allowed
-    where(receive_new_episode_notifications: true)
-  end
-
-  def self.newsletters_allowed
-    where(receive_newsletters: true)
-  end
-
-  # Email settings
-
-  def generate_unsubscribe_token
-    generate_token(:unsubscribe_token)
-  end
-
-  def unsubscribe
-    self.receive_newsletters = false
-    self.receive_status_updates = false
-    self.receive_new_episode_notifications = false
-    self.receive_social_notifications = false
-    self.receive_help_request_notifications = false
-    self.save!
-  end
-
 end
