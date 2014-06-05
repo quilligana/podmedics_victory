@@ -29,7 +29,6 @@ describe User do
   it { should validate_attachment_content_type(:avatar).
         allowing('image/png', 'image/gif', 'image/jpg', 'image/jpeg').
         rejecting('text/plain', 'text/xml', 'video/mov') }
-  it { should validate_attachment_size(:avatar).less_than(500.kilobytes) }
 
   it 'should have a valid factory' do
     expect(build(:user)).to be_valid

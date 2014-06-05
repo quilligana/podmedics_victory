@@ -14,14 +14,6 @@ feature 'Static Pages' do
     visit root_path
     expect(current_path).to eq dashboard_path
   end
-
-  scenario 'Accessing the about page' do
-    visit root_path
-    click_link 'Find out more'
-    within '.sub_heading_wrapper' do
-      expect(page).to have_content 'About Podmedics'
-    end
-  end
   
   scenario 'Accessing the FAQs page' do
     visit root_path
