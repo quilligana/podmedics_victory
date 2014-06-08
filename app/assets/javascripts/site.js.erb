@@ -128,9 +128,7 @@ ready = function() {
   $("#save_new_note_button").click(function(){
     $(".right_column_save_note_button").toggleClass('animated fadeOutRight').fadeToggle(1);
     $(".video_page_notes_column").addClass('animated fadeInRight').fadeToggle(1);
-    $( this ).text( "Hide Notes" );
   });
-
 
   $(".notes_saved_button").click(function(){
     $( this ).toggleClass('active_notes_saved_button');
@@ -231,7 +229,7 @@ ready = function() {
 };
 	
 $(document).ready(ready);
-$(document).on('page:load', ready);
+//$(document).on('page:load', ready);
 
 
 
