@@ -99,6 +99,7 @@ describe "specialty user questions and answers" do
   describe "answering a question", js: true do
     before do
       submit_question
+      log_out_js
       sign_in(@user_two)
       visit specialty_question_path(Specialty.first, SpecialtyQuestion.first)
       fill_in "comment_content", with: @comment_text
@@ -141,6 +142,7 @@ describe "specialty user questions and answers" do
 
     describe "voting for a question" do
       before do
+        log_out_js
         sign_in(@user_one)
         visit specialty_question_path(Specialty.first, SpecialtyQuestion.first)
       end
@@ -154,6 +156,7 @@ describe "specialty user questions and answers" do
 
     describe "accepting an answer" do
       before do
+        log_out_js
         sign_in(@user_one)
         visit specialty_question_path(Specialty.first, SpecialtyQuestion.first)
       end

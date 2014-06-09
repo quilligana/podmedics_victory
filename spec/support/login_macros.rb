@@ -20,4 +20,11 @@ module LoginMacros
     end
   end
 
+  def log_out_js
+    click_link 'Menu'
+    within '.inner_menu_wrapper' do
+      click_link 'Logout'
+    end
+  end
+
 end

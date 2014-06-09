@@ -1,31 +1,24 @@
 class SessionsController < ApplicationController
 
   def new
-  end
-
-  def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      login_user(user)
-    else
-      flash.now.alert = 'Email or password is invalid'
-      render :new
+    if current_user
+      redirect_to dashboard_path
     end
   end
 
-  def omniauthcreate
-    auth = env["omniauth.auth"]
+  def create
+    auth_hash = env["omniauth.auth"]
+    auth = Authentication.new(params, auth_hash)
 
     if current_user
-      current_user.link_social_url(auth)
+      current_user.link_social_url(auth_hash)
+      current_user.save
       redirect_to current_user
+    elsif auth.authenticated?
+      login_user(auth.user)
     else
-      if User.exists?(email: auth.info.email)
-        redirect_to login_path, notice: "There is already a Podmedics account registered to #{auth.info.email}"
-      else
-        user = User.from_omniauth(auth)
-        login_user(user)
-      end
+      flash.now.alert = auth.error_message
+      render :new
     end
   end
 
@@ -33,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    logout
     redirect_to root_path, notice: 'Successfully signed out'
   end
   

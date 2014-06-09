@@ -109,53 +109,28 @@ class User < ActiveRecord::Base
   end
 
 
-  # Authentication System
-
-  # Omni auth methods
-
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.extract_auth_data(auth)
-
-      user.link_social_url(auth)
-
-      user.generate_password
-
-      user.save!
-    end
-  end
-
-  def extract_auth_data(auth)
-    self.provider = auth.provider
-    self.uid = auth.uid
-    self.oauth_token = auth.credentials.token
-    self.name = auth.info.name
-
-    unless auth.provider == "twitter"
-      self.email = auth.info.email
-      self.oauth_expires_at = Time.at(auth.credentials.expires_at)
-    end
-  end
+  # User profile social links
 
   def link_social_url(auth)
-    if auth.provider == "twitter"
-      self.twitter = auth.info.urls.Twitter
+    if auth[:provider] == "twitter"
+      self.twitter = auth[:info][:urls][:Twitter]
     end
 
-    if auth.provider == "facebook"
-      self.facebook = auth.info.urls.Facebook
+    if auth[:provider] == "facebook"
+      self.facebook = auth[:info][:urls][:Facebook]
     end
 
     self.save
   end
+
+
+  # Password methods
 
   def generate_password
     password = SecureRandom.hex(10)
     self.password = password
     self.password_confirmation = password
   end
-
-  # Password reset methods
 
   def send_password_reset
     generate_token(:password_reset_token)

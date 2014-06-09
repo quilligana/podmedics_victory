@@ -18,7 +18,6 @@ describe Permission do
       expect(subject.allow?('sessions', 'new')).to be_true
       expect(subject.allow?('sessions', 'create')).to be_true
       expect(subject.allow?('sessions', 'destroy')).to be_true
-      expect(subject.allow?('sessions', 'omniauthcreate')).to be_true
     end
 
     it "allows access to registration and payment" do

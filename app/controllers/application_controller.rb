@@ -46,6 +46,11 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
+    def logout
+      @current_user = nil
+      session[:user_id] = nil
+    end
+
     def get_content
       if current_user
         @categories ||= Category.order(:id).includes(:specialties)
