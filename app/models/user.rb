@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Avatars
+  include Email
 
   has_secure_password
 
@@ -29,28 +30,6 @@ class User < ActiveRecord::Base
     on: :create
 
   after_commit :flush_cache
-  before_create :generate_unsubscribe_token
-
-  def self.episode_notifications_allowed
-    where(receive_new_episode_notifications: true)
-  end
-
-  def self.newsletters_allowed
-    where(receive_newsletters: true)
-  end
-
-  def generate_unsubscribe_token
-    generate_token(:unsubscribe_token)
-  end
-
-  def unsubscribe
-    self.receive_newsletters = false
-    self.receive_status_updates = false
-    self.receive_new_episode_notifications = false
-    self.receive_social_notifications = false
-    self.receive_help_request_notifications = false
-    self.save!
-  end
 
   def to_s
     name
