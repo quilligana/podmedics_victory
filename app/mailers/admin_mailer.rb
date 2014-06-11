@@ -1,6 +1,6 @@
 class AdminMailer < ActionMailer::Base
   default from: 'donotreply@podmedics.com'
-  layout 'user_mailer', only: [:test_newsletter]
+  layout 'user_mailer', only: [:test_newsletter, :new_test_episode]
 
   def new_specialty_question(specialty)
     @specialty = specialty
@@ -18,6 +18,12 @@ class AdminMailer < ActionMailer::Base
     # to generate a unsub token
     @user = User.first
     mail to: 'ed@podmedics.com', subject: @newsletter.subject
+  end
+
+  def new_test_episode(video)
+    @user = User.first
+    @video = video
+    mail to: 'ed@podmedics.com', subject: "#{@video.title} Video", template_path: 'user_mailer', template_name: 'new_episode'
   end
 
   def new_payment(user)

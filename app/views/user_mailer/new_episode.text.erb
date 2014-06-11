@@ -1,9 +1,11 @@
 Hi <%= @user %>,
 
-There is a new <%= @video.specialty.name %> video.
+We just a published a new video - <%= @video.title %>
 
-You can view <%= "'#{@video.title}'" %> <%= link_to 'here', video_url(@video) %>.
+<%= @video.description %>
+
+Watch it now at <%=  video_url(@video) %>
 
 The Team at Podmedics
 
-<%= render 'unsubscribe' %>
+<%= render 'user_mailer/unsubscribe' %>
