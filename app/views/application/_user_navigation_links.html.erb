@@ -27,6 +27,7 @@
     <div class="main_nav_wrapper" id="main_navigation">
       <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
+      <%= link_to "Notes", notes_path, class: 'nav-notes' %>
       <%= link_to "Live Courses", courses_path, class: 'nav-courses' %>
       <%= link_to "Your Profile", user_path(current_user), class: 'nav-profile' %>
       <%= link_to "Blog", posts_path, class: 'nav-blog' %>
