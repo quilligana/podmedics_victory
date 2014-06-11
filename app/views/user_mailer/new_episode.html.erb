@@ -2,12 +2,12 @@
 
   <h1>Hi <%= @user %>,</h1>
 
-  <p class="inner_sub_title">There is a new <%= @video.specialty.name %> video.</p>
+  <p class="inner_sub_title">We just published a new video - <strong><%= @video.title %></strong> </p>
 
-  <p>You can view <%= "'#{@video.title}'" %></p>
+  <p><%= @video.description %></p>
 
   <p class="action_button_wrapper">
-    <%= link_to 'Watch Now', video_url(@video), class: 'red_button' %>
+    <%= link_to 'Watch it Now', video_url(@video), class: 'red_button' %>
   </p>
 
 </td>

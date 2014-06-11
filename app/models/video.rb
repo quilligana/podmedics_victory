@@ -103,6 +103,10 @@ class Video < ActiveRecord::Base
   end
   handle_asynchronously :send_video_notification
 
+  def send_test_notification
+    AdminMailer.delay.new_test_episode(self)
+  end
+
   private
 
     def self.unfinished(vimeos)

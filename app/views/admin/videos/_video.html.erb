@@ -14,6 +14,7 @@
       <li><%= link_to "Send Notifications",  
                       send_notifications_admin_video_path(video), 
                       data: { confirm: "Send Emails for #{video.title}" }%></li>
+      <li><%= link_to "Send Test Notifications", send_test_notifications_admin_video_path(video) %></li>
     </ul>
   </td>
 </tr>
