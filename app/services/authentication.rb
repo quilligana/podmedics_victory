@@ -24,7 +24,7 @@ class Authentication
   def error_message
     if existing_non_omniauth?
       "Account already exists with email address #{@omniauth[:info][:email]}"
-    else
+    elsif !authenticated?
       'Email or password is invalid'
     end
   end

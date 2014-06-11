@@ -10,6 +10,9 @@ class SessionsController < ApplicationController
     auth_hash = env["omniauth.auth"]
     auth = Authentication.new(params, auth_hash)
 
+    # If the user is already logged on then they're attempting to link to their
+    # social media account on their profile.
+    # In that case just link the social account and redirect to the profile page.
     if current_user
       current_user.link_social_url(auth_hash)
       current_user.save
