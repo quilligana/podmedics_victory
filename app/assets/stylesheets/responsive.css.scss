@@ -100,7 +100,10 @@ $standard_border_radius: 6px;
     background-image: image-url('blog_nav_icon@2x.png');
     background-size: 24px 30px;
   }
-
+  .inner_menu_wrapper .nav-notes {
+    background-image: image-url('notes_nav_icon@2x.png');
+    background-size: 24px 30px;
+  }
   .right_column_search_field button.navigation_search_field_search_button {
     background-image: image-url('nav_icons@2x.png');
     background-size: 28px 800px;
@@ -1929,7 +1932,9 @@ $standard_border_radius: 6px;
   .main_nav_wrapper.speciality a {
     background-position: 220px -448px;
   }
-
+  .inner_menu_wrapper .nav-notes {
+    background-position: 218px 19px;
+  }
   .main_nav_inner_lectures_title {
     width: 170px;
   }

@@ -1214,6 +1214,14 @@ a#back_to_notes_button {
 }
 
 
+.inner_menu_wrapper .nav-notes {
+  background-image: image-url('notes_nav_icon.png');
+  background-repeat: no-repeat;
+  background-position: 244px 18px;
+}
+
+
+
 .main_nav_wrapper.speciality a {
   background-image: image-url('nav_icons.png');
   background-repeat: no-repeat;
