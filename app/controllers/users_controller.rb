@@ -80,9 +80,21 @@ class UsersController < ApplicationController
   protected
 
     def user_params
-      params.require(:user).permit(:name, :email, :website, :avatar, :password, :password_confirmation,
-                                  :receive_newsletters, :receive_reply_notifications, :receive_status_updates, 
-                                  :receive_new_episode_notifications, :receive_social_notifications)
+      params.require(:user).permit(
+        {
+          :name, 
+          :email, 
+          :website, 
+          :avatar, 
+          :password, 
+          :password_confirmation,
+          :receive_newsletters, 
+          :receive_reply_notifications, 
+          :receive_status_updates,
+          :receive_new_episode_notifications, 
+          :receive_social_notifications,
+          :receive_help_request_notifications
+        })
     end
 
 end
