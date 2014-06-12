@@ -2,6 +2,6 @@ require 'faker'
 
 FactoryGirl.define do
   factory :category do
-    name 'Medicine'
+    name { "#{Faker::Lorem.word}-category" }
   end
 end

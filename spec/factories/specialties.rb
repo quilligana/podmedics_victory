@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :specialty do
-    sequence(:name) { |n| "Cardiology#{n}" }
+    name { "#{Faker::Lorem.word}-specialty" }
     association :category
   end
 end

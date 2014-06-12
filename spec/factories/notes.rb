@@ -5,8 +5,8 @@ FactoryGirl.define do
     title { Faker::Lorem.sentence }
     content { Faker::Lorem.sentence }
     user
-    specialty
-    category
+    association :specialty
+    association :category
     association :noteable, factory: :video
   end
 end
