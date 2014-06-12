@@ -45,27 +45,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def unsub
-    if params[:unsubscribe_token]
-      user = User.find_by(unsubscribe_token: params[:unsubscribe_token])
-      if user
-        email = user.email
-      else
-        return redirect_to root_path, notice: 'Sorry. Your email token is not valid.'
-      end
-    else
-      email = params[:unsubscribe][:email]
-      user = User.find_by(email: params[:unsubscribe][:email])
-    end
+  def unsubscribed
+    @unsubscribe = Unsubscribe.new(params)
 
-    if user
-      user.unsubscribe
-    end
-    
-    redirect_to unsubscribe_path, notice: "#{email} has been unsubscribed"
+    puts @unsubscribe.user.inspect
+    puts @unsubscribe.email
+
+    @unsubscribe.unsubscribe
+
+    flash.now.alert = @unsubscribe.notice
   end
 
   def unsubscribe
+    @unsubscribe = Unsubscribe.new(params)
   end
 
   private
@@ -81,20 +73,18 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(
-        {
-          :name, 
-          :email, 
-          :website, 
-          :avatar, 
-          :password, 
-          :password_confirmation,
-          :receive_newsletters, 
-          :receive_reply_notifications, 
-          :receive_status_updates,
-          :receive_new_episode_notifications, 
-          :receive_social_notifications,
-          :receive_help_request_notifications
-        })
+        :name, 
+        :email, 
+        :website, 
+        :avatar, 
+        :password, 
+        :password_confirmation,
+        :receive_newsletters, 
+        :receive_reply_notifications, 
+        :receive_status_updates,
+        :receive_new_episode_notifications, 
+        :receive_social_notifications,
+        :receive_help_request_notifications)
     end
 
 end

@@ -20,6 +20,7 @@ module Email
   end
 
   def unsubscribe(column)
-    self[:column] = false
+    self[column] = false
+    self.save!
   end
 end

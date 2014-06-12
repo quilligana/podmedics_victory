@@ -5,7 +5,7 @@ class Permission
     allow :sessions, [:new, :create, :destroy]
     allow :password_resets, [:create, :edit, :update]
     allow :posts, [:index, :show]
-    allow :users, [:new, :create, :unsubscribe, :unsub]
+    allow :users, [:new, :create, :unsubscribe, :unsubscribed]
     allow :stripe_events, [:create]
     if user
       allow :transactions, [:new, :create, :pickup]

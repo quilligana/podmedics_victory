@@ -5,12 +5,37 @@
       <div class="login_ignup_form_wrapper">
         <div class="edit_profile_form">
           <h2>Please enter email</h2>
-          <%= form_for 'unsubscribe' do |f| %>
+          <%= form_for 'unsub', url: unsub_path do |f| %>
             
             <%= f.label :email %>
-            <%= f.text_field :email, class: 'podmedics_textfield' %>
+            <%= f.text_field :email, value: @unsubscribe.email, class: 'podmedics_textfield' %>
             
-            <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_newsletters %>
+              <%= f.label :receive_newsletters, 'Unsubscribe from newsletters' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_status_updates %>
+              <%= f.label :receive_status_updates, 'Unsubscribe from updates on badges and ranks' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_new_episode_notifications %>
+              <%= f.label :receive_new_episode_notifications, 'Unsubscribe from new episode notifications' %>
+            </div>
+            
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_social_notifications %>
+              <%= f.label :receive_social_notifications, 'Unsubscribe from social notifications' %>
+            </div>
+
+            <div class="checkbox_wrapper">
+              <%= f.check_box :receive_help_request_notifications %>
+              <%= f.label :receive_help_request_notifications, 'Unsubscribe from professor help requests' %>
+            </div>
+
+            <%= f.button 'Unsubscribe', class: 'red_button edit_profile_button' %>
           <% end %>
         </div>
       </div>
