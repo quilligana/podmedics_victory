@@ -14,7 +14,7 @@ describe UserMailer do
 
     describe "when the user has unsubscribed" do
       before do
-        user.unsubscribe
+        user.unsubscribe_all
         @mail = UserMailer.password_reset(user)
       end
 
@@ -41,7 +41,7 @@ describe UserMailer do
 
     describe "when the user has unsubscribed" do
       before do
-        user.unsubscribe
+        user.unsubscribe_all
         @mail = UserMailer.badge_award(user, badge)
       end
 
@@ -64,7 +64,7 @@ describe UserMailer do
 
     describe "when the user has unsubscribed" do
       before do
-        user.unsubscribe
+        user.unsubscribe_all
         @mail = UserMailer.professor_loss(user, specialty)
       end
 
@@ -87,7 +87,7 @@ describe UserMailer do
 
     describe "when the user has unsubscribed" do
       before do
-        user.unsubscribe
+        user.unsubscribe_all
         @mail = UserMailer.new_episode(user, video)
       end
 
@@ -112,7 +112,7 @@ describe UserMailer do
 
     describe "when the user has unsubscribed" do
       before do
-        user.unsubscribe
+        user.unsubscribe_all
         @mail = UserMailer.new_reply(user, comment, reply)
       end
 
@@ -136,7 +136,7 @@ describe UserMailer do
 
     describe "when the user has unsubscribed" do
       before do
-        user.unsubscribe
+        user.unsubscribe_all
         @mail = UserMailer.answer_accepted(user, answer)
       end
 

@@ -19,6 +19,15 @@ module Email
     generate_token(:unsubscribe_token)
   end
 
+  def unsubscribe_all
+    self.receive_newsletters = false
+    self.receive_status_updates = false
+    self.receive_new_episode_notifications = false
+    self.receive_social_notifications = false
+    self.receive_help_request_notifications = false
+    self.save!
+  end
+
   def unsubscribe(column)
     self[column] = false
     self.save!
