@@ -7,10 +7,8 @@ class Unsubscribe
   def user
     @user ||=
       if @unsubscribe_token
-        puts "token"
         User.find_by(unsubscribe_token: @unsubscribe_token)
       elsif email
-        puts "email"
         User.find_by(email: email)
       end
   end

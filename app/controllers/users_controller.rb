@@ -48,9 +48,6 @@ class UsersController < ApplicationController
   def unsubscribed
     @unsubscribe = Unsubscribe.new(params)
 
-    puts @unsubscribe.user.inspect
-    puts @unsubscribe.email
-
     @unsubscribe.unsubscribe
 
     flash.now.alert = @unsubscribe.notice
