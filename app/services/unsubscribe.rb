@@ -23,7 +23,7 @@ class Unsubscribe
   end
 
   def unsubscribe
-    if @user
+    if user
       if @params[:unsub][:receive_newsletters] == "1"
         @user.unsubscribe(:receive_newsletters)
       end
