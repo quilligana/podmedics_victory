@@ -24,24 +24,10 @@ class Unsubscribe
 
   def unsubscribe
     if user
-      if @params[:unsub][:receive_newsletters] == "1"
-        @user.unsubscribe(:receive_newsletters)
-      end
-
-      if @params[:unsub][:receive_status_updates] == "1"
-        @user.unsubscribe(:receive_status_updates)
-      end
-
-      if @params[:unsub][:receive_new_episode_notifications] == "1"
-        @user.unsubscribe(:receive_new_episode_notifications)
-      end
-
-      if @params[:unsub][:receive_social_notifications] == "1"
-        @user.unsubscribe(:receive_social_notifications)
-      end
-
-      if @params[:unsub][:receive_help_request_notifications] == "1"
-        @user.unsubscribe(:receive_help_request_notifications)
+      EMAIL_TYPES.each do |email_type|
+        if @params[:unsub][email_type] == "1"
+          user.unsubscribe(email_type)
+        end
       end
     end
   end
