@@ -19,3 +19,11 @@ DASHBOARD_CHART_DAYS = 12
 SPECIALTY_UNLOCKS_ALLOWED = 2
 
 PASS_GRADE = 70
+
+EMAIL_TYPES = [
+    :receive_newsletters, 
+    :receive_status_updates, 
+    :receive_new_episode_notifications,
+    :receive_social_notifications,
+    :receive_help_request_notifications
+  ]

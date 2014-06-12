@@ -22,6 +22,7 @@ RSpec.configure do |config|
   config.include SpecialtyQuestionMacros
   config.include TransactionMacros
   config.include ProfileMacros
+  config.include UnsubscribeMacros
 
   OmniAuth.config.test_mode = true
 
