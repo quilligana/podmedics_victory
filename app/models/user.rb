@@ -121,15 +121,17 @@ class User < ActiveRecord::Base
   # User profile social links
 
   def link_social_url(auth)
-    if auth[:provider] == "twitter"
-      self.twitter = auth[:info][:urls][:Twitter]
-    end
+    if auth
+      if auth[:provider] == "twitter"
+        self.twitter = auth[:info][:urls][:Twitter]
+      end
 
-    if auth[:provider] == "facebook"
-      self.facebook = auth[:info][:urls][:Facebook]
-    end
+      if auth[:provider] == "facebook"
+        self.facebook = auth[:info][:urls][:Facebook]
+      end
 
-    self.save
+      self.save
+    end
   end
 
 
