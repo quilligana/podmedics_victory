@@ -1,7 +1,28 @@
 <div class="row header">
-  <h3>Users</h3>
+  <h3>Users (<%= @users.count %>)</h3>
   <div class="col-md-10 pull-right">
     <%= link_to "New User", new_admin_user_path, class: 'btn-flat success pull-right' %>
+  </div>
+</div>
+
+<div class="row filter-block">
+  <div class="col-md-4">
+    <div class="btn-group btn-group-justified pull-left">
+      <%= link_to "All (#{User.count})", admin_users_path, class: 'btn btn-success' %>
+      <%= link_to "Plan Selected (#{User.has_selected_plan.count})", admin_users_path(has_selected_plan: true), class: 'btn btn-warning' %>
+      <%= link_to "Trial (#{User.trial(true).count})", admin_users_path(trial: true), class: 'btn btn-warning' %>
+      <%= link_to "Paid subs (#{User.expired_after(Time.zone.now).count})", admin_users_path(expired_after: Time.zone.now), class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <ul>
+      <li>Plan selected: all subscribers, previous subscribers and new trial members</li>
+      <li>Trial: selected a plan but never subscribed</li>
+      <li>Paid subs: users who have expired_on date after today</li>
+    </ul>
   </div>
 </div>
 
@@ -11,11 +32,10 @@
       <%= f.search_field :email_cont, placeholder: 'Search by email...', class: 'search' %>
       <%= f.search_field :name_cont, placeholder: 'Search by name...', class: 'search' %>
       <%= f.search_field :id_eq, placeholder: 'Search by #id...', class: 'search' %>
-      <br />
       <%= f.submit 'Search', class: 'btn-flat' %>
       <br />
     <% end %>
-    <%= link_to "View all", admin_users_path, class: 'glow left active' %>
+    <%= link_to "View all", admin_users_path  %>
   </div>
 </div>
 
@@ -27,9 +47,9 @@
       <table class='table table-hover'>
         <thead>
           <tr>
-            <th>#ID</th>
-            <th>Created at</th>
-            <th>Name</th>
+            <%= content_tag :th, sort_link(@q, :id) %>
+            <%= content_tag :th, sort_link(@q, :created_at) %>
+            <%= content_tag :th, sort_link(@q, :name, 'Name', default_order: :desc) %>
             <th>Email</th>
             <th>Subscribed on</th>
             <th>Expires on</th>

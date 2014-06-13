@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/chrisle/gattica.git
-  revision: bb99363eabd1a4a69b5e139efce42d3a40fd8e88
-  specs:
-    gattica (0.6.2)
-      hpricot
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -146,7 +139,6 @@ GEM
       activesupport (>= 3.2, < 5)
     hashie (2.1.1)
     hike (1.2.3)
-    hpricot (0.8.6)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -413,8 +405,8 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   friendly_id (~> 5.0.0)
-  gattica!
   guard-rspec
+  has_scope
   httparty
   inherited_resources
   jbuilder (~> 1.2)

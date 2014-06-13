@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
   has_many :sales
   has_many :unlocked_specialties
   has_many :specialties, through: :unlocked_specialties
+
+  scope :has_selected_plan, -> { where(selected_plan: true) }
+  scope :expired_before, -> time { where("expires_on < :date", {date: time}) }
+  scope :expired_after, -> time { where("expires_on >= :date", {date: time})}
+  scope :never_subscribed, -> { where("expires_on is NULL")}
   
   validates :email, 
     email_format: { 
@@ -36,6 +41,10 @@ class User < ActiveRecord::Base
   end
 
   # Plans/Subs
+
+  def self.trial(boolean)
+    boolean ? has_selected_plan.never_subscribed : !has_selected_plan.never_subscribed
+  end
 
   def record_login
     self.login_count += 1
