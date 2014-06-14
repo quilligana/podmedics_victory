@@ -53,6 +53,7 @@ PodmedicsVictory::Application.routes.draw do
         get 'move_down'
         get 'send_notifications'
         get 'send_test_notifications'
+        get 'mark_proofread'
       end
       resources :questions
     end

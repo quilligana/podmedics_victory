@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602152854) do
+ActiveRecord::Schema.define(version: 20140614140633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -197,6 +198,13 @@ ActiveRecord::Schema.define(version: 20140602152854) do
   add_index "sales", ["product_id"], name: "index_sales_on_product_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
+  create_table "speciality_questions", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialties", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -328,6 +336,7 @@ ActiveRecord::Schema.define(version: 20140602152854) do
     t.integer  "slide_download_count"
     t.integer  "audio_download_count"
     t.integer  "video_download_count"
+    t.boolean  "proofread",            default: false
   end
 
   add_index "videos", ["author_id"], name: "index_videos_on_author_id", using: :btree

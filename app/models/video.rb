@@ -33,6 +33,10 @@ class Video < ActiveRecord::Base
 
   after_save :touch_assets
 
+  def mark_proofread
+    update_attributes(proofread: true)
+  end
+
   # Caching functions
 
   def touch_assets

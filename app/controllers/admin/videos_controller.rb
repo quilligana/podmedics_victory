@@ -2,7 +2,8 @@ class Admin::VideosController < InheritedResources::Base
   layout 'admin_application'
   respond_to :html, :json
 
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :move_up, :move_down, :send_notifications, :send_test_notifications]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :move_up, :move_down, 
+                                   :send_notifications, :send_test_notifications, :mark_proofread]
 
   def create
     create!(notice: 'New video added') { admin_videos_path }
@@ -34,6 +35,11 @@ class Admin::VideosController < InheritedResources::Base
   def send_test_notifications
     @video.send_test_notification
     redirect_to :back, notice: 'New episode test email sending'
+  end
+
+  def mark_proofread
+    @video.mark_proofread
+    redirect_to :back, notice: 'Video marked as proofread'
   end
 
   protected
