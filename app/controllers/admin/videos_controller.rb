@@ -6,15 +6,15 @@ class Admin::VideosController < InheritedResources::Base
                                    :send_notifications, :send_test_notifications, :mark_proofread]
 
   def create
-    create!(notice: 'New video added') { admin_videos_path }
+    create!(notice: 'New video added') { admin_video_path(@video) }
   end
 
   def update
-    update!(notice: 'Video updated') { admin_videos_path }
+    update!(notice: 'Video updated') { admin_video_path(@video) }
   end
 
   def permitted_params
-    params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list])
+    params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread])
   end
 
   def move_up

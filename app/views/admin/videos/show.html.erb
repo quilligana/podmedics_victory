@@ -3,6 +3,7 @@
     <%= @video.title  %>
     <small><%= link_to "Edit", edit_admin_video_path(@video) %></small>
     <small><%= link_to 'View on frontend', video_path(@video) %></small>
+    <small><%= link_to "Mark proofread", mark_proofread_admin_video_path(@video)  %></small>
   </h1>
   <p><%= link_to "Back to #{@video.specialty.name}", admin_specialty_path(@video.specialty) %></p>
 </div>
@@ -10,6 +11,7 @@
 <div class="well">
   <p>Created at: <%= @video.created_at.to_s(:long) %></p>
   <p>Updated at: <%= @video.updated_at.to_s(:long) %></p>
+  <p>Proofread: <%= @video.proofread ? 'YES' : 'NO' %></p>
 </div>
 
 <div class="row">
