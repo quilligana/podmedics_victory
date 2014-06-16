@@ -75,6 +75,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :posts
     resources :comments
     resources :badges
+    resources :quizes
   end
 
   # Specialty/Video
