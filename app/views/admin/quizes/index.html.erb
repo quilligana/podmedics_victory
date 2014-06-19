@@ -24,7 +24,7 @@
               <td><%= question.created_at %></td>
               <td><%= link_to question.question.video.title, admin_video_path(question.question.video) %></td>
               <td><%= link_to question.user.name, admin_user_path(question.user) %></td>
-              <td><%= question.correct_answer %></td>
+              <td><%= question.correct %></td>
             </tr>
           <% end %>
         </tbody>

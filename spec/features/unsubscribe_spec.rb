@@ -23,6 +23,7 @@ describe 'Unsubscribing' do
         end
       end
     end
+
   end
 
   describe 'clicking the unsubscribe link in an email' do
@@ -52,16 +53,13 @@ describe 'Unsubscribing' do
       end
     end
 
-    describe 'with an email that does not exist' do
-      before do
-        User.destroy_all
-        fill_in 'unsub_email', with: 'mail@example.com'
-        click_button 'Unsubscribe'
-      end
-
-      it 'does not correct the user' do
-        expect(page).to have_content 'mail@example.com has been unsubscribed'
+    describe 'with a user that is not found by searching for a token' do
+      it "should redirect to home page with a message" do
+        no_user_token = '123456789'
+        visit unsubscribe_token_url(no_user_token)
+        expect(page).to have_content 'Sorry. Your account was not found.'
       end
     end
   end
+
 end
