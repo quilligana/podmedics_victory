@@ -14,9 +14,7 @@
 
     <div class="profile_body">
       <div class="profile_inner profile_counts">
-
         <div class="profile_count_wrapper">
-
           <div class="profile_count points">
             <p class="number"><%= @user.points %></p>
             <p>Points in total</p>
@@ -31,9 +29,7 @@
             <p class="number"><%= @user.badges.count %></p>
             <p>Badges Earned</p>
           </div>
-
         </div>
-
       </div>
 
       <% if @user.badges.any? %>
@@ -41,7 +37,6 @@
           <div class="inner_page_padding">
             <%= render partial: 'shared/badges', locals: {user: @user, badges: @user.badges} %>
           </div>
-
         </div>
       <% end %>
 
