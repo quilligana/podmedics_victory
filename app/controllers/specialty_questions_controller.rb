@@ -13,10 +13,11 @@ class SpecialtyQuestionsController < ApplicationController
     if @question.save
       AdminMailer.delay.new_specialty_question(@specialty)
 
-      professor = User.find_by(id: @specialty.professor)
-      if professor
-        UserMailer.new_specialty_question(professor, @question).deliver
-      end
+      # TODO: this should be sent to top five users
+      #professor = User.find_by(id: @specialty.professor)
+      #if professor
+        #UserMailer.new_specialty_question(professor, @question).deliver
+      #end
       
       redirect_to specialty_question_path(id: @question.id)
     else
@@ -26,7 +27,6 @@ class SpecialtyQuestionsController < ApplicationController
   
   def index
     @questions = @specialty.cached_specialty_questions(1)
-    @top_five = @specialty.get_badges_from_users
   end
 
   def show
@@ -72,6 +72,7 @@ class SpecialtyQuestionsController < ApplicationController
 
     def load_user_progress
       @user_progress = UserProgress.new(@specialty, current_user)
+      @top_five = @specialty.get_badges_from_users
     end
 
     def new_question
