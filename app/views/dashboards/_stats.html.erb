@@ -40,7 +40,7 @@
     </div>
 
     <div class="dashboard_badges_right_column">
-          <%= render 'shared/badges' %>
+      <%= render partial: 'shared/badges', locals: { user: current_user, badges: current_user.badges} %>
     </div>
 
   </div>

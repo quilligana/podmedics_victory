@@ -26,6 +26,7 @@ class SpecialtyQuestionsController < ApplicationController
   
   def index
     @questions = @specialty.cached_specialty_questions(1)
+    @top_five = @specialty.get_badges_from_users
   end
 
   def show

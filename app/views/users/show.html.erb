@@ -36,10 +36,10 @@
 
       </div>
 
-      <% if current_user.badges.any? %>
+      <% if @user.badges.any? %>
         <div class="profile_inner profile_badges">
           <div class="inner_page_padding">
-            <%= render 'shared/badges' %>
+            <%= render partial: 'shared/badges', locals: {user: @user, badges: @user.badges} %>
           </div>
 
         </div>
