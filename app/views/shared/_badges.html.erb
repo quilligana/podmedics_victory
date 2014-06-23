@@ -1,7 +1,7 @@
 <div class="title">Your Badges</div>
 <div class="dashboard_badges_inner_wrapper">
-  <% @badges.each do |badge| %>
+  <% badges.each do |badge| %>
     <%= show_badge(badge) if badge == UserProgress.new(badge.specialty, 
-        current_user).current_badge %>
+        user).current_badge %>
   <% end %>
 </div>

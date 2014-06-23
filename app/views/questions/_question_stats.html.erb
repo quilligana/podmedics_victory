@@ -19,6 +19,6 @@
 
 <div class="questions_info_right_column_section return_to_video_page_button_wrapper">
   <div class="return_to_video_page_button_inner_wrapper">
-    <%= link_to "View video for this question", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
+    <%= link_to "Review #{@quiz.video.title} ", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
   </div>
 </div>

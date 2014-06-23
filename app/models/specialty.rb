@@ -36,6 +36,39 @@ class Specialty < ActiveRecord::Base
     user.specialties.include?(self) ? true : false 
   end
 
+  # Experts
+  
+  def top_badges_with_users
+    users = []
+    badges.each do |b|
+      user = Hash.new
+      user[:user_id] = b.user_id
+      user[:level] = b.level_to_num
+      users << user
+    end
+    users.sort! { |b1, b2| b2[:level] <=> b1[:level] }
+  end
+
+  def get_badges_from_users
+    top_badges = []
+    top_badges_with_users.each do |u|
+      user = User.find(u[:user_id])
+      progress = UserProgress.new(self, user)
+      top_badges << progress.current_badge
+    end
+    top_badges.uniq.take(5)
+  end
+
+  # returns top five users for a specialty
+  #def top_five_users
+    #top_users = []
+    #top_badges_with_users.take(5).each do |user| 
+      #top_users << User.find(user[:user_id])
+    #end
+    #puts top_users
+    #return top_users
+  #end
+
   # Cache functions
 
   def self.cached_find(id)

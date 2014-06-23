@@ -47,14 +47,16 @@ class UsersController < ApplicationController
 
   def unsubscribed
     @unsubscribe = Unsubscribe.new(params)
-
     @unsubscribe.unsubscribe
-
     flash.now.alert = @unsubscribe.notice
   end
 
   def unsubscribe
     @unsubscribe = Unsubscribe.new(params)
+    # if user has been removed then we need to show a message
+    unless @unsubscribe.user
+      flash.now.alert = 'Sorry. Your account was not found.'
+    end
   end
 
   private
