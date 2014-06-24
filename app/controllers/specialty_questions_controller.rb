@@ -13,11 +13,9 @@ class SpecialtyQuestionsController < ApplicationController
     if @question.save
       AdminMailer.delay.new_specialty_question(@specialty)
 
-      # TODO: this should be sent to top five users
-      #professor = User.find_by(id: @specialty.professor)
-      #if professor
-        #UserMailer.new_specialty_question(professor, @question).deliver
-      #end
+      if @specialty.top_users.any?
+        @specialty.top_users.each { |u| UserMailer.delay.new_specialty_question(u, @question)}
+      end
       
       redirect_to specialty_question_path(id: @question.id)
     else

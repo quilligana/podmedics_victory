@@ -2,16 +2,17 @@
 
   <h1>Hi <%= @user %></h1>
 
-  <p class="inner_sub_title">As one of the top rated users for Cardiology we thought you might like to answer this question</p>
+  <p class="inner_sub_title">As one of our highest rated users in <%= @question.specialty.name %>, we thought you might like to answer this question posted by another user.</p>
 
   <p class="lead">
     <strong><%= @question.content %></strong>
   </p>
-  <p>- <%= @question.user %></p>
+
+  <p>- by <%= @question.user %></p>
 
   <p class="action_button_wrapper">
-    <%= link_to 'answer question here', specialty_question_url( specialty_id: @question.specialty.id, 
-                                                                id: @question.id, class: 'red_button') %>
+    <%= link_to 'Answer question here', specialty_question_url( specialty_id: @question.specialty.id, 
+                                                                id: @question.id), class: 'red_button' %>
   </p>
 
 </td>

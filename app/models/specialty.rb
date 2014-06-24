@@ -59,6 +59,13 @@ class Specialty < ActiveRecord::Base
     top_badges.uniq.take(5)
   end
 
+  def top_users
+    users = []
+    badges = get_badges_from_users
+    badges.each { |badge| users << badge.user}
+    return users
+  end
+
   # returns top five users for a specialty
   #def top_five_users
     #top_users = []

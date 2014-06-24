@@ -1,9 +1,9 @@
 Hi <%= @user.name %>,
 
-As one of the top rated users for Cardiology we thought you might like to answer this question
+As one of the top rated users for <%= @question.specialty.name %> we thought you might like to answer this question
 
 <%= @question.content %>
-- <%= @question.user.name %>
+- by <%= @question.user.name %>
 
 You can help this user at <%= specialty_question_url( specialty_id: @question.specialty.id, 
                                                       id: @question.id) %>.
