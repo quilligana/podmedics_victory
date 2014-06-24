@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
 
   belongs_to :user, touch: true
-  belongs_to :comment
+  belongs_to :comment, touch: true
 
   # Caching functions
 
