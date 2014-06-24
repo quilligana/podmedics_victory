@@ -66,7 +66,7 @@ class Comment < ActiveRecord::Base
   def add_vote_points
     voted_user = User.find(self.user_id)
     voted_user.add_points(:upvote)
-    specialty = SpecialtyQuestion.find_by(id: self.commentable_id).specialty
+    specialty = root.specialty
     UserProgress.new(specialty, voted_user).award_badge
   end
 
