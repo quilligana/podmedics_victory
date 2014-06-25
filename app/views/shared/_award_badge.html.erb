@@ -15,27 +15,31 @@
         <div class="share_block_wrapper">
           <%= link_to "Tweet", "https://twitter.com/share", 
               class: "twitter-share-button",
-                :'data-url' => "https://podmedics.com/", :'data-count' => "none", 
-                :'data-text' => "I just got the #{user_progress.current_badge.level} Badge for #{user_progress.specialty.name} at Podmedics",
+                :'data-url' => "https://podmedics.com/", :'data-count' => "none", :'data-via' => "podmedics",
+                :'data-text' => "I just got the #{user_progress.current_badge.level} Badge for #{user_progress.specialty.name} from Podmedics:",
                 :'data-lang' => "en"  %>
         </div>
 
-
         <div class="share_block_wrapper">
-          <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&amp;media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&amp;guid=zHDLoi8q99Xi-0&amp;description=Next%20stop%3A%20Pinterest" class="PIN_1398759281594_pin_it_button_20 PIN_1398759281594_pin_it_button_en_20_gray PIN_1398759281594_pin_it_button_inline_20 PIN_1398759281594_pin_it_none_20" target="_blank" data-pin-log="button_pinit" data-pin-config="none"><span class="PIN_1398759281594_hidden" id="PIN_1398759281594_pin_count_0"><i></i></span></a>
+          <a href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fpodmedics.com%2F&media=https%3A%2F%2Fpodmedics.com%2Fassets%2Fhome-brwoser_window_two-4b49d03b84d1f6fe87500c0c0e243095.png&description=<%="I just got the #{user_progress.current_badge.level} Badge for #{user_progress.specialty.name} from Podmedics. Revise better for your med exams."%>" data-pin-do="buttonPin" data-pin-config="none"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
         </div>
 
         <div class="share_block_wrapper fb" style="display: block;">
-          <div class="fb-send fb_iframe_widget" data-href="http://developers.facebook.com/docs/plugins/" data-colorscheme="light" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;color_scheme=light&amp;href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;locale=en_US&amp;sdk=joey"><span style="vertical-align: bottom; width: 52px; height: 20px;"><iframe name="f198251a34" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:send Facebook Social Plugin" src="http://www.facebook.com/plugins/send.php?app_id=&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FdgdTycPTSRj.js%3Fversion%3D40%23cb%3Df103b4d274%26domain%3Djamiepeak.co.uk%26origin%3Dhttp%253A%252F%252Fjamiepeak.co.uk%252Ff32559352%26relation%3Dparent.parent&amp;color_scheme=light&amp;href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;locale=en_US&amp;sdk=joey" class="" style="border: none; visibility: visible; width: 52px; height: 20px;"></iframe></span></div>
-        </div>
-
-        <script type="text/javascript" async="" src="//assets.pinterest.com/js/pinit_main.js"></script>
-        <script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
+          <div class="fb-share-button" data-href="https://podmedics.com/" data-type="button"></div>
+      </div>
       </div>
     </div>
     <a href="javascript:;" class="red_button close-reveal-modal">Continue</a>
   </div>
 </div>
 
+<script type="text/javascript" async="" src="//assets.pinterest.com/js/pinit_main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 </script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
