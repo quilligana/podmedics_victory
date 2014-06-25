@@ -47,7 +47,7 @@ feature 'User Specialties Exam' do
     click_link "Result"
 
     expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1))
-    expect(page).to have_content("Congratulations! You have passed the #{@specialty_1.name.capitalize} exam.")
+    expect(page).to have_content("Congratulations! You have passed the #{@specialty_1.name} exam.")
   end
 
   scenario 'Show failure notification if user fails an exam' do
@@ -62,7 +62,7 @@ feature 'User Specialties Exam' do
     click_link "Result"
 
     expect(page).to have_link("Back to Specialty", href: specialty_path(@specialty_1))
-    expect(page).to have_content("We are sorry but you have not passed the #{@specialty_1.name.capitalize} exam.")
+    expect(page).to have_content("We are sorry but you have not passed the #{@specialty_1.name} exam.")
   end
 
   scenario 'No questions from the wrong specialty should be served' do
