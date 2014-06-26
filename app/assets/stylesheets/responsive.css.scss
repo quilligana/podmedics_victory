@@ -359,6 +359,7 @@ $standard_border_radius: 6px;
   .top_ranked_users_info_section_wrapper {
     float: left;
     margin-left: 55px;
+    clear: both;
   }
 }
 @media screen and (max-width: 1035px) {
@@ -366,8 +367,7 @@ $standard_border_radius: 6px;
 }
 @media screen and (max-width: 1020px) {
   .top_ranked_users_section {
-    border-bottom: none;
-    border-top: solid 1px #EFEFEF;
+    display: none;
   }
   .top_ranked_users_info_section_wrapper {
     float: left;

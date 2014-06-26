@@ -41,4 +41,10 @@ module ApplicationHelper
     end
   end
 
+  def show_badge_without_specialty(badge)
+    content_tag :a, class: "badge" do
+      content_tag(:p, badge.level, class: "badge_title #{badge_class(badge.level)}")
+    end
+  end
+
 end

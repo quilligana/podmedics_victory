@@ -93,7 +93,7 @@
               </div>
               <div class="top_ranked_users_section_badge_wrapper">
                 <div class="badge">
-                  <%= show_badge(UserProgress.new(@specialty, badge.user).current_badge) %>
+                  <%= show_badge_without_specialty(UserProgress.new(@specialty, badge.user).current_badge) %>
                 </div>
               </div>
             </div>

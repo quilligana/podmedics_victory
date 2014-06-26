@@ -4482,7 +4482,7 @@ a.podmedcis_button.green.print_notes_button {
   width: 100%;
   border-bottom: solid 1px #EFEFEF;
   padding-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 0px;
 }
 .top_ranked_users_section h3 {
   font-size: 11px;
@@ -4510,13 +4510,13 @@ a.podmedcis_button.green.print_notes_button {
   border-top: solid 1px #EFEFEF;
 }
 .top_ranked_users_section_avatar {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   float: left;
 }
 .top_ranked_users_section_avatar img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background-color: #fff;
   border: 6px solid #FFF;
@@ -4529,7 +4529,7 @@ a.podmedcis_button.green.print_notes_button {
 }
 
 .top_ranked_users_section_username a {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #666;
   margin-top: 10px;
@@ -4549,6 +4549,7 @@ a.podmedcis_button.green.print_notes_button {
 }
 .top_ranked_users_section_badge_wrapper .badge {
   margin-bottom: 0px;
+  margin-right: 0px;
 }
 .top_ranked_users_section_badge_wrapper .badge .badge_title {
   -moz-border-radius-topright: 5px 5px;
