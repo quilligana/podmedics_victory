@@ -1,6 +1,15 @@
 <script>
-function getUserProgress()
-{
+function getUserProgress(){
+  var stats = [];
+
+  <% @percentiles.each_with_index do |percentile, index| %>
+      stats[<%= index %>] = { value: <%= percentile %>, percentage: <%= index * 10 %>, user: <%= @user_percentile[index] %> }
+  <% end %>
+
+  return stats;
+}
+
+function normalDistribution(){
   var stats = [];
 
   <% @percentiles.each_with_index do |percentile, index| %>
@@ -62,13 +71,19 @@ function createChart() {
     });
 }
 
-function create_questionsChart() {
+function create_distributionChart() {
     $("#chart").kendoChart({
+        chartArea: {
+            background:"#F0F0F0",
+        },
         title: {
             text: "Your performance compared to others in the community"
         },
         legend: {
             visible: false
+        },
+        dataSource: {
+            data: normalDistribution()
         },
         seriesDefaults: {
             type: "area",
@@ -82,7 +97,6 @@ function create_questionsChart() {
         },
         series: [{
             type: "area",
-            data: [0, 1100, 600, 300, 180, 120, 80, 30, 10, 0, 0],
             area: {
                 line: {
                     style: "smooth",
@@ -90,82 +104,23 @@ function create_questionsChart() {
                     width: 3
                 }
             },
-            name: "l/100 km",
-            color: "#e5388a",
-            axis: "l100km"
+            field: "value",
+            categoryField: "percentage"
         }, {
             type: "bar",
-            data: [0, 1100, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            field: "user",
+            categoryField: "percentage",
             stack: true,
-            name: "on gas",
             color: "#0399d4"
         }],
-        valueAxes: [{
+        valueAxes: {
             title: { text: "Number of Users" },
             visible: false
-        }, {
-            name: "km",
-            visible: false
-        }, {
-            name: "l100km",
-            visible: false
-        }],
+        },
         categoryAxis: {
-            title: { text: "Percentage of Max Points" },
-            categories: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-            // Align the first two value axes to the left
-            // and the last two to the right.
-            //
-            // Right alignment is done by specifying a
-            // crossing value greater than or equal to
-            // the number of categories.
-            axisCrossingValues: [0, 0, 10, 10]
+            title: { text: "User Percentiles" }
         }
-        // title: {
-        //     text: "Your performance compared to others in the community"
-        // },
-        // legend: {
-        //     visible: false
-        // },
-        // seriesDefaults: {
-        //     type: "area",
-        //     area: {
-        //         line: {
-        //             style: "smooth",
-        //             color: 'grey',
-        //             width: 3
-        //         }
-        //     }
-        // },
-        // series: [{
-        //     name: "Users",
-        //     data: [0, 1100, 600, 300, 180, 120, 80, 30, 10, 0, 0]
-        // }],
-        // valueAxis: {
-        //     title: {
-        //         text: "Number of Users"
-        //     },
-        //     majorGridLines: {
-        //         visible: false
-        //     },
-        //     majorTicks: {
-        //         visible: false
-        //     },
-        //     labels: {
-        //         visible: false
-        //     }
-        // },
-        // categoryAxis: {
-        //     title: {
-        //         text: "Percentage of Max Points"
-        //     },
-        //     majorGridLines: {
-        //         visible: false
-        //     },
-        //     majorTicks: {
-        //         visible: false
-        //     }
-        // }
+    });
     });
 }
 
