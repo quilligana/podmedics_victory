@@ -47,6 +47,20 @@ class Sale < ActiveRecord::Base
     end
   end
 
+  def receive_paypal_callback(user_id, product_id)
+    user = User.find(user_id)
+    product = Product.find(product_id)
+    self.update(
+      user_id:  user.id,
+      product_id: product.id,
+      email: user.email,
+      fee_amount: product.price,
+      amount: product.price,
+      state: 'finished'
+    )
+    user.start_subscription_for_product(product)
+  end
+
   private
 
     def populate_guid

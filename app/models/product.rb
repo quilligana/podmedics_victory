@@ -12,5 +12,9 @@ class Product < ActiveRecord::Base
     price > 0 ? true : false
   end
 
+  def price_in_pounds
+    price / 100
+  end
+
 
 end

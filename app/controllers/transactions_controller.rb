@@ -33,6 +33,20 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def receive_paypal
+    user_id = params[:cm]
+    product_id = params[:item_number]
+    status = params[:st]
+    amount = params[:amt]
+    transaction_id = params[:tx]
+
+    # update the user
+    sale = Sale.new
+    sale.receive_paypal_callback(user_id, product_id)
+    redirect_to pickup_url(user_id: current_user.id, guid: sale.guid) 
+  end
+
+  # endpoint after Stripe or Paypal sale
   def pickup
   end
 

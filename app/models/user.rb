@@ -41,6 +41,11 @@ class User < ActiveRecord::Base
   end
 
   # Plans/Subs
+  #
+
+  def paypal_url(product, return_url)
+    Paypal.new(product, self, return_url).generate_url
+  end
 
   def self.trial(boolean)
     boolean ? has_selected_plan.never_subscribed : !has_selected_plan.never_subscribed

@@ -149,6 +149,10 @@
           data-description="<%= @paid_12.name %>"
           data-amount="<%= @paid_12.price %>"></script>
       <% end %>
+
+      <div>
+        Purchase with Paypal - <%= link_to "6 months", current_user.paypal_url(@paid_6, receive_paypal_url) %>, <%= link_to "12 months", current_user.paypal_url(@paid_12, receive_paypal_url) %>
+      </div>
     </div>
   </div>
 
@@ -163,9 +167,8 @@
 
   <div class="plans_lower_info_block_wrapper payment_system_block_icon">
     <div class="payment_system_icon_plans_lower_block"></div>
-    <p>We use <%= link_to 'Stripe', 'https://stripe.com/gb' %> to process all our transactions.</p>
+    <p>We use <%= link_to 'Stripe', 'https://stripe.com/gb' %> and <%= link_to "Paypal", "https://paypal.com" %> to process all our transactions.</p>
     <p>We never record your credit card data, and all information is encrypted and transmitted securely (over SSL).</p>
-    <p>If you wish to use Paypal please <a href="mailto:contact@podmedics.com">Contact Us</a>.</p>
   </div>
 
 </div>

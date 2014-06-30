@@ -8,7 +8,7 @@ class Permission
     allow :users, [:new, :create, :unsubscribe, :unsubscribed]
     allow :stripe_events, [:create]
     if user
-      allow :transactions, [:new, :create, :pickup]
+      allow :transactions, [:new, :create, :pickup, :receive_paypal]
       allow :courses, [:index]
       allow :dashboards, [:show]
       allow :users, [:show]
@@ -26,7 +26,6 @@ class Permission
       allow :vimeos, [:paused, :completed]
       allow_all if user.admin?
     end
-    
   end
 
   def allow?(controller, action, resource = nil)
