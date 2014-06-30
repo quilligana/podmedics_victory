@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang='en'>
+
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <meta name="apple-mobile-web-app-title" content="Podmedics">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="apple-mobile-web-app-title" content="Podmedics" >
+    <meta name="description" content="Medical students - revise for end of year medical student exams with our multi choice questions (SBAs), videos, podcasts and downloads." >
+    <meta name="keywords" content="OSCE, medical, student, exam, free, MCQs, EMQs, videos, podcasts, downloads, PACES" >
+    <meta name="author" content="Podmedics Ltd">
     <title><%= content_for?(:title) ? yield(:title) : "Podmedics" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Podmedics" %>">
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= render 'analytics' %>
@@ -22,7 +26,6 @@
       <%= yield %>
     </main>
     <%= content_for?(:footer) ? yield(:footer) : (render 'footer') %>
-    <%= render 'olark' %>
   </body>
 
 </html>
