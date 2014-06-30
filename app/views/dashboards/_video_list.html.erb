@@ -1,10 +1,8 @@
 <% videos.each do |video| %>
   <div class="lecture_list_item">
     <div class="lecture_list_left_column">
-      <%= link_to video.title, video_path(video) %>
+      <%= link_to video.title, video %>
       <p class="lecture_specialties_link"><%= link_to video.specialty_name, specialty_path(video.specialty) %></p>
-      <p class="lecture_date_author"><%= video.duration %> minutes with <%= video.speaker_name %></p>
-      <%#<p class="lecture_recent_date_wrapper">Posted 8 days ago</p>%>
     </div>
     <div class="lecture_icons_wrapper">
       <%= show_lecture_icons(video) %>

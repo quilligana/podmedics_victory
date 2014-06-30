@@ -25,10 +25,6 @@
 
   <div id="speciality_default_right_column">
 
-    <div class="questions_info_right_column_section">
-      <%= user_specialty_points(@user_progress, @specialty) %>
-    </div>
-
     <div class="points_until_next_badge_section">
       <div class="points_until_next_badge_wrapper">
         <%= get_next_badge(@user_progress, @specialty) %>
@@ -55,27 +51,6 @@
         </p>
       </div>
     </div>
-
-
-    <div class="questions_info_right_column_section speciality_inline_count_blocks">
-      <h3>Specialty Stats</h3>
-      <div class="speciality_count_block">
-        <p class="questions_info_right_column_number videos_count_block"><%= @specialty.cached_videos_count %></p>
-        <p>Videos</p>
-      </div>
-
-      <div class="speciality_count_block">
-        <p class="questions_info_right_column_number questions_count_block"><%= @specialty.cached_questions_count %></p>
-        <p>Questions</p>
-      </div>
-
-      <div class="speciality_count_block point_count_block" >
-        <p class="questions_info_right_column_number"> <%= @user_progress.max_specialty_points.to_i %> </p>
-        <p>Points Avaliable</p>
-      </div>
-
-    </div>
-
 
     <div class="top_ranked_users_section">
       <h3>The Experts</h3>
