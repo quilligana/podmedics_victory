@@ -3,6 +3,9 @@
     <h1>Library</h1>
   </div>
   <div class="page">
+    <div class="library_welcome">
+      Feel free to explore our video library. <span class="podmedics_red">Episodes in red</span> can be watched in full right here on this page!
+    </div>
     <div class="inner_page_padding library_page_inner_spacing">
       <% @categories.each do |category| %>
         <a href="javascript:;" class="library_button" id="library_<%= category.name.downcase  %>_link">
