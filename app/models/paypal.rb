@@ -6,6 +6,7 @@ class Paypal
     @return_url = return_url
   end
 
+  # generates instant checkout url
   def generate_url
     values = {
       business: "ed@podmedics.co.uk",
@@ -14,7 +15,7 @@ class Paypal
       custom: @user.id,
       invoice: Time.now,
       currency_code: 'GBP',
-      amount: 0.01,
+      amount: @product.price_in_pounds,
       no_shipping: 1,
       item_name: self.purchase_name,
       item_number: @product.id
