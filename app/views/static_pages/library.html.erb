@@ -15,7 +15,7 @@
           <% category.specialties.order(:name).each do |specialty| %>
             <div class="library_column">
               <p><%= specialty.name.upcase %></p>
-              <% specialty.videos.each do |video| %>
+              <% specialty.videos.order('title').each do |video| %>
                 <% if video.preview %>
                   <p class="active_library_link">
                     <%= link_to video.title, "https://vimeo.com/#{video.vimeo_identifier}.mp4", class: 'fresco', data: { :'fresco-group' => 'library_videos'} %>
