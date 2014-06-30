@@ -4606,3 +4606,36 @@ a.podmedcis_button.green.print_notes_button {
   padding-right: 40px;
   line-height: 30px;
 }
+
+.purchase_with_paypal_section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  color: #878787;
+  line-height: 22px;
+  margin-left: 10px;
+  margin-right: 7px;
+  padding-left: 5px;
+  font-size:14px;
+  display: inline-block;
+}
+
+.purchase_with_paypal_section_paypal_logo {
+  background-image: image-url('paypal_logo.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  width: 94px;
+  height: 24px;
+  display: block;
+  margin-left: 9px;
+  margin-right: 7px;
+}
+.purchase_with_paypal_section p {
+  float: left;
+}
+
+.purchase_with_paypal_section a {
+  font-weight: bold;
+  color: #333333;
+ }

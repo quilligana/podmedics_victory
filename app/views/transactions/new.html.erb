@@ -150,8 +150,8 @@
           data-amount="<%= @paid_12.price %>"></script>
       <% end %>
 
-      <div>
-        Purchase with Paypal - <%= link_to "6 months", current_user.paypal_url(@paid_6, receive_paypal_url) %>, <%= link_to "12 months", current_user.paypal_url(@paid_12, receive_paypal_url) %>
+      <div class="purchase_with_paypal_section">
+        <p>Purchase with</p> <p class="purchase_with_paypal_section_paypal_logo"></p> <p><%= link_to "6 months", current_user.paypal_url(@paid_6, receive_paypal_url) %>, <%= link_to "12 months", current_user.paypal_url(@paid_12, receive_paypal_url) %></p>
       </div>
     </div>
   </div>
