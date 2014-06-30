@@ -40,7 +40,6 @@ class TransactionsController < ApplicationController
     amount = params[:amt]
     transaction_id = params[:tx]
 
-    # update the user
     sale = Sale.new
     sale.receive_paypal_callback(user_id, product_id)
     redirect_to pickup_url(user_id: current_user.id, guid: sale.guid) 

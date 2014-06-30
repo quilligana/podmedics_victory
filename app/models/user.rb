@@ -41,7 +41,10 @@ class User < ActiveRecord::Base
   end
 
   # Plans/Subs
-  #
+
+  def self.registered_a_week_ago
+    where("created_at >= :one_week AND created_at <= :six_days", one_week: (Time.zone.now - 2.weeks), six_days: (Time.zone.now - 6.days))
+  end
 
   def paypal_url(product, return_url)
     Paypal.new(product, self, return_url).generate_url
@@ -96,6 +99,16 @@ class User < ActiveRecord::Base
 
   def suitable_for_reminder?
     self.is_trial_member? && self.has_selected_plan? && !self.reminder_email_received ? true : false
+  end
+
+  def self.send_one_week_reminders
+    users_for_reminders = registered_a_week_ago.has_selected_plan.never_subscribed
+    users_for_reminders.each do |user|
+      if user.suitable_for_reminder?
+        UserMailer.delay.one_week_hello(user)
+        user.update_attributes(reminder_email_received: true)
+      end
+    end
   end
 
   # Trial member specialty access

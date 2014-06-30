@@ -8,6 +8,10 @@ class Admin::AuthorsController < InheritedResources::Base
 
   protected
 
+    def collection
+      @authors ||= end_of_association_chain.includes(:videos)
+    end
+
     def permitted_params
       params.permit(:author => [:name, :tagline, :twitter, :facebook, :avatar])
     end
