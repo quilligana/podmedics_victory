@@ -196,6 +196,25 @@ ready = function() {
     increaseArea: '20%' // optional
   });
 
+  $("a.initial_instant_checkout_button").click(function(){
+    $(".payment_system_options_buttons_wrapper").hide();
+    $(".plans_button_wrapper.paid_plans_column_payment_buttons").fadeIn(400);
+  });
+
+  $("a.initial_paypal_checkout_button").click(function(){
+    $(".payment_system_options_buttons_wrapper").hide();
+    $(".paypal_payment_options_button_set").fadeIn(400);
+  });
+
+  $("a.payment_options_back_button").click(function(){
+    $(".paypal_payment_options_button_set, .plans_button_wrapper.paid_plans_column_payment_buttons").hide();
+    $(".payment_system_options_buttons_wrapper").fadeIn(400);
+  });
+
+
+
+
+
   $("a.lectures_inline_dropdown_category_link.medicine").click(function(){
     $(".lectures_inline_dropdown_categories").hide();
     $(".lectures_inline_dropdown_specialty_medicine").fadeIn(400);

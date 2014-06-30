@@ -125,7 +125,18 @@
       <li>Priority Support</li>
     </ul>
 
-    <div class="plans_button_wrapper">
+
+    <div class="payment_system_options_buttons_wrapper">
+      <p class="payment_options_initial_title">Pay using one of the below Payment options</p>
+      <a href="javascript:;" class="initial_instant_checkout_button">Instant Checkout</a>
+      <a href="javascript:;" class="initial_paypal_checkout_button">Checkout Using Paypal</a>
+    </div>
+
+
+
+    <div class="plans_button_wrapper paid_plans_column_payment_buttons">
+      <p class="payment_options_initial_title">Choose one of the below subscription terms</p>
+
       <%= form_tag buy_path(permalink: @paid_6.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
@@ -149,11 +160,21 @@
           data-description="<%= @paid_12.name %>"
           data-amount="<%= @paid_12.price %>"></script>
       <% end %>
-
-      <div class="purchase_with_paypal_section">
-        <p>Purchase with</p> <p class="purchase_with_paypal_section_paypal_logo"></p> <p><%= link_to "6 months", current_user.paypal_url(@paid_6, receive_paypal_url) %>, <%= link_to "12 months", current_user.paypal_url(@paid_12, receive_paypal_url) %></p>
-      </div>
+      <p><a href="javascript:;" class="payment_options_back_button">Back to payment options</a></p>
     </div>
+
+
+
+
+    <div class="paypal_payment_options_button_set">
+      <p class="payment_options_initial_title">Choose one of the below subscription terms</p>
+      <%= link_to "Podmedics (£22 - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
+      <%= link_to "Podmedics (£40 - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <p><a href="javascript:;" class="payment_options_back_button">Back to payment options</a></p>
+    </div>
+
+
+
   </div>
 
 </div>

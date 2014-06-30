@@ -1754,6 +1754,17 @@ $standard_border_radius: 6px;
 
 
 @media screen and (max-width: 400px) {
+  a.initial_instant_checkout_button {
+    background-image: none;
+    text-align: center;
+    text-indent: 0px;
+  }
+  a.initial_paypal_checkout_button {
+    background-image: none;
+    text-align: center;
+    text-indent: 0px;
+  }
+
 
   .ask_question_modal_textarea {
     width: 92%;
