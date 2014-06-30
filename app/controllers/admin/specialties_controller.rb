@@ -19,7 +19,7 @@ class Admin::SpecialtiesController < InheritedResources::Base
   protected
 
     def collection
-      @specialties ||= end_of_association_chain.includes(:videos, :questions, :user_questions).order(:name)
+      @specialties ||= end_of_association_chain.includes(:category, :videos, :questions, :user_questions).order(:name)
     end
 
   private
