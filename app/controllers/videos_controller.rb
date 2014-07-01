@@ -3,17 +3,17 @@ class VideosController < ApplicationController
 
   def index
     if params[:tag]
-      @videos = Video.tagged_with(params[:tag])
+      @videos = Video.includes(:specialty).tagged_with(params[:tag])
     elsif params[:search]
-      @videos = Video.search(params[:search])
+      @videos = Video.includes(:specialty).search(params[:search])
     else
-      @videos = Video.all
+      @videos = Video.includes(:specialty).all
     end
   end
 
   def show
-    @video = Video.friendly.find(params[:id])
-    @specialty = Specialty.cached_find(@video.specialty_id)
+    @video = Video.includes(:specialty, :author, :tags).friendly.find(params[:id])
+    @specialty = @video.specialty
 
     check_unlock if current_user.is_trial_member?
 

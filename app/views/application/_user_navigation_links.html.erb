@@ -62,7 +62,7 @@
           <div class="main_nav_inner_lectures_title"><%= category.name %></div>
           <div class="speciality_nav_back_button">Back</div>
         </div>
-        <% category.specialties.order(:name).each do |specialty| %>
+        <% category.specialties.each do |specialty| %>
           <%= link_to specialty.name, specialty_path(specialty) %>
         <% end %>
       </div>

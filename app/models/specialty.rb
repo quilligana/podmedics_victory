@@ -66,16 +66,6 @@ class Specialty < ActiveRecord::Base
     return users
   end
 
-  # returns top five users for a specialty
-  #def top_five_users
-    #top_users = []
-    #top_badges_with_users.take(5).each do |user| 
-      #top_users << User.find(user[:user_id])
-    #end
-    #puts top_users
-    #return top_users
-  #end
-
   # Cache functions
 
   def self.cached_find(id)
