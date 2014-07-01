@@ -3,7 +3,7 @@
   You are replying to <%= link_to "nobody", "#", id: "reply_user_name" %>. <%= link_to "Cancel Reply", "#", id: "reply_cancel_button" %>
   </div>
   <p>
-    <%= f.text_area :content, class: "comments_textarea", placeholder: "Write your comments here..." %>
+    <%= f.text_area :content, class: "comments_textarea", placeholder: "Write your comment/question here..." %>
   </p>
   <p>
     <% unless ENV["RAILS_ENV"] == 'test' %>

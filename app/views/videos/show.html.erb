@@ -33,11 +33,7 @@
     <div class="video_header_outer">
 
       <div class="video_page_author_duration_header">
-        <p class="video_author_duration_subtitle"><%= @video.duration %> minutes with <%= @video.speaker_name %></p>
         <p><%= @video.description %></p>
-        <% if allow? "admins", "dashboard" %>
-          <p><%= link_to "Edit in admin", admin_video_path(@video) %></p>
-        <% end %>
       </div>
 
       <div class="video_page_tags_wrapper">
@@ -71,7 +67,7 @@
       <div class="lectures_speciality_outer_wrapper">
         <div id="tabs">
           <ul>
-            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments (<%= @video.cached_comments_count %>)</p><p class="icon"></p></a></li>
+            <li><a href="#tabs-2" title="" class="comments_tab"><p>Comments/Questions (<%= @video.cached_comments_count %>)</p><p class="icon"></p></a></li>
           </ul>
 
           <div id="tabs_container">
