@@ -3,23 +3,25 @@
     <div class="sub_heading_wrapper">
       <h1>Dashboard</h1>
       <div class="sub_heading_button_set">
+
         <% @categories.each do |category| %>
           <div class="inline_specialities_dropdown_wrapper">
             <a href="#" class="inline_specialities_dropdown_button"><%= category.name %></a>
-            <div class="inline_specialities_dropdown_menu">
+            <div class="inline_specialities_dropdown_menu <%= to_underscored(category.name) %>_dropdown_menu_placement">
               <% category.specialties.each do |specialty| %>
                 <%= link_to specialty.name, specialty_path(specialty) %>
               <% end %>
             </div>
           </div>
         <% end %>
+
       </div>
     </div>
   </div>
 
   <div class="page dashboard_page">
     <div>
-      <div id="tabs_container">
+      <div>
         <div id="tabs-1" class="tab_box">
           <div class="stats_chart_wrapper" id="tour_step_one">
             <%= render 'stats' %>

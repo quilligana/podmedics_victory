@@ -4739,3 +4739,91 @@ a.payment_options_back_button {
   margin-bottom: 25px;
   float: left;
 }
+
+
+.inline_specialities_dropdown_menu {
+  display: none;
+  background-color: #FFF;
+  float: left;
+  position: absolute;
+  width: 175px;
+  z-index: 10;
+  margin-top: 48px;
+  margin-left: -15px;
+  -moz-box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
+  -webkit-box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
+  box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
+  border-top-right-radius: 0px 0px;
+  border-bottom-right-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+  border-top-left-radius: 5px 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+a.inline_specialities_dropdown_button {
+  font-size: 14px;
+  color: #6B6B6B;
+  background-color: #FFF;
+  float: left;
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  padding: 18px 45px 16px 20px;
+  background-image: image-url('specialities_dropdown_icon.png');
+  background-repeat: no-repeat;
+  background-position: right 22px;
+}
+.inline_specialities_dropdown_wrapper {
+  float: left;
+  margin-left: 10px;
+}
+
+.inline_specialities_dropdown_wrapper:hover .inline_specialities_dropdown_menu {
+  display: block;
+}
+
+.inline_specialities_dropdown_menu a {
+  float: left;
+  text-indent: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #616161;
+  width: 100%;
+}
+
+.inline_specialities_dropdown_menu.medicine_dropdown_menu_placement {
+  margin-left: -45px;
+}
+
+.inline_specialities_dropdown_menu.surgery_dropdown_menu_placement {
+  margin-left: -54px;
+}
+.inline_specialities_dropdown_menu.clinical_specialties_dropdown_menu_placement {
+  margin-left: 0px;
+  width: 197px;
+}
+.inline_specialities_dropdown_menu.clinical_sciences_dropdown_menu_placement {
+  margin-left: 0px;
+  width: 183px;
+}
+
+.inline_specialities_dropdown_wrapper:hover a {
+  -moz-box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
+  -webkit-box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
+  box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
+
+  border-bottom-right-radius: 0px 0px;
+  border-bottom-left-radius: 0px 0px;
+}
+.inline_specialities_dropdown_wrapper:hover .inline_specialities_dropdown_menu a {
+  -moz-box-shadow: 0px 0px 0px 0px rgba(189, 189, 189, 0);
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(189, 189, 189, 0);
+  box-shadow: 0px 0px 0px 0px rgba(189, 189, 189, 0);
+}
