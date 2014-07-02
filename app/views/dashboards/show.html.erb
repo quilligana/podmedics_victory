@@ -3,59 +3,21 @@
     <div class="sub_heading_wrapper">
       <h1>Dashboard</h1>
       <div class="sub_heading_button_set">
-
-
-        <div class="inline_specialities_dropdown_wrapper">
-          <a href="#" class="inline_specialities_dropdown_button">Medicine</a>
-          <div class="inline_specialities_dropdown_menu">
-
-            <!--Medicine specialities list -->
-
+        <% @categories.each do |category| %>
+          <div class="inline_specialities_dropdown_wrapper">
+            <a href="#" class="inline_specialities_dropdown_button"><%= category.name %></a>
+            <div class="inline_specialities_dropdown_menu">
+              <% category.specialties.each do |specialty| %>
+                <%= link_to specialty.name, specialty_path(specialty) %>
+              <% end %>
+            </div>
           </div>
-        </div>
-
-
-
-        <div class="inline_specialities_dropdown_wrapper">
-          <a href="#" class="inline_specialities_dropdown_button">Surgery</a>
-          <div class="inline_specialities_dropdown_menu">
-
-            <!--Surgery specialities list -->
-
-          </div>
-        </div>
-
-
-
-        <div class="inline_specialities_dropdown_wrapper">
-          <a href="#" class="inline_specialities_dropdown_button">Clinical Specialties</a>
-          <div class="inline_specialities_dropdown_menu">
-
-            <!--Clinical Specialties list -->
-
-          </div>
-        </div>
-
-
-
-        <div class="inline_specialities_dropdown_wrapper">
-          <a href="#" class="inline_specialities_dropdown_button">Clinical Sciences</a>
-          <div class="inline_specialities_dropdown_menu">
-
-            <!--Clinical Sciences specialities list -->
-
-          </div>
-        </div>
-
-
-
-
+        <% end %>
       </div>
     </div>
   </div>
 
   <div class="page dashboard_page">
-
     <div>
       <div id="tabs_container">
         <div id="tabs-1" class="tab_box">
