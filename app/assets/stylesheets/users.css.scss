@@ -4827,3 +4827,14 @@ a.inline_specialities_dropdown_button {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(189, 189, 189, 0);
   box-shadow: 0px 0px 0px 0px rgba(189, 189, 189, 0);
 }
+.inline_specialities_dropdown_menu a:hover {
+  color: #000;
+}
+
+.inline_specialities_dropdown_wrapper:hover .inline_specialities_dropdown_menu.clinical_specialties_dropdown_menu_placement {
+  border-top-left-radius: 0px 0px;
+}
+.inline_specialities_dropdown_wrapper:hover .inline_specialities_dropdown_menu.clinical_sciences_dropdown_menu_placement {
+  border-top-left-radius: 0px 0px;
+}
+
