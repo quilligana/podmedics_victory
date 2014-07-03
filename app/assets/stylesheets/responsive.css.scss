@@ -754,6 +754,12 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 800px) {
+  .inline_specialities_dropdown_wrapper {
+    display: none;
+  }
+  a.ask_question_icon_button {
+    margin-left: 0px;
+  }
   .header_column {
     width: 100%;
     height: 470px;
