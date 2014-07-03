@@ -34,9 +34,7 @@
           <div class="inner_header_column_divide">
             <div class="header_columns_inner_wrapper">
               <div class="dashboard_header_columns_title">Recent Lectures</div>
-
-              <!-- Video list here -->
-
+              <%= render partial: 'video_list', locals: { videos: @recent_videos} %>
             </div>
           </div>
         </div>
@@ -44,9 +42,7 @@
         <div class="header_column">
           <div class="header_columns_inner_wrapper">
             <div class="dashboard_header_columns_title">Recommended Lectures</div>
-
-            <!-- Video list here -->
-
+              <%= render partial: 'video_list', locals: { videos: @flagged_videos} %>
           </div>
         </div>
       </div>

@@ -11,6 +11,10 @@ class SpecialtyQuestion < ActiveRecord::Base
   validates :user, presence: true
   validates :specialty, presence: true
 
+  def self.recent(num)
+    order(created_at: :desc).limit(num)
+  end
+
   # Caching functions
 
   def cached_user

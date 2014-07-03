@@ -39,41 +39,19 @@
 
     <div class="dashboard_badges_right_column">
       <div class="dashboard_badges_overview_inner_border">
-
         <div class="title">Recent Community Questions</div>
         <div class="questions_answers_dashboard_list">
-
-          <div class="questions_answers_dashboard_block">
-            <div class="questions_answers_dashboard_block_inner_wrapper">
-              <div class="questions_answers_dashboard_block_title">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</div>
-              <p class="questions_answers_dashboard_block_name_date"><a href="#">Ed Wallitt</a> asked a question about 24 Minutes ago</p>
-              <a href="#" class="podmedcis_button red_button">View Question</a>
+          <% @recent_questions.each do |question| %>
+            <div class="questions_answers_dashboard_block">
+              <div class="questions_answers_dashboard_block_inner_wrapper">
+                <div class="questions_answers_dashboard_block_title"><%= question.content %></div>
+                <p class="questions_answers_dashboard_block_name_date"><a href="#"><%= question.user %></a> asked a question <%= time_ago_in_words(question.created_at) %> ago</p>
+                <%= link_to "View", specialty_question_path(question.specialty, question), class: 'podmedcis_button red_button' %>
+              </div>
             </div>
-          </div>
-
-          <div class="questions_answers_dashboard_block">
-            <div class="questions_answers_dashboard_block_inner_wrapper">
-              <div class="questions_answers_dashboard_block_title">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</div>
-              <p class="questions_answers_dashboard_block_name_date"><a href="#">Ed Wallitt</a> asked a question about 24 Minutes ago</p>
-              <a href="#" class="podmedcis_button red_button">View Question</a>
-            </div>
-          </div>
-
-          <div class="questions_answers_dashboard_block">
-            <div class="questions_answers_dashboard_block_inner_wrapper">
-              <div class="questions_answers_dashboard_block_title">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</div>
-              <p class="questions_answers_dashboard_block_name_date"><a href="#">Ed Wallitt</a> asked a question about 24 Minutes ago</p>
-              <a href="#" class="podmedcis_button red_button">View Question</a>
-            </div>
-          </div>
-
-
-
-
+          <% end %>
         </div>
-
       </div>
-
     </div>
 
   </div>
