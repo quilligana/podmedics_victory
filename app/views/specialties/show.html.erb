@@ -8,12 +8,11 @@
       <%= render 'quick_nav' %>
 
       <a href="#" class="ask_question_icon_button" data-reveal-id="ask_question_modal">
-        <div class="ask_question_button_tooltip">Ask the Podmedics community a question</div>
+        <div class="ask_question_button_tooltip">Ask the Podmedics Community a question</div>
       </a>
 
-
       <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button" do %>
-        <div class="quiz_button_tooltip">30 random questions from Cardiology</div>
+        <div class="quiz_button_tooltip">30 random questions from <%= @specialty.name %></div>
       <% end %>
 
     </div>
