@@ -4912,11 +4912,14 @@ a.ask_question_icon_button:hover .ask_question_button_tooltip {
   width: 50%;
   height: 470px;
   float: left;
+  overflow-y: scroll;
 }
 .inner_header_column_divide {
   width: 100%;
   border-right: solid 1px #E8E8E8;
   height: 470px;
+  display: table-cell;
+  overflow-y: scroll;
 }
 .header_columns_inner_wrapper {
   padding-left: 30px;
@@ -4981,4 +4984,9 @@ p.questions_answers_dashboard_block_name_date {
 }
 .questions_answers_dashboard_block_name_date a:hover {
   color: #333;
+}
+.dashboard_header_columns_lecture_blocks_wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  float: left;
 }
