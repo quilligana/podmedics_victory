@@ -34,13 +34,46 @@
   <div class="dashboard_badges_overview_wrapper">
 
     <div class="dashboard_badges_left_column">
-      <div class="dashboard_badges_overview_inner_border">
-          <%= render 'recent_badges' %>
-      </div>
+      <%= render 'recent_badges' %>
     </div>
 
     <div class="dashboard_badges_right_column">
-      <%= render partial: 'shared/badges', locals: { user: current_user, badges: current_user.badges} %>
+      <div class="dashboard_badges_overview_inner_border">
+
+        <div class="title">Recent Community Questions</div>
+        <div class="questions_answers_dashboard_list">
+
+          <div class="questions_answers_dashboard_block">
+            <div class="questions_answers_dashboard_block_inner_wrapper">
+              <div class="questions_answers_dashboard_block_title">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</div>
+              <p class="questions_answers_dashboard_block_name_date"><a href="#">Ed Wallitt</a> asked a question about 24 Minutes ago</p>
+              <a href="#" class="podmedcis_button red_button">View Question</a>
+            </div>
+          </div>
+
+          <div class="questions_answers_dashboard_block">
+            <div class="questions_answers_dashboard_block_inner_wrapper">
+              <div class="questions_answers_dashboard_block_title">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</div>
+              <p class="questions_answers_dashboard_block_name_date"><a href="#">Ed Wallitt</a> asked a question about 24 Minutes ago</p>
+              <a href="#" class="podmedcis_button red_button">View Question</a>
+            </div>
+          </div>
+
+          <div class="questions_answers_dashboard_block">
+            <div class="questions_answers_dashboard_block_inner_wrapper">
+              <div class="questions_answers_dashboard_block_title">If a 45 year old with hyperlipidaemia who suffers from chronic stable angina not controlled with a nitrate. What is the most suitable anti-hypertensive?</div>
+              <p class="questions_answers_dashboard_block_name_date"><a href="#">Ed Wallitt</a> asked a question about 24 Minutes ago</p>
+              <a href="#" class="podmedcis_button red_button">View Question</a>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
     </div>
 
   </div>

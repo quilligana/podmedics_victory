@@ -27,19 +27,40 @@
   </div>
 
   <div class="page dashboard_page">
-    <div>
-      <div>
-        <div id="tabs-1" class="tab_box">
-          <div class="stats_chart_wrapper" id="tour_step_one">
-            <%= render 'stats' %>
+
+    <div id="tabs-1" class="tab_box">
+      <div class="dashboard_header_wrapper">
+        <div class="header_column">
+          <div class="inner_header_column_divide">
+            <div class="header_columns_inner_wrapper">
+              <div class="dashboard_header_columns_title">Recent Lectures</div>
+
+              <!-- Video list here -->
+
+            </div>
+          </div>
+        </div>
+
+        <div class="header_column">
+          <div class="header_columns_inner_wrapper">
+            <div class="dashboard_header_columns_title">Recommended Lectures</div>
+
+            <!-- Video list here -->
+
           </div>
         </div>
       </div>
+
+      <div class="stats_chart_wrapper" id="tour_step_one">
+        <%= render 'stats' %>
+      </div>
     </div>
-  </div>
 
   <div class="clear"></div>
 
 </div>
 
 <%= render "trial_user_modal" %>
+
+
+</div>

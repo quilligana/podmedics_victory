@@ -548,11 +548,10 @@ $standard_border_radius: 6px;
   .dashboard_badges_right_column {
     width: 100%;
     float: left;
-    border-top: solid 1px $grey_border;
   }
 
   .dashboard_badges_overview_inner_border{
-    border-right: none;
+    border-left: none;
     width: 100%;
   }
 
@@ -994,7 +993,22 @@ $standard_border_radius: 6px;
     border-bottom-style: solid;
     border-bottom-color: #E8E8E8;
   }
-
+  .header_column {
+    width: 100%;
+    height: 470px;
+    float: left;
+  }
+  .inner_header_column_divide {
+    width: 100%;
+    border-right:none;
+    border-bottom: solid 1px #E8E8E8;
+    height: 470px;
+  }
+  .dashboard_header_wrapper {
+    height: 940px;
+    width: 100%;
+    border-bottom: solid 1px #E8E8E8;
+  }
   .stats_chart {
     display: none;
   }
@@ -1592,6 +1606,12 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 550px) {
+
+  .questions_answers_dashboard_block_inner_wrapper {
+    padding-left: 40px;
+    background-image: none;
+  }
+
   .plans_columns_wrapper {
     width: 91%;
   }
