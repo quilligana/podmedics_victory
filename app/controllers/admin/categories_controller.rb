@@ -1,19 +1,47 @@
-class Admin::CategoriesController < InheritedResources::Base
+class Admin::CategoriesController < ApplicationController
   layout 'admin_application'
   respond_to :html
+  before_action :find_category, only: [:show, :edit, :update]
+
+  def index
+    @categories = Category.order(:name)
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def new
+    @category = Category.new
+  end
 
   def create
-    create!(notice: 'New Category added') { admin_categories_path }
+    @category = Category.create(category_params)
+    if @category.save
+      redirect_to admin_categories_path, notice: 'New Category added'
+    else
+      render :new
+    end
   end
 
   def update
-    update!(notice: 'Category updated') { admin_categories_path }
+    if @category.update_attributes(category_params)
+      redirect_to admin_categories_path, notice: 'Category updated'
+    else
+      render :edit
+    end
   end
 
-  protected
+  private
 
-  def permitted_params
-    params.permit(:category => [:name])
-  end
+    def find_category
+      @category = Category.find(params[:id])
+    end
+
+    def category_params
+      params.require(:category).permit(:name)
+    end
   
 end
