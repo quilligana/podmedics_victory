@@ -1,20 +1,40 @@
-class Admin::VideosController < InheritedResources::Base
+class Admin::VideosController < ApplicationController
   layout 'admin_application'
   respond_to :html, :json
 
   before_action :set_video, only: [:show, :edit, :update, :destroy, :move_up, :move_down, 
                                    :send_notifications, :send_test_notifications, :mark_proofread]
 
+  def index
+    @videos = Video.includes(:specialty, :tags, :questions, :author).order(:title).paginate(page: params[:page])
+    
+  end
+
+  def show
+  end
+
+  def new
+    @video = Video.new
+  end
+
+  def edit
+  end
+
   def create
-    create!(notice: 'New video added') { admin_video_path(@video) }
+    @video = Video.new(video_params)
+    if @video.save
+      redirect_to admin_video_path(@video), notice: 'New video added'
+    else
+      render :new
+    end
   end
 
   def update
-    update!(notice: 'Video updated') { admin_video_path(@video) }
-  end
-
-  def permitted_params
-    params.permit(:video => [:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread])
+    if @video.update_attributes(video_params)
+      redirect_to admin_video_path(@video), notice: 'Video updated'
+    else
+      render :edit
+    end
   end
 
   def move_up
@@ -42,13 +62,11 @@ class Admin::VideosController < InheritedResources::Base
     redirect_to :back, notice: 'Video marked as proofread'
   end
 
-  protected
-
-    def collection
-      @videos ||= end_of_association_chain.includes(:specialty, :tags, :questions, :author).order(:title).paginate(page: params[:page])
-    end
-
   private
+
+    def video_params
+      params.require(:video).permit(:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread)
+    end
 
     def set_video
       @video = Video.friendly.find(params[:id])

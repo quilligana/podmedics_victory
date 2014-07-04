@@ -48,7 +48,7 @@ PodmedicsVictory::Application.routes.draw do
     resource :dashboard, only: :show
     resources :categories, except: :delete 
     resources :specialties
-    resources :videos do
+    resources :videos, except: :delete do
       member do
         get 'move_up'
         get 'move_down'
