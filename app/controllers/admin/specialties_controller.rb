@@ -1,31 +1,52 @@
-class Admin::SpecialtiesController < InheritedResources::Base
+class Admin::SpecialtiesController < ApplicationController
   layout 'admin_application'
   respond_to :html
+  before_action :find_specialty, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_specialty, only: [:show, :edit, :update, :destroy]
+  def index
+    @specialties = Specialty.includes(:category, :videos, :questions, :user_questions).order(:name)
+  end
+
+  def new
+    @specialty = Specialty.new
+  end
+
+  def show
+  end
+
+  def edit
+  end
 
   def create
-    create!(notice: 'New Specialty added') { admin_specialties_path }
+    @specialty = Specialty.new(specialty_params)
+    if @specialty.save
+      redirect_to admin_specialties_path, notice: 'New Specialty added'
+    else
+      render :new
+    end
   end
 
   def update
-    update!(notice: 'Specialty updated') { admin_specialties_path }
-  end
-
-  def permitted_params
-    params.permit(:specialty =>[:name, :category_id] )
-  end
-
-  protected
-
-    def collection
-      @specialties ||= end_of_association_chain.includes(:category, :videos, :questions, :user_questions).order(:name)
+    if @specialty.update_attributes(specialty_params)
+      redirect_to admin_specialties_path, notice: 'Specialty updated'
+    else
+      render :edit
     end
+  end
+
+  def destroy
+    @specialty.destroy
+    redirect_to admin_specialties_path, notice: 'Specialty removed'
+  end
 
   private
 
-    def set_specialty
-      @specialty = Specialty.cached_friendly_find(params[:id])
+    def specialty_params
+      params.require(:specialty).permit(:name, :category_id)
+    end
+
+    def find_specialty
+      @specialty = Specialty.friendly.find(params[:id])
     end
 
 end
