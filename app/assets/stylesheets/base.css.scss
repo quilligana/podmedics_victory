@@ -384,9 +384,9 @@ h4 {
   color: #797979;
   font-size: 14px;
   font-weight: 700;
-  opacity: 0.4;
   float: left;
-  margin-right: 35px;  box-sizing: content-box;
+  margin-right: 15px;
+  box-sizing: content-box;
 
   padding: 10px 0 20px; }
 
@@ -453,7 +453,7 @@ h4 {
 
 #tabs li a.tabulous_active, #tabs_single_page li a.tabulous_active {
   background: #FFF;
-  color: #555;
+  color: #fa3f52;
   opacity: 1.0; }
 
 .tabulousclear {
@@ -498,8 +498,38 @@ h4 {
 
 
 #tabs ul li .comments_tab .icon, #tabs_single_page ul li .comments_tab .icon {
+  background-position: 0 -108px;
+}
+
+
+
+
+
+#tabs ul li .lectures_tab.tabulous_active .icon, #tabs_single_page ul li .lectures_tab.tabulous_active .icon {
+  background-position: 0px -130px;
+}
+
+#tabs ul li .recommended_lectures_tab .icon,  #tabs_single_page  ul li .recommended_lectures_tab.tabulous_active .icon {
+  background-position: 0 -26px; }
+
+#tabs ul li .stats_tab .icon, #tabs_single_page ul li .stats_tab.tabulous_active .icon {
+  background-position: 0 -53px; }
+
+
+#tabs ul li .questions_answers_tab .icon, #tabs_single_page ul li .questions_answers_tab.tabulous_active .icon {
+  background-position: 0px -209px;
+}
+
+
+#tabs ul li .comments_tab .icon, #tabs_single_page ul li .comments_tab.tabulous_active .icon {
   background-position: 0 -109px;
 }
+
+
+
+
+
+
 
 .tab_divider {
   background-color: #E8E8E8;
