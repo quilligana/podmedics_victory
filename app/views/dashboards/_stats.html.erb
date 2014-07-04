@@ -46,7 +46,7 @@
               <div class="questions_answers_dashboard_block_inner_wrapper">
                 <div class="questions_answers_dashboard_block_title"><%= question.content %></div>
                 <p class="questions_answers_dashboard_block_name_date"><%= link_to question.user, user_path(question.user) %> asked a question <%= time_ago_in_words(question.created_at) %> ago</p>
-                <p><%= question.comments.count %> responses</p>
+                <p class="questions_answers_dashboard_block_comment_count"><%= question.comments.count %> responses</p>
                 <%= link_to "View", specialty_question_path(question.specialty, question), class: 'podmedcis_button red_button' %>
               </div>
             </div>
