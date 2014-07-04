@@ -2267,11 +2267,15 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
 }
 
 .lecture_icons_wrapper .lecture_icon.watched .tooltip {
-  width: 277px;
-  height: 43px;
-  background-position: -45px -388px;
-  z-index: 50;
-  margin-right: -11px;
+  width: 291px;
+  height: 50px;
+  background-position: -2px -113px;
+  z-index: 72;
+  margin-right: -2px;
+  margin-top: 27px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 36px;
 }
 
 .lecture_icons_wrapper .lecture_icon.resit .tooltip {
@@ -2285,15 +2289,16 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
   padding-right: 23px;
 }
 
-.lecture_icons_wrapper .lecture_icon.recommended_resit .tooltip {
-  width: 281px;
-  height: 70px;
-  background-position: -12px -3px;
+.lecture_icons_wrapper .lecture_icon.recommend_resit .tooltip {
+  width: 291px;
+  height: 50px;
+  background-position: -2px -113px;
   z-index: 72;
   margin-right: -2px;
-  margin-top: 38px;
+  margin-top: 27px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 36px;
 }
 
 .lecture_icons_wrapper .lecture_icon.top_marks .tooltip {
