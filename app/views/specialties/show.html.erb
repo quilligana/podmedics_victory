@@ -11,8 +11,10 @@
         <div class="ask_question_button_tooltip">Ask the Podmedics Community a question</div>
       </a>
 
-      <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button" do %>
-        <div class="quiz_button_tooltip">30 random questions from <%= @specialty.name %></div>
+      <% if @specialty.questions.count > 0 %>
+        <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button" do %>
+          <div class="quiz_button_tooltip">30 random questions from <%= @specialty.name %></div>
+        <% end %>
       <% end %>
 
     </div>
