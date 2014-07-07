@@ -5,19 +5,19 @@ class HostedFilesController < ApplicationController
   def video
     Video.increment_counter(:video_download_count, @video.id)
     url = "http://podmedics-test-harness.s3.amazonaws.com/#{@video.file_name}.mp4"
-    download_url(url)
+    redirect_to url
   end
 
   def audio
     Video.increment_counter(:audio_download_count, @video.id)
     url = "http://podmedics-test-harness.s3.amazonaws.com/audio/#{@video.file_name}.mp3"
-    download_url(url)
+    redirect_to url
   end
 
   def slides
     Video.increment_counter(:slide_download_count, @video.id)
     url = "http://podmedics-test-harness.s3.amazonaws.com/slides/#{@video.file_name}.pdf"
-    download_url(url)
+    redirect_to url
   end
 
   private
@@ -26,7 +26,6 @@ class HostedFilesController < ApplicationController
       if current_user && current_user.is_trial_member?
         redirect_to @video, alert: 'Sorry! Downloads are only available to full members'
       end
-      
     end
 
     def download_url(url)

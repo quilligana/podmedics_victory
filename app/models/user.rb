@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   # Plans/Subs
 
   def self.registered_a_week_ago
-    where("created_at >= :one_week AND created_at <= :six_days", one_week: (Time.zone.now - 2.weeks), six_days: (Time.zone.now - 6.days))
+    where("created_at >= :one_week AND created_at <= :six_days", one_week: (Time.zone.now - 1.weeks), six_days: (Time.zone.now - 6.days))
   end
 
   def paypal_url(product, return_url)
