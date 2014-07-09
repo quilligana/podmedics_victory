@@ -5,19 +5,19 @@ class HostedFilesController < ApplicationController
   def video
     Video.increment_counter(:video_download_count, @video.id)
     url = "http://podmedics-test-harness.s3.amazonaws.com/#{@video.file_name}.mp4"
-    redirect_to url
+    download_url(url)
   end
 
   def audio
     Video.increment_counter(:audio_download_count, @video.id)
     url = "http://podmedics-test-harness.s3.amazonaws.com/audio/#{@video.file_name}.mp3"
-    redirect_to url
+    download_url(url)
   end
 
   def slides
     Video.increment_counter(:slide_download_count, @video.id)
     url = "http://podmedics-test-harness.s3.amazonaws.com/slides/#{@video.file_name}.pdf"
-    redirect_to url
+    download_url(url)
   end
 
   private
