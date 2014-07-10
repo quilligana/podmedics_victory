@@ -40,6 +40,7 @@ gem 'airbrake'
 gem 'ransack'
 gem 'doc_raptor'
 gem 'has_scope'
+gem 'appsignal'
 
 group :development do
   gem 'thin'
