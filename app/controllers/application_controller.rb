@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     def authorise
       unless current_permission.allow?(params[:controller], params[:action], current_resource)
         store_location
-        redirect_to login_path, alert: 'Please login to review this content'
+        redirect_to login_path, alert: 'Please login to view this content'
       else
         if current_user
           if current_user.email.blank?

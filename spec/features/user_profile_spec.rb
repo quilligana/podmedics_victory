@@ -42,7 +42,7 @@ feature 'User Profile' do
     user = create(:user)
     sign_in(user)
     visit edit_user_path(another_user)
-    expect(page).to have_content 'Not authorised'
+    expect(page).to have_content 'Please login to view this content'
   end
 
   feature 'Social Media Buttons' do
