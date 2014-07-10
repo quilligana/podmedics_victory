@@ -28,7 +28,7 @@ PodmedicsVictory::Application.routes.draw do
   post 'unsubscribed', to: 'users#unsubscribed', as: :unsub
   get 'unsubscribe', to: 'users#unsubscribe'
   get 'unsubscribe/:unsubscribe_token', to: 'users#unsubscribe', as: :unsubscribe_token
-  resources :password_resets
+  resources :password_resets, only: [:create, :edit, :update]
 
   # Omniauth
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

@@ -7,6 +7,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.friendly.find(params[:id])
+
+  rescue ActiveRecord::RecordNotFound => e
+    redirect_to posts_path, alert: 'Post not found'
   end
 
   private
