@@ -21,8 +21,8 @@
           </div>
 
           <div class="profile_count exams">
-            <%= exams_passed %>
-            <p>Exams Passed</p>
+            <p class="number"><%= @user.user_questions.count %></p>
+            <p>Questions</p>
           </div>
 
           <div class="profile_count badges">
