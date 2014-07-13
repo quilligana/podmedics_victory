@@ -21,13 +21,14 @@ PodmedicsVictory::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'signup', to: 'users#new', as: :signup
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, except: :destroy do
+  resources :users, except: [:index, :destroy] do
     get 'email', on: :member
   end
 
   post 'unsubscribed', to: 'users#unsubscribed', as: :unsub
   get 'unsubscribe', to: 'users#unsubscribe'
   get 'unsubscribe/:unsubscribe_token', to: 'users#unsubscribe', as: :unsubscribe_token
+
   resources :password_resets, only: [:create, :edit, :update]
 
   # Omniauth

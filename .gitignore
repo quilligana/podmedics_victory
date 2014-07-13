@@ -25,6 +25,7 @@
 # ENV files
 .env
 .powenv
+.powrc
 
 # simplecov
 /coverage
