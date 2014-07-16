@@ -50,6 +50,7 @@ group :development do
   gem 'nifty-generators'
   gem 'letter_opener'
   gem 'rack-mini-profiler'
+  gem 'lol_dba'
 end
 
 group :development, :test do
