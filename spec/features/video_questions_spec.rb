@@ -71,51 +71,51 @@ feature 'Video Questions' do
     expect(page).to have_content 'Question 1 of 5'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')  
     expect(page).to have_css('div.active_placement_bar.zero_percent')
-    expect(page).to have_content 'You are just 84 points away from becoming a:Medical Student'
+    expect(page).to have_content '84 points until your next badge'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    expect(page).to have_content 'You are just 74 points away from becoming a:Medical Student'
+    expect(page).to have_content '74 points until your next badge'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 2 of 5'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
     expect(page).to have_css('div.active_placement_bar.ten_percent')
-    expect(page).to have_content 'You are just 74 points away from becoming a:Medical Student'
+    expect(page).to have_content '74 points until your next badge'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_content 'You are just 64 points away from becoming a:Medical Student'
+    expect(page).to have_content '64 points until your next badge'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 3 of 5'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
     expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    expect(page).to have_content 'You are just 64 points away from becoming a:Medical Student'
+    expect(page).to have_content '64 points until your next badge'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    expect(page).to have_content 'You are just 54 points away from becoming a:Medical Student'
+    expect(page).to have_content '54 points until your next badge'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 4 of 5'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
     expect(page).to have_css('div.active_placement_bar.thirty_percent')
-    expect(page).to have_content 'You are just 54 points away from becoming a:Medical Student'
+    expect(page).to have_content '54 points until your next badge'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    expect(page).to have_content 'You are just 44 points away from becoming a:Medical Student'
+    expect(page).to have_content '44 points until your next badge'
     
     click_link 'Next Question'
     expect(page).to have_content 'Question 5 of 5'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_content 'You are just 44 points away from becoming a:Medical Student'
+    expect(page).to have_content '44 points until your next badge'
     
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
-    expect(page).to have_content 'You are just 34 points away from becoming a:Medical Student'
+    expect(page).to have_content '34 points until your next badge'
 
     click_link 'Result'
     click_link 'Back to Video'

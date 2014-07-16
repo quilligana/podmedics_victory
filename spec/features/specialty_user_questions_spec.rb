@@ -64,7 +64,6 @@ describe "specialty user questions and answers" do
       before do
         visit specialty_questions_path(@specialty)
         submit_question
-        submit_question
       end
 
       it_should_behave_like "a question_page"
@@ -72,7 +71,7 @@ describe "specialty user questions and answers" do
 
     describe "with no content" do
       before do
-        click_link "Ask a Question"
+        click_link "Ask the Podmedics Community a question"
         click_button "Create Specialty question"
       end
 

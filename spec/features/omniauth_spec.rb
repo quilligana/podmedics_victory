@@ -69,7 +69,7 @@ describe "omniauth" do
           click_link "Log In via Twitter"
         end
 
-        it { should have_content 'Not authorised' }
+        it { should have_content 'Please login to view this content' }
       end
     end
 
@@ -93,7 +93,7 @@ describe "omniauth" do
           click_link "Sign up via Twitter"
         end
 
-        it { should have_content 'Not authorised' }
+        it { should have_content 'Please login to view this content' }
       end
     end
   end
@@ -121,7 +121,7 @@ describe "omniauth" do
           click_link "Log In via Facebook"
         end
 
-        it { should have_content 'Not authorised' }
+        it { should have_content 'Please login to view this content' }
       end
     end
 
@@ -145,8 +145,9 @@ describe "omniauth" do
           click_link "Sign up via Facebook"
         end
 
-        it { should have_content 'Not authorised' }
+        it { should have_content 'Please login to view this content' }
       end
     end
   end
+
 end

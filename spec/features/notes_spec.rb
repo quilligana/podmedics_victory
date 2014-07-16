@@ -181,24 +181,6 @@ describe "notes", js: true do
         end
       end
     end
-
-    describe "revert button" do
-      before do
-        fill_in "note_title", with: @title
-        fill_in "note_content", with: @content
-        click_button "Save Notes"
-        visit video_path(@video)
-        fill_in "note_title", with: "revert from this"
-        fill_in "note_content", with: "revert from this"
-        click_button "Revert"
-        click_button "Save Notes"
-      end
-
-      it "should revert notes to previous manual save" do
-        expect(Note.first.content).to eq @content
-        expect(Note.first.title).to eq @title
-      end
-    end
   end
 
   describe "specialty page" do

@@ -13,9 +13,6 @@ feature 'User Profile' do
     within '.points' do
       expect(page).to have_content 200
     end
-    within '.exams' do
-      expect(page).to have_content 1
-    end
     within '.badges' do
       expect(page).to have_content 1
     end

@@ -14,7 +14,7 @@ describe "video comments", js: true do
   describe "before posting a comment" do
     it "should not have any comments" do
       expect(page).to have_content("Nothing posted yet. Be the first to comment.")
-      expect(page).to have_content("Comments (0)")
+      expect(page).to have_content("Comments/Questions (0)")
     end
   end
 
@@ -41,7 +41,7 @@ describe "video comments", js: true do
       Capybara.using_wait_time 10 do
         it "should have a new comment" do
           expect(page).to     have_content(@user.name)
-          expect(page).to     have_content("Comments (1)")
+          expect(page).to     have_content("Comments/Questions (1)")
           expect(page).to     have_selector("div.comment")
           expect(page).to     have_content("This is a comment.")
           expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p", 
@@ -60,7 +60,7 @@ describe "video comments", js: true do
       Capybara.using_wait_time 10 do
         it "should not have any comments" do
           expect(page).to     have_content("ERROR")
-          expect(page).to     have_content("Comments (0)")
+          expect(page).to     have_content("Comments/Questions (0)")
           expect(page).to     have_content("There has been a problem")
           expect(page).to     have_content("Nothing posted yet. Be the first to comment.")
           expect(page).to_not have_content(@user.name)
@@ -87,7 +87,7 @@ describe "video comments", js: true do
       Capybara.using_wait_time 10 do
         it "should have a reply comment" do
           expect(page).to     have_content(@user.name)
-          expect(page).to     have_content("Comments (2)")
+          expect(page).to     have_content("Comments/Questions (2)")
           expect(page).to     have_content("This is a reply.")
           expect(page).to     have_selector("div.comment_reply")
           expect(page).to     have_css( "div.comment_reply div.comment div.inner_page_padding div.comment_info p", 
@@ -117,7 +117,7 @@ describe "video comments", js: true do
         it "should have a new non-reply comment" do
           expect(page).to      have_content(@user.name)
           expect(page).to      have_selector("div.comment")
-          expect(page).to      have_content("Comments (3)")
+          expect(page).to      have_content("Comments/Questions (3)")
           expect(page).to      have_content("This is a comment after a reply.")
           expect(page).to      have_css( "div.comment div.inner_page_padding div.comment_info p", 
                                          text: "This is a comment after a reply.")
@@ -149,7 +149,7 @@ describe "video comments", js: true do
         it "should have a new non-reply comment" do
           expect(page).to     have_content(@user.name)
           expect(page).to     have_selector("div.comment")
-          expect(page).to     have_content("Comments (2)")
+          expect(page).to     have_content("Comments/Questions (2)")
           expect(page).to     have_content("This is a comment after cancelling a reply.")
           expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p", 
                                        text: "This is a comment after cancelling a reply.")
