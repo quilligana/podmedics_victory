@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614140633) do
+ActiveRecord::Schema.define(version: 20140716125748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140614140633) do
     t.datetime "updated_at"
   end
 
+  add_index "badges", ["specialty_id"], name: "index_badges_on_specialty_id", using: :btree
   add_index "badges", ["user_id", "created_at"], name: "index_badges_on_user_id_and_created_at", using: :btree
 
   create_table "categories", force: true do |t|
@@ -58,6 +59,10 @@ ActiveRecord::Schema.define(version: 20140614140633) do
     t.string   "root_type"
     t.boolean  "accepted"
   end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["root_id", "root_type"], name: "index_comments_on_root_id_and_root_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "title"
@@ -93,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140614140633) do
     t.integer  "percentage",   default: 0
   end
 
+  add_index "exams", ["specialty_id"], name: "index_exams_on_specialty_id", using: :btree
   add_index "exams", ["user_id"], name: "index_exams_on_user_id", using: :btree
 
   create_table "faqs", force: true do |t|
@@ -136,6 +142,11 @@ ActiveRecord::Schema.define(version: 20140614140633) do
     t.string   "noteable_type"
     t.integer  "category_id"
   end
+
+  add_index "notes", ["category_id"], name: "index_notes_on_category_id", using: :btree
+  add_index "notes", ["noteable_id", "noteable_type"], name: "index_notes_on_noteable_id_and_noteable_type", using: :btree
+  add_index "notes", ["specialty_id"], name: "index_notes_on_specialty_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -198,6 +209,13 @@ ActiveRecord::Schema.define(version: 20140614140633) do
   add_index "sales", ["product_id"], name: "index_sales_on_product_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
+  create_table "speciality_questions", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialties", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -217,6 +235,9 @@ ActiveRecord::Schema.define(version: 20140614140633) do
     t.datetime "updated_at"
     t.integer  "specialty_id"
   end
+
+  add_index "specialty_questions", ["specialty_id"], name: "index_specialty_questions_on_specialty_id", using: :btree
+  add_index "specialty_questions", ["user_id"], name: "index_specialty_questions_on_user_id", using: :btree
 
   create_table "stripe_events", force: true do |t|
     t.string   "stripe_id"
@@ -354,5 +375,8 @@ ActiveRecord::Schema.define(version: 20140614140633) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["comment_id"], name: "index_votes_on_comment_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end
