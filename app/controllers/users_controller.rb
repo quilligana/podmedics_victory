@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @badges = current_user.badges
+    @badges = current_user.badges.includes(:specialty)
   end
 
   def current_resource

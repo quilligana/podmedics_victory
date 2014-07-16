@@ -120,7 +120,7 @@ class Video < ActiveRecord::Base
     def self.poor_result(vimeos)
       user = User.find_by(id: vimeos.first.user_id)
       id_array = []
-      vimeos.each do |vimeo|
+      vimeos.includes(:video).each do |vimeo|
         if user.user_questions.where(question_id: vimeo.video.question_ids).any?
           questions = user.user_questions.where(question_id: vimeo.video.question_ids)
           results = QuestionResults.new(questions, vimeo.video.question_ids.count)

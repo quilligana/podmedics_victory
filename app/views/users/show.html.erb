@@ -35,7 +35,7 @@
       <% if @user.badges.any? %>
         <div class="profile_inner profile_badges">
           <div class="inner_page_padding">
-            <%= render partial: 'shared/badges', locals: {user: @user, badges: @user.badges} %>
+            <%= render partial: 'shared/badges', locals: {user: @user, badges: @user.badges.includes(:specialty)} %>
           </div>
         </div>
       <% end %>
