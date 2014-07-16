@@ -51,4 +51,14 @@ PodmedicsVictory::Application.configure do
 
 
   DocRaptor.api_key ENV["DOCRAPTOR_API_KEY"]
+
+  # Bullet config
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+  end
 end

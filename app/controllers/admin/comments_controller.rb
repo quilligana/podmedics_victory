@@ -2,7 +2,7 @@ class Admin::CommentsController < ApplicationController
   layout 'admin_application'
 
   def index
-    @comments = Comment.order(created_at: :desc)
+    @comments = Comment.includes(:commentable).order(:id)
   end
 
 end

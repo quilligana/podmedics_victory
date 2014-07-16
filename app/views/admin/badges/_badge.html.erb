@@ -2,6 +2,6 @@
   <td><%= badge.id %></td>
   <td><%= badge.created_at.to_s(:long) %></td>
   <td><%= link_to badge.user.name, admin_user_path(badge.user) %></td>
-  <td><%= badge.specialty.name %></td>
+  <td><%= link_to badge.specialty.name, admin_specialty_path(badge.specialty) %></td>
   <td><%= badge.level %></td>
 </tr>

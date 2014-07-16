@@ -5,7 +5,7 @@ class Admin::SalesController < InheritedResources::Base
   protected
 
     def collection
-      @sales ||= end_of_association_chain.order('created_at DESC')
+      @sales ||= end_of_association_chain.includes(:product, :user).order(:id)
     end
 
 end

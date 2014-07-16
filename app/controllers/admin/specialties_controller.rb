@@ -4,7 +4,7 @@ class Admin::SpecialtiesController < ApplicationController
   before_action :find_specialty, only: [:show, :edit, :update, :destroy]
 
   def index
-    @specialties = Specialty.includes(:category, :videos, :questions, :user_questions).order(:name)
+    @specialties = Specialty.includes(:category).order(:name)
   end
 
   def new

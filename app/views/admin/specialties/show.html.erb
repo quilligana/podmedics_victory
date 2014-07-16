@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="table-wrapper">
-      <table border="0" class="table table-hover">
+      <table border="0" class="table table-hover table-striped">
         <thead>
           <tr>
             <th>#ID</th>
@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @specialty.videos.each do |video| %>
+          <% @specialty.videos.includes(:tags).each do |video| %>
             <tr id="<%= video.id %>" class="<%= video.question_status %>">
               <td><%= video.id %></td>
               <td><%= link_to video.title, admin_video_path(video) %></td>

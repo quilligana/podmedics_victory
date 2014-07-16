@@ -66,7 +66,7 @@
     <div class="well">
       <h4>Badges</h4>
       <ul>
-        <% @user.badges.each do |badge| %>
+        <% @user.badges.includes(:specialty).each do |badge| %>
           <li>
             <%= badge.specialty.name %>
             <%= badge.level %>

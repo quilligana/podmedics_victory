@@ -51,6 +51,7 @@ group :development do
   gem 'letter_opener'
   gem 'rack-mini-profiler'
   gem 'lol_dba'
+  gem 'bullet'
 end
 
 group :development, :test do

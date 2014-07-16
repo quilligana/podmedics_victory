@@ -2,6 +2,7 @@
   <td><%= user.id %></td>
   <td><%= user.created_at.strftime("%B %e, %Y") %></td>
   <td><%= user %></td>
+  <td><%= image_tag user.get_avatar(:thumb) %></td>
   <td><%= user.email %></td>
   <td>
     <span class="label label-success"><%= user.subscribed_on.strftime("%B %e, %Y") if user.subscribed_on %></span>
@@ -11,7 +12,7 @@
   </td>
   <td><%= user.selected_plan %></td>
   <td>
-    <%= link_to "Show", admin_user_path(user) %>
+    <%= link_to "Show", admin_user_path(user), class: 'btn btn-flat' %>
     <%= link_to "Edit", edit_admin_user_path(user) %>
     <%= link_to "Remove", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?'} %>
     <% if user.suitable_for_reminder? %>

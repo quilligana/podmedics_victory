@@ -6,7 +6,7 @@ class Admin::VideosController < ApplicationController
                                    :send_notifications, :send_test_notifications, :mark_proofread]
 
   def index
-    @videos = Video.includes(:specialty, :tags, :questions, :author).order(:title).paginate(page: params[:page])
+    @videos = Video.includes(:specialty, :tags, :author).order(:title).paginate(page: params[:page])
     
   end
 
