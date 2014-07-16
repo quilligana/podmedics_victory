@@ -10,11 +10,7 @@ feature 'User dashboard' do
   end
 
   scenario "Visiting the dashboard page" do
-    within '.sub_heading_dashboard_info' do
-      expect(page).to have_content @user.name
-    end
-
-    within '#tabs-3' do
+    within '.recent_videos' do
       expect(page).to have_content @video1.title
     end
   end
@@ -32,21 +28,17 @@ feature 'User dashboard' do
       expect(page).to have_content @user.points
     end
 
-    within '.dashboard_count_block.pass_count_green' do
-      expect(page).to have_content exam_passes
-    end
-
-    within '.dashboard_count_blocks' do
+    within '.watched_videos' do
       expect(page).to have_content watched_videos
     end
 
-    within '.dashboard_count_blocks' do
+    within '.badges_count' do
       expect(page).to have_content @user.badges.count
     end
   end
 
   scenario 'Navigating to video page' do
-    within '#tabs-3' do
+    within '.recent_videos' do
       click_link @video1.title
     end
     user_sees_video(@video1)
@@ -62,18 +54,12 @@ feature 'User dashboard' do
       expect(page).to have_content badge.specialty.name
       expect(page).to have_content badge.level
     end
-
-    within '.dashboard_badges_right_column' do
-      expect(page).to have_content badge_2.specialty.name
-      expect(page).to have_content badge_2.level
-      expect(page).not_to have_content badge.level
-    end
   end
 
   scenario 'Having watched a video' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
     visit root_path
-    within '#tabs-2' do
+    within '.flagged_videos' do
       expect(page).to have_css(".lecture_icon.watched")
       expect(page).to have_css(".lecture_icon.resit")
       expect(page).not_to have_css(".lecture_icon.part_watched")
@@ -86,7 +72,7 @@ feature 'User dashboard' do
   scenario 'Having part-watched a video' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id)
     visit root_path
-    within '#tabs-2' do
+    within '.flagged_videos' do
       expect(page).to have_css(".lecture_icon.part_watched")
       expect(page).not_to have_css(".lecture_icon.watched")
       expect(page).not_to have_css(".lecture_icon.not_watched")
@@ -97,7 +83,7 @@ feature 'User dashboard' do
   end
 
   scenario 'Having not watched a video' do
-    within '#tabs-2' do
+    within '.flagged_videos' do
       expect(page).to have_css(".lecture_icon.not_watched")
       expect(page).not_to have_css(".lecture_icon.part_watched")
       expect(page).not_to have_css(".lecture_icon.watched")
@@ -112,7 +98,7 @@ feature 'User dashboard' do
     question = create(:question, video: @video1)
     create(:user_question, user_id: @user.id, question_id: question.id, correct_answer: false)
     visit root_path
-    within '#tabs-2' do
+    within '.flagged_videos' do
       expect(page).to have_css(".lecture_icon.recommend_resit")
       expect(page).to have_css(".lecture_icon.watched")
       expect(page).to have_css(".lecture_icon.resit")
@@ -127,7 +113,7 @@ feature 'User dashboard' do
     question = create(:question, video: @video1)
     create(:user_question, user_id: @user.id, question_id: question.id, correct_answer: true)
     visit root_path
-    within '#tabs-2' do
+    within '.flagged_videos' do
       expect(page).to have_css(".lecture_icon.top_marks")
       expect(page).to have_css(".lecture_icon.watched")
       expect(page).to have_css(".lecture_icon.resit")
