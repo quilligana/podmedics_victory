@@ -40,6 +40,7 @@ gem 'ransack'
 gem 'doc_raptor'
 gem 'has_scope'
 gem 'appsignal'
+gem 'truncate_html'
 
 group :development do
   gem 'thin'
