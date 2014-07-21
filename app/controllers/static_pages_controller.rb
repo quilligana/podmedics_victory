@@ -13,7 +13,7 @@ class StaticPagesController < ApplicationController
   end
 
   def library
-    @categories = Category.all
+    @categories = Category.order(:id).select(:name, :id)
   end
 
   def terms

@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 
     def get_content
       if current_user
-        @categories ||= Category.includes(:specialties).order(:id)
+        @categories ||= Category.includes(:specialties).order(:id).select(:name, :id)
       end
     end
 
