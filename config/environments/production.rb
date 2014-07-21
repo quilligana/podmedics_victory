@@ -20,7 +20,7 @@ PodmedicsVictory::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -56,7 +56,7 @@ PodmedicsVictory::Application.configure do
 
   # Setup CDN Sumo asset hosting
   # config.action_controller.asset_host = ENV['CDN_SUMO_URL']
-  # config.static_cache_control = "public, max-age=2592000"
+  config.static_cache_control = "public, max-age=2592000"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
