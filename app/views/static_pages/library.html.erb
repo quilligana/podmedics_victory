@@ -8,30 +8,34 @@
     </div>
     <div class="inner_page_padding library_page_inner_spacing">
       <% @categories.each do |category| %>
-        <a href="javascript:;" class="library_button" id="library_<%= category.name.downcase  %>_link">
-          <h2><%= category.name %></h2>
-          <p class="inline_arrow_icon"></p>
-          <p class="library_count"><%= pluralize(category.video_count, 'Lecture') %></p>
-        </a>
+        <% cache category do %>
+          <a href="javascript:;" class="library_button" id="library_<%= category.name.downcase  %>_link">
+            <h2><%= category.name %></h2>
+            <p class="inline_arrow_icon"></p>
+            <p class="library_count"><%= pluralize(category.video_count, 'Lecture') %></p>
+          </a>
 
-        <div class="library_tab" id="<%= category.name %>_tab">
-          <% category.specialties.order(:name).each do |specialty| %>
-            <div class="library_column">
-              <p><%= specialty.name.upcase %></p>
-              <% specialty.videos.order('title').each do |video| %>
-                <% cache video do %>
-                  <% if video.preview %>
-                    <p class="active_library_link">
-                      <%= link_to video.title, "https://vimeo.com/#{video.vimeo_identifier}.mp4", class: 'fresco', data: { :'fresco-group' => 'library_videos'} %>
-                    </p>
-                  <% else %>
-                    <p><%= video.title %></p>
+          <div class="library_tab" id="<%= category.name %>_tab">
+            <% category.specialties.order(:name).each do |specialty| %>
+              <% cache specialty do %>
+                <div class="library_column">
+                  <p><%= specialty.name.upcase %></p>
+                  <% specialty.videos.order('title').each do |video| %>
+                    <% cache video do %>
+                      <% if video.preview %>
+                        <p class="active_library_link">
+                          <%= link_to video.title, "https://vimeo.com/#{video.vimeo_identifier}.mp4", class: 'fresco', data: { :'fresco-group' => 'library_videos'} %>
+                        </p>
+                      <% else %>
+                        <p><%= video.title %></p>
+                      <% end %>
+                    <% end %>
                   <% end %>
-                <% end %>
+                </div>
               <% end %>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
