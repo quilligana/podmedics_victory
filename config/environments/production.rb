@@ -54,9 +54,22 @@ PodmedicsVictory::Application.configure do
   # Use a different cache store in production.
   config.cache_store = :dalli_store
 
+  # Setup for Memcached
+  client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
+                                                       :username => ENV["MEMCACHIER_USERNAME"],
+                                                       :password => ENV["MEMCACHIER_PASSWORD"],
+                                                       :failover => true,
+                                                       :socket_timeout => 1.5,
+                                                       :socket_failure_delay => 0.2,
+                                                       :value_max_bytes => 10485760)
+  config.action_dispatch.rack_cache = {
+    :metastore    => client,
+    :entitystore  => client
+  }
+  config.static_cache_control = "public, max-age=2592000"
+
   # Setup CDN Sumo asset hosting
   # config.action_controller.asset_host = ENV['CDN_SUMO_URL']
-  config.static_cache_control = "public, max-age=2592000"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
