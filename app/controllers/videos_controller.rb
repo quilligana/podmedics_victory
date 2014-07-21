@@ -14,6 +14,7 @@ class VideosController < ApplicationController
   def show
     @video = Video.includes(:specialty, :author, :tags).friendly.find(params[:id])
     @specialty = @video.specialty
+    @author = @video.author
 
     check_unlock if current_user.is_trial_member?
 

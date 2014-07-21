@@ -2,17 +2,17 @@
 
 <div class="video_page_authour_right_column_user_info">
   <div class="video_page_authour_right_column_avatar">
-    <%= image_tag @video.author.get_avatar(:square), width: '128', height: '128' %>
+    <%= image_tag @author.get_avatar(:square), width: '128', height: '128' %>
   </div>
   <div class="video_page_authour_right_column_user_info_inner_wrapper">
-    <p class="video_page_authour_right_column_name"><%= @video.author_name %><p>
-    <p class="video_page_authour_right_column_title"><%= @video.author_tagline %></p>
+    <p class="video_page_authour_right_column_name"><%= @author.name %><p>
+    <p class="video_page_authour_right_column_title"><%= @author.tagline %></p>
     <div class="video_page_authour_social_icons_wrapper">
-      <% unless @video.author_twitter.blank? %>
-        <%= link_to '', @video.author_twitter,  class: 'video_page_authour_twitter_icon', target: '_blank' %>
+      <% unless @author.twitter.blank? %>
+        <%= link_to '', @author.twitter,  class: 'video_page_authour_twitter_icon', target: '_blank' %>
       <% end %>
-      <% unless @video.author_facebook.blank? %>
-        <%= link_to '', @video.author_facebook, class: 'video_page_authour_fb_icon', target: '_blank' %>
+      <% unless @author.facebook.blank? %>
+        <%= link_to '', @author.facebook, class: 'video_page_authour_fb_icon', target: '_blank' %>
       <% end %>
     </div>
   </div>

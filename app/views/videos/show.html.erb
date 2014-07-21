@@ -103,8 +103,10 @@
     </div>
 
     <div class="video_page_right_column">
-      <% if @video.author %>
-        <%= render 'author' %>
+      <% if @author %>
+        <% cache @author do %>
+          <%= render 'author' %>
+        <% end %>
       <% end %>
 
       <div class="video_page_right_column_lower_info">
@@ -117,7 +119,6 @@
     <div class="clear"></div>
   </div>
 
-
   <%= content_for :footer do %>
       <%= render 'footer' %>
   <% end %>
@@ -125,5 +126,5 @@
 </div>
 
 <script id="progress_json" type="text/json">
-    <%=raw @progress.to_json %>
+    <%= raw @progress.to_json %>
 </script>
