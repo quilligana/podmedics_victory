@@ -1,11 +1,15 @@
 <% @categories.each do |category| %>
-  <div class="inline_specialities_dropdown_wrapper">
-    <a href="#" class="inline_specialities_dropdown_button"><%= category.name %></a>
-    <div class="inline_specialities_dropdown_menu <%= to_underscored(category.name) %>_dropdown_menu_placement">
-      <% category.specialties.each do |specialty| %>
-        <%= link_to specialty.name, specialty_path(specialty) %>
-      <% end %>
+  <% cache category %>
+    <div class="inline_specialities_dropdown_wrapper">
+      <a href="#" class="inline_specialities_dropdown_button"><%= category.name %></a>
+      <div class="inline_specialities_dropdown_menu <%= to_underscored(category.name) %>_dropdown_menu_placement">
+        <% category.specialties.each do |specialty| %>
+          <% cache specialty %>
+            <%= link_to specialty.name, specialty_path(specialty) %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
