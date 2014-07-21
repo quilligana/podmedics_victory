@@ -40,9 +40,7 @@ class UsersController < ApplicationController
   end
 
   def email
-    unless @user.email.blank?
-      redirect_to dashboard_path
-    end
+    redirect_to dashboard_path unless @user.email.blank?
   end
 
   def unsubscribed
@@ -53,7 +51,6 @@ class UsersController < ApplicationController
 
   def unsubscribe
     @unsubscribe = Unsubscribe.new(params)
-    # if user has been removed then we need to show a message
     unless @unsubscribe.user
       flash.now.alert = 'Sorry. Your account was not found.'
     end
@@ -63,9 +60,7 @@ class UsersController < ApplicationController
 
     def find_user
       @user = User.cached_find(params[:id])
-      if @user.nil?
-        redirect_to dashboard_path
-      end
+      redirect_to dashboard_path if @user.nil?
     end
 
   protected

@@ -41,8 +41,7 @@ class ApplicationController < ActionController::Base
     def current_user
       @current_user ||= User.cached_find(session[:user_id]) if session[:user_id]
       session[:user_id] = nil if @current_user == nil
-
-      return @current_user
+      @current_user
     end
     helper_method :current_user
 

@@ -75,7 +75,7 @@ PodmedicsVictory::Application.routes.draw do
       end
     end
     resources :posts
-    resources :comments
+    resources :comments, except: [:show]
     resources :badges
     resources :quizes
   end
