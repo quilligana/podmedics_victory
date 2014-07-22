@@ -33,7 +33,9 @@ class HostedFilesController < ApplicationController
       filename  = url
       send_data resp.body,
         :filename => File.basename(filename),
-        :content_type => resp.headers['Content-Type']
+        :disposition => "attachment"
+      # start garbage collection manually to fix memory quote exceeded
+      GC.start
     end
 
     def find_video

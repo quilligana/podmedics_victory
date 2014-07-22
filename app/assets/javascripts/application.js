@@ -6,6 +6,9 @@
 //= require addtohomescreen.min
 //= require turbolinks
 
+// Enable Turbolinks transition cache
+Turbolinks.enableTransitionCache();
+
 $(document).ready(function(){
 
   // Add to homescreen function
