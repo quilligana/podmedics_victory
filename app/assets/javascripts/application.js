@@ -1,8 +1,10 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require fresco
 //= require jquery.validate
 //= require addtohomescreen.min
+//= require turbolinks
 
 $(document).ready(function(){
 

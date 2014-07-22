@@ -9,14 +9,15 @@
     <meta name="keywords" content="OSCE, medical, student, exam, free, MCQs, EMQs, videos, podcasts, downloads, PACES" >
     <meta name="author" content="Podmedics Ltd">
     <title><%= content_for?(:title) ? yield(:title) : "Podmedics" %></title>
-    <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true  %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= render 'analytics' %>
     <%= csrf_meta_tags %>
     <%= render 'icons' %>
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <%= render 'mixpanel' %>
   </head>
 
   <body>
@@ -26,8 +27,6 @@
       <%= yield %>
     </main>
     <%= content_for?(:footer) ? yield(:footer) : (render 'footer') %>
-    <%= render 'olark' %>
-    <%= render 'mixpanel' %>
   </body>
 
 </html>

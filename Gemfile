@@ -43,6 +43,8 @@ gem 'doc_raptor'
 gem 'has_scope'
 gem 'appsignal'
 gem 'truncate_html'
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 group :development do
   gem 'thin'
