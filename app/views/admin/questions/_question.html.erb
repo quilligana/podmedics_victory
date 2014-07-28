@@ -10,5 +10,6 @@
   <p class="bg-warning">Correct answer: <%= question.correct_answer %></p>
   <p><%= simple_format(question.explanation) %></p>
   <%= link_to 'Edit', edit_admin_video_question_path(@video, question) %>
+  <%= link_to "Remove", admin_video_question_path(@video, question), method: :delete, data: {confirm: 'Are you sure?'} %>
   <hr />
 </div>

@@ -1,7 +1,7 @@
 class Admin::QuestionsController < ApplicationController
   layout 'admin_application'
-  before_action :set_video, only: [:new, :edit, :update, :create]
-  before_action :set_question, only: [:edit, :update]
+  before_action :set_video, only: [:new, :edit, :update, :create, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy]
 
   def new
     @question = @video.questions.new
@@ -27,6 +27,11 @@ class Admin::QuestionsController < ApplicationController
       flash.now.alert = 'Please review the form'
       render :new
     end
+  end
+
+  def destroy
+    @question.destroy
+    redirect_to admin_video_path(@video), notice: 'Question removed'
   end
 
   protected
