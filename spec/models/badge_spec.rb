@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: badges
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  specialty_id :integer
+#  level        :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 require 'spec_helper'
 
 describe Badge do

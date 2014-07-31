@@ -1,7 +1,7 @@
 class Admin::QuestionsController < ApplicationController
   layout 'admin_application'
-  before_action :set_video, only: [:new, :edit, :update, :create, :destroy]
-  before_action :set_question, only: [:edit, :update, :destroy]
+  before_action :set_video, only: [:new, :edit, :update, :create, :destroy, :mark_proofread]
+  before_action :set_question, only: [:edit, :update, :destroy, :mark_proofread]
 
   def new
     @question = @video.questions.new
@@ -34,6 +34,11 @@ class Admin::QuestionsController < ApplicationController
     redirect_to admin_video_path(@video), notice: 'Question removed'
   end
 
+  def mark_proofread
+    @question.update_attributes(proofread: true)
+    redirect_to admin_video_path(@video), notice: 'Question marked as proofread'
+  end
+
   protected
 
     def set_video
@@ -46,7 +51,7 @@ class Admin::QuestionsController < ApplicationController
 
     def permitted_params
       params.require(:question).permit(:stem, :answer_1, :answer_2, :answer_3, :answer_4, :answer_5,
-                                      :correct_answer, :explanation)
+                                      :correct_answer, :explanation, :proofread)
     end
 
 end

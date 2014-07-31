@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: user_questions
+#
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  question_id    :integer
+#  correct_answer :boolean          default(FALSE)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
 class UserQuestion < ActiveRecord::Base
 
   belongs_to :user

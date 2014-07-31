@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  permalink   :string(255)
+#  description :text
+#  price       :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  duration    :integer
+#
+
 class Product < ActiveRecord::Base
 
   has_many :sales

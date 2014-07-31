@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: exams
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  specialty_id :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#  percentage   :integer          default(0)
+#
+
 require 'spec_helper'
 
 describe Exam do

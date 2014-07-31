@@ -1,4 +1,12 @@
 <div class="question">
+  <h5>Question Identifier: <%= question.id %></h5>
+  <div class="well well-small">
+    <strong>PROOFREAD:</strong> <%= question.proofread %>
+    <br />
+  </div>
+  <%= link_to "Mark proofread", mark_proofread_admin_video_question_path(@video, question), class: 'btn btn-flat'  %>
+  <%= link_to 'Edit', edit_admin_video_question_path(@video, question), class: 'btn btn-flat' %>
+  <%= link_to "Remove", admin_video_question_path(@video, question), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
   <p><%= simple_format(question.stem) %></p>
   <ol>
     <li><%= question.answer_1 %></li>
@@ -8,8 +16,7 @@
     <li><%= question.answer_5 %></li>
   </ol>
   <p class="bg-warning">Correct answer: <%= question.correct_answer %></p>
+  <p><strong>Explanation</strong></p>
   <p><%= simple_format(question.explanation) %></p>
-  <%= link_to 'Edit', edit_admin_video_question_path(@video, question) %>
-  <%= link_to "Remove", admin_video_question_path(@video, question), method: :delete, data: {confirm: 'Are you sure?'} %>
   <hr />
 </div>

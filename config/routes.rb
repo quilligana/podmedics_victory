@@ -57,7 +57,11 @@ PodmedicsVictory::Application.routes.draw do
         get 'send_test_notifications'
         get 'mark_proofread'
       end
-      resources :questions
+      resources :questions do
+        member do
+          get 'mark_proofread'
+        end
+      end
     end
     resources :users do
       member { get 'send_1w_reminder'}

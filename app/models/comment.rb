@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id               :integer          not null, primary key
+#  content          :text
+#  commentable_id   :integer
+#  commentable_type :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  user_id          :integer
+#  hidden           :boolean          default(FALSE)
+#  root_id          :integer
+#  root_type        :string(255)
+#  accepted         :boolean
+#
+
 class Comment < ActiveRecord::Base
   include Commentable
   

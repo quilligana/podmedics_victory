@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: specialties
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  category_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  slug        :string(255)
+#  professor   :integer
+#
+
 require 'spec_helper'
 
 describe Specialty do

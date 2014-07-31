@@ -57,6 +57,7 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'lol_dba'
   gem 'bullet'
+  gem 'annotate', '>=2.6.0'
 end
 
 group :development, :test do

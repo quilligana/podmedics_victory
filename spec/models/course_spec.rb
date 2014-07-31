@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: courses
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  date        :datetime
+#  price       :decimal(, )
+#  description :text
+#  event_link  :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 require 'spec_helper'
 
 describe Course do

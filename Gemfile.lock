@@ -31,6 +31,9 @@ GEM
     acts_as_list (0.4.0)
       activerecord (>= 3.0)
     addressable (2.3.6)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     appsignal (0.9.1)
       activesupport (>= 3.0)
       rack
@@ -402,6 +405,7 @@ DEPENDENCIES
   aasm
   active_model_serializers
   acts_as_list
+  annotate (>= 2.6.0)
   appsignal
   aws-sdk
   bcrypt-ruby (~> 3.1.2)
