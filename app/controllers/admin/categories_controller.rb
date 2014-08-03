@@ -4,7 +4,7 @@ class Admin::CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update]
 
   def index
-    @categories = Category.order(:name)
+    @categories = Category.order(id: :asc)
   end
 
   def show
