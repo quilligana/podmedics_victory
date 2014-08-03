@@ -5,7 +5,7 @@ class VideosController < ApplicationController
     if params[:tag]
       @videos = Video.includes(:specialty).tagged_with(params[:tag])
     elsif params[:search]
-      @videos = Video.includes(:specialty).search(params[:search])
+      @videos = Video.includes(:specialty).search_with(params[:search])
     else
       @videos = Video.includes(:specialty).all
     end

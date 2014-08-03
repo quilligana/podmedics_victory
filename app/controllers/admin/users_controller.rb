@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.search(params[:q])
-    @users = apply_scopes(@q.result.order(id: :desc).paginate(page: params[:page]))
+    @users = @q.result.order(id: :desc).paginate(page: params[:page])
   end
 
   def new

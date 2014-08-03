@@ -88,7 +88,7 @@ class Video < ActiveRecord::Base
   end
 
   # searches by case insensitive title and tags
-  def self.search(param)
+  def self.search_with(param)
     videos = Video.where('title ILIKE ?', "%#{param}%") + Video.pessimistic_tagged_with(param)
     videos.uniq
   end

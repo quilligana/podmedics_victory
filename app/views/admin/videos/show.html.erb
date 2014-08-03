@@ -5,7 +5,7 @@
     <small><%= link_to 'View on frontend', video_path(@video) %></small>
     <small><%= link_to "Mark proofread", mark_proofread_admin_video_path(@video)  %></small>
   </h1>
-  <p><%= link_to "Back to #{@video.specialty.name}", admin_specialty_path(@video.specialty) %></p>
+  <p><%= link_to "Back to #{@video.specialty.name}", admin_specialty_path(@video.specialty) %>| <%= link_to "View all", admin_videos_path %></p>
 </div>
 
 <div class="well">

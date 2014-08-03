@@ -5,6 +5,16 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-8">
+    <%= search_form_for @q, url: admin_videos_path do |f| %>
+      <%= f.search_field :title_cont, placeholder: 'Search by title...', class: 'search' %>
+      <%= f.submit 'Search', class: 'btn-flat' %>
+    <% end %>
+    <%= link_to "View all", admin_videos_path %>
+  </div>
+</div>
+
 <%= will_paginate @videos %>
 
 <div class="row">
@@ -14,7 +24,7 @@
         <thead>
           <tr>
             <th>#ID</th>
-            <th>Title</th>
+            <%= content_tag :th, sort_link(@q, :title) %>
             <th>Specialty</th>
             <th>Questions</th>
             <th>Comments</th>
