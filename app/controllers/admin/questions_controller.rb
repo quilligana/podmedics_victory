@@ -3,6 +3,11 @@ class Admin::QuestionsController < ApplicationController
   before_action :set_video, only: [:new, :edit, :update, :create, :destroy, :mark_proofread]
   before_action :set_question, only: [:edit, :update, :destroy, :mark_proofread]
 
+  def index
+    @q = Question.search(params[:q])
+    @questions = apply_scopes(@q.result.includes(:video).order(id: :desc).paginate(page: params[:page]))
+  end
+
   def new
     @question = @video.questions.new
   end

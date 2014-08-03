@@ -49,6 +49,7 @@ PodmedicsVictory::Application.routes.draw do
     resource :dashboard, only: :show
     resources :categories, except: :delete 
     resources :specialties
+    resources :questions, only: [:index]
     resources :videos, except: :delete do
       member do
         get 'move_up'
@@ -57,7 +58,7 @@ PodmedicsVictory::Application.routes.draw do
         get 'send_test_notifications'
         get 'mark_proofread'
       end
-      resources :questions do
+      resources :questions, except: [:index] do
         member do
           get 'mark_proofread'
         end

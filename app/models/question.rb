@@ -31,6 +31,8 @@ class Question < ActiveRecord::Base
 
   delegate :specialty_id, to: :video
 
+  self.per_page = 30
+
   def correct_answer_must_be_an_answer
     if send("answer_#{correct_answer || 1}").nil?
       errors.add(:correct_answer, "is not a valid answer to the stem")

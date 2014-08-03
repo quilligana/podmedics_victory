@@ -7,7 +7,6 @@ class Admin::VideosController < ApplicationController
 
   def index
     @videos = Video.includes(:specialty, :tags, :author).order(:title).paginate(page: params[:page])
-    
   end
 
   def show
