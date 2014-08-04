@@ -29,6 +29,12 @@
           <li><%= specialty.name %></li>
         <% end %>
       </ul>
+      <h4>Sales</h4>
+      <ul>
+        <% @user.sales.each do |sale| %>
+          <li><%= link_to sale.created_at.to_s(:long), admin_sale_path(sale) %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
