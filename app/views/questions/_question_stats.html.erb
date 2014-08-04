@@ -6,6 +6,13 @@
   <%= get_number_correct %>
 </div>
 
+<div class="points_until_next_badge_section">
+  <div class="points_until_next_badge_wrapper">
+    <%= get_next_badge(@user_progress, @quiz.video.specialty) %>
+  </div>
+</div>
+
+
 <div class="questions_info_right_column_section return_to_video_page_button_wrapper">
   <div class="return_to_video_page_button_inner_wrapper">
     <%= link_to "Review #{@quiz.video.title} ", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
