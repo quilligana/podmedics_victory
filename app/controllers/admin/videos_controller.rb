@@ -59,7 +59,7 @@ class Admin::VideosController < ApplicationController
 
   def mark_proofread
     @video.mark_proofread
-    redirect_to :back, notice: 'Video marked as proofread'
+    redirect_to :back, notice: 'All questions now marked as proofread'
   end
 
   private

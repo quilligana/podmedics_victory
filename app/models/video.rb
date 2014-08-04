@@ -60,7 +60,11 @@ class Video < ActiveRecord::Base
   after_save :touch_assets
 
   def mark_proofread
-    update_attributes(proofread: true)
+    questions.each { |q| q.update_attributes(proofread: true) }
+  end
+
+  def is_proofread?
+    questions.where(proofread: true).count == questions.count ? true : false
   end
 
   # Caching functions

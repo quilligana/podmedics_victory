@@ -11,7 +11,7 @@
 <div class="well">
   <p>Created at: <%= @video.created_at.to_s(:long) %></p>
   <p>Updated at: <%= @video.updated_at.to_s(:long) %></p>
-  <p>Proofread: <%= @video.proofread ? 'YES' : 'NO' %></p>
+  <p>Proofread: <%= @video.is_proofread? ? 'YES' : 'NO' %></p>
 </div>
 
 <div class="row">

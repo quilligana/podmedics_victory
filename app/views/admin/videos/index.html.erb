@@ -30,7 +30,7 @@
             <th>Comments</th>
             <th>Author</th>
             <th>Tags</th>
-            <th>Proofread</th>
+            <%= content_tag :th, sort_link(@q, :is_proofread?) %>
             <th></th>
           </tr>
         </thead>
