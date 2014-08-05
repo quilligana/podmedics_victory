@@ -18,7 +18,7 @@ class Specialty < ActiveRecord::Base
   after_commit :flush_cache
   after_touch :flush_cache
 
-  belongs_to :category
+  belongs_to :category, touch: true
   
   has_many :videos, -> { order("position ASC") }
   has_many :questions, through: :videos

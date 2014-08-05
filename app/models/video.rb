@@ -80,14 +80,15 @@ class Video < ActiveRecord::Base
   # Class functions
 
   def self.recent
-    order(created_at: :desc)
+    order(id: :desc)
   end
 
   def self.flagged(user)
     if user.vimeos.any?
-      unfinished(user.vimeos) | unwatched(user.vimeos) | poor_result(user.vimeos) | self.watched(user.vimeos)
+      # temp removed poor_result method until we can make it faster
+      unfinished(user.vimeos) | unwatched(user.vimeos) |  self.watched(user.vimeos)
     else
-      self.all.includes(:specialty)
+      self.all
     end
   end
 
@@ -163,7 +164,7 @@ class Video < ActiveRecord::Base
     end
 
     def self.unwatched(vimeos)
-      self.where.not(id: vimeos.pluck(:video_id)).includes(:specialty)
+      self.where.not(id: vimeos.pluck(:video_id))
     end
 
     def self.watched(vimeos)

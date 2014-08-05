@@ -11,7 +11,12 @@ PodmedicsVictory::Application.configure do
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  # temporarily enable for testing caching locally
+  config.action_controller.perform_caching = true
+
+  # temporarily enable a cache store for testing caching
+  # required memcached to be running
+  config.cache_store = :mem_cache_store
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
