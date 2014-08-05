@@ -2,8 +2,8 @@
   <td><%= video.id %></td>
   <td><%= link_to video.title, admin_video_path(video) %></td>
   <td><%= link_to video.specialty_name, admin_specialty_path(video.specialty) %></td>
+  <td><%= video.views %></td>
   <td><%= video.questions_count %></td>
-  <td><%= video.cached_comments_count(true) %></td>
   <td><%= video.author ? video.author_name : "Not set" %></td>
   <td><%= video.tag_list %></td>
   <td><%= video.is_proofread? %></td>
@@ -15,7 +15,7 @@
                       send_notifications_admin_video_path(video), 
                       data: { confirm: "Send Emails for #{video.title}" }%></li>
       <li><%= link_to "Send Test Notifications", send_test_notifications_admin_video_path(video) %></li>
-      <li><%= link_to "Mark proofread", mark_proofread_admin_video_path(video) %></li>
+      <li><%= link_to "Mark proofread", mark_proofread_admin_video_path(video), data: { confirm: 'Are you sure? This will mark all questions for this video as proofread.'} %></li>
     </ul>
   </td>
 </tr>

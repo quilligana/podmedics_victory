@@ -1,6 +1,6 @@
 <tr class="user" id="<%= user.id %>">
-  <td><%= user.id %></td>
-  <td><%= user.created_at.strftime("%B %e, %Y") %></td>
+  <td><%= link_to user.id, admin_user_path(user) %></td>
+  <td><%= user.created_at.to_s(:long) %></td>
   <td><%= user %></td>
   <td><%= user.email %></td>
   <td>
@@ -10,8 +10,12 @@
     <span class="label label-success"><%= user.expires_on.strftime("%B %e, %Y") if user.expires_on %></span>
   </td>
   <td><%= user.selected_plan %></td>
+  <td><%= user.login_count %></td>
+  <td><%= user.last_login_at.to_s(:long) %></td>
+  <td><%= user.twitter %></td>
+  <td><%= user.facebook %></td>
   <td>
-    <%= link_to "Show", admin_user_path(user), class: 'btn btn-flat' %>
+    <%= link_to "Show", admin_user_path(user) %>
     <%= link_to "Edit", edit_admin_user_path(user) %>
     <%= link_to "Remove", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?'} %>
     <% if user.suitable_for_reminder? %>
