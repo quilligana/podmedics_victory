@@ -14,3 +14,4 @@
 //= require froogaloop
 //= require vimeo
 //= require addtohomescreen.min
+//= require pace

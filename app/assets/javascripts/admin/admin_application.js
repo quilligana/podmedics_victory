@@ -4,7 +4,9 @@
 //= require bootstrap
 //= require redactor
 //= require admin_theme
+//= require pace
 //= require turbolinks
+
 
 // Enable Turbolinks transitio cache
 Turbolinks.enableTransitionCache();
@@ -17,4 +19,12 @@ $(function(){
   $('#faq_content').redactor();
   $('#newsletter_body_content').redactor();
   $('#post_content').redactor();
+});
+
+$(document).on('page:fetch', function(){
+    Pace.restart();
+});
+
+$(document).on('page:change', function(){
+    Pace.restart();
 });
