@@ -69,7 +69,7 @@ PodmedicsVictory::Application.configure do
   config.static_cache_control = "public, max-age=2592000"
 
   # Setup CDN Sumo asset hosting
-  # config.action_controller.asset_host = ENV['CDN_SUMO_URL']
+  config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
