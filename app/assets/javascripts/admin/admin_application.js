@@ -1,8 +1,13 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require redactor
 //= require admin_theme
+//= require turbolinks
+
+// Enable Turbolinks transitio cache
+Turbolinks.enableTransitionCache();
 
 $(function(){
   // enable rich text editing on the course description field
