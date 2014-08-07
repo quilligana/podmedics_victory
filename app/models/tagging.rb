@@ -11,7 +11,7 @@
 
 class Tagging < ActiveRecord::Base
 
-  belongs_to :tag
-  belongs_to :video
+  belongs_to :tag, touch: true
+  belongs_to :video, touch: true
 
 end

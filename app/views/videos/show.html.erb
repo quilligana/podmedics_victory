@@ -35,7 +35,9 @@
       </div>
 
       <div class="video_page_tags_wrapper">
-        <%= render partial: 'tags' %>
+        <% cache @video do %>
+          <%= render @video.tags %>
+        <% end %>
       </div>
 
       <div class="video_header_inner">
