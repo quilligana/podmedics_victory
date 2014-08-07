@@ -1,19 +1,21 @@
-<p class="lecture_by_title">Lecture by</p>
+<% cache @author do %>
+  <p class="lecture_by_title">Lecture by</p>
 
-<div class="video_page_authour_right_column_user_info">
-  <div class="video_page_authour_right_column_avatar">
-    <%= image_tag @author.get_avatar(:square), width: '128', height: '128' %>
-  </div>
-  <div class="video_page_authour_right_column_user_info_inner_wrapper">
-    <p class="video_page_authour_right_column_name"><%= @author.name %><p>
-    <p class="video_page_authour_right_column_title"><%= @author.tagline %></p>
-    <div class="video_page_authour_social_icons_wrapper">
-      <% unless @author.twitter.blank? %>
-        <%= link_to '', @author.twitter,  class: 'video_page_authour_twitter_icon', target: '_blank' %>
-      <% end %>
-      <% unless @author.facebook.blank? %>
-        <%= link_to '', @author.facebook, class: 'video_page_authour_fb_icon', target: '_blank' %>
-      <% end %>
+  <div class="video_page_authour_right_column_user_info">
+    <div class="video_page_authour_right_column_avatar">
+      <%= image_tag @author.get_avatar(:square), width: '128', height: '128' %>
+    </div>
+    <div class="video_page_authour_right_column_user_info_inner_wrapper">
+      <p class="video_page_authour_right_column_name"><%= @author.name %><p>
+      <p class="video_page_authour_right_column_title"><%= @author.tagline %></p>
+      <div class="video_page_authour_social_icons_wrapper">
+        <% unless @author.twitter.blank? %>
+          <%= link_to '', @author.twitter,  class: 'video_page_authour_twitter_icon', target: '_blank' %>
+        <% end %>
+        <% unless @author.facebook.blank? %>
+          <%= link_to '', @author.facebook, class: 'video_page_authour_fb_icon', target: '_blank' %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
