@@ -26,7 +26,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    @title, @notes = Note.get_notes(current_user, params[:specialty_id], params[:category_id])
+    @title, @notes = Note.includes(:specialty, :category, :noteable).get_notes(current_user, params[:specialty_id], params[:category_id])
 
     respond_to do |format|
       format.html
