@@ -230,10 +230,14 @@ ready = function() {
     $(".lectures_inline_dropdown_categories").hide();
     $(".lectures_inline_dropdown_specialty_clinical_sciences").fadeIn(400);
   });
+  $("a.lectures_inline_dropdown_category_link.practical_skills").click(function(){
+    $(".lectures_inline_dropdown_categories").hide();
+    $(".lectures_inline_dropdown_specialty_practical_skills").fadeIn(400);
+  });
 
   // inline dropdown back button
   $(".lectures_inline_dropdown_back_button").click(function(){
-    $(".lectures_inline_dropdown_specialty_medicine, .lectures_inline_dropdown_specialty_surgery, .lectures_inline_dropdown_specialty_clinical_specialties, .lectures_inline_dropdown_specialty_clinical_sciences").hide();
+    $(".lectures_inline_dropdown_specialty_medicine, .lectures_inline_dropdown_specialty_surgery, .lectures_inline_dropdown_specialty_clinical_specialties, .lectures_inline_dropdown_specialty_clinical_sciences, .lectures_inline_dropdown_specialty_practical_skills").hide();
     $(".lectures_inline_dropdown_categories").fadeIn(400);
   });
 

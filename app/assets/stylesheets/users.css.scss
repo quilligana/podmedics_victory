@@ -3343,7 +3343,7 @@ a.lectures_inline_dropdown_category_link {
   text-transform: uppercase;
 }
 
-a.lectures_inline_dropdown_category_link:last-child,  .lectures_inline_dropdown_specialty_medicine a:last-child,  .lectures_inline_dropdown_specialty_clinical_sciences a:last-child,  .lectures_inline_dropdown_specialty_clinical_specialties a:last-child,  .lectures_inline_dropdown_specialty_surgery a:last-child {
+a.lectures_inline_dropdown_category_link:last-child,  .lectures_inline_dropdown_specialty_medicine a:last-child,  .lectures_inline_dropdown_specialty_clinical_sciences a:last-child,  .lectures_inline_dropdown_specialty_clinical_specialties a:last-child,  .lectures_inline_dropdown_specialty_surgery a:last-child, .lectures_inline_dropdown_specialty_practical_skills a:last-child {
   border-bottom: none;
 
   -moz-border-radius-bottomleft: 6px 6px;
@@ -3353,12 +3353,15 @@ a.lectures_inline_dropdown_category_link:last-child,  .lectures_inline_dropdown_
   border-bottom-right-radius: 6px 6px;
 }
 
-a.lectures_inline_dropdown_category_link:hover, .lectures_inline_dropdown_specialty_medicine a:hover, .lectures_inline_dropdown_specialty_surgery a:hover, .lectures_inline_dropdown_specialty_clinical_specialties a:hover, .lectures_inline_dropdown_specialty_clinical_sciences a:hover   {
+a.lectures_inline_dropdown_category_link:hover, .lectures_inline_dropdown_specialty_medicine a:hover, .lectures_inline_dropdown_specialty_surgery a:hover, .lectures_inline_dropdown_specialty_clinical_specialties a:hover, .lectures_inline_dropdown_specialty_clinical_sciences a:hover, .lectures_inline_dropdown_specialty_practical_skills a:hover   {
 background-color: #961E2F;
 }
 
-.lectures_inline_dropdown_specialty_medicine, .lectures_inline_dropdown_specialty_surgery, .lectures_inline_dropdown_specialty_clinical_specialties, .lectures_inline_dropdown_specialty_clinical_sciences {
+.lectures_inline_dropdown_specialty_medicine, .lectures_inline_dropdown_specialty_surgery, .lectures_inline_dropdown_specialty_clinical_specialties, .lectures_inline_dropdown_specialty_clinical_sciences, .lectures_inline_dropdown_specialty_practical_skills {
   display: none;
+}
+.lectures_inline_dropdown_specialty_practical_skills {
+  min-height: 360px;
 }
 
 .lectures_inline_dropdown_back_button {
@@ -3374,7 +3377,7 @@ background-color: #961E2F;
   padding-left: 20px;
 }
 
-.lectures_inline_dropdown_specialty_medicine a, .lectures_inline_dropdown_specialty_surgery a, .lectures_inline_dropdown_specialty_clinical_specialties a, .lectures_inline_dropdown_specialty_clinical_sciences a {
+.lectures_inline_dropdown_specialty_medicine a, .lectures_inline_dropdown_specialty_surgery a, .lectures_inline_dropdown_specialty_clinical_specialties a, .lectures_inline_dropdown_specialty_clinical_sciences a, .lectures_inline_dropdown_specialty_practical_skills a {
   width: 365px;
   padding-left: 25px;
   padding-top: 27px;
