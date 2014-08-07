@@ -65,7 +65,7 @@ class Admin::VideosController < ApplicationController
   private
 
     def video_params
-      params.require(:video).permit(:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread)
+      params.require(:video).permit(:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread, :has_slides)
     end
 
     def set_video

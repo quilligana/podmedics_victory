@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805003143) do
+ActiveRecord::Schema.define(version: 20140807110902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -355,6 +355,7 @@ ActiveRecord::Schema.define(version: 20140805003143) do
     t.integer  "audio_download_count"
     t.integer  "video_download_count"
     t.boolean  "proofread",            default: false
+    t.boolean  "has_slides",           default: true
   end
 
   add_index "videos", ["author_id"], name: "index_videos_on_author_id", using: :btree

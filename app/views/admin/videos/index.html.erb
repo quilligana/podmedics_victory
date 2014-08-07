@@ -23,6 +23,7 @@
       <table class='table table-hover table-striped' border="0">
         <thead>
           <tr>
+            <%= content_tag :th, sort_link(@q, :id) %>
             <th>#ID</th>
             <%= content_tag :th, sort_link(@q, :title) %>
             <th>Specialty</th>

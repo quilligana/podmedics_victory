@@ -15,7 +15,11 @@
         <div class="video_download_dropdown_inner">
           <%= link_to "Video file", video_download_video_path(@video), class: 'video_download_dropdown_link video_file_icon', target: '_blank' %>
           <%= link_to "Audio File", video_download_audio_path(@video), class: 'video_download_dropdown_link audio_file_icon', target: '_blank' %>
-          <%= link_to "Slides", video_download_slides_path(@video), class: 'video_download_dropdown_link slides_file_icon', target: '_blank' %>
+          <% if @video.has_slides %>
+            <%= link_to "Slides", video_download_slides_path(@video), class: 'video_download_dropdown_link slides_file_icon', target: '_blank' %>
+          <% else %>
+            <%= link_to "Slides unavailable", '#', class: 'video_download_dropdown_link slides_file_icon no_slides' %>
+          <% end %>
         </div>
       </div>
 

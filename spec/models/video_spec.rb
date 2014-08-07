@@ -22,6 +22,7 @@
 #  audio_download_count :integer
 #  video_download_count :integer
 #  proofread            :boolean          default(FALSE)
+#  has_slides           :boolean          default(TRUE)
 #
 
 require 'spec_helper'
@@ -166,7 +167,7 @@ describe Video do
   describe Video, '.search' do
     it "should search by title" do
       video = create(:video, title: 'Acne')
-      expect(Video.search('Acne')).to include video
+      expect(Video.search_with('Acne')).to include video
     end
   end
 

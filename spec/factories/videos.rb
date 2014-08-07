@@ -22,6 +22,7 @@
 #  audio_download_count :integer
 #  video_download_count :integer
 #  proofread            :boolean          default(FALSE)
+#  has_slides           :boolean          default(TRUE)
 #
 
 FactoryGirl.define do

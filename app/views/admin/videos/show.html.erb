@@ -27,6 +27,7 @@
         <p>Author: <%= link_to @video.author.name, admin_author_path(@video.author) %></p>
       <% end %>
       <p>File: <%= @video.file_name %></p>
+      <p>Has slides: <%= @video.has_slides %></p>
     </div>
 
     <div class="downloads">

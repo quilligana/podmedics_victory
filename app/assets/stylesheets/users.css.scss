@@ -2455,6 +2455,11 @@ a.video_download_dropdown_link.slides_file_icon {
   background-position: 144px -123px;
 }
 
+a.video_download_dropdown_link.no_slides {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
 .video_page_header {
   background-color: #EBEBEB;
   float: left;
