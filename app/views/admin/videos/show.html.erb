@@ -4,6 +4,8 @@
     <small><%= link_to "Edit", edit_admin_video_path(@video) %></small>
     <small><%= link_to 'View on frontend', video_path(@video) %></small>
     <small><%= link_to "Mark proofread", mark_proofread_admin_video_path(@video)  %></small>
+    <small><%= link_to 'Send test notification', send_test_notifications_admin_video_path(@video) %></small>
+    <small><%= link_to 'Send email notifications', send_notifications_admin_video_path(@video), data: { confirm: 'Are you sure'} %></small>
   </h1>
   <p><%= link_to "Back to #{@video.specialty.name}", admin_specialty_path(@video.specialty) %>| <%= link_to "View all", admin_videos_path %></p>
 </div>
@@ -30,9 +32,11 @@
       <p>Has slides: <%= @video.has_slides %></p>
     </div>
 
-    <div class="downloads">
-      <a href="http://podmedics-test-harness.s3.amazonaws.com/slides/<%= @video.file_name %>.pdf" class="btn btn-primary btn-xs", target="_blank">Download pdf</a>
-    </div>
+    <% if @video.has_slides %>
+      <div class="downloads">
+        <a href="http://podmedics-test-harness.s3.amazonaws.com/slides/<%= @video.file_name %>.pdf" class="btn btn-primary btn-xs", target="_blank">Download pdf</a>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-md-6">
