@@ -43,6 +43,8 @@ gem 'appsignal'
 gem 'truncate_html'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development do
   gem 'thin'
