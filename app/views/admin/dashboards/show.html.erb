@@ -1,64 +1,75 @@
+<div class="pad-wrapper">
+  
 <div class="row header">
   <h1>Admin Dashboard</h1>
 </div>
 
-<div class="row">
+<div class="row section">
+  <div class="col-md-4">
+    <h5>Plan Selected</h5>
+    <%= bar_chart User.group(:selected_plan).count %>
+  </div>
+
+  <div class="col-md-4">
+    <h5>Videos for preview</h5>
+    <%= pie_chart Video.group(:preview).count, colors: ["green", "red"] %>
+  </div>
+
+  <div class="col-md-4">
+    <h5>Sale by type</h5>
+    <p>Since new site launch</p>
+    <%= bar_chart Sale.group(:product_id).count %>
+  </div>
+</div>
+
+<div class="row section">
   <div class="col-md-6">
     <h3>New User Signups</h3>
     <p>by week</p>
-    <%= line_chart User.group_by_week(:created_at, range: 6.months.ago..Time.now).count, colors: ["pink", "#999"] %>
+    <%= line_chart User.group_by_week(:created_at, range: 4.months.ago..Time.now).count, colors: ["pink", "#999"] %>
   </div>
 
   <div class="col-md-6">
     <h3>Sales</h3>
     <p>by week</p>
-    <%= line_chart Sale.group_by_week(:created_at, range: 6.months.ago..Time.now).count, colors: ["red", "#999"] %>
+    <%= line_chart Sale.group_by_week(:created_at, range: 4.months.ago..Time.now).count, colors: ["red", "#999"] %>
   </div>
 </div>
 
-<div class="row">
+<div class="row section">
   <div class="col-md-6">
     <h3>Badge Awards</h3>
     <p>by day</p>
-    <%= line_chart Badge.group_by_day(:created_at, range: 6.months.ago..Time.now).count %>
+    <%= line_chart Badge.group_by_day(:created_at, range: 4.months.ago..Time.now).count, colors: ["green"] %>
   </div>
 
   <div class="col-md-6">
     <h3>Question Engagement</h3>
     <p>by day</p>
-    <%= line_chart  UserQuestion.group_by_day(:created_at, range: 3.months.ago..Time.now).count%>
+    <%= line_chart  UserQuestion.group_by_day(:created_at, range: 4.months.ago..Time.now).count%>
   </div>
 </div>
 
-<div class="row">
-  <h2>Performance</h2>
-  <div class="col-md-6">
-    <iframe src="https://rpm.newrelic.com/public/charts/fBiER0mmWh" width="800" height="300" scrolling="no" frameborder="no"></iframe>
-  </div>
-
-  <div class="col-md-6">
-    <iframe src="https://rpm.newrelic.com/public/charts/f1EQqGIfRxc" width="800" height="300" scrolling="no" frameborder="no"></iframe>
-  </div>
-  
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-    <iframe src="https://rpm.newrelic.com/public/charts/7WiXV3URmIC" width="800" height="300" scrolling="no" frameborder="no"></iframe>
-  </div>
-  <div class="col-md-6">
-    <iframe src="https://rpm.newrelic.com/public/charts/915wFFARP58" width="800" height="300" scrolling="no" frameborder="no"></iframe>
+<div class="row section">
+  <div class="col-md-12">
+    <h3>Video Engagement</h3>
+    <p>as measured by vimeo count per day</p>
+    <%= line_chart Vimeo.group_by_day(:created_at, range: 4.months.ago..Time.now).count, colors: ["purple", '#999'] %>
   </div>
 </div>
 
-<div class="row">
+<div class="row section">
   <div class="col-md-6">
-    <iframe src="https://rpm.newrelic.com/public/charts/h3VgpYos9M9" width="800" height="300" scrolling="no" frameborder="no"></iframe>
+    <h3>Note Creation</h3>
+    <p>by week</p>
+    <%= line_chart Note.group_by_week(:created_at, range: 4.months.ago..Time.now).count, colors: ["#63c7fe"] %>
+  </div>
+
+  <div class="col-md-6">
+    <h3>Note Updating</h3>
+    <p>by week</p>
+    <%= line_chart Note.group_by_week(:updated_at, range: 4.months.ago..Time.now).count, colors: ["#63c7fe"] %>
   </div>
 </div>
 
-
-
-
-
-
+</div>
