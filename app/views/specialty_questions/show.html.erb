@@ -26,7 +26,7 @@
           <div id="tabs-2" class="tab_box">
             <div class="questions_answers_main_question">
 
-              <% if @question.cached_user.id == current_user.id %>
+              <% if @question.cached_user.id == current_user.id || current_user.admin? %>
                 <div class="delete_comment_button_wrapper">
                   <%= link_to "Delete Question", 
                               specialty_question_path(@question.specialty, @question), 
