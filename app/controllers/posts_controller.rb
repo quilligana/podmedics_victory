@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   layout :conditional_layout, only: [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.order(id: :desc)
   end
 
   def show
