@@ -1053,9 +1053,6 @@ div.faq_inner_wrapper:last-child {
 }
 
 
-
-
-
 .plans_button_dropdown {
   width: 290px;
   float: left;
@@ -1484,4 +1481,12 @@ padding-top: 5px;
 }
 .blog_post_inner ul li:first-child, .blog_post_inner ol li:first-child {
   padding-top: 0px;
+}
+
+.plans_sale {
+  margin: 0 auto;
+  padding-top: 24px;
+  color: #00a0dd;
+  padding-left: 28px;
+  padding-right: 10px;
 }
