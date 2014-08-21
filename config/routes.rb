@@ -44,6 +44,7 @@ PodmedicsVictory::Application.routes.draw do
   resources :stripe_events, only: [:create]
 
   # Dashboards and admin
+  match '/admin' => redirect('/admin/dashboard'), via: :get
   resource :dashboard, only: :show
   namespace :admin do
     resource :dashboard, only: :show
@@ -83,6 +84,7 @@ PodmedicsVictory::Application.routes.draw do
     resources :comments, except: [:show]
     resources :badges
     resources :quizes
+    resources :notes, only: [:index, :show]
   end
 
   # Specialty/Video

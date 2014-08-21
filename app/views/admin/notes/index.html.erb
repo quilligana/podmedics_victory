@@ -1,0 +1,29 @@
+<div class="row header">
+  <h3>Notes</h3>
+</div>
+
+<%= will_paginate @notes %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-wrapper">
+      <table class="table table-hover table-striped" border="0">
+        <thead>
+          <tr>
+            <th>#id</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+            <th>Specialty</th>
+            <th>Author</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @notes %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= will_paginate @notes %>
