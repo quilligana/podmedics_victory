@@ -1484,9 +1484,51 @@ padding-top: 5px;
 }
 
 .plans_sale {
-  margin: 0 auto;
-  padding-top: 24px;
-  color: #00a0dd;
-  padding-left: 28px;
-  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 17px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #FFFFFF;
+  background-color: #fa3f52;
+  clear: both;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 6px;
+  width: 300px;
+}
+a.summer_sale_notice {
+  background-color: $podmedics_red;
+  color: #FFF;
+  text-align: center;
+  padding-top: 31px;
+  padding-bottom: 25px;
+  float: left;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+a.summer_sale_notice:hover {
+   background-color: #bb1926;
+ }
+
+.summer_sale_badge {
+  background-image: image-url('sale_badge.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  height: 44px;
+  width: 44px;
+}
+.right_column_forms.summer_sale_column h3 {
+  padding-top: 10px;
+}
+.right_column_forms.summer_sale_column {
+  padding-top: 30px;
+  border-bottom: solid 1px #e5e5e5;
+  width: 254px;
+  padding-left: 25px;
+  padding-bottom: 25px;
+  background-color: rgba(204, 204, 204, 0.13);
 }
