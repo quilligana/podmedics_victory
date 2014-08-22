@@ -66,12 +66,12 @@
             
             <div class="checkbox_wrapper">
               <%= f.check_box :receive_social_notifications %>
-              <%= f.label :receive_social_notifications, 'Receive social notifications' %>
+              <%= f.label :receive_social_notifications, 'Receive social notifications (e.g. comment replies, question replies)' %>
             </div>
 
             <div class="checkbox_wrapper">
               <%= f.check_box :receive_help_request_notifications %>
-              <%= f.label :receive_help_request_notifications, 'Receive notifications when Question posted in Specialty you are Professor for' %>
+              <%= f.label :receive_help_request_notifications, 'Receive notifications when questions posted in specialty you are in the top five for' %>
             </div>
             
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
@@ -87,6 +87,7 @@
         <p class="active_subscription_text">You have an active subscription</p>
         <p>You subscribed on <%= current_user.subscribed_on.to_s(:long) %></p>
         <p>You subscription will expire on <%= current_user.expires_on.to_s(:long) %></p>
+        <p><%= link_to 'Upgrade early', show_buy_path(current_user), class: 'red_button edit_profile_button' %></p>
       <% else %>
         <% if current_user.subscribed_on %>
           <p class="expired_subscription_text">Your subscription has expired</p>
