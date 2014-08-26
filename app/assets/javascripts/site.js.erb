@@ -36,7 +36,7 @@ ready = function() {
   })(jQuery);
 
   $(function(){
-    var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'] };
+    var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'], autoresize: false };
 
     // Don't enable redactor in the test environment.
     <% unless Rails.env.test? %>
