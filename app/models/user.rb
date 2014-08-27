@@ -106,7 +106,7 @@ class User < ActiveRecord::Base
 
   def start_subscription_for_product(product)
     activate_subscription(product)
-    send_user_and_admin_notifications
+    send_user_notification
   end
 
   # we should be able to handle upgrade as well
@@ -121,9 +121,8 @@ class User < ActiveRecord::Base
     self.save!
   end
 
-  def send_user_and_admin_notifications
+  def send_user_notification
     UserMailer.delay.welcome_paid_plan(self)
-    AdminMailer.delay.new_payment(self)
   end
 
   def has_subscription_and_in_date?
