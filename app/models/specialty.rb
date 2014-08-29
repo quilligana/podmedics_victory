@@ -63,7 +63,7 @@ class Specialty < ActiveRecord::Base
   end
 
   def get_badges_from_users
-    Rails.cache.fetch("badges_from_users_#{Badge.count}"){
+    #Rails.cache.fetch("badges_from_users_#{Badge.count}"){
       top_badges = []
       top_badges_with_users.each do |u|
         user = User.find(u[:user_id])
@@ -71,7 +71,7 @@ class Specialty < ActiveRecord::Base
         top_badges << progress.current_badge
       end
       top_badges.uniq.take(5)
-    }
+    #}
   end
 
   def top_users

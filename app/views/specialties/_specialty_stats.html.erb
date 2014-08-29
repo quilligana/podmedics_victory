@@ -27,9 +27,9 @@
 
     <div class="points_until_next_badge_section">
       <div class="points_until_next_badge_wrapper">
-        <% cache "next_badge_for_progress_(#{@user_progress.user_specialty_points}_#{@user_progress.next_badge_points})_for_specialty_#{@specialty.id}", skip_digest: true do %>
+        <%# cache "next_badge_for_progress_(#{@user_progress.user_specialty_points}_#{@user_progress.next_badge_points})_for_specialty_#{@specialty.id}", skip_digest: true do %>
           <%= get_next_badge(@user_progress, @specialty) %>
-        <% end %>
+        <%# end %>
       </div>
       <div class="how_to_earn_points_modal_link">
         <a href="#"  data-reveal-id="earn_points_modal">How do I earn points?</a>
