@@ -12,7 +12,7 @@ PodmedicsVictory::Application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   # temporarily enable for testing caching locally
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 
   # temporarily enable a cache store for testing caching
   # required memcached to be running

@@ -19,7 +19,7 @@ class Specialty < ActiveRecord::Base
   after_touch :flush_cache
 
   belongs_to :category, touch: true
-  
+
   has_many :videos, -> { order("position ASC") }
   has_many :questions, through: :videos
   has_many :specialty_questions, dependent: :destroy
@@ -46,11 +46,11 @@ class Specialty < ActiveRecord::Base
   end
 
   def is_unlocked_for_user?(user)
-    user.specialties.include?(self) ? true : false 
+    user.specialties.include?(self) ? true : false
   end
 
   # Experts
-  
+
   def top_badges_with_users
     users = []
     badges.each do |b|
@@ -63,13 +63,15 @@ class Specialty < ActiveRecord::Base
   end
 
   def get_badges_from_users
-    top_badges = []
-    top_badges_with_users.each do |u|
-      user = User.find(u[:user_id])
-      progress = UserProgress.new(self, user)
-      top_badges << progress.current_badge
-    end
-    top_badges.uniq.take(5)
+    Rails.cache.fetch("badges_from_users_#{Badge.count}"){
+      top_badges = []
+      top_badges_with_users.each do |u|
+        user = User.find(u[:user_id])
+        progress = UserProgress.new(self, user)
+        top_badges << progress.current_badge
+      end
+      top_badges.uniq.take(5)
+    }
   end
 
   def top_users
