@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <% cache "top_experts_#{Badge.count}", skip_digest: true do %>
+    <% cache "top_experts_for_badge_count_#{Badge.count}_and_specialty_#{@specialty.id}", skip_digest: true do %>
     <div class="top_ranked_users_section">
       <h3>The Experts</h3>
       <ol>
