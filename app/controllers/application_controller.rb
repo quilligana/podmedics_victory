@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   before_action :authorise
   before_action :get_content
+  before_action :allow_iframe
 
   delegate :allow?, to: :current_permission
   helper_method :allow?
@@ -54,6 +55,10 @@ class ApplicationController < ActionController::Base
       if current_user
         @categories ||= Category.includes(:specialties).order(:id).select(:name, :id, :updated_at)
       end
+    end
+
+    def allow_iframe
+      response.headers.except! 'X-Frame-Options'
     end
 
 end
