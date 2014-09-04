@@ -124,4 +124,13 @@ PodmedicsVictory::Application.routes.draw do
   get 'vimeos/completed', to: 'vimeos#completed', as: :vimeos_completed
   get 'vimeos/paused', to: 'vimeos#paused', as: :vimeos_paused
 
+  # API
+
+  namespace :api, :defaults => { :format => :json } do
+    namespace :v1 do
+      resources :specialties
+      resources :questions
+    end
+  end
+
 end
