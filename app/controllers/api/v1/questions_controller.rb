@@ -6,7 +6,7 @@ class API::V1::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(:id)
+    @questions = Question.includes(:video).order(:id)
     respond_with @questions
   end
 

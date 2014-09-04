@@ -7,6 +7,7 @@ class API::V1::SpecialtiesController < ApplicationController
 
   def index
     @specialties = Specialty.order(:name)
+    # uses jbuilder to create json objects
     respond_with @specialties
   end
 
