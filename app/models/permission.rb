@@ -7,6 +7,7 @@ class Permission
     allow :posts, [:index, :show]
     allow :users, [:new, :create, :unsubscribe, :unsubscribed]
     allow :stripe_events, [:create]
+    allow :specialties, [:index]
     if user
       allow :transactions, [:new, :create, :pickup, :receive_paypal]
       allow :courses, [:index]
