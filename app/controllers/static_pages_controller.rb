@@ -30,6 +30,9 @@ class StaticPagesController < ApplicationController
   def press
   end
 
+  def app
+  end
+
   private
 
     def conditional_layout
