@@ -109,15 +109,12 @@
     <h2>Premium Membership</h2>
     <div class="plans_column_price_wrapper">
       <div class="plans_column_price six_month_price_block">
-      <p>&pound;10<span>/ 6mo</span></p>
+      <p>&pound;18<span>/ 6mo</span></p>
       </div>
 
       <div class="plans_column_price">
-        <p>&pound;20<span>/ yr</span></p>
+        <p>&pound;30<span>/ yr</span></p>
       </div>
-    </div>
-    <div class="plans_sale">
-      SUMMER SALE - 50% OFF UNTIL END OF AUGUST
     </div>
     <ul class="plans_column_features_list">
       <li>Full access to over 40 specialties (over 200 videos)</li>
@@ -140,7 +137,7 @@
       <%= form_tag buy_path(permalink: @paid_6.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
-          data-label="Podmedics (£10 - 6 Months)"
+          data-label="Podmedics (£18 - 6 Months)"
           data-name="Podmedics"
           data-currency="GBP"
           data-image="<%= asset_url 'podmedics_icon_x74.png' %>"
@@ -152,7 +149,7 @@
       <%= form_tag buy_path(permalink: @paid_12.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
-          data-label="Podmedics (£20 - 12 Months)"
+          data-label="Podmedics (£30 - 12 Months)"
           data-name="Podmedics"
           data-currency="GBP"
           data-image="<%= asset_url 'podmedics_icon_x74.png' %>"
@@ -166,8 +163,8 @@
 
     <div class="paypal_payment_options_button_set">
       <p class="payment_options_initial_title">Choose one of the below subscription terms</p>
-      <%= link_to "Podmedics (£10 - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
-      <%= link_to "Podmedics (£20 - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <%= link_to "Podmedics (£18 - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
+      <%= link_to "Podmedics (£30 - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
       <p><a href="javascript:;" class="payment_options_back_button">Back to payment options</a></p>
     </div>
   </div>
