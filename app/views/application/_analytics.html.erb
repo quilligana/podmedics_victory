@@ -6,8 +6,5 @@
 
   ga('create', 'UA-8716429-3', 'podmedics.com');
   ga('send', 'pageview');
-  <% if current_user %>
-    ga(‘set’, ‘&uid’, {{'<%= current_user.id %>'}});
-  <% end %>
 
 </script>
