@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "donotreply@podmedics.com"
+  default from: "contact@podmedics.com"
 
   def welcome_free_plan(user)
     @user = user
