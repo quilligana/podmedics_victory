@@ -130,7 +130,11 @@ PodmedicsVictory::Application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     namespace :v1 do
       resources :specialties
-      resources :questions
+      resources :questions do
+        collection do
+          get 'count'
+        end
+      end
     end
   end
 
