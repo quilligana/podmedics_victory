@@ -25,7 +25,7 @@
                 </ul>
               </div>
             <% end %>
-            
+
             <%= f.label :name %>
             <%= f.text_field :name, class: 'podmedics_textfield' %>
 
@@ -45,7 +45,7 @@
               <a  href="javascript:;" id="change_profile_image_button" class="grey_button">Change Profile Image</a>
               <div class="profile_avatar_upload_wrapper">
               <% if Rails.env.test?  %>
-                <%= f.label :avatar %> 
+                <%= f.label :avatar %>
               <% end %>
               <%= f.file_field :avatar %>
               </div>
@@ -65,7 +65,7 @@
               <%= f.check_box :receive_new_episode_notifications %>
               <%= f.label :receive_new_episode_notifications, 'Receive new episode notifications' %>
             </div>
-            
+
             <div class="checkbox_wrapper">
               <%= f.check_box :receive_social_notifications %>
               <%= f.label :receive_social_notifications, 'Receive social notifications (e.g. comment replies, question replies)' %>
@@ -75,7 +75,7 @@
               <%= f.check_box :receive_help_request_notifications %>
               <%= f.label :receive_help_request_notifications, 'Receive notifications when questions posted in specialty you are in the top five for' %>
             </div>
-            
+
             <%= f.button 'Update Profile', class: 'red_button edit_profile_button' %>
           <% end %>
         </div>
@@ -89,7 +89,6 @@
         <p class="active_subscription_text">You have an active subscription</p>
         <p>You subscribed on <%= current_user.subscribed_on.to_s(:long) %></p>
         <p>You subscription will expire on <%= current_user.expires_on.to_s(:long) %></p>
-        <p><%= link_to 'Upgrade early', show_buy_path(current_user), class: 'red_button edit_profile_button' %></p>
       <% else %>
         <% if current_user.subscribed_on %>
           <p class="expired_subscription_text">Your subscription has expired</p>
