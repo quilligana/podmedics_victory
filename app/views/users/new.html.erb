@@ -21,20 +21,18 @@
         <h2>Your Details</h2>
         <%= simple_form_for @user do |f| %>
           <%= f.error_notification %>
-          <%= f.input :name, input_html: {class: 'podmedics_textfield', autofocus: true}, label: false, placeholder: 'Name' %>
+          <%= f.input :name, input_html: {class: 'podmedics_textfield', autofocus: true}, label: false, placeholder: 'Full Name' %>
           <%= f.input :email, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Email' %>
           <%= f.input :password, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Password' %>
           <%= f.input :password_confirmation, input_html: { class: 'podmedics_textfield'}, label: false, placeholder: 'Password confirmation' %>
-          <button type="submit" class="red_button">Sign up</button>
+          <button type="submit" class="red_button">Proceed to payment</button>
         <% end %>
       </div>
     </div>
 
     <div class="right_column_forms">
       <h3>What we offer?</h3>
-      <p>We offer both free and paid subscriptions.</p>
-      <p>Our <strong>free</strong> plan lets you unlock all the videos and questions in two specialties of your choice.</p>
-      <p>Our <strong>paid</strong> plans give you <strong>complete access</strong> and start at £18 for 6 months.</p>
+      <p>We currently offer subscriptions for either <strong>6 months (&pound;18)</strong> or <strong>12 months (&pound;30)</strong></p>
     </div>
   </div>
 </div>

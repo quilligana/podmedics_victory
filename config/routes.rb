@@ -16,7 +16,7 @@ PodmedicsVictory::Application.routes.draw do
   # RSS feed redirects
   match '/Podmedics/Podmedics/rss.xml' => redirect('http://feeds.feedburner.com/podmedics'), via: :get
   match '/feeds/podcasts' => redirect('http://feeds.feedburner.com/podmedics'), :as => :feed, via: :get
-    
+
   # Authentication
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -42,6 +42,7 @@ PodmedicsVictory::Application.routes.draw do
   post ':user_id/buy/:permalink', to: 'transactions#create', as: :buy
   get ':user_id/pickup', to: 'transactions#pickup', as: :pickup
   get '/receive_paypal', to: 'transactions#receive_paypal', as: :receive_paypal
+  get ':user_id/cancel_transaction', to: 'transactions#cancel_transaction', as: :cancel_transaction
   resources :stripe_events, only: [:create]
 
   # Dashboards and admin
@@ -49,7 +50,7 @@ PodmedicsVictory::Application.routes.draw do
   resource :dashboard, only: :show
   namespace :admin do
     resource :dashboard, only: :show
-    resources :categories, except: :delete 
+    resources :categories, except: :delete
     resources :specialties
     resources :questions, only: [:index]
     resources :videos, except: :delete do
@@ -94,7 +95,7 @@ PodmedicsVictory::Application.routes.draw do
     get 'video', to: 'hosted_files#video', as: 'download_video'
     get 'audio', to: 'hosted_files#audio', as: 'download_audio'
     get 'slides', to: 'hosted_files#slides', as: 'download_slides'
-  end  
+  end
   get 'tags/:tag', to: 'videos#index', as: :tag
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'

@@ -872,7 +872,7 @@ div.faq_inner_wrapper:last-child {
   float: left;
   width: 100%;
   padding-top: 70px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
 }
 
 .plans_header h1 {
@@ -893,6 +893,10 @@ div.faq_inner_wrapper:last-child {
   float: left;
 }
 
+.plans_header p.cancel_purchase a {
+  color: #007faf;
+}
+
 .plans_columns_wrapper {
   width: 980px;
   margin-left: auto;
@@ -904,9 +908,10 @@ div.faq_inner_wrapper:last-child {
 
 .plans_column {
   background-color: #FFF;
-  float: left;
+  clear: both;
   width: 450px;
-  margin-right: 80px;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 6px;
   -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
@@ -914,12 +919,13 @@ div.faq_inner_wrapper:last-child {
   margin-top: 110px;
   margin-top: 60px;
   margin-bottom: 100px;
+  min-height: 680px;
 }
 
-.plans_column:last-child {
-   margin-right: 0px;
-  margin-top: 0px;
-}
+// .plans_column:last-child {
+//    margin-right: 0px;
+//   margin-top: 0px;
+// }
 
 .plans_column h2 {
   color: #606060;
@@ -1153,10 +1159,7 @@ div.faq_inner_wrapper:last-child {
   margin-left: auto;
   height: 60px;
   margin-right: auto;
-
 }
-
-
 
 .inner.blog_page_inner{
   width: 1080px;
@@ -1568,7 +1571,7 @@ a.summer_sale_notice:hover {
 }
 
 .quiz_appstore_buttons {
-  width: 555px;
+  width: 368px;
   margin-left: auto;
   margin-right: auto;
   z-index: 100;

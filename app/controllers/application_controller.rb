@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
             end
           else
             unless current_user.has_selected_plan?
-              unless params[:controller] == 'transactions'
+              unless params[:controller] == 'transactions' || params[:controller] == 'sessions'
                 redirect_to show_buy_path(current_user.id), notice: 'Please select a plan before proceeding'
               end
             end

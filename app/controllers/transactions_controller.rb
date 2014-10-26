@@ -42,11 +42,20 @@ class TransactionsController < ApplicationController
 
     sale = Sale.new
     sale.receive_paypal_callback(user_id, product_id)
-    redirect_to pickup_url(user_id: current_user.id, guid: sale.guid) 
+    redirect_to pickup_url(user_id: current_user.id, guid: sale.guid)
   end
 
   # endpoint after Stripe or Paypal sale
   def pickup
+  end
+
+  # cancel the transaction before trying it
+  # i.e. the user has seen the payment page and does not
+  # wish to proceed
+  def cancel_transaction
+    # logout the user
+    logout
+    redirect_to root_path, notice: 'Thanks. We hope you change your mind and come back'
   end
 
 end
