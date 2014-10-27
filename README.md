@@ -31,5 +31,4 @@ Designed for deployment on [Heroku](http://www.heroku.com)
 
 ## Licensing
 
-Copyright (c) 2014 Podmedics Ltd. See the LICENSE file for license rights and
-limitations (GNU)
+Copyright (c) 2014 Podmedics Ltd. All rights reserved.
