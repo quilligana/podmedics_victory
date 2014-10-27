@@ -35,3 +35,6 @@
 
 # Files
 public/system
+
+*.sublime-project
+*.sublime-workspace
