@@ -69,7 +69,7 @@ $standard_border_radius: 6px;
   color: #ADADAD; }
 
 .dashboard_count_block p.number {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: #5C5C5C; }
 
@@ -107,15 +107,16 @@ $standard_border_radius: 6px;
   color: #6D6D6D;
   font-weight: 800;
   width: 100%;
-  text-indent: 40px;
-  padding-top: 25px;
-  padding-bottom: 18px;
+  text-indent: 25px;
+  padding-top: 20px;
+  padding-bottom: 15px;
   float: left;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #E8E8E8;
-  font-size: 12px;
-  text-transform: uppercase; }
+  font-size: 11px;
+  text-transform: uppercase;
+}
 
 .dashboard_badges_badge_wrapper {
   width: 100%;
@@ -135,8 +136,8 @@ p.badge_speciality.small_screen_count {
   border-bottom-right-radius: 5px 5px;
 }
 .dashboard_badges_badge_wrapper .badge {
-  margin-left: 42px;
-  margin-bottom: 30px;
+  margin-left: 25px;
+  margin-bottom: 25px;
   margin-top: 15px;
 }
 
@@ -146,8 +147,8 @@ p.badge_speciality.small_screen_count {
   width: 80%;
 }
 .dashboard_badges_badge_wrapper .badge_earned_date {
-  padding-left: 42px;
-  padding-top: 13px;
+  padding-left: 25px;
+  padding-top: 10px;
   float: left;
   font-size: 11px;
   margin-top: 20px;
@@ -2119,10 +2120,10 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-top: 27px;
-  padding-bottom: 20px;
+  padding-top: 19px;
+  padding-bottom: 15px;
   border-radius: 6px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .lecture_list_item:last-child {
@@ -2131,7 +2132,7 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
 .lecture_list_left_column {
   float: left;
   width: auto;
-  margin-left: 25px; }
+  margin-left: 20px; }
 
 .tab_title {
   float: right;
@@ -2153,7 +2154,7 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
 }
 
 .lecture_list_item .lecture_list_left_column a {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
   font-weight: 700;
   float: left;
@@ -2185,10 +2186,9 @@ p.lecture_specialties_link {
 
 .lecture_list_item .lecture_icons_wrapper {
   float: right;
-  margin-right: 25px;
   max-width: 225px;
   float: right;
-  margin-right: 30px;
+  margin-right: 20px;
   max-width: 225px;
   margin-top: 0px;
 }
@@ -4757,7 +4757,7 @@ a.payment_options_back_button {
   background-color: #FFF;
   float: left;
   position: absolute;
-  width: 175px;
+  width: 171px;
   z-index: 10;
   margin-top: 48px;
   margin-left: -15px;
@@ -4772,7 +4772,7 @@ a.payment_options_back_button {
   padding-bottom: 7px;
 }
 a.inline_specialities_dropdown_button {
-  font-size: 14px;
+  font-size: 13px;
   color: #6B6B6B;
   background-color: #FFF;
   float: left;
@@ -4784,7 +4784,7 @@ a.inline_specialities_dropdown_button {
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
-  padding: 18px 45px 16px 20px;
+  padding: 18px 45px 17px 20px;
   background-image: image-url('specialities_dropdown_icon.png');
   background-repeat: no-repeat;
   background-position: right 22px;
@@ -4818,13 +4818,15 @@ a.inline_specialities_dropdown_button {
 }
 .inline_specialities_dropdown_menu.clinical_specialties_dropdown_menu_placement {
   margin-left: 0px;
-  width: 197px;
+  width: 189px;
 }
 .inline_specialities_dropdown_menu.clinical_sciences_dropdown_menu_placement {
   margin-left: 0px;
-  width: 183px;
+  width: 175px;
 }
-
+.inline_specialities_dropdown_menu.medicine_dropdown_menu_placement {
+  width: 170px;
+}
 .inline_specialities_dropdown_wrapper:hover a {
   -moz-box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
   -webkit-box-shadow: 0px 2px 7px -2px rgba(189, 189, 189, 0.8);
@@ -4919,13 +4921,13 @@ a.ask_question_icon_button:hover .ask_question_button_tooltip {
 
 
 .dashboard_header_wrapper {
-  height: 470px;
+  height: 440px;
   width: 100%;
 }
 
 .header_column {
   width: 50%;
-  height: 470px;
+  height: 440px;
   float: left;
   overflow-y: scroll;
 }
@@ -4937,12 +4939,12 @@ a.ask_question_icon_button:hover .ask_question_button_tooltip {
   overflow-y: scroll;
 }
 .header_columns_inner_wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 30px;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-top: 20px;
 }
 .dashboard_header_columns_title {
-  font-size: 14px;
+  font-size: 13px;
   color: #5F5F5F;
   font-weight: bold;
 }
@@ -4965,14 +4967,14 @@ a.ask_question_icon_button:hover .ask_question_button_tooltip {
 
 
 .questions_answers_dashboard_block_inner_wrapper {
-  padding-left: 120px;
-  padding-right: 40px;
+  padding-left: 95px;
+  padding-right: 30px;
   background-image: image-url('dashboard_questions_answers_icon.png');
   background-repeat: no-repeat;
-  background-position: 44px 39px;
+  background-position: 30px 39px;
   float: left;
   padding-top: 27px;
-  padding-bottom: 27px;
+  padding-bottom: 10px;
 }
 p.questions_answers_dashboard_block_name_date {
   font-size: 13px;
@@ -5001,8 +5003,8 @@ p.questions_answers_dashboard_block_name_date {
   color: #333;
 }
 .dashboard_header_columns_lecture_blocks_wrapper {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 12px;
+  padding-bottom: 15px;
   float: left;
 }
 p.questions_answers_dashboard_block_comment_count {
@@ -5017,5 +5019,5 @@ p.questions_answers_dashboard_block_comment_count {
 .inline_specialities_dropdown_menu.practical_skills_dropdown_menu_placement {
   margin-left: 0px;
   border-top-left-radius: 0px 0px;
-  width: 166px;
+  width: 161px;
 }
