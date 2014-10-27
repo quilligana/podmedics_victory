@@ -1,7 +1,7 @@
 <div class="title">Recent Badges</div>
-  <% @badges.last(3).reverse.each do |badge| %>
-    <div class="dashboard_badges_badge_wrapper">
-      <%= badge_award_time(badge) %>
-      <%= show_badge(badge) %>
-    </div>
+<% @badges.last(3).reverse.each do |badge| %>
+  <div class="dashboard_badges_badge_wrapper">
+    <%= badge_award_time(badge) %>
+    <%= show_badge(badge) %>
+  </div>
 <% end %>

@@ -2,9 +2,9 @@
 
 <div class="inner login_page_inner">
 
-  <div class="sub_heading_wrapper">
+  <!-- <div class="sub_heading_wrapper">
     <h1>Log In</h1>
-  </div>
+  </div> -->
 
   <div class="page">
     <div class="left_column_forms">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="login_ignup_form_wrapper" id="members_login_form">
-        <h2>Members Log in</h2>
+        <h2>Login via email</h2>
         <p class="reset_password_notice">PLEASE NOTE: If you have an account from our old site you will need to <%= link_to 'reset your password', 'javascript:;', id: 'forgot_password_link_notice' %> to complete migration of your account.</p>
         <%= form_tag sessions_url, id: "login_form" do %>
           <%= email_field_tag :email, nil, class: "podmedics_textfield", placeholder: 'Email', autofocus: true %>

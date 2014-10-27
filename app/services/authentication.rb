@@ -43,11 +43,8 @@ private
     unless existing_non_omniauth?
       User.where(@omniauth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         extract_auth_data(user)
-
         user.link_social_url(@omniauth)
-
         user.generate_password
-
         user.save!
       end
     end
