@@ -1,11 +1,7 @@
 $podmedics_red: #fa3f52;
-
 $podmedics_grey: #F4F4F4;
-
 $grey_border: #E5E5E5;
-
 $standard_border_radius: 6px;
-
 
 /* Forms  */
 .left_column_forms {
@@ -27,7 +23,7 @@ $standard_border_radius: 6px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: $grey_border;
-  padding: 25px 35px; }
+  padding: 13px 35px; }
 
 .social_signup_button_wrapper {
   background-color: $podmedics_grey;
@@ -146,6 +142,13 @@ a.fb_social_button:hover, a.fb_social_button:active {
   padding-top: 24px;
   font-size: 13px;
   color: #888;
+}
+
+p.signup_data_message {
+clear: both;
+color: gray;
+font-size: 0.8em;
+padding-top: 17px;
 }
 
 .billing_section {
