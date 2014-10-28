@@ -1442,10 +1442,10 @@ a#back_to_notes_button {
   border-bottom-style: solid;
   border-bottom-color: #E8E8E8;
   font-weight: 800;
-  padding-top: 60px;
+  padding-top: 30px;
   padding-left: 0%;
   padding-right: 0%;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   line-height: 38px;
   text-align: center;
   width: 100%;
@@ -1477,10 +1477,10 @@ a.default_lecture_question, .lecture_question_blocks input, .default_lecture_que
   width: 100%;
   padding-left: 3%;
   padding-right: 3%;
-  padding-top: 38px;
-  padding-bottom: 28px;
+  padding-top: 24px;
+  padding-bottom: 17px;
   border-radius: 6px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   font-family: 'Montserrat', sans-serif;
   text-align: left;
   outline: none;
@@ -1592,9 +1592,6 @@ p.questions_info_right_column_number span {
   padding-bottom: 22px;
   float: left;
   width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #EFEFEF;
 }
 
 .notes_saved_button {
@@ -1723,9 +1720,9 @@ p.questions_info_right_column_number span {
   color: #fff;
   padding-left: 0px;
   padding-right: 0px;
-  padding-top: 35px;
-  padding-bottom: 25px;
-  margin-bottom: 25px;
+  padding-top: 24px;
+  padding-bottom: 17px;
+  margin-bottom: 15px;
   cursor: default;
   white-space: normal;
   white-space: normal;
@@ -1751,8 +1748,8 @@ p.questions_info_right_column_number span {
   color: #fff;
   padding-left: 0px;
   padding-right: 0px;
-  padding-top: 35px;
-  padding-bottom: 25px;
+  padding-top: 24px;
+  padding-bottom: 17px;
   cursor: default;
   white-space: normal;
   white-space: normal;
@@ -2002,7 +1999,7 @@ a.notes_saved_button p {
   border-right-width: 1px;
   border-right-style: solid;
   border-right-color: #EFEFEF;
-  padding-bottom: 20px;
+  padding-bottom: 31px;
   float: left;
 }
 div.lecture_question_blocks div h1 {
@@ -2013,7 +2010,6 @@ div.lecture_question_blocks div h1 {
 
 .lecture_question_blocks {
   clear: both;
-  min-height: 565px;
   height: auto;
   padding-top: 35px;
 }
