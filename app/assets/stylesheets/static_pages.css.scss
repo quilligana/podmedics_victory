@@ -659,8 +659,8 @@ a.library_button {
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  padding-top: 19px;
+  padding-bottom: 14px;
   border-radius: $standard_border_radius;
   margin-bottom: 25px;
 
@@ -678,7 +678,7 @@ a.library_button p.inline_arrow_icon {
   margin-top: 16px;
 }
 a.library_button h2 {
-  font-size: 24px;
+  font-size: 20px;
   margin-left: 30px;
   margin-right: 30px;
   float: left;
@@ -725,7 +725,7 @@ a.library_button h2 {
   color: #6D6D6D;
   margin: 0px;
   text-transform: uppercase;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   padding-left: 0px;
   padding-right: 0px;
   margin: 0px;
@@ -778,7 +778,7 @@ a.library_button h2 {
 
 .library_column {
   float: left;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   margin-right: 0px;
   margin-left: 0px;
   width: 100%;
@@ -856,7 +856,7 @@ div.faq_inner_wrapper:last-child {
 }
 
 .library_welcome {
-  margin-left: 40px;
+  margin-left: 30px;
   margin-top: 30px;
   color: #a7a7a7;
   margin-bottom: 5px;
