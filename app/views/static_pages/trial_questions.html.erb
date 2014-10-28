@@ -42,117 +42,119 @@
 
 
 <script type="text/javascript">
-  angular.module('TrialQuestionsApp', ['ngSanitize']);
+  (function(){
+    angular.module('TrialQuestionsApp', ['ngSanitize']);
 
-  // questions factory
-  angular.module('TrialQuestionsApp').factory('DataService', DataService);
+    // questions factory
+    angular.module('TrialQuestionsApp').factory('DataService', DataService);
 
-    function DataService($q, $http){
+      function DataService($q, $http){
 
-      function getQuestions() {
-        var deferred = $q.defer();
+        function getQuestions() {
+          var deferred = $q.defer();
 
-        $http({method: 'GET', url: 'api/v1/questions/sample'})
-          .success(function(data){
-            deferred.resolve(data);
-          })
-          .error(function(data, status, headers, config){
-            console.log(status);
-          });
+          $http({method: 'GET', url: 'api/v1/questions/sample'})
+            .success(function(data){
+              deferred.resolve(data);
+            })
+            .error(function(data, status, headers, config){
+              console.log(status);
+            });
 
-        return deferred.promise;
-      }
+          return deferred.promise;
+        }
 
-      return {
-        getQuestions: getQuestions
-      }
-  }
+        return {
+          getQuestions: getQuestions
+        }
+    }
 
-  angular.module('TrialQuestionsApp').controller('DashboardController', DashboardController);
+    angular.module('TrialQuestionsApp').controller('DashboardController', DashboardController);
 
-    // logic for questions
-    function DashboardController($scope, DataService){
-      var vm = this;
+      // logic for questions
+      function DashboardController($scope, DataService){
+        var vm = this;
 
-      vm.firstQuestionAvailable = false;
-      vm.showAnswer = false;
-      vm.questionsEnded = false;
+        vm.firstQuestionAvailable = false;
+        vm.showAnswer = false;
+        vm.questionsEnded = false;
 
-      vm.quiz = {
-        currentIndex: 0,
-        questionNumber: 10,
-        availableQuestions: []
-      }
+        vm.quiz = {
+          currentIndex: 0,
+          questionNumber: 10,
+          availableQuestions: []
+        }
 
-      DataService.getQuestions().then(function(data){
-        // get the questions for the sample quiz
-        vm.quiz.availableQuestions = data;
+        DataService.getQuestions().then(function(data){
+          // get the questions for the sample quiz
+          vm.quiz.availableQuestions = data;
 
-        // show the first question
-        vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
-        vm.firstQuestionAvailable = true;
-      })
+          // show the first question
+          vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
+          vm.firstQuestionAvailable = true;
+        })
 
-      vm.selectedAnswer = function(answer){
-        var result = answer.index == vm.currentQuestion.correct_answer;
-        vm.showAnswer = true;
-      }
+        vm.selectedAnswer = function(answer){
+          var result = answer.index == vm.currentQuestion.correct_answer;
+          vm.showAnswer = true;
+        }
 
-      vm.nextQuestion = function() {
-        if (vm.quiz.currentIndex == (vm.quiz.questionNumber - 1)) {
-          // hide the questions and show the questions ended copy
-          vm.firstQuestionAvailable = false;
-          vm.questionsEnded = true;
-        } else {
-          // reset the currentQuestion to the next one in the availableQuestions
-          vm.quiz.currentIndex = vm.quiz.currentIndex + 1;
+        vm.nextQuestion = function() {
+          if (vm.quiz.currentIndex == (vm.quiz.questionNumber - 1)) {
+            // hide the questions and show the questions ended copy
+            vm.firstQuestionAvailable = false;
+            vm.questionsEnded = true;
+          } else {
+            // reset the currentQuestion to the next one in the availableQuestions
+            vm.quiz.currentIndex = vm.quiz.currentIndex + 1;
+            vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
+
+            vm.showAnswer = false;
+          }
+        }
+
+        vm.isCorrect = function(answer) {
+          if (answer.index == vm.currentQuestion.correct_answer) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+
+        vm.startAgain = function(){
+          vm.quiz.currentIndex = 0;
           vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
 
+
           vm.showAnswer = false;
-        }
-      }
-
-      vm.isCorrect = function(answer) {
-        if (answer.index == vm.currentQuestion.correct_answer) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-
-      vm.startAgain = function(){
-        vm.quiz.currentIndex = 0;
-        vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
-
-
-        vm.showAnswer = false;
-        vm.questionsEnded = false
-        vm.firstQuestionAvailable = true;
-      }
-
-      // format the question into a format that we can use
-      function prepareQuestion(questionToReturn) {
-        if (questionToReturn) {
-          questionToReturn.answers = [];
-          questionToReturn.answers.push({text: questionToReturn.answer_1, index: 1});
-          questionToReturn.answers.push({text: questionToReturn.answer_2, index: 2});
-          if (questionToReturn.answer_3 !== null && questionToReturn.answer_3.length > 0 ) {
-            questionToReturn.answers.push({text: questionToReturn.answer_3, index: 3});
-          }
-          if (questionToReturn.answer_4 !== null && questionToReturn.answer_4.length > 0) {
-            questionToReturn.answers.push({text: questionToReturn.answer_4, index: 4});
-          }
-          if (questionToReturn.answer_5 !== null && questionToReturn.answer_5.length > 0) {
-            questionToReturn.answers.push({text: questionToReturn.answer_5, index: 5});
-          }
+          vm.questionsEnded = false
+          vm.firstQuestionAvailable = true;
         }
 
-        // set the correct stem
-        questionToReturn.correctStem = questionToReturn.answers[(questionToReturn.correct_answer - 1)].text;
+        // format the question into a format that we can use
+        function prepareQuestion(questionToReturn) {
+          if (questionToReturn) {
+            questionToReturn.answers = [];
+            questionToReturn.answers.push({text: questionToReturn.answer_1, index: 1});
+            questionToReturn.answers.push({text: questionToReturn.answer_2, index: 2});
+            if (questionToReturn.answer_3 !== null && questionToReturn.answer_3.length > 0 ) {
+              questionToReturn.answers.push({text: questionToReturn.answer_3, index: 3});
+            }
+            if (questionToReturn.answer_4 !== null && questionToReturn.answer_4.length > 0) {
+              questionToReturn.answers.push({text: questionToReturn.answer_4, index: 4});
+            }
+            if (questionToReturn.answer_5 !== null && questionToReturn.answer_5.length > 0) {
+              questionToReturn.answers.push({text: questionToReturn.answer_5, index: 5});
+            }
+          }
 
-        return questionToReturn;
-      }
+          // set the correct stem
+          questionToReturn.correctStem = questionToReturn.answers[(questionToReturn.correct_answer - 1)].text;
 
-  }
+          return questionToReturn;
+        }
+
+    }
+  })();
 
 </script>

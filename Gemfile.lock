@@ -73,9 +73,6 @@ GEM
       debug_inspector (>= 0.0.1)
     blankslate (3.1.2)
     builder (3.1.4)
-    bullet (4.12.0)
-      activesupport (>= 3.0.0)
-      uniform_notifier (>= 1.6.0)
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
@@ -313,8 +310,6 @@ GEM
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
-    rack-mini-profiler (0.9.1)
-      rack (>= 1.1.3)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -436,7 +431,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uniform_notifier (1.6.2)
     validate_url (0.2.0)
       activemodel (>= 3.0.0)
     validates_email_format_of (1.5.3)
@@ -462,7 +456,6 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   better_errors
   binding_of_caller
-  bullet
   capybara
   capybara-extensions
   chartkick
@@ -506,7 +499,6 @@ DEPENDENCIES
   poltergeist
   pry-byebug
   quiet_assets
-  rack-mini-profiler
   rails (= 4.0.2)
   rails_12factor
   rails_layout

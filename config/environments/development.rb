@@ -50,7 +50,7 @@ PodmedicsVictory::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS']
     }
   }
-  
+
   Paperclip::Attachment.default_options[:path] =  ":rails_root/public/system/avatars/:style/:filename"
   Paperclip::Attachment.default_options[:url] =   "/system/avatars/:style/:filename"
 
@@ -59,11 +59,11 @@ PodmedicsVictory::Application.configure do
 
   # Bullet config
 
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-  end
+  # config.after_initialize do
+  #   Bullet.enable = true
+  #   Bullet.alert = true
+  #   Bullet.bullet_logger = true
+  #   Bullet.console = true
+  #   Bullet.rails_logger = true
+  # end
 end
