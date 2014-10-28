@@ -4,23 +4,23 @@
     <h1>Search Results</h1>
     <%= render 'quick_nav' %>
     </div>
-  </div>
+
 
   <div class="page">
+    <div class="speciality_search_page_wrapper">
+      <div id="tabs_single_page">
+        <% unless @videos.empty? %>
 
-    <% unless @videos.empty? %>
-      <div class="speciality_search_page_wrapper">
-        <div id="tabs_single_page">
-          <p class="search_tab_sub_title">Vidoes that cover this topic:</p>
-          <%= render partial: 'dashboards/video_list', locals: {videos: @videos} %>
-        </div>
-      </div>
-      <div class="clear"></div>
-    <% else %>
-      <div class="no_search_results_wrapper">
-        <p class="no_search_results_found_title">Sorry nothing found for this search</p>
-      </div>
-    <% end %>
+              <p class="search_tab_sub_title">Vidoes that cover this topic:</p>
+              <%= render partial: 'dashboards/video_list', locals: {videos: @videos} %>
+            </div>
 
+        <% else %>
+          <div class="no_search_results_wrapper">
+            <p class="no_search_results_found_title">Sorry nothing found for this search</p>
+          </div>
+        <% end %>
+    </div>
+    <div class="clear"></div>
   </div>
 </div>
