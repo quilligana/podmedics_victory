@@ -1,10 +1,10 @@
 <div class="inner">
   <div class="sub_heading_wrapper">
     <h1>Trial Questions</h1>
+    <p>Feel free to try out some of the questions from our great bank.</p>
   </div>
 
   <div class="page">
-    <p>Feel free to try out some of the questions from our great bank.</p>
 
     <div ng-app='TrialQuestionsApp'>
       <div ng-controller='DashboardController as vm'>
@@ -45,7 +45,7 @@
     function getQuestions() {
       var deferred = $q.defer();
 
-      $http({method: 'GET', url: 'api/v1/questions'})
+      $http({method: 'GET', url: 'api/v1/questions/sample'})
         .success(function(data){
           deferred.resolve(data);
         })
@@ -73,7 +73,7 @@
 
     vm.quiz = {
       currentIndex: 0,
-      questionNumber: 3,
+      questionNumber: 10,
       availableQuestions: []
     }
 

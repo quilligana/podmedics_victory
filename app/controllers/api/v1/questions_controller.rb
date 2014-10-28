@@ -10,6 +10,11 @@ class API::V1::QuestionsController < ApplicationController
     respond_with @questions
   end
 
+  def sample
+    @questions = Question.includes(:video).limit(10)
+    respond_with @questions
+  end
+
   def count
     @count = Question.count
     respond_with @count
