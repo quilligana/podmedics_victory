@@ -2120,6 +2120,11 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   padding-bottom: 15px;
   border-radius: 6px;
   margin-bottom: 20px;
+
+  &:hover {
+    background-color: #ECE9E9;
+    cursor: pointer;
+  }
 }
 
 .lecture_list_item:last-child {

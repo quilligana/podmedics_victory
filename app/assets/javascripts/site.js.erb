@@ -135,7 +135,7 @@ ready = function() {
     $("#speciality_default_right_column").toggleClass('animated fadeOutRight').fadeToggle(1);
     $(".main_notes_right_column_wrapper").addClass('animated fadeInRight').fadeToggle(1);
   });
-  
+
   $(document).on("click", "#back_to_notes_button", function(){
     $(".main_notes_right_column_wrapper").removeClass('animated fadeInRight').addClass('animated fadeInRight').fadeToggle(1);
     $(".full_note_outer_wrapper").hide();
@@ -177,7 +177,7 @@ ready = function() {
   $(document).on("click", ".close_notification", function(){
     $(this).parents("div.notification").fadeOut(400);
     var tab_container = $("#tabs_container");
-    var height =  tab_container.height() - 
+    var height =  tab_container.height() -
                   $(this).parents("div.notification").outerHeight(true);
     tab_container.height(height);
   });
@@ -189,7 +189,7 @@ ready = function() {
     $( this ).find( '.tooltip' ).hide();
   });
 
-  // iCheck 
+  // iCheck
   $('.edit_profile_form input').iCheck({
     checkboxClass: 'icheckbox_minimal-red',
     radioClass: 'iradio_minimal-red',
@@ -244,9 +244,14 @@ ready = function() {
   // A new badge achievement during questions - fire modal
   $( "#questions_complete_modal_click" ).click();
 
+  // hover effect for lecture container
+  $('.lecture_list_item').on('click', function(){
+    var element = $(this).find('a.video_link')[0];
+    element.click();
+  });
 
 };
-	
+
 $(document).ready(ready);
 //$(document).on('page:load', ready);
 

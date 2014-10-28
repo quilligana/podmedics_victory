@@ -1,7 +1,7 @@
 <% videos.each do |video| %>
   <div class="lecture_list_item">
     <div class="lecture_list_left_column">
-      <%= link_to video.title, video %>
+      <%= link_to video.title, video, class: 'video_link' %>
       <p class="lecture_specialties_link"><%= link_to video.specialty_name, specialty_path(video.specialty) %></p>
     </div>
     <div class="lecture_icons_wrapper">
