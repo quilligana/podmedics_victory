@@ -15,7 +15,7 @@
     <div ng-app='TrialQuestionsApp'>
       <div ng-controller='DashboardController as vm'>
         <div class="question" ng-show="vm.firstQuestionAvailable">
-          <div>{{vm.currentQuestion.stem}}</div>
+          <div ng-bind-html="vm.currentQuestion.stem"></div>
 
           <ul ng-class="{ 'showAnswer' : vm.showAnswer }">
             <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer) }">
@@ -24,7 +24,7 @@
           </ul>
 
           <div class="answer" ng-show="vm.showAnswer">
-            {{vm.currentQuestion.explanation}}
+            <div ng-bind-html="vm.currentQuestion.explanation"></div>
             <a ng-click="vm.nextQuestion()">Next Question</a>
           </div>
         </div>
@@ -32,6 +32,7 @@
         <div class="end_questions" ng-show="vm.questionsEnded">
           <p>You have finished all the trial questions.</p>
           <p><%= link_to "Sign Up to access more", signup_path %></p>
+          <p><a ng-click="vm.startAgain()">Start again</a></p>
         </div>
       </div><!-- end ng-controller -->
     </div><!-- end ng-app -->
@@ -41,7 +42,7 @@
 
 
 <script type="text/javascript">
-  angular.module('TrialQuestionsApp', []);
+  angular.module('TrialQuestionsApp', ['ngSanitize']);
 
   // questions factory
   angular.module('TrialQuestionsApp').factory('DataService', DataService);
@@ -113,10 +114,20 @@
 
       vm.isCorrect = function(answer) {
         if (answer.index == vm.currentQuestion.correct_answer) {
-          return true
+          return true;
         } else {
-          return false
+          return false;
         }
+      }
+
+      vm.startAgain = function(){
+        vm.quiz.currentIndex = 0;
+        vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
+
+
+        vm.showAnswer = false;
+        vm.questionsEnded = false
+        vm.firstQuestionAvailable = true;
       }
 
       // format the question into a format that we can use
