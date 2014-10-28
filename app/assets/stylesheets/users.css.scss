@@ -2117,8 +2117,8 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
   background-color: #F1F1F1;
   float: left;
   width: 100%;
-  padding-top: 19px;
-  padding-bottom: 15px;
+  padding-top: 21px;
+  padding-bottom: 13px;
   border-radius: 6px;
   margin-bottom: 20px;
 
@@ -2199,9 +2199,10 @@ p.lecture_specialties_link {
   background-image: image-url('lecture_icons.png');
   background-repeat: no-repeat;
   background-position: 0 0;
+  background-size: 100%;
   float: left;
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   margin-left: 10px;
 }
 
@@ -2214,19 +2215,19 @@ p.lecture_specialties_link {
   margin-top: 1px; }
 
 .lecture_icons_wrapper .lecture_icon.part_watched {
-  background-position: 0 -144px;
+  background-position: 0 -126px;
 }
 
 .lecture_icons_wrapper .lecture_icon.watched {
-  background-position: 0 -36px;
+  background-position: 0 -32px;
 }
 
 .lecture_icons_wrapper .lecture_icon.not_watched {
-  background-position: 0 -180px;
+  background-position: 0 -157px;
 }
 
 .lecture_icons_wrapper .lecture_icon.recommend_resit {
-  background-position: 0 -72px;
+  background-position: 0 -63px;
 }
 
 .lecture_icons_wrapper .lecture_icon.resit {
@@ -2247,7 +2248,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
 }
 
 .lecture_icons_wrapper .lecture_icon.top_marks {
-  background-position: 0 -108px;
+  background-position: 0 -94px;
 }
 
 .lecture_icon .tooltip {
@@ -2275,7 +2276,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
   background-position: -2px -113px;
   z-index: 72;
   margin-right: -2px;
-  margin-top: 27px;
+  margin-top: 21px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 36px;
@@ -2287,7 +2288,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
   background-position: -170px -312px;
   z-index: 72;
   margin-right: -1px;
-  margin-top: 34px;
+  margin-top: 28px;
   padding-left: 30px;
   padding-right: 23px;
 }
@@ -2298,7 +2299,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
   background-position: -2px -113px;
   z-index: 72;
   margin-right: -2px;
-  margin-top: 27px;
+  margin-top: 21px;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 36px;
@@ -2327,7 +2328,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
   background-position: -8px -4px;
   z-index: 72;
   margin-right: -1px;
-  margin-top: 38px;
+  margin-top: 32px;
 }
 
 
@@ -3637,7 +3638,7 @@ p.password_reset_subtitle {
 a.tag {
   background-image: image-url('tags_dot.png');
   background-repeat: no-repeat;
-  background-position: 0px 0px;
+  background-position: -1px -2px;
   height: 32px;
   float: right;
   color: #FFFFFF;
@@ -3646,7 +3647,7 @@ a.tag {
   margin-bottom: 10px;
 }
 a.tag:hover {
-  background-position: 0px -34px;
+  background-position: 0px -35px;
 
 }
 a.tag:hover span {
@@ -5022,4 +5023,22 @@ p.questions_answers_dashboard_block_comment_count {
   margin-left: 0px;
   border-top-left-radius: 0px 0px;
   width: 161px;
+}
+input.dashboard_search_field {
+  margin-top: 0px;
+  width: 220px;
+  font-size: 15px;
+  color: #6B6B6B;
+  background-color: #FFF;
+  float: left;
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  padding: 15px 46px 14px 17px;
+  border: solid 1px #eee;
 }

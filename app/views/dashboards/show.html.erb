@@ -3,9 +3,8 @@
 <div class="inner dashboard_page">
   <div>
     <div class="sub_heading_wrapper">
-      <h1>Dashboard</h1>
       <%= form_tag videos_path, method: 'get' do %>
-        <%= text_field_tag :search, params[:search], class: 'navigation_search_field', placeholder: 'Search' %>
+        <%= text_field_tag :search, params[:search], class: 'dashboard_search_field', placeholder: 'Search' %>
       <% end %>
       <div class="sub_heading_button_set">
         <%= render 'quick_nav' %>
