@@ -2,7 +2,7 @@
 
 <div class="inner dashboard_page">
   <div>
-    <div class="sub_heading_wrapper">
+    <div class="sub_heading_wrapper dashboard_header">
       <%= form_tag videos_path, method: 'get' do %>
         <%= text_field_tag :search, params[:search], class: 'dashboard_search_field', placeholder: 'Search' %>
       <% end %>

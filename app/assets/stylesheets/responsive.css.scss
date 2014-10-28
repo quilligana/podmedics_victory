@@ -835,9 +835,7 @@ $standard_border_radius: 6px;
     width: 100%;
     border-bottom: solid 1px #E8E8E8;
   }
-  .sub_heading_wrapper.search_page_header {
-    padding-bottom: 0px;
-  }
+
   .blog_page_right_column {
     width: 100%;
     float: left;
@@ -1344,14 +1342,15 @@ $standard_border_radius: 6px;
     margin-left: auto;
     margin-right: auto;
   }
-  .sub_heading_wrapper {
-    padding-bottom: 5px;
-  }
+
   input.dashboard_search_field {
     margin-bottom: 0px;
     width: 92%;
     padding-left: 4%;
     padding-right: 4%;
+  }
+  .sub_heading_wrapper.dashboard_header {
+    padding-bottom: 0px;
   }
 }
 
