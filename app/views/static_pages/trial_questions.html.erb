@@ -79,7 +79,7 @@
 
     DataService.getQuestions().then(function(data){
       // get the questions for the sample quiz
-      vm.quiz.availableQuestions = _.first(data, parseInt(vm.quiz.questionNumber));
+      vm.quiz.availableQuestions = data;
 
       // show the first question
       vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
