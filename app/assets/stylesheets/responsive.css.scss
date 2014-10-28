@@ -1715,7 +1715,7 @@ $standard_border_radius: 6px;
     display: none;
   }
   .quiz_appstore_buttons {
-    width: 267px;
+    width: 175px;
   }
   .quiz_appstore_buttons a.app_store_button {
     margin-right: 0px;
@@ -1773,14 +1773,23 @@ $standard_border_radius: 6px;
   }
   .quiz_app_header_image {
     background-size: 250%;
-    height: 402px;
+    height: 532px;
   }
   .quiz_app_header {
-    height: 689px;
+    height: 729px;
   }
 }
 
 @media screen and (max-width: 450px) {
+
+  .quiz_app_header_image {
+    background-size: 250%;
+    height: 462px;
+  }
+  .quiz_app_header {
+    height: 769px;
+  }
+
   .quiz_app_section_one_left_column {
     height: 520px;
   }
@@ -1917,10 +1926,10 @@ $standard_border_radius: 6px;
   }
   .quiz_app_header_image {
     background-size: 250%;
-    height: 332px;
+    height: 402px;
   }
   .quiz_app_header {
-    height: 579px;
+    height: 649px;
   }
   .quiz_app_header h1 {
     padding-top: 45px;
