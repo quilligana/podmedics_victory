@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: 'donotreply@podmedics.com'
+  default from: 'ed@podmedics.com'
   layout 'user_mailer', only: [:test_newsletter, :new_test_episode]
 
   def new_specialty_question(specialty)
