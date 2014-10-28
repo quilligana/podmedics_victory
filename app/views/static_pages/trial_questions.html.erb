@@ -1,0 +1,123 @@
+<div class="inner">
+  <div class="sub_heading_wrapper">
+    <h1>Trial Questions</h1>
+  </div>
+
+  <div class="page">
+    <p>Feel free to try out some of the questions from our great bank.</p>
+
+    <div ng-app='TrialQuestionsApp'>
+      <div ng-controller='DashboardController as vm'>
+        <div class="question" ng-show="vm.firstQuestionAvailable">
+          <div>{{vm.currentQuestion.stem}}</div>
+
+          <ul>
+            <li ng-repeat="answer in vm.currentQuestion.answers">
+              <a ng-click="vm.selectedAnswer(answer)">{{answer.text}}</a>
+            </li>
+          </ul>
+
+          <div class="answer" ng-show="vm.showAnswer">
+            {{vm.currentQuestion.explanation}}
+            <a ng-click="vm.nextQuestion()">Next Question</a>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  angular.module('TrialQuestionsApp', []);
+
+  // questions factory
+  angular.module('TrialQuestionsApp').factory('Questions', Questions);
+
+  function Questions($q, $http){
+
+    function getQuestions() {
+      var deferred = $q.defer();
+
+      $http({method: 'GET', url: 'api/v1/questions'})
+        .success(function(data){
+          deferred.resolve(data);
+        })
+        .error(function(data, status, headers, config){
+          console.log(status);
+        });
+
+      return deferred.promise;
+    }
+
+    return {
+      getQuestions: getQuestions
+    }
+  }
+
+  angular.module('TrialQuestionsApp').controller('DashboardController', DashboardController);
+
+  // logic for questions
+  function DashboardController($scope, Questions){
+    var vm = this;
+
+    vm.firstQuestionAvailable = false;
+    vm.showAnswer = false;
+
+    vm.quiz = {
+      currentIndex: 0,
+      questionNumber: 10,
+      availableQuestions: []
+    }
+
+    Questions.getQuestions().then(function(data){
+      // get the questions for the sample quiz
+      vm.quiz.availableQuestions = _.first(data, parseInt(vm.quiz.questionNumber));
+
+      // show the first question
+      vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
+      vm.firstQuestionAvailable = true;
+    })
+
+    vm.selectedAnswer = function(answer){
+      var result = answer.index == vm.currentQuestion.correct_answer;
+      vm.showAnswer = true;
+    }
+
+    vm.nextQuestion = function() {
+      // reset the currentQuestion to the next one in the availableQuestions
+      vm.quiz.currentIndex = vm.quiz.currentIndex + 1;
+      vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
+
+      vm.showAnswer = false;
+    }
+
+    // format the question into a format that we can use
+    function prepareQuestion(questionToReturn) {
+      if (questionToReturn) {
+        questionToReturn.answers = [];
+        questionToReturn.answers.push({text: questionToReturn.answer_1, index: 1});
+        questionToReturn.answers.push({text: questionToReturn.answer_2, index: 2});
+        if (questionToReturn.answer_3 !== null && questionToReturn.answer_3.length > 0 ) {
+          questionToReturn.answers.push({text: questionToReturn.answer_3, index: 3});
+        }
+        if (questionToReturn.answer_4 !== null && questionToReturn.answer_4.length > 0) {
+          questionToReturn.answers.push({text: questionToReturn.answer_4, index: 4});
+        }
+        if (questionToReturn.answer_5 !== null && questionToReturn.answer_5.length > 0) {
+          questionToReturn.answers.push({text: questionToReturn.answer_5, index: 5});
+        }
+      }
+
+      // set the correct stem
+      questionToReturn.correctStem = questionToReturn.answers[(questionToReturn.correct_answer - 1)].text;
+
+      return questionToReturn;
+    }
+
+  }
+
+</script>
