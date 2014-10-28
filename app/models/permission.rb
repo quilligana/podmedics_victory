@@ -10,7 +10,7 @@ class Permission
     allow :users, [:new, :create, :unsubscribe, :unsubscribed]
     allow :stripe_events, [:create]
     allow 'api/v1/specialties', [:index]
-    allow 'api/v1/questions', [:index, :count]
+    allow 'api/v1/questions', [:index, :count, :sample]
     if user
       allow :transactions, [:new, :create, :pickup, :receive_paypal]
       allow :courses, [:index]

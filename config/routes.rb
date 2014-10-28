@@ -135,6 +135,7 @@ PodmedicsVictory::Application.routes.draw do
       resources :questions do
         collection do
           get 'count'
+          get 'sample'
         end
       end
     end

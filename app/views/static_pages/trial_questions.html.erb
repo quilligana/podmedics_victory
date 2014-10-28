@@ -1,10 +1,10 @@
 <div class="inner">
   <div class="sub_heading_wrapper">
     <h1>Trial Questions</h1>
+    <p>Feel free to try out some of the questions from our great bank.</p>
   </div>
 
   <div class="page">
-    <p>Feel free to try out some of the questions from our great bank.</p>
 
     <div ng-app='TrialQuestionsApp'>
       <div ng-controller='DashboardController as vm'>
@@ -21,11 +21,14 @@
             {{vm.currentQuestion.explanation}}
             <a ng-click="vm.nextQuestion()">Next Question</a>
           </div>
-
-
         </div>
-      </div>
-    </div>
+
+        <div class="end_questions" ng-show="vm.questionsEnded">
+          <p>You have finished all the trial questions.</p>
+          <p><%= link_to "Sign Up to access more", signup_path %></p>
+        </div>
+      </div><!-- end ng-controller -->
+    </div><!-- end ng-app -->
   </div>
 </div>
 
@@ -35,14 +38,14 @@
   angular.module('TrialQuestionsApp', []);
 
   // questions factory
-  angular.module('TrialQuestionsApp').factory('Questions', Questions);
+  angular.module('TrialQuestionsApp').factory('DataService', DataService);
 
-  function Questions($q, $http){
+  function DataService($q, $http){
 
     function getQuestions() {
       var deferred = $q.defer();
 
-      $http({method: 'GET', url: 'api/v1/questions'})
+      $http({method: 'GET', url: 'api/v1/questions/sample'})
         .success(function(data){
           deferred.resolve(data);
         })
@@ -61,11 +64,12 @@
   angular.module('TrialQuestionsApp').controller('DashboardController', DashboardController);
 
   // logic for questions
-  function DashboardController($scope, Questions){
+  function DashboardController($scope, DataService){
     var vm = this;
 
     vm.firstQuestionAvailable = false;
     vm.showAnswer = false;
+    vm.questionsEnded = false;
 
     vm.quiz = {
       currentIndex: 0,
@@ -73,9 +77,9 @@
       availableQuestions: []
     }
 
-    Questions.getQuestions().then(function(data){
+    DataService.getQuestions().then(function(data){
       // get the questions for the sample quiz
-      vm.quiz.availableQuestions = _.first(data, parseInt(vm.quiz.questionNumber));
+      vm.quiz.availableQuestions = data;
 
       // show the first question
       vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
@@ -88,11 +92,17 @@
     }
 
     vm.nextQuestion = function() {
-      // reset the currentQuestion to the next one in the availableQuestions
-      vm.quiz.currentIndex = vm.quiz.currentIndex + 1;
-      vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
+      if (vm.quiz.currentIndex == (vm.quiz.questionNumber - 1)) {
+        // hide the questions and show the questions ended copy
+        vm.firstQuestionAvailable = false;
+        vm.questionsEnded = true;
+      } else {
+        // reset the currentQuestion to the next one in the availableQuestions
+        vm.quiz.currentIndex = vm.quiz.currentIndex + 1;
+        vm.currentQuestion = prepareQuestion(vm.quiz.availableQuestions[vm.quiz.currentIndex]);
 
-      vm.showAnswer = false;
+        vm.showAnswer = false;
+      }
     }
 
     // format the question into a format that we can use
