@@ -2,6 +2,9 @@
   ul.showAnswer li.correct {
     background-color: green;
   }
+  ul.showAnswer li.incorrect {
+    background-color: red;
+  }
 </style>
 
 <div class="inner">
@@ -13,12 +16,12 @@
   <div class="page">
 
     <div ng-app='TrialQuestionsApp'>
-      <div ng-controller='DashboardController as vm'>
+      <div ng-controller='TrialQuestionsController as vm'>
         <div class="question" ng-show="vm.firstQuestionAvailable">
           <div ng-bind-html="vm.currentQuestion.stem"></div>
 
           <ul ng-class="{ 'showAnswer' : vm.showAnswer }">
-            <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer) }">
+            <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer), 'incorrect' : answer.selectedAndIncorrect }">
               <a ng-click="vm.selectedAnswer(answer)">{{answer.text}}</a>
             </li>
           </ul>
@@ -69,16 +72,30 @@
         }
     }
 
-    angular.module('TrialQuestionsApp').controller('DashboardController', DashboardController);
+    angular.module('TrialQuestionsApp').factory('Quiz', Quiz);
+
+    function Quiz (DataService) {
+      var model = this;
+      model.currentIndex = 0;
+      model.questionNumber = 10;
+      model.availableQuestions = [];
+
+      return {
+        
+      }
+    };
+
+    angular.module('TrialQuestionsApp').controller('TrialQuestionsController', TrialQuestionsController);
 
       // logic for questions
-      function DashboardController($scope, DataService){
+      function TrialQuestionsController($scope, DataService){
         var vm = this;
 
         vm.firstQuestionAvailable = false;
         vm.showAnswer = false;
         vm.questionsEnded = false;
 
+        // Refactor into activate function
         vm.quiz = {
           currentIndex: 0,
           questionNumber: 10,
@@ -95,7 +112,8 @@
         })
 
         vm.selectedAnswer = function(answer){
-          var result = answer.index == vm.currentQuestion.correct_answer;
+          answer.selectedAndIncorrect = answer.index != vm.currentQuestion.correct_answer;
+
           vm.showAnswer = true;
         }
 
