@@ -88,6 +88,7 @@
       incrementIndex: incrementIndex,
       restart: restart
     }
+
   };
 
   angular.module('TrialQuestionsApp').controller('TrialQuestionsController', TrialQuestionsController);
