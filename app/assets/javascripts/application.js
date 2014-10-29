@@ -5,6 +5,7 @@
 //= require jquery.validate
 //= require addtohomescreen.min
 //= require turbolinks
+//= require trial-questions
 
 // Enable Turbolinks transition cache
 Turbolinks.enableTransitionCache();
