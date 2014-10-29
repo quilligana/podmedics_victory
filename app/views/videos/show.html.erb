@@ -6,7 +6,7 @@
       <h1><%= @video.title %></h1>
       <p class="video_breadcrumb">
         <%= link_to @specialty.name, specialty_path(@specialty) %>
-        / 
+        /
         <%= link_to @video.title, video_path(@video) %>
       </p>
     </div>
@@ -48,7 +48,7 @@
             <iframe src="https://player.vimeo.com/video/<%= @video.vimeo_identifier %>?api=1&portrait=0&color=fa3f52&player_id=vimeoplayer" width="400" height="225" frameborder="0" id="vimeoplayer"></iframe>
           </div>
         </div>
-        
+
         <div class="video_page_notes_column">
           <div class="video_page_notes_column_title">
             <strong>Notes</strong>
@@ -79,7 +79,7 @@
 
                   <% if @video.cached_comments_count == 0 %>
                   <div class="no_questions_reply_wrapper">
-                    Nothing posted yet. 
+                    Nothing posted yet.
                     <a href="javascript:;">
                       Be the first to comment.
                     </a>
@@ -127,4 +127,19 @@
 
 <script id="progress_json" type="text/json">
     <%= raw @progress.to_json %>
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    // track video page view
+    var title = "<%= @video.title %>"
+    mixpanel.track('Video played', {
+      "name" : title
+    });
+
+    // track hitting the quiz button from here
+    mixpanel.track_links("a.take_exam_button", "Click Video Quiz", {
+      "name" : title
+    });
+  });
 </script>

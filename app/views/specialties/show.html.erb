@@ -59,3 +59,16 @@
 
 <%= render 'specialty_questions/form' %>
 
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    var specialty_name = "<%= @specialty.name %>"
+    mixpanel.track('Specialty viewed', {
+      "name" : specialty_name
+    });
+
+    mixpanel.track_links("a.take_quiz_icon_button", "Click Specialty Quiz", {
+      "name" : specialty_name
+    });
+  });
+</script>
+
