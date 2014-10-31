@@ -1,4 +1,14 @@
 <%= content_for(:title) { "Podmedics | Home"} %>
+<div class="mobile_navigation">
+  <%= link_to 'home', root_path , class: "nav-home" %>
+  <%= link_to 'videos', library_path , class:"nav-lectures" %>
+  <%= link_to "quiz app", app_path %>
+  <%= link_to 'about', about_path , class: "nav-about" %>
+  <%= link_to "Blog", posts_path %>
+  <%= link_to 'faqs',  faqs_path , class: "nav-faqs" %>
+  <%= link_to "login", login_path , class: "nav-login" %>
+  <%= link_to "sign up", signup_path , class: "nav-signup" %>
+</div>
 
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
   <div class="inner_menu_wrapper">
@@ -19,6 +29,14 @@
 
   <%= link_to '', root_path , class: "podmedics_home_icon" %>
 
+  <a href="javascript:;" class="mobile_nav_icon">
+    <p></p>
+    <p></p>
+    <p></p>
+  </a>
+
+
+
   <div class="home_navigation">
     <%= link_to 'home', root_path , class: "nav-home" %>
     <%= link_to 'videos', library_path , class:"nav-lectures" %>
@@ -35,16 +53,80 @@
     <% end %>
 
   <div class="inner_home_header">
-    <h1>Welcome to Podmedics</h1>
-    <p class="podmedics_intro_message">We make high-yield revision videos and questions for medical students</p>
+    <h1>Medical revision as it should be.</h1>
+    <p class="podmedics_intro_message">Watch 100s of beautifully made medical revision videos and answer 1000s of questions tailored specifically to you</p>
     <div class="inner_home_header_action_buttons">
-      <!-- <div class="free_trial_home_sketch"></div> -->
       <a href="/signup" class="red_button home_action_button">Signup to get started</a>
-      <a href="/library" class="red_button home_action_button dark_grey">Explore our library</a>
     </div>
   </div>
-  <div class="home_header_browser_window"></div>
 </div>
+
+
+
+<div class="home_section_video">
+  <div class="home_section_inner_wrapper">
+    <div class="home_top_section_left_column">
+      <h2>Watch video tutorials</h2>
+      <p>By analysing which tutorials you watch and how you perform in the post-video questions, your personal dashboard will suggest related videos to accelerate your progress.</p>
+    </div>
+    <div class="home_top_section_right_column">
+      <div class="index_video_wrapper">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="home_section_questions">
+  <div class="home_section_inner_wrapper">
+    <div class="home_top_section_left_column">
+      <h2>Try some Questions</h2>
+      <p>By analysing which tutorials you watch and how you perform in the post-video questions, your personal dashboard will suggest related videos to accelerate your progress.</p>
+    </div>
+    <div class="home_top_section_right_column questions_right_column_wrapper">
+      <div class="index_questions_wrapper">
+
+
+
+          <div ng-app='TrialQuestionsApp'>
+            <div ng-controller='TrialQuestionsController as vm'>
+              <div class="question" ng-show="vm.firstQuestionAvailable">
+                <div class="index_questions_header">
+                  <div ng-bind-html="vm.currentQuestion.stem" class="questions_header_padding"></div>
+                </div>
+
+                <div class="index_questions_block">
+
+                <ul ng-class="{ 'showAnswer' : vm.showAnswer }">
+                  <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer), 'incorrect' : answer.selectedAndIncorrect }">
+                    <a ng-click="vm.selectedAnswer(answer)">{{answer.text}}</a>
+                  </li>
+                </ul>
+
+                <div class="answer" ng-show="vm.showAnswer">
+                  <div ng-bind-html="vm.currentQuestion.explanation"></div>
+                    <div class="index_question_next_button">
+                      <a ng-click="vm.nextQuestion()" class="red_button">Next Question</a>
+                    </div>
+                </div>
+              </div>
+
+              <div class="end_questions" ng-show="vm.questionsEnded">
+                <p>You have finished all the trial questions.</p>
+                <p><%= link_to "Sign Up to access more", signup_path %></p>
+                <p><a ng-click="vm.startAgain()" class="red_button">Start again</a></p>
+              </div>
+            </div>
+            </div><!-- end ng-controller -->
+          </div><!-- end ng-app -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 <div class="home_section">

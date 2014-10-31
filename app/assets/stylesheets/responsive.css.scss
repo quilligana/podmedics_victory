@@ -128,7 +128,7 @@ $standard_border_radius: 6px;
   .home_navigation a.nav-login {
     background-image: image-url('home_header_button_icons@2x.png');
     background-position: 79px 10px;
-    background-size: 14px 48px;
+    background-size: 15px 120px;
   }
   .no_questions_reply_wrapper {
     background-image: image-url('no_answers_icon@2x.png');
@@ -353,6 +353,45 @@ $standard_border_radius: 6px;
   }
   input.dashboard_search_field {
      margin-bottom: 10px;
+  }
+  .home_section_questions .home_section_inner_wrapper, .home_section_video .home_section_inner_wrapper {
+    width: 100%;
+  }
+  .home_section_video .home_top_section_left_column, .home_section_questions .home_top_section_left_column {
+    float: left;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+  }
+  .home_section_video .home_top_section_left_column h2, .home_section_questions .home_top_section_left_column h2 {
+    font-size: 30px;
+    margin-top: 100px;
+  }
+  .home_top_section_right_column {
+    width: 100%;
+    float: right;
+    margin-top: 50px;
+  }
+  .index_video_wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home_top_section_right_column.questions_right_column_wrapper {
+    margin-top: 50px;
+  }
+  .index_questions_wrapper {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
+  .home_section_questions {
+    height: auto;
+    padding-bottom: 50px;
+  }
+  .index_video_wrapper {
+    width: 90%;
   }
 }
 
@@ -768,7 +807,9 @@ $standard_border_radius: 6px;
     margin-right: 0px;
     margin-top: 0px;
   }
-
+  div.inner_home_header {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -793,15 +834,16 @@ $standard_border_radius: 6px;
     display: none;
   }
 
-  div.inner_home_header p {
-    width: 96%;
-    padding-left: 2%;
-    padding-right: 2%;
-  }
-
 }
 
 @media screen and (max-width: 800px) {
+
+  .home_page_header .home_navigation {
+    display: none;
+  }
+  a.mobile_nav_icon {
+    display: block;
+  }
   .quiz_app_section_three_android {
     display: none;
   }
@@ -1046,7 +1088,9 @@ $standard_border_radius: 6px;
     width: auto;
   }
 
-
+  .home_section {
+    padding-bottom: 30px;
+  }
 
   .plans_lower_info_block_wrapper {
     width: 100%;
@@ -1145,7 +1189,6 @@ $standard_border_radius: 6px;
 
   .inner_home_header_action_buttons {
     width: 100%;
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1154,11 +1197,8 @@ $standard_border_radius: 6px;
     float: none;
     display: inline-block;
     text-align: center;
-    margin-right: 15px;
     text-transform: uppercase;
     font-size: 13px;
-    margin-bottom: 10px;
-    margin-top: 15px;
   }
 
 
@@ -1357,7 +1397,9 @@ $standard_border_radius: 6px;
 
 @media screen and (max-width: 650px) {
 
-
+  div.inner_home_header p {
+    width: 100%;
+  }
 
   .ask_question_modal_wrapper {
     width: 90%;
@@ -1450,11 +1492,11 @@ $standard_border_radius: 6px;
   }
 
   div.inner_home_header {
-    padding-top: 40px;
+    padding-top: 70px;
   }
 
   div.inner_home_header h1 {
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
@@ -1481,6 +1523,19 @@ $standard_border_radius: 6px;
   a.press_kit_block_image_two, a.press_kit_block_image_three {
     height: 120px;
   }
+  .home_page_header {
+    min-height: 385px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+
+  .index_questions_wrapper {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -1561,10 +1616,6 @@ $standard_border_radius: 6px;
   .notification p.close_notification {
     margin-top: 5px;
     margin-right: -35px;
-  }
-
-  .home_page_header {
-    min-height: 645px;
   }
 
   h1 {
@@ -1804,7 +1855,11 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 450px) {
-
+  a.ng-binding {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
   .quiz_app_header_image {
     background-size: 250%;
     height: 462px;
@@ -1939,7 +1994,9 @@ $standard_border_radius: 6px;
   .footer_left, .footer_right {
     display: none;
   }
-
+  div.inner_home_header {
+    padding-top: 50px;
+  }
 }
 
 

@@ -61,7 +61,11 @@ $(document).ready(function(){
     $("#members_reset_password_form").delay(200).fadeIn(200);
   });
 
-
+  // Toggle mobile menu
+  $("a.mobile_nav_icon").click(function(){
+    $(".mobile_navigation").slideToggle(400);
+    $(".mobile_nav_icon").toggleClass('active_nav');
+  });
   // Forgot password back link
   $("#forgot_password_back_link").click(function(){
     $("#members_reset_password_form").fadeOut(200);
