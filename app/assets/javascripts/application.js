@@ -10,6 +10,14 @@
 // Enable Turbolinks transition cache
 Turbolinks.enableTransitionCache();
 
+// enable turbolinks angular support
+$(document).on('page:load', function(){
+  $('[ng-app]').each(function(){
+    module = $(this).attr('ng-app');
+    angular.bootstrap(this, [module]);
+  });
+})
+
 $(document).ready(function(){
 
   // Add to homescreen function
