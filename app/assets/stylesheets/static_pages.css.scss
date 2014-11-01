@@ -1816,7 +1816,6 @@ a.summer_sale_notice:hover {
 .index_video_wrapper {
   width: 640px;
   height: 400px;
-  background-color: #ccc;
 }
 .index_questions_wrapper {
   background-color: #FFF;
@@ -1913,6 +1912,23 @@ ul.showAnswer li.ng-scope.correct a {
   background-color: #94EB94;
   color: #fff;
 }
+
+ul.showAnswer li.notSelectedAndIncorrect {
+  display: none;
+}
+
+ul.showAnswer li.notSelectedAndIncorrect.correct {
+  display: block;
+}
+
+ul.showAnswer li.notSelectedAndIncorrect.incorrect {
+  display: block;
+}
+
+.home_video_action_buttons {
+  margin-top: 20px;
+}
+
 .answer .ng-binding {
   font-size: 15px;
   line-height: 24px;

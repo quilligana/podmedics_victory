@@ -114,6 +114,11 @@
       vm.selectedAnswer = function(answer){
         answer.selectedAndIncorrect = answer.index != vm.currentQuestion.correct_answer;
         vm.showAnswer = true;
+
+        angular.forEach(vm.currentQuestion.answers, function(answer){
+          answer.notSelectedAndIncorrect = true;
+          console.log(answer);
+        })
       }
 
       vm.nextQuestion = function() {

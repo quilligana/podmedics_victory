@@ -35,8 +35,6 @@
     <p></p>
   </a>
 
-
-
   <div class="home_navigation">
     <%= link_to 'home', root_path , class: "nav-home" %>
     <%= link_to 'videos', library_path , class:"nav-lectures" %>
@@ -56,7 +54,7 @@
     <h1>Medical revision as it should be.</h1>
     <p class="podmedics_intro_message">Watch 100s of beautifully made medical revision videos and answer 1000s of questions tailored specifically to you</p>
     <div class="inner_home_header_action_buttons">
-      <a href="/signup" class="red_button home_action_button">Signup to get started</a>
+      <a href="/signup" class="red_button home_action_button">Sign Up to get started</a>
     </div>
   </div>
 </div>
@@ -66,12 +64,15 @@
 <div class="home_section_video">
   <div class="home_section_inner_wrapper">
     <div class="home_top_section_left_column">
-      <h2>Watch video tutorials</h2>
-      <p>By analysing which tutorials you watch and how you perform in the post-video questions, your personal dashboard will suggest related videos to accelerate your progress.</p>
+      <h2>Watch Video Tutorials</h2>
+      <p>Podmedics has over 200 medical revision video that help you approach revising for your exams in a concise and consistant way.</p>
+      <div class="home_video_action_buttons">
+        <%= link_to "Explore our library", library_path, class: 'red_button' %>
+      </div>
     </div>
     <div class="home_top_section_right_column">
       <div class="index_video_wrapper">
-
+        <iframe src="https://player.vimeo.com/video/58560152?api=1&portrait=0&color=fa3f52&player_id=vimeoplayer" width="640" height="400" frameborder="0" id="vimeoplayer"></iframe>
       </div>
     </div>
   </div>
@@ -80,14 +81,11 @@
 <div class="home_section_questions">
   <div class="home_section_inner_wrapper">
     <div class="home_top_section_left_column">
-      <h2>Try some Questions</h2>
-      <p>By analysing which tutorials you watch and how you perform in the post-video questions, your personal dashboard will suggest related videos to accelerate your progress.</p>
+      <h2>Answer 1000s of Questions</h2>
+      <p>Our videos are matched by great questions that let you test yourself on individual videos or by specialty</p>
     </div>
     <div class="home_top_section_right_column questions_right_column_wrapper">
       <div class="index_questions_wrapper">
-
-
-
           <div ng-app='TrialQuestionsApp'>
             <div ng-controller='TrialQuestionsController as vm'>
               <div class="question" ng-show="vm.firstQuestionAvailable">
@@ -98,7 +96,7 @@
                 <div class="index_questions_block">
 
                 <ul ng-class="{ 'showAnswer' : vm.showAnswer }">
-                  <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer), 'incorrect' : answer.selectedAndIncorrect }">
+                  <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer), 'incorrect' : answer.selectedAndIncorrect, 'notSelectedAndIncorrect' : answer.notSelectedAndIncorrect }">
                     <a ng-click="vm.selectedAnswer(answer)">{{answer.text}}</a>
                   </li>
                 </ul>
@@ -119,20 +117,15 @@
             </div>
             </div><!-- end ng-controller -->
           </div><!-- end ng-app -->
-
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
 <div class="home_section">
   <div class="home_section_one">
     <h2>What is Podmedics</h2>
-    <p>Who we are & what we do</p>
+    <p>Who we are &amp; what we do</p>
     <div class="home_section_one_block">
       <div class="section_one_column">
         <h3>About Podmedics</h3>
