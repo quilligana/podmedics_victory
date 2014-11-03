@@ -86,8 +86,12 @@
     </div>
     <div class="home_top_section_right_column questions_right_column_wrapper">
       <div class="index_questions_wrapper">
+        
           <div ng-app='TrialQuestionsApp'>
             <div ng-controller='TrialQuestionsController as vm'>
+
+
+
               <div class="question" ng-show="vm.firstQuestionAvailable">
                 <div class="index_questions_header">
                   <div ng-bind-html="vm.currentQuestion.stem" class="questions_header_padding"></div>
@@ -95,26 +99,30 @@
 
                 <div class="index_questions_block">
 
-                <ul ng-class="{ 'showAnswer' : vm.showAnswer }">
-                  <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer), 'incorrect' : answer.selectedAndIncorrect, 'notSelectedAndIncorrect' : answer.notSelectedAndIncorrect }">
-                    <a ng-click="vm.selectedAnswer(answer)">{{answer.text}}</a>
-                  </li>
-                </ul>
+                  <ul ng-class="{ 'showAnswer' : vm.showAnswer }">
+                    <li ng-repeat="answer in vm.currentQuestion.answers" ng-class="{ 'correct' : vm.isCorrect(answer), 'incorrect' : answer.selectedAndIncorrect, 'notSelectedAndIncorrect' : answer.notSelectedAndIncorrect }">
+                      <a ng-click="vm.selectedAnswer(answer)">{{answer.text}}</a>
+                    </li>
+                  </ul>
 
-                <div class="answer" ng-show="vm.showAnswer">
-                  <div ng-bind-html="vm.currentQuestion.explanation"></div>
-                    <div class="index_question_next_button">
-                      <a ng-click="vm.nextQuestion()" class="red_button">Next Question</a>
+                  <div class="answer" ng-show="vm.showAnswer">
+                    <div ng-bind-html="vm.currentQuestion.explanation"></div>
+                      <div class="index_question_next_button">
+                        <a ng-click="vm.nextQuestion()" class="red_button">Next Question</a>
+                      </div>
                     </div>
-                </div>
+                  </div>
               </div>
+
+
 
               <div class="end_questions" ng-show="vm.questionsEnded">
                 <p>You have finished all the trial questions.</p>
                 <p><%= link_to "Sign Up to access more", signup_path %></p>
                 <p><a ng-click="vm.startAgain()" class="red_button">Start again</a></p>
               </div>
-            </div>
+
+
             </div><!-- end ng-controller -->
           </div><!-- end ng-app -->
       </div>
