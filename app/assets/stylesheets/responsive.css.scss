@@ -382,6 +382,11 @@ $standard_border_radius: 6px;
   }
   .index_questions_wrapper {
     float: none;
+    width: 80%;
+    margin-top: 30px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    min-height: 500px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -389,6 +394,9 @@ $standard_border_radius: 6px;
   .home_section_questions {
     height: auto;
     padding-bottom: 50px;
+  }
+  .end_questions {
+    padding: 40px;
   }
   .index_video_wrapper {
     width: 90%;
