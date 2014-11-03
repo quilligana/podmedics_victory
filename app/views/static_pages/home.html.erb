@@ -84,9 +84,9 @@
       <h2>Try some questions right here...</h2>
       <p>Our videos are matched by great questions that let you test yourself on individual videos or by specialty</p>
     </div>
-    <div class="home_top_section_right_column questions_right_column_wrapper">
+    <div class="home_top_section_right_column questions_right_column_wrapper right_column">
       <div class="index_questions_wrapper">
-        
+
           <div ng-app='TrialQuestionsApp'>
             <div ng-controller='TrialQuestionsController as vm'>
 
@@ -107,11 +107,11 @@
 
                   <div class="answer" ng-show="vm.showAnswer">
                     <div ng-bind-html="vm.currentQuestion.explanation"></div>
-                      <div class="index_question_next_button">
-                        <a ng-click="vm.nextQuestion()" class="red_button">Next Question</a>
-                      </div>
+                    <div class="index_question_next_button">
+                      <a ng-click="vm.nextQuestion()" class="red_button">Next Question</a>
                     </div>
                   </div>
+                </div>
               </div>
 
 
