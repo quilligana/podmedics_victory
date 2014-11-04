@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   layout 'admin_application'
   before_action :set_user, only: [:edit, :update, :show, :destroy, :send_1w_reminder]
-  
+
   has_scope :has_selected_plan, type: :boolean
   has_scope :expired_before
   has_scope :trial
@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.search(params[:q])
-    @users = @q.result.order(id: :desc).paginate(page: params[:page])
+    @users = @q.result.includes(:specialties).order(id: :desc).paginate(page: params[:page])
   end
 
   def new
