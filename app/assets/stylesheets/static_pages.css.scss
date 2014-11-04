@@ -880,7 +880,7 @@ div.faq_inner_wrapper:last-child {
   float: left;
   width: 100%;
   padding-top: 70px;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
 }
 
 .plans_header h1 {
@@ -916,10 +916,9 @@ div.faq_inner_wrapper:last-child {
 
 .plans_column {
   background-color: #FFF;
-  clear: both;
+  float: left;
   width: 450px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 80px;
   border-radius: 6px;
   -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
@@ -927,13 +926,12 @@ div.faq_inner_wrapper:last-child {
   margin-top: 110px;
   margin-top: 60px;
   margin-bottom: 100px;
-  min-height: 680px;
 }
 
-// .plans_column:last-child {
-//    margin-right: 0px;
-//   margin-top: 0px;
-// }
+.plans_column:last-child {
+  margin-right: 0px;
+  margin-top: 0px;
+}
 
 .plans_column h2 {
   color: #606060;

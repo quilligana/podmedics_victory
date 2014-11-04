@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
               redirect_to email_user_path(current_user.id), notice: 'Please enter a valid email address'
             end
           else
-            unless current_user.has_selected_plan? && current_user.has_subscription_and_in_date?
+            unless current_user.has_selected_plan?
               unless params[:controller] == 'transactions' || params[:controller] == 'sessions'
-                redirect_to show_buy_path(current_user.id), notice: 'Please select a Podmedics subscription'
+                redirect_to show_buy_path(current_user.id), notice: 'Please select a plan'
               end
             end
           end
