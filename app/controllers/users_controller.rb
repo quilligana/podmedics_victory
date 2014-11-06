@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout 'user_application', only: [:show, :edit, :update, :email]
-  before_action :find_user, only: [:show, :edit, :update, :email]
+  before_action :find_user, only: [:show, :edit, :update, :email, :destroy]
 
   def new
     @user = User.new
@@ -35,6 +35,12 @@ class UsersController < ApplicationController
     @badges = current_user.badges.includes(:specialty)
   end
 
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Thank you for using Podmedics. Your account has been removed.'
+  end
+
   def current_resource
     @current_resource || User.cached_find(params[:id]) if params[:id]
   end
@@ -67,16 +73,16 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(
-        :name, 
-        :email, 
-        :website, 
-        :avatar, 
-        :password, 
+        :name,
+        :email,
+        :website,
+        :avatar,
+        :password,
         :password_confirmation,
-        :receive_newsletters, 
-        :receive_reply_notifications, 
+        :receive_newsletters,
+        :receive_reply_notifications,
         :receive_status_updates,
-        :receive_new_episode_notifications, 
+        :receive_new_episode_notifications,
         :receive_social_notifications,
         :receive_help_request_notifications)
     end

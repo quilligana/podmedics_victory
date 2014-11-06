@@ -93,13 +93,19 @@
         <% if current_user.subscribed_on %>
           <p class="expired_subscription_text">Your subscription has expired</p>
         <% end %>
-
         <p>You are currently on a free plan.</p>
         <p>
           <%= link_to "Upgrade your subscription", show_buy_path(current_user), class: 'podmedcis_button grey' %>
         </p>
-
       <% end %>
+
+    </div>
+
+    <div class="profile_notifications_block">
+      <h3>Account Settings</h3>
+      <p>
+        <%= link_to 'Remove account', @user, method: :delete, data: { confirm: 'Are you sure you wish to remove your account and all associated information?'}, class: 'podmedcis_button grey'  %>
+      </p>
     </div>
 
     </div>
