@@ -11,7 +11,7 @@ class API::V1::QuestionsController < ApplicationController
   end
 
   def sample
-    @questions = Question.includes(:video).limit(10)
+    @questions = Question.includes(:video).offset(rand(Question.count)).limit(10)
     respond_with @questions
   end
 
