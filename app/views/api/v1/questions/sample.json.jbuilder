@@ -1,4 +1,4 @@
-json.array! @questions do |question|
+json.questions @questions do |question|
   json.id question.id
   json.stem question.stem
   json.answer_1 question.answer_1

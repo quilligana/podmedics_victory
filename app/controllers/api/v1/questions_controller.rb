@@ -16,7 +16,7 @@ class API::V1::QuestionsController < ApplicationController
     @specialties.each do |specialty|
       @questions.push(specialty.questions.first)
     end
-    respond_with @specialties
+    respond_with @questions
   end
 
   def count
