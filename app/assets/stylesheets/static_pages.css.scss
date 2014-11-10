@@ -13,7 +13,7 @@ $standard_border_radius: 6px;
   background-position: center top;
   background-repeat: no-repeat;
   width: 100%;
-  min-height:667px;
+  min-height:572px;
 }
 
 a.home_menu_link {
@@ -40,7 +40,7 @@ div.inner_home_header {
   clear: both;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 230px;
+  padding-top: 166px;
   max-width: 1000px;
 }
 .home_page_header a.podmedics_home_icon {
@@ -880,7 +880,7 @@ div.faq_inner_wrapper:last-child {
   float: left;
   width: 100%;
   padding-top: 70px;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
 }
 
 .plans_header h1 {
@@ -916,10 +916,9 @@ div.faq_inner_wrapper:last-child {
 
 .plans_column {
   background-color: #FFF;
-  clear: both;
+  float: left;
   width: 450px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 80px;
   border-radius: 6px;
   -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
   -webkit-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
@@ -927,13 +926,12 @@ div.faq_inner_wrapper:last-child {
   margin-top: 110px;
   margin-top: 60px;
   margin-bottom: 100px;
-  min-height: 680px;
 }
 
-// .plans_column:last-child {
-//    margin-right: 0px;
-//   margin-top: 0px;
-// }
+.plans_column:last-child {
+  margin-right: 0px;
+  margin-top: 0px;
+}
 
 .plans_column h2 {
   color: #606060;
@@ -1783,7 +1781,7 @@ a.summer_sale_notice:hover {
   color: #292929;
   font-weight: 400;
   line-height: 50px;
-  margin-top: 300px;
+  margin-top: 179px;
 }
 .home_section_questions .home_top_section_left_column {
   float: left;
@@ -1794,7 +1792,7 @@ a.summer_sale_notice:hover {
   color: #292929;
   font-weight: 400;
   line-height: 50px;
-  margin-top: 300px;
+  margin-top: 179px;
 }
 .home_section_video .home_top_section_left_column p, .home_section_questions .home_top_section_left_column p {
   font-size: 16px;
@@ -1806,7 +1804,7 @@ a.summer_sale_notice:hover {
 .home_top_section_right_column {
   width: 640px;
   float: right;
-  margin-top: 220px;
+  margin-top: 93px;
 }
 .home_top_section_right_column.questions_column {
   width: 530px;
@@ -1932,7 +1930,7 @@ ul.showAnswer li.notSelectedAndIncorrect.incorrect {
 .answer .ng-binding {
   font-size: 15px;
   line-height: 24px;
-  text-align: center;
+  text-align: left;
   padding-left: 36px;
   padding-right: 36px;
   padding-bottom: 20px;

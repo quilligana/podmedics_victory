@@ -1,7 +1,7 @@
 <div class="header_outer">
   <%= link_to "", dashboard_path , class: "podmedics_header_icon" %>
   <div class="header_navigation">
-    <!-- <%= render partial: 'dashboards/upgrade_messages' %>  -->
+    <%= render partial: 'dashboards/upgrade_messages' %>
 
     <div class="user_dropdown_wrapper">
       <a href="javascript:;" class="user_dropdown_link">
@@ -29,7 +29,7 @@
       <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <%= link_to "Notes", notes_path, class: 'nav-notes' %>
-      <%= link_to "Live Courses", courses_path, class: 'nav-courses' %>
+      <!-- <%= link_to "Live Courses", courses_path, class: 'nav-courses' %> -->
       <%= link_to "Your Profile", user_path(current_user), class: 'nav-profile' %>
       <%= link_to "Blog", posts_path, class: 'nav-blog' %>
       <%= link_to "Support", support_path, class: 'nav-support' %>

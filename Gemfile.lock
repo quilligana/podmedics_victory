@@ -339,6 +339,10 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.0.0)
+    raygun4ruby (1.1.4)
+      httparty (~> 0.11)
+      json
+      rack
     rb-fsevent (0.9.4)
     rb-inotify (0.9.4)
       ffi (>= 0.5.0)
@@ -503,6 +507,7 @@ DEPENDENCIES
   rails_12factor
   rails_layout
   ransack
+  raygun4ruby
   roo
   rspec-rails
   sass-rails (~> 4.0.0)

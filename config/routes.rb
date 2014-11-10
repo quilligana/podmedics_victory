@@ -22,7 +22,7 @@ PodmedicsVictory::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'signup', to: 'users#new', as: :signup
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, except: [:index, :destroy] do
+  resources :users, except: [:index] do
     get 'email', on: :member
   end
 

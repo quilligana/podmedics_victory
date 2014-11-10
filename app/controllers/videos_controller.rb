@@ -28,7 +28,7 @@ class VideosController < ApplicationController
 
     def check_unlock
       unless current_user.has_access_to?(@specialty) || current_user.admin
-        redirect_to @specialty, alert: 'You have not yet unlocked this specialty'
+        redirect_to @specialty, alert: 'Please unlock this specialty to view videos and questions.'
       end
     end
 
