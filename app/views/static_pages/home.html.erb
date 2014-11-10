@@ -85,7 +85,7 @@
     </div>
     <div class="home_top_section_right_column questions_right_column_wrapper right_column">
       <div class="index_questions_wrapper">
-
+      <div class="try_questions_sketch"></div>
           <div ng-app='TrialQuestionsApp'>
             <div ng-controller='TrialQuestionsController as vm'>
 
@@ -117,7 +117,7 @@
 
               <div class="end_questions" ng-show="vm.questionsEnded">
                 <h3>You have finished all the trial questions.</h3>
-                <p><%= link_to "Sign Up to access more", signup_path %></p>
+                <p><%= link_to "Sign Up to access more", signup_path , class: "signup_button" %></p>
                 <a ng-click="vm.startAgain()" class="red_button">Start again</a>
               </div>
 
