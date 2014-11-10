@@ -11,7 +11,7 @@ class API::V1::QuestionsController < ApplicationController
   end
 
   def sample
-    @specialties = Specialty.take(10)
+    @specialties = Specialty.take(params[:quantity] || 10)
     @questions = []
     @specialties.each do |specialty|
       @questions.push(specialty.questions.first)

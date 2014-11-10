@@ -6,11 +6,12 @@
 
     function DataService($q, $http){
 
-      function getQuestions() {
+      function getQuestions(quantity) {
         var deferred = $q.defer();
 
-        $http({method: 'GET', url: 'api/v1/questions/sample'})
+        $http({method: 'GET', url: 'api/v1/questions/sample', params: {quantity: quantity}})
           .success(function(data){
+            console.log(data);
             deferred.resolve(data);
           })
           .error(function(data, status, headers, config){
@@ -36,7 +37,7 @@
     function createNewQuiz() {
       var deferred = $q.defer();
 
-      DataService.getQuestions().then(function(data){
+      DataService.getQuestions(model.questionNumber).then(function(data){
         model.availableQuestions = data;
         deferred.resolve(model);
       }, function(reason) {
