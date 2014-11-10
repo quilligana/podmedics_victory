@@ -11,8 +11,12 @@ class API::V1::QuestionsController < ApplicationController
   end
 
   def sample
-    @questions = Question.includes(:video).limit(10)
-    respond_with @questions
+    @specialties = Specialty.take(10)
+    @questions = []
+    @specialties.each do |specialty|
+      @questions.push(specialty.questions.first)
+    end
+    respond_with @specialties
   end
 
   def count
