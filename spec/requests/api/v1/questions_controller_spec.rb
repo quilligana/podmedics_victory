@@ -9,8 +9,8 @@ describe "Questions API" do
   end
 
   it "retrieves a specified number of questions" do
-    
-    get 'api/v1/questions/sample'
+
+    get 'api/v1/questions/sample', {quantity: '1'}
 
     expect(response).to be_success
     json = JSON.parse(response.body)
