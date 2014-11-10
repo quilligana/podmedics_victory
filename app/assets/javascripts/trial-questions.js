@@ -6,11 +6,12 @@
 
     function DataService($q, $http){
 
-      function getQuestions() {
+      function getQuestions(quantity) {
         var deferred = $q.defer();
 
-        $http({method: 'GET', url: 'api/v1/questions/sample'})
+        $http({method: 'GET', url: 'api/v1/questions/sample', params: {quantity: quantity}})
           .success(function(data){
+            console.log(data);
             deferred.resolve(data);
           })
           .error(function(data, status, headers, config){
@@ -36,8 +37,8 @@
     function createNewQuiz() {
       var deferred = $q.defer();
 
-      DataService.getQuestions().then(function(data){
-        model.availableQuestions = data;
+      DataService.getQuestions(model.questionNumber).then(function(data){
+        model.availableQuestions = data.questions;
         deferred.resolve(model);
       }, function(reason) {
         console.log('createNew quizcalled with bad response')
@@ -50,7 +51,6 @@
     function currentQuestion(increment) {
       // get the question
       var question = model.availableQuestions[model.currentIndex];
-
       // prepare the question answers
       question.answers = [];
       question.answers.push({text: question.answer_1, index: 1});
@@ -117,7 +117,6 @@
 
         angular.forEach(vm.currentQuestion.answers, function(answer){
           answer.notSelectedAndIncorrect = true;
-          console.log(answer);
         })
       }
 

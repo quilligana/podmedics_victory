@@ -11,7 +11,11 @@ class API::V1::QuestionsController < ApplicationController
   end
 
   def sample
-    @questions = Question.includes(:video).offset(rand(Question.count)).limit(10)
+    @specialties = Specialty.take(params[:quantity] || 10)
+    @questions = []
+    @specialties.each do |specialty|
+      @questions.push(specialty.questions.first)
+    end
     respond_with @questions
   end
 
