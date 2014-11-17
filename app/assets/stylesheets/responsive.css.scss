@@ -118,8 +118,12 @@ $standard_border_radius: 6px;
   }
   .lecture_list_item .lecture_icons_wrapper .lecture_icon {
     background-image: image-url('lecture_icons@2x.png');
-    background-size: 35px 215px;
+    background-size: 30px 184px;
     border-radius: 4px;
+  }
+  #tabs_single_page ul li .quiz_tab p.icon {
+    background-image: image-url('quiz_tab_icon@2x.png');
+    background-size: 21px 46px;
   }
   .home_page_header a.podmedics_home_icon {
     background-image: image-url('podmedics_home_icon@2x.png');
@@ -373,20 +377,17 @@ $standard_border_radius: 6px;
     float: right;
     margin-top: 50px;
   }
-  .index_video_wrapper {
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   .home_top_section_right_column.questions_right_column_wrapper {
-    margin-top: 50px;
+    margin-top: 30px;
   }
   .index_questions_wrapper {
     float: none;
     width: 80%;
     margin-top: 30px;
-    padding-top: 60px;
-    padding-bottom: 50px;
-    min-height: 500px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    min-height: 430px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -396,10 +397,32 @@ $standard_border_radius: 6px;
     padding-bottom: 50px;
   }
   .end_questions {
-    padding: 40px;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .index_video_wrapper {
-    width: 90%;
+    width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home_section_video {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+    float: left;
+  }
+  .home_video_action_buttons {
+    margin-top: 20px;
+    width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .try_questions_sketch {
+    display: none;
+  }
+  .home_section_questions .home_top_section_left_column {
+    padding-top: 0px;
   }
 }
 
@@ -1404,7 +1427,12 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 650px) {
-
+  .index_video_wrapper {
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
   div.inner_home_header p {
     width: 100%;
   }

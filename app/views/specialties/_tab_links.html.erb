@@ -12,8 +12,9 @@
 <ul>
   <li><a href="<%= specialty_path(@specialty) %>" title="" class="<%= specialty_tab_classes %>"><p>Lectures</p><p class="icon"></p></a></li>
   <li>
-    <%= link_to specialty_exam_url(@specialty.id), class: "lectures_tab" do  %>
+    <%= link_to specialty_exam_url(@specialty.id), class: "quiz_tab" do  %>
       <p><%= @specialty.name %> Quiz</p>
+      <p class="icon"></p>
     <% end %>
   </li>
   <li><a href="<%= specialty_questions_path(@specialty) %>" title="" class="<%= question_and_answers_tab_classes %>"><p><%= "Community Questions (#{@specialty.specialty_questions.count})" %></p><p class="icon"></p></a></li>
