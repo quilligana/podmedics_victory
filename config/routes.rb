@@ -10,6 +10,7 @@ PodmedicsVictory::Application.routes.draw do
   get '/support', to: 'static_pages#support', as: 'support'
   get '/press', to: 'static_pages#press', as: 'press'
   get '/app', to: 'static_pages#app', as: 'app'
+  get '/quiz_privacy', to: 'static_pages#quiz_privacy', as: 'quiz_privacy'
   resources :courses, only: [:index]
   resources :posts, only: [:index, :show]
 

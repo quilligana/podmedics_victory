@@ -33,6 +33,9 @@ class StaticPagesController < ApplicationController
   def app
   end
 
+  def quiz_privacy
+  end
+
   private
 
     def conditional_layout
