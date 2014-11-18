@@ -11,7 +11,6 @@
 
         $http({method: 'GET', url: 'api/v1/questions/sample', params: {quantity: quantity}})
           .success(function(data){
-            console.log(data);
             deferred.resolve(data);
           })
           .error(function(data, status, headers, config){
