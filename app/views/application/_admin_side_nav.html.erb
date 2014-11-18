@@ -1,6 +1,5 @@
 <div id="sidebar-nav">
   <ul id="dashboard-menu">
-
     <li>
       <div class="pointer">
         <div class="arrow"></div>
@@ -11,59 +10,24 @@
         <span>Dashboard</span>
       <% end %>
     </li>
+    <li><%= nav_link 'Categories', admin_categories_path %></li>
+    <li><%= nav_link 'Specialties', admin_specialties_path %></li>
+    <li><%= nav_link 'Videos', admin_videos_path %></li>
+    <li><%= nav_link 'Questions', admin_questions_path %></li>
+    <li><%= nav_link 'Authors', admin_authors_path %></li>
+    <li><%= nav_link 'Users', admin_users_path %></li>
+    <li><%= nav_link 'Badges', admin_badges_path %></li>
+    <li><%= nav_link 'Quizes', admin_quizes_path %></li>
+    <li><%= nav_link 'Notes', admin_notes_path %></li>
+    <li><%= nav_link 'Newsletters', admin_newsletters_path %></li>
+    <li><%= nav_link 'Posts', admin_posts_path %></li>
+    <li><%= nav_link 'Comments', admin_comments_path %></li>
+    <li><%= nav_link 'FAQs', admin_faqs_path %></li>
+    <li><%= nav_link 'Courses', admin_courses_path %></li>
+    <li><%= nav_link 'Sales', admin_sales_path %></li>
+    <li><%= nav_link 'Products', admin_products_path %></li>
 
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-stethoscope"></i>
-        <span>Content</span>
-      </a>
-        <ul class="submenu">
-          <li><%= nav_link 'Categories', admin_categories_path %></li>
-          <li><%= nav_link 'Specialties', admin_specialties_path %></li>
-          <li><%= nav_link 'Videos', admin_videos_path %></li>
-          <li><%= nav_link 'Questions', admin_questions_path %></li>
-          <li><%= nav_link 'Authors', admin_authors_path %></li>
-        </ul>
-    </li>
-    
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-user-md"></i>
-        <span>User</span>
-      </a>
-      <ul class="submenu">
-        <li><%= nav_link 'Users', admin_users_path %></li>
-        <li><%= nav_link 'Badges', admin_badges_path %></li>
-        <li><%= nav_link 'Quizes', admin_quizes_path %></li>
-        <li><%= nav_link 'Notes', admin_notes_path %></li>
-      </ul>
-    </li>
-
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-comment-o"></i>
-        <span>Social</span>
-      </a>
-      <ul class="submenu">
-        <li><%= nav_link 'Newsletters', admin_newsletters_path %></li>
-        <li><%= nav_link 'Posts', admin_posts_path %></li>
-        <li><%= nav_link 'Comments', admin_comments_path %></li>
-      </ul>
-    </li>
-
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-money"></i>
-        <span>Finance/Support</span>
-      </a>
-      <ul class="submenu">
-        <li><%= nav_link 'FAQs', admin_faqs_path %></li>
-        <li><%= nav_link 'Courses', admin_courses_path %></li>
-        <li><%= nav_link 'Sales', admin_sales_path %></li>
-        <li><%= nav_link 'Products', admin_products_path %></li>
-      </ul>
-    </li>
 
   </ul>
 </div>
-  
+
