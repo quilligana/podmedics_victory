@@ -15,36 +15,8 @@
     <p>Questions Answered</p>
   </div>
 
-  <div class="dashboard_count_block">
-    <p class="number"><%= current_user.notes.count %></p>
-    <p>Notes Saved</p>
-  </div>
-
   <div class="dashboard_count_block badges_count">
     <p class="number"> <%= current_user.badges.count %> </p>
     <p>Badges Earned</p>
-  </div>
-</div>
-
-<div class="dashboard_badges_overview_wrapper">
-  <div class="dashboard_badges_left_column">
-    <%= render 'recent_badges' %>
-  </div>
-
-  <div class="dashboard_badges_right_column">
-    <div class="dashboard_badges_overview_inner_border">
-      <div class="title">Recent Community Questions</div>
-      <div class="questions_answers_dashboard_list">
-        <% @recent_questions.each do |question| %>
-          <div class="questions_answers_dashboard_block">
-            <div class="questions_answers_dashboard_block_inner_wrapper">
-              <div class="questions_answers_dashboard_block_title"><%= link_to question.content, specialty_question_path(question.specialty, question) %></div>
-              <p class="questions_answers_dashboard_block_name_date"><%= link_to question.user, user_path(question.user) %> asked a question <%= time_ago_in_words(question.created_at) %> ago</p>
-              <p class="questions_answers_dashboard_block_comment_count"><%= question.comments.count %> responses</p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>
