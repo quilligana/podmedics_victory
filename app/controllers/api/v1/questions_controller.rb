@@ -6,12 +6,12 @@ class API::V1::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.includes(:video).order(:id)
+    @questions = Question.order(:id)
     respond_with @questions
   end
 
   def sample
-    @questions = Question.includes(:video).take(params[:quantity] || 10)
+    @questions = Question.all.uniq_by(&:specialty_id).take(params[:quantity].to_i || 10)
     respond_with @questions
   end
 
