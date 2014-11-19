@@ -15,6 +15,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  proofread      :boolean          default(FALSE)
+#  specialty_id   :integer
 #
 
 require 'spec_helper'

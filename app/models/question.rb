@@ -15,11 +15,13 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  proofread      :boolean          default(FALSE)
+#  specialty_id   :integer
 #
 
 class Question < ActiveRecord::Base
 
   belongs_to :video, counter_cache: true
+  belongs_to :specialty
 
   validates :stem, presence: true
   validates :answer_1, presence: true
@@ -28,8 +30,6 @@ class Question < ActiveRecord::Base
   validates :explanation, presence: true
   validates :video_id, presence: true
   validate :correct_answer_must_be_an_answer
-
-  delegate :specialty_id, to: :video
 
   self.per_page = 30
 

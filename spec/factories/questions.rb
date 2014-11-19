@@ -15,6 +15,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  proofread      :boolean          default(FALSE)
+#  specialty_id   :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
