@@ -1,22 +1,14 @@
-<%
-	specialty_tab_classes = "lectures_tab"
-	question_and_answers_tab_classes = "questions_answers_tab"
-
-	if params[:controller] == 'specialty_questions'
-		question_and_answers_tab_classes += ' tabulous_active'
-	else
-		specialty_tab_classes += ' tabulous_active'
-	end
-%>
-
 <ul>
-  <li><a href="<%= specialty_path(@specialty) %>" title="" class="<%= specialty_tab_classes %>"><p>Lectures</p><p class="icon"></p></a></li>
   <li>
-    <%= link_to specialty_exam_url(@specialty.id), class: "quiz_tab" do  %>
-      <p><%= @specialty.name %> Quiz</p>
+    <%= link_to specialty_path(@specialty), class: 'lectures_tab tabulous_active'  do %>
+      <p>Lectures</p>
       <p class="icon"></p>
     <% end %>
   </li>
-  <li><a href="<%= specialty_questions_path(@specialty) %>" title="" class="<%= question_and_answers_tab_classes %>"><p><%= "Community Questions (#{@specialty.specialty_questions.count})" %></p><p class="icon"></p></a></li>
-
+  <li>
+    <%= link_to specialty_exam_url(@specialty.id), class: "quiz_tab" do  %>
+      <p>Take a <%= @specialty.name %> Quiz</p>
+      <p class="icon"></p>
+    <% end %>
+  </li>
 </ul>

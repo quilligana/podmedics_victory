@@ -8,30 +8,15 @@
 
     <div class="sub_heading_button_set">
       <%= render 'quick_nav' %>
-
-      <a href="#" class="ask_question_icon_button" data-reveal-id="ask_question_modal">
-        <div class="ask_question_button_tooltip">Ask the Podmedics Community a question</div>
-      </a>
-
       <% if @specialty.questions.count > 0 %>
         <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button" do %>
           <div class="quiz_button_tooltip">30 random questions from <%= @specialty.name %></div>
         <% end %>
       <% end %>
-
     </div>
   </div>
 
   <div class="page">
-    <div class="video_page_notes_column">
-      <div class="video_page_notes_column_title">
-        <strong>Notes</strong>
-        <p>Save personal notes for reference later</p>
-      </div>
-      <div class="video_page_notes_column_divide"></div>
-      <%= render partial: 'notes/form' %>
-    </div>
-
     <div class="speciality_left_column">
       <div class="lectures_speciality_outer_wrapper">
         <div id="tabs_single_page">
@@ -56,8 +41,6 @@
   </div>
 
 </div>
-
-<%= render 'specialty_questions/form' %>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){

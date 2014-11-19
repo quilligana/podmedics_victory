@@ -9,13 +9,6 @@
     </div>
   <% end %>
 
-  <div class="write_notes_button_outer_wrapper">
-    <div class="write_notes_button_wrapper">
-    <a href="javascript:;" class="podmedcis_button grey" id="save_new_note_button">Write Notes</a>
-    </div>
-  </div>
-
-
   <% if @specialty.cached_notes_count(current_user) > 0 %>
     <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
       <p class="questions_info_right_column_number"><%= @specialty.cached_notes_count(current_user) %></p>
@@ -54,7 +47,6 @@
       </div>
     </div>
 
-    <%# cache "top_experts_for_badge_count_#{Badge.count}_and_specialty_#{@specialty.id}", skip_digest: true do %>
     <div class="top_ranked_users_section">
       <h3>The Experts</h3>
       <ol>
@@ -79,17 +71,11 @@
         <% end %>
       </ol>
     </div>
-    <%#end%>
   </div>
-  <!-- End speciality right column count -->
 
   <div class="main_notes_right_column_wrapper">
     <%= render partial: 'notes/sidebar_note', collection: @specialty.cached_notes(current_user) %>
   </div>
-  <!-- End notes list wrapper -->
 
-
-  <div class="full_note_outer_wrapper">
-  </div>
-  <!-- End note wrapper -->
+  <div class="full_note_outer_wrapper"></div>
 </div>
