@@ -4929,9 +4929,7 @@ a.ask_question_icon_button:hover .ask_question_button_tooltip {
 
 .header_column {
   width: 50%;
-  height: 440px;
   float: left;
-  overflow-y: scroll;
 }
 .inner_header_column_divide {
   width: 100%;
@@ -4946,8 +4944,8 @@ a.ask_question_icon_button:hover .ask_question_button_tooltip {
   padding-top: 20px;
 }
 .dashboard_header_columns_title {
-  font-size: 13px;
-  color: #5F5F5F;
+  font-size: 20px;
+  color: #ff414e;
   font-weight: bold;
 }
 

@@ -9,7 +9,7 @@
     <div class="sub_heading_button_set">
       <%= render 'quick_nav' %>
       <% if @specialty.questions.count > 0 %>
-        <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button" do %>
+        <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button", id: 'quiz_link' do %>
           <div class="quiz_button_tooltip">30 random questions from <%= @specialty.name %></div>
         <% end %>
       <% end %>
@@ -49,7 +49,11 @@
       "name" : specialty_name
     });
 
-    mixpanel.track_links("a.take_quiz_icon_button", "Click Specialty Quiz", {
+    mixpanel.track_links("a#quiz_link", "Click Specialty Quiz", {
+      "name" : specialty_name
+    });
+
+    mixpanel.track_links("a#quiz_link_header", "Click Specialty Quiz (header)", {
       "name" : specialty_name
     });
   });

@@ -20,7 +20,7 @@ $(document).ready(function(){
 
         iframe = vimeoPlayers[i],
         player = $f(iframe),
-        progJSON = $("#progress_json").html(), 
+        progJSON = $("#progress_json").html(),
         viewProgress = $.parseJSON(progJSON);
 
         // When the player is ready, add listeners for pause, finish, and playProgress
@@ -43,12 +43,12 @@ $(document).ready(function(){
                 type: 'GET',
                 url: '/vimeos/paused',
                 data: {'path': video_url, 'progress': elapsed},
-            }); 
+            });
         });
     }
 
     function onPlayProgress(data, id) {
-        if (data.percent > 0.75) {
+        if (data.percent > 0.90) {
             var video_url = $(location).attr('pathname');
             $.ajax({
                 type: 'GET',
