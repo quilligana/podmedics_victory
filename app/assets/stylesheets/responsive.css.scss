@@ -334,6 +334,13 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1195px) {
+  .inline_specialities_dropdown_menu.medicine_dropdown_menu_placement {
+    margin-left: 0px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-top-left-radius: 0px 0px;
+  }
   .return_to_video_page_button_wrapper a.red_button.return_to_video_page_button {
     text-indent: 0px;
     background-image: none;
@@ -434,7 +441,9 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 1110px) {
-
+  .lectures_speciality_outer_wrapper {
+    min-height: 1080px;
+  }
   .video_page_notes_column form {
     width: 94%;
     margin-left: auto;
