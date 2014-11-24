@@ -44,6 +44,11 @@ $(document).ready(function(){
       message: "Confirm password field doesn't match the password field"
   });
 
+  $("#user_terms_agreement").validate({
+      expression: "if (VAL) return false; else return false;",
+      message: "Please acknowledge your agreement with the stated terms and conditions"
+  });
+
     // Basic menu functions
   $("#menu_action").click(function(){
     $("body").addClass('cbp-spmenu-push-toleft');

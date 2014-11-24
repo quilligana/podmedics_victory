@@ -36,6 +36,7 @@
 #  expires_on                         :datetime
 #  receive_help_request_notifications :boolean          default(TRUE)
 #  reminder_email_received            :boolean          default(FALSE)
+#  terms_agreement                    :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -74,6 +75,7 @@ class User < ActiveRecord::Base
     confirmation: true,
     length: {within: 5..30},
     on: :create
+  validates :terms_agreement, presence: true
 
   after_commit :flush_cache
 
