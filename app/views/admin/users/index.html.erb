@@ -17,6 +17,10 @@
 </div>
 
 <div class="row">
+  <%= link_to "Remove users with no plan selected", remove_if_no_plan_admin_users_path, data: { confirm: 'Are you sure?'} %>
+</div>
+
+<div class="row">
   <div class="col-md-8 ">
     <%= search_form_for @q, url: admin_users_path do |f| %>
       <%= f.search_field :email_cont, placeholder: 'Search by email...', class: 'search' %>

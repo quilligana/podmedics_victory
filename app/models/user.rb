@@ -57,6 +57,7 @@ class User < ActiveRecord::Base
   has_many :specialties, through: :unlocked_specialties
 
   scope :has_selected_plan, -> { where(selected_plan: true) }
+  scope :not_selected_plan, -> { where(selected_plan: false)}
   scope :expired_before, -> time { where("expires_on < :date", {date: time}) }
   scope :expired_after, -> time { where("expires_on >= :date", {date: time})}
   scope :never_subscribed, -> { where("expires_on is NULL")}

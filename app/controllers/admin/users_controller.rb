@@ -46,6 +46,11 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path, notice: 'User removed'
   end
 
+  def remove_if_no_plan
+    User.not_selected_plan.destroy_all
+    redirect_to admin_users_path, notice: 'Users removed'
+  end
+
   def send_1w_reminder
     UserMailer.delay.one_week_hello(@user)
     @user.update_attributes(reminder_email_received: true)

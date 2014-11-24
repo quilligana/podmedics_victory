@@ -70,6 +70,7 @@ PodmedicsVictory::Application.routes.draw do
     end
     resources :users do
       member { get 'send_1w_reminder'}
+      collection { get 'remove_if_no_plan'}
     end
     resources :authors
     resources :faqs
