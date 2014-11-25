@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
     confirmation: true,
     length: {within: 5..30},
     on: :create
-  validates :terms_agreement, presence: true
+  validates_acceptance_of :terms_agreement, on: :create, accept: true
 
   after_commit :flush_cache
 

@@ -84,7 +84,8 @@ class UsersController < ApplicationController
         :receive_status_updates,
         :receive_new_episode_notifications,
         :receive_social_notifications,
-        :receive_help_request_notifications)
+        :receive_help_request_notifications,
+        :terms_agreement)
     end
 
 end

@@ -3,6 +3,7 @@
 //= require jquery_ujs
 //= require fresco
 //= require jquery.validate
+//= require jquery.validations.functions
 //= require addtohomescreen.min
 //= require turbolinks
 //= require trial-questions
@@ -45,7 +46,7 @@ $(document).ready(function(){
   });
 
   $("#user_terms_agreement").validate({
-      expression: "if (VAL) return false; else return false;",
+      expression: "if (isChecked(SelfID)) return true; else return false;",
       message: "Please acknowledge your agreement with the stated terms and conditions"
   });
 
