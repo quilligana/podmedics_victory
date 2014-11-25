@@ -36,7 +36,6 @@
 #  expires_on                         :datetime
 #  receive_help_request_notifications :boolean          default(TRUE)
 #  reminder_email_received            :boolean          default(FALSE)
-#  terms_agreement                    :boolean          default(FALSE)
 #
 
 require 'spec_helper'
