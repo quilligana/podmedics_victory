@@ -45,7 +45,6 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'chartkick'
 gem 'groupdate'
-gem 'raygun4ruby'
 
 group :development do
   gem 'thin'
