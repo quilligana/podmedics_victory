@@ -25,10 +25,6 @@ $(document).ready(function(){
   addToHomescreen();
 
   // form client side validations
-  $("#user_email").validate({
-      expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
-      message: "A valid Email is required"
-  });
 
   $("#user_name").validate({
       expression: "if (VAL.length > 3 && VAL) return true; else return false;",
@@ -42,7 +38,7 @@ $(document).ready(function(){
 
   $("#user_password_confirmation").validate({
       expression: "if ((VAL == jQuery('#user_password').val()) && VAL) return true; else return false;",
-      message: "Confirm password field doesn't match the password field"
+      message: "Please confirm that the passwords match"
   });
 
   $("#user_terms_agreement").validate({
