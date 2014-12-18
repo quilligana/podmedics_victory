@@ -6,6 +6,7 @@
 //= require jquery.validations.functions
 //= require addtohomescreen.min
 //= require turbolinks
+//= require fastclick
 //= require trial-questions
 
 // Enable Turbolinks transition cache
@@ -20,6 +21,9 @@ $(document).on('page:load', function(){
 })
 
 $(document).ready(function(){
+
+  // enable fastclick
+  FastClick.attach(document.body);
 
   // Add to homescreen function
   addToHomescreen();
