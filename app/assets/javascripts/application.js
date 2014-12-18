@@ -29,26 +29,26 @@ $(document).ready(function(){
   addToHomescreen();
 
   // form client side validations
-
-  $("#user_name").validate({
-      expression: "if (VAL.length > 3 && VAL) return true; else return false;",
-      message: "Please enter your full name"
-  });
-
-  $("#user_password").validate({
-      expression: "if (VAL.length > 5 && VAL) return true; else return false;",
-      message: "Please enter a valid Password"
-  });
-
-  $("#user_password_confirmation").validate({
-      expression: "if ((VAL == jQuery('#user_password').val()) && VAL) return true; else return false;",
-      message: "Please confirm that the passwords match"
-  });
-
-  $("#user_terms_agreement").validate({
-      expression: "if (isChecked(SelfID)) return true; else return false;",
-      message: "Please acknowledge your agreement with the stated terms and conditions"
-  });
+  //
+  //$("#user_name").validate({
+  //    expression: "if (VAL.length > 3 && VAL) return true; else return false;",
+  //    message: "Please enter your full name"
+  //});
+  //
+  //$("#user_password").validate({
+  //    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
+  //    message: "Please enter a valid Password"
+  //});
+  //
+  //$("#user_password_confirmation").validate({
+  //    expression: "if ((VAL == jQuery('#user_password').val()) && VAL) return true; else return false;",
+  //    message: "Please confirm that the passwords match"
+  //});
+  //
+  //$("#user_terms_agreement").validate({
+  //    expression: "if (isChecked(SelfID)) return true; else return false;",
+  //    message: "Please acknowledge your agreement with the stated terms and conditions"
+  //});
 
     // Basic menu functions
   $("#menu_action").click(function(){

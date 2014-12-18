@@ -62,20 +62,20 @@ class User < ActiveRecord::Base
   scope :expired_after, -> time { where("expires_on >= :date", {date: time})}
   scope :never_subscribed, -> { where("expires_on is NULL")}
   
-  # validates :email,
-  #   email_format: {
-  #     message: 'Not a valid email address',
-  #     allow_nil: true
-  #   },
-  #   uniqueness: true
+  validates :email,
+    email_format: {
+      message: 'Not a valid email address',
+      allow_nil: true
+    },
+    uniqueness: true
   validates :name, presence: true
   validates :email, presence: true
-  validates :website, url: { allow_blank: true }
+  # validates :website, url: { allow_blank: true }
   validates :password, presence: true,
     confirmation: true,
     length: {within: 5..30},
     on: :create
-  validates_acceptance_of :terms_agreement, on: :create, accept: true
+  # validates_acceptance_of :terms_agreement, on: :create, accept: true
 
   after_commit :flush_cache
 
