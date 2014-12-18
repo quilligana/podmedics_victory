@@ -1,8 +1,5 @@
 # Podmedics
 
-[![Code
-Climate](https://codeclimate.com/repos/530b5ab5e30ba04c0a008baf/badges/eb7f6d957dcc5183c951/gpa.png)](https://codeclimate.com/repos/530b5ab5e30ba04c0a008baf/feed)
-
 The online community where you can access tutorials, share insights and
 compare experiences with thousands of medical students and healthcare
 professionals.
