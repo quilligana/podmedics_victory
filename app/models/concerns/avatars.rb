@@ -31,7 +31,12 @@ module Avatars
   end
 
   def get_avatar(style)
-    cached_avatar_url(style)
+    if avatar.exists?
+      avatar.url(style)
+    else
+      ActionController::Base.helpers.asset_path('avatar-128.jpg')
+    end
+    # cached_avatar_url(style)
   end
 
   def cached_avatar_url(style)
