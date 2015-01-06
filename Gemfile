@@ -45,7 +45,6 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'chartkick'
 gem 'groupdate'
-gem 'workless'
 
 group :development do
   gem 'thin'
