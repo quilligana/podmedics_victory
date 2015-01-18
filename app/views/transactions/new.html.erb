@@ -75,7 +75,7 @@
 <% end %>
 
 <div class="plans_header">
-  <h1>Plans (currently 33% off!)</h1>
+  <h1>Plans</h1>
   <p>Choose the plan that suites you best.</p>
   <p class="cancel_purchase"><%= link_to 'Cancel purchase', logout_path,
                                                           data: { confirm: 'Are you sure?'} %></p>
@@ -135,7 +135,7 @@
       <%= form_tag buy_path(permalink: @paid_6.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
-          data-label="Podmedics (£18 - 6 Months)"
+          data-label="Podmedics (£12 - 6 Months)"
           data-name="Podmedics"
           data-currency="GBP"
           data-image="<%= asset_url 'podmedics_icon_x74.png' %>"
@@ -147,7 +147,7 @@
       <%= form_tag buy_path(permalink: @paid_12.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
-          data-label="Podmedics (£30 - 12 Months)"
+          data-label="Podmedics (£20 - 12 Months)"
           data-name="Podmedics"
           data-currency="GBP"
           data-image="<%= asset_url 'podmedics_icon_x74.png' %>"
