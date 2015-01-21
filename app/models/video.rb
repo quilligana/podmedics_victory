@@ -60,6 +60,10 @@ class Video < ActiveRecord::Base
 
   after_save :touch_assets
 
+  def duration_as_string
+    "| #{duration} minutes"
+  end
+
   def mark_proofread
     questions.each { |q| q.update_attributes(proofread: true) }
   end
