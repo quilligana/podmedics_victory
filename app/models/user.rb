@@ -115,12 +115,8 @@ class User < ActiveRecord::Base
   # we should be able to handle upgrade as well
   def activate_subscription(product)
     self.mark_plan_selected
-    if self.has_subscription_and_in_date?
-      self.expires_on = self.expires_on.advance(months: product.duration)
-    else
-      self.subscribed_on = Time.zone.now
-      self.expires_on = self.subscribed_on.advance(months: product.duration)
-    end
+    self.subscribed_on = Time.zone.now
+    self.expires_on = self.subscribed_on.advance(months: product.duration)
     self.save!
   end
 

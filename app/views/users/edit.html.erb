@@ -89,7 +89,6 @@
         <p class="active_subscription_text">You have an active subscription</p>
         <p>You subscribed on <%= current_user.subscribed_on.to_s(:long) %></p>
         <p>You subscription will expire on <%= current_user.expires_on.to_s(:long) %></p>
-        <p><%= link_to 'Upgrade early', show_buy_path(current_user), class: 'red_button edit_profile_button' %></p>
       <% else %>
         <% if current_user.subscribed_on %>
           <p class="expired_subscription_text">Your subscription has expired</p>

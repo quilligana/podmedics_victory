@@ -153,7 +153,7 @@ describe User do
   end
 
   describe User, '#expires_on' do
-    it "return 1 year after the subscribed_on date for a 12 month product" do
+    it "returns 1 year after the subscribed_on date for a 12 month product" do
       user = create(:user)
       product = create(:product, duration: 12)
       user.start_subscription_for_product(product)
