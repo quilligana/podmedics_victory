@@ -48,7 +48,7 @@ class UserMailer < ActionMailer::Base
       @user = user
       @video = video
       unless @user.email.blank?
-        mail to: @user.email, subject: "New Podmedics Video: #{@video.title}"
+        mail to: @user.email, subject: @video.title
       end
     end
   end
