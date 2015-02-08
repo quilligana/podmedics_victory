@@ -43,9 +43,5 @@ module PodmedicsVictory
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
-    console do
-      require 'pry'
-      config.console = Pry
-    end
   end
 end
