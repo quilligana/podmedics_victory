@@ -12,6 +12,10 @@ class PasswordResetsController < ApplicationController
 
   def edit
     @user = User.find_by_password_reset_token!(params[:id])
+    
+    unless @user
+      redirect_to login_path, alert: 'Sorry that token is not valid. Please try changing your password again'
+    end
   end
 
   def update
