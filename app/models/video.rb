@@ -65,12 +65,20 @@ class Video < ActiveRecord::Base
     "| #{duration} minutes"
   end
 
+  def friendly_publication_date
+    "| #{created_at.strftime('%b %y')}"
+  end
+
   def mark_proofread
     questions.each { |q| q.update_attributes(proofread: true) }
   end
 
   def is_proofread?
     questions.where(proofread: true).count == questions.count ? true : false
+  end
+
+  def is_upgraded?
+    upgraded
   end
 
   # Caching functions

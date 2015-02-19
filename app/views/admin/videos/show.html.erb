@@ -14,6 +14,7 @@
   <p>Created at: <%= @video.created_at.to_s(:long) %></p>
   <p>Updated at: <%= @video.updated_at.to_s(:long) %></p>
   <p>Proofread: <%= @video.is_proofread? ? 'YES' : 'NO' %></p>
+  <p>Upgraded: <%= @video.is_upgraded? ? 'YES' : 'NO' %></p>
 </div>
 
 <div class="row">
@@ -34,7 +35,7 @@
 
     <% if @video.has_slides %>
       <div class="downloads">
-        <a href="http://podmedics-test-harness.s3.amazonaws.com/slides/<%= @video.file_name %>.pdf" class="btn btn-primary btn-xs", target="_blank">Download pdf</a>
+        <a href="http://podmedics-resources.s3.amazonaws.com/slides/<%= @video.file_name %>.pdf" class="btn btn-primary btn-xs", target="_blank">Download pdf</a>
       </div>
     <% end %>
   </div>

@@ -5,6 +5,7 @@
       <p class="lecture_specialties_link">
         <%= link_to video.specialty_name, specialty_path(video.specialty) %>
         <span class="video_duration"><%= video.duration_as_string %></span>
+        <span class="video_duration"><%= video.friendly_publication_date %></span>
       </p>
     </div>
     <div class="lecture_icons_wrapper">
