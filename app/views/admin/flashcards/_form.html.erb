@@ -5,19 +5,23 @@
         <%= f.input :title %>
         <%= f.association :video, collection: Video.all.order(:title), prompt: 'Select a specialty', include_blank: true %>
         <%= f.association :specialty, collection: Specialty.all.order(:name), prompt: 'Select a video' %>
-        <%= f.input :epidemiology, as: :text %>
-        <%= f.input :pathology, as: :text %>
-        <%= f.input :causes, as: :text %>
-        <%= f.input :signs, as: :text %>
-        <%= f.input :symptoms, as: :text %>
-        <%= f.input :inv_cultures, as: :text %>
-        <%= f.input :inv_bloods, as: :text %>
-        <%= f.input :inv_imaging, as: :text %>
-        <%= f.input :inv_scopic, as: :text %>
-        <%= f.input :inv_functional, as: :text %>
-        <%= f.input :treat_cons, as: :text %>
-        <%= f.input :treat_medical, as: :text %>
-        <%= f.input :treat_surgical, as: :text %>
+        <h2>General</h2>
+        <%= f.input :epidemiology, as: :text, label: 'Epidemiology' %>
+        <%= f.input :pathology, as: :text, label: 'Pathology' %>
+        <%= f.input :causes, as: :text, label: 'Top three causes' %>
+        <h2>Clinical Features</h2>
+        <%= f.input :signs, as: :text, label: 'Signs (general and specific)' %>
+        <%= f.input :symptoms, as: :text, label: 'Symptoms (general and specific)' %>
+        <h2>Investigations</h2>
+        <%= f.input :inv_cultures, as: :text, label: 'Investigations: Cultures' %>
+        <%= f.input :inv_bloods, as: :text, label: 'Investigations: Bloods' %>
+        <%= f.input :inv_imaging, as: :text, label: 'Investigations: Imaging' %>
+        <%= f.input :inv_scopic, as: :text, label: 'Investigations: Scopic/Biopsy' %>
+        <%= f.input :inv_functional, as: :text, label: 'Investigations: Functional' %>
+        <h2>Treatment</h2>
+        <%= f.input :treat_cons, as: :text, label: 'Conservative' %>
+        <%= f.input :treat_medical, as: :text, label: 'Medical' %>
+        <%= f.input :treat_surgical, as: :text, label: 'Surgical' %>
         <%= f.button :submit %>
     <% end %>
   </div>
