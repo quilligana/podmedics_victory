@@ -45,6 +45,7 @@ class Video < ActiveRecord::Base
   has_many :notes, as: :noteable, dependent: :destroy
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :flashcards
 
   validates :title, presence: true
   validates :description, presence: true

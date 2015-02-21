@@ -69,6 +69,7 @@ PodmedicsVictory::Application.routes.draw do
         end
       end
     end
+    resources :flashcards
     resources :users do
       member { get 'send_1w_reminder'}
       collection { get 'remove_if_no_plan'}

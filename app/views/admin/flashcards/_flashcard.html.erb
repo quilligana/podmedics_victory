@@ -1,0 +1,12 @@
+<tr>
+  <td><%= flashcard.id %></td>
+  <td><%= flashcard.title %></td>
+  <td><%= flashcard.video.title if flashcard.video %></td>
+  <td><%= flashcard.specialty.name if flashcard.specialty %></td>
+  <td><%= flashcard.views %></td>
+  <td>
+    <ul class="actions">
+      <li><%= link_to 'Edit', edit_admin_flashcard_path(flashcard) %></li>
+    </ul>
+  </td>
+</tr>

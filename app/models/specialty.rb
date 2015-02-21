@@ -31,6 +31,7 @@ class Specialty < ActiveRecord::Base
   has_many :exams, dependent: :destroy
   has_many :unlocked_specialties
   has_many :users, through: :unlocked_specialties
+  has_many :flashcards
 
   validates :name, presence: true
 

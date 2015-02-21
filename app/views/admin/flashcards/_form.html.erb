@@ -1,0 +1,24 @@
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @flashcard] do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title %>
+        <%= f.association :video, collection: Video.all.order(:title), prompt: 'Select a specialty', include_blank: true %>
+        <%= f.association :specialty, collection: Specialty.all.order(:name), prompt: 'Select a video' %>
+        <%= f.input :epidemiology, as: :text %>
+        <%= f.input :pathology, as: :text %>
+        <%= f.input :causes, as: :text %>
+        <%= f.input :signs, as: :text %>
+        <%= f.input :symptoms, as: :text %>
+        <%= f.input :inv_cultures, as: :text %>
+        <%= f.input :inv_bloods, as: :text %>
+        <%= f.input :inv_imaging, as: :text %>
+        <%= f.input :inv_scopic, as: :text %>
+        <%= f.input :inv_functional, as: :text %>
+        <%= f.input :treat_cons, as: :text %>
+        <%= f.input :treat_medical, as: :text %>
+        <%= f.input :treat_surgical, as: :text %>
+        <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
