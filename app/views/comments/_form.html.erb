@@ -7,18 +7,20 @@
   </p>
   <p>
     <% unless ENV["RAILS_ENV"] == 'test' %>
-    <%= f.hidden_field :commentable_id, id: "comment_commentable_id", value: root.id %>
+        <%= f.hidden_field :commentable_id, id: "comment_commentable_id", value: root.id %>
     <% else %>
-    <%= f.text_field :commentable_id, id: "comment_commentable_id", value: root.id %>
+        <%= f.text_field :commentable_id, id: "comment_commentable_id", value: root.id %>
     <% end %>
   </p>
   <p>
     <% unless ENV["RAILS_ENV"] == 'test' %>
-    <%= f.hidden_field :commentable_type, id: "comment_commentable_type", value: root.class.name %>
+        <%= f.hidden_field :commentable_type, id: "comment_commentable_type", value: root.class.name %>
     <% else %>
-    <%= f.text_field :commentable_type, id: "comment_commentable_type", value: root.class.name %>
+        <%= f.text_field :commentable_type, id: "comment_commentable_type", value: root.class.name %>
     <% end %>
   </p>
-  <p><%= f.button "Post", class: "podmedcis_button green" %></p>
+  <p>
+    <%= f.button "Post", class: "podmedcis_button green" %>
+  </p>
 
 <% end %>
