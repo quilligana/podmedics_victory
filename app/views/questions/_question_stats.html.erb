@@ -8,6 +8,10 @@
 
 <div class="questions_info_right_column_section return_to_video_page_button_wrapper">
   <div class="return_to_video_page_button_inner_wrapper">
-    <%= link_to "Review #{@quiz.video.title} ", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
+    <%= link_to "Review Video", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
+
+    <% if @quiz.video.has_slides %>
+        <%= link_to "Download Slides", video_download_slides_path(@quiz.video), target: '_blank', class: 'grey_button return_to_video_page_button' %>
+    <% end %>
   </div>
 </div>
