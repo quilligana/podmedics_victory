@@ -1,5 +1,6 @@
 <%= link_to "Have you seen our new question apps for iPhone and Android?", app_path, class: 'green_promo_banner'  %>
 
+
 <%= content_for(:title) { "Podmedics | Dashboard"} %>
 
 <div class="inner dashboard_page">
@@ -30,6 +31,15 @@
                   <%= render partial: 'video_list', locals: { videos: @recent_videos} %>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="header_column">
+          <div class="header_columns_inner_wrapper">
+            <div class="dashboard_header_columns_title">Most Popular Lectures</div>
+              <div class="dashboard_header_columns_lecture_blocks_wrapper flagged_videos">
+                <%= render partial: 'video_list', locals: { videos: @flagged_videos} %>
+              </div>
           </div>
         </div>
       </div>

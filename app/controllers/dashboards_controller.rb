@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
     
   def show
     @recent_videos = Video.recent.includes(:specialty).limit(10)
-    # @flagged_videos = Video.flagged(current_user).first(10)
+    @flagged_videos = Video.order("views DESC").first(10)
     @badges = current_user.badges.includes(:specialty)
   end
 
