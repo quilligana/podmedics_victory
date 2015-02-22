@@ -62,12 +62,16 @@ class Video < ActiveRecord::Base
 
   after_save :touch_assets
 
+  def has_questions?
+    true if questions_count > 0
+  end
+
   def duration_as_string
     "| #{duration} minutes"
   end
 
   def friendly_publication_date
-    "| #{created_at.strftime('%b %y')}"
+    "| #{created_at.strftime('%b %y')} "
   end
 
   def mark_proofread
