@@ -5055,3 +5055,15 @@ span.video_duration {
   float: left;
   color: cadetblue;
 }
+
+.redactor-box {
+  margin-top: 10px;
+}
+
+ul.redactor-toolbar {
+  box-shadow: none;
+}
+
+.redactor-editor {
+  max-height: 400px;
+}
