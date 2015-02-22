@@ -39,13 +39,14 @@
         <ul class="points_list">
           <li>Answering a question: <%= POINTS[:correct_answer] %></li>
           <li>Watching a video: <%= POINTS[:watched_video] %></li>
+          <li>Commenting on videos: <%= POINTS[:answered_user_question] %></li>
         </ul>
         </p>
       </div>
     </div>
 
     <div class="top_ranked_users_section">
-      <h3>The Experts</h3>
+      <h3>Top Users</h3>
       <ol>
         <% @top_five.each_with_index do |badge, index| %>
           <li>
