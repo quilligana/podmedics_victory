@@ -11,7 +11,7 @@
     <%= link_to "Review Video", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
 
     <% if @quiz.video.has_slides %>
-        <%= link_to "Download Slides", video_download_slides_path(@quiz.video), target: '_blank', class: 'grey_button return_to_video_page_button' %>
+        <%= link_to "Download Slides", video_download_slides_path(@quiz.video), target: '_blank', class: 'grey_button download_slides_button' %>
     <% end %>
   </div>
 </div>

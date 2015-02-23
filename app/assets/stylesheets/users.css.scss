@@ -5085,3 +5085,13 @@ span.preview_marker {
   padding-left: 3px;
   color: #71dd7e;
 }
+a.grey_button.download_slides_button {
+  width: 100%;
+  text-indent: 25px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-image: image-url('download_slides_icon.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  margin-top: 15px;
+}
