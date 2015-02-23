@@ -5,7 +5,12 @@ class QuestionsController < ApplicationController
   def index
     video = Video.friendly.find(params[:video_id])
     @question_ids = video.question_ids
-    initiate_questions
+    if current_user.is_trial_member? && !current_user.has_access_to?(video.specialty) && !video.preview
+      redirect_to specialty_path(video.specialty), alert: 'You have not yet unlocked this specialty'
+    else
+      initiate_questions
+    end
+
   end
 
   def specialty_index
