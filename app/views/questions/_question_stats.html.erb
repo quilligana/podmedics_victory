@@ -8,7 +8,13 @@
 
 <div class="questions_info_right_column_section return_to_video_page_button_wrapper">
   <div class="return_to_video_page_button_inner_wrapper">
-    <%= link_to "Review Video", video_path(@quiz.video), class: 'red_button return_to_video_page_button', target: '_blank' %>
+
+    <a href="http://vimeo.com/<%= @quiz.video.vimeo_identifier %>" data-strip-options="
+     vimeo: {
+       maxWidth: 500,
+       maxHeight: 500
+     }
+   " class="red_button return_to_video_page_button strip">Review Video</a>
 
     <% if @quiz.video.has_slides %>
         <%= link_to "Download Slides", video_download_slides_path(@quiz.video), target: '_blank', class: 'grey_button download_slides_button' %>

@@ -15,3 +15,5 @@
 //= require vimeo
 //= require addtohomescreen.min
 //= require pace
+//= require strip.pkgd.min
+//= require tipr.min

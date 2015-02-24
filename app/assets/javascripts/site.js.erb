@@ -250,6 +250,18 @@ ready = function() {
     element.click();
   });
 
+  // Toggle Flashcards
+  $(".flash_cards_button, .close_flashcard").click(function(){
+    $(".flashcard_wrapper").animate({width:'toggle'},350);
+  });
+
+  // Ready tooltip
+  $('.tip').tipr({
+    'style': 'light',
+    'speed': 300,
+    'mode': 'bottom'
+  });
+
 };
 
 $(document).ready(ready);

@@ -12,6 +12,13 @@
     </div>
 
     <div class="video_page_heading_button_set">
+      <a href="javascript:;" class="podmedcis_button green print_notes_button flash_cards_button">Flash card</a>
+      <a href="http://vimeo.com/<%= @video.vimeo_identifier %>" class="podmedcis_button green print_notes_button strip" data-strip-options="
+     vimeo: {
+       maxWidth: 500,
+       maxHeight: 500
+     }
+   ">Slide out Video</a>
       <div class="video_download_dropdown">
         <a href="#" class="podmedcis_button white_download_button">Download</a>
         <div class="video_download_dropdown_inner">
@@ -128,6 +135,63 @@
 <script id="progress_json" type="text/json">
     <%= raw @progress.to_json %>
 </script>
+
+
+
+
+
+
+
+
+<div class="flashcard_wrapper">
+  <div class="close_flashcard_wrapper">
+    <div class="close_flashcard"></div>
+  </div>
+
+
+  <div class="inner_flashcard_wrapper">
+    <div>
+      <%= @flashcard.title %>
+    </div>
+
+    <strong></strong>
+    <div>
+      <%= @flashcard.epidemiology.html_safe %>
+    </div>
+
+    <strong></strong>
+    <div>
+      <%= @flashcard.pathology.html_safe %>
+    </div>
+
+    <strong></strong>
+    <div>
+      <%= @flashcard.causes.html_safe %>
+    </div>
+
+    <strong></strong>
+    <div>
+      <%= @flashcard.signs.html_safe %>
+    </div>
+
+    <strong></strong>
+    <div>
+      <%= @flashcard.symptoms.html_safe %>
+    </div>
+
+    <%= @flashcard.inv_cultures.html_safe %>
+    <%= @flashcard.inv_bloods.html_safe %>
+    <%= @flashcard.inv_imaging.html_safe %>
+    <%= @flashcard.inv_scopic.html_safe %>
+    <%= @flashcard.inv_functional.html_safe %>
+
+    <%= @flashcard.treat_cons.html_safe %>
+    <%= @flashcard.treat_medical.html_safe %>
+    <%= @flashcard.treat_surgical.html_safe %>
+
+
+  </div>
+</div>
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
