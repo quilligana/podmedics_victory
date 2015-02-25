@@ -187,20 +187,27 @@
     <div class="flashcard_table_wrapper">
       <table>
         <tr>
-          <th>Cultures</th>
-          <th>Bloods</th>
-          <th>Imaging</th>
-          <th>Scopic/Biopsy</th>
-          <th>Functional</th>
+          <td class="flashcard_table_left_column">Cultures</td>
+          <td><%= @flashcard.inv_cultures.html_safe %></td>
         </tr>
         <tr>
-          <td><%= @flashcard.inv_cultures.html_safe %></td>
+          <td class="flashcard_table_left_column">Bloods</td>
           <td><%= @flashcard.inv_bloods.html_safe %></td>
+        </tr>
+        <tr>
+          <td class="flashcard_table_left_column">Imaging</td>
           <td><%= @flashcard.inv_imaging.html_safe %></td>
+        </tr>
+        <tr>
+          <td class="flashcard_table_left_column">Scopic/Biopsy</td>
           <td><%= @flashcard.inv_scopic.html_safe %></td>
+        </tr>
+        <tr>
+          <td class="flashcard_table_left_column">Functional</td>
           <td><%= @flashcard.inv_functional.html_safe %></td>
         </tr>
       </table>
+
     </div>
     <div class="flashcard_divider"></div>
 

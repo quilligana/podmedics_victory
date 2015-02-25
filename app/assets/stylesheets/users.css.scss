@@ -5100,13 +5100,14 @@ a.grey_button.download_slides_button {
   background-color: #FFFFFF;
   width: 550px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0px;
   right: 0px;
   bottom: 0px;
   z-index: 60000;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   display: none;
+  overflow: auto;
 }
 
 .close_flashcard {
@@ -5178,15 +5179,14 @@ a.grey_button.download_slides_button {
   padding-top: 10px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  margin-top: 5px;
-
+  margin-top: 15px;
+  width: 100%;
 }
-.flashcard_table_wrapper table tbody tr th {
-  padding-right: 25px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+.flashcard_table_wrapper table tbody tr td.flashcard_table_left_column {
   font-weight: 800;
   text-align: left;
+  width: 130px;
+  color: #646464;
 }
 
 .flashcard_table_wrapper table tbody tr td {
@@ -5194,6 +5194,7 @@ a.grey_button.download_slides_button {
   padding-top: 0px;
   color: #9E9E9E;
   text-align: left;
+  padding-bottom: 20px;
 }
 .flashcard_background {
   width: 100%;

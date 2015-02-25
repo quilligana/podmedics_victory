@@ -1860,7 +1860,22 @@ $standard_border_radius: 6px;
   }
 }
 
+@media screen and (max-width: 580px) {
+  .video_download_dropdown {
+    float: left;
+    clear: both;
+  }
+  a.podmedcis_button.green.flash_cards_button {
+    margin-bottom: 15px;
+  }
+}
 @media screen and (max-width: 550px) {
+  .flashcard_wrapper {
+    width: 440px;
+  }
+  .inner_flashcard_wrapper {
+    width: 440px;
+  }
   .quiz_app_section_two_wrapper ul li {
     width: 100%;
     padding-left: 0px;
@@ -1918,6 +1933,12 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 450px) {
+  .flashcard_wrapper {
+    width: 320px;
+  }
+  .inner_flashcard_wrapper {
+    width: 320px;
+  }
   a.ng-binding {
     width: 90%;
     padding-left: 5%;
