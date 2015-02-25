@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
   def answer
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)
+    @flashcard = @quiz.video.flashcards.first
     process_answer(params[:answer_given])
   end
 
