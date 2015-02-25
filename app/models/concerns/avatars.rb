@@ -31,12 +31,12 @@ module Avatars
   end
 
   def get_avatar(style)
-    #cached_avatar_url(style)
-    #if avatar.exists?
-     # avatar.url(style)
-   # else
-    #  ActionController::Base.helpers.asset_path('avatar-128.jpg')
-   # end
+    cached_avatar_url(style)
+    if avatar.exists?
+     avatar.url(style)
+    else
+      ActionController::Base.helpers.asset_path('avatar-128.jpg')
+    end
     # TODO - figure out why avatars are not displaying in production
     # cached_avatar_url(style)
     # return ActionController::Base.helpers.asset_path('avatar-128.jpg')
@@ -44,11 +44,11 @@ module Avatars
 
   def cached_avatar_url(style)
     Rails.cache.fetch([self, "avatar_url", style]) do
-     # if avatar.exists?
-     #   avatar.url(style)
-     # else
-        ActionController::Base.helpers.asset_path('avatar-128.jpg')
-      #end
+       if avatar.exists?
+         avatar.url(style)
+       else
+          ActionController::Base.helpers.asset_path('avatar-128.jpg')
+      end
      end
   end  
 
