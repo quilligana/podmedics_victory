@@ -10,7 +10,7 @@
         <span class="video_duration"><%= video.duration_as_string %></span>
         <span class="video_duration"><%= video.friendly_publication_date %></span>
         <% if video.has_questions? %>
-        <span class="test-yourself"><%= link_to '| Test yourself', video_questions_url(:video_id => video.id), class: 'tip', :data => { :tip => 'Answer questions on this video'} %></span>
+        <span class="test-yourself"><%= link_to '| Test yourself', video_questions_url(:video_id => video.id), class: 'tip', :data => { :tip => 'Answer questions on this topic'} %></span>
         <% end %>
       </p>
     </div>
