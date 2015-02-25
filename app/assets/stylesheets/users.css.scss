@@ -2363,7 +2363,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
 }
 
 .video_page_heading_wrapper {
-  width: 55%;
+  width: 43%;
   float: left;
   margin-bottom: 15px;
 }
@@ -5098,13 +5098,14 @@ a.grey_button.download_slides_button {
 
 .flashcard_wrapper {
   background-color: #FFFFFF;
-  width: 500px;
+  width: 550px;
   height: 100%;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   z-index: 60000;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   display: none;
 }
 
@@ -5124,9 +5125,85 @@ a.grey_button.download_slides_button {
   float: left;
 }
 .inner_flashcard_wrapper {
-  width: 500px;
+  width: 550px;
   float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
 }
 #tabs_single_page ul li .tipr_container_bottom {
   margin-top: 30px;
+}
+.flashcard_name {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.flashcard_title {
+  font-size: 18px;
+
+  margin-bottom: 0px;
+  margin-top: 25px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FF414E;
+}
+.flashcard_title.sub {
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 10px;
+  color: #494949;
+}
+.flashcard_copy {
+  font-size: 14px;
+  color: #797979;
+  line-height: 22px;
+  margin-bottom: 15px;
+}
+.flashcard_divider {
+  width: 100%;
+  border-top: solid 1px #E4E4E4;
+  height: 1px;
+  margin-top: 20px;
+}
+
+.flashcard_table_wrapper table {
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 10px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-top: 5px;
+
+}
+.flashcard_table_wrapper table tbody tr th {
+  padding-right: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-weight: 800;
+  text-align: left;
+}
+
+.flashcard_table_wrapper table tbody tr td {
+  padding-right: 25px;
+  padding-top: 0px;
+  color: #9E9E9E;
+  text-align: left;
+}
+.flashcard_background {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background-color: transparent;
+  top: 0;
+  z-index: 5000;
+  display: none;
+}
+a.podmedcis_button.green.flash_cards_button {
+  margin-right: 15px;
 }

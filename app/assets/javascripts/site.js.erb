@@ -252,8 +252,16 @@ ready = function() {
 
   // Toggle Flashcards
   $(".flash_cards_button, .close_flashcard").click(function(){
+    $(".flashcard_background").fadeToggle(0);
     $(".flashcard_wrapper").animate({width:'toggle'},350);
   });
+
+  // Toggle Hide Flashcards
+  $(".flashcard_background").click(function(){
+    $(this).fadeToggle(0);
+    $(".flashcard_wrapper").animate({width:'toggle'},350);
+  });
+
 
   // Ready tooltip
   $('.tip').tipr({
@@ -261,6 +269,7 @@ ready = function() {
     'speed': 300,
     'mode': 'bottom'
   });
+
 
 };
 
