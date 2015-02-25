@@ -1447,6 +1447,13 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 650px) {
+  .video_download_dropdown {
+    float: left;
+    clear: both;
+  }
+  a.podmedcis_button.green.flash_cards_button {
+    margin-bottom: 15px;
+  }
   .footer .footer_right {
     float: left;
     width: auto;
@@ -1860,15 +1867,6 @@ $standard_border_radius: 6px;
   }
 }
 
-@media screen and (max-width: 580px) {
-  .video_download_dropdown {
-    float: left;
-    clear: both;
-  }
-  a.podmedcis_button.green.flash_cards_button {
-    margin-bottom: 15px;
-  }
-}
 @media screen and (max-width: 550px) {
   .flashcard_wrapper {
     width: 440px;

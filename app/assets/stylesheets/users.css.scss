@@ -2363,7 +2363,7 @@ a.podmedcis_button.white_button.ask_question_sub_heading_button {
 }
 
 .video_page_heading_wrapper {
-  width: 43%;
+  width: 39%;
   float: left;
   margin-bottom: 15px;
 }
@@ -5207,4 +5207,8 @@ a.grey_button.download_slides_button {
 }
 a.podmedcis_button.green.flash_cards_button {
   margin-right: 15px;
+  background-image: image-url('flashcard_icon.png');
+  width: 115px;
+  background-repeat: no-repeat;
+  background-position: 110px 10px;
 }
