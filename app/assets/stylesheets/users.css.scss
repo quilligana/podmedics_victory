@@ -5205,6 +5205,13 @@ a.grey_button.download_slides_button {
   z-index: 5000;
   display: none;
 }
+
+.flashcard_copy ul, .flashcard_copy ol {
+  margin-left: 25px;
+}
+.flashcard_copy ul li, .flashcard_copy ol li {
+  margin-top: 5px;
+}
 a.podmedcis_button.green.flash_cards_button {
   margin-right: 15px;
   background-image: image-url('flashcard_icon.png');
