@@ -1,1 +1,34 @@
 <h1>New Flashcard</h1>
+
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [@video, @flashcard] do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title %>
+        <h2>General</h2>
+        <%= f.input :epidemiology, as: :text, label: 'Definition and Basic Epidemiology' %>
+        <%= f.input :pathology, as: :text, label: 'Pathology' %>
+        <%= f.input :causes, as: :text, label: 'Top three causes' %>
+        <h2>Clinical Features</h2>
+        <%= f.input :symptoms, as: :text, label: 'Symptoms (general and specific)' %>
+        <%= f.input :signs, as: :text, label: 'Signs (general and specific)' %>
+        <h2>Investigations</h2>
+        <%= f.input :inv_cultures, as: :text, label: 'Investigations: Cultures' %>
+        <%= f.input :inv_bloods, as: :text, label: 'Investigations: Bloods' %>
+        <%= f.input :inv_imaging, as: :text, label: 'Investigations: Imaging' %>
+        <%= f.input :inv_scopic, as: :text, label: 'Investigations: Scopic/Biopsy' %>
+        <%= f.input :inv_functional, as: :text, label: 'Investigations: Functional' %>
+        <h2>Treatment</h2>
+        <%= f.input :treat_cons, as: :text, label: 'Conservative' %>
+        <%= f.input :treat_medical, as: :text, label: 'Medical' %>
+        <%= f.input :treat_surgical, as: :text, label: 'Surgical' %>
+        <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="flashcard_preview">
+  <!--flashcard preview to go here-->
+  <!-- will need Ed to link form to preview-->
+</div>
