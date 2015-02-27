@@ -93,6 +93,9 @@ PodmedicsVictory::Application.routes.draw do
     resources :notes, only: [:index, :show]
   end
 
+  # Flashcards
+  resources :flashcards, only: [:new, :create]
+
   # Specialty/Video
   resources :videos, only: [:show, :index] do
     resources :questions, only: :index

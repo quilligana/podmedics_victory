@@ -28,6 +28,7 @@ class Permission
       allow :specialty_questions, [:show, :index, :create, :destroy, :load]
       allow :notes, [:create, :update, :load, :index, :show]
       allow :vimeos, [:paused, :completed]
+      allow :flashcards, [:new, :create]
       allow_all if user.admin?
     end
   end
