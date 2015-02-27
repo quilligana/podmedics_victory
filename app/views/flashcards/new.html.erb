@@ -8,36 +8,36 @@
   </div>
 
   <div class="page flashcard_create">
-    <div class="flashcard_create_header">As a member you can create flashcards for the community to use, you will receive 1 month free membership. Once you submit the flashcard, we will review it and then it appears on the video page</div>
+    <div class="flashcard_create_header">Create your flashcard by filling in this nify form. You can preview it live on the right of this page. For every flashcard that you submit and is accepted you will get a free months membership (and eternal fame!)</div>
 
     <div class="flashcard_create_left_column">
       <%= simple_form_for [@video, @flashcard] do |f| %>
         <%= f.error_notification %>
         <div class="flashcard_create_left_column_inner_spacing">
           <h2>General</h2>
-          <%= f.input :epidemiology, as: :text, label: 'Definition and Basic Epidemiology', hint: 'This is a cool hint' %>
-          <%= f.input :pathology, as: :text, label: 'Pathology', hint: 'This is a cool hint' %>
-          <%= f.input :causes, as: :text, label: 'Top three causes', hint: 'This is a cool hint' %>
+          <%= f.input :epidemiology, as: :text, label: 'Definition and Basic Epidemiology', hint: 'Define the condition in a single sentence and add some basic epidemiology' %>
+          <%= f.input :pathology, as: :text, label: 'Pathology', hint: 'Describe the basic pathology' %>
+          <%= f.input :causes, as: :text, label: 'Top three causes', hint: 'Top three causes only please! We do not like long lists...' %>
         </div>
         <div class="flashcard_create_left_column_inner_spacing">
         <h2>Clinical Features</h2>
-          <%= f.input :symptoms, as: :text, label: 'Symptoms (general and specific)', hint: 'This is a cool hint' %>
-          <%= f.input :signs, as: :text, label: 'Signs (general and specific)', hint: 'This is a cool hint' %>
+          <%= f.input :symptoms, as: :text, label: 'Symptoms', hint: 'How does the patient present? Divide up into general and specific for extra quodos' %>
+          <%= f.input :signs, as: :text, label: 'Signs (general and specific)', hint: 'What will you find on examination?' %>
         </div>
         <div class="flashcard_create_left_column_inner_spacing">
         <h2>Investigations</h2>
-          <%= f.input :inv_cultures, as: :text, label: 'Investigations: Cultures', hint: 'This is a cool hint' %>
-          <%= f.input :inv_bloods, as: :text, label: 'Investigations: Bloods', hint: 'This is a cool hint' %>
-          <%= f.input :inv_imaging, as: :text, label: 'Investigations: Imaging', hint: 'This is a cool hint' %>
-          <%= f.input :inv_scopic, as: :text, label: 'Investigations: Scopic/Biopsy', hint: 'This is a cool hint' %>
-          <%= f.input :inv_functional, as: :text, label: 'Investigations: Functional', hint: 'This is a cool hint' %>
+          <%= f.input :inv_cultures, as: :text, label: 'Dips/Cultures', hint: 'e.g. urine dips, any microscopy or cultures' %>
+          <%= f.input :inv_bloods, as: :text, label: 'Bloods (arterial/venous)', hint: 'Try and put the reason for the test in brackets after it' %>
+          <%= f.input :inv_imaging, as: :text, label: 'Imaging', hint: 'Try and put the reason for the test in brackets after it' %>
+          <%= f.input :inv_scopic, as: :text, label: 'Scopic/Biopsy', hint: 'e.g. bronchoscopy, colonoscopy, any biopsy' %>
+          <%= f.input :inv_functional, as: :text, label: 'Functional/Special Tests', hint: 'Special tests for this specialty e.g. ECG (cardiology), spirometry (respiratory)' %>
         </div>
         <div class="flashcard_create_left_column_inner_spacing">
         <h2>Treatment</h2>
-          <%= f.input :treat_cons, as: :text, label: 'Conservative', hint: 'This is a cool hint' %>
-          <%= f.input :treat_medical, as: :text, label: 'Medical', hint: 'This is a cool hint' %>
-          <%= f.input :treat_surgical, as: :text, label: 'Surgical', hint: 'This is a cool hint' %>
-          <button class="podmedcis_button green" type="submit">Create Flash Card</button>
+          <%= f.input :treat_cons, as: :text, label: 'Conservative', hint: 'e.g. fluids, pain relief, NBM' %>
+          <%= f.input :treat_medical, as: :text, label: 'Medical', hint: 'Drugs used to treat the condition' %>
+          <%= f.input :treat_surgical, as: :text, label: 'Surgical', hint: 'Surgery used to treat the condition' %>
+          <button class="podmedcis_button green" type="submit">Submit flashcard</button>
         </div>
       <% end %>
     </div>
