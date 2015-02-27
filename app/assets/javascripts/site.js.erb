@@ -263,6 +263,10 @@ ready = function() {
   });
 
 
+  var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'], autoresize: false };
+  $('#flashcard_treat_surgical, #flashcard_treat_medical, #flashcard_treat_cons, #flashcard_inv_functional, #flashcard_inv_scopic, #flashcard_inv_imaging, #flashcard_inv_bloods, #flashcard_inv_cultures, #flashcard_signs, #flashcard_symptoms, #flashcard_causes, #flashcard_pathology, #flashcard_epidemiology').redactor(redactor_button_hash);
+
+
   // Ready tooltip
   $('.tip').tipr({
     'style': 'light',

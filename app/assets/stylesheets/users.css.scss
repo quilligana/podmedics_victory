@@ -5225,3 +5225,94 @@ a.podmedcis_button.green.flash_cards_button.question_result_button {
   padding-bottom: 16px;
   background-position: 110px 14px;
 }
+
+.page.flashcard_create {
+  width: 650px;
+}
+.flashcard_create_left_column {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.flashcard_create_header {
+  border-bottom: solid 1px #e5e5e5;
+  padding: 30px;
+  color: #a2a2a2;
+  font-size: 14px;
+  line-height: 25px;
+}
+ul.redactor-toolbar {
+  box-shadow: none;
+  border: 1px solid #eee;
+}
+
+.redactor-editor {
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-top: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flashcard_create_left_column_inner_spacing {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #e5e5e5;
+}
+
+.flashcard_create_left_column_inner_spacing .redactor-box {
+  margin-bottom: 0px;
+}
+p.help-block {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-left: 1px solid #eee;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 13px;
+  color: #939393;
+  margin-bottom: 30px;
+}
+
+.flashcard_create_left_column_inner_spacing h2 {
+  margin-bottom: 10px;
+}
+.flashcard_create_left_column_inner_spacing label {
+  font-size: 14px;
+  font-weight: 800;
+}
+.sub_heading_right_flashcard_create_heading a.podmedcis_button.green.flash_cards_button {
+  width: 190px;
+  background-position: 180px 10px;
+  margin-right: 0px;
+}
+.sub_heading_wrapper.flashcard_create_heading {
+  width: 300px;
+}
+.sub_heading_right_flashcard_create_heading {
+  float: right;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.inner.flashcard_create_page_inner {
+  width: 650px;
+  margin-right: 600px;
+  padding-top: 20px;
+}
+.sub_heading_wrapper.flashcard_create_heading {
+  width: 300px;
+  padding-bottom: 0px;
+  padding-top: 30px;
+}
+.flashcard_wrapper.live_update {
+  display: block;
+}
+.close_flashcard_wrapper.live_update_spacing {
+  height: 40px;
+}
+
+.flashcard_create_left_column_inner_spacing button.podmedcis_button.green {
+  float: none;
+}
