@@ -262,6 +262,25 @@ ready = function() {
     $(".flashcard_wrapper").animate({width:'toggle'},350);
   });
 
+  // Toggle Flashcard live update
+  $(".flash_cards_button.preview, .close_flashcard.preview_flashcard_close").click(function(){
+
+
+    $("#flash_card_example").remove();
+    $("#flash_card_example_background").remove();
+
+
+    $(".flashcard_background.preview_flashcard_background").fadeToggle(0);
+    $(".flashcard_wrapper.preview_flashcard").animate({width:'toggle'},350);
+  });
+
+  // Toggle Hide Flashcards live update
+  $(".flashcard_background.preview_flashcard_background").click(function(){
+    $(this).fadeToggle(0);
+    $(".flashcard_wrapper.preview_flashcard").animate({width:'toggle'},350);
+  });
+
+
 
   var redactor_button_hash = { buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist'], autoresize: false };
   $('#flashcard_treat_surgical, #flashcard_treat_medical, #flashcard_treat_cons, #flashcard_inv_functional, #flashcard_inv_scopic, #flashcard_inv_imaging, #flashcard_inv_bloods, #flashcard_inv_cultures, #flashcard_signs, #flashcard_symptoms, #flashcard_causes, #flashcard_pathology, #flashcard_epidemiology').redactor(redactor_button_hash);
