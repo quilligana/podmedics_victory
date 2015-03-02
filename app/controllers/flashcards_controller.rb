@@ -14,6 +14,8 @@ class FlashcardsController < ApplicationController
     @flashcard.specialty_id = @video.specialty_id
     @flashcard.user_id = current_user.id
     if @flashcard.save
+      UserMailer.delay.flashcard_submission(current_user)
+      AdminMailer.delay.flashcard_submission(@flashcard)
       redirect_to @video, notice: 'Thank you. Your flashcard has been submitted and will be reviewed.'
     else
       flash.now[:error] = 'Please review the form'

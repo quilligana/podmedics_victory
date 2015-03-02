@@ -57,4 +57,5 @@ class Flashcard < ActiveRecord::Base
     approved ? true : false
   end
 
+
 end

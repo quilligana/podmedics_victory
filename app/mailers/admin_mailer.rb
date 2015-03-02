@@ -36,4 +36,9 @@ class AdminMailer < ActionMailer::Base
     mail to: 'ed@podmedics.com', subject: 'Podmedics Payment Failed'
   end
 
+  def flashcard_submission(flashcard)
+    @flashcard = flashcard
+    mail to: 'ed@podmedics.com', subject: 'New flashcard submission'
+  end
+
 end
