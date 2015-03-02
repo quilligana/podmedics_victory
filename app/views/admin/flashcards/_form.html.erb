@@ -3,8 +3,10 @@
     <%= simple_form_for [:admin, @flashcard] do |f| %>
         <%= f.error_notification %>
         <%= f.input :title %>
-        <%= f.association :video, collection: Video.all.order(:title), prompt: 'Select a specialty', include_blank: true %>
-        <%= f.association :specialty, collection: Specialty.all.order(:name), prompt: 'Select a video' %>
+        <%= f.input :approved %>
+        <%= f.association :video, collection: Video.all.order(:title), prompt: 'Select a video', include_blank: true %>
+        <%= f.association :specialty, collection: Specialty.all.order(:name), prompt: 'Select a specialty' %>
+        <%= f.association :user, collection: User.all.order(:name), prompt: 'Select a user' %>
         <h2>General</h2>
         <%= f.input :epidemiology, as: :text, label: 'Epidemiology' %>
         <%= f.input :pathology, as: :text, label: 'Pathology' %>

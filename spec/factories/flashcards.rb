@@ -23,6 +23,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  user_id        :integer
+#  approved       :boolean          default(FALSE)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

@@ -3,7 +3,14 @@
   <td><%= flashcard.title %></td>
   <td><%= flashcard.video.title if flashcard.video %></td>
   <td><%= flashcard.specialty.name if flashcard.specialty %></td>
-  <td><%= flashcard.views %></td>
+  <td>
+    <% if flashcard.user %>
+        <%= link_to flashcard.user.name, admin_user_path(flashcard.user) %>
+    <% else %>
+        No user set
+    <% end %>
+  </td>
+  <td><%= flashcard.approved %></td>
   <td>
     <ul class="actions">
       <% if flashcard.video %>

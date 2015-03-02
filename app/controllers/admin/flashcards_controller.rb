@@ -38,6 +38,6 @@ class Admin::FlashcardsController < ApplicationController
     params.require(:flashcard).permit(:title, :video_id, :specialty_id, :epidemiology,
                                       :pathology, :causes, :signs, :symptoms, :inv_cultures,
                                       :inv_bloods, :inv_imaging, :inv_scopic, :inv_functional,
-                                      :treat_cons, :treat_medical, :treat_surgical)
+                                      :treat_cons, :treat_medical, :treat_surgical, :approved)
   end
 end
