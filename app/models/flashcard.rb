@@ -53,4 +53,8 @@ class Flashcard < ActiveRecord::Base
     true if video
   end
 
+  def is_approved?
+    approved ? true : false
+  end
+
 end
