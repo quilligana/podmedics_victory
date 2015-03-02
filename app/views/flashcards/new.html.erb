@@ -1,7 +1,6 @@
 <%= content_for(:extra_javascripts) do %>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js'  %>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.min.js'  %>
-    <%= javascript_include_tag 'angular-redactor' %>
 <% end %>
 
 <div ng-app="FlashcardApp" ng-controller="FlashcardController">
@@ -152,7 +151,10 @@
 <!-- Angular bindings -->
 <script type="text/javascript">
     (function(){
-        angular.module('FlashcardApp', ['ngSanitize', 'angular-redactor']);
+        angular.module('FlashcardApp', ['ngSanitize', 'angular-redactor'])
+                .config(function(redactorOptions){
+                    redactorOptions.buttons = ['bold', 'italic', '|', 'unorderedlist', 'orderedlist'];
+                });
 
         angular.module('FlashcardApp').controller('FlashcardController', FlashcardController);
         function FlashcardController($scope){
