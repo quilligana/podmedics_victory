@@ -17,7 +17,12 @@
         <li><%= link_to 'Preview', video_path(flashcard.video) %></li>
       <% end %>
       <li><%= link_to 'Edit', edit_admin_flashcard_path(flashcard) %></li>
-      <li><%= link_to 'Approve', approve_admin_flashcard_path(flashcard) %></li>
+      <li>
+        <% unless flashcard.is_approved? %>
+            <%= link_to 'Approve', approve_admin_flashcard_path(flashcard) %>
+        <% end %>
+      </li>
+      <li><%= link_to 'Remove', admin_flashcard_path(flashcard), method: :delete, data: { confirm: 'Are you sure?'} %></li>
     </ul>
   </td>
 </tr>

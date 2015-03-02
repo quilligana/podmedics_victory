@@ -38,6 +38,12 @@ class Admin::FlashcardsController < ApplicationController
     redirect_to admin_flashcards_path, notice: 'Flashcard approved'
   end
 
+  def destroy
+    @flashcard = Flashcard.find(params[:id])
+    @flashcard.destroy
+    redirect_to admin_flashcards_path, notice: 'Flashcard removed'
+  end
+
   private
 
   def flashcard_params
