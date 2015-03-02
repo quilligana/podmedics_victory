@@ -84,4 +84,10 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'Flashcard submitted'
   end
 
+  def flashcard_approval(flashcard)
+    @flashcard = flashcard
+    @user = flashcard.user
+    mail to: @user.email, subject: 'Your flashcard was approved'
+  end
+
 end

@@ -32,12 +32,18 @@ class Admin::FlashcardsController < ApplicationController
     end
   end
 
+  def approve
+    @flashcard = Flashcard.find(params[:id])
+    @flashcard.approve
+    redirect_to admin_flashcards_path, notice: 'Flashcard approved'
+  end
+
   private
 
   def flashcard_params
     params.require(:flashcard).permit(:title, :video_id, :specialty_id, :epidemiology,
                                       :pathology, :causes, :signs, :symptoms, :inv_cultures,
                                       :inv_bloods, :inv_imaging, :inv_scopic, :inv_functional,
-                                      :treat_cons, :treat_medical, :treat_surgical, :approved)
+                                      :treat_cons, :treat_medical, :treat_surgical, :approved, :user_id)
   end
 end

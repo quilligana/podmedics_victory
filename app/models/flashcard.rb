@@ -57,5 +57,10 @@ class Flashcard < ActiveRecord::Base
     approved ? true : false
   end
 
+  def approve
+    update_attributes(approved: true)
+    UserMailer.delay.flashcard_approval(self)
+  end
+
 
 end
