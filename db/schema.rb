@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221145706) do
+ActiveRecord::Schema.define(version: 20150302182925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,10 +131,12 @@ ActiveRecord::Schema.define(version: 20150221145706) do
     t.text     "treat_surgical"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "flashcards", ["specialty_id"], name: "index_flashcards_on_specialty_id", using: :btree
   add_index "flashcards", ["title"], name: "index_flashcards_on_title", using: :btree
+  add_index "flashcards", ["user_id"], name: "index_flashcards_on_user_id", using: :btree
   add_index "flashcards", ["video_id"], name: "index_flashcards_on_video_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|

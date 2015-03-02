@@ -1,6 +1,7 @@
 <%= content_for(:extra_javascripts) do %>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js'  %>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.min.js'  %>
+    <%= javascript_include_tag 'angular-redactor' %>
 <% end %>
 
 <div ng-app="FlashcardApp" ng-controller="FlashcardController">
@@ -157,6 +158,7 @@
                 });
 
         angular.module('FlashcardApp').controller('FlashcardController', FlashcardController);
+
         function FlashcardController($scope){
             $scope.flashcard = {};
             $scope.flashcard.epidemiology = 'None';
@@ -172,10 +174,6 @@
             $scope.flashcard.treat_cons = 'None';
             $scope.flashcard.treat_medical = 'None';
             $scope.flashcard.treat_surgical = 'None';
-            activate();
-            function activate(){
-                console.log('Hello from angular');
-            }
         }
     })();
 </script>

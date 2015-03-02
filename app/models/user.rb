@@ -55,6 +55,7 @@ class User < ActiveRecord::Base
   has_many :sales
   has_many :unlocked_specialties
   has_many :specialties, through: :unlocked_specialties
+  has_many :flashcards
 
   scope :has_selected_plan, -> { where(selected_plan: true) }
   scope :not_selected_plan, -> { where(selected_plan: false)}

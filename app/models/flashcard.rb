@@ -22,15 +22,18 @@
 #  treat_surgical :text
 #  created_at     :datetime
 #  updated_at     :datetime
+#  user_id        :integer
 #
 
 class Flashcard < ActiveRecord::Base
 
   belongs_to :video
   belongs_to :specialty
+  belongs_to :user
 
   validates_presence_of :title
   validates_presence_of :specialty_id
+  validates_presence_of :user_id
   validates_presence_of :epidemiology
   validates_presence_of :pathology
   validates_presence_of :causes
