@@ -13,6 +13,7 @@
     <meta name="author" content="Podmedics Ltd">
     <title><%= content_for?(:title) ? yield(:title) : "Podmedics" %></title>
     <%= stylesheet_link_tag "user_application", media: "all" %>
+    <%= yield(:extra_javascripts) %>
     <%= javascript_include_tag "user_application" %>
     <%= render 'analytics' %>
     <%= csrf_meta_tags %>
