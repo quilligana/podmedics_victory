@@ -84,6 +84,18 @@ class User < ActiveRecord::Base
     name
   end
 
+  # Flashcards
+
+  def add_flashcard_credit
+    if self.is_trial_member?
+      self.subscribed_on = Time.zone.now
+      self.expires_on = self.subscribed_on.advance(months: 2)
+    else
+      self.expires_on = self.expires_on.advance(months: 2)
+    end
+    self.save
+  end
+
   # Plans/Subs
 
   def self.registered_a_week_ago

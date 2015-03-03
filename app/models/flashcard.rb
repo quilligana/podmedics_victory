@@ -59,6 +59,7 @@ class Flashcard < ActiveRecord::Base
 
   def approve
     update_attributes(approved: true)
+    self.user.add_flashcard_credit
     UserMailer.delay.flashcard_approval(self)
   end
 
