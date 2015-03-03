@@ -5327,3 +5327,36 @@ a.podmedcis_button.green.flash_cards_button.preview {
 .close_flashcard_wrapper.live_update_spacing.preview_flashcard_close .close_flashcard {
   display: none;
 }
+span.help-inline {
+  text-align: center;
+  padding-bottom: 10px;
+  background-color: #fa3f52;
+  color: #FFF;
+  margin-bottom: 15px;
+}
+.alert.alert-error {
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  text-align: center;
+  padding-bottom: 15px;
+  background-color: #fa3f52;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.flash_error {
+  background-color: #C82631;
+  width: 100%;
+  text-align: left;
+  text-indent: 20px;
+  padding-top: 24px;
+  padding-bottom: 20px;
+  float: left;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 13px;
+}
