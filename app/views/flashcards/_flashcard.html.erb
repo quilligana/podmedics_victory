@@ -10,7 +10,7 @@
       <%= flashcard.title %>
     </div>
     <div class="flashcard_user_created_name">
-      Created by <a href="#">Jamie Peak</a>
+      Created by <%= link_to flashcard.user.name, user_path(flashcard.user) %>
     </div>
 
     <div class="flashcard_divider"></div>
