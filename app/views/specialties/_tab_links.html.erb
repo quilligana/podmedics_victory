@@ -1,14 +1,6 @@
-<ul>
-  <li>
-    <%= link_to specialty_path(@specialty), class: 'lectures_tab tabulous_active'  do %>
-      <p>Lectures</p>
-      <p class="icon"></p>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to specialty_exam_url(@specialty.id), class: "quiz_tab tip", id: 'quiz_link_header', :data => { :tip => 'Answer 30 random questions for this specialty'} do  %>
-      <p>Take a <%= @specialty.name %> Quiz</p>
-      <p class="icon"></p>
-    <% end %>
-  </li>
-</ul>
+<div class="specialty_quiz_title_link">
+  <%= link_to specialty_exam_url(@specialty.id), class: "quiz_tab tip", id: 'quiz_link_header', :data => { :tip => 'Answer 30 random questions for this specialty'} do  %>
+    <p>Take a <%= @specialty.name %> Quiz</p>
+    <p class="icon"></p>
+  <% end %>
+</div>
