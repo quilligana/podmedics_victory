@@ -25,6 +25,7 @@
             <div id="tabs-1" class="tab_box">
               <div class="inner_page_padding">
                 <div class="lecture_list">
+                  <h2>Videos</h2>
                   <%= render partial: 'dashboards/video_list', locals:
                       {videos: @videos} %>
                 </div>
@@ -35,55 +36,35 @@
       </div>
       <div class="flashcard_grid_wrapper">
 
-        <div class="flashcard_grid_title"><%= @specialty.name %> Flashcards</div>
+        <div class="flashcard_grid_title">Flashcards</div>
+        <% if @flashcards.count > 0 %>
         <ul class="tips">
-          <li>
-            <div class="tc_front">
-              <a href="#tip1">Tip 1: See What videos your friends are posting and adjust friendships accordingly.</a>
-            </div>
-            <div class="tc_back"></div>
+          <% @flashcards.each_with_index do |flashcard, index| %>
+              <li>
+                <!-- front of the card-->
+                <div class="tc_front">
+                  <a href="#tip<%= index %>"><%= flashcard.title %></a>
+                </div>
+                <div class="tc_back"></div>
 
-            <div id="tip1" class="tip">
-              <div class="tc_front">
-                <h1>1. See What videos your friends are posting</h1>
-                <p>Whether you're browsing youtube.com or its mobile app, when you're signed in with your Google Account, you can see videos recommended for you.</p>
-              </div>
-              <div class="tc_back">
-                <p>Tip 1: See What videos your friends are posting and adjust friendships accordingly.</p>
-              </div>
-            </div>
-          </li>
+                <!-- content that appears on click -->
+                <div id="tip<%= index %>" class="tip">
+                  <div class="tc_front">
+                    <!-- all flashcard content to go here -->
+                    <h1><%= flashcard.title %></h1>
+                    <p><%= flashcard.epidemiology.html_safe %></p>
+                  </div>
+                  <div class="tc_back"><p>Blah</p></div>
+                </div>
+              </li>
 
-
-          <li>
-            <div class="tc_front">
-              <a href="#tip2">Tip 2: See What videos your friends are posting and adjust friendships accordingly.</a>
-            </div>
-            <div class="tc_back"></div>
-
-            <div id="tip2" class="tip">
-              <div class="tc_front">
-                <h1>2. See What videos your friends are posting</h1>
-                <p>Whether you're browsing youtube.com or its mobile app, when you're signed in with your Google Account, you can see videos recommended for you.</p>
-              </div>
-              <div class="tc_back">
-                <p>Tip 2: See What videos your friends are posting and adjust friendships accordingly.</p>
-              </div>
-            </div>
-          </li>
-
-
-
+          <% end %>
         </ul>
-
-
-
-
+        <% else %>
+            <div class="flashcards_none">Sorry we don't have any flashcards yet for this specialty. Why don't you create one?</div>
+        <% end %>
       </div>
-
     </div>
-
-
 
     <%= render 'specialty_stats' %>
 
