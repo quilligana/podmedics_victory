@@ -5364,3 +5364,76 @@ span.help-inline {
   font-size: 14px;
   color: #9D9D9D;
 }
+.flashcard_promo_block_wrapper {
+  padding: 20px;
+  float: left;
+  border-bottom: solid 1px #EFEFEF;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.flashcard_promo_block {
+  width: 100%;
+  float: left;
+  background-color: #81CE7D;
+  color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.flashcard_promo_block_top_icon {
+  width: 100%;
+  height: 100px;
+  background-image: image-url('flashcard_promo_block_top_icon.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin-bottom: 20px;
+}
+.flashcard_promo_block_top p {
+  text-transform: uppercase;
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.flashcard_promo_block_bottom {
+  width: 100%;
+  border-top: solid 1px #6CB868;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.flashcard_promo_block_bottom p {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 15px;
+  line-height: 24px;
+}
+.flashcard_promo_block_bottom a {
+  background-color: #497946;
+  color: #FFF;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.flashcard_promo_block_bottom a:hover {
+  background-color: #234F1C;
+}
+
+.promo_modal_preview_image {
+  width: 386px;
+  height: 183px;
+  background-image: image-url('flashcard_promo_modal_image.jpg');
+  border-radius: 6px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.24);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

@@ -1,5 +1,29 @@
 <div class="lecture_questions_right_column notes_right_column">
 
+  <div class="flashcard_promo_block_wrapper">
+    <div class="flashcard_promo_block">
+      <div class="flashcard_promo_block_top">
+        <div class="flashcard_promo_block_top_icon"></div>
+        <p>Get two months free Podmedics Membership</p>
+      </div>
+      <div class="flashcard_promo_block_bottom">
+        <p>Create flashcards that help the community and & get 2 Months membership for free!</p>
+        <a href="javascript:;" data-reveal-id="flashcard_promo_modal">Find Out More</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="flashcard_promo_modal" class="reveal-modal earn_points_modal_resize">
+    <div class="earn_points_modal_resize_inner_spacing">
+      <div class="ask_question_modal_title">How do I get 2 months free membership?</div>
+      <div class="promo_modal_preview_image"></div>
+      <p>
+        Create your flashcard by filling in this nifty form. You can preview it live on the right of this page. For every flashcard that you submit, and is accepted, you will get two free months of Podmedics membership (and eternal fame!)
+      </p>
+    </div>
+  </div>
+
+
   <% if current_user.is_trial_member? && !current_user.has_access_to?(@specialty) %>
     <div class="unlock_specialty_outer_wrapper">
       <div class="unlock_specialty_wrapper">

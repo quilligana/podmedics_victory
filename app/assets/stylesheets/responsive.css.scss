@@ -1935,7 +1935,11 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 550px) {
-  .flashcard_wrapper {
+  .promo_modal_preview_image {
+    width: 344px;
+    height: 163px;
+  }
+    .flashcard_wrapper {
     width: 440px;
   }
   .inner_flashcard_wrapper {
@@ -1998,6 +2002,10 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 450px) {
+  .promo_modal_preview_image {
+    width: 254px;
+    height: 123px;
+  }
   .flashcard_create_left_column_inner_spacing {
     padding-left: 20px;
     padding-right: 20px;
