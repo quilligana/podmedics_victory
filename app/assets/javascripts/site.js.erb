@@ -10,6 +10,8 @@ ready = function() {
     mainDiv: '#tabs_container'
   });
 
+
+
   // First to answer question link
   $("#first_to_answer_question_link").click(function(){
     $('.comments_textarea').focus();
@@ -279,6 +281,11 @@ ready = function() {
     $(this).fadeToggle(0);
     $(".flashcard_wrapper.preview_flashcard").animate({width:'toggle'},350);
   });
+
+
+  // Toggle Hide Flashcards flip
+  $(".tips").tip_cards();
+
 
 
 

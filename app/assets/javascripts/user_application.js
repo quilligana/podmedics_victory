@@ -17,3 +17,4 @@
 //= require pace
 //= require strip.pkgd.min
 //= require tipr.min
+//= require jquery.tip_cards.min

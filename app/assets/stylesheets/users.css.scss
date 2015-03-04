@@ -5437,3 +5437,170 @@ span.help-inline {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
+.flashcard_grid_wrapper {
+  width: 100%;
+  float: left;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #EFEFEF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tc_front h1 {
+  width: 100%;
+}
+.flashcard_grid_wrapper h1, .flashcard_grid_wrapper h2 {
+  width: 100%;
+  float: left;
+}
+.flashcard_grid_wrapper h1 {
+  margin-top: 100px;
+  color: #999;
+  margin-bottom: 5px;
+  font-size: 70px;
+  font-weight: 100;
+}
+.flashcard_grid_wrapper h2 {
+  padding: 00px 20px 30px 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  letter-spacing: 0px;
+  color: #888;
+  font-size: 20px;
+  line-height: 160%;
+  font-weight: 100;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+
+.flashcard_grid_wrapper .pointer {
+  color: #00B0FF;
+  font-size: 24px;
+  margin-top: 15px;
+  position: absolute;
+  top: 130px;
+  right: -40px;
+}
+.flashcard_grid_wrapper .pointer2 {
+  color: #00B0FF;
+  font-size: 24px;
+  margin-top: 15px;
+  position: absolute;
+  top: 130px;
+  left: -40px;
+}
+
+
+
+
+
+.flashcard_grid_wrapper .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: block;
+  padding: 7px;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background:#f5f5f5;
+  font-weight: bold;
+  font-size: 13px;
+  color: #888;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+.flashcard_grid_wrapper .back:hover {
+  background: #eee;
+}
+
+
+.flashcard_grid_wrapper .tip {
+  display: none;
+}
+
+.flashcard_grid_wrapper .tc_modal {
+  width: 890px;
+}
+
+.flashcard_grid_wrapper .tc_body .tc_card .tc_inner_card .tc_click_target {
+  font-size: 14px;
+  color: #888;
+  line-height: 25px;
+  font-weight: 300;
+  text-align: left;
+  padding: 30px 30px 30px 30px;
+}
+
+.flashcard_grid_wrapper .tc_back p {
+  font-weight: 300;
+  padding: 50px 20px 20px;
+  margin: 0 0 10px 0;
+  color: #8A8C93;
+  color: #777;
+  letter-spacing: -1.2px;
+  font-size: 3.5625em;
+  line-height: 72px;
+  text-align: left;
+}
+.flashcard_grid_wrapper .tc_inner_modal .tc_front {
+  min-height: 300px;
+}
+
+.flashcard_grid_wrapper .tc_inner_modal .tc_front h1 {
+  margin-top: 20px;
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.flashcard_grid_wrapper .tc_inner_modal .tc_front p {
+  text-align: left;
+  min-height: 70px;
+  font-size: 24px;
+  line-height: 180%;
+}
+.flashcard_grid_wrapper .tc_next, .flashcard_grid_wrapper .tc_prev {
+  line-height: 90%;
+}
+.flashcard_grid_wrapper .tc_inner_modal {
+  margin: 40px;
+}
+.flashcard_grid_wrapper {
+  width: 100%;
+  border-right: solid 1px #EFEFEF;
+  padding: 25px;
+  float: left;
+  border-top: solid 1px #EFEFEF;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.flashcard_grid_title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #5A5A5A;
+  margin-bottom: 10px;
+}
