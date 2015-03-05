@@ -40,9 +40,9 @@
         model.availableQuestions = data.questions;
         deferred.resolve(model);
       }, function(reason) {
-        console.log('createNew quizcalled with bad response')
+        console.log('createNew quizcalled with bad response');
         deferred.reject(reason);
-      })
+      });
 
       return deferred.promise;
     }
@@ -88,7 +88,7 @@
       restart: restart
     }
 
-  };
+  }
 
   angular.module('TrialQuestionsApp').controller('TrialQuestionsController', TrialQuestionsController);
 
@@ -117,7 +117,7 @@
         angular.forEach(vm.currentQuestion.answers, function(answer){
           answer.notSelectedAndIncorrect = true;
         })
-      }
+      };
 
       vm.nextQuestion = function() {
         if (Quiz.lastQuestion()) {
@@ -130,18 +130,18 @@
           vm.currentQuestion = Quiz.currentQuestion();
           vm.showAnswer = false;
         }
-      }
+      };
 
       vm.isCorrect = function(answer) {
-        return (answer.index == vm.currentQuestion.correct_answer) ? true : false
-      }
+        return (answer.index == vm.currentQuestion.correct_answer)
+      };
 
       vm.startAgain = function(){
         Quiz.restart();
         vm.currentQuestion = Quiz.currentQuestion();
 
         vm.showAnswer = false;
-        vm.questionsEnded = false
+        vm.questionsEnded = false;
         vm.firstQuestionAvailable = true;
       }
 
