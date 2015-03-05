@@ -75,12 +75,13 @@
 }
 
 .tc_modal_open {
-  overflow: hidden;
+    overflow: hidden;
+
 }
 
 .tc_main_modal {
   z-index: 105;
-  top: -100%;
+    top: 100%;
   display: block;
   visibility: hidden;
 }
@@ -90,6 +91,7 @@
   -moz-transform:  rotate(0);
   -o-transform:  rotate(0);
   transform:  rotate(0);
+
 }
 
 
@@ -104,6 +106,7 @@
   -moz-transform-origin: 50% 100%;
   -o-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
+
 }
 
 .tc_to_bottom {

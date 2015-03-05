@@ -5551,8 +5551,15 @@ span.help-inline {
   line-height: 25px;
   font-weight: 300;
   text-align: left;
-  padding: 30px 30px 30px 30px;
+  padding: 20px;
+  border-top: solid 2px #FF414E;
+  min-height: 50px;
 }
+.flashcard_grid_wrapper .tc_body .tc_card .tc_inner_card .tc_click_target:hover {
+  border-top: solid 2px #DA2E39;
+  color: #FF414E;
+}
+
 
 .flashcard_grid_wrapper .tc_back p {
   font-weight: 300;
@@ -5624,4 +5631,12 @@ a#quiz_link_header:hover {
   width: 100%;
   float: left;
   color: #8E8E8E;
+}
+.flashcard_tip_wrapper {
+  height: 500px;
+  overflow: scroll;
+}
+a.flashcard_tip_user {
+  display: inline;
+  padding: 0px;
 }
