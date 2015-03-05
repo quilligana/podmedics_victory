@@ -478,3 +478,43 @@ body .tc_back {
     transform: translateX(0);
   }
 }
+
+
+@media screen and (max-width: 980px) {
+    .tc_modal {
+        max-width: 600px;
+        min-width: 600px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .tc_modal {
+        max-width: 400px;
+        min-width: 400px;
+    }
+}
+@media screen and (max-width: 500px) {
+
+    .tc_modal {
+        max-width: 300px;
+        min-width: 300px;
+    }
+
+    .flashcard_tip_wrapper {
+        height: 450px;
+    }
+    .tc_prev, .tc_next {
+        display: none;
+    }
+    .tc_card {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 425px) {
+
+    li.tc_card.animate.tc_entrance_bottom {
+        width: 100%;
+    }
+
+}
