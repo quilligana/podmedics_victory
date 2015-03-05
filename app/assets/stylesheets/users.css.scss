@@ -1849,7 +1849,7 @@ a.red_button.medium.next_question_button {
   border-right-color: #EFEFEF;
   float: left;
   width: 100%;
-  min-height: 910px;
+  -webkit-box-sizing: border-box;
 }
 
 .speciality_left_column {
@@ -5597,6 +5597,7 @@ span.help-inline {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  min-height: 380px;
 }
 .flashcard_grid_title, h2.lecture_list_title {
   font-size: 22px;
@@ -5618,4 +5619,9 @@ a#quiz_link_header {
 }
 a#quiz_link_header:hover {
   background-color: #DA3041;
+}
+.flashcards_none {
+  width: 100%;
+  float: left;
+  color: #8E8E8E;
 }
