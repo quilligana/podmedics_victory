@@ -20,12 +20,12 @@
     <div class="speciality_left_column">
       <div class="lectures_speciality_outer_wrapper">
         <div id="tabs_single_page">
-          <%= render 'specialties/tab_links' %>
           <div id="tabs_container">
             <div id="tabs-1" class="tab_box">
               <div class="inner_page_padding">
                 <div class="lecture_list">
                   <h2 class="lecture_list_title">Videos</h2>
+                  <%= render 'specialties/tab_links' %>
                   <%= render partial: 'dashboards/video_list', locals:
                       {videos: @videos} %>
                 </div>
