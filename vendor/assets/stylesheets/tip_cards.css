@@ -15,10 +15,10 @@
 }
 
 .tc_inner_card .tc_shadow {
-  background-image: -moz-linear-gradient(right, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.01) 100%);
-  background-image: -o-linear-gradient(right, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.01) 100%);
-  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.01) 100%);
-  background-image: linear,right,rgba(0,0,0,0.16) 0%,rgba(0,0,0,0.01) 100%;
+  background-image: -moz-linear-gradient(right, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.01) 100%);
+  background-image: -o-linear-gradient(right, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.01) 100%);
+  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.01) 100%);
+  background-image: linear,right,rgba(0,0,0,0.04) 0%,rgba(0,0,0,0.01) 100%;
   content: '';
   display: block;
   position: absolute;
@@ -38,6 +38,7 @@
 
 .tc_modal {
   max-width: 890px;
+  min-width: 890px;
   position: fixed;
   background: white;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
