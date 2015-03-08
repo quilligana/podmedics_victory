@@ -9,7 +9,6 @@ class FlashcardsController < ApplicationController
   def create
     @video = Video.friendly.find(params[:video_id])
     @flashcard = Flashcard.new(flashcard_params)
-    @flashcard.title = @video.title
     @flashcard.video_id = @video.id
     @flashcard.specialty_id = @video.specialty_id
     @flashcard.user_id = current_user.id

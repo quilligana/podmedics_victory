@@ -5645,3 +5645,13 @@ li.tc_card.animate.tc_entrance_bottom {
   width: 153px;
   margin-bottom: 20px;
 }
+
+input#flashcard_title {
+  padding: 20px;
+  width: 60%;
+  font-size: 14px;
+  margin: 0 !important;
+  outline: none;
+  line-height: 1.6;
+  white-space: normal;
+}
