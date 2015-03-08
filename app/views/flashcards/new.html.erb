@@ -161,7 +161,7 @@
     (function(){
         angular.module('FlashcardApp', ['ngSanitize', 'angular-redactor'])
                 .config(function(redactorOptions){
-                    redactorOptions.buttons = ['bold', 'italic', '|', 'unorderedlist', 'orderedlist'];
+                    redactorOptions.buttons = ['bold', 'italic', '|', 'unorderedlist', 'orderedlist', 'link', '|', 'indent', 'outdent'];
                 });
 
         angular.module('FlashcardApp').controller('FlashcardController', FlashcardController);
