@@ -15,7 +15,7 @@ class VideosController < ApplicationController
     @video = Video.includes(:specialty, :author, :tags).friendly.find(params[:id])
     @specialty = @video.specialty
     @author = @video.author
-    @flashcard = @video.flashcards.first
+    @flashcards = @video.flashcards
 
     check_unlock if current_user.is_trial_member?
 
