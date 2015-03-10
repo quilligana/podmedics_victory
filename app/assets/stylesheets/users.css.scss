@@ -5277,14 +5277,21 @@ p.help-block {
   font-size: 13px;
   color: #939393;
   margin-bottom: 30px;
+  text-transform: none;
+  font-weight: 400;
 }
-
+.form-group.string.required.flashcard_title label {
+  margin-bottom: 10px;
+  float: left;
+  text-transform: none;
+}
 .flashcard_create_left_column_inner_spacing h2 {
   margin-bottom: 10px;
 }
 .flashcard_create_left_column_inner_spacing label {
   font-size: 14px;
   font-weight: 800;
+  color: #2d2d2d;
 }
 .sub_heading_right_flashcard_create_heading a.podmedcis_button.green.flash_cards_button {
   width: 190px;
@@ -5445,23 +5452,6 @@ span.help-inline {
   border-right-style: solid;
   border-right-color: #EFEFEF;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .tc_front h1 {
   width: 100%;
 }
@@ -5647,11 +5637,20 @@ li.tc_card.animate.tc_entrance_bottom {
 }
 
 input#flashcard_title {
-  padding: 20px;
-  width: 60%;
+  padding-bottom: 14px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 18px;
+  width: 100%;
   font-size: 14px;
   margin: 0 !important;
   outline: none;
   line-height: 1.6;
   white-space: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  font-family: 'Montserrat', sans-serif;
+  color: #2d2d2d;
 }
