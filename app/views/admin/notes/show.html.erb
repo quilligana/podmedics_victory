@@ -1,13 +1,10 @@
-<div class="page-header">
+<div class="row header">
   <h1>Note</h1>
 </div>
 
 <div class="row">
   <div class="col-md-6">
-    <p><%= @note.created_at %></p>
-    <p><%= @note.updated_at %></p>
-    <p><%= link_to @note.user, admin_user_path(@note.user) %></p>
-    
+    <p><%= link_to @note.user, admin_user_path(@note.user), class: 'btn' %></p>
   </div>
 </div>
 

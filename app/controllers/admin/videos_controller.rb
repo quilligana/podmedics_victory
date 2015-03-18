@@ -7,7 +7,7 @@ class Admin::VideosController < ApplicationController
 
   def index
     @q = Video.search(params[:q])
-    @videos = apply_scopes(@q.result.includes(:specialty, :tags, :author).order(title: :asc).paginate(page: params[:page]))
+    @videos = apply_scopes(@q.result.includes(:specialty, :tags, :author).order(views: :desc).paginate(page: params[:page]))
   end
 
   def show
