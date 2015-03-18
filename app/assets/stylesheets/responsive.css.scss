@@ -293,6 +293,21 @@ $standard_border_radius: 6px;
 /* Responsive */
 
 
+@media screen and (max-width: 1400px) {
+
+
+  .video_page_heading_button_set {
+    float: left;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+  .video_page_heading_wrapper {
+    width: 100%;
+  }
+}
+
+
 @media screen and (max-width: 1344px) {
 
   .video_header_inner div.video_column {
@@ -332,6 +347,8 @@ $standard_border_radius: 6px;
     -moz-border-radius-bottomright: 5px 5px;
     border-bottom-right-radius: 5px 5px;
   }
+
+
 }
 
 @media screen and (max-width: 1195px) {
@@ -665,12 +682,6 @@ $standard_border_radius: 6px;
     margin-right: 10px;
   }
 
-  .video_page_heading_button_set {
-    float: left;
-    width: auto;
-    margin-bottom: 20px;
-    margin-top: 5px;
-  }
 
   .video_page_heading_wrapper {
     width: 100%;
@@ -928,7 +939,14 @@ a.podmedcis_button.green.flash_cards_button {
   .close_flashcard_wrapper.live_update_spacing.preview_flashcard_close .close_flashcard {
     display: block;
   }
+  .video_page_heading_button_set a.podmedcis_button.green.flash_cards_button {
+    display: block;
+    margin-bottom: 15px;
+  }
 
+  .video_page_heading_button_set .podmedcis_button.take_exam_button{
+    float: left;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -951,6 +969,10 @@ a.podmedcis_button.green.flash_cards_button {
 
   .library_count {
     display: none;
+  }
+  .video_download_dropdown {
+    float: left;
+    clear: both;
   }
 }
 
