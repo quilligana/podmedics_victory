@@ -5,17 +5,6 @@
   </div>
 </div>
 
-<div class="row filter-block">
-  <div class="col-md-12">
-    <div class="btn-group btn-group-justified pull-left">
-      <%= link_to "All (#{User.count})", admin_users_path, class: 'btn' %>
-      <%= link_to "Plan Selected (#{User.has_selected_plan.count})", admin_users_path(has_selected_plan: true), class: 'btn' %>
-      <%= link_to "Trial (#{User.trial(true).count})", admin_users_path(trial: true), class: 'btn' %>
-      <%= link_to "Paid subs (#{User.expired_after(Time.zone.now).count})", admin_users_path(expired_after: Time.zone.now), class: "btn" %>
-    </div>
-  </div>
-</div>
-
 <div class="row">
   <%= link_to "Remove users with no plan selected", remove_if_no_plan_admin_users_path, data: { confirm: 'Are you sure?'} %>
 </div>
