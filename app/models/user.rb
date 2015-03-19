@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
     },
     uniqueness: true
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
   # validates :website, url: { allow_blank: true }
   validates :password, presence: true,
     confirmation: true,
