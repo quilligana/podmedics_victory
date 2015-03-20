@@ -6,6 +6,9 @@
   <td><%= sale.state %></td>
   <td><%= (link_to sale.user.email, admin_user_path(sale.user)) if sale.user %></td>
   <td>
-    <%= link_to "Show", admin_sale_path(sale) %>
+
+    <ul class="actions">
+      <li><%= link_to "Show", admin_sale_path(sale) %></li>
+    </ul>
   </td>
 </tr>

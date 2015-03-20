@@ -1,7 +1,7 @@
 <div class="row header">
   <h3><%= @specialty.name %></h3>
   <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
-    <%= link_to "Specialties", admin_specialties_path, class: 'btn-flat pull-right' %>
+    <%= link_to "Specialties", admin_specialties_path, class: 'btn-flat success pull-right' %>
   </div>
 </div>
 
@@ -28,10 +28,12 @@
               <td><%= video.questions.count %></td>
               <td><%= video.tag_list %></td>
               <td>
-                <%= link_to "Show", admin_video_path(video) %>
-                <%= link_to "Edit", edit_admin_video_path(video) %>
-                <%= link_to "Up", move_up_admin_video_path(video) %>
-                <%= link_to "Down", move_down_admin_video_path(video) %>
+                <ul class="actions">
+                  <li><%= link_to "Show", admin_video_path(video) %></li>
+                  <li><%= link_to "Edit", edit_admin_video_path(video) %></li>
+                  <li><%= link_to "Up", move_up_admin_video_path(video) %></li>
+                  <li><%= link_to "Down", move_down_admin_video_path(video) %></li>
+                </ul>
               </td>
             </tr>
           <% end %>
