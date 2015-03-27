@@ -1,7 +1,5 @@
 <!--<%= link_to "Have you seen our new question apps for iPhone and Android?", app_path, class: 'green_promo_banner'  %> -->
 
-
-
 <%= content_for(:title) { "Podmedics | Dashboard"} %>
 
 <div class="inner dashboard_page">
@@ -20,6 +18,10 @@
 
     <div class="stats_chart_wrapper" id="tour_step_one">
       <%= render 'stats' %>
+    </div>
+
+    <div class="stats_chart_wrapper general_quiz_container">
+      <%= link_to 'Answer random questions', questions_general_path %>
     </div>
 
     <div id="tabs-1" class="tab_box">

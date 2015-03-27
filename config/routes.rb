@@ -108,6 +108,7 @@ PodmedicsVictory::Application.routes.draw do
   get 'tags/:tag', to: 'videos#index', as: :tag
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
+  get 'questions/general', to: 'questions#general_index'
   resources :questions, only: :show
 
   resources :specialties, only: [:show] do
