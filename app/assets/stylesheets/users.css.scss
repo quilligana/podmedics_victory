@@ -5659,5 +5659,36 @@ input#flashcard_title {
 }
 
 .stats_chart_wrapper.general_quiz_container {
-  height: 100px;
+  height: 180px;
+
+  h2 {
+    font-size: 16px;
+    color: #ff414e;
+    font-weight: bold;
+    margin-left: 23px;
+    margin-top: 8px;
+  }
+
+  a.revise_hard_button {
+    margin-top: 20px;
+    padding: 20px;
+    display: block;
+    background-color: #81ce7d;
+    float: left;
+    margin-left: 23px;
+    border-radius: 6px;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #8feb8e;
+    }
+  }
+
+  .revise_hard_description {
+    clear: both;
+    color: #bababa; 
+    font-size: 14px;
+    padding-top: 21px;
+    margin-left: 23px;
+  }
 }

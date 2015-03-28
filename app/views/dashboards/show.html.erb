@@ -21,9 +21,12 @@
     </div>
 
     <div class="stats_chart_wrapper general_quiz_container">
-      <%= link_to 'Answer random questions', questions_general_path %>
-      <p>Revise Hard - Answer 50 random questions taken from across all the specialties</p>
-      <p>A great way to find your weaknesses!</p>
+      <h2>Quick Questions</h2>
+      <%= link_to 'Revise Hard', questions_general_path, class: 'revise_hard_button' %>
+      <div class="revise_hard_description">
+        <p>Revise Hard - Answer 50 random questions taken from across all the specialties</p>
+        <p>A great way to find your weaknesses!</p>
+      </div>
     </div>
 
     <div id="tabs-1" class="tab_box">
