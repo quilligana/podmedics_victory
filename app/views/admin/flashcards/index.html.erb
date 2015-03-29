@@ -7,11 +7,26 @@
 
 <div class="row">
   <div class="col-md-12">
+    <%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit'} do |f| %>
+      <div>
+        <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+      </div>
+      <div>
+        <%= link_to 'Reset filters', reset_filterrific_url %>
+      </div>
+      <%= f.submit 'Filter' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <div class="table-wrapper">
       <table class="table table-hover table-striped" border="0">
         <thead>
             <tr>
               <th>#</th>
+              <th>Created at</th>
               <th>Title</th>
               <th>Video</th>
               <th>Specialty</th>

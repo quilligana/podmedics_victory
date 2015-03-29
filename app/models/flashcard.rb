@@ -49,6 +49,36 @@ class Flashcard < ActiveRecord::Base
   validates_presence_of :treat_medical
   validates_presence_of :treat_surgical
 
+  filterrific(
+    default_filter_params: { sorted_by: 'approved_asc'},
+    available_filters: [
+      :sorted_by,
+      :approved
+    ]
+  )
+
+  scope :sorted_by, lambda { |sort_option|
+    direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
+    case sort_option.to_s
+    when /^created_at_/
+      order("flashcards.created_at #{direction}")
+    when /^title_/
+      order("flashcards.title #{direction}")
+    when /^approved/
+      order("flashcards.approved #{direction}")
+    else
+      raise(ArgumentError, "Invalid sort option: #{sort_option.inspect}")
+    end
+  }
+
+  def self.options_for_sorted_by
+    [
+      ['Created', 'created_at_desc'],
+      ['Title (a-z)', 'title_asc'],
+      ['Approval', 'approved_asc']
+    ]
+  end
+
   def has_video?
     true if video
   end

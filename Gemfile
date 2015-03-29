@@ -45,6 +45,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'chartkick'
 gem 'groupdate'
+gem 'filterrific'
 
 group :development do
   gem 'thin'
