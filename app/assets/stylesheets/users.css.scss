@@ -5659,7 +5659,7 @@ input#flashcard_title {
 }
 
 .stats_chart_wrapper.general_quiz_container {
-  height: 180px;
+  border-top: none;
 
   h2 {
     font-size: 16px;
@@ -5671,13 +5671,20 @@ input#flashcard_title {
 
   a.revise_hard_button {
     margin-top: 20px;
-    padding: 20px;
-    display: block;
-    background-color: #81ce7d;
-    float: left;
+    background-color: #8DDC83;
     margin-left: 23px;
+    font-size: 14px;
+    color: #FFF;
+    float: left;
+    display: block;
+    border: none;
+    outline: none;
     border-radius: 6px;
-    color: #ffffff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    padding: 18px 20px 16px;
 
     &:hover {
       background-color: #8feb8e;
@@ -5685,10 +5692,16 @@ input#flashcard_title {
   }
 
   .revise_hard_description {
-    clear: both;
-    color: #bababa; 
+    color: #ADADAD;
     font-size: 14px;
-    padding-top: 21px;
+    padding-top: 22px;
     margin-left: 23px;
+    margin-right: 26px;
+    padding-bottom: 26px;
+    float: left;
   }
+}
+.revise_hard_description p {
+  padding-bottom: 4px;
+  line-height: 20px;
 }

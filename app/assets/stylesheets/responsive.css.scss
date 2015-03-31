@@ -2448,7 +2448,10 @@ a.podmedcis_button.green.flash_cards_button {
   .stats_chart_wrapper {
     display: none;
   }
-
+  .stats_chart_wrapper.general_quiz_container {
+    display: block;
+    padding-top: 10px;
+  }
   div.inner_home_header {
     padding-top: 50px;
   }
