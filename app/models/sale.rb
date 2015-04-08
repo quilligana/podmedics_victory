@@ -45,6 +45,16 @@ class Sale < ActiveRecord::Base
     end
   end
 
+  def self.income_last_month
+    sales = Sale.where(created_at: 1.month.ago..Time.zone.now)
+    calculate_income(sales)
+  end
+
+  def self.income_last_week
+    sales = Sale.where(created_at: 1.week.ago..Time.zone.now)
+    calculate_income(sales)
+  end
+
   def charge_card
     begin
       save!
@@ -82,6 +92,14 @@ class Sale < ActiveRecord::Base
   end
 
   private
+    
+    def self.calculate_income(sales)
+      income = 0
+      sales.each do |s|
+        income += s.amount
+      end
+      income/100
+    end
 
     def populate_guid
       self.guid = SecureRandom.uuid()

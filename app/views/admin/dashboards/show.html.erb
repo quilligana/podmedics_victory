@@ -6,6 +6,22 @@
 
 <div class="row section">
   <div class="col-md-4">
+    <h3>Income last month</h3>
+    <p><%= number_to_currency(Sale.income_last_month, unit: "£") %></p>
+    <p>Target: £1500 </p>
+  </div>
+  <div class="col-md-4">
+    <h3>Income last week</h3>
+    <p><%= number_to_currency(Sale.income_last_week, unit: "£") %></p>
+    <p>Target: £375</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Income trend</h3>
+  </div>
+</div>
+
+<div class="row section">
+  <div class="col-md-4">
     <h3>Plans</h3>
     <p>All Selected Plans</p>
     <%= bar_chart User.group(:selected_plan).count %>
