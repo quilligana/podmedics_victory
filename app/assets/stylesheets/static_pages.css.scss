@@ -2049,3 +2049,157 @@ a.mobile_nav_icon {
   margin-top: 5px;
 }
 
+.home_plans_section {
+  width: 100%;
+  float: left;
+  background-color: #FFF;
+}
+.home_plans_section_header h2 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #292929;
+  text-align: center;
+  width: 100%;
+}
+.home_plans_section_header p {
+  font-size: 16px;
+  color: #888;
+  padding-top: 10px;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.home_plans_section_header {
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.home_plan_columns_wrapper {
+  width: 100%;
+  float: left;
+}
+
+.home_plan_column {
+  background-color: #FFF;
+  width: 310px;
+  float: left;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.13);
+  margin-left: 16px;
+  margin-right: 16px;
+  border: solid 1px #D8D8D8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.home_plan_column:first-child {
+  margin-left: 0px;
+}
+.home_plan_column:last-child {
+  margin-right: 0px;
+}
+.home_plan_columns_wrapper {
+  width: 100%;
+  float: left;
+  margin-bottom: 40px;
+}
+.home_plans_payment_options {
+  float: left;
+  width: 100%;
+}
+.home_plans_payment_options {
+  float: left;
+  width: 100%;
+  margin-bottom: 80px;
+  text-align: right;
+}
+.home_plan_column_header {
+  background-color: #F9F9F9;
+  border-bottom: solid 1px #DADADA;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #575757;
+  padding-top: 40px;
+  padding-bottom: 34px;
+}
+.home_plan_column_inner {
+  float: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+.home_plan_column_inner p {
+  font-size: 11.5px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #7B7B7B;
+  padding-bottom: 20px;
+}
+.home_plan_column_inner {
+  float: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.home_plan_column_action_button_wrapper {
+  width: 100%;
+  float: left;
+  border-top: solid 1px #DADADA;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.home_plan_column_action_button_wrapper a {
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: #FC4452;
+  color: #FFF;
+  font-size: 13px;
+  text-transform: uppercase;
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  border-radius: 4px;
+}
+p.home_plan_column_term_wrapper {
+  background-color: #90CF6F;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+.home_plan_column_header.free_membership_title {
+  padding-top: 36px;
+  padding-bottom: 25px;
+}
+.home_plans_payment_options {
+  float: left;
+  width: 100%;
+  margin-bottom: 80px;
+  text-align: right;
+  font-size: 11px;
+  color: #7F7F7F;
+  text-transform: uppercase;
+}
+.home_plan_column_action_button_wrapper a:hover {
+  background-color: #9B2530;
+}
+
+.home_plans_best_value_icon {
+  background-image: image-url('best_value_icon.png');
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  margin-left: 275px;
+  margin-top: -20px;
+}

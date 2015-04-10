@@ -529,6 +529,30 @@ $standard_border_radius: 6px;
 
 }
 @media screen and (max-width: 1020px) {
+
+  .home_plan_column {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+  }
+  .home_plan_column:first-child {
+    margin-left: auto;
+  }
+  .home_plan_column:last-child {
+    margin-right: auto;
+    margin-bottom: 0px;
+  }
+  .home_plans_payment_options {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .home_plan_columns_wrapper {
+    margin-bottom: 30px;
+  }
+
+
+
   .flashcard_grid_wrapper {
     min-height: inherit;
   }
@@ -1813,16 +1837,30 @@ a.podmedcis_button.green.flash_cards_button {
   .home_section_four .right_column h2 {
     font-size: 30px;
   }
-
+  .home_plans_section_header {
+    margin-bottom: 30px;
+  }
   .oxford_uni_text h3 {
     font-size: 16px;
   }
-
+  .home_plans_section_header h2 {
+    font-size: 22px;
+  }
+  .home_plans_section_header p {
+    font-size: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+  }
   .questions_answers_main_question .main_question_header h2 {
     font-size: 18px;
     line-height: 26px;
   }
-
+  .home_plan_column_action_button_wrapper a {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .questions_answers_main_question .main_question_header p {
     font-size: 12px;
   }
@@ -2186,6 +2224,17 @@ a.podmedcis_button.green.flash_cards_button {
 
 
 @media screen and (max-width: 400px) {
+  .questions_header_padding.ng-binding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .home_plan_column {
+    width: 280px;
+  }
+    .home_plans_best_value_icon {
+    margin-left: 115px;
+    margin-top: -30px;
+  }
   .quiz_app_section_one_wrapper {
     padding-top: 30px;
   }
@@ -2193,6 +2242,7 @@ a.podmedcis_button.green.flash_cards_button {
     background-size: 250%;
     height: 402px;
   }
+
   .quiz_app_header {
     height: 649px;
   }
@@ -2681,6 +2731,5 @@ a.podmedcis_button.green.flash_cards_button {
     width: 92%;
     padding-left: 4%;
     padding-right: 4%;
-
   }
 }
