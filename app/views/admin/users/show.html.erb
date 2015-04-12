@@ -104,17 +104,7 @@
   <div class="col-md-12">
     <div class="well">
       <h4>Questions</h4>
-      <ul>
-        <% if @user.user_questions.count > 0 %>
-          <% @user.user_questions.each do |uq| %>
-            <li>
-              <%= link_to uq.question.stem.html_safe, edit_admin_video_question_path(uq.question.video, uq.question)  %>
-            </li>
-          <% end %>
-        <% else %>
-          <p>User has not answered any questions yet</p>
-        <% end %>
-      </ul>
+      <%= @user.user_questions.count %> questions answered
     </div>
   </div>
 </div>
