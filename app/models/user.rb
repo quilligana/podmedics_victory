@@ -65,16 +65,16 @@ class User < ActiveRecord::Base
   
   validates :email,
     email_format: {
-      message: 'Not a valid email address',
-      allow_nil: true
+      message: 'Not a valid email address'
     },
+    allow_nil: true,
     uniqueness: true
   validates :name, presence: true
   validates :email, presence: true
   # validates :website, url: { allow_blank: true }
   validates :password, presence: true,
     confirmation: true,
-    length: {within: 5..30},
+    length: { within: 5..30 },
     on: :create
   # validates_acceptance_of :terms_agreement, on: :create, accept: true
 
