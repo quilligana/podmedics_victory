@@ -23,7 +23,7 @@ class Permission
       allow :specialty_unlocks, [:create]
       allow :hosted_files, [:video, :audio, :slides]
       allow :specialties, [:show]
-      allow :questions, [:index, :specialty_index, :show, :answer, :result]
+      allow :questions, [:index, :specialty_index, :general_index, :show, :answer, :result]
       allow :comments, [:create, :vote, :accept, :destroy]
       allow :specialty_questions, [:show, :index, :create, :destroy, :load]
       allow :notes, [:create, :update, :load, :index, :show]

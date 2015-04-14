@@ -3,7 +3,24 @@ class Admin::FlashcardsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @flashcards = Flashcard.all.order(:title)
+    @filterrific = initialize_filterrific(
+      Flashcard,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Flashcard.options_for_sorted_by
+      }
+    ) or return
+
+    @flashcards = @filterrific.find
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  rescue ActiveRecord::RecordNotFound => e
+    puts "Had to reset filterrific params: #{e.message}"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def new

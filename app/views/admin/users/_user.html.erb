@@ -13,12 +13,18 @@
   <td><%= user.login_count %></td>
   <td><%= user.last_login_at.to_s(:long) if user.last_login_at %></td>
   <td><%= user.specialties.map { |e| e.name }  %></td>
-  <td>
-    <%= link_to "Show", admin_user_path(user) %>
-    <%= link_to "Edit", edit_admin_user_path(user) %>
-    <%= link_to "Remove", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?'} %>
-    <% if user.suitable_for_reminder? %>
-      <%= link_to "Send 1w reminder", send_1w_reminder_admin_user_path(user) %>
-    <% end %>
+  <td style="width: 500px;">
+    <ul class="actions">
+      <li><%= link_to "Show", admin_user_path(user) %></li>
+      <!--<li><%= link_to "Edit", edit_admin_user_path(user) %></li>
+      <li><%= link_to "Remove", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?'} %></li>
+      <li>
+        <% if user.suitable_for_reminder? %>
+          <%= link_to "Send 1w reminder", send_1w_reminder_admin_user_path(user) %>
+        <% end %>
+      </li>
+      -->
+    </ul>
+
   </td>
 </tr>

@@ -1,8 +1,13 @@
-<tr>
+<tr id="filterrific_results">
   <td><%= flashcard.id %></td>
+  <td><%= flashcard.created_at %></td>
   <td><%= flashcard.title %></td>
-  <td><%= flashcard.video.title if flashcard.video %></td>
-  <td><%= flashcard.specialty.name if flashcard.specialty %></td>
+  <td>
+    <% if flashcard.video %>
+      <%= link_to flashcard.video.title, admin_video_path(flashcard.video) %>
+    <% end %>
+  </td>
+  <td><%= link_to flashcard.specialty.name, admin_specialty_path(flashcard.specialty) %></td>
   <td>
     <% if flashcard.user %>
         <%= link_to flashcard.user.name, admin_user_path(flashcard.user) %>

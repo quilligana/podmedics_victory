@@ -2,23 +2,12 @@
   <h3>Users (<%= @users.count %>)</h3>
   <div class="col-md-10 pull-right">
     <%= link_to "New User", new_admin_user_path, class: 'btn-flat success pull-right' %>
+    <%= link_to "View all", admin_users_path, class: 'btn-flat success pull-right grey' %>
+    <%= link_to "Remove users with no plan selected", remove_if_no_plan_admin_users_path, data: { confirm: 'Are you sure?'}, class: 'btn-flat success pull-right grey' %>
+
   </div>
 </div>
 
-<div class="row filter-block">
-  <div class="col-md-12">
-    <div class="btn-group btn-group-justified pull-left">
-      <%= link_to "All (#{User.count})", admin_users_path, class: 'btn' %>
-      <%= link_to "Plan Selected (#{User.has_selected_plan.count})", admin_users_path(has_selected_plan: true), class: 'btn' %>
-      <%= link_to "Trial (#{User.trial(true).count})", admin_users_path(trial: true), class: 'btn' %>
-      <%= link_to "Paid subs (#{User.expired_after(Time.zone.now).count})", admin_users_path(expired_after: Time.zone.now), class: "btn" %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <%= link_to "Remove users with no plan selected", remove_if_no_plan_admin_users_path, data: { confirm: 'Are you sure?'} %>
-</div>
 
 <div class="row">
   <div class="col-md-8 ">
@@ -29,7 +18,6 @@
       <%= f.submit 'Search', class: 'btn-flat' %>
       <br />
     <% end %>
-    <%= link_to "View all", admin_users_path  %>
   </div>
 </div>
 

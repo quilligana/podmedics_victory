@@ -5211,6 +5211,9 @@ a.grey_button.download_slides_button {
 }
 .flashcard_copy ul li, .flashcard_copy ol li {
   margin-top: 5px;
+  display: block;
+  display: list-item;
+  list-style-type: disc;
 }
 a.podmedcis_button.green.flash_cards_button {
   margin-right: 15px;
@@ -5653,4 +5656,52 @@ input#flashcard_title {
   border: 1px solid #eee;
   font-family: 'Montserrat', sans-serif;
   color: #2d2d2d;
+}
+
+.stats_chart_wrapper.general_quiz_container {
+  border-top: none;
+
+  h2 {
+    font-size: 16px;
+    color: #ff414e;
+    font-weight: bold;
+    margin-left: 23px;
+    margin-top: 20px;
+  }
+
+  a.revise_hard_button {
+    margin-top: 20px;
+    background-color: #8DDC83;
+    margin-left: 23px;
+    font-size: 14px;
+    color: #FFF;
+    float: left;
+    display: block;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    padding: 18px 20px 16px;
+
+    &:hover {
+      background-color: #8feb8e;
+    }
+  }
+
+  .revise_hard_description {
+    color: #ADADAD;
+    font-size: 14px;
+    padding-top: 22px;
+    margin-left: 23px;
+    margin-right: 26px;
+    padding-bottom: 26px;
+    float: left;
+  }
+}
+.revise_hard_description p {
+  padding-bottom: 4px;
+  line-height: 20px;
 }

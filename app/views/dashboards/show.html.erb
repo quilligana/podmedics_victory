@@ -1,7 +1,5 @@
 <!--<%= link_to "Have you seen our new question apps for iPhone and Android?", app_path, class: 'green_promo_banner'  %> -->
 
-
-
 <%= content_for(:title) { "Podmedics | Dashboard"} %>
 
 <div class="inner dashboard_page">
@@ -20,6 +18,15 @@
 
     <div class="stats_chart_wrapper" id="tour_step_one">
       <%= render 'stats' %>
+    </div>
+
+    <div class="stats_chart_wrapper general_quiz_container">
+      <h2>Quick Questions</h2>
+      <%= link_to 'Revise Hard', questions_general_path, class: 'revise_hard_button' %>
+      <div class="revise_hard_description">
+        <p>Revise Hard - Answer 50 random questions taken from across all the specialties</p>
+        <p>A great way to find your weaknesses!</p>
+      </div>
     </div>
 
     <div id="tabs-1" class="tab_box">

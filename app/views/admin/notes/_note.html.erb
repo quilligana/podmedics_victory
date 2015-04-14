@@ -1,9 +1,13 @@
 <tr>
+
   <td><%= note.id %></td>
   <td><%= note.created_at %></td>
   <td><%= note.updated_at %></td>
-  <td><%= note.specialty.name %></td>
-  <td><%= note.noteable_type%></td>
+  <td><%= link_to note.specialty.name, admin_specialty_path(note.specialty) %></td>
   <td><%= link_to note.user, admin_user_path(note.user) %></td>
-  <td><%= link_to 'View', [:admin, note] %></td>
+  <td>
+    <ul class="actions">
+      <li><%= link_to 'View', [:admin, note] %></li>
+    </ul>
+  </td>
 </tr>

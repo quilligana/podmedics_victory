@@ -2,33 +2,47 @@ class QuestionsController < ApplicationController
   layout 'user_application'
   before_filter :check_session, only: [:show, :answer, :result]
 
+  # video questions
   def index
     video = Video.friendly.find(params[:video_id])
     @question_ids = video.question_ids
     if current_user.is_trial_member? && !current_user.has_access_to?(video.specialty) && !video.preview
-      redirect_to specialty_path(video.specialty), alert: 'You have not yet unlocked this specialty'
+      redirect_to specialty_path(video.specialty), alert: 'Please unlock this specialty to access questions'
     else
       initiate_questions
     end
 
   end
 
+  # specialty questions
   def specialty_index
     specialty = Specialty.cached_friendly_find(params[:id])
     video_ids = specialty.video_ids
     @question_ids = Question.where("video_id IN (?)", video_ids).limit(30).order("RANDOM()").pluck(:id)
     if current_user.is_trial_member? && !current_user.has_access_to?(specialty)
-      redirect_to specialty_path(specialty), alert: 'You have not yet unlocked this specialty'
+      redirect_to specialty_path(specialty), alert: 'Please unlock this specialty to access questions'
     else
       initiate_questions
     end
   end
 
+  # questions from whole bank
+  def general_index
+    @question_ids = Question.order("RANDOM()").limit(50).pluck(:id)
+    if current_user.is_trial_member?
+      redirect_to dashboard_path, alert: 'You must be a full member to access all our questions.'
+    else
+      initiate_questions
+    end
+  end
+
+  # show a question page
   def show
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)
   end
 
+  # question answer page
   def answer
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)
@@ -36,6 +50,7 @@ class QuestionsController < ApplicationController
     process_answer(params[:answer_given])
   end
 
+  # quiz result page
   def result
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)
