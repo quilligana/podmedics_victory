@@ -41,7 +41,6 @@ module Avatars
 
   def gravatar_fallback(style, request)
       default_url = "#{request.protocol}#{request.host_with_port}#{ActionController::Base.helpers.asset_url('avatar-128.jpg')}"
-      # raise
     if self.class.name == "User"
       size = gravatar_size(style)
       gravatar_id = Digest::MD5::hexdigest(email).downcase

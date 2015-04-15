@@ -88,7 +88,7 @@
       <div class="blog_post_author_section">
         <p class="post_written_by_title">Post Written By</p>
         <div class="blog_post_author_avatar">
-          <%= image_tag @post.author.get_avatar(:square), width: '128', height: '128' %>
+          <%= image_tag @post.author.get_avatar(:square, request), width: '128', height: '128' %>
         </div>
         <div class="blog_post_author_info_wrapper">
           <p class="blog_post_author_name"><%= @post.author.name %></p>

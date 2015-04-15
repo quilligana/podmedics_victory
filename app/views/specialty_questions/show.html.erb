@@ -39,7 +39,7 @@
               <% end %>
 
               <div class="main_question_header">
-                <div class="main_question_user_avatar"><%= image_tag @question.cached_user.get_avatar(:thumb) %></div>
+                <div class="main_question_user_avatar"><%= image_tag @question.cached_user.get_avatar(:thumb, request) %></div>
                 <h2><%= @question.content %></h2>
                 <p> Posted 
                     <%= time_ago_in_words(@question.created_at) %> 

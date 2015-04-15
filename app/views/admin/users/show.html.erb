@@ -16,7 +16,7 @@
       <p>Admin: <%= @user.admin %></p>
       <p>Name: <%= @user %></p>
       <p>Email: <%= @user.email %></p>
-      <p><%= image_tag @user.get_avatar(:thumb) %></p>
+      <p><%= image_tag @user.get_avatar(:thumb, request) %></p>
     </div>
   </div>
   <div class="col-md-6">

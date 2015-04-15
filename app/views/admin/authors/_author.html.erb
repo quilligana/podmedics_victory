@@ -1,7 +1,7 @@
 <tr class="author">
   <td><%= author.id %></td>
   <td><%= author.name %></td>
-  <td><%= image_tag author.get_avatar(:square), width: '128', height: '128' %></td>
+  <td><%= image_tag author.get_avatar(:square, request), width: '128', height: '128' %></td>
   <td>
     <ul class="actions">
       <li><%= link_to 'Show', admin_author_path(author) %></li>
