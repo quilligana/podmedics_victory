@@ -37,9 +37,6 @@ module Avatars
    else
      gravatar_fallback(style)
    end
-    # TODO - figure out why avatars are not displaying in production
-    # cached_avatar_url(style)
-    # return ActionController::Base.helpers.asset_path('avatar-128.jpg')
   end
 
   def gravatar_fallback(style)
