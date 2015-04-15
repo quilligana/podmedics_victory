@@ -78,7 +78,7 @@
             <div class="top_ranked_users_rank_number"><%= index + 1 %>.</div>
 
             <div class="top_ranked_users_section_avatar">
-              <%= image_tag badge.user.get_avatar(:square) %>
+              <%= image_tag badge.user.get_avatar(:square, request) %>
             </div>
             <div class="top_ranked_users_info_section_wrapper">
               <div class="top_ranked_users_section_username">

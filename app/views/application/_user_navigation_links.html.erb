@@ -6,7 +6,7 @@
     <div class="user_dropdown_wrapper">
       <a href="javascript:;" class="user_dropdown_link">
         <p class="user_icon_header">
-          <%= image_tag current_user.get_avatar(:thumb) %>
+          <%= image_tag current_user.get_avatar(:thumb, request) %>
         </p>
       </a>
       <div class="user_dropdown">

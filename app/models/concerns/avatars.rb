@@ -30,17 +30,18 @@ module Avatars
     end
   end
 
-  def get_avatar(style)
+  def get_avatar(style, request)
    cached_avatar_url(style)
    if avatar.exists?
      avatar.url(style)
    else
-     gravatar_fallback(style)
+     gravatar_fallback(style, request)
    end
   end
 
-  def gravatar_fallback(style)
-      default_url = ActionController::Base.helpers.asset_url('avatar-128.jpg')
+  def gravatar_fallback(style, request)
+      default_url = "#{request.protocol}#{request.host_with_port}#{ActionController::Base.helpers.asset_url('avatar-128.jpg')}"
+      # raise
     if self.class.name == "User"
       size = gravatar_size(style)
       gravatar_id = Digest::MD5::hexdigest(email).downcase
