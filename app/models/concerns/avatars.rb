@@ -35,11 +35,31 @@ module Avatars
    if avatar.exists?
      avatar.url(style)
    else
-     ActionController::Base.helpers.asset_path('avatar-128.jpg')
+     gravatar_fallback(style)
+     # raise
    end
     # TODO - figure out why avatars are not displaying in production
     # cached_avatar_url(style)
     # return ActionController::Base.helpers.asset_path('avatar-128.jpg')
+  end
+
+  def gravatar_fallback(style)
+      default_url = ActionController::Base.helpers.asset_url('avatar-128.jpg')
+    if self.class.name == "User"
+      # raise
+      case style
+      when :thumb
+        size = 100
+      when :square
+        size = 200
+      when :medium
+        size = 300
+      end
+      gravatar_id = Digest::MD5::hexdigest(email).downcase
+      url = "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI::escape(default_url)}"
+    else
+      url = default_url
+    end
   end
 
   def cached_avatar_url(style)
@@ -47,9 +67,9 @@ module Avatars
       if avatar.exists?
         avatar.url(style)
       else
-          ActionController::Base.helpers.asset_path('avatar-128.jpg')
+        ActionController::Base.helpers.asset_path('avatar-128.jpg')
+      end
     end
-     end
   end  
 
 end
