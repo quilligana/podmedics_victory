@@ -1,27 +1,27 @@
+<div class="products_show_wrapper">
+  <h1>
+    <%= @product.name %>
+  </h1>
+  <div class="products_show_info">
+    <strong>Permalink:</strong>
+    <p><%= @product.permalink %></p>
+  </div>
+  <div class="products_show_info">
+    <strong>Description:</strong>
+    <p><%= @product.description %></p>
+  </div>
+  <div class="products_show_info">
+    <strong>Price:</strong>
+    <p><%= @product.price %></p>
+  </div>
+  <div class="products_show_info">
+    <strong>Duration:</strong>
+    <p><%= @product.duration %> months</p>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-<p>
-  <strong>Permalink:</strong>
-  <%= @product.permalink %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-<p>
-  <strong>Duration:</strong>
-  <%= @product.duration %> months
-</p>
-
-<p>
-  <%= link_to "Edit", edit_admin_product_path(@product) %> |
-  <%= link_to "Destroy", admin_product_path(@product), :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", admin_products_path %>
-</p>
+  <p class="products_show_wrapper_buttons_wrapper">
+    <%= link_to "Edit", edit_admin_product_path(@product), class: "btn-flat success products_show_buttons" %>
+    <%= link_to "Destroy", admin_product_path(@product), :confirm => 'Are you sure?', :method => :delete , class: "btn-flat success products_show_buttons" %>
+    <%= link_to "View All", admin_products_path , class: "btn-flat success products_show_buttons" %>
+  </p>
+</div>
