@@ -409,3 +409,29 @@ span.label.label-success {
 .btn-group.large.newsletter_show_action_buttons a.btn.btn-flat.white.left {
   color: #FFF;
 }
+a.btn-flat.success.products_show_buttons {
+  background-color: #FC4251;
+  border: #FC4251;
+  text-shadow: none;
+  font-weight: 500;
+  margin-right: 4px;
+}
+.products_show_info strong {
+  font-size: 16px;
+  margin-top: 10px;
+  float: left;
+  clear: both;
+}
+
+p.products_show_wrapper_buttons_wrapper {
+  clear: both;
+  margin-top: 10px;
+  float: left;
+}
+.products_show_info p {
+  font-size: 15px;
+  margin-top: 10px;
+  float: left;
+  clear: both;
+  color: #6B6B6B;
+}
