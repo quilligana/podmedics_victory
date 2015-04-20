@@ -25,7 +25,10 @@ PodmedicsVictory::Application.routes.draw do
   get 'signup', to: 'users#new', as: :signup
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index] do
-    get 'email', on: :member
+    member do
+      get 'email'
+      get 'move_to_gravatar'
+    end
   end
 
   post 'unsubscribed', to: 'users#unsubscribed', as: :unsub

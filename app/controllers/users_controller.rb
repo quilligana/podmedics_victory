@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     redirect_to dashboard_path unless @user.email.blank?
   end
 
+  def move_to_gravatar
+    redirect_to "https://en.gravatar.com/"
+  end
+
   def unsubscribed
     @unsubscribe = Unsubscribe.new(params)
     @unsubscribe.unsubscribe
