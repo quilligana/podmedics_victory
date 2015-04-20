@@ -69,6 +69,11 @@ module Avatars
         ActionController::Base.helpers.asset_path('avatar-128.jpg')
       end
     end
-  end  
+  end
+
+  def remove_gravatar
+    self.avatar = nil
+    self.save
+  end
 
 end

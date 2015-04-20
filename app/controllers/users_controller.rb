@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout 'user_application', only: [:show, :edit, :update, :email]
-  before_action :find_user, only: [:show, :edit, :update, :email, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :email, :destroy, :move_to_gravatar]
 
   def new
     @user = User.new
@@ -50,7 +50,11 @@ class UsersController < ApplicationController
   end
 
   def move_to_gravatar
-    redirect_to "https://en.gravatar.com/"
+    if @user.remove_gravatar
+      redirect_to "https://en.gravatar.com/"
+    else
+      render :edit
+    end
   end
 
   def unsubscribed
