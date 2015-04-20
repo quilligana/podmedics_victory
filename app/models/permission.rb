@@ -16,7 +16,7 @@ class Permission
       allow :courses, [:index]
       allow :dashboards, [:show]
       allow :users, [:show]
-      allow :users, [:edit, :update, :email, :destroy] do |resource|
+      allow :users, [:edit, :update, :email, :destroy, :move_to_gravatar] do |resource|
         resource.id == user.id
       end
       allow :videos, [:show, :index]
