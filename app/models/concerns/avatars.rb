@@ -40,11 +40,11 @@ module Avatars
   end
 
   def gravatar_fallback(style, request)
-      default_url = "#{request.protocol}#{request.host_with_port}#{ActionController::Base.helpers.asset_url('avatar-128.jpg')}"
+    default_url = "#{request.protocol}#{request.host_with_port}#{ActionController::Base.helpers.asset_url('avatar-128.jpg')}"
     if self.class.name == "User" && self.email.present?
       size = gravatar_size(style)
       gravatar_id = Digest::MD5::hexdigest(email).downcase
-      url = "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI::escape(default_url)}"
+      url = "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI::escape(default_url)}"
     else
       url = default_url
     end
