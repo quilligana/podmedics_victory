@@ -2058,6 +2058,14 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 450px) {
+  .specialty_quiz_title_link {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  a#quiz_link_header {
+    float: left;
+  }
   .promo_modal_preview_image {
     width: 254px;
     height: 123px;
