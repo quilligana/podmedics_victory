@@ -401,28 +401,13 @@ $standard_border_radius: 6px;
   }
   .home_section_video .home_top_section_left_column h2, .home_section_questions .home_top_section_left_column h2 {
     font-size: 30px;
-    margin-top: 100px;
-  }
-  .home_top_section_right_column {
-    width: 100%;
-    float: right;
-    margin-top: 50px;
+    margin-top: 70px;
   }
 
   .home_top_section_right_column.questions_right_column_wrapper {
     margin-top: 30px;
   }
-  .index_questions_wrapper {
-    float: none;
-    width: 80%;
-    margin-top: 30px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    min-height: 430px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-  }
+
   .home_section_questions {
     height: auto;
     padding-bottom: 50px;
@@ -1134,13 +1119,13 @@ a.podmedcis_button.green.flash_cards_button {
   }
   .home_section_three_devices_wrapper {
     width: 100%;
-    padding-top: 165px;
+    padding-top: 65px;
     clear: both;
     overflow: hidden;
   }
 
   .home_section_three {
-    height: 902px;
+    height: 478px;
   }
   .home_section_two .browser_window {
     display: none;
@@ -1189,13 +1174,16 @@ a.podmedcis_button.green.flash_cards_button {
 
   .home_section_four {
     height: auto;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
   }
 
   .home_section_four .left_column h2 {
     margin-top: 80px;
   }
+  .home_section_three_header {
+    padding-top: 50px;
 
+  }
   .home_section_three_ipad {
     margin-left: 0px;
     background-position: top left;
@@ -1561,6 +1549,13 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 650px) {
+  .index_questions_wrapper {
+    width: 100%;
+  }
+  .home_top_section_right_column {
+    width: 90%;
+
+  }
   .video_download_dropdown {
     float: left;
     clear: both;
@@ -1680,7 +1675,7 @@ a.podmedcis_button.green.flash_cards_button {
   }
 
   div.inner_home_header h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
@@ -1708,7 +1703,7 @@ a.podmedcis_button.green.flash_cards_button {
     height: 120px;
   }
   .home_page_header {
-    min-height: 385px;
+    min-height: 435px;
   }
 }
 
@@ -2218,12 +2213,18 @@ a.podmedcis_button.green.flash_cards_button {
     display: none;
   }
   div.inner_home_header {
-    padding-top: 50px;
+    padding-top: 60px;
   }
 }
 
 
 @media screen and (max-width: 400px) {
+  .home_section_three_header {
+    height: 140px;
+  }
+  .home_section_three {
+    height: 448px;
+  }
   .questions_header_padding.ng-binding {
     padding-left: 0px;
     padding-right: 0px;
