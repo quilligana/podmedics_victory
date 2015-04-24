@@ -1962,6 +1962,10 @@ a.podmedcis_button.green.flash_cards_button {
     background-size: 100%;
     height: 720px;
   }
+  .quiz_appstore_buttons a {
+    float: none;
+    clear: both;
+  }
   .comment_reply_link a {
     float: left;
     margin-left: 0px;
@@ -1988,15 +1992,24 @@ a.podmedcis_button.green.flash_cards_button {
     display: none;
   }
   .quiz_appstore_buttons {
-    width: 270px;
+    width: 100%;
+    text-align: center;
   }
   .quiz_appstore_buttons a.app_store_button {
-    margin-right: 0px;
     margin-bottom: 20px;
   }
+  .quiz_appstore_buttons a {
+    clear: both;
+  }
+
+
+
 }
 
 @media screen and (max-width: 550px) {
+  .quiz_appstore_buttons a.app_store_button {
+    margin-right: 0px;
+  }
   .promo_modal_preview_image {
     width: 344px;
     height: 163px;
