@@ -91,6 +91,26 @@ class Sale < ActiveRecord::Base
     user.start_subscription_for_product(product)
   end
 
+  def receipt
+    Receipts::Receipt.new(
+      id: id,
+      product: "Podmedics",
+      company: {
+        name: "Podmedics Limited",
+        address: "Unit 118, Basepoint Business Centre, Eastcote, HA4 9NA",
+        email: "contact@podmedics.com",
+        logo: Rails.root.join("app/assets/images/podmedics_home_icon.png")
+      },
+      line_items: [
+        ["Date", created_at.strftime("%B %d, %Y")],
+        ["Account billed", "#{user.name} - #{user.email}"],
+        ["Product", product.name],
+        ["Amount", "£#{amount / 100}.00"],
+        ["Transaction ID", "##{id}"]
+      ]
+    )
+  end
+
   private
     
     def self.calculate_income(sales)
