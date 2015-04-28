@@ -24,7 +24,6 @@ module Avatars
   end
 
   def set_avatar_file_name
-    
     unless avatar_file_name.nil?
       extension = File.extname(self.avatar_file_name)
       self.avatar_file_name = self.id.to_s + extension
