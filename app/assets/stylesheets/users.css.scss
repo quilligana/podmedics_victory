@@ -5705,3 +5705,29 @@ input#flashcard_title {
   padding-bottom: 4px;
   line-height: 20px;
 }
+.profile_notifications_block ul {
+  list-style: none;
+}
+.profile_notifications_block ul li {
+  width: 100%;
+  float: left;
+}
+.profile_notifications_block ul li a {
+  background-color: #42A2FF;
+  display: block;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.profile_notifications_block ul li a:hover {
+  background-color: #2a6aa5;
+}
