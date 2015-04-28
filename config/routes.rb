@@ -49,6 +49,7 @@ PodmedicsVictory::Application.routes.draw do
   get '/receive_paypal', to: 'transactions#receive_paypal', as: :receive_paypal
   get ':user_id/cancel_transaction', to: 'transactions#cancel_transaction', as: :cancel_transaction
   resources :stripe_events, only: [:create]
+  resources :sales, only: [:show]
 
   # Dashboards and admin
   match '/admin' => redirect('/admin/dashboard'), via: :get

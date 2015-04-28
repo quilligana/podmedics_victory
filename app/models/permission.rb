@@ -13,6 +13,7 @@ class Permission
     allow 'api/v1/questions', [:index, :count, :sample]
     if user
       allow :transactions, [:new, :create, :pickup, :receive_paypal]
+      allow :sales, [:show]
       allow :courses, [:index]
       allow :dashboards, [:show]
       allow :users, [:show]

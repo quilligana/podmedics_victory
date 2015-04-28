@@ -401,28 +401,13 @@ $standard_border_radius: 6px;
   }
   .home_section_video .home_top_section_left_column h2, .home_section_questions .home_top_section_left_column h2 {
     font-size: 30px;
-    margin-top: 100px;
-  }
-  .home_top_section_right_column {
-    width: 100%;
-    float: right;
-    margin-top: 50px;
+    margin-top: 70px;
   }
 
   .home_top_section_right_column.questions_right_column_wrapper {
     margin-top: 30px;
   }
-  .index_questions_wrapper {
-    float: none;
-    width: 80%;
-    margin-top: 30px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    min-height: 430px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-  }
+
   .home_section_questions {
     height: auto;
     padding-bottom: 50px;
@@ -433,7 +418,7 @@ $standard_border_radius: 6px;
     padding-right: 5%;
   }
   .index_video_wrapper {
-    width: 640px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -917,9 +902,6 @@ $standard_border_radius: 6px;
     display: none;
   }
 
-  .home_page_header {
-    min-height: 570px;
-  }
 
   .lecture_questions_right_column .questions_info_right_column_section p.questions_info_right_column_number{
     width: auto;
@@ -974,6 +956,18 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 900px) {
+  .home_page_header .home_navigation {
+    display: none;
+  }
+  a.mobile_nav_icon {
+    display: block;
+  }
+  .home_page_header {
+    min-height: 530px;
+  }
+  div.inner_home_header {
+    padding-top: 130px;
+  }
   .sub_heading_button_set {
     float: left;
   }
@@ -1001,13 +995,6 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 800px) {
-
-  .home_page_header .home_navigation {
-    display: none;
-  }
-  a.mobile_nav_icon {
-    display: block;
-  }
   .quiz_app_section_three_android {
     display: none;
   }
@@ -1134,13 +1121,13 @@ a.podmedcis_button.green.flash_cards_button {
   }
   .home_section_three_devices_wrapper {
     width: 100%;
-    padding-top: 165px;
+    padding-top: 65px;
     clear: both;
     overflow: hidden;
   }
 
   .home_section_three {
-    height: 902px;
+    height: 772px;
   }
   .home_section_two .browser_window {
     display: none;
@@ -1189,13 +1176,16 @@ a.podmedcis_button.green.flash_cards_button {
 
   .home_section_four {
     height: auto;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
   }
 
   .home_section_four .left_column h2 {
     margin-top: 80px;
   }
+  .home_section_three_header {
+    padding-top: 50px;
 
+  }
   .home_section_three_ipad {
     margin-left: 0px;
     background-position: top left;
@@ -1561,6 +1551,17 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 650px) {
+  .index_video_wrapper iframe {
+    max-width: 100%;
+    height: 291px;
+  }
+  .index_questions_wrapper {
+    width: 100%;
+  }
+  .home_top_section_right_column {
+    width: 90%;
+
+  }
   .video_download_dropdown {
     float: left;
     clear: both;
@@ -1680,7 +1681,7 @@ a.podmedcis_button.green.flash_cards_button {
   }
 
   div.inner_home_header h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
@@ -1708,7 +1709,7 @@ a.podmedcis_button.green.flash_cards_button {
     height: 120px;
   }
   .home_page_header {
-    min-height: 385px;
+    min-height: 435px;
   }
 }
 
@@ -1961,6 +1962,10 @@ a.podmedcis_button.green.flash_cards_button {
     background-size: 100%;
     height: 720px;
   }
+  .quiz_appstore_buttons a {
+    float: none;
+    clear: both;
+  }
   .comment_reply_link a {
     float: left;
     margin-left: 0px;
@@ -1987,15 +1992,24 @@ a.podmedcis_button.green.flash_cards_button {
     display: none;
   }
   .quiz_appstore_buttons {
-    width: 270px;
+    width: 100%;
+    text-align: center;
   }
   .quiz_appstore_buttons a.app_store_button {
-    margin-right: 0px;
     margin-bottom: 20px;
   }
+  .quiz_appstore_buttons a {
+    clear: both;
+  }
+
+
+
 }
 
 @media screen and (max-width: 550px) {
+  .quiz_appstore_buttons a.app_store_button {
+    margin-right: 0px;
+  }
   .promo_modal_preview_image {
     width: 344px;
     height: 163px;
@@ -2063,6 +2077,14 @@ a.podmedcis_button.green.flash_cards_button {
 }
 
 @media screen and (max-width: 450px) {
+  .specialty_quiz_title_link {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  a#quiz_link_header {
+    float: left;
+  }
   .promo_modal_preview_image {
     width: 254px;
     height: 123px;
@@ -2218,12 +2240,18 @@ a.podmedcis_button.green.flash_cards_button {
     display: none;
   }
   div.inner_home_header {
-    padding-top: 50px;
+    padding-top: 60px;
   }
 }
 
 
 @media screen and (max-width: 400px) {
+  .home_section_three_header {
+    height: 140px;
+  }
+  .home_section_three {
+    height: 448px;
+  }
   .questions_header_padding.ng-binding {
     padding-left: 0px;
     padding-right: 0px;
@@ -2490,11 +2518,25 @@ a.podmedcis_button.green.flash_cards_button {
     float: left;
     max-height: inherit;
   }
-
+  .index_video_wrapper iframe {
+    max-width: 100%;
+    height: 188px;
+  }
+  .home_section_video .home_top_section_left_column p, .home_section_questions .home_top_section_left_column p {
+    width: 100%;
+  }
+  .oxford_uni_text {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media screen and (max-width: 390px) {
-
+  .index_video_wrapper iframe {
+    max-width: 100%;
+    height: 152px;
+  }
   .stats_chart_wrapper {
     display: none;
   }

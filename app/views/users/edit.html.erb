@@ -107,6 +107,21 @@
     </div>
 
     <div class="profile_notifications_block">
+      <h3>Receipts</h3>
+
+      <% if current_user.sales.count > 0 %>
+        <ul>
+          <% current_user.sales.each do |sale| %>
+            <li><%= link_to "Receipt ##{sale.id}", sale_path(sale, format: 'pdf') %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>You don't have any receipts</p>
+      <% end %>
+      
+    </div>
+
+    <div class="profile_notifications_block">
       <h3>Account Settings</h3>
       <p>
         <%= link_to 'Remove account', @user, method: :delete, data: { confirm: 'Are you sure you wish to remove your account and all associated information?'}, class: 'podmedcis_button grey'  %>

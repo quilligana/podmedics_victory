@@ -13,7 +13,7 @@ $standard_border_radius: 6px;
   background-position: center top;
   background-repeat: no-repeat;
   width: 100%;
-  min-height:572px;
+  min-height: 670px;
 }
 
 a.home_menu_link {
@@ -40,7 +40,7 @@ div.inner_home_header {
   clear: both;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 166px;
+  padding-top: 220px;
   max-width: 1000px;
 }
 .home_page_header a.podmedics_home_icon {
@@ -108,16 +108,16 @@ div.inner_home_header {
 
 div.inner_home_header h1 {
   color: #FFF;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 400;
   width: 100%;
   float: left;
-  text-align: left;
+  text-align: center;
   clear: both;
+  text-transform: uppercase;
 }
 div.inner_home_header p {
   width: 75%;
-  float: left;
   clear: both;
   font-size: 16px;
   font-weight: 400;
@@ -125,7 +125,9 @@ div.inner_home_header p {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 26px;
-  text-align: left;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.inner_home_header p.podmedics_intro_message {
@@ -136,13 +138,17 @@ div.inner_home_header p.podmedics_intro_message {
   float: none;
   display: inline-block;
   text-align: center;
-  margin-right: 15px;
+  margin-right: 0px;
   text-transform: uppercase;
   font-size: 13px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #5dba68;
 }
+.red_button.home_action_button:hover {
+  background-color: #479249;
+}
+
 a.rounded_home_button {
   background-color: #FF5364;
   padding-bottom: 20px;
@@ -178,7 +184,9 @@ a.red_button.home_action_button.dark_grey:hover {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  float:left;
+  float: left;
+  text-align: center;
+  margin-top: 12px;
 }
 .home_header_browser_window {
   width: 980px;
@@ -193,7 +201,7 @@ a.red_button.home_action_button.dark_grey:hover {
 
 .home_section_one {
   width: 800px;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-right: auto;
   margin-bottom: 0px;
   margin-left: auto;
@@ -313,19 +321,19 @@ a.red_button.home_action_button.dark_grey:hover {
 }
 .oxford_uni_logo {
   background-image: image-url('oxford_logo.png');
-  float: right;
   height: 47px;
   width: 147px;
-  margin-right: 40px;
-  margin-top: 45px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 35px;
 }
 .oxford_uni_text {
   float: left;
-  width: 94%;
-  padding-left: 30px;
+  width: 100%;
+  padding-left: 0px;
+  text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  border-left: solid 1px rgba(255, 255, 255, 0.29);
 }
 .oxford_uni_text h3 {
   font-size: 20px;
@@ -347,13 +355,14 @@ a.red_button.home_action_button.dark_grey:hover {
 }
 
 .oxford_uni_right_column {
-  float: left;
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .oxford_uni_left_column {
   float: left;
-  width: 20%;
+  width: 100%;
 }
 .home_section_three_header {
   float: left;
@@ -1775,38 +1784,56 @@ a.summer_sale_notice:hover {
 }
 .home_section_video .home_top_section_left_column {
   float: left;
-  width: 450px;
+  width: 100%;
+  text-align: center;
 }
 .home_section_video .home_top_section_left_column h2 {
-  font-size: 40px;
+  font-size: 30px;
   color: #292929;
   font-weight: 400;
-  line-height: 50px;
-  margin-top: 93px;
+  line-height: 40px;
+  margin-top: 70px;
 }
 .home_section_questions .home_top_section_left_column {
   float: left;
-  width: 450px;
+  width: 100%;
+  text-align: center;
   padding-top: 12px;
 }
 .home_section_questions .home_top_section_left_column h2 {
-  font-size: 40px;
+  font-size: 30px;
   color: #292929;
   font-weight: 400;
-  line-height: 50px;
-  margin-top: 75px;
+  line-height: 40px;
+  margin-top: 70px;
 }
 .home_section_video .home_top_section_left_column p, .home_section_questions .home_top_section_left_column p {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  color: #919191;
+  color: #A6A6A6;
   line-height: 32px;
-  margin-top: 10px;
+  margin-top: 0px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .home_top_section_right_column {
-  width: 640px;
-  float: right;
-  margin-top: 93px;
+  width: 600px;
+  margin-top: 0px;
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+.home_section_video .home_top_section_left_column p.home_feeds_info_wrapper {
+  text-align: center;
+  font-size: 13px;
+}
+.home_video_action_buttons a.red_button {
+  text-align: center;
+  float: none;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 .home_top_section_right_column.questions_column {
   width: 530px;
@@ -1814,7 +1841,7 @@ a.summer_sale_notice:hover {
   margin-top: 100px;
 }
 .index_video_wrapper {
-  width: 640px;
+  width: 600px;
   height: 400px;
 }
 .index_questions_wrapper {
@@ -1855,10 +1882,6 @@ a.summer_sale_notice:hover {
   background-position: 83px -47px;
 }
 
-.questions_header_padding.ng-binding {
-  padding-left: 60px;
-  padding-right: 60px;
-}
 
 
 .index_questions_block ul {
@@ -1926,7 +1949,8 @@ ul.showAnswer li.notSelectedAndIncorrect.incorrect {
 }
 
 .home_video_action_buttons {
-  margin-top: 20px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 .answer .ng-binding {
@@ -1958,15 +1982,15 @@ a.mobile_nav_icon {
   width: 40px;
   height: 40px;
   margin-right: 15px;
-  margin-top: 27px;
+  margin-top: 30px;
   display: none;
 }
 .mobile_nav_icon p {
   width: 100%;
   background-color: #FFF;
-  height: 6px;
+  height: 4px;
   margin-top: 7px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .mobile_navigation {
   width: 100%;
@@ -2032,11 +2056,11 @@ a.mobile_nav_icon {
 
 .try_questions_sketch {
   background-image: image-url('try_questions_sketch.png');
-  width: 337px;
-  height: 39px;
+  width: 200px;
+  height: 85px;
   position: absolute;
-  margin-left: -360px;
-  margin-top: 200px;
+  margin-left: -210px;
+  margin-top: 70px;
 }
 .ng-scope {
   width: 100%;
@@ -2072,7 +2096,7 @@ a.mobile_nav_icon {
 .home_plans_section_header {
   float: left;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-bottom: 50px;
 }
 
