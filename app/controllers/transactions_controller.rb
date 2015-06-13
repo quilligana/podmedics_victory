@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
       )
       sale.process!
       if sale.finished?
-        current_user.start_subscription_for_product(product)
+        current_user.start_subscription_for_product(product, sale)
         redirect_to pickup_url(guid: sale.guid)
       else
         AdminMailer.delay.payment_failed(current_user)

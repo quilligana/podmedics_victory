@@ -6,8 +6,10 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'Welcome to Podmedics', from: 'ed@podmedics.com'
   end
 
-  def welcome_paid_plan(user)
+  def welcome_paid_plan(user, sale)
     @user = user
+    invoice = sale.receipt
+    attachments["invoice"] = { :mime_type => "application/pdf", :content => invoice.render}
     mail to: user.email, subject: 'Welcome to Podmedics', from: 'ed@podmedics.com'
   end
 

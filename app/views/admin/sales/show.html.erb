@@ -1,8 +1,9 @@
 <div class="row header">
   <h3>Sale</h3>
   <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
-    <%= link_to 'Back', admin_sales_path, class: 'btn-flat pull-right' %>
     <%= link_to "View on Stripe", "https://manage.stripe.com/payments/#{@sale.stripe_id}", class: 'btn-flat success pull-right', target: '_blank' %>
+    <%= link_to 'View receipt', sale_path(@sale, format: 'pdf'),
+                target: '_blank', class: 'btn-flat success pull-right'%>
   </div>
 </div>
 

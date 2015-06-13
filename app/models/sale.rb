@@ -88,7 +88,7 @@ class Sale < ActiveRecord::Base
       amount: product.price,
       state: 'finished'
     )
-    user.start_subscription_for_product(product)
+    user.start_subscription_for_product(product, self)
   end
 
   def receipt
@@ -105,13 +105,24 @@ class Sale < ActiveRecord::Base
         ["Date", created_at.strftime("%B %d, %Y")],
         ["Account billed", "#{user.name} - #{user.email}"],
         ["Product", product.name],
-        ["Amount", "£#{amount / 100}.00"],
+        ["Cost", "£#{(actual_cost / 100).round(2)}"],
+        ["VAT (20%)", "£#{(calculate_vat_amount / 100).round(2)}"],
+        ["Total", "£#{amount / 100}.00"],
         ["Transaction ID", "##{id}"]
       ]
     )
   end
 
   private
+
+    # note: this assumes VAT is 20%
+    def actual_cost
+      (amount / 1.2)
+    end
+
+    def calculate_vat_amount
+      (amount - actual_cost)
+    end
     
     def self.calculate_income(sales)
       income = 0

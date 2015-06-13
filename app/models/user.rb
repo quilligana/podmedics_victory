@@ -120,9 +120,9 @@ class User < ActiveRecord::Base
     update_attributes(selected_plan: true)
   end
 
-  def start_subscription_for_product(product)
+  def start_subscription_for_product(product, sale)
     activate_subscription(product)
-    send_user_notification
+    send_user_notification(sale)
   end
 
   # we should be able to handle upgrade as well
@@ -133,8 +133,8 @@ class User < ActiveRecord::Base
     self.save!
   end
 
-  def send_user_notification
-    UserMailer.delay.welcome_paid_plan(self)
+  def send_user_notification(sale)
+    UserMailer.delay.welcome_paid_plan(self, sale)
   end
 
   def has_subscription_and_in_date?
