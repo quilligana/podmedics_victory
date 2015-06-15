@@ -1,6 +1,6 @@
 <%= content_for(:title) { "Podmedics | Signup"} %>
 
-<div class="inner signup_page_inner">
+<div class="inner login_page_inner">
   <!-- <div class="sub_heading_wrapper">
     <h1>Sign Up</h1>
     <p>Gain instant access to all our videos and revision tools.</p>
@@ -8,6 +8,14 @@
 
   <div class="page">
     <div class="left_column_forms">
+
+      <div class="signup_form_header_copy">
+        <!--<h3>Pricing</h3>-->
+        <!--<h3>What we offer?</h3>-->
+        <p>We offer full subscriptions for either <strong>6 months (&pound;14)</strong> or <strong>12 months (&pound;20)</strong>. These give you full access to all the resources on the site - including video downloads and our full question bank.</p>
+        <p>Want to checkout what we do - please take a look at the interactive questions on the <%= link_to 'home page', root_path %> and our <%= link_to 'video library', library_path %></p>
+      </div>
+
       <div class="social_signup_wrapper">
         <div class="social_signup_button_wrapper">
           <a href="/auth/twitter" class="twitter_social_button">Sign up via <strong>Twitter</strong></a>
@@ -30,13 +38,6 @@
       </div>
     </div>
 
-    <div class="right_column_forms">
-      <h3>Pricing</h3>
-      <!--<h3>What we offer?</h3>-->
-      <p>We offer full subscriptions for either <strong>6 months (&pound;14)</strong> or <strong>12 months (&pound;20)</strong>. These give you full access to all the resources on the site - including video downloads and our full question bank.</p>
-      <p>Want to checkout what we do - please take a look at the interactive questions on the <%= link_to 'home page', root_path %> and our <%= link_to 'video library', library_path %></p>
-      
-    </div>
   </div>
 </div>
 
