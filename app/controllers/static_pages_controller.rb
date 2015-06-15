@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   layout :conditional_layout, only: [:support, :about, :terms, :contact]
 
   def home
-    redirect_to dashboard_path if current_user
+    redirect_to dashboard_path if current_user && current_user.has_selected_plan?
   end
 
   def about

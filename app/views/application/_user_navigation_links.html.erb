@@ -26,7 +26,11 @@
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
   <div class="inner_menu_wrapper">
     <div class="main_nav_wrapper" id="main_navigation">
-      <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
+      <% if current_user.selected_plan? %>
+        <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
+      <% else %>
+        <%= link_to 'home', root_path , class: 'nav-home' %>
+      <% end %>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <%= link_to "Notes", notes_path, class: 'nav-notes' %>
       <!-- <%= link_to "Live Courses", courses_path, class: 'nav-courses' %> -->
