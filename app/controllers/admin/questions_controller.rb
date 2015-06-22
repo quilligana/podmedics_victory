@@ -13,7 +13,8 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def create
-    @question = @video.questions.create(permitted_params)
+    @question = @video.questions.new(permitted_params)
+    @question.specialty_id = @video.specialty_id
     if @question.save
       redirect_to admin_video_path(@video), notice: 'Question added'
     else
