@@ -31,5 +31,6 @@ FactoryGirl.define do
     correct_answer 2
     explanation "Some explanation as to why an answer is correct."
     association :video
+    association :specialty
   end
 end

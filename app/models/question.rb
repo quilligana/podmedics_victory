@@ -23,12 +23,7 @@ class Question < ActiveRecord::Base
   belongs_to :video, counter_cache: true
   belongs_to :specialty
 
-  validates :stem, presence: true
-  validates :answer_1, presence: true
-  validates :answer_2, presence: true
-  validates :correct_answer, presence: true
-  validates :explanation, presence: true
-  validates :video_id, presence: true
+  validates :stem, :answer_1, :answer_2, :correct_answer, :explanation, :video_id, :specialty_id, presence: true
   validate :correct_answer_must_be_an_answer
 
   self.per_page = 30
