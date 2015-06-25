@@ -4,7 +4,6 @@
 //= require fresco
 //= require jquery.validate
 //= require jquery.validations.functions
-//= require addtohomescreen.min
 //= require turbolinks
 //= require fastclick
 //= require trial-questions
@@ -24,9 +23,6 @@ $(document).ready(function(){
 
   // enable fastclick
   FastClick.attach(document.body);
-
-  // Add to homescreen function
-  addToHomescreen();
 
   // form client side validations
   //
