@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    @paid_6 = Product.where(permalink: 'paid6').first
+    @paid_12 = Product.where(permalink: 'paid12').first
     @user = User.new(user_params)
     if @user.save
       login_user(@user)
