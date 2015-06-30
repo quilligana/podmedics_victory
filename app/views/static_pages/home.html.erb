@@ -209,8 +209,8 @@
           <p>Priority Support</p>
         </div>
         <div class="home_plan_column_action_button_wrapper">
-          <%= link_to "Sign Up Now for 6 Months - £14", signup_path %>
-          <%= link_to "Sign Up Now for 12 Months - £20", signup_path %>
+          <%= link_to "Sign Up Now for 6 Months - £#{@paid_6.price_in_pounds}", signup_path %>
+          <%= link_to "Sign Up Now for 12 Months - £#{@paid_12.price_in_pounds}", signup_path %>
         </div>
       </div>
 

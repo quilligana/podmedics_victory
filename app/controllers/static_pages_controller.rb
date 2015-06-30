@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
 
   def home
     redirect_to dashboard_path if current_user && current_user.has_selected_plan?
+    @paid_6 = Product.where(permalink: 'paid6').first
+    @paid_12 = Product.where(permalink: 'paid12').first
   end
 
   def about

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @paid_6 = Product.where(permalink: 'paid6').first
+    @paid_12 = Product.where(permalink: 'paid12').first
   end
 
   def edit
