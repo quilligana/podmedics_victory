@@ -79,7 +79,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'poltergeist'
+  # gem 'poltergeist'
   gem 'mocha'
   gem 'simplecov', require: false
   gem 'stripe-ruby-mock', '~> 1.10.1.7'
