@@ -7,7 +7,7 @@ module LoginMacros
       fill_in 'Password', with: user.password
       click_button 'Login'
     end
-    sleep 1.second
+    # sleep 1.second
   end
 
   def set_session_for(user)
