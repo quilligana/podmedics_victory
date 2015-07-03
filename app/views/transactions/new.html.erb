@@ -84,11 +84,11 @@
     <h2>Premium Membership</h2>
     <div class="plans_column_price_wrapper">
       <div class="plans_column_price six_month_price_block">
-      <p>&pound;<%= @paid_6.price_in_pounds  %><span>/ 6m</span></p>
+      <p>&pound;<%= @paid_6 ? @paid_6.price_in_pounds : 'Error' %><span>/ 6m</span></p>
       </div>
 
       <div class="plans_column_price">
-        <p>&pound;<%= @paid_12.price_in_pounds  %><span>/ yr</span></p>
+        <p>&pound;<%= @paid_12 ? @paid_12.price_in_pounds : 'Error' %><span>/ yr</span></p>
       </div>
     </div>
     <ul class="plans_column_features_list">
@@ -135,8 +135,14 @@
 
     <div class="paypal_payment_options_button_set">
       <p class="payment_options_initial_title">Choose one of the below subscription terms</p>
-      <%= link_to "Podmedics (£#{@paid_6.price_in_pounds} - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
-      <%= link_to "Podmedics (£#{@paid_12.price_in_pounds} - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <!-- TODO refactor into partial / helper -->
+      <% if @paid_6 && @paid_12 %>
+        <%= link_to "Podmedics (£#{@paid_6.price_in_pounds} - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
+        <%= link_to "Podmedics (£#{@paid_12.price_in_pounds} - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <% else %>
+        <%= link_to "Podmedics - 6 Months", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
+        <%= link_to "Podmedics - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <% end %>
       <p><a href="javascript:;" class="payment_options_back_button">Back to payment options</a></p>
     </div>
   </div>

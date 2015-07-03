@@ -8,7 +8,7 @@ describe UserProgress do
     @video = create(:video, specialty: @specialty)
     @question = create(:question, video: @video)
     @question_2 = create(:question, video: @video)
-    @specialty_question = create(:specialty_question, specialty_id: @specialty.id)
+    @specialty_question = create(:specialty_question, user_id: @user.id, specialty_id: @specialty.id)
     @progress_instance = UserProgress.new(@specialty, @user)
   end
 

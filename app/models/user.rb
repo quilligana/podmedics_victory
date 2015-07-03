@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   scope :expired_before, -> time { where("expires_on < :date", {date: time}) }
   scope :expired_after, -> time { where("expires_on >= :date", {date: time})}
   scope :never_subscribed, -> { where("expires_on is NULL")}
-  
+
   validates :email,
     email_format: {
       message: 'Not a valid email address'
@@ -122,7 +122,7 @@ class User < ActiveRecord::Base
 
   def start_subscription_for_product(product, sale)
     activate_subscription(product)
-    send_user_notification(sale)
+    send_user_notification(sale) if sale
   end
 
   # we should be able to handle upgrade as well
@@ -150,7 +150,7 @@ class User < ActiveRecord::Base
   end
 
   def is_trial_member?
-    !self.has_subscription_and_in_date? 
+    !self.has_subscription_and_in_date?
   end
 
   def suitable_for_reminder?

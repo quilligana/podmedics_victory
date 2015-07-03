@@ -2,6 +2,19 @@ require "spec_helper"
 
 feature 'Sign up' do
 
+
+  # intercepted by client side validations
+  scenario 'Guest signs up with no email' do
+    user_signs_up_with_email('')
+    expect(page).to have_content 'Not a valid email address'
+  end
+
+  # intercepted by client side validations
+  scenario 'Guest signs up with a bad email address' do
+    user_signs_up_with_email('bademail')
+    expect(page).to have_content 'Not a valid email address'
+  end
+
   scenario 'Guest signs up with valid credentials' do
     generate_plans
     user_signs_up_with_email('test@example.com')
@@ -11,30 +24,17 @@ feature 'Sign up' do
     expect(page).to_not have_content 'Please enter a valid email address'
   end
 
-  # intercepted by client side validations
-  scenario 'Guest signs up with no email' do
-    user_signs_up_with_email('')
-    expect(page).to have_content 'A VALID EMAIL IS REQUIRED'
-  end
-
-  # intercepted by client side validations
-  scenario 'Guest signs up with a bad email address' do
-    user_signs_up_with_email('bademail')
-    expect(page).to have_content 'A VALID EMAIL IS REQUIRED'
-  end
-
   # Helpers
 
   def user_signs_up_with_email(email)
     visit root_path
     within '.inner_home_header' do
-      click_link 'Sign up now to get started'
+      click_link 'Get started now'
     end
-    click_link 'Sign up'
-    fill_in 'Name', with: 'Test User'
+    fill_in 'Full Name', with: 'Test User'
     fill_in 'Email', with: email
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
-    click_button 'Sign up'
+    click_button 'Proceed to payment'
   end
 end
