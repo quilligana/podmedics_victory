@@ -14,7 +14,7 @@ describe "specialty user questions and answers" do
     sign_in(@user_one)
     visit specialty_path(@specialty)
   end
-  
+
 
   subject { page }
 
@@ -42,7 +42,7 @@ describe "specialty user questions and answers" do
     end
   end
 
-  describe "submitting a question", js: true do
+  describe "submitting a question" do
     describe "from the specialty page" do
       before do
         submit_question
@@ -95,7 +95,7 @@ describe "specialty user questions and answers" do
     end
   end
 
-  describe "answering a question", js: true do
+  describe "answering a question"do
     before do
       submit_question
       log_out_js
@@ -111,7 +111,7 @@ describe "specialty user questions and answers" do
         expect(page).to     have_content("1 Answers")
         expect(page).to     have_selector("div.comment")
         expect(page).to     have_content(@comment_text)
-        expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p", 
+        expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p",
                                       text: @comment_text)
         expect(page).to_not have_content("Nothing posted yet. Be the first to comment.")
       end
@@ -133,7 +133,7 @@ describe "specialty user questions and answers" do
           expect(page).to     have_content("2 Answers")
           expect(page).to     have_content("This is a reply.")
           expect(page).to     have_selector("div.comment_reply")
-          expect(page).to     have_css( "div.comment_reply div.comment div.inner_page_padding div.comment_info p", 
+          expect(page).to     have_css( "div.comment_reply div.comment div.inner_page_padding div.comment_info p",
                                         text: @reply_text)
         end
       end
@@ -161,12 +161,12 @@ describe "specialty user questions and answers" do
       end
 
       it "should increase the comment's score by 5" do
-        expect(page).to_not have_content "SCORE: 6" 
-        expect(page).to have_content "SCORE: 1" 
+        expect(page).to_not have_content "SCORE: 6"
+        expect(page).to have_content "SCORE: 1"
         click_link "Accept Answer"
-        expect(page).to_not have_content "SCORE: 1" 
+        expect(page).to_not have_content "SCORE: 1"
         expect(page).to have_content "SCORE: 6"
-      end 
+      end
 
       it "should set a comment as the accepted answer" do
         expect(page).to_not have_content "THIS IS THE ACCEPTED ANSWER"
@@ -182,7 +182,7 @@ describe "specialty user questions and answers" do
     end
   end
 
-  describe "Load More Questions button on index page", js: true do
+  describe "Load More Questions button on index page" do
     before do
       @question_one_text = "Question one"
       @question_two_text = "Question two"

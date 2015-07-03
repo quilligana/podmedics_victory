@@ -6,7 +6,7 @@ feature 'User Specialties' do
     @specialty = create(:specialty, name: 'Cardiology')
     video = create(:video, specialty: @specialty)
     @user = create(:user)
-    question = create(:question, video: video)
+    question = create(:question, video: video, specialty: @specialty)
     @user_question = create(:user_question, user_id: @user.id, question_id: question.id)
     @vimeo = create(:vimeo, user_id: @user.id, video_id: video.id)
     sign_in(@user)

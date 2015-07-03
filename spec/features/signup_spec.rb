@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature 'Sign up', js: true do
+feature 'Sign up' do
 
   scenario 'Guest signs up with valid credentials' do
     generate_plans

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "video comments", js: true do
+describe "video comments" do
 
   before do
     @user = create(:admin_user)
@@ -44,7 +44,7 @@ describe "video comments", js: true do
           expect(page).to     have_content("Comments/Questions (1)")
           expect(page).to     have_selector("div.comment")
           expect(page).to     have_content("This is a comment.")
-          expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p", 
+          expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p",
                                         text: "This is a comment.")
           expect(page).to_not have_content("Nothing posted yet. Be the first to comment.")
         end
@@ -65,7 +65,7 @@ describe "video comments", js: true do
           expect(page).to     have_content("Nothing posted yet. Be the first to comment.")
           expect(page).to_not have_content(@user.name)
           expect(page).to_not have_content("This is a comment.")
-          expect(page).to_not have_css( "div.comment div.inner_page_padding div.comment_info p", 
+          expect(page).to_not have_css( "div.comment div.inner_page_padding div.comment_info p",
                                         text: "This is a comment.")
         end
       end
@@ -90,7 +90,7 @@ describe "video comments", js: true do
           expect(page).to     have_content("Comments/Questions (2)")
           expect(page).to     have_content("This is a reply.")
           expect(page).to     have_selector("div.comment_reply")
-          expect(page).to     have_css( "div.comment_reply div.comment div.inner_page_padding div.comment_info p", 
+          expect(page).to     have_css( "div.comment_reply div.comment div.inner_page_padding div.comment_info p",
                                         text: "This is a reply.")
         end
       end
@@ -119,7 +119,7 @@ describe "video comments", js: true do
           expect(page).to      have_selector("div.comment")
           expect(page).to      have_content("Comments/Questions (3)")
           expect(page).to      have_content("This is a comment after a reply.")
-          expect(page).to      have_css( "div.comment div.inner_page_padding div.comment_info p", 
+          expect(page).to      have_css( "div.comment div.inner_page_padding div.comment_info p",
                                          text: "This is a comment after a reply.")
           expect(page).to_not have_content("Nothing posted yet. Be the first to comment.")
         end
@@ -151,7 +151,7 @@ describe "video comments", js: true do
           expect(page).to     have_selector("div.comment")
           expect(page).to     have_content("Comments/Questions (2)")
           expect(page).to     have_content("This is a comment after cancelling a reply.")
-          expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p", 
+          expect(page).to     have_css( "div.comment div.inner_page_padding div.comment_info p",
                                        text: "This is a comment after cancelling a reply.")
           expect(page).to_not have_content("Nothing posted yet. Be the first to comment.")
           expect(page).to_not have_selector("div.comment_reply")
