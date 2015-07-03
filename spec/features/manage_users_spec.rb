@@ -47,9 +47,10 @@ feature 'Manage users' do
 
   def admin_removes_user(user)
     visit admin_users_path
-    within "tr.user##{user.id}" do
-      click_link 'Remove'
+    within "table tr.user##{user.id}" do
+      click_link 'Show'
     end
+    click_link 'Remove'
   end
 
   def admin_sees_no_user_with_email(email)
@@ -78,10 +79,13 @@ feature 'Manage users' do
   end
 
   def update_email_of_user(email, user)
-    click_link 'Users'
-    within "table tr.user##{user.id}" do
-      click_link 'Edit'
+    within "#user-nav" do
+      click_link 'Users'
     end
+    within "table tr.user##{user.id}" do
+      click_link 'Show'
+    end
+    click_link 'Edit'
     fill_in 'Email', with: email
     click_button 'Update User'
   end
