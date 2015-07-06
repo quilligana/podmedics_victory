@@ -9,8 +9,8 @@ class UserProgress
 
   def max_specialty_points
     # Points for answering specialty_questions are not included
-    video_points = @specialty.cached_videos_count * POINTS[:watched_video]
-    question_points = @specialty.cached_questions_count * POINTS[:correct_answer]
+    video_points = @specialty.videos.count * POINTS[:watched_video]
+    question_points = @specialty.questions.count * POINTS[:correct_answer]
     (video_points + question_points) * 1.2
   end
 
