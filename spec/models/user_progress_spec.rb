@@ -6,8 +6,8 @@ describe UserProgress do
     @user = create(:user)
     @specialty = create(:specialty)
     @video = create(:video, specialty: @specialty)
-    @question = create(:question, video: @video)
-    @question_2 = create(:question, video: @video)
+    @question = create(:question, video: @video, specialty: @specialty)
+    @question_2 = create(:question, video: @video, specialty: @specialty)
     @specialty_question = create(:specialty_question, user_id: @user.id, specialty_id: @specialty.id)
     @progress_instance = UserProgress.new(@specialty, @user)
   end
@@ -31,9 +31,7 @@ describe UserProgress do
     it 'should return the users updated points in that specialty' do
       create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
-      comment = create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id, accepted: true)
-      create(:vote, comment_id: comment.id)
-      @progress_instance.user_specialty_points.should eq 66
+      @progress_instance.user_specialty_points.should eq 40
     end
   end
 
