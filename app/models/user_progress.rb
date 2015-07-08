@@ -99,13 +99,30 @@ class UserProgress
     @specialty.change_professor(@user.id)
   end
 
-private
+  def grade_level
+    if user_specialty_points >= professor_points
+      5
+    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_CONSULTANT)
+      4
+    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_REGISTRAR)
+      3
+    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_SENIOR_HOUSE_OFFICER)
+      2
+    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_HOUSE_OFFICER)
+      1
+    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
+      0
+    end
+  end
 
   def specialty_points(user)
     video_points(user, video_ids) + question_points(user, video_ids) +
     answer_points(answers(user)) + upvote_points(user, answers(user)) +
     accepted_answer_points(answers(user))
   end
+
+private
+
 
   def video_ids
     video_ids ||= @specialty.video_ids
@@ -148,21 +165,6 @@ private
     grade_levels[level] unless level.nil?
   end
 
-  def grade_level
-    if user_specialty_points >= professor_points
-      5
-    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_CONSULTANT)
-      4
-    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_REGISTRAR)
-      3
-    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_SENIOR_HOUSE_OFFICER)
-      2
-    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_HOUSE_OFFICER)
-      1
-    elsif user_specialty_points >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
-      0
-    end
-  end
 
   def get_points_percentage(percentage)
     (percentage * max_specialty_points / 100).round
