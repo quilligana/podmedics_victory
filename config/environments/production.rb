@@ -60,8 +60,8 @@ PodmedicsVictory::Application.configure do
   config.cache_store = :dalli_store
 
   # Static file hosting
-  config.static_cache_control = "public, max-age=2592000"
-  config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
+  # config.static_cache_control = "public, max-age=2592000"
+  # config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
