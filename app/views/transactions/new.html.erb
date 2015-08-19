@@ -79,6 +79,24 @@
 
 <div class="plans_columns_wrapper">
 
+  <div class="plans_column" id="free_trial">
+    <h2>Trial Membership</h2>
+    <ul class="plans_column_features_list">
+      <li>Expore the entire website</li>
+      <li>Unlock <strong>two specialties</strong>of your choice</li>
+      <li>View all videos/questions for your chosen specialties</li>
+      <li>Full access to <strong>preview vidoes</strong> in all specialties</li>
+      <li>No access to video, audio or slide downloads</li>
+    </ul>
+
+    <div class="plans_button_wrapper">
+      <%= form_tag buy_path(permalink: @free_product.permalink) do %>
+        <%= button_tag 'Choose Trial Membership', class: 'red_button' %>
+      <% end %>
+    </div>
+    
+  </div>
+
 
   <div class="plans_column">
     <h2>Premium Membership</h2>

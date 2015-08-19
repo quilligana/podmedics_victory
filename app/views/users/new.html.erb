@@ -12,6 +12,7 @@
       <div class="signup_form_header_copy">
         <!--<h3>Pricing</h3>-->
         <!--<h3>What we offer?</h3>-->
+        <p>We offer a <strong>trial membership</strong>that allows you to fully unlock two specialties of your choice.</p>
         <p>We offer full subscriptions for either <strong>6 months<%= " (£#{@paid_6.price_in_pounds})" if @paid_6 %></strong> or <strong>12 months<%= " (£#{@paid_12.price_in_pounds})" if @paid_12 %></strong>. These give you full access to all the resources on the site - including video downloads and our full question bank.</p>
         <p>Want to checkout what we do - please take a look at the interactive questions on the <%= link_to 'home page', root_path %> and our <%= link_to 'video library', library_path %></p>
       </div>
@@ -33,7 +34,7 @@
           <%= f.input :email, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Email' %>
           <%= f.input :password, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Password' %>
           <%= f.input :password_confirmation, input_html: { class: 'podmedics_textfield'}, label: false, placeholder: 'Password confirmation' %>
-          <button type="submit" class="red_button">Proceed to payment</button>
+          <button type="submit" class="red_button">Signup</button>
         <% end %>
       </div>
     </div>
