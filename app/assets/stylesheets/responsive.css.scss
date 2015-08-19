@@ -514,7 +514,12 @@ $standard_border_radius: 6px;
 
 }
 @media screen and (max-width: 1020px) {
-
+  .home_plans_payment_options {
+    margin-bottom: 40px;
+    margin-top: 0px;
+    text-align: center;
+    width: 100%;
+  }
   .home_plan_column {
     float: none;
     margin-left: auto;
@@ -523,15 +528,13 @@ $standard_border_radius: 6px;
   }
   .home_plan_column:first-child {
     margin-left: auto;
+    margin-bottom: 40px;
   }
   .home_plan_column:last-child {
     margin-right: auto;
     margin-bottom: 0px;
   }
-  .home_plans_payment_options {
-    margin-bottom: 40px;
-    text-align: center;
-  }
+
   .home_plan_columns_wrapper {
     margin-bottom: 30px;
   }
@@ -992,6 +995,8 @@ a.podmedcis_button.green.flash_cards_button {
     float: left;
     clear: both;
   }
+
+
 }
 
 @media screen and (max-width: 800px) {
@@ -1242,7 +1247,9 @@ a.podmedcis_button.green.flash_cards_button {
     margin-right: 35px;
     width: auto;
   }
-
+  .home_plan_columns_wrapper {
+    width: 100%;
+  }
   .home_section {
     padding-bottom: 30px;
   }
@@ -1851,7 +1858,8 @@ a.podmedcis_button.green.flash_cards_button {
     font-size: 13px;
     padding-left: 20px;
     padding-right: 20px;
-    width: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
   .questions_answers_main_question .main_question_header h2 {
     font-size: 18px;
@@ -2041,6 +2049,9 @@ a.podmedcis_button.green.flash_cards_button {
   }
   .plans_column {
      width: 100%;
+  }
+  .plans_column:last-child {
+    width: 100%;
   }
   .ask_question_modal_wrapper {
     width: 90%;
@@ -2257,7 +2268,7 @@ a.podmedcis_button.green.flash_cards_button {
     padding-right: 0px;
   }
   .home_plan_column {
-    width: 280px;
+    width: 300px;
   }
     .home_plans_best_value_icon {
     margin-left: 115px;

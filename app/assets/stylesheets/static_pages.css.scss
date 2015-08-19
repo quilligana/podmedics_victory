@@ -926,7 +926,7 @@ div.faq_inner_wrapper:last-child {
 .plans_column {
   background-color: #FFF;
   float: left;
-  width: 100%;
+  width: 450px;
   margin-right: 80px;
   border-radius: 6px;
   -moz-box-shadow: 0 0 6px 0 rgba(189, 189, 189, 0.8);
@@ -941,8 +941,8 @@ div.faq_inner_wrapper:last-child {
   margin-right: 0px;
   margin-top: 0px;
   margin: 0 auto;
-  width: 100%;
-  margin-bottom: 0px;
+  width: 450px;
+  margin-bottom: 80px;
 }
 
 .plans_column h2 {
@@ -2103,10 +2103,6 @@ a.mobile_nav_icon {
   margin-bottom: 50px;
 }
 
-.home_plan_columns_wrapper {
-  width: 100%;
-  float: left;
-}
 
 .home_plan_column {
   background-color: #FFF;
@@ -2117,13 +2113,14 @@ a.mobile_nav_icon {
   border: solid 1px #D8D8D8;
   border-radius: 4px;
   overflow: hidden;
-  margin-right: auto;
-  margin-left: auto;
+  float: left;
 }
 
 .home_plan_columns_wrapper {
-  width: 100%;
-  float: left;
+  width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
   margin-bottom: 40px;
 }
 
@@ -2203,9 +2200,10 @@ p.home_plan_column_term_wrapper {
 }
 .home_plans_payment_options {
   float: left;
-  width: 100%;
+  width: 860px;
   margin-bottom: 80px;
-  text-align: center;
+  margin-top: 30px;
+  text-align: right;
   font-size: 11px;
   color: #7F7F7F;
   text-transform: uppercase;
