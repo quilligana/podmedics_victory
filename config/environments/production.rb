@@ -38,7 +38,7 @@ PodmedicsVictory::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  config.assets.version = '1.1'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -61,7 +61,7 @@ PodmedicsVictory::Application.configure do
 
   # Static file hosting
   config.static_cache_control = "public, max-age=2592000"
-  config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
+  # config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
