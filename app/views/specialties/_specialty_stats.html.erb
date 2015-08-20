@@ -1,30 +1,4 @@
 <div class="lecture_questions_right_column notes_right_column">
-
-  <div class="flashcard_promo_block_wrapper">
-    <div class="flashcard_promo_block">
-      <div class="flashcard_promo_block_top">
-        <div class="flashcard_promo_block_top_icon"></div>
-        <p>Flashcards</p>
-      </div>
-      <div class="flashcard_promo_block_bottom">
-        <p>Create a new flashcard and get two free months membership</p>
-        <a href="javascript:;" data-reveal-id="flashcard_promo_modal">Find Out More</a>
-      </div>
-    </div>
-  </div>
-
-  <div id="flashcard_promo_modal" class="reveal-modal earn_points_modal_resize">
-    <div class="earn_points_modal_resize_inner_spacing">
-      <div class="ask_question_modal_title">How do I create a flashcard?</div>
-      <div class="promo_modal_preview_image"></div>
-      <p>
-        Navigate to the video of your choice, if there is a flashcard slot available just click 'Create flashcard' and get writing. Once you are happy, submit it, we shall review and credit your account. Simples!
-      </p>
-      <p>Don't worry if the video covers multiple topic, just choose one of them.</p>
-    </div>
-  </div>
-
-
   <% if current_user.is_trial_member? && !current_user.has_access_to?(@specialty) %>
     <div class="unlock_specialty_outer_wrapper">
       <div class="unlock_specialty_wrapper">
@@ -76,7 +50,6 @@
         <% @top_five.each_with_index do |badge, index| %>
           <li>
             <div class="top_ranked_users_rank_number"><%= index + 1 %>.</div>
-
             <div class="top_ranked_users_section_avatar">
               <%= image_tag badge.user.get_avatar(:square, request) %>
             </div>
