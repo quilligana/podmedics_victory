@@ -1446,8 +1446,8 @@ a#back_to_notes_button {
   padding-left: 0%;
   padding-right: 0%;
   padding-bottom: 10px;
-  line-height: 38px;
-  text-align: center;
+  line-height: 30px;
+  text-align: left;
   width: 100%;
 }
 .lectures_question_title p {
@@ -1457,7 +1457,7 @@ a#back_to_notes_button {
 .lectures_question_title_outer_spacing {
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .lecture_questions_left_column {
   float: left;
@@ -1470,7 +1470,7 @@ a#back_to_notes_button {
   width: 30%; }
 
 a.default_lecture_question, .lecture_question_blocks input, .default_lecture_question {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
   font-weight: 700;
   background-color: #F1F1F1;
@@ -1497,8 +1497,8 @@ a.default_lecture_question, .lecture_question_blocks input, .default_lecture_que
 }
 
 a.default_lecture_question:hover, .lecture_question_blocks input:hover, .default_lecture_question:hover {
-  background-color: #E6E6E6;
-  color: #616161;
+  background-color: #71dd7e;
+  color: white;
 }
 a.default_lecture_question:active, .lecture_question_blocks input:active, .default_lecture_question:active {
   background-color: #fa3f52;
@@ -2133,7 +2133,7 @@ div.exam_result_wrapper.exam_fail .exam_result_icon {
 
 .lecture_list_left_column {
   float: left;
-  width: auto;
+  width: 400px;
   margin-left: 20px; }
 
 .tab_title {
@@ -5083,7 +5083,7 @@ span.test-yourself a {
 span.preview_marker {
   font-size: 12px;
   padding-left: 3px;
-  color: #71dd7e;
+  color: #DD7171;
 }
 a.grey_button.download_slides_button {
   width: 100%;
