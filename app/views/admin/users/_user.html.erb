@@ -2,6 +2,7 @@
   <td><%= link_to user.id, admin_user_path(user) %></td>
   <td><%= user.created_at.strftime("%B %e, %Y") %></td>
   <td><%= user %></td>
+  <td><%= user.unlocked_specialties.count %></td>
   <td><%= user.email %></td>
   <td>
     <span class="label label-success"><%= user.subscribed_on.strftime("%B %e, %Y") if user.subscribed_on %></span>

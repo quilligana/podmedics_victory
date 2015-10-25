@@ -105,7 +105,7 @@ class Sale < ActiveRecord::Base
         ["Date", created_at.strftime("%B %d, %Y")],
         ["Account billed", "#{user.name} - #{user.email}"],
         ["Product", product.name],
-        ["Cost", "£#{(actual_cost / 100).round(2)}"],
+        ["Cost", "£#{(actual_cost / 100)}"],
         ["VAT (20%)", "£#{(calculate_vat_amount / 100).round(2)}"],
         ["Total", "£#{amount / 100}.00"],
         ["Transaction ID", "##{id}"]
