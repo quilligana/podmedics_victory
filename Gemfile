@@ -65,7 +65,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'guard-rspec'
   gem 'parallel_tests'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'   # This may or may not work with 2.1.2 either, so remove if you still get errorrs
