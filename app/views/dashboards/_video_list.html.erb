@@ -2,9 +2,6 @@
   <div class="lecture_list_item">
     <div class="lecture_list_left_column">
       <%= link_to video.title, video, class: 'video_link' %>
-      <% if current_user.is_trial_member? && video.preview %>
-        <span class="preview_marker">(preview)</span>
-      <% end %>
       <p class="lecture_specialties_link">
         <%= link_to video.specialty_name, specialty_path(video.specialty) %>
         <span class="video_duration"><%= video.duration_as_string %></span>

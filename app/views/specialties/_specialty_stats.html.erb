@@ -1,13 +1,4 @@
 <div class="lecture_questions_right_column notes_right_column">
-  <% if current_user.is_trial_member? && !current_user.has_access_to?(@specialty) %>
-    <div class="unlock_specialty_outer_wrapper">
-      <div class="unlock_specialty_wrapper">
-        <%= link_to "Unlock this specialty", specialty_specialty_unlocks_path(@specialty), method: :post, class: "podmedcis_button green" %>
-        <div class="unlock_specialty_tooltip">Unlocking this specialty will give you access to all videos and questions</div>
-      </div>
-    </div>
-  <% end %>
-
   <% if @specialty.cached_notes_count(current_user) > 0 %>
     <a href="javascript:;" class="notes_saved_button" id="notes_saved_button">
       <p class="questions_info_right_column_number"><%= @specialty.cached_notes_count(current_user) %></p>

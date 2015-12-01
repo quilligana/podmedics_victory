@@ -2,7 +2,6 @@
 <div class="mobile_navigation">
   <%= link_to 'home', root_path , class: "nav-home" %>
   <%= link_to 'videos', library_path , class:"nav-lectures" %>
-  <a href="#pricing">Pricing</a>
   <a href="#questions">Questions</a>
   <%= link_to "quiz app", app_path %>
   <%= link_to 'about', about_path , class: "nav-about" %>
@@ -40,7 +39,6 @@
   <div class="home_navigation">
     <%= link_to 'home', root_path , class: "nav-home" %>
     <%= link_to 'videos', library_path , class:"nav-lectures" %>
-    <a href="#pricing">Pricing</a>
     <a href="#questions">Questions</a>
     <%= link_to "quiz app", app_path %>
 
@@ -70,7 +68,7 @@
     <h1>Medical Revision As It Should Be.</h1>
     <p class="podmedics_intro_message">Watch 100s of beautifully made medical revision videos and answer 1000s of questions that are tailored specifically to you</p>
     <div class="inner_home_header_action_buttons">
-      <a href="/signup" class="red_button home_action_button">Start your free trial</a>
+      <a href="/signup" class="red_button home_action_button">Sign Up Now (it's 100% free)</a>
     </div>
   </div>
 </div>
@@ -80,7 +78,6 @@
     <div class="home_top_section_left_column">
       <h2>Watch Video Tutorials</h2>
       <p>Podmedics has over 200 medical revision videos that help you approach revising for your exams in a concise and consistant way.</p>
-      <p>Watch them on the morning commute - that's what we do!</p>
       <div class="home_video_action_buttons">
         <%= link_to "Explore our full video library", library_path, class: 'red_button' %>
       </div>
@@ -177,74 +174,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-<div class="home_plans_section" id="pricing">
-
-  <div class="home_section_inner_wrapper">
-
-    <div class="home_plans_section_header">
-      <h2>Membership</h2>
-      <p>We have 3 ways you can become a member of Podmedics</p>
-    </div>
-
-    <div class="home_plan_columns_wrapper">
-
-      <div class="home_plan_column">
-        <div class="home_plan_column_header free_membership_title">Trial Membership</div>
-        <div class="home_plan_column_inner">
-          <p>Expore the entire site</p>
-          <p>Unlock two specialties of your choice</p>
-          <p>Access to all videos/questions for chosen specialties</p>
-          <p>Full access to preview videos in all specialties</p>
-          <p>No access to video, audio or slide downloads</p>
-          <p>Membership of mailing list with new episode notifications</p>
-        </div>
-        <div class="home_plan_column_action_button_wrapper">
-          <%= link_to 'Choose Trial Membership', signup_path %>
-        </div>
-      </div>
-
-      <div class="home_plan_column">
-        <div class="home_plan_column_header">
-          <p>Premium Membership</p>
-          <p class="home_plan_column_term_wrapper">Memberships</p>
-        </div>
-        <div class="home_plan_column_inner">
-          <p>Full access to all 40 specialties</p>
-          <p>Full access to 200 videos/2000 questions</p>
-          <p>Access to video, audio and slide downloads</p>
-          <p>In-depth performance tracking and earn badges for your achievements</p>
-          <p>Priority Support</p>
-        </div>
-        <div class="home_plan_column_action_button_wrapper">
-          <!-- TODO refactor into partial / helper -->
-          <% if @paid_6 && @paid_12 %>
-            <%= link_to "Sign Up Now for 6 Months - £#{@paid_6.price_in_pounds}", signup_path %>
-            <%= link_to "Sign Up Now for 12 Months - £#{@paid_12.price_in_pounds}", signup_path %>
-          <% else %>
-            <%= link_to "Sign Up Now for 6 Months", signup_path %>
-            <%= link_to "Sign Up Now for 12 Months", signup_path %>
-          <% end %>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="home_plans_payment_options">All Payments are one-off (Non-Recurring)</div>
-
-
-  </div>
-
-</div>
-
-
-
-
-
 
 <div class="home_section_two">
   <div class="home_section_inner_wrapper">
