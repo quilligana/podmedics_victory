@@ -16,12 +16,15 @@
         <a href="javascript:;" class="podmedcis_button green flash_cards_button">Flashcards</a>
       <% end %>
       <%= link_to 'Create flashcard', new_video_flashcard_path(@video), class: 'podmedcis_button green flash_cards_button create_card' %>
-      <div class="video_download_dropdown">
-        <a href="#" class="podmedcis_button white_download_button">Download</a>
-        <div class="video_download_dropdown_inner">
-          <%= render partial: 'downloads' %>
+
+      <% if current_user.has_subscription_and_in_date? %>
+        <div class="video_download_dropdown">
+          <a href="#" class="podmedcis_button white_download_button">Download</a>
+          <div class="video_download_dropdown_inner">
+            <%= render partial: 'downloads' %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <% if questions_exist %>
         <%= link_to video_questions_url(:video_id => @video.id), class: "podmedcis_button take_exam_button" do %>
