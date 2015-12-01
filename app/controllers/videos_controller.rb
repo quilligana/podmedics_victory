@@ -16,9 +16,6 @@ class VideosController < ApplicationController
     @specialty = @video.specialty
     @author = @video.author
     @flashcards = @video.flashcards
-
-    check_unlock if current_user.is_trial_member?
-
     @video.increment_views
     @progress = Vimeo.register_ids(@video.id, current_user)
     @comment = Comment.new(user: current_user)
