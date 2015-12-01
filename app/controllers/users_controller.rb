@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @paid_6 = Product.where(permalink: 'paid6').first
     @paid_12 = Product.where(permalink: 'paid12').first
     @user = User.new(user_params)
+    # for making podmedics free
+    @user.mark_plan_selected
     if @user.save
       login_user(@user)
     else
