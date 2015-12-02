@@ -21,7 +21,7 @@
         <h2>Signup Manually</h2>
         <%= simple_form_for @user do |f| %>
           <%= f.error_notification %>
-          <%= f.input :name, input_html: {class: 'podmedics_textfield', autofocus: true}, label: false, placeholder: 'Full Name' %>
+          <%= f.input :name, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Full Name' %>
           <%= f.input :email, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Email' %>
           <%= f.input :password, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Password' %>
           <%= f.input :password_confirmation, input_html: { class: 'podmedics_textfield'}, label: false, placeholder: 'Password confirmation' %>
