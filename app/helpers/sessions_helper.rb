@@ -2,6 +2,7 @@ module SessionsHelper
 
   def login_user(user)
     session[:user_id] = user.id
+    user.mark_plan_selected unless user.plan_selected
     user.record_login
     redirect_for_user(user)
   end
