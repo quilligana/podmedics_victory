@@ -266,5 +266,9 @@
     mixpanel.track_links("a.take_exam_button", "Click Video Quiz", {
       "name" : title
     });
+
+    analytics.track("Watched video", {
+      "name" : title
+    });
   });
 </script>
