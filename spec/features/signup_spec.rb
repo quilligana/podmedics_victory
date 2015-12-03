@@ -18,7 +18,7 @@ feature 'Sign up' do
   scenario 'Guest signs up with valid credentials' do
     generate_plans
     user_signs_up_with_email('test@example.com')
-    expect(current_path).to eq show_buy_path(User.first)
+    expect(current_path).to eq dashboard_path
 
     # Check that the email redirect isn't in effect on regular signups.
     expect(page).to_not have_content 'Please enter a valid email address'
@@ -29,12 +29,12 @@ feature 'Sign up' do
   def user_signs_up_with_email(email)
     visit root_path
     within '.inner_home_header' do
-      click_link 'Get started now'
+      click_link "Sign Up Now (it's 100% free)"
     end
     fill_in 'Full Name', with: 'Test User'
     fill_in 'Email', with: email
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
-    click_button 'Proceed to payment'
+    click_button 'Signup'
   end
 end
