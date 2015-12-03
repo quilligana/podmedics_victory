@@ -114,6 +114,8 @@ class UserProgress
       1
     elsif user_specialty_points >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
       0
+    else
+      0
     end
   end
 
