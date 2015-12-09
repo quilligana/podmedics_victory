@@ -63,7 +63,7 @@ class UserProgress
     elsif current_badge.level != grades(grade_level)
       # grade level is returning nil here
       # https://appsignal.com/podmedics/sites/53becd2c776f7245ec868801/web/exceptions/QuestionsController-hash-answer/ActionView::Template::Error
-      award_higher_badges if grade_level <= 5
+      award_higher_badges if grade_level && grade_level <= 5
     end
   end
 
