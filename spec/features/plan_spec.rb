@@ -27,7 +27,7 @@ describe 'Plan Selection' do
       end
 
       describe 'Login redirect' do
-        it_should_behave_like 'when a redirect happens'
+        it_should_behave_like "when a redirect doesn't happen"
       end
 
       describe 'Dashboard' do
@@ -35,7 +35,7 @@ describe 'Plan Selection' do
           visit dashboard_path
         end
 
-        it_should_behave_like 'when a redirect happens'
+        it_should_behave_like "when a redirect doesn't happen"
       end
 
       describe 'Video pages' do
@@ -44,7 +44,7 @@ describe 'Plan Selection' do
           visit video_path(@video)
         end
 
-        it_should_behave_like 'when a redirect happens'
+        it_should_behave_like "when a redirect doesn't happen"
       end
 
       describe '@user pages' do
@@ -52,7 +52,7 @@ describe 'Plan Selection' do
           visit user_path(@no_plan_user)
         end
 
-        it_should_behave_like 'when a redirect happens'
+        it_should_behave_like "when a redirect doesn't happen"
       end
     end
 
@@ -97,6 +97,6 @@ describe 'Plan Selection' do
   	  sign_in @no_plan_user
   	end
 
-  	it_should_behave_like 'when a redirect happens'
+    it_should_behave_like "when a redirect doesn't happen"
   end
 end

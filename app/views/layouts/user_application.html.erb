@@ -24,6 +24,15 @@
     <![endif]-->
     <%= render 'mixpanel'  %>
     <%= render 'hotjar' %>
+    <%= render 'segment' %>
+    <% if current_user && Rails.env.production?  %>
+      <script type="text/javascript" charset="utf-8">
+        analytics.identify('<%= current_user.id.to_s %>', {
+            name:  '<%= current_user.name  %>',
+            email: '<%= current_user.email %>'
+        });
+      </script>
+    <% end %>
   </head>
 
   <body>

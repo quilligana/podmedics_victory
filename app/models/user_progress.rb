@@ -61,6 +61,8 @@ class UserProgress
     if current_badge.nil?
       award_first_badge if grade_level == 0
     elsif current_badge.level != grades(grade_level)
+      # grade level is returning nil here
+      # https://appsignal.com/podmedics/sites/53becd2c776f7245ec868801/web/exceptions/QuestionsController-hash-answer/ActionView::Template::Error
       award_higher_badges if grade_level <= 5
     end
   end
@@ -111,6 +113,8 @@ class UserProgress
     elsif user_specialty_points >= get_points_percentage(PERCENTAGE_HOUSE_OFFICER)
       1
     elsif user_specialty_points >= get_points_percentage(PERCENTAGE_MEDICAL_STUDENT)
+      0
+    else
       0
     end
   end
