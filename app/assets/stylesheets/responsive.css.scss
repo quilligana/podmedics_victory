@@ -292,6 +292,22 @@ $standard_border_radius: 6px;
 
 /* Responsive */
 
+
+@media screen and (max-width: 1400px) {
+
+
+  .video_page_heading_button_set {
+    float: left;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+  .video_page_heading_wrapper {
+    width: 100%;
+  }
+}
+
+
 @media screen and (max-width: 1344px) {
 
   .video_header_inner div.video_column {
@@ -331,9 +347,23 @@ $standard_border_radius: 6px;
     -moz-border-radius-bottomright: 5px 5px;
     border-bottom-right-radius: 5px 5px;
   }
+
+
 }
 
 @media screen and (max-width: 1195px) {
+  .return_to_video_page_button_wrapper a.grey_button.download_slides_button {
+    text-indent: 0px;
+    background-image: none;
+    text-align: center;
+  }
+  .inline_specialities_dropdown_menu.medicine_dropdown_menu_placement {
+    margin-left: 0px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-top-left-radius: 0px 0px;
+  }
   .return_to_video_page_button_wrapper a.red_button.return_to_video_page_button {
     text-indent: 0px;
     background-image: none;
@@ -349,6 +379,7 @@ $standard_border_radius: 6px;
   .sub_heading_wrapper .sub_heading_button_set {
     float: left;
     margin-top: 10px;
+    clear: both;
   }
   .inline_specialities_dropdown_wrapper {
     float: left;
@@ -370,28 +401,13 @@ $standard_border_radius: 6px;
   }
   .home_section_video .home_top_section_left_column h2, .home_section_questions .home_top_section_left_column h2 {
     font-size: 30px;
-    margin-top: 100px;
-  }
-  .home_top_section_right_column {
-    width: 100%;
-    float: right;
-    margin-top: 50px;
+    margin-top: 70px;
   }
 
   .home_top_section_right_column.questions_right_column_wrapper {
     margin-top: 30px;
   }
-  .index_questions_wrapper {
-    float: none;
-    width: 80%;
-    margin-top: 30px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    min-height: 430px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-  }
+
   .home_section_questions {
     height: auto;
     padding-bottom: 50px;
@@ -402,7 +418,7 @@ $standard_border_radius: 6px;
     padding-right: 5%;
   }
   .index_video_wrapper {
-    width: 640px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -414,9 +430,17 @@ $standard_border_radius: 6px;
   }
   .home_video_action_buttons {
     margin-top: 20px;
-    width: 190px;
+    width: 260px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .home_section_video .home_top_section_left_column p {
+    float: left;
+    clear: both;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .try_questions_sketch {
     display: none;
@@ -424,10 +448,47 @@ $standard_border_radius: 6px;
   .home_section_questions .home_top_section_left_column {
     padding-top: 0px;
   }
+  .lectures_inline_dropdown_wrapper {
+    display: none;
+  }
+  .sub_heading_button_set.notes_dropdown_wrapper {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1285px) {
+  .inner.flashcard_create_page_inner {
+    width: auto;
+    margin-right: 0px;
+    padding-left: 30px;
+    padding-top: 20px;
+  }
+  .sub_heading_right_flashcard_create_heading {
+    float: left;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    clear: both;
+  }
+}
+@media screen and (max-width: 1140px) {
+  .page.flashcard_create {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .flashcard_wrapper.live_update {
+    width: 450px;
+  }
+  .flashcard_wrapper.live_update .inner_flashcard_wrapper {
+    width: 450px;
+  }
+
 }
 
 @media screen and (max-width: 1110px) {
-
+  .lectures_speciality_outer_wrapper {
+    min-height: 1080px;
+  }
   .video_page_notes_column form {
     width: 94%;
     margin-left: auto;
@@ -453,7 +514,36 @@ $standard_border_radius: 6px;
 
 }
 @media screen and (max-width: 1020px) {
+  .home_plans_payment_options {
+    margin-bottom: 40px;
+    margin-top: 0px;
+    text-align: center;
+    width: 100%;
+  }
+  .home_plan_column {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+  }
+  .home_plan_column:first-child {
+    margin-left: auto;
+    margin-bottom: 40px;
+  }
+  .home_plan_column:last-child {
+    margin-right: auto;
+    margin-bottom: 0px;
+  }
 
+  .home_plan_columns_wrapper {
+    margin-bottom: 30px;
+  }
+
+
+
+  .flashcard_grid_wrapper {
+    min-height: inherit;
+  }
   .quiz_app_section_one_wrapper {
     width: 100%;
   }
@@ -496,9 +586,7 @@ $standard_border_radius: 6px;
   .questions_answers_main_question .question_comments_outer .comment_reply {
     background-position: 9% 10%;
   }
-  .lectures_inline_dropdown_wrapper {
-    display: none;
-  }
+
   a.podmedcis_button.green.print_notes_button {
     margin-right: 0px;
   }
@@ -606,12 +694,6 @@ $standard_border_radius: 6px;
     margin-right: 10px;
   }
 
-  .video_page_heading_button_set {
-    float: left;
-    width: auto;
-    margin-bottom: 20px;
-    margin-top: 5px;
-  }
 
   .video_page_heading_wrapper {
     width: 100%;
@@ -823,9 +905,6 @@ $standard_border_radius: 6px;
     display: none;
   }
 
-  .home_page_header {
-    min-height: 570px;
-  }
 
   .lecture_questions_right_column .questions_info_right_column_section p.questions_info_right_column_number{
     width: auto;
@@ -843,7 +922,55 @@ $standard_border_radius: 6px;
   }
 }
 
+@media screen and (max-width: 950px) {
+
+a.podmedcis_button.green.flash_cards_button {
+  display: none;
+}
+  a.podmedcis_button.green.flash_cards_button.preview {
+    display: block;
+    margin-bottom: 0px;
+  }
+  .flashcard_wrapper.live_update {
+    width: 450px;
+    display: none;
+  }
+  .page.flashcard_create {
+    width: 100%;
+    margin-right: 0px;
+  }
+  .inner.flashcard_create_page_inner {
+    width: 96%;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-top: 20px;
+  }
+  .close_flashcard_wrapper.live_update_spacing.preview_flashcard_close .close_flashcard {
+    display: block;
+  }
+  .video_page_heading_button_set a.podmedcis_button.green.flash_cards_button {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .video_page_heading_button_set .podmedcis_button.take_exam_button{
+    float: left;
+  }
+}
+
 @media screen and (max-width: 900px) {
+  .home_page_header .home_navigation {
+    display: none;
+  }
+  a.mobile_nav_icon {
+    display: block;
+  }
+  .home_page_header {
+    min-height: 530px;
+  }
+  div.inner_home_header {
+    padding-top: 130px;
+  }
   .sub_heading_button_set {
     float: left;
   }
@@ -864,17 +991,15 @@ $standard_border_radius: 6px;
   .library_count {
     display: none;
   }
+  .video_download_dropdown {
+    float: left;
+    clear: both;
+  }
+
 
 }
 
 @media screen and (max-width: 800px) {
-
-  .home_page_header .home_navigation {
-    display: none;
-  }
-  a.mobile_nav_icon {
-    display: block;
-  }
   .quiz_app_section_three_android {
     display: none;
   }
@@ -895,6 +1020,7 @@ $standard_border_radius: 6px;
   .header_column {
     width: 100%;
     height: 470px;
+    overflow-y: scroll;
     float: left;
   }
   .inner_header_column_divide {
@@ -905,7 +1031,7 @@ $standard_border_radius: 6px;
     display: block;
   }
   .dashboard_header_wrapper {
-    height: 940px;
+    height: auto;
     width: 100%;
     border-bottom: solid 1px #E8E8E8;
   }
@@ -1000,13 +1126,13 @@ $standard_border_radius: 6px;
   }
   .home_section_three_devices_wrapper {
     width: 100%;
-    padding-top: 165px;
+    padding-top: 65px;
     clear: both;
     overflow: hidden;
   }
 
   .home_section_three {
-    height: 902px;
+    height: 772px;
   }
   .home_section_two .browser_window {
     display: none;
@@ -1055,13 +1181,16 @@ $standard_border_radius: 6px;
 
   .home_section_four {
     height: auto;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
   }
 
   .home_section_four .left_column h2 {
     margin-top: 80px;
   }
+  .home_section_three_header {
+    padding-top: 50px;
 
+  }
   .home_section_three_ipad {
     margin-left: 0px;
     background-position: top left;
@@ -1118,7 +1247,9 @@ $standard_border_radius: 6px;
     margin-right: 35px;
     width: auto;
   }
-
+  .home_plan_columns_wrapper {
+    width: 100%;
+  }
   .home_section {
     padding-bottom: 30px;
   }
@@ -1427,6 +1558,31 @@ $standard_border_radius: 6px;
 }
 
 @media screen and (max-width: 650px) {
+  .index_video_wrapper iframe {
+    max-width: 100%;
+    height: 291px;
+  }
+  .index_questions_wrapper {
+    width: 100%;
+  }
+  .home_top_section_right_column {
+    width: 90%;
+
+  }
+  .video_download_dropdown {
+    float: left;
+    clear: both;
+  }
+  a.podmedcis_button.green.flash_cards_button {
+    margin-bottom: 15px;
+  }
+  .footer .footer_right {
+    float: left;
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    clear: both;
+  }
   .index_video_wrapper {
     width: 90%;
     height: auto;
@@ -1532,7 +1688,7 @@ $standard_border_radius: 6px;
   }
 
   div.inner_home_header h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .default_lecture_question.incorrect_lecture_answer p.lecture_question_status_icon {
@@ -1560,7 +1716,7 @@ $standard_border_radius: 6px;
     height: 120px;
   }
   .home_page_header {
-    min-height: 385px;
+    min-height: 435px;
   }
 }
 
@@ -1689,16 +1845,31 @@ $standard_border_radius: 6px;
   .home_section_four .right_column h2 {
     font-size: 30px;
   }
-
+  .home_plans_section_header {
+    margin-bottom: 30px;
+  }
   .oxford_uni_text h3 {
     font-size: 16px;
   }
-
+  .home_plans_section_header h2 {
+    font-size: 22px;
+  }
+  .home_plans_section_header p {
+    font-size: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .questions_answers_main_question .main_question_header h2 {
     font-size: 18px;
     line-height: 26px;
   }
-
+  .home_plan_column_action_button_wrapper a {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .questions_answers_main_question .main_question_header p {
     font-size: 12px;
   }
@@ -1799,6 +1970,10 @@ $standard_border_radius: 6px;
     background-size: 100%;
     height: 720px;
   }
+  .quiz_appstore_buttons a {
+    float: none;
+    clear: both;
+  }
   .comment_reply_link a {
     float: left;
     margin-left: 0px;
@@ -1825,15 +2000,34 @@ $standard_border_radius: 6px;
     display: none;
   }
   .quiz_appstore_buttons {
-    width: 175px;
+    width: 100%;
+    text-align: center;
   }
   .quiz_appstore_buttons a.app_store_button {
-    margin-right: 0px;
     margin-bottom: 20px;
   }
+  .quiz_appstore_buttons a {
+    clear: both;
+  }
+
+
+
 }
 
 @media screen and (max-width: 550px) {
+  .quiz_appstore_buttons a.app_store_button {
+    margin-right: 0px;
+  }
+  .promo_modal_preview_image {
+    width: 344px;
+    height: 163px;
+  }
+    .flashcard_wrapper {
+    width: 440px;
+  }
+  .inner_flashcard_wrapper {
+    width: 440px;
+  }
   .quiz_app_section_two_wrapper ul li {
     width: 100%;
     padding-left: 0px;
@@ -1855,6 +2049,9 @@ $standard_border_radius: 6px;
   }
   .plans_column {
      width: 100%;
+  }
+  .plans_column:last-child {
+    width: 100%;
   }
   .ask_question_modal_wrapper {
     width: 90%;
@@ -1886,11 +2083,34 @@ $standard_border_radius: 6px;
     height: 532px;
   }
   .quiz_app_header {
-    height: 729px;
+    height: auto;
   }
 }
 
 @media screen and (max-width: 450px) {
+  .specialty_quiz_title_link {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  a#quiz_link_header {
+    float: left;
+  }
+  .promo_modal_preview_image {
+    width: 254px;
+    height: 123px;
+  }
+  .flashcard_create_left_column_inner_spacing {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .flashcard_wrapper, .flashcard_wrapper.live_update {
+    width: 320px;
+  }
+  .inner_flashcard_wrapper, .flashcard_wrapper.live_update .inner_flashcard_wrapper {
+    width: 320px;
+  }
   a.ng-binding {
     width: 90%;
     padding-left: 5%;
@@ -2031,12 +2251,29 @@ $standard_border_radius: 6px;
     display: none;
   }
   div.inner_home_header {
-    padding-top: 50px;
+    padding-top: 60px;
   }
 }
 
 
 @media screen and (max-width: 400px) {
+  .home_section_three_header {
+    height: 140px;
+  }
+  .home_section_three {
+    height: 448px;
+  }
+  .questions_header_padding.ng-binding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .home_plan_column {
+    width: 300px;
+  }
+    .home_plans_best_value_icon {
+    margin-left: 115px;
+    margin-top: -30px;
+  }
   .quiz_app_section_one_wrapper {
     padding-top: 30px;
   }
@@ -2044,6 +2281,7 @@ $standard_border_radius: 6px;
     background-size: 250%;
     height: 402px;
   }
+
   .quiz_app_header {
     height: 649px;
   }
@@ -2051,7 +2289,7 @@ $standard_border_radius: 6px;
     padding-top: 45px;
   }
   .quiz_app_section_one_left_column {
-    height: 420px;
+    height: 520px;
   }
   .quiz_app_section_two_wrapper {
     width: 95%;
@@ -2291,15 +2529,32 @@ $standard_border_radius: 6px;
     float: left;
     max-height: inherit;
   }
-
+  .index_video_wrapper iframe {
+    max-width: 100%;
+    height: 188px;
+  }
+  .home_section_video .home_top_section_left_column p, .home_section_questions .home_top_section_left_column p {
+    width: 100%;
+  }
+  .oxford_uni_text {
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media screen and (max-width: 390px) {
-
+  .index_video_wrapper iframe {
+    max-width: 100%;
+    height: 152px;
+  }
   .stats_chart_wrapper {
     display: none;
   }
-
+  .stats_chart_wrapper.general_quiz_container {
+    display: block;
+    padding-top: 10px;
+  }
   div.inner_home_header {
     padding-top: 50px;
   }
@@ -2529,6 +2784,5 @@ $standard_border_radius: 6px;
     width: 92%;
     padding-left: 4%;
     padding-right: 4%;
-
   }
 }

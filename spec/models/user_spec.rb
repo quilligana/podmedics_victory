@@ -146,24 +146,24 @@ describe User do
     it "sets the subscribed_on attribute and updates the expires on date based upon the product" do
       user = create(:user)
       product = create(:product, duration: 6)
-      user.start_subscription_for_product(product)
+      user.start_subscription_for_product(product, nil)
       expect(user.subscribed_on).to_not be_nil
       expect(user.expires_on).to_not be_nil
     end
   end
 
   describe User, '#expires_on' do
-    it "return 1 year after the subscribed_on date for a 12 month product" do
+    it "returns 1 year after the subscribed_on date for a 12 month product" do
       user = create(:user)
       product = create(:product, duration: 12)
-      user.start_subscription_for_product(product)
+      user.start_subscription_for_product(product, nil)
       expect(user.expires_on.to_date).to eq (user.subscribed_on + 1.year).to_date
     end
 
     it "returns 6 months after the subscribed_on date for a 6 month product" do
       user = create(:user)
       product = create(:product, duration: 6)
-      user.start_subscription_for_product(product)
+      user.start_subscription_for_product(product, nil)
       expect(user.expires_on.to_date).to eq (user.subscribed_on + 6.months).to_date
     end
   end
@@ -206,7 +206,7 @@ describe User do
       user = create(:free_user)
       expect(user.is_trial_member?).to be_true
     end
-    
+
     it "returns true if user has an expired subscription" do
       user = create(:user, subscribed_on: (Time.now - 2.years), expires_on: Time.now)
       expect(user.is_trial_member?).to be_true

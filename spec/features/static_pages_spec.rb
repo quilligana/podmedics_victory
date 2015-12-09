@@ -5,7 +5,7 @@ feature 'Static Pages' do
   scenario 'Accessing the home page' do
     visit root_path
     within 'h1' do
-      expect(page).to have_content 'Welcome to Podmedics'
+      expect(page).to have_content 'Medical Revision As It Should Be.'
     end
   end
 
@@ -14,7 +14,7 @@ feature 'Static Pages' do
     visit root_path
     expect(current_path).to eq dashboard_path
   end
-  
+
   scenario 'Accessing the FAQs page' do
     visit root_path
     within '.main_nav_wrapper' do
@@ -92,7 +92,7 @@ feature 'Static Pages' do
     within '.footer' do
       click_link 'Contact'
     end
-    expect(page).to have_content 'Contact Us'
+    expect(page).to have_content 'If you have any questions or issues do not hesitate to get in touch. We would love to hear from you.'
   end
 
   scenario 'Accessing the support page' do

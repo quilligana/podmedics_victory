@@ -79,7 +79,7 @@ private
       link_to video_path(@video), class: 'lecture_icon top_marks', id: 'top_marks' do
         content_tag(:p, ("<span>Good Job</span>You answered all 
                       #{question_results.total_count} questions correctly and have earned the
-                      maximum points avaliable. Awesome!").html_safe, class:"tooltip")
+                      maximum points avaliable.").html_safe, class:"tooltip")
       end
     end
   end

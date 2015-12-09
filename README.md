@@ -1,7 +1,8 @@
 # Podmedics
 
-[![Code
-Climate](https://codeclimate.com/repos/530b5ab5e30ba04c0a008baf/badges/eb7f6d957dcc5183c951/gpa.png)](https://codeclimate.com/repos/530b5ab5e30ba04c0a008baf/feed)
+[![Code Climate](https://codeclimate.com/repos/558ff4046956800aa2004706/badges/6e3bdb8e74be87998645/gpa.svg)](https://codeclimate.com/repos/558ff4046956800aa2004706/feed)
+
+## About
 
 The online community where you can access tutorials, share insights and
 compare experiences with thousands of medical students and healthcare
@@ -31,4 +32,4 @@ Designed for deployment on [Heroku](http://www.heroku.com)
 
 ## Licensing
 
-Copyright (c) 2014 Podmedics Ltd. All rights reserved.
+Copyright (c) 2015 Podmedics Ltd. All rights reserved.

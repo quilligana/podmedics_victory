@@ -23,6 +23,7 @@
 #  video_download_count :integer
 #  proofread            :boolean          default(FALSE)
 #  has_slides           :boolean          default(TRUE)
+#  upgraded             :boolean          default(FALSE)
 #
 
 require 'spec_helper'

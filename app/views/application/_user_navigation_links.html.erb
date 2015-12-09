@@ -1,12 +1,10 @@
 <div class="header_outer">
   <%= link_to "", dashboard_path , class: "podmedics_header_icon" %>
   <div class="header_navigation">
-    <%= render partial: 'dashboards/upgrade_messages' %>
-
     <div class="user_dropdown_wrapper">
       <a href="javascript:;" class="user_dropdown_link">
         <p class="user_icon_header">
-          <%= image_tag current_user.get_avatar(:thumb) %>
+          <%= image_tag current_user.get_avatar(:thumb, request) %>
         </p>
       </a>
       <div class="user_dropdown">
@@ -15,7 +13,7 @@
           <p>points earned so far</p>
         </div>
         <div class="dropdown_inner_wrapper">
-          <%= link_to "Visit your profile", user_path(current_user), class: 'red_block_button' %>
+          <%= link_to "Visit your profile", edit_user_path(current_user), class: 'red_block_button' %>
         </div>
       </div>
     </div>
@@ -26,7 +24,11 @@
 <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
   <div class="inner_menu_wrapper">
     <div class="main_nav_wrapper" id="main_navigation">
-      <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
+      <% if current_user.selected_plan? %>
+        <%= link_to "Home", dashboard_path(current_user), class: 'nav-home' %>
+      <% else %>
+        <%= link_to 'home', root_path , class: 'nav-home' %>
+      <% end %>
       <a href="javascript:;" class="nav-lectures">Lectures</a>
       <%= link_to "Notes", notes_path, class: 'nav-notes' %>
       <!-- <%= link_to "Live Courses", courses_path, class: 'nav-courses' %> -->

@@ -4,16 +4,11 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable params
-
     @comment = @commentable.comments.new(comment_params)
-
     @comment.user = current_user
-
     update_user_score(params)
-
     if @comment.save
       AdminMailer.delay.new_comment(@comment)
-
       # If the comment is a reply, send an email to the user
       if params[:comment][:commentable_type] == "Comment"
         UserMailer.delay.new_reply(@commentable.user, @commentable, @comment)
@@ -56,10 +51,13 @@ class CommentsController < ApplicationController
     end
 
     def update_user_score(params)
-      if params[:comment][:commentable_type] == "SpecialtyQuestion"
+      if params[:comment][:commentable_type] == "Video"
+        # we no longer have answered questions so :answered_user_question is now for a new comment
+        # 10 points awarded
         current_user.add_points(:answered_user_question)
-        question_specialty = SpecialtyQuestion.find_by(id: params[:comment][:commentable_id]).specialty
-        UserProgress.new(question_specialty, current_user).award_badge
+        specialty = Video.find_by(id: params[:comment][:commentable_id]).specialty
+        # question_specialty = SpecialtyQuestion.find_by(id: params[:comment][:commentable_id]).specialty
+        UserProgress.new(specialty, current_user).award_badge
       end
     end
 end

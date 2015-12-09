@@ -43,11 +43,10 @@ feature 'Video Questions' do
   scenario 'Answering a question with wrong answer' do
     visit video_questions_url(video_id: @video.id)
     click_button 'First Answer'
-
     expect(page).to have_content @question_1.answer_1
     expect(page).to have_content @question_1.answer_2
     expect(page).to have_content @question_1.explanation
-    expect(page).to have_content 'Sorry!'
+    expect(page).to have_content 'Incorrect'
     expect(page).to have_content 'Question 1 of 1'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
   end
@@ -55,9 +54,8 @@ feature 'Video Questions' do
   scenario 'Answering a question correctly' do
     visit video_questions_url(video_id: @video.id)
     click_button 'Second Answer'
-
     expect(page).to have_content @question_1.explanation
-    expect(page).to have_content 'Congratulations! That is the correct answer.'
+    expect(page).to have_content 'Correct'
     expect(page).to have_content 'Question 1 of 1'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
   end
@@ -69,58 +67,54 @@ feature 'Video Questions' do
     visit video_questions_url(video_id: video_2.id)
 
     expect(page).to have_content 'Question 1 of 5'
-    expect(page).to have_css('div.active_placement_bar.twenty_percent')  
-    expect(page).to have_css('div.active_placement_bar.zero_percent')
-    expect(page).to have_content '84 points until your next badge'
-    
+    expect(page).to have_css('div.active_placement_bar.twenty_percent')
+    # expect(page).to have_content '84 points until your next badge'
+
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    expect(page).to have_content '74 points until your next badge'
-    
+    # expect(page).to have_content '74 points until your next badge'
+    expect(page).to have_content '10 points earned so far'
+
     click_link 'Next Question'
     expect(page).to have_content 'Question 2 of 5'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_css('div.active_placement_bar.ten_percent')
-    expect(page).to have_content '74 points until your next badge'
-    
+    # expect(page).to have_content '74 points until your next badge'
+
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_content '64 points until your next badge'
-    
+    # expect(page).to have_content '64 points until your next badge'
+
     click_link 'Next Question'
     expect(page).to have_content 'Question 3 of 5'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    expect(page).to have_css('div.active_placement_bar.twenty_percent')
-    expect(page).to have_content '64 points until your next badge'
-    
+    # expect(page).to have_content '64 points until your next badge'
+
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.sixty_percent')
-    expect(page).to have_content '54 points until your next badge'
-    
+    # expect(page).to have_content '54 points until your next badge'
+
     click_link 'Next Question'
     expect(page).to have_content 'Question 4 of 5'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    expect(page).to have_css('div.active_placement_bar.thirty_percent')
-    expect(page).to have_content '54 points until your next badge'
-    
+    # expect(page).to have_content '54 points until your next badge'
+
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.eighty_percent')
-    expect(page).to have_content '44 points until your next badge'
-    
+    # expect(page).to have_content '44 points until your next badge'
+
     click_link 'Next Question'
     expect(page).to have_content 'Question 5 of 5'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
-    expect(page).to have_css('div.active_placement_bar.forty_percent')
-    expect(page).to have_content '44 points until your next badge'
-    
+    # expect(page).to have_content '44 points until your next badge'
+
     click_button 'Second Answer'
     expect(page).to have_css('div.active_placement_bar.hundred_percent')
-    expect(page).to have_content '34 points until your next badge'
+    # expect(page).to have_content '34 points until your next badge'
 
     click_link 'Result'
     click_link 'Back to Video'
 
-    expect(page).to have_content video_2.title 
+    expect(page).to have_content video_2.title
   end
 
   before do
@@ -136,12 +130,12 @@ feature 'Video Questions' do
     end.not_to change { user_question_object }.from(false).to(true)
 
   end
- 
+
   scenario 'Saving user progress when correct answer is given' do
    visit video_questions_url(video_id: @video_3.id)
    record = UserQuestion.where(user_id: @user.id).where(question_id: @video_3.question_ids.first).first
    expect(record.correct_answer).to be(false)
-   expect do 
+   expect do
      click_button 'Second Answer'
    end.to change { user_question_object }.from(false).to(true)
   end
@@ -166,7 +160,7 @@ feature 'Video Questions' do
     visit video_questions_url(video_id: @video_3.id)
     click_button 'Second Answer'
     @user.reload
-    
+
     expect(@user.points).to eq(10)
   end
 
@@ -205,5 +199,8 @@ feature 'Video Questions' do
   def user_question_object
     UserQuestion.where(user_id: @user.id).where(question_id: @video_3.question_ids.first).first.correct_answer
   end
+
+  # Line below for autocomplete purposes - delete whenever
+  # save_and_open_page
 
 end

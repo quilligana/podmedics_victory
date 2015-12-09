@@ -1,0 +1,33 @@
+<tr id="filterrific_results">
+  <td><%= flashcard.id %></td>
+  <td><%= flashcard.created_at %></td>
+  <td><%= flashcard.title %></td>
+  <td>
+    <% if flashcard.video %>
+      <%= link_to flashcard.video.title, admin_video_path(flashcard.video) %>
+    <% end %>
+  </td>
+  <td><%= link_to flashcard.specialty.name, admin_specialty_path(flashcard.specialty) %></td>
+  <td>
+    <% if flashcard.user %>
+        <%= link_to flashcard.user.name, admin_user_path(flashcard.user) %>
+    <% else %>
+        No user set
+    <% end %>
+  </td>
+  <td><%= flashcard.is_approved? %></td>
+  <td>
+    <ul class="actions">
+      <% if flashcard.video %>
+        <li><%= link_to 'Preview', video_path(flashcard.video) %></li>
+      <% end %>
+      <li><%= link_to 'Edit', edit_admin_flashcard_path(flashcard) %></li>
+      <li>
+        <% unless flashcard.is_approved? %>
+            <%= link_to 'Approve', approve_admin_flashcard_path(flashcard) %>
+        <% end %>
+      </li>
+      <li><%= link_to 'Remove', admin_flashcard_path(flashcard), method: :delete, data: { confirm: 'Are you sure?'} %></li>
+    </ul>
+  </td>
+</tr>

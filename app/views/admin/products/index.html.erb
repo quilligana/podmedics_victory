@@ -16,8 +16,7 @@
           <th>Price</th>
           <th>Duration</th>
           <th></th>
-          <th></th>
-          <th></th>
+
         </tr>
         <% for product in @products %>
           <tr>
@@ -26,9 +25,13 @@
             <td><%= product.description %></td>
             <td><%= product.price %></td>
             <td><%= product.duration %></td>
-            <td><%= link_to "Show", admin_product_path(product) %></td>
-            <td><%= link_to "Edit", edit_admin_product_path(product) %></td>
-            <td><%= link_to "Destroy", admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %></td>
+            <td>
+              <ul class="actions">
+                <li><%= link_to "Show", admin_product_path(product) %></li>
+                <li><%= link_to "Edit", edit_admin_product_path(product) %></li>
+                <li><%= link_to "Destroy", admin_product_path(product), :confirm => 'Are you sure?', :method => :delete %></li>
+              </ul>
+            </td>
           </tr>
         <% end %>
       </table>

@@ -12,7 +12,7 @@ describe "notes page" do
 
     @specialties = []
     @categories.each do |category|
-      2.times do 
+      2.times do
         @specialties.push create(:specialty, category: category)
       end
     end
@@ -48,9 +48,9 @@ describe "notes page" do
         within '.page' do
           @notes.each do |note|
             if note.specialty == @specialty
-              expect(page).to have_content note.content 
+              expect(page).to have_content note.content
             else
-              expect(page).to_not have_content note.content 
+              expect(page).to_not have_content note.content
             end
           end
         end
@@ -60,9 +60,9 @@ describe "notes page" do
         within '.page' do
           @specialties.each do |specialty|
             if specialty == @specialty
-              expect(page).to have_content specialty.name 
+              expect(page).to have_content specialty.name
             else
-              expect(page).to_not have_content specialty.name 
+              expect(page).to_not have_content specialty.name
             end
           end
         end
@@ -93,9 +93,9 @@ describe "notes page" do
         within '.page' do
           @notes.each do |note|
             if note.category == @category
-              expect(page).to have_content note.content 
+              expect(page).to have_content note.content
             else
-              expect(page).to_not have_content note.content 
+              expect(page).to_not have_content note.content
             end
           end
         end
@@ -105,9 +105,9 @@ describe "notes page" do
         within '.page' do
           @specialties.each do |specialty|
             if specialty.category == @category
-              expect(page).to have_content specialty.name 
+              expect(page).to have_content specialty.name
             else
-              expect(page).to_not have_content specialty.name 
+              expect(page).to_not have_content specialty.name
             end
           end
         end

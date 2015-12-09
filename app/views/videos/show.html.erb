@@ -12,12 +12,19 @@
     </div>
 
     <div class="video_page_heading_button_set">
-      <div class="video_download_dropdown">
-        <a href="#" class="podmedcis_button white_download_button">Download</a>
-        <div class="video_download_dropdown_inner">
-          <%= render partial: 'downloads' %>
+      <% if @flashcards.count > 0 %>
+        <a href="javascript:;" class="podmedcis_button green flash_cards_button">Flashcards</a>
+      <% end %>
+      <%= link_to 'Create flashcard', new_video_flashcard_path(@video), class: 'podmedcis_button green flash_cards_button create_card' %>
+
+      <% if current_user.has_subscription_and_in_date? %>
+        <div class="video_download_dropdown">
+          <a href="#" class="podmedcis_button white_download_button">Download</a>
+          <div class="video_download_dropdown_inner">
+            <%= render partial: 'downloads' %>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <% if questions_exist %>
         <%= link_to video_questions_url(:video_id => @video.id), class: "podmedcis_button take_exam_button" do %>
@@ -129,16 +136,138 @@
     <%= raw @progress.to_json %>
 </script>
 
+
+<% if @flashcards.count > 0 %>
+    <div class="flashcard_background"></div>
+    <div class="flashcard_wrapper">
+      <div class="close_flashcard_wrapper">
+        <div class="close_flashcard"></div>
+      </div>
+
+      <div class="cd-tabs">
+        <nav>
+          <ul class="cd-tabs-navigation">
+            <% @flashcards.each_with_index do |flashcard, index| %>
+                <li><a data-content="tab_<%= index %>" class="<%= 'selected' if index == 0 %>" href="#<%= index %>"><%= flashcard.title %></a></li>
+            <% end %>
+          </ul>
+        </nav>
+
+        <ul class="cd-tabs-content">
+          <% @flashcards.each_with_index do |flashcard, index| %>
+            <li data-content="tab_<%= index %>" class="<%= 'selected' if index == 0 %>">
+            <div class="inner_flashcard_wrapper">
+              <div class="flashcard_name">
+                <%= flashcard.title %>
+              </div>
+              <div class="flashcard_user_created_name">
+                Created by <%= link_to flashcard.user.name, user_path(flashcard.user) %>
+              </div>
+
+              <div class="flashcard_divider"></div>
+
+              <div class="flashcard_title">General</div>
+
+              <div class="flashcard_title sub">Epidemiology</div>
+              <div class="flashcard_copy">
+                <%= flashcard.epidemiology.html_safe %>
+              </div>
+
+              <div class="flashcard_title sub">Pathology</div>
+              <div class="flashcard_copy">
+                <%= flashcard.pathology.html_safe %>
+              </div>
+
+              <div class="flashcard_title sub">Top three causes</div>
+              <div class="flashcard_copy">
+                <%= flashcard.causes.html_safe %>
+              </div>
+
+              <div class="flashcard_divider"></div>
+
+              <div class="flashcard_title">Clinical Features</div>
+
+              <div class="flashcard_title sub">Symptoms</div>
+              <div class="flashcard_copy">
+                <%= flashcard.symptoms.html_safe %>
+              </div>
+
+              <div class="flashcard_title sub">Signs</div>
+              <div class="flashcard_copy">
+                <%= flashcard.signs.html_safe %>
+              </div>
+
+              <div class="flashcard_divider"></div>
+
+              <div class="flashcard_title">Investigations</div>
+              <div class="flashcard_table_wrapper">
+                <table>
+                  <tr>
+                    <td class="flashcard_table_left_column">Cultures</td>
+                    <td><%= flashcard.inv_cultures.html_safe %></td>
+                  </tr>
+                  <tr>
+                    <td class="flashcard_table_left_column">Bloods</td>
+                    <td><%= flashcard.inv_bloods.html_safe %></td>
+                  </tr>
+                  <tr>
+                    <td class="flashcard_table_left_column">Imaging</td>
+                    <td><%= flashcard.inv_imaging.html_safe %></td>
+                  </tr>
+                  <tr>
+                    <td class="flashcard_table_left_column">Scopic/Biopsy</td>
+                    <td><%= flashcard.inv_scopic.html_safe %></td>
+                  </tr>
+                  <tr>
+                    <td class="flashcard_table_left_column">Functional</td>
+                    <td><%= flashcard.inv_functional.html_safe %></td>
+                  </tr>
+                </table>
+
+              </div>
+              <div class="flashcard_divider"></div>
+
+              <div class="flashcard_title">Treatment</div>
+
+
+              <div class="flashcard_title sub">Conservative</div>
+              <div class="flashcard_copy">
+                <%= flashcard.treat_cons.html_safe %>
+              </div>
+
+              <div class="flashcard_title sub">Medical</div>
+              <div class="flashcard_copy">
+                <%= flashcard.treat_medical.html_safe %>
+              </div>
+
+              <div class="flashcard_title sub">Surgical</div>
+              <div class="flashcard_copy">
+                <%= flashcard.treat_surgical.html_safe %>
+              </div>
+
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+<% end %>
+
+
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
     // track video page view
-    var title = "<%= @video.title %>"
+    var title = "<%= @video.title %>";
     mixpanel.track('Video played', {
       "name" : title
     });
 
     // track hitting the quiz button from here
     mixpanel.track_links("a.take_exam_button", "Click Video Quiz", {
+      "name" : title
+    });
+
+    analytics.track("Watched video", {
       "name" : title
     });
   });

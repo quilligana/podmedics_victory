@@ -13,5 +13,8 @@
 //= require autosave
 //= require froogaloop
 //= require vimeo
-//= require addtohomescreen.min
 //= require pace
+//= require strip.pkgd.min
+//= require tipr.min
+//= require jquery.tip_cards
+//= require flashcard_tabs

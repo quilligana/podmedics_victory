@@ -15,6 +15,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  proofread      :boolean          default(FALSE)
+#  specialty_id   :integer
 #
 
 require 'spec_helper'
@@ -32,6 +33,7 @@ describe Question do
   it { should validate_presence_of :correct_answer }
   it { should validate_presence_of :video_id }
   it { should validate_presence_of :explanation }
+  it { should validate_presence_of :specialty_id }
 
   describe Question, '.correct_answer_must_be_answer' do
     it "should make sure the correct answer is an answer" do

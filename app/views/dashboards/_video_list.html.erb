@@ -2,7 +2,13 @@
   <div class="lecture_list_item">
     <div class="lecture_list_left_column">
       <%= link_to video.title, video, class: 'video_link' %>
-      <p class="lecture_specialties_link"><%= link_to video.specialty_name, specialty_path(video.specialty) %></p>
+      <p class="lecture_specialties_link">
+        <%= link_to video.specialty_name, specialty_path(video.specialty) %>
+        <span class="video_duration"><%= video.duration_as_string %></span>
+        <% if video.has_questions? %>
+        <span class="test-yourself"><%= link_to '| Test yourself', video_questions_url(:video_id => video.id), class: 'tip', :data => { :tip => 'Answer questions on this topic'} %></span>
+        <% end %>
+      </p>
     </div>
     <div class="lecture_icons_wrapper">
       <%= show_lecture_icons(video) %>

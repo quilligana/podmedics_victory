@@ -75,52 +75,39 @@
 <% end %>
 
 <div class="plans_header">
-  <h1>Plans</h1>
-  <p>Choose the plan that suites you best.</p>
-  <p class="cancel_purchase"><%= link_to 'Cancel purchase', logout_path,
-                                                          data: { confirm: 'Are you sure?'} %></p>
 </div>
 
 <div class="plans_columns_wrapper">
 
   <div class="plans_column" id="free_trial">
-    <h2>Free Membership</h2>
-
+    <h2>Trial Membership</h2>
     <ul class="plans_column_features_list">
-      <li>Explore the entire site</li>
-      <li>Unlock <strong>two specialties</strong> of your choice</li>
-      <li>Full access to all videos and questions for these specialty</li>
-      <li>Contribute to questions and answers for all specialties</li>
-      <li><strong>No access to video, audio or handouts</strong></li>
-      <li>Mailing list with new episode notifications</li>
+      <li>Full access to all content (videos and questions) on Podmedics</li>
+      <li>No access to video, audio or slide downloads</li>
     </ul>
 
     <div class="plans_button_wrapper">
       <%= form_tag buy_path(permalink: @free_product.permalink) do %>
-        <%= button_tag 'Choose Plan', class: 'red_button' %>
+        <%= button_tag 'Choose Trial Membership', class: 'red_button' %>
       <% end %>
     </div>
-
+    
   </div>
+
 
   <div class="plans_column">
     <h2>Premium Membership</h2>
     <div class="plans_column_price_wrapper">
       <div class="plans_column_price six_month_price_block">
-      <p>&pound;<%= @paid_6.price_in_pounds  %><span>/ 6m</span></p>
+      <p>&pound;<%= @paid_6 ? @paid_6.price_in_pounds : 'Error' %><span>/ 6m</span></p>
       </div>
 
       <div class="plans_column_price">
-        <p>&pound;<%= @paid_12.price_in_pounds  %><span>/ yr</span></p>
+        <p>&pound;<%= @paid_12 ? @paid_12.price_in_pounds : 'Error' %><span>/ yr</span></p>
       </div>
     </div>
     <ul class="plans_column_features_list">
-      <li>Full access to <strong>40 specialties</strong> (200 videos/2000 questions)</li>
-      <li>Access to <strong>video, audio and slide downloads</strong></li>
-      <li>In-depth performance tracking</li>
-      <li>Earn badges for your achievements</li>
-      <li>Get answers through our Question and Answers system</li>
-      <li>Priority Support</li>
+      <li>Access to video, auto and slide downloads</li>
     </ul>
 
     <div class="payment_system_options_buttons_wrapper">
@@ -135,7 +122,7 @@
       <%= form_tag buy_path(permalink: @paid_6.permalink) do %>
         <script src="https://checkout.stripe.com/v2/checkout.js"
           class="stripe-button"
-          data-label="Podmedics (£18 - 6 Months)"
+          data-label="Podmedics (£20 - 6 Months)"
           data-name="Podmedics"
           data-currency="GBP"
           data-image="<%= asset_url 'podmedics_icon_x74.png' %>"
@@ -161,8 +148,14 @@
 
     <div class="paypal_payment_options_button_set">
       <p class="payment_options_initial_title">Choose one of the below subscription terms</p>
-      <%= link_to "Podmedics (£#{@paid_6.price_in_pounds} - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
-      <%= link_to "Podmedics (£#{@paid_12.price_in_pounds} - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <!-- TODO refactor into partial / helper -->
+      <% if @paid_6 && @paid_12 %>
+        <%= link_to "Podmedics (£#{@paid_6.price_in_pounds} - 6 Months)", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
+        <%= link_to "Podmedics (£#{@paid_12.price_in_pounds} - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <% else %>
+        <%= link_to "Podmedics - 6 Months", current_user.paypal_url(@paid_6, receive_paypal_url), class: 'paypal_pay_button' %>
+        <%= link_to "Podmedics - 12 Months)", current_user.paypal_url(@paid_12, receive_paypal_url), class: 'paypal_pay_button' %>
+      <% end %>
       <p><a href="javascript:;" class="payment_options_back_button">Back to payment options</a></p>
     </div>
   </div>
@@ -179,7 +172,7 @@
   <div class="plans_lower_info_block_wrapper payment_system_block_icon">
     <div class="payment_system_icon_plans_lower_block"></div>
     <p>We use <%= link_to 'Stripe', 'https://stripe.com/gb' %> and <%= link_to "Paypal", "https://paypal.com" %> to process all our transactions.</p>
-    <p>We never record your credit card data, and all information is encrypted and transmitted securely (over SSL).</p>
+    <p>We never record your credit card data, and all information is encrypted and transmitted securely to the payment provider (over SSL).</p>
   </div>
 
 </div>

@@ -41,13 +41,18 @@
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, class: 'podmedics_textfield' %>
 
-            <div class="profile_avatar_field">
-              <a  href="javascript:;" id="change_profile_image_button" class="grey_button">Change Profile Image</a>
-              <div class="profile_avatar_upload_wrapper">
-              <% if Rails.env.test?  %>
-                <%= f.label :avatar %>
-              <% end %>
-              <%= f.file_field :avatar %>
+            <div class="avatar_inner_wrapper">
+              <h3>Avatar</h3>
+              <div class="profile_edit_avatar"><%= image_tag @user.get_avatar(:square, request) %></div>
+              <div class = "avatar_inner">
+                <p>We are now using <%= link_to "Gravatar", 'http://en.gravatar.com/' %> to handle your profile image (avatar). A gravatar is an image that follows you from site to site, appearing beside your name. All you have to do is go to the Gravatar <%= link_to "website", 'http://en.gravatar.com/' %> and sign up with the same email address as you use for Podmedics. Once you upload an image to Gravatar, it will automatically be pulled into your profile on Podmedics. It might also be useful for other web services. If you have already added an avatar for Podmedics, however, it will continue to work.</p>
+              </div>
+              <div class="profile_avatar_field">
+                <% if @user.avatar_updated_at %>
+                  <%= link_to "Move to Gravatar", move_to_gravatar_user_path(@user), class: "grey_button" %>
+                <% else %>
+                  <%= link_to "Setup Gravatar", 'https://en.gravatar.com/', :target => "_blank", class: "grey_button" %>
+                <% end %>
               </div>
             </div>
 
@@ -94,11 +99,23 @@
           <p class="expired_subscription_text">Your subscription has expired</p>
         <% end %>
         <p>You are currently on a free plan.</p>
-        <p>
-          <%= link_to "Upgrade your subscription", show_buy_path(current_user), class: 'podmedcis_button grey' %>
-        </p>
       <% end %>
 
+    </div>
+
+    <div class="profile_notifications_block">
+      <h3>Receipts</h3>
+
+      <% if current_user.sales.count > 0 %>
+        <ul>
+          <% current_user.sales.each do |sale| %>
+            <li><%= link_to "Receipt ##{sale.id}", sale_path(sale, format: 'pdf') %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>You don't have any receipts</p>
+      <% end %>
+      
     </div>
 
     <div class="profile_notifications_block">

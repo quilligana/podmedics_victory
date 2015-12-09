@@ -261,11 +261,10 @@ padding-top: 17px;
 .inner.login_page_inner .page .left_column_forms {
   border-right-style: none; }
 
-.inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .twitter_social_button {
-  width: 140px; }
-
-.inner.login_page_inner .page .left_column_forms .social_signup_wrapper .social_signup_button_wrapper .fb_social_button {
-  width: 155px; }
+.signup_form_header_copy {
+  padding: 35px;
+  border-bottom: solid 1px #E5E5E5;
+}
 
 .password_reset_link {
   float: right;
@@ -282,8 +281,15 @@ padding-top: 17px;
 #members_reset_password_form {
   display: none; }
 
-
-
+.signup_form_header_copy p {
+  font-size: 15.5px;
+  color: #898989;
+  margin-bottom: 20px;
+  line-height: 22px;
+}
+.signup_form_header_copy p:last-child {
+  margin-bottom: 0px;
+}
 
 /* Form inline errors */
 div.alert.alert-danger {

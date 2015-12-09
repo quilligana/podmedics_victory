@@ -5,11 +5,11 @@ feature 'User Specialties Exam' do
   before(:each) do
     @specialty_1 = create(:specialty)
     video_1 = create(:video, specialty: @specialty_1)
-    10.times { FactoryGirl.create(:question, video: video_1) }
+    10.times { FactoryGirl.create(:question, video: video_1, specialty: @specialty_1) }
     video_2 = create(:video, specialty: @specialty_1)
-    12.times { FactoryGirl.create(:question, video: video_2) }
+    12.times { FactoryGirl.create(:question, video: video_2, specialty: @specialty_1) }
     video_3 = create(:video, specialty: @specialty_1)
-    14.times { FactoryGirl.create(:question, video: video_3) }
+    14.times { FactoryGirl.create(:question, video: video_3, specialty: @specialty_1) }
     @user = create(:user)
     sign_in(@user)
   end
@@ -65,12 +65,13 @@ feature 'User Specialties Exam' do
   end
 
   scenario 'No questions from the wrong specialty should be served' do
+    specialty_1 = create(:specialty)
     specialty_2 = create(:specialty)
     video_4 = create(:video, specialty: specialty_2)
-    test_question = create(:question, video: video_4)
+    test_question = create(:question, video: video_4, specialty: specialty_2)
     specialty_3 = create(:specialty)
     video_5 = create(:video, specialty: specialty_3)
-    non_test_question = create(:question, video: video_5)
+    non_test_question = create(:question, video: video_5, specialty: specialty_1)
 
     visit specialty_path(specialty_2)
     click_exam_link(specialty_2)
@@ -81,9 +82,9 @@ feature 'User Specialties Exam' do
   end
 
   # Helpers
-  
+
   def click_exam_link(specialty)
-    click_link "30 random questions from #{specialty.name}"
+    click_link "quiz_link"
   end
 
 end

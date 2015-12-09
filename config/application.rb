@@ -15,7 +15,7 @@ Bundler.require(:default, Rails.env)
 module PodmedicsVictory
   class Application < Rails::Application
 
-    config.assets.precompile += ['chartkick', 'user_application.css', 'admin/admin_application.css', 'user_application.js', 'admin/admin_application.js']
+    config.assets.precompile += ['chartkick', 'user_application.css', 'admin/admin_application.css', 'user_application.js', 'admin/admin_application.js', 'angular-redactor.js']
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -43,9 +43,5 @@ module PodmedicsVictory
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
-    console do
-      require 'pry'
-      config.console = Pry
-    end
   end
 end

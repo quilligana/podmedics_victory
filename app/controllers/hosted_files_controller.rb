@@ -27,9 +27,12 @@ class HostedFilesController < ApplicationController
         :access_key_id => ENV["AWS_ACCESS_ID"],
         :secret_access_key => ENV["AWS_SECRET_ACCESS"]
       )
-      bucket = s3.buckets['podmedics-test-harness']
+      #bucket = s3.buckets['podmedics-test-harness']
+      bucket = s3.buckets['podmedics-resources']
       object = bucket.objects[file_path]
-      url = object.url_for(:read, :expires => 10*60).to_s
+      url = object.url_for(:read, 
+                          :expires => 10.minutes,
+                          :response_content_disposition =>  'attachment;').to_s
     end
 
     def check_subscription

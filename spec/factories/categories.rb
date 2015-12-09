@@ -12,6 +12,6 @@ require 'faker'
 
 FactoryGirl.define do
   factory :category do
-    name { "#{Faker::Lorem.word}-category" }
+    name { "#{1+rand(10000)}-category" }
   end
 end

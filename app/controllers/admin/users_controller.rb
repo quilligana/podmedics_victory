@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   layout 'admin_application'
-  before_action :set_user, only: [:edit, :update, :show, :destroy, :send_1w_reminder]
+  before_action :set_user, only: [:edit, :update, :destroy, :send_1w_reminder]
 
   has_scope :has_selected_plan, type: :boolean
   has_scope :expired_before
@@ -29,6 +29,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @user = User.includes(:badges, :user_questions).find(params[:id])
   end
 
   def create
@@ -44,6 +45,11 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to admin_users_path, notice: 'User removed'
+  end
+
+  def remove_if_no_plan
+    User.not_selected_plan.destroy_all
+    redirect_to admin_users_path, notice: 'Users removed'
   end
 
   def send_1w_reminder

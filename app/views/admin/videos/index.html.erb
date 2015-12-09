@@ -2,6 +2,7 @@
   <h3>Videos</h3>
   <div class="col-md-10 col-sm-10 col-xs-10 pull-right">
     <%= link_to "New video", new_admin_video_path, class: 'btn-flat success pull-right' %>
+    <%= link_to "View all", admin_videos_path, class: 'btn-flat success pull-right grey' %>
   </div>
 </div>
 
@@ -11,7 +12,6 @@
       <%= f.search_field :title_cont, placeholder: 'Search by title...', class: 'search' %>
       <%= f.submit 'Search', class: 'btn-flat' %>
     <% end %>
-    <%= link_to "View all", admin_videos_path %>
   </div>
 </div>
 
@@ -28,9 +28,9 @@
             <th>Specialty</th>
             <%= content_tag :th, sort_link(@q, :views) %>
             <th>Questions</th>
-            <th>Author</th>
             <th>Tags</th>
             <%= content_tag :th, sort_link(@q, :is_proofread?) %>
+            <%= content_tag :th, sort_link(@q, :upgraded?) %>
             <th></th>
           </tr>
         </thead>

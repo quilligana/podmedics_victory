@@ -15,6 +15,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  proofread      :boolean          default(FALSE)
+#  specialty_id   :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
@@ -30,5 +31,6 @@ FactoryGirl.define do
     correct_answer 2
     explanation "Some explanation as to why an answer is correct."
     association :video
+    association :specialty
   end
 end

@@ -28,7 +28,7 @@ feature 'Login' do
       generate_plans
       no_plan_user = create(:no_plan_user)
       sign_in(no_plan_user)
-      expect(current_path).to eq show_buy_path(no_plan_user)
+      expect(current_path).to eq dashboard_path
     end
 
 

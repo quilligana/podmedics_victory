@@ -1,10 +1,12 @@
+<!--<%= link_to "Have you seen our new question apps for iPhone and Android?", app_path, class: 'green_promo_banner'  %> -->
+
 <%= content_for(:title) { "Podmedics | Dashboard"} %>
 
 <div class="inner dashboard_page">
   <div>
     <div class="sub_heading_wrapper dashboard_header">
       <%= form_tag videos_path, method: 'get' do %>
-        <%= text_field_tag :search, params[:search], class: 'dashboard_search_field', placeholder: 'Search' %>
+        <%= text_field_tag :search, params[:search], class: 'dashboard_search_field', placeholder: 'Search by topic...' %>
       <% end %>
       <div class="sub_heading_button_set">
         <%= render 'quick_nav' %>
@@ -13,6 +15,19 @@
   </div>
 
   <div class="page dashboard_page">
+
+    <div class="stats_chart_wrapper" id="tour_step_one">
+      <%= render 'stats' %>
+    </div>
+
+    <div class="stats_chart_wrapper general_quiz_container">
+      <h2>Quick Questions</h2>
+      <%= link_to 'Revise Hard', questions_general_path, class: 'revise_hard_button' %>
+      <div class="revise_hard_description">
+        <p>Revise Hard - Answer 50 random questions taken from across all the specialties</p>
+        <p>A great way to find your weaknesses!</p>
+      </div>
+    </div>
 
     <div id="tabs-1" class="tab_box">
       <div class="dashboard_header_wrapper">
@@ -29,16 +44,12 @@
 
         <div class="header_column">
           <div class="header_columns_inner_wrapper">
-            <div class="dashboard_header_columns_title">Recommended Lectures</div>
+            <div class="dashboard_header_columns_title">Most Popular Lectures</div>
               <div class="dashboard_header_columns_lecture_blocks_wrapper flagged_videos">
                 <%= render partial: 'video_list', locals: { videos: @flagged_videos} %>
               </div>
           </div>
         </div>
-      </div>
-
-      <div class="stats_chart_wrapper" id="tour_step_one">
-        <%= render 'stats' %>
       </div>
     </div>
 

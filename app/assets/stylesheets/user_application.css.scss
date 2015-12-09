@@ -7,7 +7,11 @@
  *= require responsive
  *= require redactor
  *= require addtohomescreen
-*/
+ *= require strip
+ *= require tipr
+ *= require tip_cards
+ *= require flashcard_tabs
+ */
 
 //PACE loading bar
 .pace .pace-progress {
@@ -26,4 +30,22 @@
 
 .pace-inactive {
   display: none;
+}
+
+div.avatar_inner_wrapper {
+  margin-top: 40px;
+  padding-bottom: 80px;
+}
+
+
+.avatar_inner {
+  font-size: 15px;
+  line-height: 20px;
+  color: #858585;
+  margin-top: 5px;
+}
+
+div.profile_edit_avatar {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

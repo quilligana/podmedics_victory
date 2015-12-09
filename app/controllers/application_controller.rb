@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   include SessionsHelper
   before_action :authorise
   before_action :get_content
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
             end
           else
             unless current_user.has_selected_plan?
-              unless params[:controller] == 'transactions' || params[:controller] == 'sessions'
+              unless params[:controller] == 'transactions' || params[:controller] == 'sessions' || params[:controller] == 'static_pages'
                 redirect_to show_buy_path(current_user.id), notice: 'Please select a plan'
               end
             end

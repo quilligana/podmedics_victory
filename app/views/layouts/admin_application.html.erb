@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag 'admin/admin_application', media: "all", 'data-turbolinks-track' => true %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag '//www.google.com/jsapi', 'chartkick', 'admin/admin_application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <!--[if IE]>
@@ -14,9 +15,12 @@
     <![endif]-->
   </head>
   <body>
-    <%= render 'admin_top_nav' %>
+    <!--<%= render 'admin_top_nav' %>-->
+
     <%= render 'admin_side_nav' %>
+
     <%= render 'admin_messages' %>
+
     <div class="content">
       <%= render 'admin_stats' %>
       <div id="pad-wrapper">

@@ -8,12 +8,7 @@
   <div class="page">
     <div class="inner_page_padding">
       <div class="faq_wrapper">
-        <% @faqs.each do |faq| %>
-          <div class="faq_inner_wrapper">
-            <h2><%= faq.title %></h2>
-            <div class="faq_inner"><%= faq.content.html_safe %></div>
-          </div>
-        <% end %>
+        <%= render @faqs %>
       </div>
     </div>
   </div>

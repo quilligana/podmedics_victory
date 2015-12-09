@@ -3,7 +3,7 @@
 
   <div class="video_page_authour_right_column_user_info">
     <div class="video_page_authour_right_column_avatar">
-      <%= image_tag @author.get_avatar(:square), width: '128', height: '128' %>
+      <%= image_tag @author.get_avatar(:square, request), width: '128', height: '128' %>
     </div>
     <div class="video_page_authour_right_column_user_info_inner_wrapper">
       <p class="video_page_authour_right_column_name"><%= @author.name %><p>

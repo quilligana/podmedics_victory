@@ -3,8 +3,9 @@
 //= require jquery_ujs
 //= require fresco
 //= require jquery.validate
-//= require addtohomescreen.min
+//= require jquery.validations.functions
 //= require turbolinks
+//= require fastclick
 //= require trial-questions
 
 // Enable Turbolinks transition cache
@@ -20,29 +21,30 @@ $(document).on('page:load', function(){
 
 $(document).ready(function(){
 
-  // Add to homescreen function
-  addToHomescreen();
+  // enable fastclick
+  FastClick.attach(document.body);
 
   // form client side validations
-  $("#user_email").validate({
-      expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
-      message: "A valid Email is required"
-  });
-
-  $("#user_name").validate({
-      expression: "if (VAL.length > 3 && VAL) return true; else return false;",
-      message: "Please enter your full name"
-  });
-
-  $("#user_password").validate({
-      expression: "if (VAL.length > 5 && VAL) return true; else return false;",
-      message: "Please enter a valid Password"
-  });
-
-  $("#user_password_confirmation").validate({
-      expression: "if ((VAL == jQuery('#user_password').val()) && VAL) return true; else return false;",
-      message: "Confirm password field doesn't match the password field"
-  });
+  //
+  //$("#user_name").validate({
+  //    expression: "if (VAL.length > 3 && VAL) return true; else return false;",
+  //    message: "Please enter your full name"
+  //});
+  //
+  //$("#user_password").validate({
+  //    expression: "if (VAL.length > 5 && VAL) return true; else return false;",
+  //    message: "Please enter a valid Password"
+  //});
+  //
+  //$("#user_password_confirmation").validate({
+  //    expression: "if ((VAL == jQuery('#user_password').val()) && VAL) return true; else return false;",
+  //    message: "Please confirm that the passwords match"
+  //});
+  //
+  //$("#user_terms_agreement").validate({
+  //    expression: "if (isChecked(SelfID)) return true; else return false;",
+  //    message: "Please acknowledge your agreement with the stated terms and conditions"
+  //});
 
     // Basic menu functions
   $("#menu_action").click(function(){

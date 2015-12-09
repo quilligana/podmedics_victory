@@ -7,10 +7,6 @@
   <div class="sub_heading_button_set">
     <%= render 'quick_nav' %>
 
-    <a href="#" class="ask_question_icon_button" data-reveal-id="ask_question_modal">
-      <div class="ask_question_button_tooltip">Ask the Podmedics Community a question</div>
-    </a>
-
     <%= link_to specialty_exam_url(@specialty.id), class: "take_quiz_icon_button" do %>
       <div class="quiz_button_tooltip">30 random questions from Cardiology</div>
     <% end %>
@@ -30,22 +26,22 @@
 
               <% if @question.cached_user.id == current_user.id || current_user.admin? %>
                 <div class="delete_comment_button_wrapper">
-                  <%= link_to "Delete Question", 
-                              specialty_question_path(@question.specialty, @question), 
-                              method: :delete, 
+                  <%= link_to "Delete Question",
+                              specialty_question_path(@question.specialty, @question),
+                              method: :delete,
                               class: "grey_button delete_comment_button",
                               data: { confirm: "Are you sure you want to delete this question?" } %>
                 </div>
               <% end %>
 
               <div class="main_question_header">
-                <div class="main_question_user_avatar"><%= image_tag @question.cached_user.get_avatar(:thumb) %></div>
+                <div class="main_question_user_avatar"><%= image_tag @question.cached_user.get_avatar(:thumb, request) %></div>
                 <h2><%= @question.content %></h2>
-                <p> Posted 
-                    <%= time_ago_in_words(@question.created_at) %> 
-                    ago 
-                    by 
-                    <%= link_to @question.cached_user, 
+                <p> Posted
+                    <%= time_ago_in_words(@question.created_at) %>
+                    ago
+                    by
+                    <%= link_to @question.cached_user,
                                 @question.cached_user %>
               </div>
               <!-- End question header -->
@@ -53,7 +49,7 @@
 
               <% if @question.cached_comments_count == 0 %>
                 <div class="no_questions_reply_wrapper">
-                  Nothing posted yet. 
+                  Nothing posted yet.
                   <a href="javascript:;" id="first_to_answer_question_link">
                     Be the first to answer.
                   </a>

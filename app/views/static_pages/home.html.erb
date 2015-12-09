@@ -1,7 +1,8 @@
-<%= content_for(:title) { "Podmedics | Home"} %>
+<%= content_for(:title) { "Podmedics | Medical Revision"} %>
 <div class="mobile_navigation">
   <%= link_to 'home', root_path , class: "nav-home" %>
   <%= link_to 'videos', library_path , class:"nav-lectures" %>
+  <a href="#questions">Questions</a>
   <%= link_to "quiz app", app_path %>
   <%= link_to 'about', about_path , class: "nav-about" %>
   <%= link_to "Blog", posts_path %>
@@ -38,10 +39,23 @@
   <div class="home_navigation">
     <%= link_to 'home', root_path , class: "nav-home" %>
     <%= link_to 'videos', library_path , class:"nav-lectures" %>
+    <a href="#questions">Questions</a>
     <%= link_to "quiz app", app_path %>
-    <%= link_to 'about', about_path , class: "nav-about" %>
-    <%= link_to "Blog", posts_path %>
-    <%= link_to 'faqs',  faqs_path , class: "nav-faqs" %>
+
+    <div class="home_drop_down_wrapper">
+      <a href="javascript:;" class="home_drop_down_parent_link">
+        <p>About</p>
+        <p class="home_dropdown_icon"></p>
+      </a>
+      <div class="home_drop_down">
+        <div class="home_drop_down_inner">
+          <%= link_to 'about', about_path , class: "nav-about" %>
+          <%= link_to "Blog", posts_path %>
+          <%= link_to 'faqs',  faqs_path , class: "nav-faqs" %>
+        </div>
+      </div>
+    </div>
+
     <%= link_to "login", login_path , class: "nav-login" %>
     <%= link_to "sign up", signup_path , class: "nav-signup" %>
   </div>
@@ -51,11 +65,10 @@
     <% end %>
 
   <div class="inner_home_header">
-    <h1>Medical revision as it should be.</h1>
-    <p class="podmedics_intro_message">Watch 100s of beautifully made medical revision videos and answer 1000s of questions tailored specifically to you</p>
+    <h1>Quality Medical Revision As It Should Be. <span class="free_span">Free</span>.</h1>
+    <p class="podmedics_intro_message">Watch 100s of beautifully made medical revision videos and answer 1000s of questions that are tailored specifically to you</p>
     <div class="inner_home_header_action_buttons">
-      <div class="free_trial_home_sketch"></div>
-      <a href="/signup" class="red_button home_action_button">Sign Up to get started</a>
+      <a href="/signup" class="red_button home_action_button">Sign Up Now (it's 100% free)</a>
     </div>
   </div>
 </div>
@@ -63,34 +76,32 @@
 <div class="home_section_video">
   <div class="home_section_inner_wrapper">
     <div class="home_top_section_left_column">
-      <h2>Watch Video Tutorials</h2>
+      <h2>High Quality Video Tutorials</h2>
       <p>Podmedics has over 200 medical revision videos that help you approach revising for your exams in a concise and consistant way.</p>
       <div class="home_video_action_buttons">
-        <%= link_to "Explore our library", library_path, class: 'red_button' %>
+        <%= link_to "Explore our full video library", library_path, class: 'red_button' %>
       </div>
+      <p class="home_feeds_info_wrapper">Follow our <a href="http://feeds.feedburner.com/podmedics" target="_blank">RSS feed</a> of free episodes or subscribe on <a href="https://itunes.apple.com/gb/podcast/podmedics/id262862893?mt=2" target="_blank">iTunes</a></p>
     </div>
     <div class="home_top_section_right_column">
       <div class="index_video_wrapper">
-        <iframe src="https://player.vimeo.com/video/58560152?api=1&portrait=0&color=fa3f52&player_id=vimeoplayer" width="640" height="400" frameborder="0" id="vimeoplayer"></iframe>
+        <iframe src="//fast.wistia.net/embed/iframe/vujivsaamt" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
       </div>
     </div>
   </div>
 </div>
 
-<div class="home_section_questions">
+<div class="home_section_questions" id="questions">
   <div class="home_section_inner_wrapper">
     <div class="home_top_section_left_column">
-      <h2>Do Questions</h2>
-      <p>Our videos are matched by great questions that let you test yourself on individual videos or by specialty</p>
+      <h2>Relevant Questions</h2>
+      <p>Our videos are matched by great questions and explanations that let you test yourself on individual videos/topics or by the specialty you are revising.</p>
     </div>
     <div class="home_top_section_right_column questions_right_column_wrapper right_column">
       <div class="index_questions_wrapper">
       <div class="try_questions_sketch"></div>
           <div ng-app='TrialQuestionsApp'>
             <div ng-controller='TrialQuestionsController as vm'>
-
-
-
               <div class="question" ng-show="vm.firstQuestionAvailable">
                 <div class="index_questions_header">
                   <div ng-bind-html="vm.currentQuestion.stem" class="questions_header_padding"></div>
@@ -113,17 +124,14 @@
                 </div>
               </div>
 
-
-
               <div class="end_questions" ng-show="vm.questionsEnded">
                 <h3>You have finished all the trial questions.</h3>
                 <p><%= link_to "Sign Up to access more", signup_path , class: "signup_button" %></p>
                 <a ng-click="vm.startAgain()" class="red_button">Start again</a>
               </div>
 
-
-            </div><!-- end ng-controller -->
-          </div><!-- end ng-app -->
+            </div>
+          </div>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
       )
       sale.process!
       if sale.finished?
-        current_user.start_subscription_for_product(product)
+        current_user.start_subscription_for_product(product, sale)
         redirect_to pickup_url(guid: sale.guid)
       else
         AdminMailer.delay.payment_failed(current_user)
@@ -36,10 +36,6 @@ class TransactionsController < ApplicationController
   def receive_paypal
     user_id = params[:cm]
     product_id = params[:item_number]
-    status = params[:st]
-    amount = params[:amt]
-    transaction_id = params[:tx]
-
     sale = Sale.new
     sale.receive_paypal_callback(user_id, product_id)
     redirect_to pickup_url(user_id: current_user.id, guid: sale.guid)

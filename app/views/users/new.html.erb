@@ -1,41 +1,35 @@
 <%= content_for(:title) { "Podmedics | Signup"} %>
 
-<div class="inner signup_page_inner">
-  <!-- <div class="sub_heading_wrapper">
-    <h1>Sign Up</h1>
-    <p>Gain instant access to all our videos and revision tools.</p>
-  </div> -->
-
+<div class="inner login_page_inner">
   <div class="page">
     <div class="left_column_forms">
+      <div class="signup_form_header_copy">
+        <p>Podmedics is 100% free. We want to start a revolution in high-quality global medical education, and it starts right here. Signing up gives you access to 100s of videos, 1000s of questions and a great community of students and doctors all over the world.</p>
+        <p>Want to checkout what we do - please take a look at the interactive questions on the <%= link_to 'home page', root_path %> and our <%= link_to 'video library', library_path %></p>
+      </div>
+
       <div class="social_signup_wrapper">
         <div class="social_signup_button_wrapper">
           <a href="/auth/twitter" class="twitter_social_button">Sign up via <strong>Twitter</strong></a>
           <p>Or</p>
           <a href="/auth/facebook" class="fb_social_button" id="facebook_sign_in">Sign up via <strong>Facebook</strong></a>
         </div>
-        <p class="social_option_final_line">or complete the short form below</p>
+        <p class="social_option_final_line">or...</p>
       </div>
 
       <div class="login_ignup_form_wrapper">
         <h2>Signup Manually</h2>
         <%= simple_form_for @user do |f| %>
           <%= f.error_notification %>
-          <%= f.input :name, input_html: {class: 'podmedics_textfield', autofocus: true}, label: false, placeholder: 'Full Name' %>
+          <%= f.input :name, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Full Name' %>
           <%= f.input :email, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Email' %>
           <%= f.input :password, input_html: {class: 'podmedics_textfield'}, label: false, placeholder: 'Password' %>
           <%= f.input :password_confirmation, input_html: { class: 'podmedics_textfield'}, label: false, placeholder: 'Password confirmation' %>
-          <button type="submit" class="red_button">Sign up now</button>
-          <p class="signup_data_message">We never store your information longer than neccesary. If you choose not to complete account registration we shall remove your registered data within 24 hours.</p>
+          <button type="submit" class="red_button">Signup</button>
         <% end %>
       </div>
     </div>
 
-    <div class="right_column_forms">
-      <h3>What we offer?</h3>
-      <p>We offer a <strong>free plan</strong> that allows you unlock two specialties of your choice.</p>
-      <p>We also offer subscriptions for either <strong>6 months (&pound;18)</strong> or <strong>12 months (&pound;30)</strong> that give full access to the site.</p>
-    </div>
   </div>
 </div>
 

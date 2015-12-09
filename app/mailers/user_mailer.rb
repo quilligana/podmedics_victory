@@ -6,8 +6,10 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: 'Welcome to Podmedics', from: 'ed@podmedics.com'
   end
 
-  def welcome_paid_plan(user)
+  def welcome_paid_plan(user, sale)
     @user = user
+    invoice = sale.receipt
+    attachments["invoice"] = { :mime_type => "application/pdf", :content => invoice.render}
     mail to: user.email, subject: 'Welcome to Podmedics', from: 'ed@podmedics.com'
   end
 
@@ -47,7 +49,9 @@ class UserMailer < ActionMailer::Base
     if user.receive_new_episode_notifications?
       @user = user
       @video = video
-      mail to: user.email, subject: "New Podmedics Video: #{@video.title}"
+      unless @user.email.blank?
+        mail to: @user.email, subject: @video.title
+      end
     end
   end
 
@@ -75,6 +79,17 @@ class UserMailer < ActionMailer::Base
       @question = question
       mail to: user.email, subject: 'Another Podmedics user needs your help!'
     end
+  end
+
+  def flashcard_submission(user)
+    @user = user
+    mail to: user.email, subject: 'Flashcard submitted'
+  end
+
+  def flashcard_approval(flashcard)
+    @flashcard = flashcard
+    @user = flashcard.user
+    mail to: @user.email, subject: 'Your flashcard was approved'
   end
 
 end

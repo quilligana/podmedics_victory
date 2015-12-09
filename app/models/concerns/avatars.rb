@@ -30,8 +30,35 @@ module Avatars
     end
   end
 
-  def get_avatar(style)
-    cached_avatar_url(style)
+  def get_avatar(style, request)
+   cached_avatar_url(style)
+   if avatar.exists?
+     avatar.url(style)
+   else
+     gravatar_fallback(style, request)
+   end
+  end
+
+  def gravatar_fallback(style, request)
+    default_url = "#{request.protocol}#{request.host_with_port}#{ActionController::Base.helpers.asset_url('avatar-128.jpg')}"
+    if self.class.name == "User" && self.email.present?
+      size = gravatar_size(style)
+      gravatar_id = Digest::MD5::hexdigest(email).downcase
+      url = "https://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI::escape(default_url)}"
+    else
+      url = default_url
+    end
+  end
+
+  def gravatar_size(style)
+    case style
+    when :thumb
+      return 100
+    when :square
+      return 200
+    when :medium
+      return 300
+    end
   end
 
   def cached_avatar_url(style)
@@ -42,6 +69,11 @@ module Avatars
         ActionController::Base.helpers.asset_path('avatar-128.jpg')
       end
     end
-  end  
+  end
+
+  def remove_gravatar
+    self.avatar = nil
+    self.save
+  end
 
 end

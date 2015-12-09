@@ -15,9 +15,7 @@ class VideosController < ApplicationController
     @video = Video.includes(:specialty, :author, :tags).friendly.find(params[:id])
     @specialty = @video.specialty
     @author = @video.author
-
-    check_unlock if current_user.is_trial_member?
-
+    @flashcards = @video.flashcards
     @video.increment_views
     @progress = Vimeo.register_ids(@video.id, current_user)
     @comment = Comment.new(user: current_user)
@@ -27,7 +25,7 @@ class VideosController < ApplicationController
   private
 
     def check_unlock
-      unless current_user.has_access_to?(@specialty) || current_user.admin
+      unless current_user.has_access_to?(@specialty) || current_user.admin || @video.preview
         redirect_to @specialty, alert: 'Please unlock this specialty to view videos and questions.'
       end
     end

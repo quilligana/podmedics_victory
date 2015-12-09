@@ -9,6 +9,7 @@
     <meta name="keywords" content="OSCE, medical, student, exam, free, MCQs, EMQs, videos, podcasts, downloads, PACES" >
     <meta name="author" content="Podmedics Ltd">
     <title><%= content_for?(:title) ? yield(:title) : "Podmedics" %></title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true  %>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js'  %>
     <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.min.js'  %>
@@ -20,6 +21,8 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <%= render 'mixpanel' %>
+    <%= render 'hotjar' %>
+    <%= render 'segment' %>
   </head>
 
   <body>
@@ -29,6 +32,7 @@
       <%= yield %>
     </main>
     <%= content_for?(:footer) ? yield(:footer) : (render 'footer') %>
+
   </body>
 
 </html>

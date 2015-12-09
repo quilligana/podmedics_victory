@@ -7,14 +7,14 @@ feature 'Manage FAQs' do
   before :each do
     sign_in(admin_user)
   end
-  
+
   scenario 'Adding new faq' do
     click_link 'FAQs'
     click_link '+ New FAQ'
     fill_in 'Title', with: 'What does Podmedics cost?'
     fill_in 'Content', with: 'Not much!'
     click_button 'Create Faq'
-    expect(page).to have_content 'FAQ added'
+    expect(page).to have_content 'Faq created'
   end
 
   scenario 'Viewing faqs' do

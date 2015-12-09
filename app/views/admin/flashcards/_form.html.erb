@@ -1,0 +1,29 @@
+<div class="row form-wrapper">
+  <div class="col-md-6">
+    <%= simple_form_for [:admin, @flashcard] do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title %>
+        <%= f.input :approved %>
+        <%= f.association :video, collection: Video.all.order(:title), prompt: 'Select a video', include_blank: true %>
+        <%= f.association :specialty, collection: Specialty.all.order(:name), prompt: 'Select a specialty' %>
+        <h2>General</h2>
+        <%= f.input :epidemiology, as: :text, label: 'Epidemiology' %>
+        <%= f.input :pathology, as: :text, label: 'Pathology' %>
+        <%= f.input :causes, as: :text, label: 'Top three causes' %>
+        <h2>Clinical Features</h2>
+        <%= f.input :symptoms, as: :text, label: 'Symptoms (general and specific)' %>
+        <%= f.input :signs, as: :text, label: 'Signs (general and specific)' %>
+        <h2>Investigations</h2>
+        <%= f.input :inv_cultures, as: :text, label: 'Investigations: Cultures' %>
+        <%= f.input :inv_bloods, as: :text, label: 'Investigations: Bloods' %>
+        <%= f.input :inv_imaging, as: :text, label: 'Investigations: Imaging' %>
+        <%= f.input :inv_scopic, as: :text, label: 'Investigations: Scopic/Biopsy' %>
+        <%= f.input :inv_functional, as: :text, label: 'Investigations: Functional' %>
+        <h2>Treatment</h2>
+        <%= f.input :treat_cons, as: :text, label: 'Conservative' %>
+        <%= f.input :treat_medical, as: :text, label: 'Medical' %>
+        <%= f.input :treat_surgical, as: :text, label: 'Surgical' %>
+        <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

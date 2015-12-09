@@ -23,6 +23,7 @@
 #  video_download_count :integer
 #  proofread            :boolean          default(FALSE)
 #  has_slides           :boolean          default(TRUE)
+#  upgraded             :boolean          default(FALSE)
 #
 
 class Video < ActiveRecord::Base
@@ -44,6 +45,7 @@ class Video < ActiveRecord::Base
   has_many :notes, as: :noteable, dependent: :destroy
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :flashcards
 
   validates :title, presence: true
   validates :description, presence: true
@@ -60,12 +62,28 @@ class Video < ActiveRecord::Base
 
   after_save :touch_assets
 
+  def has_questions?
+    true if questions_count > 0
+  end
+
+  def duration_as_string
+    "| #{duration} minutes"
+  end
+
+  def friendly_publication_date
+    "| #{created_at.strftime('%b %y')} "
+  end
+
   def mark_proofread
     questions.each { |q| q.update_attributes(proofread: true) }
   end
 
   def is_proofread?
     questions.where(proofread: true).count == questions.count ? true : false
+  end
+
+  def is_upgraded?
+    upgraded
   end
 
   # Caching functions

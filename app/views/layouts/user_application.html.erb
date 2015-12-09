@@ -12,7 +12,9 @@
     <meta name="keywords" content="OSCE, medical, student, exam, free, MCQs, EMQs, videos, podcasts, downloads, PACES" >
     <meta name="author" content="Podmedics Ltd">
     <title><%= content_for?(:title) ? yield(:title) : "Podmedics" %></title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "user_application", media: "all" %>
+    <%= yield(:extra_javascripts) %>
     <%= javascript_include_tag "user_application" %>
     <%= render 'analytics' %>
     <%= csrf_meta_tags %>
@@ -21,6 +23,16 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <%= render 'mixpanel'  %>
+    <%= render 'hotjar' %>
+    <%= render 'segment' %>
+    <% if current_user && Rails.env.production?  %>
+      <script type="text/javascript" charset="utf-8">
+        analytics.identify('<%= current_user.id.to_s %>', {
+            name:  '<%= current_user.name  %>',
+            email: '<%= current_user.email %>'
+        });
+      </script>
+    <% end %>
   </head>
 
   <body>

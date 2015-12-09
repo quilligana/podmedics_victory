@@ -17,6 +17,7 @@ PodmedicsVictory::Application.routes.draw do
   # RSS feed redirects
   match '/Podmedics/Podmedics/rss.xml' => redirect('http://feeds.feedburner.com/podmedics'), via: :get
   match '/feeds/podcasts' => redirect('http://feeds.feedburner.com/podmedics'), :as => :feed, via: :get
+  match '/podcasts/rss.rss' => redirect('http://feeds.feedburner.com/podmedics'), via: :get
 
   # Authentication
   get 'login', to: 'sessions#new', as: 'login'
@@ -24,7 +25,10 @@ PodmedicsVictory::Application.routes.draw do
   get 'signup', to: 'users#new', as: :signup
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index] do
-    get 'email', on: :member
+    member do
+      get 'email'
+      get 'move_to_gravatar'
+    end
   end
 
   post 'unsubscribed', to: 'users#unsubscribed', as: :unsub
@@ -45,6 +49,7 @@ PodmedicsVictory::Application.routes.draw do
   get '/receive_paypal', to: 'transactions#receive_paypal', as: :receive_paypal
   get ':user_id/cancel_transaction', to: 'transactions#cancel_transaction', as: :cancel_transaction
   resources :stripe_events, only: [:create]
+  resources :sales, only: [:show]
 
   # Dashboards and admin
   match '/admin' => redirect('/admin/dashboard'), via: :get
@@ -68,8 +73,14 @@ PodmedicsVictory::Application.routes.draw do
         end
       end
     end
+    resources :flashcards do
+      member do
+        get 'approve'
+      end
+    end
     resources :users do
       member { get 'send_1w_reminder'}
+      collection { get 'remove_if_no_plan'}
     end
     resources :authors
     resources :faqs
@@ -92,6 +103,7 @@ PodmedicsVictory::Application.routes.draw do
 
   # Specialty/Video
   resources :videos, only: [:show, :index] do
+    resources :flashcards, only: [:new, :create]
     resources :questions, only: :index
     get 'video', to: 'hosted_files#video', as: 'download_video'
     get 'audio', to: 'hosted_files#audio', as: 'download_audio'
@@ -100,6 +112,7 @@ PodmedicsVictory::Application.routes.draw do
   get 'tags/:tag', to: 'videos#index', as: :tag
   match 'questions/answer', to: 'questions#answer', via: [:get, :post]
   get 'questions/result', to: 'questions#result'
+  get 'questions/general', to: 'questions#general_index'
   resources :questions, only: :show
 
   resources :specialties, only: [:show] do

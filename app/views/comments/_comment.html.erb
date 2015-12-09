@@ -25,7 +25,7 @@
   <div class="inner_page_padding">
     <div class="comment_avatar">
       <%= link_to user_path(comment.cached_user) do %>
-        <%= image_tag comment.cached_user.get_avatar(:thumb) %>
+        <%= image_tag comment.cached_user.get_avatar(:thumb, request) %>
       <% end %>
     </div>
     <div class="comment_info">

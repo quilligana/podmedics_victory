@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016122623) do
+ActiveRecord::Schema.define(version: 20150302213953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,35 @@ ActiveRecord::Schema.define(version: 20141016122623) do
     t.boolean  "member_only", default: false
   end
 
+  create_table "flashcards", force: true do |t|
+    t.integer  "specialty_id"
+    t.integer  "video_id"
+    t.integer  "views",          default: 0
+    t.string   "title"
+    t.text     "epidemiology"
+    t.text     "pathology"
+    t.text     "causes"
+    t.text     "signs"
+    t.text     "symptoms"
+    t.text     "inv_cultures"
+    t.text     "inv_bloods"
+    t.text     "inv_imaging"
+    t.text     "inv_scopic"
+    t.text     "inv_functional"
+    t.text     "treat_cons"
+    t.text     "treat_medical"
+    t.text     "treat_surgical"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.boolean  "approved",       default: false
+  end
+
+  add_index "flashcards", ["specialty_id"], name: "index_flashcards_on_specialty_id", using: :btree
+  add_index "flashcards", ["title"], name: "index_flashcards_on_title", using: :btree
+  add_index "flashcards", ["user_id"], name: "index_flashcards_on_user_id", using: :btree
+  add_index "flashcards", ["video_id"], name: "index_flashcards_on_video_id", using: :btree
+
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -189,8 +218,10 @@ ActiveRecord::Schema.define(version: 20141016122623) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "proofread",      default: false
+    t.integer  "specialty_id"
   end
 
+  add_index "questions", ["specialty_id"], name: "index_questions_on_specialty_id", using: :btree
   add_index "questions", ["video_id"], name: "index_questions_on_video_id", using: :btree
 
   create_table "sales", force: true do |t|
@@ -351,6 +382,7 @@ ActiveRecord::Schema.define(version: 20141016122623) do
     t.integer  "video_download_count"
     t.boolean  "proofread",            default: false
     t.boolean  "has_slides",           default: true
+    t.boolean  "upgraded",             default: false
   end
 
   add_index "videos", ["author_id"], name: "index_videos_on_author_id", using: :btree

@@ -7,7 +7,7 @@ class Admin::VideosController < ApplicationController
 
   def index
     @q = Video.search(params[:q])
-    @videos = apply_scopes(@q.result.includes(:specialty, :tags, :author).order(title: :asc).paginate(page: params[:page]))
+    @videos = apply_scopes(@q.result.includes(:specialty, :tags, :author).order(views: :desc).paginate(page: params[:page]))
   end
 
   def show
@@ -65,7 +65,7 @@ class Admin::VideosController < ApplicationController
   private
 
     def video_params
-      params.require(:video).permit(:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread, :has_slides)
+      params.require(:video).permit(:title, :description, :specialty_id, :vimeo_identifier, :duration, :preview, :file_name, :speaker_name, :position, :author_id, :tag_list, :proofread, :has_slides, :upgraded)
     end
 
     def set_video

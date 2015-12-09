@@ -55,29 +55,45 @@ class User < ActiveRecord::Base
   has_many :sales
   has_many :unlocked_specialties
   has_many :specialties, through: :unlocked_specialties
+  has_many :flashcards
 
   scope :has_selected_plan, -> { where(selected_plan: true) }
+  scope :not_selected_plan, -> { where(selected_plan: false)}
   scope :expired_before, -> time { where("expires_on < :date", {date: time}) }
   scope :expired_after, -> time { where("expires_on >= :date", {date: time})}
   scope :never_subscribed, -> { where("expires_on is NULL")}
-  
-  validates :email, 
-    email_format: { 
-      message: 'Not a valid email address',
-      allow_nil: true
-    }, 
+
+  validates :email,
+    email_format: {
+      message: 'Not a valid email address'
+    },
+    allow_nil: true,
     uniqueness: true
   validates :name, presence: true
-  validates :website, url: { allow_blank: true }
+  # validates :email, presence: true, uniqueness: { case_sensitive: false }
+  # validates :website, url: { allow_blank: true }
   validates :password, presence: true,
     confirmation: true,
-    length: {within: 5..30},
+    length: { within: 5..30 },
     on: :create
+  # validates_acceptance_of :terms_agreement, on: :create, accept: true
 
   after_commit :flush_cache
 
   def to_s
     name
+  end
+
+  # Flashcards
+
+  def add_flashcard_credit
+    if self.is_trial_member?
+      self.subscribed_on = Time.zone.now
+      self.expires_on = self.subscribed_on.advance(months: 2)
+    else
+      self.expires_on = self.expires_on.advance(months: 2)
+    end
+    self.save
   end
 
   # Plans/Subs
@@ -104,25 +120,21 @@ class User < ActiveRecord::Base
     update_attributes(selected_plan: true)
   end
 
-  def start_subscription_for_product(product)
+  def start_subscription_for_product(product, sale)
     activate_subscription(product)
-    send_user_notification
+    send_user_notification(sale) if sale
   end
 
   # we should be able to handle upgrade as well
   def activate_subscription(product)
     self.mark_plan_selected
-    if self.has_subscription_and_in_date?
-      self.expires_on = self.expires_on.advance(months: product.duration)
-    else
-      self.subscribed_on = Time.zone.now
-      self.expires_on = self.subscribed_on.advance(months: product.duration)
-    end
+    self.subscribed_on = Time.zone.now
+    self.expires_on = self.subscribed_on.advance(months: product.duration)
     self.save!
   end
 
-  def send_user_notification
-    UserMailer.delay.welcome_paid_plan(self)
+  def send_user_notification(sale)
+    UserMailer.delay.welcome_paid_plan(self, sale)
   end
 
   def has_subscription_and_in_date?
@@ -138,11 +150,11 @@ class User < ActiveRecord::Base
   end
 
   def is_trial_member?
-    !self.has_subscription_and_in_date? 
+    !self.has_subscription_and_in_date?
   end
 
   def suitable_for_reminder?
-    self.is_trial_member? && self.has_selected_plan? && !self.reminder_email_received ? true : false
+    (self.is_trial_member? && self.has_selected_plan? && !self.reminder_email_received) ? true : false
   end
 
   def self.send_one_week_reminders

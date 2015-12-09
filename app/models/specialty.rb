@@ -21,7 +21,7 @@ class Specialty < ActiveRecord::Base
   belongs_to :category, touch: true
 
   has_many :videos, -> { order("position ASC") }
-  has_many :questions, through: :videos
+  has_many :questions
   has_many :specialty_questions, dependent: :destroy
   has_many :badges, dependent: :destroy
   has_many :user_questions, class_name: 'SpecialtyQuestion'
@@ -31,6 +31,7 @@ class Specialty < ActiveRecord::Base
   has_many :exams, dependent: :destroy
   has_many :unlocked_specialties
   has_many :users, through: :unlocked_specialties
+  has_many :flashcards
 
   validates :name, presence: true
 

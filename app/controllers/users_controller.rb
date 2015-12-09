@@ -1,16 +1,22 @@
 class UsersController < ApplicationController
   layout 'user_application', only: [:show, :edit, :update, :email]
-  before_action :find_user, only: [:show, :edit, :update, :email, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :email, :destroy, :move_to_gravatar]
 
   def new
     @user = User.new
+    @paid_6 = Product.where(permalink: 'paid6').first
+    @paid_12 = Product.where(permalink: 'paid12').first
   end
 
   def edit
   end
 
   def create
+    @paid_6 = Product.where(permalink: 'paid6').first
+    @paid_12 = Product.where(permalink: 'paid12').first
     @user = User.new(user_params)
+    # for making podmedics free
+    @user.mark_plan_selected
     if @user.save
       login_user(@user)
     else
@@ -49,6 +55,14 @@ class UsersController < ApplicationController
     redirect_to dashboard_path unless @user.email.blank?
   end
 
+  def move_to_gravatar
+    if @user.remove_gravatar
+      redirect_to "https://en.gravatar.com/"
+    else
+      render :edit
+    end
+  end
+
   def unsubscribed
     @unsubscribe = Unsubscribe.new(params)
     @unsubscribe.unsubscribe
@@ -84,7 +98,8 @@ class UsersController < ApplicationController
         :receive_status_updates,
         :receive_new_episode_notifications,
         :receive_social_notifications,
-        :receive_help_request_notifications)
+        :receive_help_request_notifications
+        )
     end
 
 end

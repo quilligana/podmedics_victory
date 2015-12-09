@@ -45,6 +45,16 @@ class Sale < ActiveRecord::Base
     end
   end
 
+  def self.income_last_month
+    sales = Sale.where(created_at: 1.month.ago..Time.zone.now)
+    calculate_income(sales)
+  end
+
+  def self.income_last_week
+    sales = Sale.where(created_at: 1.week.ago..Time.zone.now)
+    calculate_income(sales)
+  end
+
   def charge_card
     begin
       save!
@@ -78,10 +88,49 @@ class Sale < ActiveRecord::Base
       amount: product.price,
       state: 'finished'
     )
-    user.start_subscription_for_product(product)
+    user.start_subscription_for_product(product, self)
+  end
+
+  def receipt
+    Receipts::Receipt.new(
+      id: id,
+      product: "Podmedics",
+      company: {
+        name: "Podmedics Limited",
+        address: "Unit 118, Basepoint Business Centre, Eastcote, HA4 9NA",
+        email: "contact@podmedics.com",
+        logo: Rails.root.join("app/assets/images/podmedics_home_icon.png")
+      },
+      line_items: [
+        ["Date", created_at.strftime("%B %d, %Y")],
+        ["Account billed", "#{user.name} - #{user.email}"],
+        ["Product", product.name],
+        ["Cost", "£#{(actual_cost / 100)}"],
+        ["VAT (20%)", "£#{(calculate_vat_amount / 100).round(2)}"],
+        ["Total", "£#{amount / 100}.00"],
+        ["Transaction ID", "##{id}"]
+      ]
+    )
   end
 
   private
+
+    # note: this assumes VAT is 20%
+    def actual_cost
+      (amount / 1.2)
+    end
+
+    def calculate_vat_amount
+      (amount - actual_cost)
+    end
+    
+    def self.calculate_income(sales)
+      income = 0
+      sales.each do |s|
+        income += s.amount
+      end
+      income/100
+    end
 
     def populate_guid
       self.guid = SecureRandom.uuid()

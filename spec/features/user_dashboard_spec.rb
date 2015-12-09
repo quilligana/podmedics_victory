@@ -44,18 +44,6 @@ feature 'User dashboard' do
     user_sees_video(@video1)
   end
 
-  scenario 'A user with badges' do
-    badge = create(:badge, user: @user, specialty: @specialty)
-    badge_2 = create(:badge, user: @user, specialty: @specialty, level: "House Officer")
-    visit root_path
-
-    within '.dashboard_badges_left_column' do
-      expect(page).to have_content 'less than a minute ago'
-      expect(page).to have_content badge.specialty.name
-      expect(page).to have_content badge.level
-    end
-  end
-
   scenario 'Having watched a video' do
     create(:vimeo, user_id: @user.id, video_id: @video1.id, completed: true)
     visit root_path
@@ -123,7 +111,7 @@ feature 'User dashboard' do
   end
 
   # Helpers
-  
+
   def user_sees_video(video)
     expect(current_path).to eq video_path(video)
   end

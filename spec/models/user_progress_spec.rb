@@ -6,9 +6,10 @@ describe UserProgress do
     @user = create(:user)
     @specialty = create(:specialty)
     @video = create(:video, specialty: @specialty)
-    @question = create(:question, video: @video)
-    @question_2 = create(:question, video: @video)
-    @specialty_question = create(:specialty_question, specialty_id: @specialty.id)
+    @question = create(:question, video: @video, specialty: @specialty)
+    @question_2 = create(:question, video: @video, specialty: @specialty)
+    @question_3 = create(:question, video: @video, specialty: @specialty)
+    @specialty_question = create(:specialty_question, user_id: @user.id, specialty_id: @specialty.id)
     @progress_instance = UserProgress.new(@specialty, @user)
   end
 
@@ -19,7 +20,7 @@ describe UserProgress do
 
   describe '#max_specialty_points' do
     it 'should return the maximum number of points available' do
-      @progress_instance.max_specialty_points.should eq 60
+      @progress_instance.max_specialty_points.should eq 72
     end
   end
 
@@ -31,9 +32,7 @@ describe UserProgress do
     it 'should return the users updated points in that specialty' do
       create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
-      comment = create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id, accepted: true)
-      create(:vote, comment_id: comment.id)
-      @progress_instance.user_specialty_points.should eq 66
+      @progress_instance.user_specialty_points.should eq 40
     end
   end
 
@@ -50,13 +49,13 @@ describe UserProgress do
       @progress_instance.next_badge.should eq "Medical Student"
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
       create(:user_question, user_id: @user.id, question_id: @question_2.id, correct_answer: true)
-      @progress_instance.next_badge.should eq "Registrar"
+      @progress_instance.next_badge.should eq "Senior House Officer"
     end
   end
 
   describe '#next_badge_points' do
     it 'should return the users next badge in the specialty' do
-      @progress_instance.next_badge_points.should eq 21
+      @progress_instance.next_badge_points.should eq 25
       create(:vimeo, user_id: @user.id, video_id: @video.id, completed: true)
       @progress_instance.next_badge_points.should eq 36
     end
@@ -65,7 +64,7 @@ describe UserProgress do
   describe "#professor_points" do
     context 'if no professor exists in the specialty' do
       it 'should return the max specialty points' do
-        @progress_instance.professor_points.should eq 60
+        @progress_instance.professor_points.should eq 72
       end
     end
     context "if a professor exists" do
@@ -90,7 +89,7 @@ describe UserProgress do
       it 'should return true if the user has made grade_level 0' do
         create(:user_question, user_id: @user.id, question_id: @question.id, correct_answer: true)
         create(:user_question, user_id: @user.id, question_id: @question_2.id, correct_answer: true)
-        create(:comment, user_id: @user.id, commentable_type: "SpecialtyQuestion", commentable_id: @specialty_question.id)
+        create(:user_question, user_id: @user.id, question_id: @question_3.id, correct_answer: true)
         @progress_instance.due_badge?.should eq true
       end
     end

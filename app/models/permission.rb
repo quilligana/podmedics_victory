@@ -13,21 +13,23 @@ class Permission
     allow 'api/v1/questions', [:index, :count, :sample]
     if user
       allow :transactions, [:new, :create, :pickup, :receive_paypal]
+      allow :sales, [:show]
       allow :courses, [:index]
       allow :dashboards, [:show]
       allow :users, [:show]
-      allow :users, [:edit, :update, :email, :destroy] do |resource|
+      allow :users, [:edit, :update, :email, :destroy, :move_to_gravatar] do |resource|
         resource.id == user.id
       end
       allow :videos, [:show, :index]
       allow :specialty_unlocks, [:create]
       allow :hosted_files, [:video, :audio, :slides]
       allow :specialties, [:show]
-      allow :questions, [:index, :specialty_index, :show, :answer, :result]
+      allow :questions, [:index, :specialty_index, :general_index, :show, :answer, :result]
       allow :comments, [:create, :vote, :accept, :destroy]
       allow :specialty_questions, [:show, :index, :create, :destroy, :load]
       allow :notes, [:create, :update, :load, :index, :show]
       allow :vimeos, [:paused, :completed]
+      allow :flashcards, [:new, :create]
       allow_all if user.admin?
     end
   end

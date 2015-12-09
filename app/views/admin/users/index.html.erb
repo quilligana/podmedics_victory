@@ -2,30 +2,20 @@
   <h3>Users (<%= @users.count %>)</h3>
   <div class="col-md-10 pull-right">
     <%= link_to "New User", new_admin_user_path, class: 'btn-flat success pull-right' %>
+    <%= link_to "View all", admin_users_path, class: 'btn-flat success pull-right grey' %>
+    <%= link_to "Remove users with no plan selected: (#{User.not_selected_plan.count})", remove_if_no_plan_admin_users_path, data: { confirm: 'Are you sure?'}, class: 'btn-flat success pull-right grey' %>
   </div>
 </div>
 
-<div class="row filter-block">
-  <div class="col-md-12">
-    <div class="btn-group btn-group-justified pull-left">
-      <%= link_to "All (#{User.count})", admin_users_path, class: 'btn' %>
-      <%= link_to "Plan Selected (#{User.has_selected_plan.count})", admin_users_path(has_selected_plan: true), class: 'btn' %>
-      <%= link_to "Trial (#{User.trial(true).count})", admin_users_path(trial: true), class: 'btn' %>
-      <%= link_to "Paid subs (#{User.expired_after(Time.zone.now).count})", admin_users_path(expired_after: Time.zone.now), class: "btn" %>
-    </div>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-md-8 ">
     <%= search_form_for @q, url: admin_users_path do |f| %>
-      <%= f.search_field :email_cont, placeholder: 'Search by email...', class: 'search' %>
-      <%= f.search_field :name_cont, placeholder: 'Search by name...', class: 'search' %>
+      <%= f.search_field :email_or_name_cont, placeholder: 'Search by email or name', class: 'search' %>
       <%= f.search_field :id_eq, placeholder: 'Search by #id...', class: 'search' %>
       <%= f.submit 'Search', class: 'btn-flat' %>
       <br />
     <% end %>
-    <%= link_to "View all", admin_users_path  %>
   </div>
 </div>
 
@@ -40,13 +30,10 @@
             <%= content_tag :th, sort_link(@q, :id) %>
             <%= content_tag :th, sort_link(@q, :created_at) %>
             <%= content_tag :th, sort_link(@q, :name, 'Name', default_order: :desc) %>
+            <th>Unlocks</th>
             <th>Email</th>
             <th>Subscribed on</th>
             <th>Expires on</th>
-            <%= content_tag :th, sort_link(@q, :selected_plan) %>
-            <%= content_tag :th, sort_link(@q, :login_count) %>
-            <th>Last Login At</th>
-            <th>Unlocks</th>
             <th></th>
           </tr>
         </thead>

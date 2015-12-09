@@ -7,8 +7,9 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
+# require 'capybara/poltergeist'
 require 'paperclip/matchers'
+require 'database_cleaner'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
@@ -26,9 +27,9 @@ RSpec.configure do |config|
 
   OmniAuth.config.test_mode = true
 
-  Capybara.register_driver :poltergeist do |app|
-    Capybara::Poltergeist::Driver.new(app, js_errors: false)
-  end
+  # Capybara.register_driver :poltergeist do |app|
+  #   Capybara::Poltergeist::Driver.new(app, js_errors: false)
+  # end
 
   Capybara.javascript_driver = :poltergeist
 

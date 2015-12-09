@@ -1,29 +1,75 @@
 <div class="page-header">
   <h1>
     <%= @video.title  %>
-    <small><%= link_to "Edit", edit_admin_video_path(@video) %></small>
-    <small><%= link_to 'View on frontend', video_path(@video) %></small>
-    <small><%= link_to "Mark proofread", mark_proofread_admin_video_path(@video)  %></small>
-    <small><%= link_to 'Send test notification', send_test_notifications_admin_video_path(@video) %></small>
-    <small><%= link_to 'Send email notifications', send_notifications_admin_video_path(@video), data: { confirm: 'Are you sure'} %></small>
   </h1>
-  <p><%= link_to "Back to #{@video.specialty.name}", admin_specialty_path(@video.specialty) %>| <%= link_to "View all", admin_videos_path %></p>
+  <div class="admin_video_buttons_title_block">
+    <%= link_to "Edit", edit_admin_video_path(@video), class: 'btn-flat success' %>
+    <%= link_to 'View on frontend', video_path(@video), class: 'btn-flat success' %>
+    <%= link_to "Mark proofread", mark_proofread_admin_video_path(@video), class: 'btn-flat success' %>
+    <%= link_to 'Send test notification', send_test_notifications_admin_video_path(@video), class: 'btn-flat success' %>
+    <%= link_to 'Send email notifications', send_notifications_admin_video_path(@video), data: { confirm: 'Are you sure'}, class: 'btn-flat success' %>
+    <%= link_to "Back to #{@video.specialty.name}", admin_specialty_path(@video.specialty), class: 'btn-flat success grey' %>
+    <%= link_to "View all", admin_videos_path, class: 'btn-flat success grey' %>
+  </div>
 </div>
 
-<div class="well">
-  <p>Created at: <%= @video.created_at.to_s(:long) %></p>
-  <p>Updated at: <%= @video.updated_at.to_s(:long) %></p>
-  <p>Proofread: <%= @video.is_proofread? ? 'YES' : 'NO' %></p>
-</div>
+  <div class="stats_blocks_wrapper">
 
-<div class="row">
-  <div class="col-md-6">
+    <div class="stats_block">
+      <p class="title"><%= @video.views %></p>
+      <p class="sub_title">Views</p>
+    </div>
+
+
+    <div class="stats_block">
+      <p class="title"><%= @video.duration %></p>
+      <p class="sub_title">Duration</p>
+    </div>
+
+
+    <div class="stats_block">
+      <p class="title"><%= @video.has_slides %></p>
+      <p class="sub_title">Has Slides</p>
+    </div>
+
+
+    <div class="stats_block">
+      <p class="title"><%= @video.preview %></p>
+      <p class="sub_title">Preview</p>
+    </div>
+
+
+    <div class="stats_block">
+      <p class="title"><%= @video.is_upgraded? ? 'YES' : 'NO' %></p>
+      <p class="sub_title">Upgraded</p>
+    </div>
+
+
+    <div class="stats_block">
+      <p class="title"><%= @video.is_proofread? ? 'YES' : 'NO' %></p>
+      <p class="sub_title">Proofread</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+<div class="row admin_clear_fix">
+  <div class="col-md-12">
+    <iframe src="https://player.vimeo.com/video/<%= @video.vimeo_identifier %>?portrait=0&color=fa3f52" width="800px" height="400px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+  <div class="col-md-12">    <br><br>
     <div class="well">
+
+      <p>Created at: <%= @video.created_at.to_s(:long) %></p>
+      <p>Updated at: <%= @video.updated_at.to_s(:long) %></p>
       <p>Description: <%= @video.description %></p>
       <p>Tags: <%= @video.tag_list %></p>
-      <p>Duration: <%= @video.duration %></p>
-      <p>Preview: <%= @video.preview %></p>
-      <p>Views: <%= @video.views %></p>
       <p>Speaker: <%= @video.speaker_name %></p>
       <% if @video.author %>
         <p>Author: <%= link_to @video.author.name, admin_author_path(@video.author) %></p>
@@ -34,14 +80,12 @@
 
     <% if @video.has_slides %>
       <div class="downloads">
-        <a href="http://podmedics-test-harness.s3.amazonaws.com/slides/<%= @video.file_name %>.pdf" class="btn btn-primary btn-xs", target="_blank">Download pdf</a>
+        <a href="http://podmedics-resources.s3.amazonaws.com/slides/<%= @video.file_name %>.pdf" class="btn btn-primary btn-xs", target="_blank">Download pdf</a>
       </div>
     <% end %>
   </div>
 
-  <div class="col-md-6">
-    <iframe src="https://player.vimeo.com/video/<%= @video.vimeo_identifier %>?portrait=0&color=fa3f52" width="800px" height="400px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  </div>
+
 </div>
 
 <h2>

@@ -1,69 +1,57 @@
 <div id="sidebar-nav">
-  <ul id="dashboard-menu">
 
-    <li>
-      <div class="pointer">
-        <div class="arrow"></div>
-        <div class="arrow_border"></div>
+  <div class="sidebar-nav-top">Admin</div>
+
+
+  <div id="dashboard-menu">
+    <div class="left_column_title dashboard_link">
+      <%= nav_link 'Dashboard', admin_dashboard_path %>
+    </div>
+
+    <div class="left_column_nav_block_outer">
+      <div class="left_column_title">Content</div>
+      <div class="left_column_nav_block">
+        <%= nav_link 'Categories', admin_categories_path %>
+        <%= nav_link 'Specialties', admin_specialties_path %>
+        <%= nav_link 'Videos', admin_videos_path %>
+        <%= nav_link 'Flashcards', admin_flashcards_path %>
+        <%= nav_link 'Questions', admin_questions_path %>
+        <%= nav_link 'Authors', admin_authors_path %>
       </div>
-      <%= link_to admin_dashboard_path do %>
-        <i class="fa fa-dashboard"></i>
-        <span>Dashboard</span>
-      <% end %>
-    </li>
+    </div>
 
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-stethoscope"></i>
-        <span>Content</span>
-      </a>
-        <ul class="submenu">
-          <li><%= nav_link 'Categories', admin_categories_path %></li>
-          <li><%= nav_link 'Specialties', admin_specialties_path %></li>
-          <li><%= nav_link 'Videos', admin_videos_path %></li>
-          <li><%= nav_link 'Questions', admin_questions_path %></li>
-          <li><%= nav_link 'Authors', admin_authors_path %></li>
-        </ul>
-    </li>
-    
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-user-md"></i>
-        <span>User</span>
-      </a>
-      <ul class="submenu">
-        <li><%= nav_link 'Users', admin_users_path %></li>
-        <li><%= nav_link 'Badges', admin_badges_path %></li>
-        <li><%= nav_link 'Quizes', admin_quizes_path %></li>
-        <li><%= nav_link 'Notes', admin_notes_path %></li>
-      </ul>
-    </li>
+    <div class="left_column_nav_block_outer">
+      <div class="left_column_title">Users</div>
+      <div class="left_column_nav_block" id="user-nav">
+        <%= nav_link 'Users', admin_users_path %>
+        <%= nav_link 'Badges', admin_badges_path %>
+        <%= nav_link 'Quizes', admin_quizes_path %>
+        <%= nav_link 'Notes', admin_notes_path %>
+        <%= nav_link 'Comments', admin_comments_path %>
+      </div>
+    </div>
 
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-comment-o"></i>
-        <span>Social</span>
-      </a>
-      <ul class="submenu">
-        <li><%= nav_link 'Newsletters', admin_newsletters_path %></li>
-        <li><%= nav_link 'Posts', admin_posts_path %></li>
-        <li><%= nav_link 'Comments', admin_comments_path %></li>
-      </ul>
-    </li>
+    <div class="left_column_nav_block_outer">
+      <div class="left_column_title">Marketing/Sales</div>
+      <div class="left_column_nav_block">
+        <%= nav_link 'Newsletters', admin_newsletters_path %>
+        <%= nav_link 'Posts', admin_posts_path %>
+        <%= nav_link 'FAQs', admin_faqs_path %>
+        <%= nav_link 'Sales', admin_sales_path %>
+        <%= nav_link 'Products', admin_products_path %>
+      </div>
+    </div>
+  </div>
 
-    <li>
-      <a href="#" class="dropdown-toggle">
-        <i class="fa fa-money"></i>
-        <span>Finance/Support</span>
-      </a>
-      <ul class="submenu">
-        <li><%= nav_link 'FAQs', admin_faqs_path %></li>
-        <li><%= nav_link 'Courses', admin_courses_path %></li>
-        <li><%= nav_link 'Sales', admin_sales_path %></li>
-        <li><%= nav_link 'Products', admin_products_path %></li>
-      </ul>
-    </li>
 
-  </ul>
+
+  <div class="sidebar-nav-bottom">
+    <%= link_to 'User Dashboard', dashboard_path, class: 'navbar-brand' %>
+    <%= link_to logout_path, role: 'button' do %>
+      Logout
+    <% end %>
+  </div>
+
+
 </div>
-  
+

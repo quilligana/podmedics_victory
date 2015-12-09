@@ -2,34 +2,42 @@ class QuestionsController < ApplicationController
   layout 'user_application'
   before_filter :check_session, only: [:show, :answer, :result]
 
+  # video questions
   def index
     video = Video.friendly.find(params[:video_id])
     @question_ids = video.question_ids
     initiate_questions
   end
 
+  # specialty questions
   def specialty_index
     specialty = Specialty.cached_friendly_find(params[:id])
     video_ids = specialty.video_ids
     @question_ids = Question.where("video_id IN (?)", video_ids).limit(30).order("RANDOM()").pluck(:id)
-    if current_user.is_trial_member? && !current_user.has_access_to?(specialty)
-      redirect_to specialty_path(specialty), alert: 'You have not yet unlocked this specialty'
-    else
-      initiate_questions
-    end
+    initiate_questions
   end
 
+  # questions from whole bank
+  def general_index
+    @question_ids = Question.order("RANDOM()").limit(50).pluck(:id)
+    initiate_questions
+  end
+
+  # show a question page
   def show
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)
   end
 
+  # question answer page
   def answer
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)
+    @flashcards = @quiz.video.flashcards
     process_answer(params[:answer_given])
   end
 
+  # quiz result page
   def result
     @quiz = Quiz.new(session)
     @user_progress = UserProgress.new(@quiz.video.specialty, current_user)

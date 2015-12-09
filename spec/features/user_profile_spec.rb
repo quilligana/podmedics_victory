@@ -88,30 +88,22 @@ feature 'User Profile' do
       expect(page).to have_content 'Website'
       expect(page).to have_css '.website_profile_button'
     end
+    # Removed from User validations
+    # scenario 'Filling in an invalid domain' do
+    #   fill_in 'Website', with: 'thisisnotavalidurl'
+    #   update_profile
 
-    scenario 'Filling in an invalid domain' do
-      fill_in 'Website', with: 'thisisnotavalidurl'
-      update_profile
-
-      expect(page).to have_content 'Website is not a valid URL'
-    end
+    #   expect(page).to have_content 'Website is not a valid URL'
+    # end
   end
 
-  feature 'Avatars', js: true do
+  feature 'Avatars' do
     scenario 'Uploading an image' do
       @user = create(:user)
       sign_in(@user)
       visit edit_user_path(@user)
-
-      default_path = ActionController::Base.helpers.asset_path('avatar-128.jpg')
-
-      expect(page).to have_image(src: default_path)
-
-      click_link 'Change Profile Image'
-      attach_file('Avatar', Rails.root.join('spec/fixtures/Avatars/avatar.png'))
-      update_profile
-
-      expect(page).to_not have_image(src: default_path)
+      click_link 'Setup Gravatar'
+      expect(current_url).to eq('https://en.gravatar.com/')
     end
   end
 end
